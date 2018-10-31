@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+@include plumber-set-defaults(
+	$font-size: 2,
+	$baseline: $body-baseline,
+	$grid-height: rem($base-unit),
+	$leading-bottom: 4,
+	$leading-top: 0
+);
+
+h1 {
+	@include plumber(
+		$font-size: 3.5,
+		$line-height: 4,
+		$leading-bottom: 1,
+		$baseline: $headings-baseline
+	);
+	font-family: $font-family-headings;
+}
+
+p,
+ul,
+ol,
+dl {
+	@include plumber();
+}

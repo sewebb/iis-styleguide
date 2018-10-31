@@ -1,0 +1,20 @@
+@charset "UTF-8";
+
+.grid-toggle {
+	border-radius: 50%;
+	width: 60px;
+	height: 60px;
+	background: blue;
+	border: 0;
+	color: #fff;
+	position: fixed;
+	right: 40px;
+	bottom: 40px;
+	font-size: 0.7rem;
+}
+
+.baseline-grid {
+	background-image: linear-gradient(to top, rgba(74, 255, 255, 1) 0, rgba(74, 255, 255, 1) 1px, transparent 1px);
+	background-size: 100% (1rem / 2);
+	height: 1000% !important;
+}
