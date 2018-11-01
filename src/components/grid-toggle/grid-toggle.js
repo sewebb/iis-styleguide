@@ -3,3 +3,4 @@ function classToggle() {
 	body.classList.toggle('baseline-grid');
 }
 document.querySelector('.grid-toggle').addEventListener('click', classToggle);
+alert('foo');

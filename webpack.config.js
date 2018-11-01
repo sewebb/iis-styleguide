@@ -23,22 +23,10 @@ module.exports = {
     module: {
         rules: [
             {
-                test: /\.(js|jsx)$/,
+                test: /\.(js)$/,
                 exclude: /node_modules(?!\/webpack-dev-server)/,
                 use: {
-                    loader: 'babel-loader',
-                    options: {
-                        'presets': ['env', 'preact'],
-                        'plugins': [
-                            [
-                                'transform-object-rest-spread',
-                                'transform-react-jsx',
-                                {
-                                    'pragma': 'h'
-                                }
-                            ]
-                        ]
-                    }
+                    loader: 'babel-loader'
                 }
             },
             {
@@ -79,7 +67,7 @@ module.exports = {
     },
 
     resolve: {
-        extensions: ['.js', '.jsx'],
+        extensions: ['.js'],
         alias: {
             'react': 'preact-compat',
             'react-dom': 'preact-compat'

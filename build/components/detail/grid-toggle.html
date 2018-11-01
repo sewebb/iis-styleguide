@@ -71,7 +71,7 @@
 
 <div class="Status Status--tag">
 
-<label class="Status-label" style="background-color: #29CC29; border-color: #29CC29;">Ready</label>
+<label class="Status-label" style="background-color: #FF3333; border-color: #FF3333;">Prototype</label>
 
 </div>
 
@@ -157,7 +157,9 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-a18313c6b8f5e0500fbeed8626c3b6db-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-toggle"</span>&gt;</span>Grid<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span>Grid toggle<span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Slå av eller på en synlig grid för att se baslinjeraster.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-toggle"</span>&gt;</span>Grid<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -165,7 +167,9 @@
     
     <div class="Browser-panel Browser-code" data-role="tab-panel" id="browser-a18313c6b8f5e0500fbeed8626c3b6db-panel-view">
     <code class="Code Code--lang-handlebars">
-        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-toggle"</span>&gt;</span>Grid<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span></pre>
+        <pre><span class="xml"><span class="hljs-tag">&lt;<span class="hljs-name">h1</span>&gt;</span></span><span class="hljs-template-variable">{{title}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">h1</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span></span><span class="hljs-template-variable">{{description}}</span><span class="xml"><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"button"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-toggle"</span>&gt;</span>Grid<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></span></pre>
     </code>
 </div>
 
@@ -174,7 +178,10 @@
     <code class="Code Code--lang-json">
         
             
-            <pre><span class="hljs-comment">/* No context defined for this component. */</span></pre>
+            <pre>{
+  <span class="hljs-attr">"title"</span>: <span class="hljs-string">"Grid toggle"</span>,
+  <span class="hljs-attr">"description"</span>: <span class="hljs-string">"Slå av eller på en synlig grid för att se baslinjeraster."</span>
+}</pre>
             
         
     </code>
@@ -258,7 +265,7 @@
                             <code class="Code Code--lang-JavaScript FileBrowser-code">
                                 <pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">classToggle</span>(<span class="hljs-params"></span>) </span>{
 	<span class="hljs-keyword">var</span> body = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'body'</span>)
-    body.classList.toggle(<span class="hljs-string">'baseline-grid'</span>);
+	body.classList.toggle(<span class="hljs-string">'baseline-grid'</span>);
 }
 <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.grid-toggle'</span>).addEventListener(<span class="hljs-string">'click'</span>, classToggle);
 </pre>
@@ -277,7 +284,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">193 Bytes</span>
+                    <span class="Meta-value">190 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -338,7 +345,9 @@
     <div class="Browser-panel Browser-notes" data-role="tab-panel" id="browser-a18313c6b8f5e0500fbeed8626c3b6db-panel-notes">
     <div class="Prose Prose--condensed">
         
-        <p class="Browser-isEmptyNote">There are no notes for this item.</p>
+        <h1 id="grid-toggle">Grid toggle</h1>
+<p>Only for visual demonstration of the baseline grid. Do not use in production.</p>
+
         
     </div>
 </div>
@@ -394,7 +403,7 @@
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+<span class="Status-dot" style="border-color: #FF3333;" title="Prototype"></span>
 
 
 </div>
@@ -444,6 +453,29 @@
 
 
     
+<div class="Navigation-group">
+
+<div class="Tree" data-behaviour="tree" id="tree-docs">
+    <h3 class="Tree-title">documentation</h3>
+    <ul class="Tree-items Tree-depth-1">
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="../../index.html" data-pjax>
+                <span>Overview</span>
+                
+            </a>
+        </li>
+        
+    
+
+    </ul>
+</div>
+
+</div>
+
 
 
     
