@@ -1,0 +1,49 @@
+@charset 'UTF-8';
+
+$class-p: u-p !default
+$class-p-t: u-p-t !default
+$class-p-r: u-p-r !default
+$class-p-b: u-p-b !default
+$class-p-l: u-p-l !default
+$class-p-x: u-p-x !default
+$class-p-y: u-p-y !default
+
+// sass-lint:disable-all
+@for $i from 1 through 8 {
+	// Padding all
+	.#{$class-p}-#{$i} {
+		padding: rhythm($i) !important;
+	}
+
+	// Padding top
+	.#{$class-p-t}-#{$i} {
+		padding-top: rhythm($i) !important;
+	}
+
+	// Padding right
+	.#{$class-p-r}-#{$i} {
+		padding-right: rhythm($i) !important;
+	}
+
+	// Padding bottom
+	.#{$class-p-b}-#{$i} {
+		padding-bottom: rhythm($i) !important;
+	}
+
+	// Padding left
+	.#{$class-p-l}-#{$i} {
+		padding-left: rhythm($i) !important;
+	}
+
+	// Padding x (left and right)
+	.#{$class-p-x}-#{$i} {
+		padding-right: rhythm($i) !important;
+		padding-left: rhythm($i) !important;
+	}
+
+	// Padding x (left and right)
+	.#{$class-p-y}-#{$i} {
+		padding-top: rhythm($i) !important;
+		padding-bottom: rhythm($i) !important;
+	}
+}

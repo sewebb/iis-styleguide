@@ -1,0 +1,21 @@
+@charset 'UTF-8';
+
+/// Namespace
+/// Prepended to all outputted classes
+///
+/// @group Config
+$namespace: 'iis-';
+
+/// Theme path
+/// For images and other media
+///
+/// @group Config
+$theme-path: '/app/themes/internetstiftelsen';
+
+/// Responsive breakpoints
+/// @group Config
+$breakpoints: (
+	'sm': 0,
+	'md': 640px,
+	'lg': 1100px
+);

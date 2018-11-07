@@ -1,8 +1,8 @@
 module.exports = {
-    status: 'prototype',
+	status: 'prototype',
 
-    context: {
-        title: 'Grid toggle',
-        description: 'Slå av eller på en synlig grid för att se baslinjeraster.'
+	context: {
+		title: 'Grid toggle',
+		description: 'Slå av eller på en synlig grid för att se baslinjeraster.'
 	}
 }

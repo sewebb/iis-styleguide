@@ -1,0 +1,6 @@
+<{{getelement el "a"}} {{#if url}}href="{{ url }}"{{/if}} class="button {{getmodifiers modifiers "button"}} {{#if icon }}button--icon{{/if}} {{ additionalClasses}}" {{{attr attributes}}}>
+	<span class="button__text">{{ text }}</span>
+	{{#if icon}}
+	{{> @icon id=icon additional_classes="button__icon"}}
+	{{/if}}
+</{{getelement el "a"}}>

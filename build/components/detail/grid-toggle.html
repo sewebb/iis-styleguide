@@ -14,7 +14,7 @@
 <link rel="stylesheet" href="../../themes/mandelbrot/css/default.css?cachebust=1.2.0" type="text/css">
 
 
-<title>Grid Toggle | Internetstiftelsen</title>
+<title>Grid Toggle | Styleguide</title>
 
 </head>
 <body>
@@ -37,7 +37,7 @@
 </svg>
 
     </button>
-    <a href="../../index.html" class="Header-title" data-pjax>Internetstiftelsen</a>
+    <a href="../../index.html" class="Header-title" data-pjax>Styleguide</a>
 </div>
 
     </div>
@@ -214,25 +214,30 @@
                         <div class="FileBrowser-itemPreview">
                             
                             <code class="Code Code--lang-SCSS FileBrowser-code">
-                                <pre>@<span class="hljs-keyword">charset</span> <span class="hljs-string">"UTF-8"</span>;
+                                <pre>@<span class="hljs-keyword">charset</span> <span class="hljs-string">'UTF-8'</span>;
+
+<span class="hljs-variable">$blue</span>: <span class="hljs-number">#00f</span>;
+<span class="hljs-variable">$white</span>: <span class="hljs-number">#fff</span>;
+<span class="hljs-variable">$guide</span>: <span class="hljs-number">#4bffff</span>;
+<span class="hljs-variable">$rgba</span>: rgba;
 
 <span class="hljs-selector-class">.grid-toggle</span> {
-	<span class="hljs-attribute">border-radius</span>: <span class="hljs-number">50%</span>;
-	<span class="hljs-attribute">width</span>: <span class="hljs-number">60px</span>;
-	<span class="hljs-attribute">height</span>: <span class="hljs-number">60px</span>;
-	<span class="hljs-attribute">background</span>: blue;
-	<span class="hljs-attribute">border</span>: <span class="hljs-number">0</span>;
-	<span class="hljs-attribute">color</span>: <span class="hljs-number">#fff</span>;
 	<span class="hljs-attribute">position</span>: fixed;
 	<span class="hljs-attribute">right</span>: <span class="hljs-number">40px</span>;
 	<span class="hljs-attribute">bottom</span>: <span class="hljs-number">40px</span>;
-	<span class="hljs-attribute">font-size</span>: <span class="hljs-number">0.7rem</span>;
+	<span class="hljs-attribute">width</span>: <span class="hljs-number">60px</span>;
+	<span class="hljs-attribute">height</span>: <span class="hljs-number">60px</span>;
+	<span class="hljs-attribute">border</span>: <span class="hljs-number">0</span>;
+	<span class="hljs-attribute">border-radius</span>: <span class="hljs-number">50%</span>;
+	<span class="hljs-attribute">background</span>: <span class="hljs-variable">$blue</span>;
+	<span class="hljs-attribute">color</span>: <span class="hljs-variable">$white</span>;
+	<span class="hljs-attribute">font-size</span>: .<span class="hljs-number">7rem</span>;
 }
 
 <span class="hljs-selector-class">.baseline-grid</span> {
-	<span class="hljs-attribute">background-image</span>: linear-gradient(to top, rgba(<span class="hljs-number">74</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">1</span>) <span class="hljs-number">0</span>, rgba(<span class="hljs-number">74</span>, <span class="hljs-number">255</span>, <span class="hljs-number">255</span>, <span class="hljs-number">1</span>) <span class="hljs-number">1px</span>, transparent <span class="hljs-number">1px</span>);
+	<span class="hljs-attribute">height</span>: <span class="hljs-number">1000%</span> <span class="hljs-meta">!important</span>; <span class="hljs-comment">// sass-lint:disable-line no-important</span>
+	<span class="hljs-attribute">background-image</span>: linear-gradient(to top, <span class="hljs-variable">$guide</span> <span class="hljs-number">0</span>, <span class="hljs-variable">$guide</span> <span class="hljs-number">1px</span>, transparent <span class="hljs-number">1px</span>);
 	<span class="hljs-attribute">background-size</span>: <span class="hljs-number">100%</span> (<span class="hljs-number">1rem</span> / <span class="hljs-number">2</span>);
-	<span class="hljs-attribute">height</span>: <span class="hljs-number">1000%</span> <span class="hljs-meta">!important</span>;
 }
 </pre>
                             </code>
@@ -250,7 +255,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">393 Bytes</span>
+                    <span class="Meta-value">462 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -264,7 +269,7 @@
                             
                             <code class="Code Code--lang-JavaScript FileBrowser-code">
                                 <pre><span class="hljs-function"><span class="hljs-keyword">function</span> <span class="hljs-title">classToggle</span>(<span class="hljs-params"></span>) </span>{
-	<span class="hljs-keyword">var</span> body = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'body'</span>)
+	<span class="hljs-keyword">const</span> body = <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'body'</span>);
 	body.classList.toggle(<span class="hljs-string">'baseline-grid'</span>);
 }
 <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'.grid-toggle'</span>).addEventListener(<span class="hljs-string">'click'</span>, classToggle);
@@ -284,7 +289,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">190 Bytes</span>
+                    <span class="Meta-value">193 Bytes</span>
                 </li>
             </ul>
         </div>

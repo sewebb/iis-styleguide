@@ -1,0 +1,49 @@
+@charset 'UTF-8';
+
+$class-m: u-m !default
+$class-m-t: u-m-t !default
+$class-m-r: u-m-r !default
+$class-m-b: u-m-b !default
+$class-m-l: u-m-l !default
+$class-m-x: u-m-x !default
+$class-m-y: u-m-y !default
+
+// sass-lint:disable-all
+@for $i from 1 through 8 {
+	// Margin all
+	.#{$class-m}-#{$i} {
+		margin: rhythm($i) !important;
+	}
+
+	// Margin top
+	.#{$class-m-t}-#{$i} {
+		margin-top: rhythm($i) !important;
+	}
+
+	// Margin right
+	.#{$class-m-r}-#{$i} {
+		margin-right: rhythm($i) !important;
+	}
+
+	// Margin bottom
+	.#{$class-m-b}-#{$i} {
+		margin-bottom: rhythm($i) !important;
+	}
+
+	// Margin left
+	.#{$class-m-l}-#{$i} {
+		margin-left: rhythm($i) !important;
+	}
+
+	// Margin x (left and right)
+	.#{$class-m-x}-#{$i} {
+		margin-right: rhythm($i) !important;
+		margin-left: rhythm($i) !important;
+	}
+
+	// Margin x (left and right)
+	.#{$class-m-y}-#{$i} {
+		margin-top: rhythm($i) !important;
+		margin-bottom: rhythm($i) !important;
+	}
+}

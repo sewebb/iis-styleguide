@@ -1,0 +1,76 @@
+@charset 'UTF-8';
+
+/// Get a shaded version of a color
+/// @group Colors
+@function shade($color, $percentage) {
+	@return mix(black, $color, $percentage);
+}
+
+/// Get a tinted version of a color
+/// @group Colors
+@function tint($color, $percentage) {
+	@return mix(white, $color, $percentage);
+}
+
+/// Get a color by name from the theme palette
+/// @group Colors
+@function theme_color($color) {
+	@return map_get($theme-palette, $color);
+}
+
+/// Sugar cane
+/// @group Colors
+$sugar-cane: #f7fff7;
+
+/// Puerto Rico
+/// @group Colors
+$puerto-rico: #4ecdc4;
+
+/// Bittersweet
+/// @group Colors
+$bittersweet: #ff6b6b;
+
+/// Kournikova
+/// @group Colors
+$kournikova: #ffe66d;
+
+/// Shark
+/// @group Colors
+$shark: #292f36;
+
+/// White
+/// @group Colors
+$white: #fff;
+
+/// Black
+/// @group Colors
+$black: #333;
+
+/// Gray
+/// @group Colors
+$color-light-gray: #666;
+
+/// System yellow
+/// @group Colors
+$color-light-yellow: #ffffa5;
+
+/// Theme palette map
+/// @group Colors
+$theme-palette: (
+	light-shade: $sugar-cane,
+	light-accent: $puerto-rico,
+	main: $bittersweet,
+	dark-accent: $kournikova,
+	dark-shade: $shark,
+	'white': $white
+);
+
+@each $name, $hex in $theme-palette {
+	%color--#{$name} {
+		color: $hex;
+	}
+
+	%background--#{$name} {
+		background-color: $hex;
+	}
+}

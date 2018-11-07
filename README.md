@@ -1,3 +1,22 @@
 # iis-styleguide
 
-Info coming soon
+## Install
+
+```
+$ npm install
+```
+
+
+## Usage
+
+### Develop with watch
+
+```
+$ npm run dev
+```
+
+### Build static styleguide for production use
+
+```
+$ npm run build
+```

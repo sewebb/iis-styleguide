@@ -1,0 +1,25 @@
+@charset 'UTF-8';
+
+// Typography
+$font-family-base: 'HK Grotesk', sans-serif !default;
+$font-family-headings: 'HK Grotesk Bold', sans-serif !default;
+
+$headings-baseline: .198 !default; // HK Bold
+$body-baseline: .198 !default; // HK Regular
+
+// Size base
+$size-base: 16px !default;
+
+// Base units
+$base-unit: $size-base / 2 !default;
+$rem-size: rem($base-unit) !default;
+
+// Baseline defaults
+@include plumber-set-defaults(
+	$grid-height: rem($base-unit),
+	$baseline: $body-baseline,
+	$font-size: 2,
+	$line-height: 3,
+	$leading-top: 0,
+	$leading-bottom: 4
+)

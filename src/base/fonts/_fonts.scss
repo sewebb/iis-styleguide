@@ -1,0 +1,16 @@
+@charset 'UTF-8';
+
+// Fonts
+@font-face {
+	font-family: 'HK Grotesk';
+	font-style: normal;
+	font-weight: 400;
+	src: url('/assets/fonts/HKGrotesk-Regular.otf') format('opentype');
+}
+
+@font-face {
+	font-family: 'HK Grotesk Bold';
+	font-style: normal;
+	font-weight: 700;
+	src: url('/assets/fonts/HKGrotesk-Bold.otf') format('opentype');
+}

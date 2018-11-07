@@ -1,0 +1,38 @@
+@charset 'UTF-8';
+
+.button {
+	display: inline-flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: rhythm(2) rhythm(4);
+	border: 0;
+	background-color: $bittersweet;
+	background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+	color: $black;
+	font-weight: 700;
+	line-height: 1;
+	text-decoration: none;
+	cursor: pointer;
+	hyphens: auto;
+
+	&:hover,
+	&:focus {
+		background-color: $puerto-rico;
+	}
+
+	&:disabled,
+	&:disabled {
+		&:hover {
+			border: 1px solid $shark;
+			background-color: $shark;
+			box-shadow: none;
+			cursor: not-allowed;
+		}
+	}
+
+	&--secondary {
+		background-color: $kournikova;
+	}
+}

@@ -1,4 +1,4 @@
-@charset "UTF-8";
+@charset 'UTF-8';
 
 @function rhythm($lines) {
 	@return rem($lines * $base-unit);
@@ -9,13 +9,13 @@
 	@return ($size / $size-base) * 1rem;
 }
 
-@function parseInt($n) {
-  @return $n / ($n * 0 + 1);
+@function parse_int($n) {
+	@return $n / ($n * 0 + 1);
 }
 
 // Convert rem back to px
 
-@function rem-to-px($size) {
-	$value: parseInt($size) * 10px; //15px is the base size specified
+@function rem_to_px($size) {
+	$value: parse_int($size) * 10px;
 	@return round($value);
 }

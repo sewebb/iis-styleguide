@@ -1,22 +1,42 @@
-const fractal = module.exports = require('@frctl/fractal').create();
+'use strict';
+
 const fs = require('fs');
-const host = require('./getNetworkHost');
 const packageJson = require('./package.json');
 const ports = packageJson.ports;
+/*
+* Require the path module
+*/
+const path = require('path');
 
+/*
+ * Require the Fractal module
+ */
+const fractal = module.exports = require('@frctl/fractal').create();
 fractal.web.set('server.port', ports.fractal);
+/*
+ * Give your project a title.
+ */
+fractal.set('project.title', 'Styleguide');
 
-fractal.set('project.title', 'Internetstiftelsen');
-fractal.set('components.title', 'Styleguide');
-fractal.components.set('path', __dirname + '/src');
-fractal.docs.set('path', __dirname + '/docs');
-fractal.components.set('default.preview', '@layout');
+/*
+ * Tell Fractal where to look for components.
+ */
+fractal.components.set('path', path.join(__dirname, 'src'));
 
-fractal.web.set('static.path', __dirname + '/public');
+/*
+ * Tell Fractal where to look for documentation pages.
+ */
+fractal.docs.set('path', path.join(__dirname, 'docs'));
+
+/*
+ * Tell the Fractal web preview plugin where to look for static assets.
+ */
+fractal.web.set('static.path', path.join(__dirname, 'public'));
+
+/*
+ * Tell the Fractal where to build static site.
+ */
 fractal.web.set('builder.dest', __dirname + '/build');
-
-var lang = process.env.npm_config_lang || 'en';
-var mode = process.env.NODE_ENV || 'production';
 
 const handlebars = require('@frctl/handlebars')({
     helpers: {
@@ -106,8 +126,23 @@ const handlebars = require('@frctl/handlebars')({
             }
         },
 
+        /* Not a real i18n-function.
+         * Replaces str with dummy content for set region.
+        */
+        i18n: function(str) {
+            var length = str.length,
+                ratio = loremipsum[lang] && loremipsum[lang].ratio,
+                string = loremipsum[lang] && loremipsum[lang].string;
+
+            if (lang === 'en') {
+                return str;
+            } else {
+                return string.substring(0, Math.floor(length * ratio));
+            }
+        },
+
         getassetspath: function() {
-            return (mode === 'development') ? 'http://' + host + ':' + ports.assets + '/' : '/assets';
+            return (mode === 'development') ? 'http://' + host + ':' + ports.assets + '/' : '../../assets/';
         },
 
         isDevelop: function(opts) {
@@ -141,37 +176,3 @@ const handlebars = require('@frctl/handlebars')({
 });
 
 fractal.components.engine(handlebars);
-
-fractal.cli.command('add', {
-        description: 'Adds a new component',
-        options: [
-            ['-n, --name <name>', 'The name of the component']
-        ]
-    }, (args, done) => {
-        if (!args.options.name) {
-            return done();
-        }
-
-        const name = args.options.name;
-        const path = `${__dirname}/${fractal.get('components.path')}/components/${name}`;
-
-        fs.access(path, (err) => {
-            if (!err) {
-                fractal.console.log(`Component '${name}' already exists`);
-                return done();
-            }
-
-            fs.mkdir(path, (err) => {
-                if (err) {
-                    fractal.console.log(err);
-                    return done();
-                }
-
-                fs.writeFileSync(`${path}/README.md`, '');
-                fs.writeFileSync(`${path}/${name}${fractal.get('components.ext')}`, '');
-
-                done();
-            });
-        });
-    }
-);

@@ -1,0 +1,31 @@
+@charset 'UTF-8';
+
+/// Create an atom with the given name. Alias for the block mixin that autoprefixes the class with a-.
+///@group General
+@mixin atom($name) {
+	@include b(a-#{$name}) {
+		@content;
+	}
+}
+
+/// Create a molecule with the given name. Alias for the block mixin that autoprefixes the class with m-.
+/// @group General
+@mixin molecule($name) {
+	@include b(m-#{$name}) {
+		@content;
+	}
+}
+
+/// Create an organism with the given name. Alias for the block mixin that autoprefixes the class with o-.
+/// @group General
+@mixin organism($name) {
+	@include b(o-#{$name}) {
+		@content;
+	}
+}
+
+@mixin b($name) {
+	.#{$namespace}#{$name} {
+		@content;
+	}
+}

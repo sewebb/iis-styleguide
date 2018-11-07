@@ -1,20 +1,25 @@
-@charset "UTF-8";
+@charset 'UTF-8';
+
+$blue: #00f;
+$white: #fff;
+$guide: #4bffff;
+$rgba: rgba;
 
 .grid-toggle {
-	border-radius: 50%;
-	width: 60px;
-	height: 60px;
-	background: blue;
-	border: 0;
-	color: #fff;
 	position: fixed;
 	right: 40px;
 	bottom: 40px;
-	font-size: 0.7rem;
+	width: 60px;
+	height: 60px;
+	border: 0;
+	border-radius: 50%;
+	background: $blue;
+	color: $white;
+	font-size: .7rem;
 }
 
 .baseline-grid {
-	background-image: linear-gradient(to top, rgba(74, 255, 255, 1) 0, rgba(74, 255, 255, 1) 1px, transparent 1px);
+	height: 1000% !important; // sass-lint:disable-line no-important
+	background-image: linear-gradient(to top, $guide 0, $guide 1px, transparent 1px);
 	background-size: 100% (1rem / 2);
-	height: 1000% !important;
 }

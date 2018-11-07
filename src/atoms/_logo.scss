@@ -1,0 +1,10 @@
+@charset 'UTF-8';
+
+@include atom(logo) {
+	display: block;
+	width: rhythm(22);
+	height: rhythm(8);
+	margin: 0;
+	background: transparent url('') no-repeat;
+	background-size: rhythm(22) rhythm(8);
+}

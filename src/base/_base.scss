@@ -1,0 +1,22 @@
+@charset 'UTF-8';
+
+html {
+	height: 100%;
+	min-height: 100%;
+	font-size: percentage($size-base / 16px);
+}
+
+body {
+	height: 100%;
+	min-height: 100%;
+
+	//iPhone X landscape Notch fix
+	padding-right: constant(safe-area-inset-right);
+	padding-left: constant(safe-area-inset-left);
+
+	font-family: $font-family-base;
+
+	// sass-lint:disable-block no-vendor-prefixes
+	-ms-overflow-style: auto;
+	-webkit-overflow-scrolling: touch;
+}
