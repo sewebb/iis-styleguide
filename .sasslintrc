@@ -1,0 +1,90 @@
+{
+    "files": {
+        "include": ["src/**/*.scss"],
+    	"ignore": ["src/vendor/**/*.scss"]
+    },
+    "rules": {
+        "extends-before-mixins": 2,
+        "extends-before-declarations": 2,
+        "placeholder-in-extend": 2,
+        "one-declaration-per-line": 2,
+        "no-vendor-prefixes": 2,
+        "pseudo-element": 2,
+        "space-around-operator": {
+            "include": false
+        },
+        "function-name-format": [
+            2,
+            {
+                "allow-leading-underscore": false,
+                "convention": "snakecase"
+            }
+        ],
+        "nesting-depth": [
+            1,
+            {
+                "max-depth": 4
+            }
+        ],
+        "declarations-before-nesting": 2,
+        "mixins-before-declarations": [
+            2,
+            {
+                "exclude": [
+                    "breakpoint",
+                    "mq",
+                    "e",
+                    "m",
+                    "b",
+                    "atom",
+                    "molecule",
+                    "organism"
+                ]
+            }
+        ],
+        "no-warn": 1,
+        "no-debug": 1,
+        "no-ids": 2,
+        "no-important": 2,
+        "hex-notation": [
+            2,
+            {
+                "style": "lowercase"
+            }
+        ],
+        "hex-length": [
+            2,
+            {
+                "style": "short"
+            }
+        ],
+        "indentation": [
+            2,
+            {
+                "size": "tab"
+            }
+        ],
+        "property-sort-order": [
+            1,
+            {
+                "order": "smacss",
+                "ignore-custom-properties": true
+            }
+        ],
+        "variable-for-property": [
+            1,
+            {
+                "properties": [
+                    "color",
+                    "background-color"
+                ],
+                "allow-map-get": true,
+                "allowed-functions": [
+                    "theme_color",
+                    "tint",
+                    "shade"
+                ]
+            }
+        ]
+    }
+}
