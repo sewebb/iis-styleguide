@@ -1,14 +1,14 @@
 @charset 'UTF-8';
 
-$class-p: u-p !default
-$class-p-t: u-p-t !default
-$class-p-r: u-p-r !default
-$class-p-b: u-p-b !default
-$class-p-l: u-p-l !default
-$class-p-x: u-p-x !default
-$class-p-y: u-p-y !default
+$class-p: u-p !default;
+$class-p-t: u-p-t !default;
+$class-p-r: u-p-r !default;
+$class-p-b: u-p-b !default;
+$class-p-l: u-p-l !default;
+$class-p-x: u-p-x !default;
+$class-p-y: u-p-y !default;
 
-// sass-lint:disable-all
+/* stylelint-disable */
 @for $i from 1 through 8 {
 	// Padding all
 	.#{$class-p}-#{$i} {

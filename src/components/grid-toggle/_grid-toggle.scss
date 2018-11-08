@@ -19,7 +19,7 @@ $rgba: rgba;
 }
 
 .baseline-grid {
-	height: 1000% !important; // sass-lint:disable-line no-important
+	height: 1000%;
 	background-image: linear-gradient(to top, $guide 0, $guide 1px, transparent 1px);
 	background-size: 100% (1rem / 2);
 }

@@ -1,14 +1,13 @@
 @charset 'UTF-8';
 
-$class-m: u-m !default
-$class-m-t: u-m-t !default
-$class-m-r: u-m-r !default
-$class-m-b: u-m-b !default
-$class-m-l: u-m-l !default
-$class-m-x: u-m-x !default
-$class-m-y: u-m-y !default
+$class-m: u-m !default;
+$class-m-t: u-m-t !default;
+$class-m-r: u-m-r !default;
+$class-m-b: u-m-b !default;
+$class-m-l: u-m-l !default;
+$class-m-x: u-m-x !default;
+$class-m-y: u-m-y !default;
 
-// sass-lint:disable-all
 @for $i from 1 through 8 {
 	// Margin all
 	.#{$class-m}-#{$i} {

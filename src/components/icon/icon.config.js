@@ -12,6 +12,7 @@ for (let i = 0; i < sprite.length; i++) {
 }
 
 module.exports = {
+	status: 'prototype',
     title: 'Icon',
 
     collated: true,
