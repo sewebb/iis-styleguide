@@ -25,7 +25,6 @@
 		"watch": "concurrently \"npm:watch:css\" \"npm:watch:js\"",
 		"copy": "copyfiles -f src/base/fonts/* public/assets/fonts",
 		"copy:build": "copyfiles -f src/base/fonts/* build/assets/fonts",
-		"build": "concurrently \"npm:build:css\" \"npm:build:js\" \"npm:build:fractal\" \"npm:htmlhint\" \"npm:copy:build\"",
 		"build": "npm run build:css && npm run build:js && npm run build:fractal &&  npm run htmlhint && npm run copy:build",
 		"dev": "concurrently \"npm:start:fractal\" \"npm:watch\""
 	},
