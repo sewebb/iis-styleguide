@@ -1,0 +1,54 @@
+<!--htmlhint style-disabled:false -->
+<div class="colors">
+	{{#each colors}}
+	<div class="color">
+		<div class="background-{{name}}{{#if hasBorder}} has_border{{/if}}"></div>
+		<p class="beta color-name">{{name}}</p>
+		<p><strong>{{../sass}}:</strong> {{title}}</p>
+		<p><strong>{{../hex}}:</strong> {{hex}}</p>
+		<p><strong>{{../rgb}}:</strong> {{rgb}}</p>
+		<p><strong>{{../cmyk}}:</strong> {{cmyk}}</p>
+		<p><strong>{{../pms}}:</strong> {{pms}}</p>
+	</div>
+	{{/each}}
+</div>
+
+<style>
+	.colors {
+		display: flex;
+		flex-wrap: wrap;
+		margin-bottom: 2em;
+	}
+
+	.color {
+		flex: 50% 1 0;
+		max-width: 50vw;
+	}
+
+	.color div {
+		width: 100%;
+		height: 80px;
+		margin-bottom: 10px;
+	}
+
+	.has_border {
+		border: 1px solid #ededed;
+	}
+
+	.color p {
+		line-height: 1.25;
+		margin: 0 10px;
+	}
+
+	.color p:last-child {
+		margin-bottom: 40px;
+	}
+
+	.color p strong {
+		font-family: 'Roboto Mono Regular', monotype;
+	}
+
+	.color-name::first-letter {
+		text-transform: uppercase;
+	}
+</style>

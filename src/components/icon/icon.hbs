@@ -1,7 +1,7 @@
-<svg class="icon {{ additional_classes }}">
-    {{#each id}}
-    <use xlink:href="#icon-{{ this }}"></use>
-    {{else}}
-    <use xlink:href="#icon-{{ id }}"></use>
-    {{/each}}
+<svg class="icon{{#if additional_classes}} {{additional_classes}}{{/if}}">
+	{{#each id}}
+	<use xlink:href="#icon-{{ this }}"></use>
+	{{else}}
+	<use xlink:href="#icon-{{ id }}"></use>
+	{{/each}}
 </svg>

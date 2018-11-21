@@ -1,11 +1,9 @@
 @charset 'UTF-8';
 
-$blue: #00f;
-$white: #fff;
-$guide: #4bffff;
-$rgba: rgba;
+$guide: #4bffff !default;
+$rgba: rgba !default;
 
-.grid-toggle {
+@include b(grid-toggle) {
 	position: fixed;
 	right: 40px;
 	bottom: 40px;
@@ -13,13 +11,13 @@ $rgba: rgba;
 	height: 60px;
 	border: 0;
 	border-radius: 50%;
-	background: $blue;
-	color: $white;
+	background: $color-ruby;
+	color: $color-snow;
 	font-size: .7rem;
 }
 
-.baseline-grid {
-	height: 1000% !important; // sass-lint:disable-line no-important
+@include b(baseline-grid) {
+	height: 1000%;
 	background-image: linear-gradient(to top, $guide 0, $guide 1px, transparent 1px);
 	background-size: 100% (1rem / 2);
 }

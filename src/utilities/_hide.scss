@@ -1,0 +1,30 @@
+@charset 'UTF-8';
+
+// Hide visually but not for screen readers
+/// @group Utilities
+%u-visuallyhidden,
+.u-visuallyhidden {
+	@include visuallyhidden;
+}
+
+// Hide on certain breakpoint
+/// @group Utilities
+@mixin hide-on-screen-width($bp) {
+	@include bp-down($bp) {
+		@include visuallyhidden;
+	}
+}
+
+// Hide for all
+/// @group Utilities
+.is-hidden {
+	display: none !important;
+}
+
+// Hide on mobile
+/// @group Utilities
+.u-hidden-mobile {
+	@include bp-down(md) {
+		display: none !important;
+	}
+}

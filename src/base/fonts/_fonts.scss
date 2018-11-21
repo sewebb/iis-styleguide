@@ -4,13 +4,24 @@
 @font-face {
 	font-family: 'HK Grotesk';
 	font-style: normal;
-	font-weight: 400;
-	src: url('/assets/fonts/HKGrotesk-Regular.otf') format('opentype');
+	font-weight: normal;
+	src:
+		url('/assets/fonts/hkgrotesk-regular-webfont.woff2') format('woff2'),
+		url('/assets/fonts/hkgrotesk-regular-webfont.woff') format('woff');
 }
 
 @font-face {
-	font-family: 'HK Grotesk Bold';
+	font-family: 'HK Grotesk Semibold';
 	font-style: normal;
-	font-weight: 700;
-	src: url('/assets/fonts/HKGrotesk-Bold.otf') format('opentype');
+	font-weight: normal;
+	src:
+		url('/assets/fonts/hkgrotesk-semibold-webfont.woff2') format('woff2'),
+		url('/assets/fonts/hkgrotesk-semibold-webfont.woff') format('woff');
+}
+
+@font-face {
+	font-family: 'Roboto Mono Regular';
+	font-style: normal;
+	font-weight: normal;
+	src: url('/assets/fonts/RobotoMono-Regular.ttf') format('truetype');
 }

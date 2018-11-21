@@ -118,21 +118,21 @@
 	}
 
 	// round pixel values to decrease browser inconsistencies
-	@if unit($grid-height) == "px" {
+	@if unit($grid-height) == 'px' {
 		$line-height: -plumber-round($line-height);
 		$margin-top: -plumber-round($margin-top);
 		$padding-top: -plumber-round($padding-top);
 		$padding-bottom: -plumber-round($padding-bottom);
 		$margin-bottom: -plumber-round($margin-bottom);
 	}
+	margin-top: $margin-top;
+	margin-bottom: $margin-bottom;
+	padding-top: $padding-top;
+	padding-bottom: $padding-bottom;
 
 	// *** CSS OUTPUT ***
 	font-size: $font-size;
 	line-height: $line-height;
-	margin-top: $margin-top;
-	padding-top: $padding-top;
-	padding-bottom: $padding-bottom;
-	margin-bottom: $margin-bottom;
 }
 
 // *** DEFAULTS ***

@@ -1,28 +1,21 @@
 @charset 'UTF-8';
 
-// Vendor
-@import 'vendor/baseline/plumber';
-
-// Configurations
-@import 'configurations/functions';
-@import 'configurations/variables';
-@import 'configurations/config';
-@import 'configurations/mixins';
-
 // Base
-@import 'base/colors';
-@import 'base/normalize';
-@import 'base/base';
-@import 'base/fonts/fonts';
-
-// Utilities
-@import 'utilities/margin';
-@import 'utilities/padding';
+@import 'globals';
 
 // Atoms
 @import 'atoms/logo';
 
 // Components
-@import 'components/typography/typography';
+@import 'components/grid/grid';
 @import 'components/grid-toggle/grid-toggle';
 @import 'components/button/button';
+@import 'components/colors/colors';
+@import 'components/colors/colors-functions';
+@import 'components/colors/text-colors';
+@import 'components/colors/background-colors';
+@import 'components/typography/typography';
+@import 'components/logotype/logotype';
+@import 'components/paging/paging';
+@import 'components/tag/tag';
+@import 'components/skip/skip';

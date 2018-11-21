@@ -1,8 +1,11 @@
 @charset 'UTF-8';
 
+@import '../components/colors/colors';
+
 html {
 	height: 100%;
 	min-height: 100%;
+	color: $color-cyberspace;
 	font-size: percentage($size-base / 16px);
 }
 

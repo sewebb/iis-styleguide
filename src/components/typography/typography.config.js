@@ -1,10 +1,16 @@
 module.exports = {
-    status: 'wip',
+	status: 'wip',
 
-    context: {
-        title: 'Typografi Ut ante enim, mollis sit amet arcu sed, auctor accumsan arcu.',
-        description: 'Typografiska regler för Internetstiftelsens webbplatser.',
-		lvl2: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.',
-		text: 'button'
+	context: {
+		supersize: 'Typografiska regler för Internetstiftelsens webbplatser.',
+		h1: 'Typografi Ut ante enim, mollis sit amet arcu sed, auctor accumsan arcu',
+		h2: 'Lorem ipsum dolor sit amet, consectetur adipisicing elit',
+		preamble: 'Typografiska regler för Internetstiftelsens webbplatser.',
+		paragraph: 'Typografiska regler för Internetstiftelsens webbplatser.',
+		meta: 'Typografiska regler för Internetstiftelsens webbplatser.',
+		small: 'Typografiska regler för Internetstiftelsens webbplatser.',
+		blockquote: 'Välkommen till Internetmuseum!  Här tar vi dig med på en resa genom den svenska internethistorien.',
+		quotee: 'Frank Zappa',
+		link: 'This is a link',
 	}
 }

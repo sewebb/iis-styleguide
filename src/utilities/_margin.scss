@@ -1,5 +1,6 @@
 @charset 'UTF-8';
 
+/// @group Utilities
 $class-m: u-m !default;
 $class-m-t: u-m-t !default;
 $class-m-r: u-m-r !default;
@@ -8,7 +9,7 @@ $class-m-l: u-m-l !default;
 $class-m-x: u-m-x !default;
 $class-m-y: u-m-y !default;
 
-@for $i from 1 through 8 {
+@for $i from 0 through 8 {
 	// Margin all
 	.#{$class-m}-#{$i} {
 		margin: rhythm($i) !important;

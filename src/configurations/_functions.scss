@@ -14,7 +14,6 @@
 }
 
 // Convert rem back to px
-
 @function rem_to_px($size) {
 	$value: parse_int($size) * 10px;
 	@return round($value);

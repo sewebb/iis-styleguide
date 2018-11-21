@@ -1,0 +1,97 @@
+
+
+<!--htmlhint id-unique:false, style-disabled:false -->
+<!doctype html>
+<html class="no-js" lang="sv">
+	<head>
+		<meta charset="utf-8" />
+		<title>Preview Layout</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="/assets/css/app.min.css">
+	
+		<!-- Check for JS support -->
+		<script>
+			document.querySelector('html').classList.remove('no-js');
+			document.querySelector('html').className += 'js';
+		</script>
+	</head>
+	<body>
+		<style>
+		.icons {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+
+		.icon-wrapper {
+			flex-basis: 25%;
+			border-right: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+			padding: 10px;
+			position: relative;
+		}
+
+		@media screen and (min-width: 500px) {
+			.icon-wrapper {
+				flex-basis: 16.66%;
+			}
+		}
+
+		@media screen and (min-width: 1000px) {
+			.icon-wrapper {
+				flex-basis: 10%;
+			}
+		}
+
+		.icon-wrapper:after {
+			content: ' ';
+			display: block;
+			padding-bottom: 100%;
+		}
+
+		.icon {
+			fill: #323e46;
+			width: 80%;
+			height: 80%;
+			display: block;
+			position: absolute;
+			top: 10%;
+			left: 10%;
+		}
+		</style>
+
+		<div class="icons">
+			<svg class="icon">
+	<use xlink:href="#icon-close"></use>
+</svg>
+
+		</div>
+
+		<!--htmlhint id-unique:false -->
+		<svg class="icon-sprite" width="100%" height="100%" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+			<defs>
+				<symbol id="icon-search" viewbox="0 0 32 32">
+					<path d="M23.13 20.618L28.511 26l-1.415 1.414-5.382-5.382a9 9 0 1 1 1.414-1.414zM16.096 22a7 7 0 1 0 0-14 7 7 0 0 0 0 14z"/>
+				</symbol>
+		
+				<symbol id="icon-arrow" viewbox="0 0 32 32">
+					<path d="M15.186 7.112l-1.414 1.414 7.778 7.778 1.414-1.414-7.778-7.778zm-1.409 16.975l1.414 1.414 7.778-7.778-1.414-1.414-7.778 7.778z"/>
+				</symbol>
+		
+				<symbol id="icon-hamburger" viewbox="0 0 32 32">
+					<path d="M27 11v2H7v-2zM27 17v2H7v-2zM27 23v2H7v-2z"/>
+				</symbol>
+		
+				<symbol id="icon-close" viewbox="0 0 32 32">
+					<path d="M23.789 9.646l1.414 1.415L11.06 25.203l-1.415-1.414z"/>
+					<path d="M25.203 23.789l-1.414 1.414L9.646 11.06l1.415-1.415z"/>
+				</symbol>
+		
+				<symbol id="icon-quote" viewbox="0 0 32 32">
+					<path d="M23.9,0v24h-8v-8h-8V0H23.9z M7.9,24h8v8h-8V24z" class="fill"/>
+				</symbol>
+			</defs>
+		</svg>
+	</body>
+</html>
+

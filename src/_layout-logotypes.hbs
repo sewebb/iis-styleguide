@@ -1,0 +1,55 @@
+<!--htmlhint id-unique:false, style-disabled:false -->
+<!doctype html>
+<html class="no-js" lang="sv">
+	{{> @head component=true}}
+	<body>
+		<style>
+		.logotypes {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			height: 100vh;
+		}
+
+		.logotype-wrapper {
+			flex-basis: 100%;
+			border-right: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+			padding: 10px;
+			position: relative;
+		}
+
+		@media screen and (min-width: 500px) {
+			.logotype-wrapper {
+				flex-basis: 50%;
+			}
+		}
+
+		@media screen and (min-width: 1000px) {
+			.logotype-wrapper {
+				flex-basis: 33.333%;
+			}
+		}
+
+		.logotype-wrapper:after {
+			content: ' ';
+			display: block;
+			padding-bottom: 100%;
+		}
+
+		.logotype-wrapper .logotype {
+			width: 80%;
+			height: 80%;
+			display: block;
+			position: absolute;
+			top: 10%;
+			left: 10%;
+		}
+		</style>
+
+		<div class="logotypes">
+			{{{ yield }}}
+		</div>
+		{{> @logotype-sprite }}
+	</body>
+</html>

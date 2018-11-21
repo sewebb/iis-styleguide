@@ -1,5 +1,7 @@
 @charset 'UTF-8';
 
+@import '../components/colors/colors';
+
 // normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css
 
 //
@@ -162,8 +164,8 @@ h1 {
 //
 
 mark {
-	background: $color-light-yellow;
-	color: $black;
+	background: $color-lemon-light;
+	color: $color-black;
 }
 
 //
@@ -253,7 +255,7 @@ hr {
 	margin-top: rhythm(2);
 	margin-bottom: rhythm(2);
 	border: 0;
-	border-bottom: 1px solid $color-light-gray;
+	border-bottom: 1px solid tint($color-black, 80%);
 }
 
 //

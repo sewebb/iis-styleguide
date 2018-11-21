@@ -1,23 +1,39 @@
 @charset 'UTF-8';
 
-h1 {
+h1,
+.alpha {
 	@include plumber(
-		$font-size: 3.5,
-		$line-height: 4,
+		$font-size: 4,
+		$line-height: 5,
 		$leading-bottom: 1,
 		$baseline: $headings-baseline
 	);
+
 	font-family: $font-family-headings;
 }
 
-h2 {
+h2,
+.beta {
 	@include plumber(
-		$font-size: 2.9,
+		$font-size: 3,
 		$line-height: 4,
 		$leading-bottom: 1,
 		$baseline: $headings-baseline
 	);
+
 	font-family: $font-family-headings;
+}
+
+p > a {
+	padding: rhythm(0) rhythm(0.5);
+	border-radius: $border-radius;
+	background-color: $color-ruby-light;
+	color: inherit;
+	text-decoration: none;
+
+	&:visited {
+		color: inherit;
+	}
 }
 
 p,
@@ -25,4 +41,89 @@ ul,
 ol,
 dl {
 	@include plumber;
+}
+
+.supersize {
+	@include plumber(
+		$font-size: 7,
+		$line-height: 8,
+		$leading-bottom: 1,
+		$baseline: $headings-baseline
+	);
+
+	font-family: $font-family-headings;
+}
+
+.preamble {
+	@include plumber(
+		$font-size: 3,
+		$line-height: 4
+	);
+}
+
+.small,
+small {
+	@include plumber(
+		$font-size: 1.5,
+		$line-height: 2,
+		$leading-bottom: 0
+	);
+}
+
+.meta {
+	@include plumber(
+		$font-size: 1.75,
+		$baseline: $mono-baseline
+	);
+
+	font-family: $font-family-mono;
+	letter-spacing: rem(0.5px);
+	text-transform: uppercase;
+}
+
+::selection {
+	background-color: $color-ruby-light;
+}
+
+::-moz-selection {
+	background-color: $color-ruby-light;
+}
+
+blockquote {
+
+	@include plumber(
+		$font-size: 4,
+		$line-height: 5,
+		$leading-top: 2,
+		$leading-bottom: 4,
+		$baseline: $headings-baseline
+	);
+
+	@include color_classes (
+		$map: $colors,
+		$prefix: '-',
+		$attribute: 'fill',
+		$element: 'svg'
+	);
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	margin-right: 0;
+	margin-left: 0;
+	padding-right: rhythm(7);
+	padding-left: rhythm(7);
+
+	svg {
+		display: block;
+		position: absolute;
+		top: -#{rhythm(3)};
+		left: 0;
+		width: rhythm(6);
+		height: rhythm(12);
+		fill: $color-black;
+	}
+
+	.meta {
+		margin-top: rhythm(1.7); // Compensate for default minus margin
+	}
 }

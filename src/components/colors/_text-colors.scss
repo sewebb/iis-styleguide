@@ -1,0 +1,7 @@
+@charset 'UTF-8';
+
+// Generate text color classes e.g. .text-ruby
+/// @group Colors
+.color {
+	@include color_values($colors, 'color', $separator: '-');
+}

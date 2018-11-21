@@ -1,18 +1,28 @@
 @charset 'UTF-8';
 
+@import '../vendor/grid/functions';
+
 // Typography
 $font-family-base: 'HK Grotesk', sans-serif !default;
-$font-family-headings: 'HK Grotesk Bold', sans-serif !default;
+$font-family-headings: 'HK Grotesk Semibold', sans-serif !default;
+$font-family-mono: 'Roboto Mono Regular', sans-serif !default;
 
-$headings-baseline: 0.198 !default; // HK Bold
-$body-baseline: 0.198 !default; // HK Regular
+$headings-baseline: 0.09 !default; // HK Semibold
+$body-baseline: 0.09 !default; // HK Regular
+$mono-baseline: 0.111 !default; // Roboto Mono Regular
 
 // Size base
 $size-base: 16px !default;
 
+// Size small
+$size-small: 14px !default;
+
 // Base units
 $base-unit: $size-base / 2 !default;
 $rem-size: rem($base-unit) !default;
+
+// Small size
+$small-text: rem($size-small);
 
 // Baseline defaults
 @include plumber-set-defaults(
@@ -22,4 +32,43 @@ $rem-size: rem($base-unit) !default;
 	$line-height: 3,
 	$leading-top: 0,
 	$leading-bottom: 4
-)
+);
+
+$enable-grid-classes: true !default;
+
+// Grid breakpoints
+//
+// Define the minimum dimensions at which your layout will change,
+// adapting to different screen sizes, for use in media queries.
+
+$grid-breakpoints: (
+	xs: 0,
+	sm: 576px,
+	md: 769px,
+	lg: 961px,
+	xl: 1200px,
+	xxl: 1400px
+) !default;
+
+@include _assert-ascending($grid-breakpoints, '$grid-breakpoints');
+@include _assert-starts-at-zero($grid-breakpoints);
+
+// Grid columns
+//
+// Set the number of columns and specify the width of the gutters.
+
+$grid-columns: 18 !default;
+$grid-gutter-width: rem(20px) !default;
+
+// Grid containers
+//
+// Define the maximum width of `.container` for different screen sizes.
+
+$container-max-widths: (
+	xl: 1360px
+) !default;
+
+@include _assert-ascending($container-max-widths, '$container-max-widths');
+
+// Default border-radius
+$border-radius: rhythm(0.5);

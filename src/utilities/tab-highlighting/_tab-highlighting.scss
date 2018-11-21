@@ -1,0 +1,29 @@
+@charset 'UTF-8';
+
+$color-tab-highlight: $color-ruby !default;
+
+// Remove focus styling only when JS is active
+.js {
+	:focus {
+		outline: 0;
+	}
+}
+
+/// @group Utilities
+.tab-highlight :focus,
+.tab-highlight .has-focus {
+	&,
+	+ label {
+		box-shadow: 0 0 0 2px inset $color-tab-highlight !important;
+	}
+}
+
+// Use when element is on dark background
+/// @group Utilities
+.tab-highlight .color-inverse :focus,
+.tab-highlight .color-inverse .has-focus {
+	&,
+	+ label {
+		box-shadow: 0 0 0 2px inset $color-snow !important;
+	}
+}

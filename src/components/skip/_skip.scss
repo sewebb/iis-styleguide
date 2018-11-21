@@ -1,0 +1,38 @@
+@charset 'UTF-8';
+
+@include b(skip) {
+	position: relative;
+	z-index: 10;
+	height: 0;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	li {
+		height: 0;
+		margin: 0;
+		padding: 0;
+	}
+
+	a {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		width: 1px;
+		height: 1px;
+		overflow: hidden;
+
+		&:focus {
+			z-index: 10;
+			width: 100%;
+			height: auto;
+			padding-top: rhythm(1);
+			padding-bottom: rhythm(1.5);
+			background-color: $color-cyberspace;
+			color: $color-snow;
+			text-align: center;
+			text-indent: 0;
+		}
+	}
+}

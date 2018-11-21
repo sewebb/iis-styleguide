@@ -1,0 +1,56 @@
+<!--htmlhint id-unique:false, style-disabled:false -->
+<!doctype html>
+<html class="no-js" lang="sv">
+	{{> @head component=true}}
+	<body>
+		<style>
+		.icons {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+		}
+
+		.icon-wrapper {
+			flex-basis: 25%;
+			border-right: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+			padding: 10px;
+			position: relative;
+		}
+
+		@media screen and (min-width: 500px) {
+			.icon-wrapper {
+				flex-basis: 16.66%;
+			}
+		}
+
+		@media screen and (min-width: 1000px) {
+			.icon-wrapper {
+				flex-basis: 10%;
+			}
+		}
+
+		.icon-wrapper:after {
+			content: ' ';
+			display: block;
+			padding-bottom: 100%;
+		}
+
+		.icon {
+			fill: #323e46;
+			width: 80%;
+			height: 80%;
+			display: block;
+			position: absolute;
+			top: 10%;
+			left: 10%;
+		}
+		</style>
+
+		<div class="icons">
+			{{{ yield }}}
+		</div>
+
+		{{> @icon-sprite }}
+	</body>
+</html>

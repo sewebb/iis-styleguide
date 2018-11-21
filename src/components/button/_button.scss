@@ -1,38 +1,187 @@
 @charset 'UTF-8';
 
-.button {
+// Default Button
+/// @group Buttons
+@include b(button) {
 	display: inline-flex;
+	position: relative;
 	flex-wrap: nowrap;
 	align-items: center;
 	justify-content: center;
 	margin: 0;
 	padding: rhythm(2) rhythm(4);
 	border: 0;
-	background-color: $bittersweet;
+	border-radius: $border-radius;
+	background-color: currentColor;
 	background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
-	color: $black;
-	font-weight: 700;
-	line-height: 1;
+	box-shadow: 0 0 0 1px inset currentColor;
+	color: $color-ocean;
+	font-family: $font-family-headings;
+	font-size: rem(24px);
 	text-decoration: none;
-	cursor: pointer;
 	hyphens: auto;
+	cursor: pointer;
 
 	&:hover,
 	&:focus {
-		background-color: $puerto-rico;
+		color: $color-ocean-light;
 	}
 
-	&:disabled,
 	&:disabled {
 		&:hover {
-			border: 1px solid $shark;
-			background-color: $shark;
+			border: 1px solid $color-black;
+			background-color: $color-black;
 			box-shadow: none;
 			cursor: not-allowed;
 		}
 	}
+}
 
-	&--secondary {
-		background-color: $kournikova;
+// Modifiers
+/// @group Buttons
+@include b(button) {
+	@include e(text) {
+		position: relative;
+		top: -#{rhythm(0.2)};
+		color: $color-cyberspace;
+	}
+
+	@include m(secondary) {
+		box-shadow: 0 0 0 1px inset $color-ocean;
+		color: $color-ocean-light;
+	}
+
+	@include m(small) {
+		padding: rhythm(1) rhythm(2);
+		font-size: rem($size-base);
+
+		@include e(text) {
+
+			@include plumber(
+				$leading-bottom:0
+			);
+
+			top: rhythm(0.1);
+		}
+	}
+
+	@include m(icon) {
+		justify-content: space-between;
+		max-width: rhythm(50);
+		padding-right: 50px;
+		text-align: left;
+	}
+
+	@include e(icon) {
+		position: absolute;
+		z-index: 1;
+		top: 50%;
+		right: rhythm(1);
+		width: rhythm(4);
+		height: rhythm(4);
+		margin-top: -#{rhythm(2)};
+		transition: fill 100ms linear;
+		fill: $color-cyberspace;
+		pointer-events: none;
+	}
+
+	// More colors
+	@include m(ruby) {
+		color: $color-ruby;
+
+		@include e(text) {
+			color: $color-black; // Special for this color only to meet accessibility contrast values
+		}
+
+		&:hover,
+		&:focus {
+			color: $color-ruby-light;
+		}
+	}
+
+	@include m(ruby-light) {
+		box-shadow: 0 0 0 1px inset $color-ruby;
+		color: $color-ruby-light;
+
+		&:hover,
+		&:focus {
+			color: $color-ruby;
+		}
+	}
+
+	@include m(peacock) {
+		color: $color-peacock;
+
+		&:hover,
+		&:focus {
+			color: $color-peacock-light;
+		}
+	}
+
+	@include m(peacock-light) {
+		box-shadow: 0 0 0 1px inset $color-peacock;
+		color: $color-peacock-light;
+
+		&:hover,
+		&:focus {
+			background-color: $color-peacock;
+		}
+	}
+
+	@include m(sandstone) {
+		color: $color-sandstone;
+
+		&:hover,
+		&:focus {
+			color: $color-sandstone-light;
+		}
+	}
+
+	@include m(sandstone-light) {
+		box-shadow: 0 0 0 1px inset $color-sandstone;
+		color: $color-sandstone-light;
+
+		&:hover,
+		&:focus {
+			background-color: $color-sandstone;
+		}
+	}
+
+	@include m(lemon) {
+		color: $color-lemon;
+
+		&:hover,
+		&:focus {
+			color: $color-lemon-light;
+		}
+	}
+
+	@include m(lemon-light) {
+		box-shadow: 0 0 0 1px inset $color-lemon;
+		color: $color-lemon-light;
+
+		&:hover,
+		&:focus {
+			background-color: $color-lemon;
+		}
+	}
+
+	@include m(jade) {
+		color: $color-jade;
+
+		&:hover,
+		&:focus {
+			color: $color-jade-light;
+		}
+	}
+
+	@include m(jade-light) {
+		box-shadow: 0 0 0 1px inset $color-jade;
+		color: $color-jade-light;
+
+		&:hover,
+		&:focus {
+			background-color: $color-jade;
+		}
 	}
 }

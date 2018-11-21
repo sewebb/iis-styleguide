@@ -1,0 +1,86 @@
+@charset 'UTF-8';
+
+@include b(button) {
+	display: inline-flex;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: center;
+	margin: 0;
+	padding: rhythm(2) rhythm(4);
+	border: 0;
+	background-color: $color-ocean;
+	background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+	box-shadow: 0 0 0 1px inset $color-ocean;
+	color: inherit;
+	font-weight: 700;
+	text-decoration: none;
+	cursor: pointer;
+	hyphens: auto;
+	position: relative;
+	font-weight: 600;
+	font-size: rem(24px);
+	border-radius: $border-radius;
+
+	&:hover,
+	&:focus {
+		background-color: $color-ocean-light;
+	}
+
+	&:disabled {
+		&:hover {
+			border: 1px solid $color-black;
+			background-color: $color-black;
+			box-shadow: none;
+			cursor: not-allowed;
+		}
+	}
+
+	@include m(secondary) {
+		background-color: $color-ocean-light;
+
+		&:hover,
+		&:focus {
+			background-color: $color-ocean;
+		}
+	}
+
+	@include m(small) {
+		padding: rhythm(1) rhythm(2);
+		font-size: rem($size-base);
+	}
+
+	@include m(ruby) {
+		background-color: $color-ruby;
+		box-shadow: 0 0 0 1px inset $color-ruby;
+
+		&:hover,
+		&:focus {
+			background-color: $color-ruby-light;
+		}
+	}
+
+	@include m(icon) {
+		justify-content: space-between;
+		max-width: rhythm(50);
+		text-align: left;
+		padding-right: 50px;
+	}
+
+	.button__text {
+		position: relative;
+		top: rhythm(0.1);
+	}
+
+	@include e(icon) {
+		width: 30px;
+		height: 30px;
+		position: absolute;
+		top: 50%;
+		margin-top: -15px;
+		right: 10px;
+		z-index: 1;
+		fill: currentColor;
+		pointer-events: none;
+		transition: fill 100ms linear;
+	 }
+}

@@ -1,0 +1,71 @@
+
+
+<!--htmlhint id-unique:false, style-disabled:false -->
+<!doctype html>
+<html class="no-js" lang="sv">
+	<head>
+		<meta charset="utf-8" />
+		<title>Preview Layout</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+		<link rel="stylesheet" href="/assets/css/app.min.css">
+	
+		<!-- Check for JS support -->
+		<script>
+			document.querySelector('html').classList.remove('no-js');
+			document.querySelector('html').className += 'js';
+		</script>
+	</head>
+	<body>
+		<style>
+		.logotypes {
+			display: flex;
+			flex-direction: row;
+			flex-wrap: wrap;
+			height: 100vh;
+		}
+
+		.logotype-wrapper {
+			flex-basis: 100%;
+			border-right: 1px solid #ccc;
+			border-bottom: 1px solid #ccc;
+			padding: 10px;
+			position: relative;
+		}
+
+		@media screen and (min-width: 500px) {
+			.logotype-wrapper {
+				flex-basis: 50%;
+			}
+		}
+
+		@media screen and (min-width: 1000px) {
+			.logotype-wrapper {
+				flex-basis: 33.333%;
+			}
+		}
+
+		.logotype-wrapper:after {
+			content: ' ';
+			display: block;
+			padding-bottom: 100%;
+		}
+
+		.logotype-wrapper .logotype {
+			width: 80%;
+			height: 80%;
+			display: block;
+			position: absolute;
+			top: 10%;
+			left: 10%;
+		}
+		</style>
+
+		<div class="logotypes">
+			<svg class="logotype">
+	<use xlink:href="#logotype-goto10"></use>
+</svg>
+
+		</div>
+	</body>
+</html>
+

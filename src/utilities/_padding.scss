@@ -1,5 +1,6 @@
 @charset 'UTF-8';
 
+/// @group Utilities
 $class-p: u-p !default;
 $class-p-t: u-p-t !default;
 $class-p-r: u-p-r !default;
@@ -9,7 +10,7 @@ $class-p-x: u-p-x !default;
 $class-p-y: u-p-y !default;
 
 /* stylelint-disable */
-@for $i from 1 through 8 {
+@for $i from 0 through 8 {
 	// Padding all
 	.#{$class-p}-#{$i} {
 		padding: rhythm($i) !important;

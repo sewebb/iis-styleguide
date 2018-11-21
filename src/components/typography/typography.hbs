@@ -1,7 +1,82 @@
-<h1>{{title}}</h1>
-<p>{{description}}</p>
-<h2>{{lvl2}}</h2>
+<div class="wrapper">
+	<div class="row u-m-b-6">
+		<div class="grid-md-3 display-flex align-items-md-center align-self-stretch justify-content-md-center">
+			<p class="meta">.supersize</p>
+		</div>
+		<div class="grid-12 grid-md-14">
+			<h1 class="supersize">{{supersize}}</h1>
+		</div>
+	</div>
+	<div class="row u-m-b-6">
+		<div class="grid-md-3 display-flex align-items-md-center align-self-stretch justify-content-md-center">
+			<p class="meta">H1</p>
+		</div>
+		<div class="grid-12 grid-md-14">
+			<h1>{{h1}}</h1>
+		</div>
+	</div>
+	<div class="row u-m-b-6">
+		<div class="grid-md-3 display-flex align-items-md-center align-self-stretch justify-content-md-center">
+			<p class="meta">H2</p>
+		</div>
+		<div class="grid-12 grid-md-14">
+			<h1>{{h2}}</h1>
+		</div>
+	</div>
+	<div class="row u-m-b-6">
+		<div class="grid-md-3 display-flex align-items-md-center align-self-stretch justify-content-md-center">
+			<p class="meta">.preamble</p>
+		</div>
+		<div class="grid-12 grid-md-14">
+			<p class="preamble">{{preamble}}</p>
+		</div>
+	</div>
+	<div class="row u-m-b-6">
+		<div class="grid-md-3 display-flex align-items-md-center align-self-stretch justify-content-md-center">
+			<p class="meta">P</p>
+		</div>
+		<div class="grid-12 grid-md-14">
+			<p>{{preamble}}</p>
+		</div>
+	</div>
+	<div class="row u-m-b-6">
+		<div class="grid-md-3 display-flex align-items-md-center align-self-stretch justify-content-md-center">
+			<p class="meta">A</p>
+		</div>
+		<div class="grid-12 grid-md-14">
+			<p>{{paragraph}} <a href="">{{link}}</a></p>
+		</div>
+	</div>
+	<div class="row u-m-b-6">
+		<div class="grid-md-3 display-flex align-items-md-center align-self-stretch justify-content-md-center">
+			<p class="meta">.meta</p>
+		</div>
+		<div class="grid-12 grid-md-14">
+			<p class="meta">{{meta}}</p>
+		</div>
+	</div>
+	<div class="row u-m-b-6">
+		<div class="grid-md-3 display-flex align-items-md-center align-self-stretch justify-content-md-center">
+			<p class="meta">.small</p>
+		</div>
+		<div class="grid-12 grid-md-14">
+			<p class="small">{{small}}</p>
+		</div>
+	</div>
+	<div class="row u-m-b-6">
+		<div class="grid-md-3 display-flex align-items-md-center align-self-stretch justify-content-md-center">
+			<p class="meta">BLOCKQUOTE</p>
+		</div>
+		<div class="grid-12 grid-md-14">
+			<blockquote class="jade">
+				{{>@ icon id="quote"}}
 
-{{> @button }}
+				{{blockquote}}
+				<span class="meta">{{quotee}}</span>
+			</blockquote>
+
+		</div>
+	</div>
+</div>
 
 {{> @grid-toggle }}

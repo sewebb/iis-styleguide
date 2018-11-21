@@ -1,0 +1,7 @@
+<svg class="logotype{{#if additional_classes}} {{ additional_classes }}{{/if}}">
+	{{#each id}}
+	<use xlink:href="#logotype-{{ this }}"></use>
+	{{else}}
+	<use xlink:href="#logotype-{{ id }}"></use>
+	{{/each}}
+</svg>

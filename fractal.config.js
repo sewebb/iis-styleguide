@@ -39,140 +39,117 @@ fractal.web.set('static.path', path.join(__dirname, 'public'));
 fractal.web.set('builder.dest', __dirname + '/build');
 
 const handlebars = require('@frctl/handlebars')({
-    helpers: {
-        attr: function(attr) {
-            let obj,
-                str = '';
+	helpers: {
+		attr: function(attr) {
+			let obj,
+				str = '';
 
-            if (typeof attr === 'string') {
-                attr = attr.replace(/\'/g, '"');
-                obj = JSON.parse(attr);
-            } else {
-                obj = attr;
-            }
+			if (typeof attr === 'string') {
+				attr = attr.replace(/\'/g, '"');
+				obj = JSON.parse(attr);
+			} else {
+				obj = attr;
+			}
 
-            for (let prop in obj) {
-                if (obj.hasOwnProperty(prop)) {
-                    str += prop + '=' + obj[prop] + ' ';
-                }
-            }
+			for (let prop in obj) {
+				if (obj.hasOwnProperty(prop)) {
+					str += prop + '=' + obj[prop] + ' ';
+				}
+			}
 
-            str = str.trim();
-            return str;
-        },
+			str = str.trim();
+			return str;
+		},
 
-        ifequals: function(a, b, opts) {
-            return (a === b) ? opts.fn(this) : opts.inverse(this);
-        },
-        unlessequals: function(a, b, opts) {
-            return (a !== b) ? opts.fn(this) : opts.inverse(this);
-        },
-        and: function () {
-            return Array.prototype.slice.call(arguments).every(Boolean);
-        },
-        or: function () {
-            return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
-        },
-        getcomponent: function(str) {
-            return '@' + str;
-        },
+		ifequals: function(a, b, opts) {
+			return (a === b) ? opts.fn(this) : opts.inverse(this);
+		},
+		unlessequals: function(a, b, opts) {
+			return (a !== b) ? opts.fn(this) : opts.inverse(this);
+		},
+		and: function () {
+			return Array.prototype.slice.call(arguments).every(Boolean);
+		},
+		or: function () {
+			return Array.prototype.slice.call(arguments, 0, -1).some(Boolean);
+		},
+		getcomponent: function(str) {
+			return '@' + str;
+		},
 
-        concat: function() {
-            var str = '';
+		concat: function() {
+			var str = '';
 
-            for (var arg in arguments){
-                if (typeof arguments[arg] != 'object') {
-                    str += arguments[arg];
-                }
-            }
-            return str;
-        },
+			for (var arg in arguments){
+				if (typeof arguments[arg] != 'object') {
+					str += arguments[arg];
+				}
+			}
+			return str;
+		},
 
-        getmodifiers: (modifiers = [], prefix = '') => {
-            let m = [];
+		getmodifiers: (modifiers = [], prefix = '') => {
+			let m = [];
 
-            if (typeof modifiers === 'string') {
-                m = modifiers.split(',');
+			if (typeof modifiers === 'string') {
+				m = modifiers.split(',');
 
-                for (let i = 0; i < m.length; i++) {
-                    m[i] = m[i].trim();
-                }
-            } else {
-                m = modifiers;
-            }
+				for (let i = 0; i < m.length; i++) {
+					m[i] = m[i].trim();
+				}
+			} else {
+				m = modifiers;
+			}
 
-            if (prefix && typeof prefix === 'string') {
-                m = m.map(i => prefix + '--' + i);
-            }
-            return m.join(' ');
-        },
+			if (prefix && typeof prefix === 'string') {
+				m = m.map(i => prefix + '--' + i);
+			}
+			return m.join(' ');
+		},
 
-        switch: function(value, options) {
-            this._switch_value_ = value;
-            var html = options.fn(this);
-            delete this._switch_value_;
-            return html;
-        },
+		switch: function(value, options) {
+			this._switch_value_ = value;
+			var html = options.fn(this);
+			delete this._switch_value_;
+			return html;
+		},
 
-        case: function() {
-            var args = Array.prototype.slice.call(arguments);
-            var options    = args.pop();
-            var caseValues = args;
+		case: function() {
+			var args = Array.prototype.slice.call(arguments);
+			var options    = args.pop();
+			var caseValues = args;
 
-            if (caseValues.indexOf(this._switch_value_) === -1) {
-                return '';
-            } else {
-                return options.fn(this);
-            }
-        },
+			if (caseValues.indexOf(this._switch_value_) === -1) {
+				return '';
+			} else {
+				return options.fn(this);
+			}
+		},
 
-        /* Not a real i18n-function.
-         * Replaces str with dummy content for set region.
-        */
-        i18n: function(str) {
-            var length = str.length,
-                ratio = loremipsum[lang] && loremipsum[lang].ratio,
-                string = loremipsum[lang] && loremipsum[lang].string;
+		each_upto: function(ary, max, options) {
+			if(!ary || ary.length == 0)
+				return options.inverse(this);
 
-            if (lang === 'en') {
-                return str;
-            } else {
-                return string.substring(0, Math.floor(length * ratio));
-            }
-        },
+			var result = [ ];
+			for(var i = 0; i < max && i < ary.length; ++i)
+				result.push(options.fn(ary[i]));
+			return result.join('');
 
-        getassetspath: function() {
-            return (mode === 'development') ? 'http://' + host + ':' + ports.assets + '/' : '../../assets/';
-        },
+		},
 
-        isDevelop: function(opts) {
-            return (mode === 'development') ? opts.fn(this) : opts.inverse(this);
-        },
+		tolowercase: function(str) {
+			return str.toLowerCase();
+		},
 
-        each_upto: function(ary, max, options) {
-            if(!ary || ary.length == 0)
-                return options.inverse(this);
+		getelement: function(el, fallback) {
+			if (typeof el === 'string') {
+				return el;
+			}
 
-            var result = [ ];
-            for(var i = 0; i < max && i < ary.length; ++i)
-                result.push(options.fn(ary[i]));
-            return result.join('');
-
-        },
-
-        tolowercase: function(str) {
-            return str.toLowerCase();
-        },
-
-        getelement: function(el, fallback) {
-            if (typeof el === 'string') {
-                return el;
-            }
-
-            return fallback;
-        }
-    },
-    loadHelpers: true
+			return fallback;
+		}
+	},
+	loadHelpers: true
 });
 
 fractal.components.engine(handlebars);

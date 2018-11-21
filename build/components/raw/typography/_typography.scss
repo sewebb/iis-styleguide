@@ -1,8 +1,20 @@
 @charset 'UTF-8';
 
-h1 {
+h1,
+.alpha {
 	@include plumber(
-		$font-size: 3.5,
+		$font-size: 4,
+		$line-height: 5,
+		$leading-bottom: 1,
+		$baseline: $headings-baseline
+	);
+	font-family: $font-family-headings;
+}
+
+h2,
+.beta {
+	@include plumber(
+		$font-size: 3,
 		$line-height: 4,
 		$leading-bottom: 1,
 		$baseline: $headings-baseline
@@ -10,14 +22,16 @@ h1 {
 	font-family: $font-family-headings;
 }
 
-h2 {
-	@include plumber(
-		$font-size: 2.7,
-		$line-height: 4,
-		$leading-bottom: 1,
-		$baseline: $headings-baseline
-	);
-	font-family: $font-family-headings;
+p > a {
+	text-decoration: none;
+	background-color: $color-ruby-light;
+	border-radius: $border-radius;
+	padding: rhythm(0) rhythm(0.5);
+	color: inherit;
+
+	&:visited {
+		color: inherit;
+	}
 }
 
 p,
@@ -25,4 +39,87 @@ ul,
 ol,
 dl {
 	@include plumber;
+}
+
+.supersize {
+	@include plumber(
+		$font-size: 7,
+		$line-height: 8,
+		$leading-bottom: 1,
+		$baseline: $headings-baseline
+	);
+	font-family: $font-family-headings;
+}
+
+.preamble {
+	@include plumber(
+		$font-size: 3,
+		$line-height: 4
+	);
+}
+
+.small,
+small {
+	@include plumber(
+		$font-size: 1.5,
+		$line-height: 2,
+		$leading-bottom: 0
+	);
+}
+
+.meta {
+	@include plumber(
+	$font-size: 1.75,
+		$baseline: $mono-baseline
+	);
+	font-family: $font-family-mono;
+	text-transform: uppercase;
+	letter-spacing: rem(0.5px);
+}
+
+::selection {
+	background-color: $color-ruby-light;
+}
+
+::-moz-selection {
+	background-color: $color-ruby-light;
+}
+
+blockquote {
+	padding-left: rhythm(7);
+	padding-right: rhythm(7);
+	margin-left: 0;
+	margin-right: 0;
+	position: relative;
+	display: flex;
+	flex-direction: column;
+
+	@include plumber(
+		$font-size: 4,
+		$line-height: 5,
+		$leading-top: 2,
+		$leading-bottom: 4,
+		$baseline: $headings-baseline
+	);
+
+	svg {
+		display: block;
+		position: absolute;
+		top: -#{rhythm(3)};
+		left: 0;
+		width: rhythm(6);
+		height: rhythm(12);
+		fill: $color-black;
+	}
+
+	@include color_classes (
+		$map: $colors,
+		$prefix: '-',
+		$attribute: 'fill',
+		$element: 'svg'
+	);
+
+	.meta {
+		margin-top: rhythm(1.7); // Compensate for default minus margin
+	}
 }
