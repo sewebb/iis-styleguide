@@ -17,7 +17,7 @@
 		"uglify": "uglifyjs -o public/assets/js/scripts.js public/assets/js/scripts.js",
 		"htmlhint": "htmlhint build/components/preview/**/*.html",
 		"imagemin": "imagemin --out-dir=public/assets/img src/**/*.{png,jpg,gif}",
-		"build:css": "concurrently \"npm:scss\" \"npm:autoprefixer\" \"npm:cssmin\"",
+		"build:css": "npm run scss && npm run autoprefixer && npm run cssmin",
 		"build:js": "npm run browserify && npm run uglify",
 		"build:img": "npm run imagemin",
 		"watch:css": "onchange 'src/**/*.scss' -- concurrently \"npm:stylelint\" \"npm:build:css\"",
@@ -26,6 +26,7 @@
 		"copy": "copyfiles -f src/base/fonts/* public/assets/fonts",
 		"copy:build": "copyfiles -f src/base/fonts/* build/assets/fonts",
 		"build": "concurrently \"npm:build:css\" \"npm:build:js\" \"npm:build:fractal\" \"npm:htmlhint\" \"npm:copy:build\"",
+		"build": "npm run build:css && npm run build:js && npm run build:fractal &&  npm run htmlhint && npm run copy:build",
 		"dev": "concurrently \"npm:start:fractal\" \"npm:watch\""
 	},
 	"devDependencies": {

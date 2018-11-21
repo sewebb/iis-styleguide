@@ -8,6 +8,7 @@ h1,
 		$leading-bottom: 1,
 		$baseline: $headings-baseline
 	);
+
 	font-family: $font-family-headings;
 }
 
@@ -19,15 +20,16 @@ h2,
 		$leading-bottom: 1,
 		$baseline: $headings-baseline
 	);
+
 	font-family: $font-family-headings;
 }
 
 p > a {
-	text-decoration: none;
-	background-color: $color-ruby-light;
-	border-radius: $border-radius;
 	padding: rhythm(0) rhythm(0.5);
+	border-radius: $border-radius;
+	background-color: $color-ruby-light;
 	color: inherit;
+	text-decoration: none;
 
 	&:visited {
 		color: inherit;
@@ -48,6 +50,7 @@ dl {
 		$leading-bottom: 1,
 		$baseline: $headings-baseline
 	);
+
 	font-family: $font-family-headings;
 }
 
@@ -69,12 +72,13 @@ small {
 
 .meta {
 	@include plumber(
-	$font-size: 1.75,
+		$font-size: 1.75,
 		$baseline: $mono-baseline
 	);
+
 	font-family: $font-family-mono;
-	text-transform: uppercase;
 	letter-spacing: rem(0.5px);
+	text-transform: uppercase;
 }
 
 ::selection {
@@ -86,13 +90,6 @@ small {
 }
 
 blockquote {
-	padding-left: rhythm(7);
-	padding-right: rhythm(7);
-	margin-left: 0;
-	margin-right: 0;
-	position: relative;
-	display: flex;
-	flex-direction: column;
 
 	@include plumber(
 		$font-size: 4,
@@ -101,6 +98,20 @@ blockquote {
 		$leading-bottom: 4,
 		$baseline: $headings-baseline
 	);
+
+	@include color_classes (
+		$map: $colors,
+		$prefix: '-',
+		$attribute: 'fill',
+		$element: 'svg'
+	);
+	display: flex;
+	position: relative;
+	flex-direction: column;
+	margin-right: 0;
+	margin-left: 0;
+	padding-right: rhythm(7);
+	padding-left: rhythm(7);
 
 	svg {
 		display: block;
@@ -111,13 +122,6 @@ blockquote {
 		height: rhythm(12);
 		fill: $color-black;
 	}
-
-	@include color_classes (
-		$map: $colors,
-		$prefix: '-',
-		$attribute: 'fill',
-		$element: 'svg'
-	);
 
 	.meta {
 		margin-top: rhythm(1.7); // Compensate for default minus margin
