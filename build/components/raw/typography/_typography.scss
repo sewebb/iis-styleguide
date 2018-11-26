@@ -3,25 +3,42 @@
 h1,
 .alpha {
 	@include plumber(
-		$font-size: 4,
-		$line-height: 5,
-		$leading-bottom: 1,
+		$font-size: 3,
+		$line-height: 4,
+		$leading-bottom: 2,
 		$baseline: $headings-baseline
 	);
 
 	font-family: $font-family-headings;
+
+	@include bp-up(sm) {
+		@include plumber(
+			$font-size: 4,
+			$line-height: 5,
+			$leading-bottom: 1,
+			$baseline: $headings-baseline
+		);
+	}
 }
 
 h2,
 .beta {
 	@include plumber(
-		$font-size: 3,
-		$line-height: 4,
-		$leading-bottom: 1,
+		$font-size: 2.5,
+		$line-height: 3,
+		$leading-bottom: 2,
 		$baseline: $headings-baseline
 	);
 
 	font-family: $font-family-headings;
+
+	@include bp-up(sm) {
+		@include plumber(
+			$font-size: 3,
+			$line-height: 4,
+			$leading-bottom: 1
+		);
+	}
 }
 
 p > a {
@@ -45,13 +62,22 @@ dl {
 
 .supersize {
 	@include plumber(
-		$font-size: 7,
-		$line-height: 8,
+		$font-size: 4.5,
+		$line-height: 5,
 		$leading-bottom: 1,
 		$baseline: $headings-baseline
 	);
 
 	font-family: $font-family-headings;
+
+	@include bp-up(sm) {
+		@include plumber(
+			$font-size: 7,
+			$line-height: 8,
+			$leading-bottom: 1,
+			$baseline: $headings-baseline
+		);
+	}
 }
 
 .preamble {
@@ -105,6 +131,7 @@ blockquote {
 		$attribute: 'fill',
 		$element: 'svg'
 	);
+
 	display: flex;
 	position: relative;
 	flex-direction: column;

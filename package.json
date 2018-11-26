@@ -23,8 +23,11 @@
 		"watch:css": "onchange 'src/**/*.scss' -- concurrently \"npm:stylelint\" \"npm:build:css\"",
 		"watch:js": "onchange 'src/**/*.js' -- concurrently \"npm:build:js\" \"npm:eslint\"",
 		"watch": "concurrently \"npm:watch:css\" \"npm:watch:js\"",
-		"copy": "copyfiles -f src/base/fonts/* public/assets/fonts",
-		"copy:build": "copyfiles -f src/base/fonts/* build/assets/fonts",
+		"copy:images": "copyfiles -f src/assets/images/* public/assets/images",
+		"copy:fonts": "copyfiles -f src/base/fonts/* public/assets/fonts",
+		"copy:images:build": "copyfiles -f src/assets/images/* build/assets/images",
+		"copy:fonts:build": "copyfiles -f src/base/fonts/* build/assets/fonts",
+		"copy:build": "npm run copy:images:build && npm run copy:fonts:build",
 		"build": "npm run build:css && npm run build:js && npm run build:fractal &&  npm run htmlhint && npm run copy:build",
 		"dev": "concurrently \"npm:start:fractal\" \"npm:watch\""
 	},
