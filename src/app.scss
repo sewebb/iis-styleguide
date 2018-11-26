@@ -5,6 +5,8 @@
 
 // Atoms
 @import 'atoms/logo';
+@import 'atoms/time/time';
+@import 'atoms/tag/tag';
 
 // Components
 @import 'components/grid/grid';
@@ -17,7 +19,6 @@
 @import 'components/typography/typography';
 @import 'components/logotype/logotype';
 @import 'components/paging/paging';
-@import 'components/tag/tag';
 @import 'components/skip/skip';
 
 // Molecules

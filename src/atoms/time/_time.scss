@@ -1,0 +1,12 @@
+@charset 'UTF-8';
+
+@include atom(time) {
+
+	@include plumber(
+		$baseline: $mono-baseline,
+		$leading-bottom: 1
+	);
+
+	display: block;
+	font-family: $font-family-mono;
+}

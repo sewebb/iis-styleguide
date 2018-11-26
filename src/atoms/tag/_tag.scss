@@ -1,7 +1,7 @@
 @charset 'UTF-8';
 
 /// @group Tags
-@include b(tag) {
+@include atom(tag) {
 	display: inline-block;
 	padding: rhythm(1) rhythm(2);
 	border: 1px solid $color-cyberspace;

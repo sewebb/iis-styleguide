@@ -1,6 +1,6 @@
 @charset 'UTF-8';
 
-@include b(breadcrumb) {
+@include molecule(breadcrumb) {
 	display: flex;
 	position: relative;
 	align-items: center;
