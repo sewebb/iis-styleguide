@@ -4,7 +4,7 @@
 
 	@include plumber(
 		$baseline: $mono-baseline,
-		$leading-bottom: 1
+		$leading-bottom: 0
 	);
 
 	display: block;

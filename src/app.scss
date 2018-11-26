@@ -4,7 +4,6 @@
 @import 'globals';
 
 // Atoms
-@import 'atoms/logo';
 @import 'atoms/time/time';
 @import 'atoms/tag/tag';
 
@@ -23,3 +22,6 @@
 
 // Molecules
 @import 'molecules/breadcrumb/breadcrumb';
+
+// Organisms
+@import 'organisms/card/card'

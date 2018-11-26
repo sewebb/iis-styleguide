@@ -1,0 +1,12 @@
+@charset 'UTF-8';
+
+@include organism(card) {
+	display: flex;
+	flex-direction: column;
+
+	@include e(image) {
+		display: block;
+		margin-bottom: rhythm(1);
+		border-radius: $border-radius;
+	}
+}
