@@ -6,6 +6,7 @@
 // Atoms
 @import 'atoms/time/time';
 @import 'atoms/tag/tag';
+@import 'atoms/logotype/logotype';
 
 // Components
 @import 'components/grid/grid';
@@ -16,12 +17,11 @@
 @import 'components/colors/text-colors';
 @import 'components/colors/background-colors';
 @import 'components/typography/typography';
-@import 'components/logotype/logotype';
 @import 'components/paging/paging';
 @import 'components/skip/skip';
 
 // Molecules
 @import 'molecules/breadcrumb/breadcrumb';
+@import 'molecules/card/card'
 
 // Organisms
-@import 'organisms/card/card'
