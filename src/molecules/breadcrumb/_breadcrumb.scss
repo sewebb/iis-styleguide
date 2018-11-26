@@ -1,0 +1,84 @@
+@charset 'UTF-8';
+
+@include b(breadcrumb) {
+	display: flex;
+	position: relative;
+	align-items: center;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+
+	@include e(item) {
+		display: none;
+		align-items: stretch;
+		align-self: stretch;
+		background-color: $color-snow;
+
+		@include bp-up(md) {
+			display: flex;
+			position: static;
+			flex-shrink: 0;
+			width: auto;
+			min-height: 0;
+		}
+
+		&:nth-last-child(2) {
+			display: flex;
+
+			@include b(icon) {
+				display: none;
+
+				@include bp-up(md) {
+					display: flex;
+				}
+			}
+		}
+
+		&:last-child {
+			@include b(icon) {
+				display: none;
+			}
+		}
+	}
+
+	@include b(icon) {
+		width: $icon-size;
+		height: $icon-size;
+		margin: 0 rhythm(0.5);
+
+		&:first-child {
+			margin: 0;
+
+			@include bp-up(md) {
+				display: none;
+			}
+		}
+	}
+
+	@include e(link) {
+		max-width: rhythm(30);
+		overflow: hidden;
+		transform: translateY(rhythm(0.3));
+		color: $color-cyberspace;
+		text-decoration: none;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+
+		@include bp-up(md) {
+			max-width: rhythm(25);
+		}
+
+		@include bp-up(xl) {
+			max-width: none;
+		}
+
+		&[aria-current] {
+			color: $color-granit;
+			pointer-events: none;
+
+			&::before {
+				font-weight: 400;
+			}
+		}
+	}
+}
