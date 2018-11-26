@@ -6,6 +6,14 @@
 	padding: rhythm(1) rhythm(2);
 	border: 1px solid $color-cyberspace;
 	border-radius: rem(17.5px);
+	color: $color-cyberspace;
 	font-size: $small-text;
+	text-decoration: none;
 	text-transform: uppercase;
+
+	&:hover,
+	&:focus {
+		background-color: $color-cyberspace;
+		color: $color-snow;
+	}
 }
