@@ -6,8 +6,8 @@
 	font-style: normal;
 	font-weight: normal;
 	src:
-		url('/assets/fonts/hkgrotesk-regular-webfont.woff2') format('woff2'),
-		url('/assets/fonts/hkgrotesk-regular-webfont.woff') format('woff');
+		url('https://static.iis.se/internetstiftelsen/fonts/hkgrotesk-regular-webfont.woff2') format('woff2'),
+		url('https://static.iis.se/internetstiftelsen/fonts/hkgrotesk-regular-webfont.woff') format('woff');
 }
 
 @font-face {
@@ -15,13 +15,13 @@
 	font-style: normal;
 	font-weight: normal;
 	src:
-		url('/assets/fonts/hkgrotesk-semibold-webfont.woff2') format('woff2'),
-		url('/assets/fonts/hkgrotesk-semibold-webfont.woff') format('woff');
+		url('https://static.iis.se/internetstiftelsen/fonts/hkgrotesk-semibold-webfont.woff2') format('woff2'),
+		url('https://static.iis.se/internetstiftelsen/fonts/hkgrotesk-semibold-webfont.woff') format('woff');
 }
 
 @font-face {
 	font-family: 'Roboto Mono Regular';
 	font-style: normal;
 	font-weight: normal;
-	src: url('/assets/fonts/RobotoMono-Regular.ttf') format('truetype');
+	src: url('https://static.iis.se/internetstiftelsen/fonts/RobotoMono-Regular.ttf') format('truetype');
 }
