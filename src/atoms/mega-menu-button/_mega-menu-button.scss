@@ -32,10 +32,10 @@
 
 	&:hover,
 	&:focus {
-		color: $color-peacock;
+		color: $color-ruby;
 
 		svg {
-			fill: $color-peacock;
+			fill: currentColor;
 		}
 	}
 }

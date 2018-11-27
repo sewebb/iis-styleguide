@@ -6,7 +6,7 @@
 	@include bp-up(md) {
 		display: flex;
 		align-items: center;
-		height: 100px;
+		height: 100%;
 
 		@include e(list) {
 			display: flex;
