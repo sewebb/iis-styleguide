@@ -1,2 +1,2 @@
 require('./utilities/tab-highlighting/tab-highlighting');
-require('./components/grid-toggle/grid-toggle');
+require('./atoms/grid-toggle/grid-toggle');
