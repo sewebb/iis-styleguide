@@ -2,6 +2,7 @@
 	"name": "iis-styleguide",
 	"private": true,
 	"version": "0.0.1",
+	"main": "src/",
 	"ports": {
 		"fractal": "3000"
 	},
