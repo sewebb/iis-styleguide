@@ -1,6 +1,6 @@
 @charset 'UTF-8';
 
-@include organism(card) {
+@include molecule(card) {
 	display: flex;
 	flex-direction: column;
 

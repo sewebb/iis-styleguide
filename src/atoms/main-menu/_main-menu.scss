@@ -1,0 +1,32 @@
+@charset 'UTF-8';
+
+@include atom(main-menu) {
+	display: flex;
+	align-items: center;
+	height: 100px;
+
+	@include e(list) {
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		@include e(link) {
+			padding: rhythm(2);
+			color: $color-cyberspace;
+			font-size: rem(20px);
+			text-decoration: none;
+
+			&:focus,
+			&:hover {
+				border-bottom: 1px solid currentColor;
+			}
+
+			&.is-current {
+				font-family: $font-family-headings;
+			}
+		}
+	}
+}

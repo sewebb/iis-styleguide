@@ -1,0 +1,9 @@
+<nav class="a-main-menu">
+	<ul class="a-main-menu__list">
+		{{#each item}}
+		<li>
+			<a href="{{url}}" class="a-main-menu__list__link{{#if is_current}} is-current{{/if}}">{{text}}</a>
+		</li>
+		{{/each}}
+	</ul>
+</nav>
