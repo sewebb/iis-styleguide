@@ -1,31 +1,35 @@
 @charset 'UTF-8';
 
 @include atom(main-menu) {
-	display: flex;
-	align-items: center;
-	height: 100px;
+	display: none;
 
-	@include e(list) {
+	@include bp-up(md) {
 		display: flex;
-		justify-content: flex-end;
-		width: 100%;
-		margin: 0;
-		padding: 0;
-		list-style: none;
+		align-items: center;
+		height: 100px;
 
-		@include e(link) {
-			padding: rhythm(2);
-			color: $color-cyberspace;
-			font-size: rem(20px);
-			text-decoration: none;
+		@include e(list) {
+			display: flex;
+			justify-content: flex-end;
+			width: 100%;
+			margin: 0;
+			padding: 0;
+			list-style: none;
 
-			&:focus,
-			&:hover {
-				border-bottom: 1px solid currentColor;
-			}
+			@include e(link) {
+				padding: rhythm(2);
+				color: $color-cyberspace;
+				font-size: rem(20px);
+				text-decoration: none;
 
-			&.is-current {
-				font-family: $font-family-headings;
+				&:focus,
+				&:hover {
+					border-bottom: 1px solid currentColor;
+				}
+
+				&.is-current {
+					font-family: $font-family-headings;
+				}
 			}
 		}
 	}

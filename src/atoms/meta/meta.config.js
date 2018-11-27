@@ -2,6 +2,6 @@ module.exports = {
 	status: 'wip',
 
 	context: {
-		time: '2018-11-26'
+		text: '2018-11-26'
 	}
 }

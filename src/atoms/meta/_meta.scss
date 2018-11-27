@@ -1,12 +1,15 @@
 @charset 'UTF-8';
 
-@include atom(time) {
+@include atom(meta) {
 
 	@include plumber(
+		$font-size: 1.7,
 		$baseline: $mono-baseline,
 		$leading-bottom: 0
 	);
 
 	display: block;
+	color: $color-cyberspace;
 	font-family: $font-family-mono;
+	text-decoration: none;
 }

@@ -2,11 +2,59 @@
 
 @include molecule(card) {
 	display: flex;
+	position: relative;
 	flex-direction: column;
 
 	@include e(image) {
 		display: block;
-		margin-bottom: rhythm(1);
+		margin-bottom: rhythm(2);
 		border-radius: $border-radius;
+	}
+
+	@include e(link) {
+		color: $color-cyberspace;
+		text-decoration: none;
+
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0,;
+			bottom: 0;
+			left: 0;
+			cursor: pointer;
+		}
+	}
+
+	@include e(heading-link) {
+		position: relative;
+		z-index: 2;
+		text-decoration: none;
+
+		@include e(heading) {
+			color: $color-cyberspace;
+			text-decoration: underline;
+		}
+	}
+
+	@include m(padded) {
+		background-color: $color-snow;
+
+		@include e(padded) {
+			padding: 0 rhythm(4);
+			border-top-left-radius: $border-radius;
+			border-top-right-radius: $border-radius;
+		}
+
+		@include e(image) {
+			border-bottom-right-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+	}
+
+	@include e(bottom) {
+		margin-top: rhythm(1);
+		padding-bottom: rhythm(4);
 	}
 }
