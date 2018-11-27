@@ -7,7 +7,7 @@
 	&-gap-x { grid-column-gap: $grid-gutter-width; }
 
 	&-cols {
-		@for $i from 2 through 6 {
+		@for $i from 2 through $grid-columns {
 			&-#{$i} { grid-template-columns: repeat($i, 1fr); }
 		}
 
@@ -25,5 +25,10 @@
 		}
 
 		&-dense { grid-auto-flow: column dense; }
+	}
+	
+	@for $i from 2 through $grid-columns {
+		&-col-start-#{$i} { grid-column-start: $i; }
+		&-col-span-#{$i} { grid-column-end: span $i; }
 	}
 }
