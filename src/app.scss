@@ -3,24 +3,24 @@
 // Base
 @import 'globals';
 
+// Configurations
+@import 'configurations/grid/grid';
+@import 'configurations/colors/colors';
+@import 'configurations/colors/colors-functions';
+@import 'configurations/colors/text-colors';
+@import 'configurations/colors/background-colors';
+@import 'configurations/typography/typography';
+
 // Atoms
+@import 'atoms/skip/skip';
 @import 'atoms/meta/meta';
 @import 'atoms/tag/tag';
 @import 'atoms/logotype/logotype';
 @import 'atoms/mega-menu-button/mega-menu-button';
 @import 'atoms/main-menu/main-menu';
-
-// Components
-@import 'components/grid/grid';
-@import 'components/grid-toggle/grid-toggle';
-@import 'components/button/button';
-@import 'components/colors/colors';
-@import 'components/colors/colors-functions';
-@import 'components/colors/text-colors';
-@import 'components/colors/background-colors';
-@import 'components/typography/typography';
-@import 'components/paging/paging';
-@import 'components/skip/skip';
+@import 'atoms/button/button';
+@import 'atoms/paging/paging';
+@import 'atoms/grid-toggle/grid-toggle';
 
 // Molecules
 @import 'molecules/breadcrumb/breadcrumb';
