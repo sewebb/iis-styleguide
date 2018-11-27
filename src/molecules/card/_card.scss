@@ -13,7 +13,7 @@
 
 	@include e(link) {
 		color: $color-cyberspace;
-		text-decoration: none;
+		text-decoration: underline;
 
 		&::after {
 			content: '';
@@ -25,36 +25,31 @@
 			left: 0;
 			cursor: pointer;
 		}
-	}
 
-	@include e(heading-link) {
-		position: relative;
-		z-index: 2;
-		text-decoration: none;
-
-		@include e(heading) {
-			color: $color-cyberspace;
-			text-decoration: underline;
+		&:hover,
+		&:focus {
+			color: $color-ruby;
 		}
 	}
 
 	@include m(padded) {
+		border-top-left-radius: $border-radius;
+		border-top-right-radius: $border-radius;
 		background-color: $color-snow;
-
-		@include e(padded) {
-			padding: 0 rhythm(4);
-			border-top-left-radius: $border-radius;
-			border-top-right-radius: $border-radius;
-		}
 
 		@include e(image) {
 			border-bottom-right-radius: 0;
 			border-bottom-left-radius: 0;
 		}
+
+		@include e(content) {
+			padding-right: rhythm(4);
+			padding-left: rhythm(4);
+		}
 	}
 
 	@include e(bottom) {
-		margin-top: rhythm(1);
+		margin-top: rhythm(2);
 		padding-bottom: rhythm(4);
 	}
 }

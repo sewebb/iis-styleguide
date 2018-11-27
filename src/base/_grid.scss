@@ -26,7 +26,7 @@
 
 		&-dense { grid-auto-flow: column dense; }
 	}
-	
+
 	@for $i from 2 through $grid-columns {
 		&-col-start-#{$i} { grid-column-start: $i; }
 		&-col-span-#{$i} { grid-column-end: span $i; }
