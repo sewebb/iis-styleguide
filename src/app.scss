@@ -5,6 +5,7 @@
 
 // Configurations
 @import 'configurations/grid/grid';
+@import 'configurations/spacing';
 @import 'configurations/colors/colors';
 @import 'configurations/colors/colors-functions';
 @import 'configurations/colors/text-colors';
@@ -24,6 +25,7 @@
 
 // Molecules
 @import 'molecules/breadcrumb/breadcrumb';
-@import 'molecules/card/card'
+@import 'molecules/card/card';
 
 // Organisms
+@import 'organisms/header/header';

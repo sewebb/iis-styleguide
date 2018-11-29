@@ -1,0 +1,39 @@
+@charset 'UTF-8';
+
+@include organism(header) {
+	border-bottom: 1px solid $color-ash;
+
+	@include e(logo-link) {
+		display: flex;
+		align-items: center;
+		height: 100%;
+	}
+
+	@include e(logo-mobile) {
+		@include b(logotype) {
+			width: 100%;
+			max-width: rhythm(25);
+			height: rhythm(6);
+		}
+	}
+
+	@include e(logo-desktop) {
+		display: none;
+	}
+
+	@include bp-up(md) {
+		@include e(logo-mobile) {
+			display: none;
+		}
+
+		@include e(logo-desktop) {
+			display: block;
+
+			@include b(logotype) {
+				width: 100%;
+				max-width: rhythm(20);
+				height: rhythm(12);
+			}
+		}
+	}
+}

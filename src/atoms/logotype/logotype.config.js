@@ -12,7 +12,7 @@ for (let i = 0; i < sprite.length; i++) {
 }
 
 module.exports = {
-	status: 'wip',
+	status: 'ready',
 	title: 'Logotype',
 
 	collated: true,

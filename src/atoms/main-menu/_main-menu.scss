@@ -28,6 +28,7 @@
 				}
 
 				&.is-current {
+					border-bottom: 1px solid currentColor;
 					font-family: $font-family-headings;
 				}
 			}
