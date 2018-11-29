@@ -1,11 +1,22 @@
 # Grid system
 
+## Breakpoints
+* <code>xs: 0</code> < 576px
+* <code>sm: 576px</code> ≥ 576px
+* <code>md: 769px</code> ≥ 769px
+* <code>lg: 961px</code> ≥ 961px
+* <code>xl: 1200px</code> ≥ 1200px
+* <code>xxl: 1400px</code> ≥ 1400px
+
 ## Complete list of available classes
 
 ### Basic grid classes
 * .wrapper
 * .row
 * .grid
+* .grid-{column}
+* .grid-{breakpoint}-{column}
+* .grid-auto
 
 ## Optional classes
 
@@ -65,3 +76,7 @@
 	margin-top: auto !important;
 	margin-bottom: auto !important;
 }
+
+### Offset classes
+* .offset-{columns};
+* .offset-{breakpoint-{columns};
