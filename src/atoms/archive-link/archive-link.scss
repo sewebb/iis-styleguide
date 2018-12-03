@@ -1,0 +1,50 @@
+@charset 'UTF-8';
+
+/// @group Links
+@include b(archive-link-wrapper) {
+	padding: rhythm(2) 0;
+	border-bottom: 1px solid $color-cyberspace;
+}
+@include atom(archive-link) {
+	display: inline-flex;
+	position: relative;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: center;
+	border: 0;
+	color: currentColor;
+	font-family: $font-family-headings;
+	text-decoration: none;
+	hyphens: auto;
+
+	@include e(text) {
+		position: relative;
+		top: -#{rhythm(0.2)};
+		color: $color-cyberspace;
+	}
+
+	@include m(icon) {
+		justify-content: space-between;
+		max-width: rhythm(50);
+		padding-right: 50px;
+		text-align: left;
+	}
+
+	@include e(icon) {
+		position: absolute;
+		z-index: 1;
+		top: 50%;
+		right: rhythm(1);
+		width: rhythm(4);
+		height: rhythm(4);
+		margin-top: -#{rhythm(2)};
+		transition: fill 100ms linear;
+		fill: $color-cyberspace;
+		pointer-events: none;
+	}
+
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+}

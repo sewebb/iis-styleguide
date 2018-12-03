@@ -80,5 +80,10 @@
 				font-weight: 400;
 			}
 		}
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
 	}
 }
