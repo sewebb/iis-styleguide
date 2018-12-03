@@ -1,8 +1,9 @@
-<div class="m-card{{#if is_padded}} m-card--padded{{/if}}">
+<div class="m-card{{#if is_padded}} m-card--padded{{/if}}{{#if is_wide}} m-card--wide{{/if}}">
 	<img src="/assets/images/card.png" class="m-card__image" alt="{{alt}}">
 	<div class="m-card__content">
 		{{> @meta text="2018-10-05" }}
 		<a href="{{url}}" class="m-card__link"><h2 class="m-card__heading-link__heading">{{title}}</h2></a>
+		{{#if exerpt}}<p class="m-card__text">{{exerpt}}</p>{{/if}}
 		<div class="m-card__bottom">
 			{{> @tag text="Utbildning" href="#" }}
 			{{> @tag text="goto10" href="#" }}

@@ -33,6 +33,10 @@
 		}
 	}
 
+	@include e(text) {
+		display: none;
+	}
+
 	@include m(padded) {
 		background-color: $color-snow;
 
@@ -50,5 +54,30 @@
 	@include e(bottom) {
 		margin-top: rhythm(2);
 		padding-bottom: rhythm(4);
+	}
+
+	@include bp-up(md) {
+		@include m(wide) {
+			flex-direction: row;
+
+			@include e(content) {
+				display: flex;
+				flex-direction: column;
+				justify-content: flex-end;
+				padding-top: rhythm(2);
+			}
+
+			@include e(image) {
+				height: 100%;
+			}
+
+			@include e(text) {
+				display: block;
+			}
+
+			@include e(bottom) {
+				margin-top: 0;
+			}
+		}
 	}
 }
