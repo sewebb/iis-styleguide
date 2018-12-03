@@ -26,7 +26,7 @@
 	@include m(icon) {
 		justify-content: space-between;
 		max-width: rhythm(50);
-		padding-right: 50px;
+		padding-right: rhythm(5);
 		text-align: left;
 	}
 
