@@ -2,17 +2,19 @@
 
 @include molecule(teaser) {
 	position: relative;
-	height: 0;
+	height: 100%;
 	padding-bottom: calc(484 / 387 * 100%); // 4:5 ratio
+	overflow: hidden;
+	border-radius: $border-radius;
 
 	@include e(image) {
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: 100%;
-		height: auto;
+		width: auto;
+		max-width: none;
+		height: 100%;
 		transition: opacity 0.25s ease-out;
-		border-radius: $border-radius;
 	}
 
 	@include e(caption) {

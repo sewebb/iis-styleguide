@@ -1,0 +1,47 @@
+@charset 'UTF-8';
+
+@include molecule(teaser-news) {
+	height: 100%;
+	padding: rhythm(2);
+	border-radius: $border-radius;
+	background-color: $color-snow;
+
+	@include bp-up(md) {
+		padding: rhythm(2) rhythm(4);
+	}
+
+	@include e(list) {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	@include e(item) {
+		position: relative;
+
+		&:not(:last-child) {
+			margin-bottom: rhythm(3);
+		}
+	}
+
+	@include e(link) {
+		color: currentcolor;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			color: $color-ruby;
+			text-decoration: underline;
+		}
+
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+	}
+}

@@ -4,15 +4,15 @@
 	display: flex;
 	position: relative;
 	align-items: center;
+	width: 100%;
 	margin: 0;
-	padding: 0;
+	padding: rhythm(1) 0;
 	list-style: none;
 
 	@include e(item) {
 		display: none;
 		align-items: stretch;
 		align-self: stretch;
-		background-color: $color-snow;
 
 		@include bp-up(md) {
 			display: flex;

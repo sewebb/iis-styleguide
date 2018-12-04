@@ -1,0 +1,16 @@
+<div class="m-teaser-news">
+	<p class="alpha">{{title}}</p>
+	<ul class="m-teaser-news__list">
+		{{#each items}}
+		<li class="m-teaser-news__item">
+			{{> @meta text=time}}
+			<a href="#" class="m-teaser-news__link">
+				<h2>{{heading}}</h2>
+			</a>
+			{{#each tags}}
+				{{> @tag text=text url=url }}
+			{{/each}}
+		</li>
+		{{/each}}
+	</ul>
+</div>

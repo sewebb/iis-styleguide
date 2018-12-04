@@ -4,11 +4,11 @@
 	display: flex;
 	position: relative;
 	flex-direction: column;
+	height: 100%;
 	border-radius: $border-radius;
 
 	@include e(image) {
 		display: block;
-		margin-bottom: rhythm(2);
 		border-radius: $border-radius;
 	}
 
@@ -33,6 +33,11 @@
 		}
 	}
 
+	@include e(content) {
+		margin-top: rhythm(2);
+		padding-bottom: rhythm(4);
+	}
+
 	@include e(text) {
 		display: none;
 	}
@@ -55,12 +60,14 @@
 
 	@include e(bottom) {
 		margin-top: rhythm(2);
-		padding-bottom: rhythm(4);
 	}
 
-	@include bp-up(lg) {
-		@include m(wide) {
+	@include m(wide) {
+		height: auto;
+
+		@include bp-up(lg) {
 			flex-direction: row;
+			height: auto;
 
 			@include e(content) {
 				display: flex;
@@ -73,7 +80,8 @@
 				max-width: 65%;
 				height: 100%;
 				margin-bottom: 0;
-				border-bottom-right-radius: $border-radius;
+				border-top-left-radius: $border-radius;
+				border-top-right-radius: 0;
 				border-bottom-left-radius: $border-radius;
 			}
 
