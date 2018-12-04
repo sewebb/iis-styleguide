@@ -2,6 +2,7 @@
 
 @include organism(header) {
 	border-bottom: 1px solid $color-ash;
+	background-color: $color-snow;
 
 	@include e(logo-link) {
 		display: flex;

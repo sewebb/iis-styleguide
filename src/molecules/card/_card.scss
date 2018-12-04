@@ -41,6 +41,8 @@
 		background-color: $color-snow;
 
 		@include e(image) {
+			width: 100%;
+			max-width: 100%;
 			border-bottom-right-radius: 0;
 			border-bottom-left-radius: 0;
 		}
@@ -56,7 +58,7 @@
 		padding-bottom: rhythm(4);
 	}
 
-	@include bp-up(md) {
+	@include bp-up(lg) {
 		@include m(wide) {
 			flex-direction: row;
 
@@ -68,7 +70,11 @@
 			}
 
 			@include e(image) {
+				max-width: 65%;
 				height: 100%;
+				margin-bottom: 0;
+				border-bottom-right-radius: $border-radius;
+				border-bottom-left-radius: $border-radius;
 			}
 
 			@include e(text) {

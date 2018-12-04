@@ -17,9 +17,11 @@
 @import 'vendor/grid/flex';
 @import 'vendor/grid/spacing';
 
+// Theme
+@import 'theme/theme';
+
 // Base
 @import 'base/normalize';
-@import 'base/base';
 @import 'base/fonts/fonts';
 
 // Utilities

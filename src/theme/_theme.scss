@@ -1,0 +1,14 @@
+@charset 'UTF-8';
+
+@import '../configurations/colors/colors';
+
+$namespace: '';
+
+// Theme palette
+$theme-palette: (
+	background: $color-ash
+) !default;
+
+@function theme_palette($key: 'background') {
+	@return map-get($theme-palette, $key);
+}

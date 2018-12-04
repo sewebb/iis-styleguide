@@ -38,9 +38,7 @@
 		width: rhythm(4);
 		height: rhythm(4);
 		margin-top: -#{rhythm(2)};
-		transition: fill 100ms linear;
-		fill: $color-cyberspace;
-		pointer-events: none;
+		fill: currentColor;
 	}
 
 	&:hover,
