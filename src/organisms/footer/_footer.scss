@@ -1,0 +1,92 @@
+@charset 'UTF-8';
+
+@include organism(footer) {
+	@include b(logotype) {
+		max-width: 100%;
+		padding: 0 rhythm(2);
+
+		@include bp-up(lg) {
+			padding: rhythm(2);
+		}
+
+		@include m(padded) {
+			max-width: 80%;
+		}
+	}
+
+	@include e(info) {
+		background-color: $color-cyberspace;
+		color: $color-snow;
+
+		@include e(inner) {
+			padding: rhythm(3) rhythm(4);
+
+			@include bp-up(md) {
+				padding: rhythm(4) rhythm(5);
+
+				p {
+					max-width: none;
+				}
+			}
+
+			@include bp-down(md) {
+				p {
+					max-width: 70%;
+				}
+			}
+
+			@include bp-down(sm) {
+				p {
+					max-width: none;
+				}
+			}
+		}
+
+		a {
+			padding: 0;
+			background-color: transparent;
+			color: $color-jade;
+		}
+	}
+
+	@include e(logotypes) {
+		background-color: $color-snow;
+	}
+
+	@include e(grid-row) {
+		height: 100%;
+		overflow: hidden;
+
+		@include e(item) {
+			display: flex;
+			justify-content: center;
+			border-bottom: 1px solid $color-ash;
+			border-left: 1px solid $color-ash;
+		}
+	}
+
+	@include e(contact) {
+
+		@include bp-up(xxl) {
+			padding-right: rhythm(1);
+
+			& + & {
+				padding-right: 0;
+				padding-left: rhythm(1);
+			}
+		}
+
+		ul {
+			margin-bottom: rhythm(2);
+		}
+
+		li {
+			font-size: 80%;
+		}
+	}
+
+	@include e(logo-link) {
+		display: flex;
+		justify-content: center;
+	}
+}

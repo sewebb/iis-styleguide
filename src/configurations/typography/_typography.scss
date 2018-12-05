@@ -46,11 +46,8 @@ p > a {
 	border-radius: $border-radius;
 	background-color: $color-ruby-light;
 	color: inherit;
+	color: $color-cyberspace;
 	text-decoration: none;
-
-	&:visited {
-		color: inherit;
-	}
 }
 
 p,

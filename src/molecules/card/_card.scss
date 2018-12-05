@@ -14,7 +14,7 @@
 
 	@include e(link) {
 		color: $color-cyberspace;
-		text-decoration: underline;
+		text-decoration: none;
 
 		&::after {
 			content: '';
@@ -30,6 +30,7 @@
 		&:hover,
 		&:focus {
 			color: $color-ruby;
+			text-decoration: underline;
 		}
 	}
 
