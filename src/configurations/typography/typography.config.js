@@ -12,5 +12,6 @@ module.exports = {
 		blockquote: 'Välkommen till Internetmuseum!  Här tar vi dig med på en resa genom den svenska internethistorien.',
 		quotee: 'Frank Zappa',
 		link: 'lorem non turpis condimentum iaculis',
+		strong: 'Den här texten är bold'
 	}
 }

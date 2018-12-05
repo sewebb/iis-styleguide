@@ -153,3 +153,9 @@ blockquote {
 		margin-top: rhythm(1.7); // Compensate for default minus margin
 	}
 }
+
+b,
+strong {
+	font-family: $font-family-headings;
+	font-weight: normal;
+}
