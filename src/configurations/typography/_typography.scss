@@ -50,6 +50,11 @@ aside li > a {
 	color: inherit;
 	color: $color-cyberspace;
 	text-decoration: none;
+
+	&:hover,
+	&:focus {
+		background-color: $color-ocean-light;
+	}
 }
 
 p,
