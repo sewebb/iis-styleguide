@@ -10,7 +10,7 @@
 		background-color: $color-ash;
 
 		&::after {
-			background-image: linear-gradient(to right top, $color-snow 0%, $color-snow 50%, transparent 50.1%);
+			background-image: linear-gradient(to left top, $color-snow 0%, $color-snow 50%, transparent 50.1%);
 		}
 	}
 
