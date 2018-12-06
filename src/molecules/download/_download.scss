@@ -1,0 +1,55 @@
+@charset 'UTF-8';
+
+@include molecule(download) {
+	position: relative;
+	padding: rhythm(2) rhythm(3);
+	border: 1px solid $color-peacock;
+	border-radius: $border-radius;
+	background-color: $color-snow;
+
+	@include e(link) {
+		display: block;
+		margin-bottom: rhythm(1);
+		color: currentcolor;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			color: $color-peacock;
+			text-decoration: underline;
+		}
+
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			z-index: 1;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+	}
+
+	@include e(icon-pdf) {
+		width: rhythm(8);
+	}
+
+	@include e(icon-download) {
+		display: flex;
+		width: rhythm(3.5);
+		height: rhythm(3.5);
+		margin-left: rhythm(1);
+		border-radius: $border-radius;
+		background-color: $color-peacock;
+	}
+
+	@include e(text) {
+		white-space: nowrap;
+	}
+
+	@include b(icon) {
+		width: 100%;
+		height: 100%;
+	}
+}
