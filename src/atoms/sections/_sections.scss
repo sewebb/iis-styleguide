@@ -34,6 +34,12 @@
 		min-width: 100%;
 		height: rhythm(10);
 	}
+
+	&:last-of-type {
+		&::after {
+			display: none;
+		}
+	}
 }
 
 @include atom(section) {
