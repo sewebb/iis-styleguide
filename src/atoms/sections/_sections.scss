@@ -2,7 +2,6 @@
 
 @include atom(section) {
 	position: relative;
-	height: 50vh;
 
 	@include m(grey) {
 		background-color: $color-ash;
