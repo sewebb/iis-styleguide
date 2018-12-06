@@ -1,7 +1,10 @@
 @charset 'UTF-8';
 
 @include atom(section) {
+	display: flex;
 	position: relative;
+	flex-direction: column;
+	justify-content: space-between;
 
 	@include m(grey) {
 		background-color: $color-ash;
@@ -19,13 +22,16 @@
 		}
 	}
 
+	@include b(wrapper) {
+		position: relative;
+		z-index: 1;
+	}
+
 	&::after {
 		content: '';
 		display: block;
-		position: absolute;
-		bottom: 0;
-		left: 0;
-		width: 100%;
+		flex-shrink: 0;
+		min-width: 100%;
 		height: rhythm(10);
 	}
 }
