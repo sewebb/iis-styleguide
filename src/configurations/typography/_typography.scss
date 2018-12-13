@@ -24,7 +24,7 @@ h1,
 h2,
 .beta {
 	@include plumber(
-		$font-size: 2.5,
+		$font-size: 2,
 		$line-height: 3,
 		$leading-bottom: 2,
 		$baseline: $headings-baseline
@@ -34,7 +34,7 @@ h2,
 
 	@include bp-up(sm) {
 		@include plumber(
-			$font-size: 3,
+			$font-size: 2.5,
 			$line-height: 4,
 			$leading-bottom: 1
 		);
@@ -60,7 +60,14 @@ p,
 ul,
 ol,
 dl {
-	@include plumber;
+	@include plumber(
+		$leading-bottom: 3
+	);
+
+	+ h2,
+	+ .beta {
+		margin-top: rhythm(5);
+	}
 }
 
 .supersize {
@@ -84,9 +91,12 @@ dl {
 }
 
 .preamble {
+	letter-spacing: rem(-0.47px);
+
 	@include plumber(
 		$font-size: 3,
-		$line-height: 4
+		$line-height: 4,
+		$leading-bottom: 5
 	);
 }
 
