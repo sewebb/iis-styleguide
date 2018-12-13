@@ -1,6 +1,6 @@
 @charset 'UTF-8';
 
-@include atom(section) {
+@include organism(section) {
 	display: flex;
 	position: relative;
 	flex-direction: column;
@@ -10,7 +10,7 @@
 		background-color: $color-ash;
 
 		&::after {
-			background-image: linear-gradient(to left top, $color-snow 0%, $color-snow 50%, transparent 50.1%);
+			background-image: linear-gradient(to right top, $color-snow 0%, $color-snow 50%, transparent 50.1%);
 		}
 	}
 
@@ -18,7 +18,7 @@
 		background-color: $color-snow;
 
 		&::after {
-			background-image: linear-gradient(to right top, $color-ash 0%, $color-ash 50%, transparent 50.1%);
+			background-image: linear-gradient(to left top, $color-ash 0%, $color-ash 50%, transparent 50.1%);
 		}
 	}
 
@@ -42,7 +42,7 @@
 	}
 }
 
-@include atom(section) {
+@include organism(section) {
 	@include bp-up(md) {
 		&::after {
 			height: rhythm(15);

@@ -1,0 +1,70 @@
+@charset 'UTF-8';
+
+@include organism(hero) {
+	position: relative;
+	padding-bottom: 100%;
+
+	@include bp-up(sm) {
+		height: 0;
+		padding-bottom: 56.25%; /* 16:9 */
+	}
+
+	@include e(image) {
+		display: none;
+
+		@include bp-up(sm) {
+			display: block;
+			position: absolute;
+			z-index: 2;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+		}
+	}
+
+	@include e(tiny) {
+		display: block;
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		left: 0;
+		width: 100%;
+		height: 100%;
+	}
+
+	@include e(caption) {
+		display: flex;
+		position: absolute;
+		z-index: 3;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		align-items: flex-end;
+		padding: rhythm(4);
+		background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba($color-black, 0) 55%, rgba($color-black, 1) 100%);
+		text-shadow: 0 0 rhythm(2) rgba($color-black, 0.5);
+
+		@include bp-up(lg) {
+			padding: rhythm(8);
+		}
+	}
+
+	@include e(link) {
+		color: $color-snow;
+		text-decoration: none;
+
+		@include bp-up(md) {
+			max-width: 80%;
+		}
+
+		@include bp-up(lg) {
+			max-width: 65%;
+		}
+
+		@include bp-up(xl) {
+			max-width: 50%;
+		}
+	}
+}
