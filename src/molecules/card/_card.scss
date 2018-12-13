@@ -6,7 +6,6 @@
 	flex-direction: column;
 	height: 100%;
 	border-radius: $border-radius;
-	box-shadow: 0 rhythm(8) rhythm(12) rgba($color-cyberspace, 0.2);
 
 	@include e(image) {
 		display: block;
@@ -42,6 +41,10 @@
 
 	@include e(text) {
 		display: none;
+	}
+
+	@include m(shadow) {
+		box-shadow: 0 rhythm(8) rhythm(12) rgba($color-cyberspace, 0.2);
 	}
 
 	@include m(padded) {
