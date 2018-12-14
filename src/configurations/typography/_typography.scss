@@ -41,9 +41,8 @@ h2,
 	}
 }
 
-[role='main'] p > a,
-[role='main'] li > a,
-aside li > a {
+p > a,
+li > a {
 	padding: rhythm(0) rhythm(0.5);
 	border-radius: $border-radius;
 	background-color: $color-ruby-light;
