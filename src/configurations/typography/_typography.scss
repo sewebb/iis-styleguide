@@ -98,13 +98,14 @@ dl {
 }
 
 .preamble {
-	letter-spacing: rem(-0.47px);
 
 	@include plumber(
 		$font-size: 3,
 		$line-height: 4,
 		$leading-bottom: 5
 	);
+
+	letter-spacing: rem(-0.47px);
 }
 
 .small,
