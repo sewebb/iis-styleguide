@@ -25,6 +25,8 @@
 	}
 
 	@include e(link) {
+		@extend %normalize-links;
+
 		color: currentcolor;
 		text-decoration: none;
 

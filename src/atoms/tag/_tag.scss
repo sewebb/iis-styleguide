@@ -2,6 +2,8 @@
 
 /// @group Tags
 @include atom(tag) {
+	@extend %normalize-links;
+
 	display: inline-block;
 	position: relative;
 	z-index: 2;

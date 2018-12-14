@@ -18,6 +18,12 @@
 		background-color: $color-cyberspace;
 		color: $color-snow;
 
+		a {
+			@extend %normalize-links;
+
+			color: $color-jade;
+		}
+
 		@include e(inner) {
 			padding: rhythm(3) rhythm(4);
 
@@ -41,12 +47,6 @@
 				}
 			}
 		}
-
-		a {
-			padding: 0;
-			background-color: transparent;
-			color: $color-jade;
-		}
 	}
 
 	@include e(logotypes) {
@@ -66,6 +66,13 @@
 	}
 
 	@include e(contact) {
+		ul {
+			margin-bottom: rhythm(2);
+		}
+
+		li {
+			font-size: 80%;
+		}
 
 		@include bp-up(xxl) {
 			padding-right: rhythm(1);
@@ -74,14 +81,6 @@
 				padding-right: 0;
 				padding-left: rhythm(1);
 			}
-		}
-
-		ul {
-			margin-bottom: rhythm(2);
-		}
-
-		li {
-			font-size: 80%;
 		}
 	}
 

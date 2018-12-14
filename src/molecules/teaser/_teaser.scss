@@ -7,6 +7,12 @@
 	overflow: hidden;
 	border-radius: $border-radius;
 
+	&:hover {
+		img {
+			opacity: 0.8;
+		}
+	}
+
 	@include e(image) {
 		position: absolute;
 		top: 0;
@@ -68,12 +74,6 @@
 			height: rhythm(4);
 			transform: translateY(rhythm(1));
 			fill: currentColor;
-		}
-	}
-
-	&:hover {
-		img {
-			opacity: 0.8;
 		}
 	}
 }

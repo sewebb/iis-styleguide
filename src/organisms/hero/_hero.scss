@@ -58,6 +58,11 @@
 		color: $color-snow;
 		text-decoration: none;
 
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+
 		@include bp-up(md) {
 			max-width: 80%;
 		}
@@ -78,11 +83,6 @@
 				bottom: 0;
 				left: 0;
 				cursor: pointer;
-			}
-
-			&:hover,
-			&:focus {
-				text-decoration: underline;
 			}
 		}
 	}

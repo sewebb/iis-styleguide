@@ -3,6 +3,12 @@
 @include atom(main-menu) {
 	display: none;
 
+	@include e(list) {
+		@include e(link) {
+			@extend %normalize-links;
+		}
+	}
+
 	@include bp-up(md) {
 		display: flex;
 		align-items: center;
@@ -18,7 +24,6 @@
 
 			@include e(link) {
 				padding: rhythm(2);
-				color: $color-cyberspace;
 				font-size: rem(20px);
 				text-decoration: none;
 
