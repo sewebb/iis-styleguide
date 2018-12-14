@@ -5,6 +5,8 @@
 @include b(paging) {
 	display: inline-flex;
 	position: relative;
+	align-items: center;
+	justify-content: center;
 	width: rhythm(6);
 	height: rhythm(6);
 	border: 1px solid $color-ash;
@@ -15,5 +17,10 @@
 	&:focus,
 	&:hover {
 		background-color: $color-ocean-light;
+	}
+
+	@include e(icon) {
+		width: rhythm(2);
+		height: rhythm(2);
 	}
 }
