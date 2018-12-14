@@ -6,6 +6,20 @@
 	flex-direction: column;
 	justify-content: space-between;
 
+	&::after {
+		content: '';
+		display: block;
+		flex-shrink: 0;
+		min-width: 100%;
+		height: rhythm(10);
+	}
+
+	&:last-of-type {
+		&::after {
+			display: none;
+		}
+	}
+
 	@include m(grey) {
 		background-color: $color-ash;
 
@@ -27,22 +41,6 @@
 		z-index: 1;
 	}
 
-	&::after {
-		content: '';
-		display: block;
-		flex-shrink: 0;
-		min-width: 100%;
-		height: rhythm(10);
-	}
-
-	&:last-of-type {
-		&::after {
-			display: none;
-		}
-	}
-}
-
-@include organism(section) {
 	@include bp-up(md) {
 		&::after {
 			height: rhythm(15);
