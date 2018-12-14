@@ -1,81 +1,22 @@
-// @charset 'UTF-8';
-//
-// @include organism(section) {
-// 	display: flex;
-// 	position: relative;
-// 	flex-direction: column;
-// 	justify-content: space-between;
-//
-// 	&::after {
-// 		content: '';
-// 		display: block;
-// 		flex-shrink: 0;
-// 		min-width: 100%;
-// 		height: rhythm(10);
-// 	}
-//
-// 	&:last-of-type {
-// 		&::after {
-// 			display: none;
-// 		}
-// 	}
-//
-// 	@include m(grey) {
-// 		background-color: $color-ash;
-//
-// 		&::after {
-// 			background-image: linear-gradient(to right top, $color-snow 0%, $color-snow 50%, transparent 50.1%);
-// 		}
-// 	}
-//
-// 	@include m(white) {
-// 		background-color: $color-snow;
-//
-// 		&::after {
-// 			background-image: linear-gradient(to left top, $color-ash 0%, $color-ash 50%, transparent 50.1%);
-// 		}
-// 	}
-//
-// 	@include b(wrapper) {
-// 		position: relative;
-// 		z-index: 1;
-// 	}
-//
-// 	@include bp-up(md) {
-// 		&::after {
-// 			height: rhythm(15);
-// 		}
-// 	}
-//
-// 	@include bp-up(lg) {
-// 		&::after {
-// 			height: rhythm(20);
-// 		}
-// 	}
-//
-// 	@include bp-up(xl) {
-// 		&::after {
-// 			height: rhythm(25);
-// 		}
-// 	}
-// }
+@charset 'UTF-8';
+
+$spacing: rhythm(10);
 
 @include organism(section) {
 	position: relative;
-	padding: rhythm(10) 0;
+	padding: $spacing 0;
 
 	@include bp-up(md) {
-		padding: rhythm(15) 0;
+		padding: $spacing * 1.5 0;
 	}
 
 	@include bp-up(lg) {
-		padding: rhythm(20) 0;
+		padding: $spacing * 2 0;
 	}
 
 	@include bp-up(xl) {
-		padding: rhythm(25) 0;
+		padding: $spacing * 2.5 0;
 	}
-
 
 	@include m(white) {
 		background-color: $color-snow;
@@ -87,19 +28,19 @@
 			top: 0;
 			right: 0;
 			left: 0;
-			height: rhythm(10);
+			height: $spacing;
 			background-image: linear-gradient(to right top, #fff 0, #fff 50%, #ededed 50.1%);
 
 			@include bp-up(md) {
-				height: rhythm(15);
+				height: $spacing * 1.5;
 			}
 
 			@include bp-up(lg) {
-				height: rhythm(20);
+				height: $spacing * 2;
 			}
 
 			@include bp-up(xl) {
-				height: rhythm(25);
+				height: $spacing * 2.5;
 			}
 		}
 
@@ -110,19 +51,19 @@
 			right: 0;
 			bottom: 0;
 			left: 0;
-			height: rhythm(10);
+			height: $spacing;
 			background-image: linear-gradient(to left top, #ededed 0, #ededed 50%, #fff 50.1%);
 
 			@include bp-up(md) {
-				height: rhythm(15);
+				height: $spacing * 1.5;
 			}
 
 			@include bp-up(lg) {
-				height: rhythm(20);
+				height: $spacing * 2;
 			}
 
 			@include bp-up(xl) {
-				height: rhythm(25);
+				height: $spacing * 2.5;
 			}
 		}
 	}
