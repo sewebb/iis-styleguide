@@ -17,16 +17,10 @@
 	text-transform: uppercase;
 	-webkit-appearance: none;
 
-	@include e(icon) {
-		width: rhythm(7);
-		height: rhythm(7);
-	}
-
 	&::after {
 		content: attr(data-label);
 		display: block;
 		width: 100%;
-		transform: translateY(-#{rhythm(1)});
 		text-align: center;
 	}
 
@@ -37,5 +31,10 @@
 		svg {
 			fill: currentColor;
 		}
+	}
+
+	@include e(icon) {
+		width: rhythm(4);
+		height: rhythm(4);
 	}
 }

@@ -73,10 +73,10 @@
 		position: absolute;
 		z-index: 1;
 		top: 50%;
-		right: rhythm(1);
-		width: rhythm(4);
-		height: rhythm(4);
-		margin-top: -#{rhythm(2)};
+		right: rhythm(2);
+		width: rhythm(2);
+		height: rhythm(2);
+		margin-top: -#{rhythm(1)};
 		transition: fill 100ms linear;
 		fill: $color-cyberspace;
 		pointer-events: none;

@@ -31,8 +31,8 @@
 		}
 	}
 
-	@include e(icon-pdf) {
-		width: rhythm(8);
+	@include e(icon-file) {
+		width: rhythm(12);
 	}
 
 	@include e(icon-download) {

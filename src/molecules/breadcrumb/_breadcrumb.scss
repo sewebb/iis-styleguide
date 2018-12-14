@@ -11,7 +11,7 @@
 
 	@include e(item) {
 		display: none;
-		align-items: stretch;
+		align-items: center;
 		align-self: stretch;
 
 		&:nth-last-child(2) {
@@ -42,9 +42,10 @@
 	}
 
 	@include b(icon) {
-		width: $icon-size;
-		height: $icon-size;
-		margin: 0 rhythm(0.5);
+		width: $icon-size / 2;
+		height: $icon-size / 2;
+		margin: 0 rhythm(1);
+		transform: translateY(rem(1px));
 
 		&:first-child {
 			margin: 0;
@@ -60,7 +61,6 @@
 
 		max-width: rhythm(30);
 		overflow: hidden;
-		transform: translateY(rhythm(0.3));
 		color: $color-cyberspace;
 		text-decoration: none;
 		text-overflow: ellipsis;
