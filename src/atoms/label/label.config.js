@@ -3,7 +3,7 @@ module.exports = {
 
 	context: {
 		label: 'Namn',
-		foo: 'name',
+		for: 'name',
 		labelClasses: 'is-required'
 	}
 }
