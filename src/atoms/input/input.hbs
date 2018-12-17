@@ -1,0 +1,7 @@
+{{ render '@label' }}
+<input type="{{type}}" id="{{id}}" {{#if value}}value="{{value}}"{{/if}} {{#if required}}required{{/if}} {{#if disabled}}disabled{{/if}} placeholder="{{placeholder}}" autocomplete="{{autocomplete}}" {{#if has_icon}}class="has-icon"{{/if}}>
+{{#if has_icon}}
+<figure class="input-icon">
+	{{> @icon id="search"}}
+</figure>
+{{/if}}

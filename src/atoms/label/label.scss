@@ -1,0 +1,15 @@
+@charset 'UTF-8';
+
+label {
+	display: inline-block;
+	margin-bottom: rhythm(0.5);
+	font-family: $font-family-headings;
+	cursor: pointer;
+
+	&.is-required {
+		&::after {
+			content: '*';
+			color: $color-ruby;
+		}
+	}
+}

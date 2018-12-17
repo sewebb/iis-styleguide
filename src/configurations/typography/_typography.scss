@@ -66,6 +66,11 @@ li > a {
 	}
 }
 
+%disabled {
+	background-color: lighten($color-ash, 4%);
+	cursor: not-allowed;
+}
+
 p,
 ul,
 ol,
