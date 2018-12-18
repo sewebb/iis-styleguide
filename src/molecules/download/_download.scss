@@ -37,6 +37,8 @@
 
 	@include e(icon-download) {
 		display: flex;
+		align-items: center;
+		justify-content: center;
 		width: rhythm(3.5);
 		height: rhythm(3.5);
 		margin-left: rhythm(1);
@@ -51,5 +53,12 @@
 	@include b(icon) {
 		width: 100%;
 		height: 100%;
+	}
+
+	@include e(trigger) {
+		@include b(icon) {
+			width: $icon-size-medium;
+			height: $icon-size-medium;
+		}
 	}
 }
