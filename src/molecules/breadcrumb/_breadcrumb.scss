@@ -48,7 +48,7 @@
 		transform: translateY(rem(1px));
 
 		&:first-child {
-			margin: 0;
+			margin: 0 rhythm(1) 0 0;
 
 			@include bp-up(md) {
 				display: none;
