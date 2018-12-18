@@ -4,66 +4,68 @@ $spacing: rhythm(10);
 
 @include organism(section) {
 	position: relative;
-	padding: $spacing 0;
-
-	@include bp-up(md) {
-		padding: $spacing * 1.5 0;
-	}
-
-	@include bp-up(lg) {
-		padding: $spacing * 2 0;
-	}
-
-	@include bp-up(xl) {
-		padding: $spacing * 2.5 0;
-	}
+	padding: $spacing / 1.5 0;
 
 	@include m(white) {
+		padding: $spacing 0;
 		background-color: $color-snow;
 
-		&::before {
-			content: '';
-			position: absolute;
-			z-index: 1;
-			top: 0;
-			right: 0;
-			left: 0;
-			height: $spacing;
-			background-image: linear-gradient(to right top, #fff 0, #fff 50%, #ededed 50.1%);
-
-			@include bp-up(md) {
-				height: $spacing * 1.5;
-			}
-
-			@include bp-up(lg) {
-				height: $spacing * 2;
-			}
-
-			@include bp-up(xl) {
-				height: $spacing * 2.5;
-			}
-		}
-
+		&::before,
 		&::after {
 			content: '';
 			position: absolute;
 			z-index: 1;
 			right: 0;
-			bottom: 0;
 			left: 0;
 			height: $spacing;
-			background-image: linear-gradient(to left top, #ededed 0, #ededed 50%, #fff 50.1%);
+		}
 
-			@include bp-up(md) {
+		&::before {
+			top: 0;
+			background-image: linear-gradient(to right top, #fff 0, #fff 50%, #ededed 50.1%);
+		}
+
+		&::after {
+			bottom: 0;
+			background-image: linear-gradient(to left top, #ededed 0, #ededed 50%, #fff 50.1%);
+		}
+	}
+
+	@include bp-up(md) {
+		padding: $spacing * 1.25 / 1.5 0;
+
+		@include m('white') {
+			padding: $spacing * 1.25 0;
+
+			&::before,
+			&::after {
+				height: $spacing * 1.25;
+			}
+		}
+	}
+
+	@include bp-up(lg) {
+		padding: $spacing * 1.5 / 1.5 0;
+
+		@include m('white') {
+			padding: $spacing * 1.5 0;
+
+			&::before,
+			&::after {
 				height: $spacing * 1.5;
 			}
+		}
+	}
 
-			@include bp-up(lg) {
+	@include bp-up(xl) {
+		padding: $spacing * 2 / 1.5 0;
+
+		@include m('white') {
+			padding: $spacing * 2 0;
+
+			&::before,
+			&::after {
 				height: $spacing * 2;
-			}
-
-			@include bp-up(xl) {
-				height: $spacing * 2.5;
 			}
 		}
 	}
