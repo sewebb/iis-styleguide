@@ -1,0 +1,17 @@
+@charset 'UTF-8';
+
+.field-group {
+	margin-bottom: rhythm(4);
+
+	&:last-child {
+		margin-bottom: 0;
+	}
+
+	input,
+	textarea,
+	select {
+		+ .button {
+			margin-top: rhythm(1);
+		}
+	}
+}

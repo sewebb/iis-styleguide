@@ -1,6 +1,7 @@
 @charset 'UTF-8';
 
-label {
+label,
+.label-legend {
 	display: inline-block;
 	margin-bottom: rhythm(0.5);
 	font-family: $font-family-headings;

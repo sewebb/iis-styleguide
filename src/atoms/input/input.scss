@@ -7,17 +7,10 @@ input[type='number'],
 input[type='date'],
 input[type='datetime'],
 input[type='time'] {
-	display: block;
-	width: 100%;
-	padding: rhythm(1) rhythm(2);
-	border: 1px solid $color-granit;
-	border-radius: $border-radius;
-	box-shadow: 0 2px 2px inset rgba($color-cyberspace, 0.2);
-	-webkit-appearance: none;
+	@extend %input;
 
 	&:focus {
-		border-color: $color-ocean;
-		box-shadow: 0 0 0 inset rgba($color-cyberspace, 0.2), 0 1px 2px rgba($color-cyberspace, 0.2), 0 0 0 3px $color-ocean-light;
+		@extend %input-focus;
 	}
 
 	&.has-icon {
@@ -36,8 +29,8 @@ input[type='time'] {
 	height: 0;
 
 	> svg {
-		width: $icon-size;
-		height: $icon-size;
-		transform: translateY(-#{rhythm(4)}) translateX(-#{rhythm(2)});
+		width: $icon-size-medium;
+		height: $icon-size-medium;
+		transform: translateY(-#{rhythm(3.7)}) translateX(-#{rhythm(2)});
 	}
 }

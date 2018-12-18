@@ -1,0 +1,21 @@
+@charset 'UTF-8';
+
+select {
+	@extend %input;
+
+	&:focus {
+		@extend %input-focus;
+	}
+
+	&::-ms-expand {
+		display: none;
+	}
+}
+
+@include b(select) {
+	@include m(transparent) {
+		border-color: transparent;
+		background-color: transparent;
+		box-shadow: none;
+	}
+}

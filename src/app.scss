@@ -9,7 +9,9 @@
 @import 'configurations/colors/colors-functions';
 @import 'configurations/colors/text-colors';
 @import 'configurations/colors/background-colors';
+@import 'configurations/extends';
 @import 'configurations/typography/typography';
+@import 'configurations/forms/fields';
 
 // Atoms
 @import 'atoms/skip/skip';
@@ -24,6 +26,10 @@
 @import 'atoms/archive-link/archive-link';
 @import 'atoms/label/label';
 @import 'atoms/input/input';
+@import 'atoms/radiobutton/radiobutton';
+@import 'atoms/checkbox/checkbox';
+@import 'atoms/textarea/textarea';
+@import 'atoms/select/select';
 
 // Molecules
 @import 'molecules/breadcrumb/breadcrumb';
