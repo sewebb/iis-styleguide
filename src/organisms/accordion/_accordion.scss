@@ -1,0 +1,80 @@
+@charset 'UTF-8';
+
+@include organism(accordion) {
+	margin: 0;
+	padding: 0;
+	background-position: top left;
+	list-style: none;
+
+	@include e(header) {
+		display: block;
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		width: 100%;
+		padding: rhythm(2) rhythm(3) rhythm(2) rhythm(2);
+		border: 0;
+		border-bottom: 1px solid $color-granit;
+		background: transparent;
+		background-position: bottom left;
+		text-align: left;
+		-webkit-appearance: none;
+
+		&::after {
+			content: '';
+			display: block;
+			position: relative;
+			right: -10px; // Make sure the icon never touches the text (margin-left does'nt work in older iOS on flex-items)
+			flex: none;
+			width: $icon-size;
+			height: $icon-size;
+			margin-left: auto;
+			transition: transform 0.25s ease-out;
+			background-image: url(../images/icon-arrow-down.svg);
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: $icon-size $icon-size;
+		}
+
+		&[aria-expanded='true'] {
+			border-color: transparent;
+
+			&::after {
+				transform: scaleY(-1);
+			}
+		}
+	}
+
+	@include e(panel) {
+		visibility: visible;
+		max-height: 10000em; // Rediculous height
+		padding: 0;
+		overflow: hidden;
+		transition: visibility 0s ease, max-height 0.25s ease, opacity 0.25s ease;
+		transition-delay: 0s;
+		border-bottom: 1px solid $color-granit;
+		opacity: 1;
+		background-color: $color-snow;
+
+		&[aria-hidden='true'] {
+			visibility: hidden;
+			max-height: 0;
+			transition-delay: 0.25s, 0s, 0s;
+			opacity: 0;
+		}
+
+		// Nested to prevent padding when JS is disabled
+		@include e(content) {
+			padding: rhythm(3);
+
+			:last-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	@include e(title) {
+		margin-top: 0;
+		margin-bottom: 0;
+	}
+}
