@@ -26,14 +26,14 @@
 			position: relative;
 			right: -10px; // Make sure the icon never touches the text (margin-left does'nt work in older iOS on flex-items)
 			flex: none;
-			width: $icon-size;
-			height: $icon-size;
+			width: $icon-size-medium;
+			height: $icon-size-medium;
 			margin-left: auto;
 			transition: transform 0.25s ease-out;
 			background-image: url(../images/icon-arrow-down.svg);
 			background-repeat: no-repeat;
 			background-position: center center;
-			background-size: $icon-size $icon-size;
+			background-size: $icon-size-medium $icon-size-medium;
 		}
 
 		&[aria-expanded='true'] {
