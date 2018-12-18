@@ -48,6 +48,12 @@
 		color: $color-ocean-light;
 	}
 
+	@include m(transparent) {
+		border-color: transparent;
+		background-color: transparent;
+		box-shadow: none;
+	}
+
 	@include m(small) {
 		padding: rhythm(1) rhythm(2);
 		font-size: rem($size-base);

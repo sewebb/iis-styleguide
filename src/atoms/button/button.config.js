@@ -85,6 +85,13 @@ module.exports = {
 			}
 		},
 		{
+			name: 'Transparent',
+			context: {
+				modifiers: ['transparent'],
+				text: 'Going home'
+			}
+		},
+		{
 			name: 'Small',
 			context: {
 				modifiers: ['small'],
