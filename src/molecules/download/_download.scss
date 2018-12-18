@@ -32,7 +32,10 @@
 	}
 
 	@include e(icon-file) {
-		width: rhythm(8);
+
+		@include bp-up(sm) {
+			margin-right: rhythm(0.5);
+		}
 	}
 
 	@include e(icon-download) {
@@ -51,14 +54,22 @@
 	}
 
 	@include b(icon) {
-		width: 100%;
-		height: 100%;
+		width: rem(57px);
+		height: rem(78px);
 	}
 
 	@include e(trigger) {
+		margin-top: rhythm(1);
+		margin-left: 0;
+
 		@include b(icon) {
 			width: $icon-size-medium;
 			height: $icon-size-medium;
+		}
+
+		@include bp-up(sm) {
+			margin-top: 0;
+			margin-left: rhythm(1);
 		}
 	}
 }
