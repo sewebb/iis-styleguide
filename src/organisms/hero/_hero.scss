@@ -50,6 +50,10 @@
 			right: 0;
 			bottom: 0;
 			left: 0;
+			padding: rhythm(4) rhythm(8);
+		}
+
+		@include bp-up(lg) {
 			padding: rhythm(8);
 		}
 	}
