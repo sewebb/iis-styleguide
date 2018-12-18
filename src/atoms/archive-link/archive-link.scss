@@ -17,6 +17,11 @@
 	text-decoration: none;
 	hyphens: auto;
 
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
+
 	@include e(text) {
 		position: relative;
 		top: -#{rhythm(0.2)};
@@ -31,18 +36,10 @@
 	}
 
 	@include e(icon) {
-		position: absolute;
-		z-index: 1;
-		top: 50%;
-		right: rhythm(1);
-		width: rhythm(4);
-		height: rhythm(4);
-		margin-top: -#{rhythm(2)};
+		width: $icon-size-small;
+		height: $icon-size-small;
+		margin-top: rem(3px);
+		margin-left: rhythm(1);
 		fill: currentColor;
-	}
-
-	&:hover,
-	&:focus {
-		text-decoration: underline;
 	}
 }
