@@ -70,9 +70,10 @@
 		z-index: 2;
 
 		@include e(icon) {
-			width: rhythm(4);
-			height: rhythm(4);
-			transform: translateY(rhythm(1));
+			width: $icon-size-medium;
+			height: $icon-size-medium;
+			margin-left: rhythm(1);
+			transform: translateY(rem(3px));
 			fill: currentColor;
 		}
 	}

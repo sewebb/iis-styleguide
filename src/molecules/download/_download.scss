@@ -2,18 +2,14 @@
 
 @include molecule(download) {
 	position: relative;
-	padding: rhythm(2.5) rhythm(3.5);
+	padding: rhythm(2) rhythm(3);
 	border: 1px solid $color-peacock;
 	border-radius: $border-radius;
 	background-color: $color-snow;
 
-	p {
-		margin-bottom: 0;
-	}
-
 	@include e(link) {
 		display: block;
-		margin: 0 0 rhythm(1);
+		margin-bottom: rhythm(1);
 		color: currentcolor;
 		text-decoration: none;
 
@@ -36,12 +32,11 @@
 	}
 
 	@include e(icon-file) {
-		width: rem(78px);
-		height: rem(78px);
+		margin-bottom: rhythm(1);
 
-		@include b(icon) {
-			width: 100%;
-			height: 100%;
+		@include bp-up(sm) {
+			margin-right: rhythm(0.5);
+			margin-bottom: 0;
 		}
 	}
 
@@ -49,23 +44,34 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: rhythm(3);
-		height: rhythm(3);
+		width: rhythm(3.5);
+		height: rhythm(3.5);
 		margin-left: rhythm(1);
 		border-radius: $border-radius;
 		background-color: $color-peacock-light;
-
-		@include b(icon) {
-			width: rem(17px);
-			height: rem(17px);
-		}
 	}
 
 	@include e(text) {
 		white-space: nowrap;
 	}
 
+	@include b(icon) {
+		width: rem(57px);
+		height: rem(78px);
+	}
+
 	@include e(trigger) {
-		padding-left: $grid-gutter-width;
+		margin-top: rhythm(1);
+		margin-left: 0;
+
+		@include b(icon) {
+			width: $icon-size-medium;
+			height: $icon-size-medium;
+		}
+
+		@include bp-up(sm) {
+			margin-top: 0;
+			margin-left: rhythm(1);
+		}
 	}
 }

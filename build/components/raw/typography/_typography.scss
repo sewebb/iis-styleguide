@@ -24,7 +24,7 @@ h1,
 h2,
 .beta {
 	@include plumber(
-		$font-size: 2.5,
+		$font-size: 2,
 		$line-height: 3,
 		$leading-bottom: 2,
 		$baseline: $headings-baseline
@@ -34,22 +34,24 @@ h2,
 
 	@include bp-up(sm) {
 		@include plumber(
-			$font-size: 3,
+			$font-size: 2.5,
 			$line-height: 4,
 			$leading-bottom: 1
 		);
 	}
 }
 
-p > a {
+p > a,
+li > a {
 	padding: rhythm(0) rhythm(0.5);
 	border-radius: $border-radius;
 	background-color: $color-ruby-light;
-	color: inherit;
+	color: $color-cyberspace;
 	text-decoration: none;
 
-	&:visited {
-		color: inherit;
+	&:hover,
+	&:focus {
+		background-color: $color-ocean-light;
 	}
 }
 
@@ -57,12 +59,19 @@ p,
 ul,
 ol,
 dl {
-	@include plumber;
+	@include plumber(
+		$leading-bottom: 3
+	);
+
+	+ h2,
+	+ .beta {
+		margin-top: rhythm(5);
+	}
 }
 
 .supersize {
 	@include plumber(
-		$font-size: 4.5,
+		$font-size: 4,
 		$line-height: 5,
 		$leading-bottom: 1,
 		$baseline: $headings-baseline
@@ -72,19 +81,30 @@ dl {
 
 	@include bp-up(sm) {
 		@include plumber(
+			$font-size: 4.5,
+			$line-height: 5,
+			$leading-bottom: 1
+		);
+	}
+
+	@include bp-up(md) {
+		@include plumber(
 			$font-size: 7,
 			$line-height: 8,
-			$leading-bottom: 1,
-			$baseline: $headings-baseline
+			$leading-bottom: 1
 		);
 	}
 }
 
 .preamble {
+
 	@include plumber(
 		$font-size: 3,
-		$line-height: 4
+		$line-height: 4,
+		$leading-bottom: 5
 	);
+
+	letter-spacing: rem(-0.47px);
 }
 
 .small,
@@ -153,4 +173,10 @@ blockquote {
 	.meta {
 		margin-top: rhythm(1.7); // Compensate for default minus margin
 	}
+}
+
+b,
+strong {
+	font-family: $font-family-headings;
+	font-weight: normal;
 }

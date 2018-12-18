@@ -1,0 +1,17 @@
+@charset 'UTF-8';
+
+textarea {
+	@extend %input;
+
+	min-width: 100%;
+	max-width: 100%;
+	height: rhythm(10);
+
+	&:focus {
+		@extend %input-focus;
+	}
+
+	&[disabled] {
+		@extend %disabled;
+	}
+}

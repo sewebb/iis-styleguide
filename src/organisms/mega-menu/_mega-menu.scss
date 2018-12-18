@@ -32,12 +32,12 @@
 			padding: rhythm(1) rhythm(2);
 			font-size: 110%;
 
-			@include bp-up(md) {
-				font-size: 100%;
-			}
-
 			& + & {
 				border-top: 1px solid darken($color-ruby-light, 5%);
+			}
+
+			@include bp-up(md) {
+				font-size: 100%;
 			}
 		}
 
@@ -68,7 +68,7 @@
 			text-decoration: underline;
 		}
 
-		&.alpha {
+		&.beta {
 			padding: 0 rhythm(2);
 			white-space: nowrap;
 		}

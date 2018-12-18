@@ -1,0 +1,26 @@
+@charset 'UTF-8';
+
+select {
+	@extend %input;
+
+	background-image: url(../images/icon-arrow-down.svg);
+	background-repeat: no-repeat;
+	background-position: calc(100% - #{rhythm(2)}) 50%;
+	background-size: $icon-size-medium $icon-size-medium;
+
+	&:focus {
+		@extend %input-focus;
+	}
+
+	&::-ms-expand {
+		display: none;
+	}
+}
+
+@include b(select) {
+	@include m(transparent) {
+		border-color: transparent;
+		background-color: transparent;
+		box-shadow: none;
+	}
+}

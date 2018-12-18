@@ -55,17 +55,6 @@ li > a {
 	}
 }
 
-%normalize-links {
-	padding: 0;
-	border-radius: 0;
-	background-color: initial;
-
-	&:hover,
-	&:focus {
-		background-color: inherit;
-	}
-}
-
 p,
 ul,
 ol,

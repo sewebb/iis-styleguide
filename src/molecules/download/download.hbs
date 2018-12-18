@@ -1,23 +1,27 @@
 <div class="m-download">
-	<div class="row align-items-center">
+	<div class="row align-items-center justify-content-center">
 		<div class="grid-auto">
 			<figure class="m-download__icon-file">
 				{{> @icon id="file"}}
 			</figure>
 		</div>
-		<div class="grid">
-			<a href="{{url}}" class="beta m-download__link" download>
-                {{link_text}}
-            </a>
-            <div class="display-flex flex-row justify-content-between align-items-end">
-                <p>{{description}}</p>
-                <div class="align-self-end display-flex flex-nowrap align-items-center m-download__trigger">
-                    <strong class="m-download__text">{{download}}</strong>
-                    <figure class="m-download__icon-download">
-                        {{> @icon id="download"}}
-                    </figure>
-                </div>
-            </div>
+		<div class="grid u-position-static">
+			<div class="row flex-column">
+				<div class="grid-18 u-position-static">
+					<a href="{{url}}" class="beta m-download__link" download>
+						{{link_text}}
+					</a>
+				</div>
+				<div class="grid-18  display-flex flex-column flex-sm-row justify-content-between align-items-start">
+					<p class="u-m-b-0">{{description}}</p>
+					<div class="display-flex align-self-end flex-nowrap m-download__trigger">
+						<strong class="m-download__text">{{download}}</strong>
+						<figure class="m-download__icon-download">
+							{{> @icon id="download"}}
+						</figure>
+					</div>
+				</div>
+			</div>
 		</div>
 	</div>
 </div>

@@ -741,6 +741,7 @@
         &lt;div class="grid-sm-12 grid-18"&gt;
             &lt;h2&gt;Offset&lt;/h2&gt;
             &lt;p&gt;Om det finns behov av att "putta" kolumner används margins, t.ex. &lt;code&gt;.ml-auto&lt;/code&gt; (margin-left: auto), &lt;code&gt;.mr-auto&lt;/code&gt; (margin-right: auto) eller &lt;code&gt;.ml-{breakpoint}-auto&lt;/code&gt; om det bara ska ske vid vissa breakpoints.&lt;/p&gt;
+            &lt;p&gt;Det går även att putta en kolumner med ett visst antal kolummner t.ex. &lt;code&gt;.offset-{breakpoint}-{columns}&lt;/code&gt;&lt;/p&gt;
         &lt;/div&gt;
     &lt;/div&gt;
 
@@ -772,6 +773,30 @@
         &lt;div class="grid-auto mr-auto"&gt;
             &lt;div class="styleguide-visible-grid u-m-b-0"&gt;
                 .grid-auto .mr-auto
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="grid-auto"&gt;
+            &lt;div class="styleguide-visible-grid u-m-b-0"&gt;
+                .grid-auto
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="row align-items-center styleguide-align-containers u-m-b-4"&gt;
+        &lt;div class="grid-auto offset-3"&gt;
+            &lt;div class="styleguide-visible-grid u-m-b-0"&gt;
+                .offset-3
+            &lt;/div&gt;
+        &lt;/div&gt;
+        &lt;div class="grid-auto"&gt;
+            &lt;div class="styleguide-visible-grid u-m-b-0"&gt;
+                .grid-auto
+            &lt;/div&gt;
+        &lt;/div&gt;
+    &lt;/div&gt;
+    &lt;div class="row align-items-center styleguide-align-containers u-m-b-4"&gt;
+        &lt;div class="grid-auto offset-lg-5"&gt;
+            &lt;div class="styleguide-visible-grid u-m-b-0"&gt;
+                .offset-lg-5
             &lt;/div&gt;
         &lt;/div&gt;
         &lt;div class="grid-auto"&gt;
@@ -1370,6 +1395,7 @@
 		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-sm-12 grid-18"</span>&gt;</span>
 			<span class="hljs-tag">&lt;<span class="hljs-name">h2</span>&gt;</span>Offset<span class="hljs-tag">&lt;/<span class="hljs-name">h2</span>&gt;</span>
 			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Om det finns behov av att "putta" kolumner används margins, t.ex. <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>.ml-auto<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span> (margin-left: auto), <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>.mr-auto<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span> (margin-right: auto) eller <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>.ml-{breakpoint}-auto<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span> om det bara ska ske vid vissa breakpoints.<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span>Det går även att putta en kolumner med ett visst antal kolummner t.ex. <span class="hljs-tag">&lt;<span class="hljs-name">code</span>&gt;</span>.offset-{breakpoint}-{columns}<span class="hljs-tag">&lt;/<span class="hljs-name">code</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
 		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
@@ -1401,6 +1427,30 @@
 		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-auto mr-auto"</span>&gt;</span>
 			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"styleguide-visible-grid u-m-b-0"</span>&gt;</span>
 				.grid-auto .mr-auto
+			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-auto"</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"styleguide-visible-grid u-m-b-0"</span>&gt;</span>
+				.grid-auto
+			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row align-items-center styleguide-align-containers u-m-b-4"</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-auto offset-3"</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"styleguide-visible-grid u-m-b-0"</span>&gt;</span>
+				.offset-3
+			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-auto"</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"styleguide-visible-grid u-m-b-0"</span>&gt;</span>
+				.grid-auto
+			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"row align-items-center styleguide-align-containers u-m-b-4"</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-auto offset-lg-5"</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"styleguide-visible-grid u-m-b-0"</span>&gt;</span>
+				.offset-lg-5
 			<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 		<span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 		<span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"grid-auto"</span>&gt;</span>
@@ -1592,12 +1642,24 @@
     <div class="Prose Prose--condensed">
         
         <h1 id="grid-system">Grid system</h1>
+<h2 id="breakpoints">Breakpoints</h2>
+<ul>
+<li><code>xs: 0</code> &lt; 576px</li>
+<li><code>sm: 576px</code> ≥ 576px</li>
+<li><code>md: 769px</code> ≥ 769px</li>
+<li><code>lg: 961px</code> ≥ 961px</li>
+<li><code>xl: 1200px</code> ≥ 1200px</li>
+<li><code>xxl: 1400px</code> ≥ 1400px</li>
+</ul>
 <h2 id="complete-list-of-available-classes">Complete list of available classes</h2>
 <h3 id="basic-grid-classes">Basic grid classes</h3>
 <ul>
 <li>.wrapper</li>
 <li>.row</li>
 <li>.grid</li>
+<li>.grid-{column}</li>
+<li>.grid-{breakpoint}-{column}</li>
+<li>.grid-auto</li>
 </ul>
 <h2 id="optional-classes">Optional classes</h2>
 <h3 id="flex-classes">Flex classes</h3>
@@ -1666,6 +1728,11 @@
 }</p>
 </li>
 </ul>
+<h3 id="offset-classes">Offset classes</h3>
+<ul>
+<li>.offset-{columns};</li>
+<li>.offset-{breakpoint-{columns};</li>
+</ul>
 
         
     </div>
@@ -1709,6 +1776,30 @@
             
             
             
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="archive-link.html" data-pjax>
+                <span>Archive Link</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
     
         
         <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-button">
@@ -2063,6 +2154,94 @@
         
     
         
+        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-checkbox">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Checkbox</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="checkbox--default.html" data-pjax>
+                <span>Default</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="checkbox--checkbox-inline.html" data-pjax>
+                <span>Checkbox Inline</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="checkbox--checkbox-disabled.html" data-pjax>
+                <span>Checkbox Disabled</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="grid-toggle.html" data-pjax>
@@ -2091,6 +2270,54 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="icon.html" data-pjax>
                 <span>Icon</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="input.html" data-pjax>
+                <span>Input</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="label.html" data-pjax>
+                <span>Label</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -2295,6 +2522,118 @@
         
     
         
+        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-radiobutton">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Radiobutton</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="radiobutton--default.html" data-pjax>
+                <span>Default</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="radiobutton--radio-button-inline.html" data-pjax>
+                <span>Radio Button Inline</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="radiobutton--radio-button-disabled.html" data-pjax>
+                <span>Radio Button Disabled</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="select.html" data-pjax>
+                <span>Select</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="skip.html" data-pjax>
@@ -2323,6 +2662,30 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="tag.html" data-pjax>
                 <span>Tag</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="textarea.html" data-pjax>
+                <span>Textarea</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -2494,6 +2857,78 @@
         </li>
         
     
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="download.html" data-pjax>
+                <span>Download</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="teaser.html" data-pjax>
+                <span>Teaser</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="teaser-news-list.html" data-pjax>
+                <span>Teaser News List</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
 
             </ul>
         </li>
@@ -2513,8 +2948,104 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="footer.html" data-pjax>
+                <span>Footer</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="header.html" data-pjax>
                 <span>Header</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="hero.html" data-pjax>
+                <span>Hero</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="mega-menu.html" data-pjax>
+                <span>Mega Menu</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="sections.html" data-pjax>
+                <span>Sections</span>
                 
 
 <div class="Status Status--unlabelled">

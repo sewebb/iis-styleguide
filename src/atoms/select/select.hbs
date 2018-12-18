@@ -1,0 +1,8 @@
+<div class="field-group">
+	{{> @label for="select" label="Select"}}
+	<select id="{{id}}" {{#if required}}required{{/if}} {{#if disabled}}disabled{{/if}} class="a-select{{#if modifier}} {{modifier}}{{/if}}">
+		{{#each options}}
+		<option value="{{value}}"{{#if is_disabled}} disabled{{/if}}{{#if is_selected}} selected{{/if}}>{{text}}</option>
+		{{/each}}
+	</select>
+</div>
