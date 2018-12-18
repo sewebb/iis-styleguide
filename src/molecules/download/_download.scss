@@ -32,9 +32,11 @@
 	}
 
 	@include e(icon-file) {
+		margin-bottom: rhythm(1);
 
 		@include bp-up(sm) {
 			margin-right: rhythm(0.5);
+			margin-bottom: 0;
 		}
 	}
 

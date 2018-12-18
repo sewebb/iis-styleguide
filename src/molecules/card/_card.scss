@@ -35,8 +35,14 @@
 	}
 
 	@include e(content) {
-		margin-top: rhythm(2);
-		padding-bottom: rhythm(4);
+		&:first-child {
+			padding: rhythm(3) 0;
+		}
+
+		&:not(:first-child) {
+			margin-top: rhythm(2);
+			padding-bottom: rhythm(3);
+		}
 
 		:last-child {
 			margin-bottom: 0;
