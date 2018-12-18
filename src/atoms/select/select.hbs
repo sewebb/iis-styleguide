@@ -1,13 +1,8 @@
 <div class="field-group">
 	{{> @label for="select" label="Select"}}
-	<select id="{{id}}" {{#if required}}required{{/if}} {{#if disabled}}disabled{{/if}}{{#if modifier}} class="{{modifier}}"{{/if}}>
+	<select id="{{id}}" {{#if required}}required{{/if}} {{#if disabled}}disabled{{/if}} class="a-select{{#if modifier}} {{modifier}}{{/if}}">
 		{{#each options}}
 		<option value="{{value}}"{{#if is_disabled}} disabled{{/if}}{{#if is_selected}} selected{{/if}}>{{text}}</option>
 		{{/each}}
 	</select>
-	{{#if has_icon}}
-	<figure class="input-icon">
-		{{> @icon id="arrow-down"}}
-	</figure>
-	{{/if}}
 </div>
