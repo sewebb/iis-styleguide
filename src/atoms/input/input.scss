@@ -29,8 +29,8 @@ input[type='time'] {
 	height: 0;
 
 	> svg {
-		width: $icon-size-medium;
-		height: $icon-size-medium;
+		width: $icon-size;
+		height: $icon-size;
 		transform: translateY(-#{rhythm(3.7)}) translateX(-#{rhythm(2)});
 	}
 }
