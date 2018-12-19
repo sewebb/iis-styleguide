@@ -27,6 +27,11 @@
 }
 
 %disabled {
-	background-color: darken($color-ash, 4%);
+	opacity: 0.6;
 	cursor: not-allowed;
+
+	&:hover {
+		color: currentColor;
+		text-decoration: none;
+	}
 }
