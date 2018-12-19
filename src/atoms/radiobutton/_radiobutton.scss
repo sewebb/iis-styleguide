@@ -4,14 +4,11 @@ input[type='radio'] {
 	+ label {
 		display: inline-block;
 		padding-top: rhythm(1);
-		padding-right: rhythm(2);
 		padding-bottom: rhythm(1);
-		padding-left: rhythm(4);
-		border-radius: $border-radius;
-		background-color: $color-snow;
+		padding-left: rhythm(3);
 		background-image: url(../images/icon-radiobutton.svg);
 		background-repeat: no-repeat;
-		background-position: rhythm(1) center;
+		background-position: 0 center;
 		background-size: $icon-size-small $icon-size-small;
 		font-weight: normal;
 	}
