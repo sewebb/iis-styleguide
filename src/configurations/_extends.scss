@@ -17,7 +17,7 @@
 	padding: rhythm(1) rhythm(2);
 	border: 1px solid $color-granit;
 	border-radius: $border-radius;
-	background-color: $color-snow;
+	background-color: lighten($color-ash, 4%);
 	-webkit-appearance: none;
 }
 
@@ -27,6 +27,6 @@
 }
 
 %disabled {
-	background-color: lighten($color-ash, 4%);
+	background-color: darken($color-ash, 4%);
 	cursor: not-allowed;
 }
