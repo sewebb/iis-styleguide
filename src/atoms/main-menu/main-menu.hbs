@@ -2,7 +2,7 @@
 	<ul class="a-main-menu__list">
 		{{#each item}}
 		<li {{#if hide_mobile}}class="u-hidden-mobile"{{/if}}>
-			<a href="{{url}}" class="a-main-menu__list__link{{#if is_current}} is-current{{/if}}" {{#if has_expandable}}aria-expanded="false" aria-controls="{{controls}}"{{/if}}><span class="a-main-menu__list__text">{{text}}</span>{{#if icon}}{{> @icon id=icon}}{{/if}}</a>
+			<{{#if url}}a href="{{url}}"{{else}}button type="button"{{/if}} class="a-main-menu__list__link{{#if is_current}} is-current{{/if}}{{#if extra_class}} {{extra_class}}{{/if}}" {{#if has_expandable}}aria-expanded="false" data-a11y-toggle="{{controls}}"{{/if}}><span class="a-main-menu__list__text">{{text}}</span>{{#if icon}}{{> @icon id=icon}}{{> @icon id="close"}}{{/if}}{{#if url}}</a>{{else}}</button>{{/if}}
 		</li>
 		{{/each}}
 	</ul>

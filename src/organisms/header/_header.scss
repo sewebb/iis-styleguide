@@ -1,6 +1,8 @@
 @charset 'UTF-8';
 
 @include organism(header) {
+	position: relative;
+	z-index: 2;
 	border-bottom: 1px solid $color-ash;
 	background-color: $color-snow;
 

@@ -22,8 +22,10 @@
 			display: flex;
 			align-items: center;
 			padding: rhythm(2) rhythm(1);
+			border: 0;
 			font-size: $size-small;
 			text-decoration: none;
+			-webkit-appearance: none;
 
 			&:focus,
 			&:hover {
@@ -35,10 +37,24 @@
 				font-family: $font-family-headings;
 			}
 
-			> .icon {
+			&[aria-expanded='true'] {
+				.icon:last-child {
+					display: block;
+				}
+
+				.icon {
+					display: none;
+				}
+			}
+
+			.icon {
 				width: $icon-size-medium;
 				height: $icon-size-medium;
 				margin-left: rhythm(1);
+
+				&:last-child {
+					display: none;
+				}
 			}
 
 			@include bp-up(sm) {

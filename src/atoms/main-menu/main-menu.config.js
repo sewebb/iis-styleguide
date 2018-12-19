@@ -36,6 +36,7 @@ module.exports = {
 				url: false,
 				is_current: false,
 				icon: 'arrow-down',
+				extra_class: 'js-toggle-domain-search',
 				has_expandable: true,
 				controls: 'domain-search',
 				hide_mobile: true
@@ -45,6 +46,7 @@ module.exports = {
 				url: false,
 				is_current: false,
 				icon: 'search',
+				extra_class: 'js-toggle-site-search',
 				has_expandable: true,
 				controls: 'site-search',
 				hide_mobile: false
@@ -54,6 +56,7 @@ module.exports = {
 				url: false,
 				is_current: false,
 				icon: 'hamburger',
+				extra_class: 'js-toggle-mega-menu',
 				has_expandable: true,
 				controls: 'mega-menu',
 				hide_mobile: false

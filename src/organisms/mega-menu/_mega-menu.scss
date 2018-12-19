@@ -1,26 +1,35 @@
 @charset 'UTF-8';
 
 @include organism(mega-menu) {
+	position: relative;
+	z-index: 1;
 	padding-top: rhythm(3);
 	padding-right: 0;
 	padding-left: 0;
-	background-color: $color-ruby-light;
+	transform: translateY(-100%);
+	transition: transform 0.25s ease-out;
+	background-color: $color-ash;
 
-	@include bp-up(lg) {
-		padding-right: rhythm(4);
-		padding-left: rhythm(4);
+	&[aria-hidden='false'] {
+		transform: translateY(0);
+	}
+
+	@include e(wrapper) {
+		@include bp-down(md) {
+			padding-right: 0;
+			padding-left: 0;
+		}
 	}
 
 	@include e(list) {
-		margin-top: rhythm(3);
+		margin-top: rhythm(1);
 
 		@include e(topic) {
-			margin-top: rhythm(3);
+			margin-top: rhythm(2);
 			margin-bottom: rhythm(0.5);
-			padding: rhythm(1) rhythm(2);
-			border-bottom: 1px solid darken($color-ruby-light, 5%);
+			padding: rhythm(1) rhythm(1);
+			border-bottom: 1px solid darken($color-ash, 5%);
 			font-family: $font-family-headings;
-			font-size: 110%;
 
 			&:first-child {
 				margin-top: 0;
@@ -29,15 +38,10 @@
 
 		@include e(item) {
 			margin: 0 0 rhythm(0.5) 0;
-			padding: rhythm(1) rhythm(2);
-			font-size: 110%;
+			padding: rhythm(1) rhythm(1);
 
 			& + & {
-				border-top: 1px solid darken($color-ruby-light, 5%);
-			}
-
-			@include bp-up(lg) {
-				font-size: 100%;
+				border-top: 1px solid darken($color-ash, 5%);
 			}
 		}
 
@@ -68,8 +72,10 @@
 			text-decoration: underline;
 		}
 
-		&.beta {
-			padding: 0 rhythm(2);
+		@include m(large) {
+			padding: 0 rhythm(1);
+			font-family: $font-family-headings;
+			font-size: rem(23px);
 			white-space: nowrap;
 
 			@include bp-up(lg) {
@@ -81,7 +87,7 @@
 	@include bp-up(lg) {
 
 		@include e(link) {
-			&.alpha {
+			@include m(large) {
 				padding: 0;
 			}
 		}
