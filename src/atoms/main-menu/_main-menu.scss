@@ -1,42 +1,57 @@
 @charset 'UTF-8';
 
 @include atom(main-menu) {
-	display: none;
 
 	@include e(list) {
+		display: flex;
+		justify-content: flex-end;
+		width: 100%;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		&:last-child {
+			@include e(link) {
+				padding-right: 0;
+			}
+		}
+
 		@include e(link) {
 			@extend %normalize-links;
-		}
-	}
 
-	@include bp-up(md) {
-		display: flex;
-		align-items: center;
-		height: 100%;
-
-		@include e(list) {
 			display: flex;
-			justify-content: flex-end;
-			width: 100%;
-			margin: 0;
-			padding: 0;
-			list-style: none;
+			align-items: center;
+			padding: rhythm(2) rhythm(1);
+			font-size: $size-small;
+			text-decoration: none;
 
-			@include e(link) {
-				padding: rhythm(2);
-				font-size: rem(18px);
-				text-decoration: none;
-
-				&:focus,
-				&:hover {
-					border-bottom: 1px solid currentColor;
-				}
-
-				&.is-current {
-					border-bottom: 1px solid currentColor;
-					font-family: $font-family-headings;
-				}
+			&:focus,
+			&:hover {
+				text-decoration: underline;
 			}
+
+			&.is-current {
+				color: $color-ruby;
+				font-family: $font-family-headings;
+			}
+
+			> .icon {
+				width: $icon-size-medium;
+				height: $icon-size-medium;
+				margin-left: rhythm(1);
+			}
+
+			@include bp-up(sm) {
+				font-size: $size-base;
+			}
+
+			@include bp-up(md) {
+				padding: rhythm(2);
+			}
+		}
+
+		@include e(text) {
+			margin-top: -#{rem(3px)}; // Adjust for the font's bad placement in viewbox
 		}
 	}
 }

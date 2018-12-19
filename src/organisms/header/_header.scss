@@ -8,33 +8,23 @@
 		display: flex;
 		align-items: center;
 		height: 100%;
-	}
+		padding: 0;
 
-	@include e(logo-mobile) {
-		@include b(logotype) {
-			width: 100%;
-			max-width: rhythm(25);
-			height: rhythm(6);
+		@include bp-up(md) {
+			padding: rhythm(2) 0;
 		}
 	}
 
-	@include e(logo-desktop) {
-		display: none;
+	@include b(logotype) {
+		width: 100%;
+		max-width: rhythm(10);
+		height: rhythm(2.96);
 	}
 
 	@include bp-up(md) {
-		@include e(logo-mobile) {
-			display: none;
-		}
-
-		@include e(logo-desktop) {
-			display: block;
-
-			@include b(logotype) {
-				width: 100%;
-				max-width: rhythm(20);
-				height: rhythm(12);
-			}
+		@include b(logotype) {
+			max-width: rhythm(20);
+			height: rhythm(5.92);
 		}
 	}
 }

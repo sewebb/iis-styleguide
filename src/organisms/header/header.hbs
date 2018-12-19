@@ -1,18 +1,14 @@
 <header class="o-header">
 	<div class="wrapper">
-		<div class="row justify-content-between">
+		<div class="row justify-content-between align-items-center flex-nowrap">
 			<div class="grid-auto">
 				<a href="{{logo_link_href}}" class="o-header__logo-link">
-					<span class="o-header__logo-desktop">{{> @logotype id="default"}}</span>
-					<span class="o-header__logo-mobile">{{> @logotype id="horizontal"}}</span>
+					<span class="o-header__logo">{{> @logotype id="default"}}</span>
 					<span class="u-visuallyhidden">{{logo_link_text}}</span>
 				</a>
 			</div>
 			<div class="grid">
-				{{> @main-menu}}
-			</div>
-			<div class="grid-auto display-flex align-items-center">
-				{{> @mega-menu-button text="meny"}}
+				{{ render '@main-menu'}}
 			</div>
 		</div>
 	</div>

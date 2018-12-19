@@ -24,7 +24,7 @@
 // Hide on mobile
 /// @group Utilities
 .u-hidden-mobile {
-	@include bp-down(md) {
+	@include bp-down(lg) {
 		display: none !important;
 	}
 }
