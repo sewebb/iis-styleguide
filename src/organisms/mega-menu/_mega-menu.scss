@@ -6,7 +6,7 @@
 	padding-left: 0;
 	background-color: $color-ruby-light;
 
-	@include bp-up(md) {
+	@include bp-up(lg) {
 		padding-right: rhythm(4);
 		padding-left: rhythm(4);
 	}
@@ -36,12 +36,12 @@
 				border-top: 1px solid darken($color-ruby-light, 5%);
 			}
 
-			@include bp-up(md) {
+			@include bp-up(lg) {
 				font-size: 100%;
 			}
 		}
 
-		@include bp-up(md) {
+		@include bp-up(lg) {
 
 			@include e(topic) {
 				padding: 0;
@@ -71,10 +71,14 @@
 		&.beta {
 			padding: 0 rhythm(2);
 			white-space: nowrap;
+
+			@include bp-up(lg) {
+				padding: 0;
+			}
 		}
 	}
 
-	@include bp-up(md) {
+	@include bp-up(lg) {
 
 		@include e(link) {
 			&.alpha {

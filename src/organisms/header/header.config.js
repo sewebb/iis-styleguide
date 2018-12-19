@@ -24,6 +24,16 @@ module.exports = {
 				text: 'Om oss',
 				url: '#',
 				is_current: false
+			},
+			{
+				text: 'Sök ledig domän',
+				url: false,
+				is_current: false
+			},
+			{
+				text: 'Sök',
+				url: false,
+				is_current: false
 			}
 		]
 	}
