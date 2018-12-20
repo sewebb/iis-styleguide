@@ -6,9 +6,10 @@
 	padding-top: rhythm(3);
 	padding-right: 0;
 	padding-left: 0;
-	transform: translateY(-100%);
+	transform: translateY(-102%);
 	transition: transform 0.25s ease-out;
 	background-color: $color-ash;
+	box-shadow: 0 rhythm(0.5) rhythm(0.5) rgba($color-cyberspace, 0.1);
 
 	&[aria-hidden='false'] {
 		transform: translateY(0);
