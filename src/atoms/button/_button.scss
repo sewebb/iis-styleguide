@@ -2,7 +2,7 @@
 
 // Default Button
 /// @group Buttons
-@include b(button) {
+@include atom(button) {
 	display: inline-flex;
 	position: relative;
 	flex-wrap: nowrap;

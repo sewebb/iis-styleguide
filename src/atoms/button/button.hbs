@@ -1,6 +1,6 @@
-<{{getelement el "a"}} {{#if type}}type="{{type}}"{{/if}} {{#if url}}href="{{ url }}"{{/if}} class="button{{#if modifiers}} {{getmodifiers modifiers "button"}}{{/if}}{{#if icon }} button--icon{{/if}}{{#if additional_classes}} {{ additional_classes}}{{/if}}" {{{attr attributes}}}>
-	<span class="button__text">{{ text }}</span>
+<{{getelement el "a"}} {{#if type}}type="{{type}}"{{/if}} {{#if url}}href="{{ url }}"{{/if}} class="a-button{{#if modifiers}} {{getmodifiers modifiers "a-button"}}{{/if}}{{#if icon }} a-button--icon{{/if}}{{#if additional_classes}} {{ additional_classes}}{{/if}}" {{{attr attributes}}}>
+	<span class="a-button__text">{{ text }}</span>
 	{{#if icon}}
-	{{> @icon id=icon additional_classes="button__icon"}}
+	{{> @icon id=icon additional_classes="a-button__icon"}}
 	{{/if}}
 </{{getelement el "a"}}>
