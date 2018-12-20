@@ -1,10 +1,10 @@
 <fieldset class="field-group">
 	<legend class="label-legend">Checkbox</legend>
-		<div class="checkbox{{#if is_inline}} checkbox--inline row{{/if}}">
+		<div class="checkbox{{#if is_inline}} checkbox--inline row no-gutters{{/if}}">
 			{{#if is_inline}}
 				<div class="grid-auto">
 			{{/if}}
-				<input type="checkbox" id="{{id}}" name="{{name}}" value="{{value}}" class="u-visuallyhidden" {{#if is_disabled}}disabled{{/if}}>
+				<input type="checkbox" id="{{id}}" name="{{name}}" value="{{value}}" class="a-checkbox u-visuallyhidden" {{#if is_disabled}}disabled{{/if}}>
 				<label for="{{id}}">{{label}}</label>
 			{{#if is_inline}}
 			</div>
