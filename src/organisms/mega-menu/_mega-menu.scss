@@ -1,9 +1,8 @@
 @charset 'UTF-8';
 
 @include organism(mega-menu) {
-	position: relative;
+	position: absolute;
 	z-index: 1;
-	padding-top: rhythm(3);
 	padding-right: 0;
 	padding-left: 0;
 	transform: translateY(-102%);
@@ -12,7 +11,12 @@
 	box-shadow: 0 rhythm(0.5) rhythm(0.5) rgba($color-cyberspace, 0.1);
 
 	&[aria-hidden='false'] {
+		position: relative;
 		transform: translateY(0);
+	}
+
+	@include e(wrapper) {
+		padding-top: rhythm(3);
 	}
 
 	@include e(list) {

@@ -4,7 +4,8 @@ module.exports = {
 
 	context: {
 		url: '#',
-		text: 'Primary button'
+		text: 'Primary button',
+		type: false,
 	},
 	variants: [
 		{

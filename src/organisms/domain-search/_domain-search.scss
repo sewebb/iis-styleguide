@@ -1,0 +1,55 @@
+@charset 'UTF-8';
+
+@include organism(domain-search) {
+	padding: rhythm(3) 0;
+
+	&:not(.is-in-mega-menu) {
+		display: none;
+		position: absolute;
+		z-index: 1;
+		transform: translateY(-102%);
+		transition: transform 0.25s ease-out;
+		box-shadow: 0 rhythm(0.5) rhythm(0.5) rgba($color-cyberspace, 0.1);
+
+		&[aria-hidden='false'] {
+			position: relative;
+			transform: translateY(0);
+		}
+
+		@include bp-up(xl) {
+			display: flex;
+		}
+	}
+
+	@include e(input) {
+		display: block;
+		width: 100%;
+		padding: rhythm(1);
+		border: 0;
+		border-left: 1px solid $color-cyberspace;
+		background-color: transparent;
+		-webkit-appearance: none;
+
+		@include bp-up(lg) {
+			font-size: rem(32px);
+		}
+	}
+
+	@include bp-up(md) {
+
+		@include e(pretext) {
+			font-size: rem(32px);
+		}
+	}
+
+	@include e(submit) {
+		@include bp-down(md) {
+			padding: rhythm(1) rhythm(2);
+			font-size: $size-small;
+		}
+	}
+
+	@include bp-up(xl) {
+		display: none;
+	}
+}
