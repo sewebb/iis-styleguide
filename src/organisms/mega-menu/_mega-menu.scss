@@ -14,13 +14,6 @@
 		transform: translateY(0);
 	}
 
-	@include e(wrapper) {
-		@include bp-down(md) {
-			padding-right: 0;
-			padding-left: 0;
-		}
-	}
-
 	@include e(list) {
 		margin-top: rhythm(1);
 

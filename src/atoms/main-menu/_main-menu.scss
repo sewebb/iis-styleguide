@@ -21,7 +21,7 @@
 
 			display: flex;
 			align-items: center;
-			padding: rhythm(2) rhythm(1);
+			padding: rhythm(2) 0;
 			border: 0;
 			font-size: $size-small;
 			text-decoration: none;
@@ -35,6 +35,10 @@
 			&.is-current {
 				color: $color-ruby;
 				font-family: $font-family-headings;
+			}
+
+			&:not(button) {
+				padding: rhythm(2) rhythm(1);
 			}
 
 			&[aria-expanded='true'] {

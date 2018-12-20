@@ -42,16 +42,6 @@ module.exports = {
 				hide_mobile: true
 			},
 			{
-				text: 'Sök',
-				url: false,
-				is_current: false,
-				icon: 'search',
-				extra_class: 'js-toggle-site-search',
-				has_expandable: true,
-				controls: 'site-search',
-				hide_mobile: false
-			},
-			{
 				text: 'Meny',
 				url: false,
 				is_current: false,
