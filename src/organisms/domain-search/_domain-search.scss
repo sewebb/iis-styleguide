@@ -7,7 +7,7 @@
 		display: none;
 		position: absolute;
 		z-index: 1;
-		transform: translateY(-102%);
+		transform: translateY(-107%);
 		transition: transform 0.25s ease-out;
 		box-shadow: 0 rhythm(0.5) rhythm(0.5) rgba($color-cyberspace, 0.1);
 
@@ -24,9 +24,8 @@
 	@include e(input) {
 		display: block;
 		width: 100%;
-		padding: rhythm(1);
+		padding: rhythm(1) rhythm(1) rhythm(1) 0;
 		border: 0;
-		border-left: 1px solid $color-cyberspace;
 		background-color: transparent;
 		-webkit-appearance: none;
 

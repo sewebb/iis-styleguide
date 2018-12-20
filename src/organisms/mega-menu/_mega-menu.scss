@@ -5,7 +5,7 @@
 	z-index: 1;
 	padding-right: 0;
 	padding-left: 0;
-	transform: translateY(-102%);
+	transform: translateY(-107%);
 	transition: transform 0.25s ease-out;
 	background-color: $color-ash;
 	box-shadow: 0 rhythm(0.5) rhythm(0.5) rgba($color-cyberspace, 0.1);
@@ -13,6 +13,12 @@
 	&[aria-hidden='false'] {
 		position: relative;
 		transform: translateY(0);
+
+		+ {
+			@include organism(domain-search) {
+				display: none;
+			}
+		}
 	}
 
 	@include e(wrapper) {
