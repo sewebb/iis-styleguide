@@ -3,6 +3,8 @@ module.exports = {
 
 	context: {
 		hidden: 'false',
-		addidional_classes: false
+		id: true,
+		addidional_classes: false,
+		input_id: 'search-domain'
 	}
 }

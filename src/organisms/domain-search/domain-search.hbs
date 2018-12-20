@@ -1,4 +1,4 @@
-<div class="wrapper-fluid background-snow o-domain-search{{#if addidional_classes}} {{addidional_classes}}{{/if}}" id="domain-search" aria-hidden="{{hidden}}">
+<div class="wrapper-fluid background-snow o-domain-search{{#if addidional_classes}} {{addidional_classes}}{{/if}}" {{#if id}}id="domain-search"{{/if}} aria-hidden="{{hidden}}">
 	<div class="wrapper u-p-x-0">
 		<div class="grid u-p-x-0">
 			<div class="display-flex align-items-center">
@@ -6,8 +6,8 @@
 					<span class="o-domain-search__pretext">www.</span>
 				</div>
 				<div class="grid u-p-r-0">
-					<label for="search-domain" class="u-visuallyhidden">Hitta en ledig domän</label>
-					<input type="search" class="o-domain-search__input" placeholder="hitta en ledig domän" id="search-domain">
+					<label for="{{input_id}}" class="u-visuallyhidden">Hitta en ledig domän</label>
+					<input type="search" class="o-domain-search__input" placeholder="hitta en ledig domän" id="{{input_id}}">
 				</div>
 				<div class="grid-auto u-p-l-0">
 					{{> @button el="button" type="search" text="Sök" modifiers="secondary o-domain-search__submit"}}
