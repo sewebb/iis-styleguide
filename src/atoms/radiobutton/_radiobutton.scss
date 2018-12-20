@@ -1,51 +1,53 @@
 @charset 'UTF-8';
 
-input[type='radio'] {
-	+ label {
-		display: inline-flex;
-		position: relative;
-		align-items: center;
-		padding-top: rhythm(1);
-		padding-right: rhythm(2);
-		padding-bottom: rhythm(1);
-		font-weight: normal;
-
-		&::before {
-			content: '';
-			display: block;
-			width: rem(14px);
-			height: rem(14px);
-			margin-top: rem(2px);
-			margin-right: rhythm(1);
-			transform: translateX(rem(1px));
-			border: 2px solid transparent;
-			border-radius: 50%;
-			background-color: $color-snow;
-			box-shadow: 0 0 0 1px $color-cyberspace;
-		}
-	}
-
-	&:focus,
-	&:hover {
+@include atom(radio) {
+	&[type='radio'] {
 		+ label {
+			display: inline-flex;
+			position: relative;
+			align-items: center;
+			padding-top: rhythm(1);
+			padding-right: rhythm(2);
+			padding-bottom: rhythm(1);
+			font-weight: normal;
+
 			&::before {
-				background-color: darken($color-snow, 5%);
+				content: '';
+				display: block;
+				width: rem(14px);
+				height: rem(14px);
+				margin-top: rem(2px);
+				margin-right: rhythm(1);
+				transform: translateX(rem(1px));
+				border: 2px solid transparent;
+				border-radius: 50%;
+				background-color: $color-snow;
+				box-shadow: 0 0 0 1px $color-cyberspace;
 			}
 		}
-	}
 
-	&:checked {
-		+ label {
-			&::before {
-				border: 2px solid $color-ash;
-				background-color: $color-cyberspace;
+		&:focus,
+		&:hover {
+			+ label {
+				&::before {
+					background-color: darken($color-snow, 5%);
+				}
 			}
 		}
-	}
 
-	&[disabled] {
-		+ label {
-			@extend %disabled;
+		&:checked {
+			+ label {
+				&::before {
+					border: 2px solid $color-ash;
+					background-color: $color-cyberspace;
+				}
+			}
+		}
+
+		&[disabled] {
+			+ label {
+				@extend %disabled;
+			}
 		}
 	}
 }
