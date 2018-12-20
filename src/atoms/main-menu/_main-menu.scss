@@ -55,6 +55,7 @@
 				width: $icon-size-medium;
 				height: $icon-size-medium;
 				margin-left: rhythm(1);
+				pointer-events: none;
 
 				&:last-child {
 					display: none;
@@ -72,6 +73,7 @@
 
 		@include e(text) {
 			margin-top: -#{rem(3px)}; // Adjust for the font's bad placement in viewbox
+			pointer-events: none;
 		}
 	}
 }

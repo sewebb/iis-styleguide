@@ -42,8 +42,9 @@
 	}
 
 	@include e(submit) {
+
 		@include bp-down(md) {
-			padding: rhythm(1) rhythm(2);
+			padding: rhythm(1);
 			font-size: $size-small;
 		}
 	}
