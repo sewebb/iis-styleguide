@@ -100,6 +100,13 @@ module.exports = {
 			}
 		},
 		{
+			name: 'Large',
+			context: {
+				modifiers: ['large'],
+				text: 'Going home'
+			}
+		},
+		{
 			name: 'With icon',
 			context: {
 				modifiers: ['icon'],
