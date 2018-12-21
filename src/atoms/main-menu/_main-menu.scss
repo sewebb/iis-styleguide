@@ -42,16 +42,16 @@
 			}
 
 			&[aria-expanded='true'] {
-				.icon:last-child {
-					display: block;
-				}
-
-				.icon {
+				@include b(icon) {
 					display: none;
+
+					&:last-child {
+						display: block;
+					}
 				}
 			}
 
-			.icon {
+			@include b(icon) {
 				width: $icon-size-medium;
 				height: $icon-size-medium;
 				margin-left: rhythm(1);
