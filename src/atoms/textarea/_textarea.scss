@@ -1,11 +1,11 @@
 @charset 'UTF-8';
 
-textarea {
+@include atom(textarea) {
 	@extend %input;
 
 	min-width: 100%;
 	max-width: 100%;
-	height: rhythm(10);
+	height: rhythm(14);
 
 	&:focus {
 		@extend %input-focus;

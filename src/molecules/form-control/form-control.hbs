@@ -1,0 +1,75 @@
+<div class="m-form-control{{#if modifier_class}} {{modifier_class}}{{/if}}">
+	<div class="row u-m-b-4">
+		<div class="grid">
+			<input type="{{type}}" id="{{id}}" {{#if value}}value="{{value}}"{{/if}} {{#if required}}required{{/if}} {{#if disabled}}disabled{{/if}} placeholder="{{placeholder}}" autocomplete="{{autocomplete}}" class="a-input{{#if has_icon}} has-icon"{{/if}}>
+			{{#if has_icon}}
+			<figure class="input-icon">
+				{{> @icon id="search"}}
+			</figure>
+			{{/if}}
+		</div>
+		<div class="grid-auto">
+			<{{getelement el "button"}} {{#if button_type}}type="{{button_type}}"{{/if}} class="a-button{{#if modifiers}} {{getmodifiers modifiers "a-button"}}{{/if}}{{#if icon }} a-button--icon{{/if}}{{#if additional_classes}} {{ additional_classes}}{{/if}}" {{{attr attributes}}}>
+				<span class="a-button__text">{{ button_text }}</span>
+				{{#if icon}}
+				{{> @icon id=icon additional_classes="a-button__icon"}}
+				{{/if}}
+			</{{getelement el "button"}}>
+		</div>
+	</div>
+	<div class="row u-m-b-4">
+		<div class="grid">
+			<div class="field-group">
+				{{> @label for="select" label="Select"}}
+				<select id="{{id}}" {{#if required}}required{{/if}} {{#if disabled}}disabled{{/if}} class="a-select{{#if modifier}} {{modifier}}{{/if}}">
+					{{#each options}}
+					<option value="{{value}}"{{#if is_disabled}} disabled{{/if}}{{#if is_selected}} selected{{/if}}>{{text}}</option>
+					{{/each}}
+				</select>
+			</div>
+		</div>
+	</div>
+	<div class="row u-m-b-4">
+		<div class="grid">
+			<fieldset class="field-group">
+				<legend class="label-legend">Checkbox</legend>
+					<div class="checkbox{{#if is_inline}} checkbox--inline row no-gutters{{/if}}">
+						{{#if is_inline}}
+							<div class="grid-auto">
+						{{/if}}
+							<input type="checkbox" id="{{checkbox_id}}" name="{{checkbox_name}}" value="{{checkbox_value}}" class="a-checkbox u-visuallyhidden" {{#if is_disabled}}disabled{{/if}}>
+							<label for="{{checkbox_id}}">{{label}}</label>
+						{{#if is_inline}}
+						</div>
+						{{/if}}
+					</div>
+			</fieldset>
+		</div>
+	</div>
+	<div class="row u-m-b-4">
+		<div class="grid">
+			<fieldset class="field-group">
+				<legend class="label-legend">Radio buttons</legend>
+					<div class="radio{{#if is_inline}} radio--inline row no-gutters{{/if}}">
+						{{#if is_inline}}
+							<div class="grid-auto">
+						{{/if}}
+							<input type="radio" id="{{radiobutton_id}}" name="{{radiobutton_name}}" value="{{radiobutton_value}}" class="a-radio u-visuallyhidden" {{#if is_disabled}}disabled{{/if}}>
+							<label for="{{radiobutton_id}}">{{label}}</label>
+						{{#if is_inline}}
+						</div>
+						{{/if}}
+					</div>
+			</fieldset>
+
+		</div>
+	</div>
+	<div class="row u-m-b-4">
+		<div class="grid">
+			<div class="field-group">
+				{{> @label for="message" label="Meddelande" }}
+				<textarea class="a-textarea" id="{{id}}" {{#if required}}required{{/if}} {{#if disabled}}disabled{{/if}} placeholder="{{placeholder}}" autocomplete="{{autocomplete}}"></textarea>
+			</div>
+		</div>
+	</div>
+</div>

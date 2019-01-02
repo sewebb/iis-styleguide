@@ -14,18 +14,6 @@
 	&[disabled] {
 		@extend %disabled;
 	}
-
-	@include m(small) {
-		padding-top: rhythm(0.5);
-		padding-bottom: rhythm(0.8);
-		font-size: rem(16px);
-	}
-
-	@include m(large) {
-		padding-top: rhythm(1.85);
-		padding-bottom: rhythm(1.85);
-		font-size: rem(20px);
-	}
 }
 
 @include b(input-icon) {
@@ -38,19 +26,5 @@
 		width: $icon-size;
 		height: $icon-size;
 		transform: translateY(-#{rhythm(3.7)}) translateX(-#{rhythm(1)});
-	}
-
-	@include m(small) {
-		> svg {
-			width: $icon-size-medium;
-			height: $icon-size-medium;
-			transform: translateY(-#{rhythm(3.1)}) translateX(-#{rhythm(1)});
-		}
-	}
-
-	@include m(large) {
-		> svg {
-			transform: translateY(-#{rhythm(4.6)}) translateX(-#{rhythm(1)});
-		}
 	}
 }

@@ -1,0 +1,150 @@
+@charset 'UTF-8';
+
+@include molecule(form-control) {
+
+	// Modifier for large form fields
+	@include m(large) {
+		// Inputs
+		@include atom(input) {
+			padding-top: rhythm(1.85);
+			padding-bottom: rhythm(1.85);
+			padding-left: rhythm(2);
+			font-size: rem(20px);
+
+			&.has-icon {
+				padding-right: rhythm(6);
+			}
+		}
+
+		// Input icon
+		@include b(input-icon) {
+			> svg {
+				transform: translateY(-#{rhythm(4.6)}) translateX(-#{rhythm(2)});
+			}
+		}
+
+		// Buttons
+		@include atom(button) {
+			padding: rhythm(1.6) rhythm(4);
+
+			@include b(a-button__text) {
+				font-size: rem(24px);
+			}
+		}
+
+		// Checkbox
+		@include atom(checkbox) {
+			+ label {
+				font-size: rem(20px);
+
+				&::before {
+					width: $icon-size;
+					height: $icon-size;
+				}
+			}
+
+			&:checked {
+				+ label {
+					&::after {
+						top: rem(15px);
+						left: rem(8px);
+						width: rem(8px);
+						height: rem(15px);
+						border-width: 0 4px 4px 0;
+					}
+				}
+			}
+		}
+
+		// Radiobutton
+		@include atom(radio) {
+			&[type='radio'] {
+				+ label {
+					font-size: rem(20px);
+
+					&::before {
+						width: $icon-size;
+						height: $icon-size;
+						border-width: 3px;
+					}
+				}
+			}
+		}
+
+		// Select
+		@include atom(select) {
+			padding-top: rhythm(1.85);
+			padding-bottom: rhythm(1.85);
+			padding-left: rhythm(2);
+			background-position: calc(100% - #{rhythm(2)}) 50%;
+			background-size: $icon-size $icon-size;
+			font-size: rem(20px);
+		}
+
+		// Textarea
+		@include atom(textarea) {
+			height: rhythm(15);
+			font-size: rem(20px);
+		}
+	}
+
+	// Modifier for small form fields
+	@include m(small) {
+		// Inputs
+		@include b(a-input) {
+			padding-top: rhythm(0.5);
+			padding-bottom: rhythm(0.8);
+			font-size: rem(16px);
+		}
+
+		// Input icon
+		@include b(input-icon) {
+			> svg {
+				width: $icon-size-medium;
+				height: $icon-size-medium;
+				transform: translateY(-#{rhythm(3.1)}) translateX(-#{rhythm(1)});
+			}
+		}
+
+		// Buttons
+		@include atom(button) {
+			padding: rhythm(0.6) rhythm(1.5);
+		}
+
+		// Checkbox
+		@include atom(checkbox) {
+			+ label {
+				font-size: rem(16px);
+			}
+
+			&:checked {
+				+ label {
+					&::after {
+						top: rem(16px);
+					}
+				}
+			}
+		}
+
+		// Radiobutton
+		@include atom(radio) {
+			+ label {
+				font-size: rem(16px);
+			}
+		}
+
+		// Select
+		@include atom(select) {
+			padding-top: rhythm(0.5);
+			padding-bottom: rhythm(0.8);
+			background-size: $icon-size-small $icon-size-small;
+			font-size: rem(16px);
+		}
+
+		// Textarea
+		@include atom(textarea) {
+			height: rhythm(12);
+			font-size: rem(16px);
+		}
+	}
+}
