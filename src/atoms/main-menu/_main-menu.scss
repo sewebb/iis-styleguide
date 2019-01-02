@@ -44,6 +44,7 @@
 			&[aria-expanded='true'] {
 
 				@include b(icon-hamburger) {
+					left: -2px;
 					transform: rotate(-90deg);
 
 					@include e(first) {
