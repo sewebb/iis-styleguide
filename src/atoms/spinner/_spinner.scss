@@ -1,0 +1,28 @@
+@charset 'UTF-8';
+
+// IE Specific animation
+_:-ms-lang(x),
+.spinner {
+	width: 100%;
+	height: 100%;
+	overflow: hidden;
+
+	svg {
+		animation: spin 2s linear infinite;
+	}
+
+	circle {
+		stroke: $color-ruby;
+
+		+ circle {
+			stroke-dasharray: 100;
+			stroke: $color-ruby-light;
+		}
+	}
+}
+
+@keyframes spin {
+	100% {
+		transform: rotate(360deg);
+	}
+}
