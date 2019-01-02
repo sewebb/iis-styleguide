@@ -42,23 +42,121 @@
 			}
 
 			&[aria-expanded='true'] {
-				@include b(icon) {
-					display: none;
 
-					&:last-child {
-						display: block;
+				@include b(icon-hamburger) {
+					transform: rotate(-90deg);
+
+					@include e(first) {
+						top: 50%;
+						transform: rotate(45deg);
+					}
+
+					@include e(second) {
+						display: none;
+					}
+
+					@include e(third) {
+						top: 50%;
+						transform: rotate(-45deg);
+					}
+				}
+
+				@include b(icon-arrow-down) {
+					@include e(first) {
+						left: 0;
+						width: 100%;
+						transform: rotate(-45deg);
+					}
+
+					@include e(third) {
+						right: 0;
+						width: 100%;
+						transform: rotate(45deg);
 					}
 				}
 			}
 
-			@include b(icon) {
+			@include b(icon-hamburger) {
+				display: flex;
+				position: relative;
+				z-index: -1;
+				flex-direction: column;
 				width: $icon-size-medium;
 				height: $icon-size-medium;
 				margin-left: rhythm(1);
-				pointer-events: none;
+				transform-origin: 50% 50%;
+				transition: all 0.3s ease-out;
+				border: 0;
+				border-radius: 0;
+				color: $color-cyberspace;
 
-				&:last-child {
+				@include e(first) {
+					position: absolute;
+					top: 10%;
+					width: 100%;
+					height: 2px;
+					transition: all 0.3s ease-out;
+					background-color: currentColor;
+				}
+
+				@include e(second) {
+					position: absolute;
+					top: 50%;
+					width: 100%;
+					height: 2px;
+					transform: translateY(-50%);
+					transition: all 0.3s ease-out;
+					background-color: currentColor;
+				}
+
+				@include e(third) {
+					position: absolute;
+					bottom: 10%;
+					width: 100%;
+					height: 2px;
+					transition: all 0.3s ease-out;
+					background-color: currentColor;
+				}
+			}
+
+			@include b(icon-arrow-down) {
+				display: flex;
+				position: relative;
+				z-index: -1;
+				flex-direction: column;
+				width: $icon-size-medium;
+				height: $icon-size-medium;
+				margin-left: rhythm(1);
+				transform-origin: 50% 50%;
+				transition: all 0.3s ease-out;
+				border: 0;
+				border-radius: 0;
+				color: $color-cyberspace;
+
+				@include e(first) {
+					position: absolute;
+					top: 50%;
+					left: -2px;
+					width: 75%;
+					height: 2px;
+					transform: rotate(45deg);
+					transition: all 0.3s ease-out;
+					background-color: currentColor;
+				}
+
+				@include e(second) {
 					display: none;
+				}
+
+				@include e(third) {
+					position: absolute;
+					top: 50%;
+					right: -2px;
+					width: 75%;
+					height: 2px;
+					transform: rotate(-45deg);
+					transition: all 0.3s ease-out;
+					background-color: currentColor;
 				}
 			}
 
