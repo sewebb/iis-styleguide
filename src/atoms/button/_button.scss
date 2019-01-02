@@ -9,7 +9,7 @@
 	align-items: center;
 	justify-content: center;
 	margin: 0;
-	padding: rhythm(1.05) rhythm(2);
+	padding: rhythm(1.112) rhythm(2);
 	border: 0;
 	border-radius: $border-radius;
 	background-color: currentColor;
@@ -54,8 +54,7 @@
 	}
 
 	@include m(small) {
-		padding: rhythm(0.5) rhythm(1.5);
-		border: 1px solid currentColor;
+		padding: rhythm(0.6) rhythm(1.5);
 	}
 
 	@include m(large) {
