@@ -21,7 +21,7 @@
 		<div class="grid">
 			<div class="field-group">
 				{{> @label for="select" label="Select"}}
-				<select id="{{id}}" {{#if required}}required{{/if}} {{#if disabled}}disabled{{/if}} class="a-select{{#if modifier}} {{modifier}}{{/if}}">
+				<select id="{{select_id}}" {{#if required}}required{{/if}} {{#if disabled}}disabled{{/if}} class="a-select{{#if modifier}} {{modifier}}{{/if}}">
 					{{#each options}}
 					<option value="{{value}}"{{#if is_disabled}} disabled{{/if}}{{#if is_selected}} selected{{/if}}>{{text}}</option>
 					{{/each}}
@@ -68,7 +68,7 @@
 		<div class="grid">
 			<div class="field-group">
 				{{> @label for="message" label="Meddelande" }}
-				<textarea class="a-textarea" id="{{id}}" {{#if required}}required{{/if}} {{#if disabled}}disabled{{/if}} placeholder="{{placeholder}}" autocomplete="{{autocomplete}}"></textarea>
+				<textarea class="a-textarea" id="{{textarea_id}}" {{#if required}}required{{/if}} {{#if disabled}}disabled{{/if}} placeholder="{{placeholder}}" autocomplete="{{autocomplete}}"></textarea>
 			</div>
 		</div>
 	</div>

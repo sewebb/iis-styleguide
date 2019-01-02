@@ -2,14 +2,14 @@
 
 // Default Button
 /// @group Buttons
-@include b(button) {
+@include atom(button) {
 	display: inline-flex;
 	position: relative;
 	flex-wrap: nowrap;
 	align-items: center;
 	justify-content: center;
 	margin: 0;
-	padding: rhythm(2) rhythm(4);
+	padding: rhythm(1.112) rhythm(2);
 	border: 0;
 	border-radius: $border-radius;
 	background-color: currentColor;
@@ -17,7 +17,6 @@
 	box-shadow: 0 0 0 1px inset currentColor;
 	color: $color-ocean;
 	font-family: $font-family-headings;
-	font-size: rem(24px);
 	text-decoration: none;
 	hyphens: auto;
 	cursor: pointer;
@@ -52,20 +51,6 @@
 		border-color: transparent;
 		background-color: transparent;
 		box-shadow: none;
-	}
-
-	@include m(small) {
-		padding: rhythm(1) rhythm(2);
-		font-size: rem($size-base);
-
-		@include e(text) {
-
-			@include plumber(
-				$leading-bottom:0
-			);
-
-			top: rhythm(0.1);
-		}
 	}
 
 	@include m(icon) {
