@@ -37,6 +37,13 @@ module.exports = {
 			}
 		},
 		{
+			name: 'lines',
+			context: {
+				modifier: 'm-table--lines',
+				scrollable: false
+			}
+		},
+		{
 			name: 'scrollable',
 			context: {
 				modifier: 'm-table--scrollable m-table--rows',

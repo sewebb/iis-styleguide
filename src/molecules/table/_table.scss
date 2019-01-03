@@ -183,29 +183,35 @@
 
 	@include m(lines) {
 		tr {
-			display: flex;
-
-			&:not(:last-child) {
-				background-image:
-					linear-gradient(
-						to right,
-						$color-cyberspace,
-						$color-cyberspace 2px,
-						transparent 2px,
-						transparent 6px
-					);
-				background-repeat: repeat-x;
-				background-position: bottom left;
-				background-size: 6px 1px;
-			}
+			background-image:
+				linear-gradient(
+					to right,
+					$color-cyberspace,
+					$color-cyberspace 2px,
+					transparent 2px,
+					transparent 6px
+				);
+			background-repeat: repeat-x;
+			background-position: bottom left;
+			background-size: 6px 1px;
 		}
 
 		td,
 		th {
-			flex-grow: 1;
 			padding-top: rhythm(2);
 			padding-bottom: rhythm(2);
 			border: 0;
+		}
+
+		tfoot {
+			tr {
+				background-image: none;
+
+				th,
+				td {
+					border: 0;
+				}
+			}
 		}
 	}
 }
