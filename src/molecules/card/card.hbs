@@ -3,10 +3,15 @@
 	<div class="m-card__content">
 		{{> @meta text="2018-10-05" }}
 		<a href="{{url}}" class="m-card__link"><h2 class="m-card__heading-link__heading">{{title}}</h2></a>
-		{{#if exerpt}}<p class="m-card__text">{{exerpt}}</p>{{/if}}
+		{{#if exerpt}}<p class="m-card__text">{{{exerpt}}}</p>{{/if}}
 		<div class="m-card__bottom">
-			{{> @tag text="Utbildning" href="#" }}
-			{{> @tag text="goto10" href="#" }}
+			{{#if tag}}
+				{{> @tag text="Utbildning" href="#" }}
+				{{> @tag text="goto10" href="#" }}
+
+			{{else if has_button}}
+				{{render '@button'}}
+			{{/if}}
 		</div>
 	</div>
 </div>

@@ -271,6 +271,23 @@
 		<span class="hljs-attribute">box-shadow</span>: none;
 	}
 
+	@<span class="hljs-keyword">include</span> m(small) {
+		<span class="hljs-attribute">padding</span>: rhythm(<span class="hljs-number">0.6</span>) rhythm(<span class="hljs-number">1.5</span>);
+	}
+
+	@<span class="hljs-keyword">include</span> m(large) {
+		<span class="hljs-attribute">padding</span>: rhythm(<span class="hljs-number">1.6</span>) rhythm(<span class="hljs-number">4</span>);
+
+		@<span class="hljs-keyword">include</span> e(text) {
+			<span class="hljs-attribute">font-size</span>: rem(<span class="hljs-number">24px</span>);
+		}
+
+		@<span class="hljs-keyword">include</span> e(icon) {
+			<span class="hljs-attribute">width</span>: <span class="hljs-variable">$icon-size</span>;
+			<span class="hljs-attribute">height</span>: <span class="hljs-variable">$icon-size</span>;
+		}
+	}
+
 	@<span class="hljs-keyword">include</span> m(icon) {
 		<span class="hljs-attribute">justify-content</span>: space-between;
 		<span class="hljs-attribute">max-width</span>: rhythm(<span class="hljs-number">50</span>);
@@ -283,9 +300,9 @@
 		<span class="hljs-attribute">z-index</span>: <span class="hljs-number">1</span>;
 		<span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;
 		<span class="hljs-attribute">right</span>: rhythm(<span class="hljs-number">2</span>);
-		<span class="hljs-attribute">width</span>: rhythm(<span class="hljs-number">2</span>);
-		<span class="hljs-attribute">height</span>: rhythm(<span class="hljs-number">2</span>);
-		<span class="hljs-attribute">margin-top</span>: -#{rhythm(<span class="hljs-number">1</span>)};
+		<span class="hljs-attribute">width</span>: <span class="hljs-variable">$icon-size-small</span>;
+		<span class="hljs-attribute">height</span>: <span class="hljs-variable">$icon-size-small</span>;
+		<span class="hljs-attribute">transform</span>: translateY(-<span class="hljs-number">50%</span>);
 		<span class="hljs-attribute">transition</span>: fill <span class="hljs-number">100ms</span> linear;
 		fill: <span class="hljs-variable">$color-cyberspace</span>;
 		<span class="hljs-attribute">pointer-events</span>: none;
@@ -407,7 +424,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">3 KB</span>
+                    <span class="Meta-value">3.3 KB</span>
                 </li>
             </ul>
         </div>
@@ -443,7 +460,7 @@
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(16)</em>:</strong>
+            <strong class="Meta-key">Variants <em class="Meta-count">(17)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="button--default.html">
@@ -508,6 +525,10 @@
             
                 <a href="button--with-icon.html">
                     <span>With Icon</span>
+                </a>, 
+            
+                <a href="button--with-spinner.html">
+                    <span>With Spinner</span>
                 </a>
             
             </span>
@@ -1005,6 +1026,30 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="button--with-icon.html" data-pjax>
                 <span>With Icon</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="button--with-spinner.html" data-pjax>
+                <span>With Spinner</span>
                 
 
 <div class="Status Status--unlabelled">

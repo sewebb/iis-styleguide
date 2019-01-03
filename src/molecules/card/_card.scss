@@ -50,7 +50,7 @@
 	}
 
 	@include e(text) {
-		display: none;
+		margin-top: rhythm(1);
 	}
 
 	@include m(shadow) {
@@ -98,10 +98,6 @@
 				border-top-left-radius: $border-radius;
 				border-top-right-radius: 0;
 				border-bottom-left-radius: $border-radius;
-			}
-
-			@include e(text) {
-				display: block;
 			}
 
 			@include e(bottom) {
