@@ -7,16 +7,21 @@ _:-ms-lang(x),
 	height: 100%;
 	overflow: hidden;
 
-	svg {
+	svg,
+	g {
 		animation: spin 2s linear infinite;
 	}
 
+	g {
+		transform-origin: center center;
+	}
+
 	circle {
-		stroke: $color-ruby;
+		stroke: $color-ocean;
 
 		+ circle {
 			stroke-dasharray: 100;
-			stroke: $color-ruby-light;
+			stroke: $color-ocean-light;
 		}
 	}
 }

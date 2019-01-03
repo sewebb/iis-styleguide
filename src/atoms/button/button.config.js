@@ -113,6 +113,14 @@ module.exports = {
 				text: 'Button with icon',
 				icon: 'arrow-forwards'
 			}
+		},
+		{
+			name: 'With spinner',
+			context: {
+				modifiers: ['icon','large'],
+				text: 'Button with loader icon',
+				icon: 'spinner'
+			}
 		}
 	]
 };

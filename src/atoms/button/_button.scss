@@ -63,6 +63,11 @@
 		@include e(text) {
 			font-size: rem(24px);
 		}
+
+		@include e(icon) {
+			width: $icon-size;
+			height: $icon-size;
+		}
 	}
 
 	@include m(icon) {
@@ -77,9 +82,9 @@
 		z-index: 1;
 		top: 50%;
 		right: rhythm(2);
-		width: rhythm(2);
-		height: rhythm(2);
-		margin-top: -#{rhythm(1)};
+		width: $icon-size-small;
+		height: $icon-size-small;
+		transform: translateY(-50%);
 		transition: fill 100ms linear;
 		fill: $color-cyberspace;
 		pointer-events: none;
