@@ -77,6 +77,25 @@
 		text-align: left;
 	}
 
+	@include m(standalone-icon) {
+		padding: rhythm(1);
+		border: 0;
+		border-radius: 0;
+		background-color: transparent;
+		box-shadow: none;
+
+		@include e(text) {
+			display: none;
+		}
+
+		@include e(icon) {
+			position: static;
+			width: $icon-size-medium;
+			height: $icon-size-medium;
+			transform: none;
+		}
+	}
+
 	@include e(icon) {
 		position: absolute;
 		z-index: 1;
