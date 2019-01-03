@@ -4,6 +4,7 @@ module.exports = {
 	context: {
 		th: 'Table header',
 		td: 'Table cell',
+		tfoot: 'Table footer',
 		td_num1: '42',
 		td_unit1: 'mkr',
 		td_num2: '10 000',

@@ -9,18 +9,18 @@
 						{{#unless increment}}
 						<thead>
 							<tr>
-								<th>Table head</th>
-								<th>Table head</th>
-								<th>Table head</th>
-								<th>Table head</th>
-								<th>Table head</th>
+								<th>{{th}}</th>
+								<th>{{th}}</th>
+								<th>{{th}}</th>
+								<th>{{th}}</th>
+								<th>{{th}}</th>
 							</tr>
 						</thead>
 						{{/unless}}
 						<tbody>
 							<tr>
 								{{#if increment}}<th>&nbsp;</th>{{/if}}
-								<td><a href="#">Table cell</a></td>
+								<td><a href="#">{{td}}</a></td>
 								<td>{{td_num1}} <small>{{td_unit1}}</small></td>
 								<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
 								<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
@@ -28,7 +28,7 @@
 							</tr>
 							<tr>
 								{{#if increment}}<th>&nbsp;</th>{{/if}}
-								<td><a href="#">Table cell</a></td>
+								<td><a href="#">{{td}}</a></td>
 								<td>{{td_num1}} <small>{{td_unit1}}</small></td>
 								<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
 								<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
@@ -36,7 +36,7 @@
 							</tr>
 							<tr>
 								{{#if increment}}<th>&nbsp;</th>{{/if}}
-								<td><a href="#">Table cell</a></td>
+								<td><a href="#">{{td}}</a></td>
 								<td>{{td_num1}} <small>{{td_unit1}}</small></td>
 								<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
 								<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
@@ -44,7 +44,7 @@
 							</tr>
 							<tr>
 								{{#if increment}}<th>&nbsp;</th>{{/if}}
-								<td><a href="#">Table cell</a></td>
+								<td><a href="#">{{td}}</a></td>
 								<td>{{td_num1}} <small>{{td_unit1}}</small></td>
 								<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
 								<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
@@ -54,11 +54,11 @@
 						{{#unless increment}}
 						<tfoot>
 							<tr>
-								<td>Table footer</td>
-								<td>Table footer</td>
-								<td>Table footer</td>
-								<td>Table footer</td>
-								<td>Table footer</td>
+								<td>{{tfoot}}</td>
+								<td>{{tfoot}}</td>
+								<td>{{tfoot}}</td>
+								<td>{{tfoot}}</td>
+								<td>{{tfoot}}</td>
 							</tr>
 						</tfoot>
 						{{/unless}}
