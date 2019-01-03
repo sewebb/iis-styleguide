@@ -16,32 +16,33 @@
 		border: 0;
 		border-bottom: 1px solid $color-granit;
 		background: transparent;
-		background-position: bottom left;
 		font-size: rem(18px);
 		text-align: left;
 		-webkit-appearance: none;
 
 		&::after {
 			content: '';
-			display: block;
+			display: inline-block;
 			position: relative;
-			right: -10px; // Make sure the icon never touches the text (margin-left does'nt work in older iOS on flex-items)
+			top: -#{rem(3px)};
+			right: -#{rem(10px)}; // Make sure the icon never touches the text (margin-left does'nt work in older iOS on flex-items)
 			flex: none;
-			width: $icon-size-medium;
-			height: $icon-size-medium;
+			width: $icon-size-small;
+			height: $icon-size-small;
 			margin-left: auto;
+			transform: rotate(45deg);
+			transform-origin: center center;
 			transition: transform 0.25s ease-out;
-			background-image: url(../images/icon-arrow-down.svg);
-			background-repeat: no-repeat;
-			background-position: center center;
-			background-size: $icon-size-medium $icon-size-medium;
+			border: solid $color-cyberspace;
+			border-width: 0 rem(3px) rem(3px) 0;
 		}
 
 		&[aria-expanded='true'] {
 			border-color: transparent;
 
 			&::after {
-				transform: scaleY(-1);
+				top: rem(3px);
+				transform: rotate(-45deg) scaleY(-1);
 			}
 		}
 	}
