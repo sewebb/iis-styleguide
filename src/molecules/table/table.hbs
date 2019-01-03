@@ -1,0 +1,72 @@
+<div class="row no-gutters">
+	<div class="grid">
+		{{#if scrollable}}
+		<div class="table-scroll-wrapper scroll-on-large u-m-b-double">
+			<div class="scroll-indicator"></div>
+		{{/if}}
+				<div class="table-container">
+					<table class="m-table{{#if modifier}} {{modifier}}{{/if}}">
+						{{#unless increment}}
+						<thead>
+							<tr>
+								<th>Table head</th>
+								<th>Table head</th>
+								<th>Table head</th>
+								<th>Table head</th>
+								<th>Table head</th>
+							</tr>
+						</thead>
+						{{/unless}}
+						<tbody>
+							<tr>
+								{{#if increment}}<th>&nbsp;</th>{{/if}}
+								<td><a href="#">Table cell</a></td>
+								<td>{{td_num1}} <small>{{td_unit1}}</small></td>
+								<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
+								<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
+								<td>{{td_num4}} <small>{{td_unit4}}</small> </td>
+							</tr>
+							<tr>
+								{{#if increment}}<th>&nbsp;</th>{{/if}}
+								<td><a href="#">Table cell</a></td>
+								<td>{{td_num1}} <small>{{td_unit1}}</small></td>
+								<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
+								<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
+								<td>{{td_num4}} <small>{{td_unit4}}</small> </td>
+							</tr>
+							<tr>
+								{{#if increment}}<th>&nbsp;</th>{{/if}}
+								<td><a href="#">Table cell</a></td>
+								<td>{{td_num1}} <small>{{td_unit1}}</small></td>
+								<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
+								<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
+								<td>{{td_num4}} <small>{{td_unit4}}</small> </td>
+							</tr>
+							<tr>
+								{{#if increment}}<th>&nbsp;</th>{{/if}}
+								<td><a href="#">Table cell</a></td>
+								<td>{{td_num1}} <small>{{td_unit1}}</small></td>
+								<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
+								<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
+								<td>{{td_num4}} <small>{{td_unit4}}</small> </td>
+							</tr>
+						</tbody>
+						{{#unless increment}}
+						<tfoot>
+							<tr>
+								<td>Table footer</td>
+								<td>Table footer</td>
+								<td>Table footer</td>
+								<td>Table footer</td>
+								<td>Table footer</td>
+							</tr>
+						</tfoot>
+						{{/unless}}
+					</table>
+				</div>
+		{{#if scrollable}}
+			</div>
+		</div>
+		{{/if}}
+	</div>
+</div>

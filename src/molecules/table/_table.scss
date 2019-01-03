@@ -1,0 +1,261 @@
+@charset 'UTF-8';
+
+@include b(table-container) {
+	position: relative;
+	width: 100%;
+	max-width: 1320px;
+	margin-right: auto;
+	margin-left: auto;
+
+	&:focus {
+		outline: none;
+	}
+}
+
+@keyframes pulse {
+	0% {
+		right: 0;
+		opacity: 1;
+	}
+
+	50% {
+		right: 10px;
+		opacity: 0.3;
+	}
+
+	100% {
+		right: 0;
+		opacity: 1;
+	}
+}
+
+@include molecule(table) {
+	width: 100%;
+	border-collapse: collapse;
+	counter-reset: table-counter;
+
+	thead,
+	tfoot {
+		font-family: $font-family-mono;
+		font-size: 85%;
+		text-transform: uppercase;
+	}
+
+	tfoot {
+		th,
+		td {
+			border-top: 2px solid $color-granit;
+			font-size: 90%;
+			font-weight: 700;
+
+			&::before {
+				display: none;
+			}
+
+			@include bp-up(lg) {
+				font-size: 100%;
+			}
+		}
+
+		td {
+			border-top-width: 1px;
+		}
+	}
+
+	th,
+	td {
+		padding-top: rhythm(1);
+		padding-right: rhythm(2);
+		padding-bottom: rhythm(1);
+		padding-left: rhythm(2);
+		border-bottom: 2px solid $color-granit;
+		color: $color-cyberspace;
+		font-size: 90%;
+		font-weight: 700;
+		text-align: left;
+
+		&:first-child {
+			text-align: left;
+		}
+
+		span:not(.block-icon) {
+			display: block;
+			font-weight: 400;
+		}
+
+		a {
+			white-space: nowrap;
+		}
+
+		p {
+			display: inline;
+		}
+
+		@include bp-up(lg) {
+			font-size: 100%;
+		}
+	}
+
+	td {
+		border-bottom-width: 1px;
+	}
+
+	@include m(columns) {
+		th {
+			border-bottom: 2px solid $color-granit;
+		}
+
+		td {
+			border-bottom: 1px solid $color-granit;
+		}
+
+		th,
+		td {
+			&:nth-child(even) {
+				background-color: $color-snow;
+			}
+		}
+	}
+
+	@include m(rows) {
+		thead {
+			th {
+				background-color: $color-ash;
+			}
+		}
+
+		tbody {
+			tr:nth-child(odd) {
+				th,
+				td {
+					background-color: $color-snow;
+				}
+			}
+
+			tr:nth-child(even) {
+				th,
+				td {
+					background-color: $color-ash;
+				}
+			}
+		}
+	}
+
+	@include m(align-text-center) {
+		th,
+		td {
+			text-align: center;
+
+			&:first-child {
+				text-align: left;
+			}
+		}
+	}
+
+	@include m(increment) {
+		tbody {
+			tr:nth-child(odd) {
+				th,
+				td {
+					background-color: $color-ash;
+				}
+			}
+
+			tr:nth-child(even) {
+				th,
+				td {
+					background-color: $color-snow;
+				}
+			}
+		}
+
+		th {
+			width: rhythm(4);
+			padding-right: rhythm(3);
+			border-bottom-width: 1px;
+
+			&::before {
+				content: counter(table-counter);
+				counter-increment: table-counter;
+			}
+		}
+	}
+
+	@include m(lines) {
+		tr {
+			display: flex;
+
+			&:not(:last-child) {
+				background-image:
+					linear-gradient(
+						to right,
+						$color-cyberspace,
+						$color-cyberspace 2px,
+						transparent 2px,
+						transparent 6px
+					);
+				background-repeat: repeat-x;
+				background-position: bottom left;
+				background-size: 6px 1px;
+			}
+		}
+
+		td,
+		th {
+			flex-grow: 1;
+			padding-top: rhythm(2);
+			padding-bottom: rhythm(2);
+			border: 0;
+		}
+	}
+}
+
+@include b(scroll-indicator) {
+	display: block;
+	position: relative;
+	width: 100%;
+	height: rhythm(3);
+
+	&::before {
+		content: 'Scroll';
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		right: rhythm(3);
+		width: rhythm(7);
+		height: 0;
+		animation: pulse 2s infinite;
+		font-family: $font-family-mono;
+		font-size: 80%;
+		text-transform: uppercase;
+	}
+
+	&::after {
+		content: '›';
+		position: absolute;
+		z-index: 1;
+		top: -#{rem(4px)};
+		right: 0;
+		animation: pulse 2s infinite;
+		font-family: $font-family-mono;
+	}
+}
+
+@include b(table-scroll-wrapper) {
+	$breakpoint: map-get($grid-breakpoints, md);
+
+	table {
+		min-width: $breakpoint;
+	}
+
+	@include b(table-container) {
+		overflow-x: auto;
+		-webkit-overflow-scrolling: touch;
+	}
+
+	@include bp-up(md) {
+		@include b(scroll-indicator) {
+			display: none;
+		}
+	}
+}
