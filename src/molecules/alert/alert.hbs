@@ -1,0 +1,7 @@
+<div class="m-alert m-alert--{{type}}{{#if is_dismissable}} m-alert--dismissable{{/if}}{{#if js_class}} {{js_class}}{{/if}}">
+	{{#if is_dismissable}}
+		{{> @button el="button" modifiers="icon, standalone-icon" icon="close"}}
+	{{/if}}
+	<h2 class="u-m-b-1">{{name}}</h2>
+	<p>{{{text}}}</p>
+</div>

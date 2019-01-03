@@ -44,3 +44,29 @@
 	clip: rect(0 0 0 0);
 	clip: rect(0, 0, 0, 0);
 }
+
+// Box shadows
+@mixin box-shadow($shadow-color, $color-opacity) {
+	box-shadow: 0 rhythm(1 / 3) rhythm(1 * 0.75) rgba($shadow-color, $color-opacity);
+}
+
+@mixin card-shadow($shadow-color, $color-opacity) {
+	box-shadow: 0 rhythm(8) rhythm(12) rgba($color-cyberspace, 0.2);
+}
+
+// Alerts
+@mixin alert-variant($border, $bg-color, $text-color) {
+	border-color: $border;
+	background-color: $bg-color;
+	color: $text-color;
+
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		right: 0;
+		border-width: 0 rhythm(15) rhythm(10) 0;
+		border-style: solid;
+		border-color: transparent $border transparent transparent;;
+	}
+}

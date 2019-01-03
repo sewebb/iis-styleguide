@@ -5,7 +5,7 @@ module.exports = {
 	context: {
 		url: '#',
 		text: 'Primary button',
-		type: false,
+		button_type: false,
 	},
 	variants: [
 		{
@@ -121,6 +121,14 @@ module.exports = {
 				text: 'Button with loader icon',
 				icon: 'spinner'
 			}
-		}
+		},
+		{
+			name: 'Standalone icon',
+			context: {
+				modifiers: ['standalone-icon'],
+				text: '',
+				icon: 'close'
+			}
+		},
 	]
 };

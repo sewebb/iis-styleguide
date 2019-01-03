@@ -1,0 +1,61 @@
+@charset 'UTF-8';
+
+$alert-success-border: $color-jade;
+$alert-success-bg: $color-jade-light;
+$alert-info-border: $color-ocean;
+$alert-info-bg: $color-ocean-light;
+$alert-warning-border: $color-lemon;
+$alert-warning-bg: $color-lemon-light;
+$alert-error-border: $color-ruby;
+$alert-error-bg: $color-ruby-light;
+$alert-text: $color-cyberspace;
+
+@include molecule(alert) {
+
+	@include box-shadow($color-cyberspace, 0.15);
+
+	@include card-shadow($color-cyberspace, 0.2);
+
+	position: relative;
+	margin-bottom: rhythm(4);
+	padding: rhythm(2);
+	border: 1px solid transparent;
+	background-repeat: no-repeat;
+	background-position: rhythm(2) 50%;
+	text-shadow: 0 1px rgba($color-snow, 0.7);
+
+	p:last-child {
+		margin-bottom: rhythm(0.5);
+	}
+
+	@include m(dismissable) {
+		padding-right: rhythm(4);
+
+		// Adjust close button position
+		button {
+			position: absolute;
+			top: rhythm(1);
+			right: rhythm(1);
+		}
+	}
+
+	// Alternate styles
+	//
+	// Generate contextual modifier classes for colorizing the alert.
+
+	@include m(success) {
+		@include alert-variant($alert-success-border, $alert-success-bg, $alert-text);
+	}
+
+	@include m(info) {
+		@include alert-variant($alert-info-border, $alert-info-bg, $alert-text);
+	}
+
+	@include m(warning) {
+		@include alert-variant($alert-warning-border, $alert-warning-bg, $alert-text);
+	}
+
+	@include m(error) {
+		@include alert-variant($alert-error-border, $alert-error-bg, $alert-text);
+	}
+}

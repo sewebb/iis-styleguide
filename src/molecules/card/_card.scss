@@ -54,7 +54,7 @@
 	}
 
 	@include m(shadow) {
-		box-shadow: 0 rhythm(8) rhythm(12) rgba($color-cyberspace, 0.2);
+		@include card-shadow($color-cyberspace, 0.2);
 	}
 
 	@include m(padded) {
