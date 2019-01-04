@@ -5,11 +5,7 @@
 			<{{#if url}}a href="{{url}}"{{else}}button type="button"{{/if}} class="a-main-menu__list__link{{#if is_current}} is-current{{/if}}{{#if extra_class}} {{extra_class}}{{/if}}" {{#if has_expandable}}aria-expanded="false" data-a11y-toggle="{{controls}}"{{/if}}>
 				<span class="a-main-menu__list__text">{{text}}</span>
 				{{#if icon}}
-				<div class="{{icon}}">
-					<div class="{{icon}}__first"></div>
-					<div class="{{icon}}__second"></div>
-					<div class="{{icon}}__third"></div>
-				</div>
+				<div class="{{icon}}"></div>
 				{{/if}}
 				{{#if url}}</a>{{else}}</button>{{/if}}
 		</li>
