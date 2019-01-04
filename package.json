@@ -34,7 +34,6 @@
 	},
 	"devDependencies": {
 		"@frctl/fractal": "1.1.7",
-		"a11y-toggle": "^2.1.0",
 		"autoprefixer": "^9.3.1",
 		"babel-eslint": "^10.0.1",
 		"browserify": "^16.2.3",
@@ -55,11 +54,12 @@
 		"stylelint": "^9.8.0",
 		"stylelint-config-property-sort-order-smacss": "^4.0.1",
 		"stylelint-scss": "^3.3.2",
-		"uglify-es": "^3.3.9",
-		"van11y-accessible-accordion-aria": "^3.0.1"
+		"uglify-es": "^3.3.9"
 	},
 	"dependencies": {
-		"natives": "^1.1.6"
+		"a11y-toggle": "^2.1.0",
+		"natives": "^1.1.6",
+		"van11y-accessible-accordion-aria": "^3.0.1"
 	},
 	"fractal": {
 		"main": "fractal.config.js"
