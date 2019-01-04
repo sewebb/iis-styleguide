@@ -1,6 +1,7 @@
 const element = document.querySelector('.js-history');
 
-function goBack() {
+function goBack(e) {
+	e.preventDefault();
 	window.history.go(-1);
 }
 
