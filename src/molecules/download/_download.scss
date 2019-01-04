@@ -2,7 +2,7 @@
 
 @include molecule(download) {
 	position: relative;
-	padding: rhythm(2) rhythm(3);
+	padding: rhythm(2.5);
 	border: 1px solid $color-peacock;
 	border-radius: $border-radius;
 	background-color: $color-snow;
@@ -33,6 +33,7 @@
 
 	@include e(icon-file) {
 		margin-bottom: rhythm(1);
+		line-height: 0;
 
 		@include bp-up(sm) {
 			margin-right: rhythm(0.5);
