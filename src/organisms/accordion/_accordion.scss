@@ -9,6 +9,7 @@
 	@include e(header) {
 		display: block;
 		display: flex;
+		position: relative;
 		align-items: center;
 		justify-content: space-between;
 		width: 100%;
@@ -20,29 +21,38 @@
 		text-align: left;
 		-webkit-appearance: none;
 
+		&::before,
 		&::after {
 			content: '';
-			display: inline-block;
-			position: relative;
-			top: -#{rem(3px)};
-			right: -#{rem(10px)}; // Make sure the icon never touches the text (margin-left does'nt work in older iOS on flex-items)
-			flex: none;
+			display: block;
+			position: absolute;
+			top: rem(29px);
+			right: rem(23px);
 			width: $icon-size-small;
-			height: $icon-size-small;
-			margin-left: auto;
-			transform: rotate(45deg);
+			height: 3px;
 			transform-origin: center center;
 			transition: transform 0.25s ease-out;
-			border: solid $color-cyberspace;
-			border-width: 0 rem(3px) rem(3px) 0;
+			background-color: $color-cyberspace;
+		}
+
+		&::before {
+			transform: rotate(45deg);
+		}
+
+		&::after {
+			right: rem(13px);
+			transform: rotate(-45deg);
 		}
 
 		&[aria-expanded='true'] {
 			border-color: transparent;
 
 			&::after {
-				top: rem(3px);
-				transform: rotate(-45deg) scaleY(-1);
+				transform: rotate(-135deg);
+			}
+
+			&::before {
+				transform: rotate(135deg);
 			}
 		}
 	}
