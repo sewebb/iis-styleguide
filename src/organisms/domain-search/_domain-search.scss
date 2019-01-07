@@ -23,14 +23,26 @@
 
 	@include e(input) {
 		display: block;
-		width: 100%;
+		width: calc(100% - #{rhythm(2)});
 		padding: rhythm(1) rhythm(1) rhythm(1) 0;
+		transition: padding 0.25s ease-out;
 		border: 0;
 		background-color: transparent;
+		letter-spacing: -0.1px;
 		-webkit-appearance: none;
 
-		@include bp-up(lg) {
+		&:focus {
+			margin-right: rhythm(2);
+			padding-left: rhythm(1);
+			background-color: lighten($color-ash, 4%);
+		}
+
+		@include bp-up(md) {
 			font-size: rem(32px);
+
+			&:focus {
+				padding-left: rhythm(2);
+			}
 		}
 	}
 
@@ -42,9 +54,10 @@
 	}
 
 	@include e(submit) {
+		flex-shrink: 0;
 
 		@include bp-down(md) {
-			padding: rhythm(1);
+			padding: rhythm(0.6) rhythm(1);
 			font-size: $size-small;
 		}
 	}

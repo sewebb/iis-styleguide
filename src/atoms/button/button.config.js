@@ -6,6 +6,8 @@ module.exports = {
 		url: '#',
 		text: 'Primary button',
 		button_type: false,
+		type: false,
+		id: false,
 	},
 	variants: [
 		{
