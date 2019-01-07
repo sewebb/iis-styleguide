@@ -148,8 +148,8 @@ small {
 blockquote {
 
 	@include plumber(
-		$font-size: 4,
-		$line-height: 5,
+		$font-size: 2.5,
+		$line-height: 3,
 		$leading-top: 2,
 		$leading-bottom: 4,
 		$baseline: $headings-baseline
@@ -167,7 +167,6 @@ blockquote {
 	flex-direction: column;
 	margin-right: 0;
 	margin-left: 0;
-	padding-right: rhythm(7);
 	padding-left: rhythm(7);
 
 	svg {
@@ -175,13 +174,27 @@ blockquote {
 		position: absolute;
 		top: -#{rhythm(3)};
 		left: 0;
-		width: rhythm(6);
-		height: rhythm(12);
+		width: rhythm(3);
+		height: rhythm(6);
 		fill: $color-black;
 	}
 
 	.meta {
 		margin-top: rhythm(1.7); // Compensate for default minus margin
+	}
+
+	@include bp-up(sm) {
+		padding-right: rhythm(3);
+	}
+
+	@include bp-up(md) {
+
+		@include plumber(
+			$font-size: 4,
+			$line-height: 5
+		);
+
+		padding-right: rhythm(7);
 	}
 }
 
