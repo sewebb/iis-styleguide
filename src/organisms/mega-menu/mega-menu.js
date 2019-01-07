@@ -1,15 +1,24 @@
 const createFocusTrap = require('focus-trap');
 
 const megaMenuButton = document.querySelector('.js-toggle-mega-menu');
-const container = megaMenuButton.getAttribute('data-a11y-toggle');
+const targetContainer = megaMenuButton.getAttribute('data-a11y-toggle');
+const containerElement = document.getElementById(targetContainer);
+const focusTrap = createFocusTrap(`#${targetContainer}`, { clickOutsideDeactivates: true });
 
 function myFocusTrap() {
-	const focusTrap = createFocusTrap(`#${container}`, { clickOutsideDeactivates: true });
+	containerElement.removeEventListener('transitionend', () => {
+		console.log('remove');
+	});
+
 	setTimeout(() => {
 		if (megaMenuButton.getAttribute('aria-expanded') === 'true') {
+			containerElement.tabIndex = 0;
 			focusTrap.activate();
 		} else {
 			focusTrap.deactivate();
+			containerElement.addEventListener('transitionend', () => {
+				containerElement.tabIndex = -1;
+			}, { once: true });
 		}
 	}, 10);
 }

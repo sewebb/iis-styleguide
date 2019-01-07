@@ -1,16 +1,21 @@
 const createFocusTrap = require('focus-trap');
 
 const domainSearchButton = document.querySelector('.js-toggle-domain-search');
-const container = domainSearchButton.getAttribute('data-a11y-toggle');
+const targetContainer = domainSearchButton.getAttribute('data-a11y-toggle');
+const containerElement = document.getElementById(targetContainer);
+const focusTrap = createFocusTrap(`#${targetContainer}`, { clickOutsideDeactivates: true });
 
 
 function myFocusTrap() {
-	const focusTrap = createFocusTrap(`#${container}`, { clickOutsideDeactivates: true });
 	setTimeout(() => {
 		if (domainSearchButton.getAttribute('aria-expanded') === 'true') {
+			containerElement.tabIndex = 0;
 			focusTrap.activate();
 		} else {
 			focusTrap.deactivate();
+			containerElement.addEventListener('transitionend', () => {
+				containerElement.tabIndex = -1;
+			}, { once: true });
 		}
 	}, 10);
 }
