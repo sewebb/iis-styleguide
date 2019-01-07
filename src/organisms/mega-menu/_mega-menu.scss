@@ -1,6 +1,7 @@
 @charset 'UTF-8';
 
 @include organism(mega-menu) {
+	visibility: hidden;
 	position: absolute;
 	z-index: 1;
 	padding-right: 0;
@@ -11,6 +12,7 @@
 	box-shadow: 0 rhythm(0.5) rhythm(0.5) rgba($color-cyberspace, 0.1);
 
 	&[aria-hidden='false'] {
+		visibility: visible;
 		transform: translateY(0);
 
 		+ {

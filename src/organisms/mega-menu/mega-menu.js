@@ -1,12 +1,17 @@
-// TODO, fix tab logic when tabbing from last and first element in container
 const createFocusTrap = require('focus-trap');
 
 const megaMenuButton = document.querySelector('.js-toggle-mega-menu');
 const container = megaMenuButton.getAttribute('data-a11y-toggle');
 
 function myFocusTrap() {
-	const focusTrap = createFocusTrap(`#${container}`);
-	focusTrap.activate();
+	const focusTrap = createFocusTrap(`#${container}`, { clickOutsideDeactivates: true });
+	setTimeout(() => {
+		if (megaMenuButton.getAttribute('aria-expanded') === 'true') {
+			focusTrap.activate();
+		} else {
+			focusTrap.deactivate();
+		}
+	}, 10);
 }
 
 if (megaMenuButton) {
