@@ -59,14 +59,4 @@
 	border-color: $border;
 	background-color: $bg-color;
 	color: $text-color;
-
-	&::after {
-		content: '';
-		position: absolute;
-		top: 0;
-		right: 0;
-		border-width: 0 rhythm(15) rhythm(8) 0;
-		border-style: solid;
-		border-color: transparent $border transparent transparent;;
-	}
 }

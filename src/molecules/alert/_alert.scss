@@ -11,20 +11,19 @@ $alert-error-bg: $color-ruby-light;
 $alert-text: $color-cyberspace;
 
 @include molecule(alert) {
-
-	@include box-shadow($color-cyberspace, 0.15);
-
-	@include card-shadow($color-cyberspace, 0.2);
-
 	position: relative;
 	margin-bottom: rhythm(4);
 	padding: rhythm(2);
 	border: 1px solid transparent;
 	background-repeat: no-repeat;
 	background-position: rhythm(2) 50%;
-	text-shadow: 0 1px rgba($color-snow, 0.7);
 
-	p:last-child {
+	> h2,
+	> p {
+		max-width: rem(600px);
+	}
+
+	> p:last-child {
 		margin-bottom: rhythm(0.5);
 	}
 
