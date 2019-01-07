@@ -21,6 +21,12 @@
 	.wrapper {
 		@include make-container();
 		@include make-container-max-widths();
+
+		// Specify bigger wrapper padding on smaller screens
+		@include bp-down(xl) {
+			padding-right: $grid-gutter-width;
+			padding-left: $grid-gutter-width;
+		}
 	}
 }
 
