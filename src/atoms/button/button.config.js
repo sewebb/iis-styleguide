@@ -7,7 +7,7 @@ module.exports = {
 		text: 'Primary button',
 		button_type: false,
 		type: false,
-		id: false,
+		id: false
 	},
 	variants: [
 		{
