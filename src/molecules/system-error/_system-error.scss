@@ -4,8 +4,11 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	justify-content: center;
 	height: 100%;
+
+	@include bp-up(md) {
+		justify-content: center;
+	}
 
 	@include e(content) {
 		max-width: 600px;
@@ -15,15 +18,24 @@
 	}
 
 	@include e(heading) {
-		margin-bottom: rhythm(4);
+
+		@include plumber(
+			$font-size: 10,
+			$line-height: 11,
+			$leading-bottom: 2
+		);
+
 		animation: rumble 4s infinite linear;
 		font-family: $font-family-mono;
-		font-size: 500%;
 		text-shadow: 0 1px 0 rgba($color-snow, 0.8), 0 30px 100px rgba($color-cyberspace, 0.5);
 
 		@include bp-up(md) {
-			margin-bottom: rhythm(8);
-			font-size: 700%;
+
+			@include plumber(
+				$font-size: 15,
+				$line-height: 16,
+				$leading-bottom: 4
+			);
 		}
 	}
 }
