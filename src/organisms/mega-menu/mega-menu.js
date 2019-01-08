@@ -23,8 +23,10 @@ if (megaMenuButton) {
 	megaMenuButton.addEventListener('click', myFocusTrap);
 }
 
-document.addEventListener('keydown', (e) => {
-	if (e.keyCode === 9) {
-		containerElement.tabIndex = -1;
-	}
-}, { once: true });
+if (!megaMenuButton.getAttribute('aria-expanded') === 'true') {
+	document.addEventListener('keydown', (e) => {
+		if (e.keyCode === 9) {
+			containerElement.tabIndex = -1;
+		}
+	}, { once: true });
+}

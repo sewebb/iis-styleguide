@@ -23,8 +23,10 @@ if (domainSearchButton) {
 	domainSearchButton.addEventListener('click', myFocusTrap);
 }
 
-document.addEventListener('keydown', (e) => {
-	if (e.keyCode === 9) {
-		containerElement.tabIndex = -1;
-	}
-}, { once: true });
+if (!domainSearchButton.getAttribute('aria-expanded') === 'true') {
+	document.addEventListener('keydown', (e) => {
+		if (e.keyCode === 9) {
+			containerElement.tabIndex = -1;
+		}
+	}, { once: true });
+}
