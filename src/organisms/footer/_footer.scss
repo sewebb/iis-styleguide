@@ -59,9 +59,16 @@
 
 		@include e(item) {
 			display: flex;
+			flex-basis: 50%;
+			flex-grow: 1;
+			flex-shrink: 1;
 			justify-content: center;
 			border-bottom: 1px solid $color-ash;
 			border-left: 1px solid $color-ash;
+
+			@include bp-up(md) {
+				flex-basis: 33.333333%;
+			}
 		}
 	}
 
@@ -87,5 +94,14 @@
 	@include e(logo-link) {
 		display: flex;
 		justify-content: center;
+		max-width: rem(150px);
+
+		@include bp-up(md) {
+			max-width: rem(250px);
+		}
+
+		@include bp-up(xl) {
+			max-width: rem(300px);
+		}
 	}
 }
