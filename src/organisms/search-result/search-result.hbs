@@ -1,0 +1,30 @@
+<div class="wrapper background-snow">
+	<div class="row justify-content-center">
+		<div class="grid-18 grid-lg-16 u-p-y-4">
+			<div class="row display-flex align-items-center">
+				<div class="grid-auto u-p-r-0">
+					<span class="o-search-result__icon">
+						{{> @icon id="search"}}
+					</span>
+				</div>
+				<div class="grid u-p-l-0 display-flex">
+					<label for="{{input_id}}" class="u-visuallyhidden">{{label}}</label>
+					<input type="search" class="o-domain-search__input js-search-domain-input" placeholder="{{label}}" id="{{input_id}}">
+					{{> @button el="button" button_type="submit" text="Sök" modifiers="secondary o-domain-search__submit" id="o-domain-search-submit"}}
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="row justify-content-center">
+		<div class="grid-18 grid-lg-16">
+			<div class="row">
+				<div class="grid-18 grid-lg-12">
+					<h1>Du sökte på: <span class="u-weight-normal">nätneutralitet</span<</h1>
+				</div>
+				<div class="grid-18 grid-lg-6">
+					2
+				</div>
+			</div>
+		</div>
+	</div>
+</div>

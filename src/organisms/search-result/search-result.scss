@@ -1,0 +1,11 @@
+@charset 'UTF-8';
+
+@include organism(search-result) {
+	@include e(icon) {
+		display: flex;
+		flex-grow: 0;
+		width: $icon-size * 2;
+		height: $icon-size *2;
+		margin-right: rhythm(2);
+	}
+}
