@@ -22,3 +22,10 @@ function myFocusTrap() {
 if (megaMenuButton) {
 	megaMenuButton.addEventListener('click', myFocusTrap);
 }
+
+document.addEventListener('keydown', (e) => {
+	if (e.keyCode === 9) {
+		console.log('foo');
+		containerElement.tabIndex = -1;
+	}
+}, { once: true });

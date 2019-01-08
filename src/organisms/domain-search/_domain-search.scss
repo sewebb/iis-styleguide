@@ -5,7 +5,6 @@
 
 	&:not(.is-in-mega-menu) {
 		display: none;
-		visibility: hidden;
 		position: absolute;
 		z-index: 1;
 		transform: translateY(-107%);
@@ -13,12 +12,19 @@
 		box-shadow: 0 rhythm(0.5) rhythm(0.5) rgba($color-cyberspace, 0.1);
 
 		&[aria-hidden='false'] {
-			visibility: visible;
 			transform: translateY(0);
 		}
 
 		@include bp-up(xl) {
 			display: flex;
+		}
+	}
+
+	&[tabindex='-1'] {
+		a,
+		button,
+		input {
+			visibility: hidden;
 		}
 	}
 
