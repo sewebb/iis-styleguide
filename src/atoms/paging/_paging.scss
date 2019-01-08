@@ -16,14 +16,14 @@
 
 	&:focus,
 	&:hover {
-		background-color: $color-ocean-light;
+		background-color: $color-ash;
 	}
 
 	@include e(icon) {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: rhythm(2);
-		height: rhythm(2);
+		width: $icon-size-medium;
+		height: $icon-size-medium;
 	}
 }

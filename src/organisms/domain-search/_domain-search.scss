@@ -34,6 +34,7 @@
 		padding: rhythm(1) rhythm(1) rhythm(1) 0;
 		transition: padding 0.25s ease-out;
 		border: 0;
+		border-radius: $border-radius;
 		background-color: transparent;
 		letter-spacing: -0.1px;
 		-webkit-appearance: none;
@@ -62,8 +63,10 @@
 
 	@include e(submit) {
 		flex-shrink: 0;
+		padding-right: rhythm(4);
+		padding-left: rhythm(4);
 
-		@include bp-down(md) {
+		@include bp-down(sm) {
 			padding: rhythm(0.6) rhythm(1);
 			font-size: $size-small;
 		}

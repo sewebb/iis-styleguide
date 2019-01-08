@@ -28,3 +28,27 @@
 		display: none !important;
 	}
 }
+
+.u-hide-xs {
+	@include bp-down(xs) {
+		display: none !important;
+	}
+}
+
+.u-hide-sm {
+	@include bp-down(sm) {
+		display: none !important;
+	}
+}
+
+.u-hide-md {
+	@include bp-down(md) {
+		display: none !important;
+	}
+}
+
+.u-hide-lg {
+	@include bp-down(lg) {
+		display: none !important;
+	}
+}
