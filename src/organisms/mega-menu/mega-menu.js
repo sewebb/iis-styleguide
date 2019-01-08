@@ -6,10 +6,6 @@ const containerElement = document.getElementById(targetContainer);
 const focusTrap = createFocusTrap(`#${targetContainer}`, { clickOutsideDeactivates: true });
 
 function myFocusTrap() {
-	containerElement.removeEventListener('transitionend', () => {
-		console.log('remove');
-	});
-
 	setTimeout(() => {
 		if (megaMenuButton.getAttribute('aria-expanded') === 'true') {
 			containerElement.tabIndex = 0;
