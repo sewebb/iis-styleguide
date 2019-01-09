@@ -161,13 +161,13 @@ blockquote {
 	margin-right: 0;
 	margin-bottom: rhythm(4);
 	margin-left: 0;
-	padding-left: rhythm(3);
+	padding-left: rem(40px);
 
 	p {
 		@include plumber(
 			$font-size: 2.5,
 			$line-height: 3,
-			$leading-top: 2,
+			$leading-top: 1,
 			$leading-bottom: 0,
 			$baseline: $headings-baseline
 		);
@@ -176,7 +176,7 @@ blockquote {
 	svg {
 		display: block;
 		position: absolute;
-		top: -#{rhythm(3)};
+		top: 0;
 		left: 0;
 		width: rhythm(2);
 		height: rhythm(4);
@@ -189,7 +189,14 @@ blockquote {
 	}
 
 	.meta {
-		margin-top: rhythm(1.7); // Compensate for default minus margin
+		@include plumber(
+			$font-size: 1.5,
+			$leading-bottom: 0
+		);
+
+		// Apparently not allowed to use decimals in plumber...
+		margin-top: rhythm(1);
+		line-height: rhythm(2.5);
 	}
 
 	@include bp-up(sm) {
@@ -197,15 +204,27 @@ blockquote {
 	}
 
 	@include bp-up(md) {
-		margin-top: rhythm(7);
-		padding-right: rhythm(7);
-		padding-left: rhythm(7);
+		margin-top: rhythm(6.5);
+		padding-left: rem(52px);
 
 		p {
 			@include plumber(
-				$font-size: 4,
-				$line-height: 5
+				$font-size: 3,
+				$line-height: 4,
+				$leading-bottom: 0,
+				$leading-top: 1
 			);
+		}
+
+		.meta {
+			@include plumber(
+				$font-size: 2,
+				$leading-bottom: 0
+			);
+
+			// Apparently not allowed to use decimals in plumber...
+			margin-top: rhythm(0.5);
+			line-height: rhythm(3.5);
 		}
 	}
 }
