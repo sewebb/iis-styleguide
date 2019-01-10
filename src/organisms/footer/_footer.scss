@@ -2,98 +2,14 @@
 
 @include organism(footer) {
 
-	@include b(logotype) {
+	@include e(logotype) {
 		width: 100%;
-		padding: 0 rhythm(2);
+		max-width: rem(250px);
+		padding: rhythm(8) rhythm(2);
 
-		@include bp-up(lg) {
-			padding: rhythm(2);
-		}
-	}
-
-	@include b(svenskarna-och-internet) {
-		max-width: rem(130px);
-	}
-
-	@include b(internetdagarna) {
-		max-width: rem(170px);
-	}
-
-	@include b(bredbandskollen) {
-		max-width: rem(170px);
-	}
-
-	@include b(internetmuseum) {
-		max-width: rem(170px);
-	}
-
-	@include b(digitala-lektioner) {
-		max-width: rem(180px);
-	}
-
-	@include b(goto10) {
-		max-width: rem(125px);
-	}
-
-	@include bp-up(sm) {
-		@include b(svenskarna-och-internet) {
-			max-width: rem(170px);
-		}
-
-		@include b(internetdagarna) {
-			max-width: rem(220px);
-		}
-
-		@include b(bredbandskollen) {
-			max-width: rem(220px);
-		}
-
-		@include b(internetmuseum) {
-			max-width: rem(220px);
-		}
-
-		@include b(digitala-lektioner) {
-			max-width: rem(225px);
-		}
-
-		@include b(goto10) {
-			max-width: rem(165px);
-		}
-	}
-
-	@include bp-up(lg) {
-		@include b(svenskarna-och-internet) {
-			max-width: rem(160px);
-		}
-
-		@include b(goto10) {
-			max-width: rem(150px);
-		}
-	}
-
-	@include bp-up(xl) {
-		@include b(svenskarna-och-internet) {
-			max-width: rem(220px);
-		}
-
-		@include b(internetdagarna) {
-			max-width: rem(290px);
-		}
-
-		@include b(bredbandskollen) {
-			max-width: rem(295px);
-		}
-
-		@include b(internetmuseum) {
-			max-width: rem(295px);
-		}
-
-		@include b(digitala-lektioner) {
+		@include bp-up(xl) {
 			max-width: rem(300px);
-		}
-
-		@include b(goto10) {
-			max-width: rem(210px);
+			padding: 0 rhythm(4);
 		}
 	}
 
