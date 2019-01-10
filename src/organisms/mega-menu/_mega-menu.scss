@@ -2,12 +2,12 @@
 
 @include organism(mega-menu) {
 	position: absolute;
-	z-index: 1;
+	z-index: 999;
 	padding-right: 0;
 	padding-left: 0;
 	transform: translateY(-107%);
 	transition: transform 0.25s ease-out;
-	background-color: $color-ash;
+	background-color: $color-jade-light;
 	box-shadow: 0 rhythm(0.5) rhythm(0.5) rgba($color-cyberspace, 0.1);
 
 	&[aria-hidden='false'] {
