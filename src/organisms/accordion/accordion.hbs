@@ -1,6 +1,6 @@
 <div class="js-o-accordion o-accordion">
 	{{#each accordion_item}}
-	<h3 class="js-accordion__header">
+	<h3 class="js-accordion__header"{{#if is_expanded}} data-accordion-opened="true"{{/if}}>
 		{{heading}}
 	</h3>
 	<div class="js-accordion__panel">

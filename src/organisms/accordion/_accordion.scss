@@ -60,6 +60,26 @@
 				transform: rotate(135deg);
 			}
 		}
+
+		@include m(inline) {
+			display: inline-flex;
+			width: auto;
+
+			button {
+				padding-right: rhythm(5);
+				padding-left: 0;
+			}
+		}
+
+		@include m(no-border) {
+			button {
+				border-bottom: 0;
+			}
+
+			+ div {
+				border-bottom: 0;
+			}
+		}
 	}
 
 	@include e(panel) {
