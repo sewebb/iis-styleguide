@@ -2,10 +2,10 @@
 
 @include organism(mega-menu) {
 	position: absolute;
-	z-index: 999;
+	z-index: 3;
 	padding-right: 0;
 	padding-left: 0;
-	transform: translateY(-107%);
+	transform: translateY(-115%);
 	transition: transform 0.25s ease-out;
 	background-color: $color-jade-light;
 	box-shadow: 0 rhythm(0.5) rhythm(0.5) rgba($color-cyberspace, 0.1);
