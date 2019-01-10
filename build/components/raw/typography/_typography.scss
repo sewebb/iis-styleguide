@@ -147,14 +147,6 @@ small {
 
 blockquote {
 
-	@include plumber(
-		$font-size: 2.5,
-		$line-height: 3,
-		$leading-top: 2,
-		$leading-bottom: 4,
-		$baseline: $headings-baseline
-	);
-
 	@include color_classes (
 		$map: $colors,
 		$prefix: '-',
@@ -165,18 +157,35 @@ blockquote {
 	display: flex;
 	position: relative;
 	flex-direction: column;
+	margin-top: rhythm(7);
 	margin-right: 0;
+	margin-bottom: rhythm(4);
 	margin-left: 0;
-	padding-left: rhythm(7);
+	padding-left: rhythm(3);
+
+	p {
+		@include plumber(
+			$font-size: 2.5,
+			$line-height: 3,
+			$leading-top: 2,
+			$leading-bottom: 0,
+			$baseline: $headings-baseline
+		);
+	}
 
 	svg {
 		display: block;
 		position: absolute;
 		top: -#{rhythm(3)};
 		left: 0;
-		width: rhythm(3);
-		height: rhythm(6);
+		width: rhythm(2);
+		height: rhythm(4);
 		fill: $color-black;
+
+		@include bp-up(md) {
+			width: rhythm(3);
+			height: rhythm(6);
+		}
 	}
 
 	.meta {
@@ -188,13 +197,16 @@ blockquote {
 	}
 
 	@include bp-up(md) {
-
-		@include plumber(
-			$font-size: 4,
-			$line-height: 5
-		);
-
+		margin-top: rhythm(7);
 		padding-right: rhythm(7);
+		padding-left: rhythm(7);
+
+		p {
+			@include plumber(
+				$font-size: 4,
+				$line-height: 5
+			);
+		}
 	}
 }
 

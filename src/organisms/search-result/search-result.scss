@@ -44,7 +44,9 @@
 
 			header {
 				display: flex;
+				align-items: flex-start;
 				justify-content: space-between;
+				margin-bottom: rhythm(1);
 			}
 
 			p {
@@ -111,8 +113,10 @@
 			display: flex;
 			position: relative;
 			align-items: center;
+			margin-left: rhythm(1);
 			font-family: $font-family-headings;
 			font-size: $size-small;
+			white-space: nowrap;
 
 			span {
 				margin-left: rem(3px);
@@ -154,6 +158,8 @@
 
 	@include e(image) {
 		display: block;
+		width: 100%;
+		height: auto;
 		margin-bottom: rhythm(2);
 		border-radius: $border-radius;
 

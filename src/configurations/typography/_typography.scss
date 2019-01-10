@@ -26,7 +26,7 @@ h2,
 	@include plumber(
 		$font-size: 2,
 		$line-height: 3,
-		$leading-bottom: 2,
+		$leading-bottom: 1,
 		$baseline: $headings-baseline
 	);
 
