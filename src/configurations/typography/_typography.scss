@@ -230,7 +230,8 @@ blockquote {
 }
 
 b,
-strong {
+strong,
+legend {
 	font-family: $font-family-headings;
 	font-weight: normal;
 }

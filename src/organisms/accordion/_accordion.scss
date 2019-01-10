@@ -86,7 +86,7 @@
 		visibility: visible;
 		max-height: 10000em; // Rediculous height
 		padding: 0;
-		overflow: hidden;
+		overflow: visible;
 		transition: visibility 0s ease, max-height 0.25s ease, opacity 0.25s ease;
 		transition-delay: 0s;
 		border-bottom: 1px solid $color-granit;
@@ -96,12 +96,14 @@
 		&[aria-hidden='true'] {
 			visibility: hidden;
 			max-height: 0;
+			overflow: hidden;
 			transition-delay: 0.25s, 0s, 0s;
 			opacity: 0;
 		}
 
 		// Nested to prevent padding when JS is disabled
 		@include e(content) {
+			position: relative;
 			padding: rhythm(3);
 
 			:last-child {

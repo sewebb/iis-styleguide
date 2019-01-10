@@ -9,4 +9,10 @@
 			margin-bottom: 0;
 		}
 	}
+
+	@include e(clear) {
+		position: absolute;
+		top: -#{rem(50px)};
+		right: 0;
+	}
 }
