@@ -6,6 +6,11 @@
 	background-position: top left;
 	list-style: none;
 
+	&::before {
+		content: $namespace;
+		display: none;
+	}
+
 	@include e(header) {
 		display: block;
 		display: flex;
