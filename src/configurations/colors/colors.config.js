@@ -186,7 +186,16 @@ module.exports = {
 				cmyk: '35 5 1 0',
 				pms: '2830U',
 				hasBorder: false
-			}
+			},
+			{
+				name: 'concrete',
+				title: '$color-concrete',
+				hex: '#d8d8d8',
+				rgb: 'n/a',
+				cmyk: 'n/a',
+				pms: 'n/a',
+				hasBorder: false
+			},
 		]
 	}
 }

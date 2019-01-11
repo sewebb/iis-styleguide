@@ -30,10 +30,10 @@
 
 	@include e(item) {
 		padding: rhythm(3) 0;
-		border-top: 1px solid $color-granit;
+		border-top: 1px solid $color-concrete;
 
 		&:last-child {
-			border-bottom: 1px solid $color-granit;
+			border-bottom: 1px solid $color-concrete;
 		}
 
 		@include m(article) {
