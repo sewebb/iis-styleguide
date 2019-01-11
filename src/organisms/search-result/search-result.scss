@@ -29,11 +29,35 @@
 	}
 
 	@include e(item) {
+		position: relative;
 		padding: rhythm(3) 0;
-		border-top: 1px solid $color-concrete;
+
+		&::before,
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			right: -#{rhythm(2)};
+			left: -#{rhythm(2)};
+			height: 0;
+
+			@include bp-up(md) {
+				right: -#{rhythm(3)};
+				left: -#{rhythm(3)};
+			}
+		}
+
+		&::before {
+			border-top: 1px solid $color-concrete;
+		}
 
 		&:last-child {
-			border-bottom: 1px solid $color-concrete;
+			&::after {
+				top: auto;
+				bottom: 0;
+				border-bottom: 1px solid $color-concrete;
+			}
 		}
 
 		@include m(article) {
