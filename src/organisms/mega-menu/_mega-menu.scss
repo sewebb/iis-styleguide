@@ -6,6 +6,7 @@ $border-color: darken($color-jade, 5%);
 	position: absolute;
 	z-index: 3;
 	padding-right: 0;
+	padding-bottom: rhythm(4);
 	padding-left: 0;
 	transform: translateY(-115%);
 	transition: transform 0.25s ease-out;
@@ -98,6 +99,7 @@ $border-color: darken($color-jade, 5%);
 	}
 
 	@include bp-up(lg) {
+		padding-bottom: 0;
 
 		@include e(link) {
 			@include m(large) {
