@@ -1,5 +1,7 @@
 @charset 'UTF-8';
 
+$border-color: darken($color-jade, 5%);
+
 @include organism(mega-menu) {
 	position: absolute;
 	z-index: 3;
@@ -39,7 +41,7 @@
 			margin-top: rhythm(2);
 			margin-bottom: rhythm(0.5);
 			padding: rhythm(1) rhythm(1);
-			border-bottom: 1px solid darken($color-ash, 5%);
+			border-bottom: 1px solid $border-color;
 			font-family: $font-family-headings;
 
 			&:first-child {
@@ -52,7 +54,7 @@
 			padding: rhythm(1) rhythm(1);
 
 			& + & {
-				border-top: 1px solid darken($color-ash, 5%);
+				border-top: 1px solid $border-color;
 			}
 		}
 
