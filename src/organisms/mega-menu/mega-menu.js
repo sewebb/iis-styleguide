@@ -19,11 +19,20 @@ function myFocusTrap() {
 	}, 10);
 }
 
-if (megaMenuButton) {
-	megaMenuButton.addEventListener('click', myFocusTrap);
+function closeMenu(e) {
+	if (e.target !== containerElement
+		&& e.target.parentNode !== containerElement
+		&& e.target !== megaMenuButton) {
+		window.a11yToggle(containerElement);
+	}
 }
 
-if (!megaMenuButton.getAttribute('aria-expanded') === 'true') {
+if (megaMenuButton) {
+	megaMenuButton.addEventListener('click', myFocusTrap);
+	window.addEventListener('mouseup', closeMenu);
+}
+
+if (megaMenuButton.getAttribute('aria-expanded') !== 'true') {
 	document.addEventListener('keydown', (e) => {
 		if (e.keyCode === 9) {
 			containerElement.tabIndex = -1;
