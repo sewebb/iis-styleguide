@@ -2,7 +2,7 @@
 
 // Forwards / backwards
 /// @group Paging
-@include b(paging) {
+@include atom(paging) {
 	display: inline-flex;
 	position: relative;
 	align-items: center;
