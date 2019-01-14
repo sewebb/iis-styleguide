@@ -7,8 +7,8 @@
 	list-style: none;
 
 	&::before {
+		@extend %u-visuallyhidden;
 		content: $namespace;
-		display: none;
 	}
 
 	@include e(header) {

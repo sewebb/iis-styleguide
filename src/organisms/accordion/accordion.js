@@ -11,6 +11,7 @@
 
 const accordionElement = document.querySelector('.js-o-accordion');
 let namespace = getComputedStyle(accordionElement, ':before').content;
+console.log(namespace);
 namespace = namespace.replace(/["']/g, '');
 const oAccordion = window.van11yAccessibleAccordionAria({
 	ACCORDION_PREFIX_IDS: 'o-accordion',
