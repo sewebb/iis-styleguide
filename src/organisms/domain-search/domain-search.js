@@ -19,11 +19,20 @@ function myFocusTrap() {
 	}, 10);
 }
 
-if (domainSearchButton) {
-	domainSearchButton.addEventListener('click', myFocusTrap);
+function closeSearch(e) {
+	if (e.target !== containerElement
+		&& e.target.parentNode !== containerElement
+		&& e.target !== domainSearchButton) {
+		window.a11yToggle(containerElement);
+	}
 }
 
-if (!domainSearchButton.getAttribute('aria-expanded') === 'true') {
+if (domainSearchButton) {
+	domainSearchButton.addEventListener('click', myFocusTrap);
+	window.addEventListener('mouseup', closeSearch);
+}
+
+if (domainSearchButton.getAttribute('aria-expanded') !== 'true') {
 	document.addEventListener('keydown', (e) => {
 		if (e.keyCode === 9) {
 			containerElement.tabIndex = -1;
