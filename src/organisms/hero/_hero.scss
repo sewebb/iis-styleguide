@@ -2,6 +2,8 @@
 
 @include organism(hero) {
 	position: relative;
+	z-index: 1;
+	background-color: $color-ruby;
 
 	@include bp-up(sm) {
 		height: 0;
@@ -58,14 +60,8 @@
 		}
 	}
 
-	@include e(link) {
+	@include e(text) {
 		color: $color-snow;
-		text-decoration: none;
-
-		&:hover,
-		&:focus {
-			text-decoration: underline;
-		}
 
 		@include bp-up(md) {
 			max-width: 80%;
@@ -77,17 +73,27 @@
 
 		@include bp-up(xl) {
 			max-width: 50%;
+		}
+	}
 
-			&::after {
-				content: '';
-				display: block;
-				position: absolute;
-				top: 0;
-				right: 0,;
-				bottom: 0;
-				left: 0;
-				cursor: pointer;
-			}
+	@include e(link) {
+		color: $color-snow;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0,;
+			bottom: 0;
+			left: 0;
+			cursor: pointer;
 		}
 	}
 }
