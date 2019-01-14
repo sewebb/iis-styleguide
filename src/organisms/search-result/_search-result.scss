@@ -1,0 +1,194 @@
+@charset 'UTF-8';
+
+@include organism(search-result) {
+	padding: rhythm(2);
+	border-radius: $border-radius;
+	background-color: $color-snow;
+
+	@include bp-up(md) {
+		padding: rhythm(3);
+	}
+
+	@include e(icon) {
+		display: flex;
+		flex-grow: 0;
+		width: $icon-size;
+		height: $icon-size;
+		margin-right: rhythm(2);
+
+		@include bp-up(md) {
+			width: $icon-size * 2;
+			height: $icon-size * 2;
+		}
+	}
+
+	@include e(list) {
+		margin: 0 0 rhythm(3) 0;
+		padding: 0;
+		list-style: none;
+	}
+
+	@include e(item) {
+		position: relative;
+		padding: rhythm(3) 0;
+
+		&::before,
+		&::after {
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			right: -#{rhythm(2)};
+			left: -#{rhythm(2)};
+			height: 0;
+
+			@include bp-up(md) {
+				right: -#{rhythm(3)};
+				left: -#{rhythm(3)};
+			}
+		}
+
+		&::before {
+			border-top: 1px solid $color-concrete;
+		}
+
+		&:last-child {
+			&::after {
+				top: auto;
+				bottom: 0;
+				border-bottom: 1px solid $color-concrete;
+			}
+		}
+
+		@include m(article) {
+			article {
+				display: flex;
+				align-items: flex-start;
+			}
+
+			header {
+				display: flex;
+				align-items: flex-start;
+				justify-content: space-between;
+				margin-bottom: rhythm(1);
+			}
+
+			p {
+				margin-bottom: 0;
+			}
+
+			@include b(icon) {
+				display: flex;
+				align-items: center;
+				width: $icon-size;
+				height: $icon-size;
+				margin-right: rhythm(1);
+				transform: translateY(25%);
+			}
+
+			@include e(content) {
+
+				@include bp-up(sm) {
+					margin-right: rhythm(2);
+					margin-left: rhythm(2);
+				}
+
+				@include bp-up(md) {
+					margin-right: 0;
+					margin-left: rhythm(2);
+				}
+
+				@include bp-up(lg) {
+					margin-left: rhythm(3);
+				}
+
+				@include bp-up(xl) {
+					margin-left: rhythm(4);
+				}
+			}
+		}
+
+		@include m(page) {
+			padding-right: rhythm(2);
+			padding-left: rhythm(2);
+		}
+
+		@include m(file) {
+			@include e(content) {
+				margin: 0 rhythm(3);
+			}
+		}
+
+		@include e(content) {
+			flex: 0 1 100%;
+		}
+
+		@include e(link) {
+			color: $color-cyberspace;
+			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				text-decoration: underline;
+			}
+		}
+
+		@include e(read-time) {
+			display: flex;
+			position: relative;
+			align-items: center;
+			margin-left: rhythm(1);
+			font-family: $font-family-headings;
+			font-size: $size-small;
+			white-space: nowrap;
+
+			span {
+				margin-left: rem(3px);
+			}
+		}
+	}
+
+	@include e(input) {
+		display: block;
+		width: calc(100% - #{rhythm(2)});
+		margin-right: rhythm(2);
+		padding: rhythm(1) rhythm(2);
+		transition: padding 0.25s ease-out;
+		border: 0;
+		border-radius: $border-radius;
+		background-color: lighten($color-ash, 4%);
+		letter-spacing: -0.1px;
+		-webkit-appearance: none;
+
+		&:focus {
+			background-color: $color-snow;
+		}
+
+		@include bp-up(md) {
+			font-size: rem(32px);
+		}
+	}
+
+	@include e(submit) {
+		flex-shrink: 0;
+		padding-right: rhythm(4);
+		padding-left: rhythm(4);
+
+		@include bp-down(sm) {
+			padding: rhythm(0.6) rhythm(1);
+			font-size: $size-small;
+		}
+	}
+
+	@include e(image) {
+		display: block;
+		width: 100%;
+		height: auto;
+		margin-bottom: rhythm(2);
+		border-radius: $border-radius;
+
+		@include bp-up(md) {
+			margin-bottom: 0;
+		}
+	}
+}
