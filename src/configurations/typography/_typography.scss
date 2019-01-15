@@ -80,13 +80,13 @@ dl {
 }
 
 .supersize {
+
 	@include plumber(
-		$font-size: 4,
-		$line-height: 5,
+		$font-size: 3,
+		$line-height: 4,
 		$leading-bottom: 1,
 		$baseline: $headings-baseline
 	);
-
 	font-family: $font-family-headings;
 
 	@include bp-up(sm) {
