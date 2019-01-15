@@ -1,0 +1,24 @@
+@charset 'UTF-8';
+
+@include molecule(info-box) {
+	margin: rhythm(4) 0;
+	padding: rhythm(3);
+	border-top: rem(4px) solid $color-lemon;
+	background-color: $color-snow;
+
+	> p,
+	> ul,
+	> ol {
+		&:last-child {
+			margin-bottom: 0;
+		}
+	}
+
+	@include m(big) {
+		border-color: $color-jade;
+
+		p {
+			@extend %preamble;
+		}
+	}
+}
