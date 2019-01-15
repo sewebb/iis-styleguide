@@ -9,7 +9,7 @@
 	z-index: 2;
 	margin-bottom: rhythm(1);
 	padding: rhythm(0.5) rhythm(2);
-	border: 1px solid $color-cyberspace;
+	border: 1px solid $color-granit;
 	border-radius: rem(17.5px);
 	color: $color-cyberspace;
 	font-size: $small-text;
@@ -18,7 +18,7 @@
 
 	&:hover,
 	&:focus {
-		background-color: $color-cyberspace;
+		background-color: $color-granit;
 		color: $color-snow;
 	}
 }
