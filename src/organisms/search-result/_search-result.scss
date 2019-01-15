@@ -77,6 +77,13 @@
 				margin-bottom: 0;
 			}
 
+			@include bp-up(xl) {
+				> h2,
+				p {
+					@include make-col(12);
+				}
+			}
+
 			@include b(icon) {
 				display: flex;
 				align-items: center;
@@ -116,18 +123,18 @@
 		@include m(file) {
 			@include e(content) {
 				margin: 0 rhythm(3);
+
+				@include bp-up(xl) {
+					> h2,
+					p {
+						@include make-col(12);
+					}
+				}
 			}
 		}
 
 		@include e(content) {
 			flex: 0 1 100%;
-
-			@include bp-up(xl) {
-				> h2,
-				p {
-					@include make-col(12);
-				}
-			}
 		}
 
 		@include e(link) {
