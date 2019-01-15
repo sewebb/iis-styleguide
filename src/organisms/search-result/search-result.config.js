@@ -7,6 +7,6 @@ module.exports = {
 		img_url: '/assets/images/search-hit.png',
 		title: 'Gymnasieskolor med hög bandbredd har bättre skolresultat',
 		url: 'http://www.google.se',
-		exerpt: 'Eget nulla facilisi etiam dignissim diam quis enim lobortis scelerisque. Faucibus a pellentesque sit amet porttitor.'
+		exerpt: 'Praesent tempus metus in arcu mollis, non convallis odio faucibus. Nullam lectus nulla, rutrum nec odio ut, mollis interdum enim. Proin tincidunt odio at quam eleifend imperdiet. Mauris sagittis nulla ipsum, consectetur efficitur libero dignissim in.'
 	}
 }

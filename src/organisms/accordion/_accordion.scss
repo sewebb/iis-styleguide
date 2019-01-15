@@ -8,6 +8,7 @@
 
 	&::before {
 		@extend %u-visuallyhidden;
+
 		content: $namespace;
 	}
 
@@ -109,6 +110,10 @@
 			:last-child {
 				margin-bottom: 0;
 			}
+		}
+
+		@include m(transparent) {
+			background-color: transparent;
 		}
 	}
 
