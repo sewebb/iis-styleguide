@@ -7,8 +7,6 @@ class ContainerToggle {
 		this.containerElement = document.getElementById(this.targetContainer);
 		this.focusTrap = createFocusTrap(`#${this.targetContainer}`, { clickOutsideDeactivates: true });
 
-		console.log(this.targetContainer, this.focusTrap);
-
 		this.attach();
 	}
 
