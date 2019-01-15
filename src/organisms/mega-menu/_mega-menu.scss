@@ -77,7 +77,8 @@ $border-color: darken($color-jade, 5%);
 	}
 
 	@include e(link) {
-		display: block;
+		display: inline-flex;
+		align-items: center;
 		color: $color-cyberspace;
 		text-decoration: none;
 
@@ -95,6 +96,12 @@ $border-color: darken($color-jade, 5%);
 			@include bp-up(lg) {
 				padding: 0;
 			}
+		}
+
+		@include e(icon) {
+			width: $icon-size-small;
+			height: $icon-size-small;
+			margin-left: rhythm(0.5);
 		}
 	}
 
