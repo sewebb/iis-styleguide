@@ -87,6 +87,7 @@ dl {
 		$leading-bottom: 1,
 		$baseline: $headings-baseline
 	);
+
 	font-family: $font-family-headings;
 
 	@include bp-up(sm) {
@@ -101,7 +102,7 @@ dl {
 		@include plumber(
 			$font-size: 7,
 			$line-height: 8,
-			$leading-bottom: 1
+			$leading-bottom: 2
 		);
 	}
 }
