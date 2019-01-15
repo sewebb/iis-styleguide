@@ -15,6 +15,10 @@ class ContainerToggle {
 		window.addEventListener('mouseup', this.closeSearch.bind(this));
 
 		document.addEventListener('keydown', (e) => {
+			if (this.element.getAttribute('aria-expanded') === 'true') {
+				return;
+			}
+
 			if (e.keyCode === 9) {
 				this.containerElement.tabIndex = -1;
 			}
@@ -37,10 +41,10 @@ class ContainerToggle {
 
 	closeSearch(e) {
 		if (e.target !== this.containerElement
-            && e.target.parentNode !== this.containerElement
-            && !this.containerElement.contains(e.target)
-            && e.target !== this.element
-            && this.element.getAttribute('aria-expanded') === 'true') {
+			&& e.target.parentNode !== this.containerElement
+			&& !this.containerElement.contains(e.target)
+			&& e.target !== this.element
+			&& this.element.getAttribute('aria-expanded') === 'true') {
 			window.a11yToggle(this.containerElement);
 		}
 	}
