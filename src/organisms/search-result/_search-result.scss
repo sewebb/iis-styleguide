@@ -121,6 +121,13 @@
 
 		@include e(content) {
 			flex: 0 1 100%;
+
+			@include bp-up(xl) {
+				> h2,
+				p {
+					@include make-col(12);
+				}
+			}
 		}
 
 		@include e(link) {

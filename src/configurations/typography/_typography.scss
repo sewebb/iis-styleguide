@@ -107,7 +107,8 @@ dl {
 	}
 }
 
-.preamble {
+.preamble,
+%preamble {
 
 	@include plumber(
 		$font-size: 3,
