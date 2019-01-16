@@ -1,138 +1,106 @@
-<div class="wrapper">
-	<div class="row justify-content-center">
-		<div class="grid-18 grid-lg-16 u-p-t-4 u-p-b-1">
-			<div class="row display-flex align-items-center">
-				<div class="grid-auto u-p-r-0">
-					<span class="o-search-result__icon">
-						{{> @icon id="search"}}
-					</span>
+<div class="o-search-result">
+	<h1>Du sökte på: <span class="u-weight-normal">nätneutralitet</span></h1>
+	<p><strong>Antal träffar:</strong> 54</p>
+	<ul class="o-search-result__list">
+		<li class="o-search-result__item o-search-result__item--article">
+			<article class="row">
+				<div class="grid-18 grid-md-4">
+					<a href="#"><img src="{{img_url}}" alt="{{alt}}" class="o-search-result__image o-search-result__image--article"></a>
 				</div>
-				<div class="grid u-p-l-0 display-flex">
-					<label for="{{input_id}}" class="u-visuallyhidden">{{label}}</label>
-					<input type="search" class="o-search-result__input js-search-domain-input" placeholder="{{label}}" id="{{input_id}}">
-					{{> @button el="button" button_type="submit" text="Sök" modifiers="secondary o-search-result__submit" id="o-search-result-submit"}}
+				<div class="grid-18 grid-md-14">
+					<div class="o-search-result__item__content">
+						<header>
+							{{> @meta text="September 27, 2018"}}
+							{{render '@read-time'}}
+						</header>
+						<h2>
+							<a href="#" class="o-search-result__item__link">Nätneutraliteten</a>
+						</h2>
+						<p>{{exerpt}}</p>
+					</div>
 				</div>
+			</article>
+		</li>
+		<li class="o-search-result__item o-search-result__item--article">
+			<article class="row">
+				<div class="grid-18 grid-md-4">
+					<a href="#"><img src="{{img_url}}" alt="{{alt}}" class="o-search-result__image o-search-result__image--article"></a>
+				</div>
+				<div class="grid-18 grid-md-14">
+					<div class="o-search-result__item__content">
+						<header>
+							{{> @meta text="September 27, 2018"}}
+							{{render '@read-time'}}
+						</header>
+						<h2>
+							<a href="#" class="o-search-result__item__link">Nätneutraliteten</a>
+						</h2>
+						<p>{{exerpt}}</p>
+					</div>
+				</div>
+			</article>
+		</li>
+		<li class="o-search-result__item o-search-result__item--file">
+			<article class="row">
+				<div class="o-search-result__item__content">
+					<header>
+						{{> @meta text="September 27, 2018"}}
+					</header>
+					<h2>
+						<a href="#" class="o-search-result__item__link">Nätneutraliteten</a>
+					</h2>
+					<p>{{exerpt}}</p>
+				</div>
+				<div class="grid">
+					{{render '@download'}}
+				</div>
+			</article>
+		</li>
+		<li class="o-search-result__item o-search-result__item--page">
+			<article class="row flex-row-reverse">
+				<div class="grid-18 grid-md-9">
+					<a href="#"><img src="{{img_url}}" alt="{{alt}}" class="o-search-result__image o-search-result__image--page"></a>
+				</div>
+				<div class="grid-18 grid-md-9">
+					<div class="o-search-result__item__content">
+						<header>
+							{{> @meta text="September 27, 2018"}}
+						</header>
+						<h2>
+							<a href="#" class="o-search-result__item__link">Nätneutraliteten</a>
+						</h2>
+						<p>{{exerpt}}</p>
+					</div>
+				</div>
+			</article>
+		</li>
+		<li class="o-search-result__item o-search-result__item--article">
+			<article class="row">
+				<div class="grid-18 grid-md-4">
+					<a href="#"><img src="{{img_url}}" alt="{{alt}}" class="o-search-result__image o-search-result__image--article"></a>
+				</div>
+				<div class="grid-18 grid-md-14">
+					<div class="o-search-result__item__content">
+						<header>
+							{{> @meta text="September 27, 2018"}}
+							{{render '@read-time'}}
+						</header>
+						<h2>
+							<a href="#" class="o-search-result__item__link">Nätneutraliteten</a>
+						</h2>
+						<p>{{exerpt}}</p>
+					</div>
+				</div>
+			</article>
+		</li>
+	</ul>
+	<div class="row">
+		<div class="grid">
+			<div class="a-paging-wrapper">
+				{{> @paging icon="arrow-backwards" text="Bakåt"}}
+				{{> @paging icon="arrow-forwards" text="Framåt"}}
 			</div>
 		</div>
 	</div>
-	<div class="row justify-content-center">
-		<div class="grid-18 grid-lg-16">
-			<main role="main" class="article">
-				<div class="row u-m-b-1">
-					<div class="grid">
-						{{render '@filter'}}
-					</div>
-				</div>
-				<div class="row">
-					<div class="grid-18">
-						<div class="o-search-result">
-							<h1>Du sökte på: <span class="u-weight-normal">nätneutralitet</span></h1>
-							<p><strong>Antal träffar:</strong> 54</p>
-							<ul class="o-search-result__list">
-								<li class="o-search-result__item o-search-result__item--article">
-									<article class="row">
-										<div class="grid-18 grid-md-4">
-											<a href="#"><img src="{{img_url}}" alt="{{alt}}" class="o-search-result__image o-search-result__image--article"></a>
-										</div>
-										<div class="grid-18 grid-md-14">
-											<div class="o-search-result__item__content">
-												<header>
-													{{> @meta text="September 27, 2018"}}
-													{{render '@read-time'}}
-												</header>
-												<h2>
-													<a href="#" class="o-search-result__item__link">Nätneutraliteten</a>
-												</h2>
-												<p>{{exerpt}}</p>
-											</div>
-										</div>
-									</article>
-								</li>
-								<li class="o-search-result__item o-search-result__item--article">
-									<article class="row">
-										<div class="grid-18 grid-md-4">
-											<a href="#"><img src="{{img_url}}" alt="{{alt}}" class="o-search-result__image o-search-result__image--article"></a>
-										</div>
-										<div class="grid-18 grid-md-14">
-											<div class="o-search-result__item__content">
-												<header>
-													{{> @meta text="September 27, 2018"}}
-													{{render '@read-time'}}
-												</header>
-												<h2>
-													<a href="#" class="o-search-result__item__link">Nätneutraliteten</a>
-												</h2>
-												<p>{{exerpt}}</p>
-											</div>
-										</div>
-									</article>
-								</li>
-								<li class="o-search-result__item o-search-result__item--file">
-									<article class="row">
-										<div class="o-search-result__item__content">
-											<header>
-												{{> @meta text="September 27, 2018"}}
-											</header>
-											<h2>
-												<a href="#" class="o-search-result__item__link">Nätneutraliteten</a>
-											</h2>
-											<p>{{exerpt}}</p>
-										</div>
-										<div class="grid">
-											{{render '@download'}}
-										</div>
-									</article>
-								</li>
-								<li class="o-search-result__item o-search-result__item--page">
-									<article class="row flex-row-reverse">
-										<div class="grid-18 grid-md-9">
-											<a href="#"><img src="{{img_url}}" alt="{{alt}}" class="o-search-result__image o-search-result__image--page"></a>
-										</div>
-										<div class="grid-18 grid-md-9">
-											<div class="o-search-result__item__content">
-												<header>
-													{{> @meta text="September 27, 2018"}}
-												</header>
-												<h2>
-													<a href="#" class="o-search-result__item__link">Nätneutraliteten</a>
-												</h2>
-												<p>{{exerpt}}</p>
-											</div>
-										</div>
-									</article>
-								</li>
-								<li class="o-search-result__item o-search-result__item--article">
-									<article class="row">
-										<div class="grid-18 grid-md-4">
-											<a href="#"><img src="{{img_url}}" alt="{{alt}}" class="o-search-result__image o-search-result__image--article"></a>
-										</div>
-										<div class="grid-18 grid-md-14">
-											<div class="o-search-result__item__content">
-												<header>
-													{{> @meta text="September 27, 2018"}}
-													{{render '@read-time'}}
-												</header>
-												<h2>
-													<a href="#" class="o-search-result__item__link">Nätneutraliteten</a>
-												</h2>
-												<p>{{exerpt}}</p>
-											</div>
-										</div>
-									</article>
-								</li>
-							</ul>
-							<div class="row">
-								<div class="grid">
-									<div class="a-paging-wrapper">
-										{{> @paging icon="arrow-backwards" text="Bakåt"}}
-										{{> @paging icon="arrow-forwards" text="Framåt"}}
-									</div>
-								</div>
-							</div>
-						</div>
-					</div>
-				</div>
-			</main>
-		</div>
-	</div>
+</div>
 </div>
