@@ -8,8 +8,9 @@ module.exports = {
 		url: 'http://www.google.se',
 		exerpt: 'Eget nulla <strong>facilisi etiam</strong> dignissim diam quis enim lobortis scelerisque. Faucibus a pellentesque sit amet porttitor.',
 		is_padded: true,
-		is_wide: true,
+		is_wide: false,
 		has_shadow: false,
-		has_button: false
+		has_button: false,
+		read_time: true
 	}
 }

@@ -1,7 +1,10 @@
 <div class="m-card{{#if is_padded}} m-card--padded{{/if}}{{#if is_wide}} m-card--wide{{/if}}{{#if has_shadow}} m-card--shadow{{/if}}">
 	<img src="{{img_url}}" class="m-card__image" alt="{{alt}}">
 	<div class="m-card__content">
-		{{> @meta text="2018-10-05" }}
+		<div class="m-card__meta">
+			{{> @meta text="2018-10-05" }}
+			{{#if read_time}}{{render '@read-time'}}{{/if}}
+		</div>
 		<a href="{{url}}" class="m-card__link"><h2 class="m-card__heading-link__heading">{{title}}</h2></a>
 		{{#if exerpt}}<p class="m-card__text">{{{exerpt}}}</p>{{/if}}
 		<div class="m-card__bottom">

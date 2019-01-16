@@ -34,6 +34,14 @@
 		}
 	}
 
+	@include e(meta) {
+		display: flex;
+		flex-wrap: nowrap;
+		align-items: flex-start;
+		justify-content: space-between;
+		margin-bottom: rhythm(1);
+	}
+
 	@include e(content) {
 		&:first-child {
 			padding: rhythm(3) 0;

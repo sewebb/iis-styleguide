@@ -1,0 +1,24 @@
+@charset 'UTF-8';
+
+@include atom(read-time) {
+	display: flex;
+	position: relative;
+	align-items: center;
+	margin-left: rhythm(1);
+	font-family: $font-family-headings;
+	font-size: $size-medium;
+	white-space: nowrap;
+
+	span {
+		margin-left: rem(3px);
+	}
+
+	@include b(icon) {
+		display: flex;
+		align-items: center;
+		width: $icon-size;
+		height: $icon-size;
+		margin-right: rhythm(1);
+		transform: translateY(25%);
+	}
+}
