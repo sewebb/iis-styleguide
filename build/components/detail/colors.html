@@ -303,6 +303,15 @@
         <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>CMYK:<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> 35 5 1 0<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
         <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>PMS:<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> 2830U<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
     <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+    <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"color"</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">div</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"background-concrete"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"beta color-name"</span>&gt;</span>concrete<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>SASS:<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> $color-concrete<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>HEX:<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> #d8d8d8<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>RGB:<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> n/a<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>CMYK:<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> n/a<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+        <span class="hljs-tag">&lt;<span class="hljs-name">p</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">strong</span>&gt;</span>PMS:<span class="hljs-tag">&lt;/<span class="hljs-name">strong</span>&gt;</span> n/a<span class="hljs-tag">&lt;/<span class="hljs-name">p</span>&gt;</span>
+    <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">div</span>&gt;</span>
 
 <span class="hljs-tag">&lt;<span class="hljs-name">style</span>&gt;</span><span class="css">
@@ -560,6 +569,15 @@
       <span class="hljs-attr">"cmyk"</span>: <span class="hljs-string">"35 5 1 0"</span>,
       <span class="hljs-attr">"pms"</span>: <span class="hljs-string">"2830U"</span>,
       <span class="hljs-attr">"hasBorder"</span>: <span class="hljs-literal">null</span>
+    },
+    {
+      <span class="hljs-attr">"name"</span>: <span class="hljs-string">"concrete"</span>,
+      <span class="hljs-attr">"title"</span>: <span class="hljs-string">"$color-concrete"</span>,
+      <span class="hljs-attr">"hex"</span>: <span class="hljs-string">"#d8d8d8"</span>,
+      <span class="hljs-attr">"rgb"</span>: <span class="hljs-string">"n/a"</span>,
+      <span class="hljs-attr">"cmyk"</span>: <span class="hljs-string">"n/a"</span>,
+      <span class="hljs-attr">"pms"</span>: <span class="hljs-string">"n/a"</span>,
+      <span class="hljs-attr">"hasBorder"</span>: <span class="hljs-literal">null</span>
     }
   ]
 }</pre>
@@ -655,6 +673,7 @@ $colors: (
 	snow: $color-snow,
 	cyberspace: $color-cyberspace,
 	granit: $color-granit,
+	concrete: $color-concrete,
 	ash: $color-ash,
 	ruby: (
 		base: $color-ruby,
@@ -737,7 +756,7 @@ $colors: (
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">2 KB</span>
+                    <span class="Meta-value">2.1 KB</span>
                 </li>
             </ul>
         </div>
@@ -756,6 +775,7 @@ $colors: (
 <span class="hljs-variable">$color-black</span>: <span class="hljs-number">#000</span> !default;
 <span class="hljs-variable">$color-snow</span>: <span class="hljs-number">#fff</span> !default;
 <span class="hljs-variable">$color-granit</span>: <span class="hljs-number">#8e9297</span> !default;
+<span class="hljs-variable">$color-concrete</span>: <span class="hljs-number">#d8d8d8</span>;
 <span class="hljs-variable">$color-ash</span>: <span class="hljs-number">#ededed</span> !default;
 <span class="hljs-variable">$color-ruby</span>: <span class="hljs-number">#ff4069</span> !default;
 <span class="hljs-variable">$color-ruby-light</span>: <span class="hljs-number">#ff9fb4</span> !default;
@@ -786,7 +806,7 @@ $colors: (
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">622 Bytes</span>
+                    <span class="Meta-value">648 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -1849,6 +1869,30 @@ $colors: (
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="read-time.html" data-pjax>
+                <span>Read Time</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="select.html" data-pjax>
                 <span>Select</span>
                 
@@ -2369,6 +2413,30 @@ $colors: (
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="info-box.html" data-pjax>
+                <span>Info Box</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="system-error.html" data-pjax>
                 <span>System Error</span>
                 
@@ -2739,6 +2807,30 @@ $colors: (
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="hero.html" data-pjax>
                 <span>Hero</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="magazine.html" data-pjax>
+                <span>Magazine</span>
                 
 
 <div class="Status Status--unlabelled">
