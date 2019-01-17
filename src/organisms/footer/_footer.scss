@@ -3,6 +3,7 @@
 @include organism(footer) {
 	transform: translateY(0);
 	transition: transform 0.25s ease-in-out;
+	border-top: 1px solid $color-ash;
 
 	&.is-animated {
 		position: absolute;
@@ -67,12 +68,13 @@
 			flex-grow: 1;
 			flex-shrink: 1;
 			justify-content: center;
-			padding: rhythm(8) rhythm(2);
+			padding: rhythm(3) rhythm(1);
 			border-bottom: 1px solid $color-ash;
 			border-left: 1px solid $color-ash;
 
 			@include bp-up(md) {
 				flex-basis: 33.333333%;
+				padding: rhythm(8) rhythm(2);
 			}
 
 			@include bp-up(xl) {
