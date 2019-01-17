@@ -2,7 +2,6 @@
 
 @include organism(footer) {
 	transform: translateY(0);
-	transition: transform 0.25s ease-in-out;
 	border-top: 1px solid $color-ash;
 
 	&.is-animated {

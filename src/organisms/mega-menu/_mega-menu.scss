@@ -1,9 +1,7 @@
-@charset 'UTF-8';
-
 $border-color: darken($color-jade, 5%);
 
 @include organism(mega-menu) {
-	position: absolute;
+	display: none;
 	z-index: 3;
 	padding-right: 0;
 	padding-bottom: rhythm(4);
