@@ -82,8 +82,7 @@ $border-color: darken($color-jade, 5%);
 		color: $color-cyberspace;
 		text-decoration: none;
 
-		&:hover,
-		&:focus {
+		&:hover {
 			text-decoration: underline;
 		}
 
