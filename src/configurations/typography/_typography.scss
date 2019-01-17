@@ -72,7 +72,11 @@ dl {
 	@include plumber(
 		$leading-bottom: 3
 	);
+}
 
+ul,
+ol,
+dl {
 	+ h2,
 	+ .beta {
 		margin-top: rhythm(5);
