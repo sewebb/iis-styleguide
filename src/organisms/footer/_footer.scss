@@ -82,12 +82,17 @@
 	}
 
 	@include e(contact) {
-		ul {
+		font-size: 80%;
+
+		ul,
+		address {
 			margin-bottom: rhythm(2);
 		}
 
+		address,
+		ul,
 		li {
-			font-size: 80%;
+			font-size: inherit;
 		}
 
 		@include bp-up(xxl) {
