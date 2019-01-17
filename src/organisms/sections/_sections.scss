@@ -1,6 +1,6 @@
 @charset 'UTF-8';
 
-$spacing: rhythm(10);
+$spacing: rhythm(6);
 
 @include organism(section) {
 	position: relative;
@@ -28,6 +28,12 @@ $spacing: rhythm(10);
 		&::after {
 			bottom: 0;
 			background-image: linear-gradient(to left top, #ededed 0, #ededed 50%, #fff 50.1%);
+		}
+
+		&:last-child {
+			&::after {
+				display: none;
+			}
 		}
 	}
 
