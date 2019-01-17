@@ -94,6 +94,7 @@
 
 			@include e(content) {
 				display: flex;
+				flex-basis: 65%;
 				flex-direction: column;
 				justify-content: flex-end;
 				padding-top: rhythm(2);
