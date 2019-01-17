@@ -2,6 +2,7 @@ module.exports = {
 	status: 'wip',
 
 	context: {
-		hidden: 'false'
+		hidden: 'false',
+		id: 'mega-menu'
 	}
 }
