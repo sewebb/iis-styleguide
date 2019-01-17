@@ -1,6 +1,13 @@
 @charset 'UTF-8';
 
 @include organism(footer) {
+	transform: translateY(0);
+	transition: transform 0.25s ease-in-out;
+
+	&.is-animated {
+		position: absolute;
+		z-index: 4;
+	}
 
 	@include e(logotype) {
 		width: 100%;

@@ -12,3 +12,13 @@ $theme-palette: (
 @function theme_palette($key: 'background') {
 	@return map-get($theme-palette, $key);
 }
+
+@include b(iis-site__main) {
+	transition: opacity 0.2s ease-out, height 0.2s ease-out;
+	opacity: 1;
+
+	&.fade-out {
+		overflow: hidden;
+		opacity: 0;
+	}
+}
