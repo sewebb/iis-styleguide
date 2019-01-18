@@ -9,7 +9,6 @@ $border-color: darken($color-jade, 5%);
 	transform: translateY(-115%);
 	transition: transform 0.25s ease-out;
 	background-color: $color-jade-light;
-	box-shadow: 0 rhythm(0.5) rhythm(0.5) rgba($color-cyberspace, 0.1);
 
 	&[aria-hidden='false'] {
 		transform: translateY(0);

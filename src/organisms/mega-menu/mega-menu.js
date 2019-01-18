@@ -103,6 +103,10 @@ function animateOut() {
 }
 
 function hideMegaMenu() {
+	if (megaMenu.getAttribute('aria-hidden') === 'true') {
+		return;
+	}
+
 	prepareOutAnimation();
 
 	setTimeout(() => {
@@ -111,6 +115,10 @@ function hideMegaMenu() {
 }
 
 function showMegaMenu() {
+	if (megaMenu.getAttribute('aria-hidden') === 'false') {
+		return;
+	}
+
 	prepareAnimation();
 
 	setTimeout(() => {
@@ -131,3 +139,8 @@ function toggleMegaMenu(e) {
 if (megaMenuButton && megaMenu) {
 	megaMenuButton.addEventListener('click', toggleMegaMenu);
 }
+
+module.exports = {
+	show: showMegaMenu,
+	hide: hideMegaMenu,
+};

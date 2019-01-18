@@ -1,4 +1,5 @@
 const createFocusTrap = require('focus-trap');
+const megaMenu = require('./organisms/mega-menu/mega-menu');
 
 class ContainerToggle {
 	constructor(element) {
@@ -47,6 +48,8 @@ class ContainerToggle {
 			&& this.element.getAttribute('aria-expanded') === 'true') {
 			window.a11yToggle(this.containerElement);
 		}
+
+		megaMenu.hide();
 	}
 }
 

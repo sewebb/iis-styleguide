@@ -7,12 +7,13 @@
 		display: none;
 		position: absolute;
 		z-index: 3;
-		transform: translateY(-107%);
+		bottom: 0;
+		transform: translateY(0);
 		transition: transform 0.25s ease-out;
-		box-shadow: 0 rhythm(0.5) rhythm(0.5) rgba($color-cyberspace, 0.1);
 
 		&[aria-hidden='false'] {
-			transform: translateY(0);
+			transform: translateY(100%);
+			box-shadow: 0 rhythm(0.5) rhythm(0.5) rgba($color-cyberspace, 0.1);
 		}
 
 		@include bp-up(xl) {
