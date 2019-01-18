@@ -1,9 +1,18 @@
+/**
+ * Collect the needed elements.
+ */
 const megaMenuButton = document.querySelector('.js-toggle-mega-menu');
 const megaMenu = document.getElementById('megaMenu');
 const content = document.getElementById('siteMain');
 const header = document.getElementById('siteHeader');
 const footer = document.getElementById('siteFooter');
 
+/**
+ * Check if the element is in the viewport
+ *
+ * @param {Element} element
+ * @returns {boolean}
+ */
 function isInViewport(element) {
 	const rect = element.getBoundingClientRect();
 
@@ -13,6 +22,10 @@ function isInViewport(element) {
 	);
 }
 
+/**
+ * Before the animations start we need to change how certain elements
+ * are placed. The visual result should be exactly the same as before these changes.
+ */
 function prepareAnimation() {
 	const scrollTop = window.scrollY || document.body.scrollTop;
 	const contentRect = content.getBoundingClientRect();
@@ -44,6 +57,9 @@ function prepareAnimation() {
 	}
 }
 
+/**
+ * Removes all changes to all elements that took part in the animations.
+ */
 function removeAnimationPreparations() {
 	content.removeAttribute('style');
 	footer.removeAttribute('style');
@@ -51,12 +67,19 @@ function removeAnimationPreparations() {
 	megaMenu.removeAttribute('style');
 }
 
+/**
+ * Animate the mega menu and footer into the view
+ */
 function animateIn() {
 	megaMenuButton.setAttribute('aria-expanded', 'true');
 	megaMenu.setAttribute('aria-hidden', 'false');
 	footer.style.cssText = 'transform: translateY(0); transition: transform 0.25s ease-in-out;';
 }
 
+/**
+ * Preparations before the hide animation starts.
+ * The visual result should be exactly the same as before these changes.
+ */
 function prepareOutAnimation() {
 	const headerRect = megaMenu.getBoundingClientRect();
 	const initialFooterTop = footer.getBoundingClientRect().top;
@@ -85,6 +108,9 @@ function prepareOutAnimation() {
 	});
 }
 
+/**
+ * Start the animation that hides the mega menu and footer.
+ */
 function animateOut() {
 	footer.addEventListener('transitionend', removeAnimationPreparations, { once: true });
 
@@ -102,6 +128,9 @@ function animateOut() {
 	}, 4);
 }
 
+/**
+ * Hide the mega menu (and footer)
+ */
 function hideMegaMenu() {
 	if (megaMenu.getAttribute('aria-hidden') === 'true') {
 		return;
@@ -114,6 +143,9 @@ function hideMegaMenu() {
 	}, 50);
 }
 
+/**
+ * Show the mega menu (and footer)
+ */
 function showMegaMenu() {
 	if (megaMenu.getAttribute('aria-hidden') === 'false') {
 		return;
@@ -126,6 +158,10 @@ function showMegaMenu() {
 	}, 50);
 }
 
+/**
+ * Toggle the mega menu
+ * @param {MouseEvent} e
+ */
 function toggleMegaMenu(e) {
 	e.preventDefault();
 
