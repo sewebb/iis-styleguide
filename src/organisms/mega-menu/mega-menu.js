@@ -9,7 +9,7 @@ function prepareAnimation() {
 	const contentRect = content.getBoundingClientRect();
 
 	header.style.flex = '1 0 auto';
-	megaMenu.style.display = 'block';
+	megaMenu.style.cssText = 'display: block; flex: 1';
 
 	content.style.cssText = `
 		position: absolute;
