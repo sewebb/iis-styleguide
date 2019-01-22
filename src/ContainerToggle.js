@@ -31,6 +31,8 @@ class ContainerToggle {
 			if (this.element.getAttribute('aria-expanded') === 'true') {
 				this.containerElement.tabIndex = 0;
 				this.focusTrap.activate();
+
+				megaMenu.hide();
 			} else {
 				this.focusTrap.deactivate();
 				this.containerElement.addEventListener('transitionend', () => {
@@ -47,7 +49,6 @@ class ContainerToggle {
 			&& e.target !== this.element
 			&& this.element.getAttribute('aria-expanded') === 'true') {
 			window.a11yToggle(this.containerElement);
-			megaMenu.hide();
 		}
 	}
 }
