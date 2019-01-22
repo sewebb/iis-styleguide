@@ -47,9 +47,8 @@ class ContainerToggle {
 			&& e.target !== this.element
 			&& this.element.getAttribute('aria-expanded') === 'true') {
 			window.a11yToggle(this.containerElement);
+			megaMenu.hide();
 		}
-
-		megaMenu.hide();
 	}
 }
 
