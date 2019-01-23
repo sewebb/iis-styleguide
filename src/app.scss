@@ -57,19 +57,3 @@ $namespace: '';
 @import 'organisms/domain-search/domain-search';
 @import 'organisms/search-result/search-result';
 @import 'organisms/filter/filter';
-
-.iis-site {
-	display: flex;
-	flex-direction: column;
-	min-height: 100vh;
-}
-
-.iis-site__header {
-	display: flex;
-	position: relative;
-	flex-direction: column;
-}
-
-.iis-site__main {
-	flex: 1 0 auto;
-}

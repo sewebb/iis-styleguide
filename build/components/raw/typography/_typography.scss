@@ -41,6 +41,10 @@ h2,
 	}
 }
 
+h4 {
+	font-family: $font-family-headings;
+}
+
 p > a {
 	padding: rhythm(0) rhythm(0.5);
 	border-radius: $border-radius;
@@ -72,7 +76,11 @@ dl {
 	@include plumber(
 		$leading-bottom: 3
 	);
+}
 
+ul,
+ol,
+dl {
 	+ h2,
 	+ .beta {
 		margin-top: rhythm(5);

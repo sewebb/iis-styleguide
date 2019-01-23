@@ -14,7 +14,6 @@
 
 	@include e(header) {
 		display: block;
-		display: flex;
 		position: relative;
 		align-items: center;
 		justify-content: space-between;
@@ -120,5 +119,32 @@
 	@include e(title) {
 		margin-top: 0;
 		margin-bottom: 0;
+	}
+
+	@include e(list) {
+		display: inline-block;
+		margin-bottom: 0;
+
+		a {
+			color: $color-cyberspace;
+			text-decoration: none;
+
+			&:focus,
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+
+		@include e(item) {
+			display: flex;
+			align-items: center;
+			margin-left: 0;
+		}
+
+		@include e(flag) {
+			margin-right: rhythm(1);
+			font-size: rem(32px);
+			line-height: 1;
+		}
 	}
 }

@@ -13,12 +13,26 @@ $theme-palette: (
 	@return map-get($theme-palette, $key);
 }
 
-@include b(iis-site__main) {
-	transition: opacity 0.2s ease-out, height 0.2s ease-out;
-	opacity: 1;
+@include b(site) {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
 
-	&.fade-out {
-		overflow: hidden;
-		opacity: 0;
+	@include e(header) {
+		display: flex;
+		position: relative;
+		z-index: 1;
+		flex-direction: column;
+	}
+
+	@include e(main) {
+		flex: 1 0 auto;
+		transition: opacity 0.2s ease-out, height 0.2s ease-out;
+		opacity: 1;
+
+		&.fade-out {
+			overflow: hidden;
+			opacity: 0;
+		}
 	}
 }
