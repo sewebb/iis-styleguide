@@ -88,7 +88,7 @@ $spacing: rhythm(6);
 				left: 0;
 				width: rem(575px);
 				height: rem(575px);
-				transform: translate(calc(-100% -#{rem(20px)}), -50%) rotate(-20deg);
+				transform: translate(calc(-100% - #{rem(20px)}), -50%) rotate(-20deg);
 				transform-origin: right bottom;
 				background-color: $color-peacock;
 			}
