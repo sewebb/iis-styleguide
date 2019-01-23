@@ -14,6 +14,7 @@
 			&::before {
 				content: '';
 				display: block;
+				flex-shrink: 0;
 				width: $icon-size-small;
 				height: $icon-size-small;
 				margin-top: rem(2px);
@@ -39,10 +40,12 @@
 					content: '';
 					display: block;
 					position: absolute;
-					top: rem(17px);
+					top: 50%;
 					left: rem(6px);
 					width: rem(5px);
 					height: rem(9px);
+					margin-top: rem(-5px);
+					transform: translateY(-50%);
 					transform: rotate(45deg);
 					border: solid $color-cyberspace;
 					border-width: 0 2px 2px 0;

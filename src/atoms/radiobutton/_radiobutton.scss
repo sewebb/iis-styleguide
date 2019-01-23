@@ -14,6 +14,7 @@
 			&::before {
 				content: '';
 				display: block;
+				flex-shrink: 0;
 				width: rem(14px);
 				height: rem(14px);
 				margin-top: rem(2px);
