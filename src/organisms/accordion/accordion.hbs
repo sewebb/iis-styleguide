@@ -4,13 +4,22 @@
 		{{#if heading}}
 		<span class="beta">{{heading}}</span>
 		{{else if registrar}}
-		<dl class="o-accordion__list">
-			<dt class="beta"><a href="https://www.google.se">{{registrar}}</a></dt>
-			<dd class="o-accordion__list__item"><a href="{{registrar_url}}">{{registrar_url}}</a></dd>
-			<dd class="o-accordion__list__item"><span class="o-accordion__list__flag">{{flag}}</span> {{location}}</dd>
-			<dd class="o-accordion__list__item">{{{contact}}}</dd>
-			<dd class="o-accordion__list__item"></dd>
-		</dl>
+		<div class="row align-items-center">
+			{{#if registrar_logo}}
+			<div class="grid-sm-auto grid-18">
+				<img class="o-accordion__logo" src="{{registrar_logo}}" alt="{{registrar}} logotype">
+			</div>
+			{{/if}}
+			<div class="grid">
+				<dl class="o-accordion__list">
+					<dt class="beta"><a href="https://www.google.se">{{registrar}}</a></dt>
+					<dd class="o-accordion__list__item"><span class="o-accordion__list__flag">{{flag}}</span> {{location}}</dd>
+					<dd class="o-accordion__list__item"><a href="{{registrar_url}}">{{registrar_url}}</a></dd>
+					<dd class="o-accordion__list__item">{{{contact}}}</dd>
+					<dd class="o-accordion__list__item"></dd>
+				</dl>
+			</div>
+		</div>
 		{{/if}}
 	</h3>
 	<div class="js-accordion__panel">

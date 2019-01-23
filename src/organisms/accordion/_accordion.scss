@@ -121,11 +121,23 @@
 		margin-bottom: 0;
 	}
 
+	@include e(logo) {
+		margin-bottom: rhythm(2);
+
+		@include bp-up(sm) {
+			margin-right: rhythm(2);
+			margin-bottom: 0;
+		}
+	}
+
 	@include e(list) {
 		display: inline-block;
 		margin-bottom: 0;
 
 		a {
+
+			@extend %word-break;
+
 			color: $color-cyberspace;
 			text-decoration: none;
 
