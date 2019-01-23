@@ -9,3 +9,41 @@
 .u-list-clean {
 	@extend %list-clean;
 }
+
+%list-striped {
+	display: block;
+	width: 100%;
+
+	li {
+		display: flex;
+		align-items: center;
+		padding: rhythm(1);
+
+		&:nth-child(odd) {
+			background-color: $color-ash;
+		}
+
+		&:nth-child(even) {
+			background-color: $color-snow;
+		}
+	}
+}
+
+.u-list-striped {
+	@extend %list-striped;
+}
+
+@include b(u-list__icon) {
+	flex-shrink: 0;
+	width: $icon-size;
+	height: $icon-size;
+	margin-right: rhythm(2);
+
+	@include m(green) {
+		fill: $color-jade;
+	}
+
+	@include m(red) {
+		fill: $color-ruby;
+	}
+}
