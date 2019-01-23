@@ -3,8 +3,8 @@
 		<div class="grid u-p-x-0">
 			<div class="display-flex align-items-center">
 				<div class="grid display-flex">
-					<label for="{{input_id}}" class="u-visuallyhidden">{{label}}</label>
-					<input type="search" class="o-domain-search__input js-search-domain-input" autocomplete="off" placeholder="{{label}}" id="{{input_id}}">
+					<label for="{{input_id}}" class="u-visuallyhidden">{{#if label}}{{label}}{{/if}}</label>
+					<input type="search" class="o-domain-search__input js-search-domain-input" autocomplete="off" {{#if label}}placeholder="{{label}}"{{/if}} id="{{input_id}}">
 					{{> @button el="button" button_type="submit" text="Sök" modifiers="secondary o-domain-search__submit" id="o-domain-search-submit"}}
 				</div>
 			</div>
