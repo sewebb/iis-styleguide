@@ -12,17 +12,22 @@
 		content: $namespace;
 	}
 
+	@include e(row) {
+		display: inline-flex;
+	}
+
 	@include e(header) {
 		display: block;
 		position: relative;
 		align-items: center;
 		justify-content: space-between;
 		width: 100%;
-		padding: rhythm(2) rhythm(3) rhythm(2) rhythm(2);
+		padding: rhythm(2) rhythm(5) rhythm(2) rhythm(2);
 		border: 0;
 		border-bottom: 1px solid $color-granit;
 		background: transparent;
-		font-size: rem(18px);
+		font-family: $font-family-headings;
+		font-size: rem(21.6px);
 		text-align: left;
 		-webkit-appearance: none;
 

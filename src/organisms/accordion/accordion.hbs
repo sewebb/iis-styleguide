@@ -2,9 +2,9 @@
 	{{#each accordion_item}}
 	<h3 class="js-accordion__header"{{#if is_expanded}} data-accordion-opened="true"{{/if}}>
 		{{#if heading}}
-		<span class="beta">{{heading}}</span>
+		{{heading}}
 		{{else if registrar}}
-		<div class="row align-items-center">
+		<div class="row align-items-center o-accordion__row">
 			{{#if registrar_logo}}
 			<div class="grid-sm-auto grid-18">
 				<img class="o-accordion__logo" src="{{registrar_logo}}" alt="{{registrar}} logotype">
