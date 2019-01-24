@@ -21,7 +21,7 @@ $theme-palette: (
 	@include e(header) {
 		display: flex;
 		position: relative;
-		z-index: 1;
+		z-index: 3;
 		flex-direction: column;
 	}
 
