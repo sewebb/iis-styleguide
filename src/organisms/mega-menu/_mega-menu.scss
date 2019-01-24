@@ -80,10 +80,13 @@ $border-color: darken($color-jade, 5%);
 		text-decoration: none;
 
 		&:hover {
-			text-decoration: underline;
+			&:not(span) {
+				text-decoration: underline;
+			}
 		}
 
 		@include m(large) {
+			display: block;
 			padding: 0 rhythm(1);
 			font-family: $font-family-headings;
 			font-size: rem(23px);
