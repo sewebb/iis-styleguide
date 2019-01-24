@@ -2,7 +2,7 @@
 
 @include organism(hero) {
 	position: relative;
-	z-index: 1;
+	z-index: z_index(background);
 
 	@include bp-up(sm) {
 		overflow: hidden;
@@ -30,7 +30,7 @@
 
 		@include bp-up(sm) {
 			position: absolute;
-			z-index: 3;
+			z-index: z_index(middlegroundImportant);
 			top: 0;
 			right: 0;
 			bottom: 0;

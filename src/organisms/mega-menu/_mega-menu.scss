@@ -2,7 +2,7 @@ $border-color: darken($color-jade, 5%);
 
 @include organism(mega-menu) {
 	display: none;
-	z-index: 3;
+	z-index: z_index(middlegroundImportant);
 	padding-right: 0;
 	padding-bottom: rhythm(4);
 	padding-left: 0;

@@ -33,7 +33,7 @@ $alert-text: $color-cyberspace;
 		// Adjust close button position
 		button {
 			position: absolute;
-			z-index: 1;
+			z-index: z_index(background);
 			top: rhythm(1);
 			right: rhythm(1);
 		}

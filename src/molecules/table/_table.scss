@@ -225,7 +225,7 @@
 	&::before {
 		content: 'Scroll';
 		position: absolute;
-		z-index: 1;
+		z-index: z_index(background);
 		top: 0;
 		right: rhythm(3);
 		width: rhythm(7);
@@ -239,7 +239,7 @@
 	&::after {
 		content: '›';
 		position: absolute;
-		z-index: 1;
+		z-index: z_index(background);
 		top: -#{rem(4px)};
 		right: 0;
 		animation: pulse 2s infinite;

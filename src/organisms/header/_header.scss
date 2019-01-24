@@ -2,7 +2,7 @@
 
 @include organism(header) {
 	position: relative;
-	z-index: 4;
+	z-index: z_index(foreground);
 	border-bottom: 1px solid $color-ash;
 	background-color: $color-snow;
 

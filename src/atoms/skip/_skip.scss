@@ -2,7 +2,7 @@
 
 @include b(skip) {
 	position: relative;
-	z-index: 10;
+	z-index: z_index(foreground);
 	height: 0;
 	margin: 0;
 	padding: 0;
@@ -24,7 +24,7 @@
 		overflow: hidden;
 
 		&:focus {
-			z-index: 10;
+			z-index: z_index(foreground);
 			width: 100%;
 			height: auto;
 			padding-top: rhythm(1);

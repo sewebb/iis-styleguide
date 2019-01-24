@@ -18,3 +18,7 @@
 	$value: parse_int($size) * 10px;
 	@return round($value);
 }
+
+@function z_index($layer) {
+	@return map_get($z-index, $layer);
+}
