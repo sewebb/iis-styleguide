@@ -95,8 +95,9 @@ $border-color: darken($color-jade, 5%);
 		}
 
 		@include e(icon) {
-			width: $icon-size-small;
-			height: $icon-size-small;
+			width: $icon-size-smallest;
+			height: $icon-size-smallest;
+			margin-top: rem(2px);
 			margin-left: rhythm(0.5);
 		}
 	}
