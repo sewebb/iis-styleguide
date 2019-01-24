@@ -1,0 +1,77 @@
+@include organism(search) {
+	border-radius: $border-radius;
+	background-color: $color-snow;
+
+	@include e(padded) {
+		padding: rhythm(2);
+	}
+
+	@include e(filter) {
+		padding: rem(3px) rhythm(2);
+	}
+
+	@include e(border) {
+		border-top: 1px solid $color-concrete;
+	}
+
+	@include e(icon) {
+		display: flex;
+		flex-grow: 0;
+		width: $icon-size;
+		height: $icon-size;
+		margin-right: rhythm(2);
+	}
+
+	@include e(status) {
+		background-color: $color-jade-light;
+	}
+
+	@include e(input) {
+		display: block;
+		width: calc(100% - #{rhythm(2)});
+		margin-right: rhythm(2);
+		padding: rhythm(1) rhythm(2);
+		transition: padding 0.25s ease-out;
+		border: 0;
+		border-radius: $border-radius;
+		background-color: lighten($color-ash, 4%);
+		letter-spacing: -0.1px;
+		-webkit-appearance: none;
+
+		&:focus {
+			background-color: $color-snow;
+		}
+	}
+
+	@include e(submit) {
+		flex-shrink: 0;
+		padding-right: rhythm(4);
+		padding-left: rhythm(4);
+	}
+
+	@include bp-down(sm) {
+		@include e(submit) {
+			padding: rhythm(0.6) rhythm(1);
+			font-size: $size-small;
+		}
+	}
+
+	@include bp-up(md) {
+		@include e(padded) {
+			padding: rhythm(3);
+		}
+
+		@include e(icon) {
+			width: $icon-size * 2;
+			height: $icon-size * 2;
+		}
+
+		@include e(input) {
+			font-size: rem(32px);
+		}
+
+		@include e(filter) {
+			padding: rem(3px) rhythm(3);
+		}
+	}
+}

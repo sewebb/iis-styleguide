@@ -1,27 +1,6 @@
 @charset 'UTF-8';
 
 @include organism(search-result) {
-	padding: rhythm(2);
-	border-radius: $border-radius;
-	background-color: $color-snow;
-
-	@include bp-up(md) {
-		padding: rhythm(3);
-	}
-
-	@include e(icon) {
-		display: flex;
-		flex-grow: 0;
-		width: $icon-size;
-		height: $icon-size;
-		margin-right: rhythm(2);
-
-		@include bp-up(md) {
-			width: $icon-size * 2;
-			height: $icon-size * 2;
-		}
-	}
-
 	@include e(list) {
 		margin: 0;
 		padding: 0;
@@ -30,7 +9,7 @@
 
 	@include e(item) {
 		position: relative;
-		padding: rhythm(3) 0;
+		padding: rhythm(3) rhythm(2);
 
 		&::before,
 		&::after {
@@ -38,14 +17,9 @@
 			display: block;
 			position: absolute;
 			top: 0;
-			right: -#{rhythm(2)};
-			left: -#{rhythm(2)};
+			right: 0;
+			left: 0;
 			height: 0;
-
-			@include bp-up(md) {
-				right: -#{rhythm(3)};
-				left: -#{rhythm(3)};
-			}
 		}
 
 		&::before {
@@ -138,38 +112,6 @@
 		}
 	}
 
-	@include e(input) {
-		display: block;
-		width: calc(100% - #{rhythm(2)});
-		margin-right: rhythm(2);
-		padding: rhythm(1) rhythm(2);
-		transition: padding 0.25s ease-out;
-		border: 0;
-		border-radius: $border-radius;
-		background-color: lighten($color-ash, 4%);
-		letter-spacing: -0.1px;
-		-webkit-appearance: none;
-
-		&:focus {
-			background-color: $color-snow;
-		}
-
-		@include bp-up(md) {
-			font-size: rem(32px);
-		}
-	}
-
-	@include e(submit) {
-		flex-shrink: 0;
-		padding-right: rhythm(4);
-		padding-left: rhythm(4);
-
-		@include bp-down(sm) {
-			padding: rhythm(0.6) rhythm(1);
-			font-size: $size-small;
-		}
-	}
-
 	@include e(image) {
 		display: block;
 		width: 100%;
@@ -179,6 +121,12 @@
 
 		@include bp-up(md) {
 			margin-bottom: 0;
+		}
+	}
+
+	@include bp-up(md) {
+		@include e(item) {
+			padding: rhythm(3);
 		}
 	}
 }
