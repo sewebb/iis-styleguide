@@ -2,29 +2,11 @@
 
 // Forwards / backwards
 /// @group Paging
-
 @include atom(paging-wrapper) {
 	display: flex;
 	position: relative;
 	justify-content: space-between;
 	width: 100%;
-	padding-top: rhythm(2);
-
-	&::after {
-		content: '';
-		display: block;
-		position: absolute;
-		top: 0;
-		right: -#{rhythm(2)};
-		left: -#{rhythm(2)};
-		height: 0;
-		border-top: 1px solid $color-concrete;
-
-		@include bp-up(md) {
-			right: -#{rhythm(3)};
-			left: -#{rhythm(3)};
-		}
-	}
 }
 
 @include atom(paging) {

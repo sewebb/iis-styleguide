@@ -1,34 +1,39 @@
 <div class="wrapper">
-	<div class="row justify-content-center">
-		<div class="grid-18 grid-lg-16 u-p-t-4 u-p-b-1">
-			<div class="row display-flex align-items-center">
-				<div class="grid-auto u-p-r-0">
-					<span class="o-search-result__icon">
-						{{> @icon id="search"}}
-					</span>
+	<div class="row justify-content-center u-p-t-4 u-p-b-1">
+		<div class="grid-18 grid-lg-16">
+			<div class="o-search">
+				<div class="o-search__padded">
+					<div class="row display-flex align-items-center">
+						<div class="grid-auto u-p-r-0">
+							<span class="o-search__icon">
+								{{> @icon id="search"}}
+							</span>
+						</div>
+						<div class="grid u-p-l-0 display-flex">
+							<label for="{{input_id}}" class="u-visuallyhidden">{{label}}</label>
+							<input type="search" class="o-search__input js-search-domain-input" placeholder="{{label}}" id="{{input_id}}">
+							{{> @button el="button" button_type="submit" text="Sök" modifiers="secondary o-search__submit" id="o-search-result-submit"}}
+						</div>
+					</div>
 				</div>
-				<div class="grid u-p-l-0 display-flex">
-					<label for="{{input_id}}" class="u-visuallyhidden">{{label}}</label>
-					<input type="search" class="o-search-result__input js-search-domain-input" placeholder="{{label}}" id="{{input_id}}">
-					{{> @button el="button" button_type="submit" text="Sök" modifiers="secondary o-search-result__submit" id="o-search-result-submit"}}
+				<div class="o-search__filter o-search__border">
+					{{render '@filter'}}
+				</div>
+				<div class="o-search__status o-search__padded"><strong>Antal träffar:</strong> 54</div>
+				<main role="main" class="article">
+					<div class="row">
+						<div class="grid-18">
+							{{render '@search-result'}}
+						</div>
+					</div>
+				</main>
+				<div class="o-search__padded o-search__border">
+					<div class="a-paging-wrapper">
+						{{> @paging icon="arrow-backwards" text="Bakåt"}}
+						{{> @paging icon="arrow-forwards" text="Framåt"}}
+					</div>
 				</div>
 			</div>
-		</div>
-	</div>
-	<div class="row justify-content-center">
-		<div class="grid-18 grid-lg-16">
-			<main role="main" class="article">
-				<div class="row u-m-b-1">
-					<div class="grid">
-						{{render '@filter'}}
-					</div>
-				</div>
-				<div class="row">
-					<div class="grid-18">
-						{{render '@search-result'}}
-					</div>
-				</div>
-			</main>
 		</div>
 	</div>
 </div>
