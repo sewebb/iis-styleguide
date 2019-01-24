@@ -47,7 +47,10 @@
 	}
 
 	@include e(text) {
-		color: $color-snow;
+
+		@include bp-up(sm) {
+			color: $color-snow;
+		}
 
 		@include bp-up(md) {
 			max-width: 80%;
