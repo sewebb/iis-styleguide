@@ -41,7 +41,23 @@ h2,
 	}
 }
 
+h3 {
+	@include plumber(
+		$font-size: 2.4,
+		$line-height: 3,
+		$leading-top: 0,
+		$leading-bottom: 3
+	);
+}
+
 h4 {
+	@include plumber(
+		$font-size: 2,
+		$line-height: 3,
+		$leading-top: 0,
+		$leading-bottom: 3
+	);
+
 	font-family: $font-family-headings;
 }
 
