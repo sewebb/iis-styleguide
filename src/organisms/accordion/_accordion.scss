@@ -119,6 +119,10 @@
 		@include m(transparent) {
 			background-color: transparent;
 		}
+
+		@include m(ash) {
+			background-color: $color-ash;
+		}
 	}
 
 	@include e(title) {
