@@ -13,6 +13,7 @@
 	border-radius: rem(17.5px);
 	color: $color-cyberspace;
 	font-size: $small-text;
+	line-height: 1.8;
 	text-decoration: none;
 	text-transform: uppercase;
 
@@ -28,7 +29,7 @@
 
 		&:hover,
 		&:focus {
-			background-color: darken($color-snow, 5%);
+			background-color: rgba($color-snow, 0.5);
 		}
 	}
 }
