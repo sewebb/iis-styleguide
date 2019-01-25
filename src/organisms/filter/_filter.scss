@@ -1,6 +1,9 @@
 @charset 'UTF-8';
 
 @include organism(filter) {
+	@include e(title) {
+		padding: 0 rhythm(2);
+	}
 
 	@include e(column) {
 		margin-bottom: rhythm(4);
@@ -13,6 +16,6 @@
 	@include e(clear) {
 		position: absolute;
 		top: -#{rem(50px)};
-		right: 0;
+		right: rhythm(2);
 	}
 }

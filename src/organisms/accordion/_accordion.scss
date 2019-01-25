@@ -121,7 +121,8 @@
 		}
 
 		@include m(ash) {
-			background-color: $color-ash;
+			border-radius: 0;
+			background-color: lighten($color-ash, 4%);
 		}
 	}
 

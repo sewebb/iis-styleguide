@@ -6,10 +6,6 @@
 		padding: rhythm(2);
 	}
 
-	@include e(filter) {
-		padding: rem(3px) rhythm(2);
-	}
-
 	@include e(border) {
 		border-top: 1px solid $color-concrete;
 	}
@@ -68,10 +64,6 @@
 
 		@include e(input) {
 			font-size: rem(32px);
-		}
-
-		@include e(filter) {
-			padding: rem(3px) rhythm(3);
 		}
 	}
 }
