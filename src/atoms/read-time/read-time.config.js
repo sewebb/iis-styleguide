@@ -2,15 +2,15 @@ module.exports = {
 	status: 'wip',
 
 	context: {
-		text: 'cyberspace',
-		href: '#'
+		time: '20 min',
+		reading: 'läsning'
 	},
 	variants: [
 		{
 			name: 'Light',
 			context: {
-				text: 'light',
-				href: '#',
+				time: '20 min',
+				reading: 'läsning',
 				is_light: true
 			}
 		}

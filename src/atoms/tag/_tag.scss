@@ -21,4 +21,14 @@
 		background-color: $color-granit;
 		color: $color-snow;
 	}
+
+	@include m(light) {
+		border-color: $color-snow;
+		color: $color-snow;
+
+		&:hover,
+		&:focus {
+			background-color: darken($color-snow, 5%);
+		}
+	}
 }
