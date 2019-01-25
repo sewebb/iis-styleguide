@@ -2,7 +2,7 @@
 
 @include organism(filter) {
 	@include e(title) {
-		padding: 0 rhythm(2);
+		padding: 0 0 0 rhythm(3);
 	}
 
 	@include e(column) {
@@ -16,6 +16,6 @@
 	@include e(clear) {
 		position: absolute;
 		top: -#{rem(50px)};
-		right: rhythm(2);
+		right: rhythm(3);
 	}
 }
