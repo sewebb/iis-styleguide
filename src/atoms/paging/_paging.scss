@@ -5,8 +5,13 @@
 @include atom(paging-wrapper) {
 	display: flex;
 	position: relative;
-	justify-content: space-between;
+	align-items: center;
 	width: 100%;
+
+	@include e(text) {
+		flex: 1;
+		text-align: center;
+	}
 }
 
 @include atom(paging) {
