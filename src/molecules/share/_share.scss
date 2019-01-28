@@ -4,7 +4,7 @@
 	@include e(platforms) {
 		visibility: visible;
 		max-height: 80rem;
-		padding: 0 rhythm(2);
+		padding: rhythm(1) 0;
 		overflow: hidden;
 		transition:
 			visibility 0s ease-out,
@@ -31,6 +31,9 @@
 	}
 
 	@include e(icon) {
+		margin-right: rhythm(2);
+		padding: 0;
+
 		@include b(icon) {
 			width: $icon-size * 1.5;
 			height: $icon-size * 1.5;
