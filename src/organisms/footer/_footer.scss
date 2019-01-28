@@ -112,4 +112,13 @@
 		display: flex;
 		justify-content: center;
 	}
+
+	@include e(ISO-link) {
+		font-size: $size-small;
+		text-decoration: none;
+	}
+
+	@include e(ISO-logo) {
+		width: rhythm(7);
+	}
 }
