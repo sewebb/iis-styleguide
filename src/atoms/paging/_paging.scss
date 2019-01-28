@@ -10,7 +10,10 @@
 
 	@include e(text) {
 		flex: 1;
+		font-family: $font-family-mono;
+		font-size: $size-medium;
 		text-align: center;
+		text-transform: uppercase;
 	}
 }
 

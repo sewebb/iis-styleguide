@@ -20,6 +20,9 @@
 
 	@include e(status) {
 		background-color: $color-jade-light;
+		font-family: $font-family-mono;
+		font-size: $size-medium;
+		text-transform: uppercase;
 	}
 
 	@include e(input) {
