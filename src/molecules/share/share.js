@@ -2,7 +2,7 @@ function openPopup(e) {
 	e.preventDefault();
 
 	const width = 500;
-	const height = 470;
+	const height = 550;
 	const left = window.innerWidth / 2 - width / 2;
 	const top = window.innerHeight / 2 - height / 2;
 	const url = this.href;
