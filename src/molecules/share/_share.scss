@@ -1,0 +1,49 @@
+@charset 'UTF-8';
+
+@include molecule(share) {
+	@include e(platforms) {
+		visibility: visible;
+		max-height: 80rem;
+		padding: 0 rhythm(2);
+		overflow: hidden;
+		transition:
+			visibility 0s ease-out,
+			max-height 0.25s ease-out,
+			opacity    0.5s ease-out;
+		transition-delay: 0 0.25 0;
+		opacity: 1;
+
+		&[aria-hidden='true'] {
+			visibility: hidden;
+			max-height: 0;
+			transition-delay: 0.25s, 0, 0.5s;
+			opacity: 0;
+		}
+	}
+
+	@include e(button) {
+		@include b(icon) {
+			width: $icon-size;
+			height: $icon-size;
+		}
+	}
+
+	@include e(icon) {
+		@include b(icon) {
+			width: $icon-size * 1.5;
+			height: $icon-size * 1.5;
+
+			&.icon-facebook {
+				fill: $color-facebook;
+			}
+
+			&.icon-twitter {
+				fill: $color-twitter;
+			}
+
+			&.icon-linkedin {
+				fill: $color-linkedin;
+			}
+		}
+	}
+}

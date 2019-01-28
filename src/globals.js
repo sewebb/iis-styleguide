@@ -5,3 +5,4 @@ require('./vendor/toggle/a11y.toggle-switcher');
 require('./organisms/accordion/accordion');
 require('./organisms/domain-search/domain-search');
 require('./organisms/mega-menu/mega-menu');
+require('./molecules/share/share');
