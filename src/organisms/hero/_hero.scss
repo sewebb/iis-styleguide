@@ -65,6 +65,14 @@
 		}
 	}
 
+	@include b(a-tag) {
+		@include tag;
+
+		@include bp-up(sm) {
+			@include tag-light;
+		}
+	}
+
 	@include e(link) {
 		color: $color-cyberspace;
 		text-decoration: none;

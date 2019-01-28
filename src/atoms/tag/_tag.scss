@@ -4,32 +4,19 @@
 @include atom(tag) {
 	@extend %normalize-links;
 
+	@extend %tag;
+
 	display: inline-block;
 	position: relative;
 	z-index: z_index(middleground);
 	margin-bottom: rhythm(1);
 	padding: rhythm(0.5) rhythm(2);
-	border: 1px solid $color-granit;
-	border-radius: rem(17.5px);
-	color: $color-cyberspace;
 	font-size: $small-text;
 	line-height: 1.8;
 	text-decoration: none;
 	text-transform: uppercase;
 
-	&:hover,
-	&:focus {
-		background-color: $color-granit;
-		color: $color-snow;
-	}
-
 	@include m(light) {
-		border-color: $color-snow;
-		color: $color-snow;
-
-		&:hover,
-		&:focus {
-			background-color: rgba($color-snow, 0.5);
-		}
+		@extend %tag-light;
 	}
 }

@@ -45,3 +45,11 @@
 	word-break: break-word;
 	hyphens: auto;
 }
+
+%tag {
+	@include tag;
+}
+
+%tag-light {
+	@include tag-light;
+}

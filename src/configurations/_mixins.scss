@@ -60,3 +60,26 @@
 	background-color: $bg-color;
 	color: $text-color;
 }
+
+// Tags
+@mixin tag {
+	border: 1px solid $color-granit;
+	border-radius: rem(17.5px);
+	color: $color-cyberspace;
+
+	&:hover,
+	&:focus {
+		background-color: $color-granit;
+		color: $color-snow;
+	}
+}
+
+@mixin tag-light {
+	border-color: $color-snow;
+	color: $color-snow;
+
+	&:hover,
+	&:focus {
+		background-color: rgba($color-snow, 0.5);
+	}
+}
