@@ -7,7 +7,7 @@ module.exports = {
 		id:'select',
 		has_icon: true,
 		modifier: false,
-		required: true,
+		required: false,
 		disabled: false,
 		options: [
 			{
@@ -41,5 +41,21 @@ module.exports = {
 				is_selected: false
 			}
 		]
-	}
+	},
+	variants: [
+		{
+			name: 'Help text',
+			context: {
+				required: false,
+				has_help: true
+			}
+		},
+		{
+			name: 'Invalid',
+			context: {
+				is_invalid: true,
+				required: true
+			}
+		}
+	]
 }

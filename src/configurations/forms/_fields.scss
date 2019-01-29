@@ -1,6 +1,7 @@
 @charset 'UTF-8';
 
-.field-group {
+@include b(field-group) {
+	position: relative;
 	margin-bottom: rhythm(4);
 
 	&:last-child {
@@ -14,4 +15,19 @@
 			margin-top: rhythm(1);
 		}
 	}
+}
+
+@include b(input-help) {
+	position: absolute;
+	z-index: z_index(background);
+	width: 100%;
+	padding: rhythm(0.5) rhythm(1);
+	transform: translateY(rem(-3px));
+	border-bottom-right-radius: $border-radius;
+	border-bottom-left-radius: $border-radius;
+	background-color: $color-concrete;
+}
+
+:invalid + .input-help {
+	background-color: $color-ruby-light;
 }

@@ -1,6 +1,15 @@
-<div class="field-group">
+<div class="field-group" style="max-width:500px">
 	{{ render '@label' }}
-	<input type="{{type}}" id="{{id}}" {{#if value}}value="{{value}}"{{/if}} {{#if required}}required{{/if}} {{#if disabled}}disabled{{/if}} placeholder="{{placeholder}}" autocomplete="{{autocomplete}}" class="a-input{{#if has_icon}} has-icon"{{/if}}>
+	<input type="{{type}}" id="{{id}}" {{#if value}}value="{{value}}"{{/if}} {{#if required}}required{{/if}} {{#if disabled}}disabled{{/if}} placeholder="{{placeholder}}" autocomplete="{{autocomplete}}" class="a-input{{#if has_icon}} has-icon"{{/if}}{{#if has_help}} aria-describedby="first-name-help"{{/if}} {{#if required}} aria-describedby="first-name-help"{{/if}}>
+	{{#if has_help}}
+	<div class="input-help" id="first-name-help">
+		Fyll i ditt tilltalsnamn
+	</div>
+	{{else if required}}
+	<div class="input-help" id="first-name-help">
+		Tillåtna tecken är [a-ö, A-Ö]
+	</div>
+	{{/if}}
 	{{#if has_icon}}
 	<figure class="input-icon">
 		{{> @icon id="search"}}

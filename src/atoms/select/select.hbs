@@ -1,8 +1,17 @@
 <div class="field-group">
 	{{> @label for="select" label="Select"}}
-	<select id="{{id}}" {{#if required}}required{{/if}} {{#if disabled}}disabled{{/if}} class="a-select{{#if modifier}} {{modifier}}{{/if}}">
+	<select id="{{id}}" {{#if required}}required{{/if}} {{#if disabled}}disabled{{/if}} class="a-select{{#if modifier}} {{modifier}}{{/if}}" {{#if has_help}} aria-describedby="select-help"{{/if}} {{#if required}} aria-describedby="select-help"{{/if}}>
 		{{#each options}}
 		<option value="{{value}}"{{#if is_disabled}} disabled{{/if}}{{#if is_selected}} selected{{/if}}>{{text}}</option>
 		{{/each}}
 	</select>
+	{{#if has_help}}
+	<div class="input-help" id="select-help">
+		Välj det som passar dig bäst
+	</div>
+	{{else if required}}
+	<div class="input-help" id="select-help">
+		Fätet är obligatoriskt
+	</div>
+	{{/if}}
 </div>

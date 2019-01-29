@@ -14,4 +14,8 @@
 	&[disabled] {
 		@extend %disabled;
 	}
+
+	&:invalid {
+		@extend %invalid;
+	}
 }

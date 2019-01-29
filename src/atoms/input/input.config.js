@@ -10,7 +10,23 @@ module.exports = {
 		placeholder: 'Förnamn',
 		autocomplete: 'off',
 		has_icon: true,
-		required: true,
+		required: false,
 		disabled: false
-	}
+	},
+	variants: [
+		{
+			name: 'Help text',
+			context: {
+				required: false,
+				has_help: true
+			}
+		},
+		{
+			name: 'Invalid',
+			context: {
+				is_invalid: true,
+				required: true
+			}
+		}
+	]
 }

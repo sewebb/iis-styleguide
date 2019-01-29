@@ -12,6 +12,10 @@
 		@extend %input-focus;
 	}
 
+	&:invalid {
+		@extend %invalid;
+	}
+
 	&::-ms-expand {
 		display: none;
 	}
