@@ -26,6 +26,10 @@
 	border-bottom-right-radius: $border-radius;
 	border-bottom-left-radius: $border-radius;
 	background-color: $color-concrete;
+
+	&:empty {
+		display: none;
+	}
 }
 
 :invalid + .input-help {
