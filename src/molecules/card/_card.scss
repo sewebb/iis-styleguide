@@ -81,6 +81,10 @@
 		}
 	}
 
+	@include m(bordered) {
+		border-top: rem(4px) solid $color-ocean;
+	}
+
 	@include e(bottom) {
 		margin-top: rhythm(2);
 	}
