@@ -50,6 +50,15 @@
 				@extend %disabled;
 			}
 		}
+
+		&:invalid {
+			+ label {
+				&::before {
+					background-color: $color-ruby-light;
+					box-shadow: 0 0 0 1px $color-ruby;
+				}
+			}
+		}
 	}
 }
 
