@@ -56,6 +56,9 @@
 	}
 
 	@include e(text) {
+		a:last-child p {
+			margin-bottom: 0;
+		}
 
 		@include bp-up(sm) {
 			color: $color-snow;
