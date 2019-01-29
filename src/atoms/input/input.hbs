@@ -1,4 +1,4 @@
-<div class="field-group" style="max-width:500px">
+<div class="field-group">
 	{{ render '@label' }}
 	<input type="{{type}}" id="{{id}}" {{#if value}}value="{{value}}"{{/if}} {{#if required}}required{{/if}} {{#if disabled}}disabled{{/if}} placeholder="{{placeholder}}" autocomplete="{{autocomplete}}" class="a-input{{#if has_icon}} has-icon"{{/if}}{{#if has_help}} aria-describedby="first-name-help"{{/if}} {{#if required}} aria-describedby="first-name-help"{{/if}}>
 	{{#if has_help}}
