@@ -3,6 +3,8 @@
 @include organism(hero) {
 	position: relative;
 	z-index: z_index(background);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 
 	@include bp-up(sm) {
 		overflow: hidden;
@@ -44,6 +46,13 @@
 		@include bp-up(lg) {
 			padding: rhythm(8);
 		}
+	}
+
+	@include e(paragraph) {
+		@include plumber(
+			$font-size: 2.5,
+			$line-height: 4
+		);
 	}
 
 	@include e(text) {
@@ -101,13 +110,12 @@
 	// Hero without image
 	@include m(no-image) {
 		background-color: transparent;
-
-		@include e(caption) {
-			background-image: none;
-		}
+		-webkit-font-smoothing: auto;
+		-moz-osx-font-smoothing: auto;
 
 		@include e(caption) {
 			position: static;
+			background-image: none;
 			text-shadow: none;
 		}
 
@@ -116,20 +124,12 @@
 		}
 
 		@include e(text) {
+			max-width: 67%;
 			color: $color-cyberspace;
+		}
 
-			@include e(paragraph) {
-				@include plumber(
-					$font-size: 2.5
-				);
-
-				@include bp-up(lg) {
-					@include plumber(
-						$font-size: 3,
-						$line-height: 4
-					);
-				}
-			}
+		@include b(a-tag) {
+			@include tag;
 		}
 	}
 

@@ -23,6 +23,8 @@
 	@include e(info) {
 		background-color: $color-cyberspace;
 		color: $color-snow;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 
 		a {
 			@extend %normalize-links;
