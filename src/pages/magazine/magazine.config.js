@@ -12,6 +12,7 @@ module.exports = {
 		has_shadow: false,
 		has_button: false,
 		read_time: true,
-		has_border: false
+		has_border: false,
+		has_image: true
 	}
 }
