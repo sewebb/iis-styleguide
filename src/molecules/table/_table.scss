@@ -257,7 +257,7 @@
 }
 
 @include b(table-scroll-wrapper) {
-	$breakpoint: map-get($grid-breakpoints, md);
+	$breakpoint: map-get($grid-breakpoints, lg);
 
 	table {
 		min-width: $breakpoint;
@@ -268,7 +268,7 @@
 		-webkit-overflow-scrolling: touch;
 	}
 
-	@include bp-up(md) {
+	@include bp-up(lg) {
 		@include b(scroll-indicator) {
 			display: none;
 		}
