@@ -4,7 +4,8 @@ module.exports = {
 	context: {
 		heading: 'Missa inte lanseringen av Svenskarna och internet',
 		text: 'Internetstiftelsen lanserar ett nytt innovativt verktyg för att avslöja trollen på internet. Och nu behöver vi behöver din hjälp att jaga trollen.',
-		has_image: true
+		has_image: true,
+		has_radius: false
 	},
 	variants: [
 		{
