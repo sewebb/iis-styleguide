@@ -134,7 +134,7 @@
 		}
 
 		@include m(no-border) {
-			button {
+			button[role='tab'] {
 				border-bottom: 0;
 			}
 
