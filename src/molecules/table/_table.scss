@@ -34,9 +34,15 @@
 	}
 
 	tbody {
+		font-weight: normal;
+
 		th {
 			border-bottom-width: 1px;
 		}
+	}
+
+	th {
+		font-weight: 700;
 	}
 
 	th,
@@ -48,7 +54,6 @@
 		border-bottom: 2px solid $color-granit;
 		color: $color-cyberspace;
 		font-size: 90%;
-		font-weight: 700;
 		text-align: left;
 
 		&:first-child {
