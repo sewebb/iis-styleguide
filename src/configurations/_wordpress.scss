@@ -1,0 +1,60 @@
+@charset 'UTF-8';
+
+//
+// Modifies Wordpress Core classes
+//
+
+// Normalize
+.alignnone,
+.aligncenter,
+div.aligncenter,
+.alignright,
+.alignleft,
+a img.alignright,
+a img.alignnone,
+a img.alignleft,
+a img.aligncenter,
+.wp-caption,
+.wp-caption.alignnone,
+.wp-caption.alignleft,
+.wp-caption.alignright,
+.wp-caption img,
+.wp-caption p.wp-caption-text {
+	max-width: none;
+	margin: 0;
+	padding: 0;
+	float: none;
+	background: none;
+	font-size: initial;
+	line-height: initial;
+}
+
+// Customize
+.aligncenter,
+div.aligncenter {
+	display: block;
+	margin: 0 auto;
+}
+
+.alignright {
+	margin: 0 0 0 rhythm(2);
+	float: right;
+}
+
+.alignleft {
+	margin: 0 rhythm(2) 0 0;
+	float: left;
+}
+
+.wp-block-image {
+	figure {
+		@include bp-down(sm) {
+			&.alignright,
+			&.aligncenter,
+			&.alignleft {
+				margin: 0;
+				float: none;
+			}
+		}
+	}
+}
