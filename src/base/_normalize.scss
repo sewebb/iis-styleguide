@@ -280,8 +280,20 @@ hr {
 //
 
 pre {
+	width: 100%;
+	max-height: 80vh;
 	margin-bottom: rhythm(4);
 	overflow: auto;
+	border-top: rem(4px) solid $color-sandstone;
+	border-radius: $border-radius;
+	background-color: $color-snow;
+}
+
+code {
+	display: block;
+	width: 100%;
+	padding: rhythm(2);
+	font-size: $size-medium;
 }
 
 //
