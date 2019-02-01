@@ -74,7 +74,9 @@ p > a {
 	}
 }
 
-li > a {
+li > a,
+td > a,
+th > a {
 	border-bottom: rem(2px) solid $color-peacock;
 	color: $color-black;
 	text-decoration: none;
