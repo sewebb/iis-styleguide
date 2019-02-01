@@ -102,14 +102,14 @@
 
 			@include e(content) {
 				display: flex;
-				flex-basis: 65%;
+				flex-basis: 50%;
 				flex-direction: column;
 				justify-content: flex-end;
 				padding-top: rhythm(2);
 			}
 
 			@include e(image) {
-				max-width: 65%;
+				max-width: 50%;
 				height: 100%;
 				margin-bottom: 0;
 				border-top-left-radius: $border-radius;
