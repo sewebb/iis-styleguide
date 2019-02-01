@@ -6,7 +6,7 @@
 	align-items: center;
 	margin-left: rhythm(1);
 	font-family: $font-family-headings;
-	font-size: $size-medium;
+	font-size: rem($size-medium);
 	white-space: nowrap;
 
 	span {

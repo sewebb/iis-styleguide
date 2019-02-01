@@ -11,7 +11,7 @@
 	@include e(text) {
 		flex: 1;
 		font-family: $font-family-mono;
-		font-size: $size-medium;
+		font-size: rem($size-medium-plus);
 		text-align: center;
 		text-transform: uppercase;
 	}

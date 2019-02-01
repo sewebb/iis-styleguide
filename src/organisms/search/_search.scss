@@ -21,7 +21,7 @@
 	@include e(status) {
 		background-color: $color-jade-light;
 		font-family: $font-family-mono;
-		font-size: $size-medium;
+		font-size: rem($size-medium-plus);
 		text-transform: uppercase;
 	}
 
@@ -51,7 +51,7 @@
 	@include bp-down(sm) {
 		@include e(submit) {
 			padding: rhythm(0.6) rhythm(1);
-			font-size: $size-small;
+			font-size: rem($size-small);
 		}
 	}
 

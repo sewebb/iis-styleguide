@@ -116,7 +116,7 @@
 	}
 
 	@include e(ISO-link) {
-		font-size: $size-small;
+		font-size: rem($size-small);
 		text-decoration: none;
 	}
 
