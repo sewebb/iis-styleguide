@@ -78,6 +78,10 @@
 		@include e(content) {
 			padding-right: rhythm(4);
 			padding-left: rhythm(4);
+
+			p {
+				margin-top: rhythm(1);
+			}
 		}
 	}
 
