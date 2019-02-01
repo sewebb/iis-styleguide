@@ -1,0 +1,44 @@
+@charset 'UTF-8';
+
+// Default
+$fill-color: $color-black;
+
+@include b(u-icon) {
+	display: block;
+	width: $icon-size;
+	height: $icon-size;
+	background-repeat: no-repeat;
+	background-position: center center;
+
+	// Sizes
+	@include m(small) {
+		width: $icon-size-small;
+		height: $icon-size-small;
+	}
+
+	@include m(medium) {
+		width: $icon-size-medium;
+		height: $icon-size-medium;
+	}
+
+	// Specific icons
+	@include m(check) {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 24.42' fill='" + $fill-color + "'%3E%3Cpolygon points='12.04 24.42 0 13.26 2.87 10.16 11.81 18.44 28.9 0 32 2.87 12.04 24.42' data-name='Layer 3'/%3E%3C/svg%3E");
+		// Colors
+		@include m(jade) {
+			$fill-color: $color-jade;
+
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 24.42' fill='" + $fill-color + "'%3E%3Cpolygon points='12.04 24.42 0 13.26 2.87 10.16 11.81 18.44 28.9 0 32 2.87 12.04 24.42' data-name='Layer 3'/%3E%3C/svg%3E");
+		}
+	}
+
+	@include m(close) {
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='" + $fill-color + "'%3E%3Cpath d='M27.5,2L30,4.5L4.5,30L2,27.5L27.5,2z'/%3E%3Cpath d='M30,27.5L27.5,30L2,4.5L4.5,2L30,27.5z'/%3E%3C/svg%3E");
+
+		@include m(ruby) {
+			$fill-color: $color-ruby;
+
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='" + $fill-color + "'%3E%3Cpath d='M27.5,2L30,4.5L4.5,30L2,27.5L27.5,2z'/%3E%3Cpath d='M30,27.5L27.5,30L2,4.5L4.5,2L30,27.5z'/%3E%3C/svg%3E");
+		}
+	}
+}
