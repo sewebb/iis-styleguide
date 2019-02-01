@@ -35,9 +35,10 @@ h2,
 	@include bp-up(sm) {
 		@include plumber(
 			$font-size: 2.5,
-			$line-height: 4,
 			$leading-bottom: 1
 		);
+
+		line-height: 1.75rem;
 	}
 }
 
