@@ -140,7 +140,7 @@ dl {
 	@include plumber(
 		$font-size: 3,
 		$line-height: 4,
-		$leading-bottom: 5
+		$leading-bottom: 4
 	);
 
 	letter-spacing: rem(-0.47px);
