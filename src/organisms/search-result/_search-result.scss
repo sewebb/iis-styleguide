@@ -11,26 +11,8 @@
 		position: relative;
 		padding: rhythm(3) rhythm(2);
 
-		&::before,
-		&::after {
-			content: '';
-			display: block;
-			position: absolute;
-			top: 0;
-			right: 0;
-			left: 0;
-			height: 0;
-		}
-
-		&::before {
+		&:not(:first-child) {
 			border-top: 1px solid $color-concrete;
-		}
-
-		&:last-child {
-			&::after {
-				top: auto;
-				bottom: 0;
-			}
 		}
 
 		@include m(article) {
@@ -58,23 +40,12 @@
 			}
 
 			@include e(content) {
-
 				@include bp-up(sm) {
 					margin-right: rhythm(2);
-					margin-left: rhythm(2);
 				}
 
 				@include bp-up(md) {
 					margin-right: 0;
-					margin-left: rhythm(2);
-				}
-
-				@include bp-up(lg) {
-					margin-left: rhythm(3);
-				}
-
-				@include bp-up(xl) {
-					margin-left: rhythm(4);
 				}
 			}
 		}
@@ -119,8 +90,21 @@
 		margin-bottom: rhythm(2);
 		border-radius: $border-radius;
 
+		@include bp-up(sm) {
+			margin-right: rhythm(2);
+		}
+
 		@include bp-up(md) {
+			margin-right: rhythm(2);
 			margin-bottom: 0;
+		}
+
+		@include bp-up(lg) {
+			margin-right: rhythm(3);
+		}
+
+		@include bp-up(xl) {
+			margin-right: rhythm(4);
 		}
 	}
 
