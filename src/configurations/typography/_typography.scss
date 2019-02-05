@@ -62,29 +62,19 @@ h4 {
 	font-family: $font-family-headings;
 }
 
-p > a {
-	padding: rhythm(0) rhythm(0.5);
-	border-radius: $border-radius;
-	background-color: $color-peacock-light;
-	color: $color-black;
-	text-decoration: none;
-
-	&:hover,
-	&:focus {
-		background-color: $color-ocean-light;
-	}
-}
-
+p > a,
 li > a,
 td > a,
 th > a {
+	padding: rhythm(0) rhythm(0.5);
+	border-radius: $border-radius;
 	border-bottom: rem(2px) solid $color-peacock;
 	color: $color-black;
 	text-decoration: none;
 
 	&:hover,
 	&:focus {
-		border-color: $color-ocean-light;
+		background-color: $color-ocean-light;
 	}
 }
 
