@@ -7,7 +7,7 @@ module.exports = {
 		text: 'Primary button',
 		button_type: false,
 		type: false,
-		id: false
+		id: false,
 	},
 	variants: [
 		{
@@ -117,11 +117,11 @@ module.exports = {
 			}
 		},
 		{
-			name: 'With spinner',
+			name: 'Loading',
 			context: {
-				modifiers: ['icon','large'],
-				text: 'Button with loader icon',
-				icon: 'spinner'
+				modifiers: ['large'],
+				text: 'Click me',
+				el: 'button'
 			}
 		},
 		{

@@ -27,21 +27,51 @@
 	}
 
 	&:disabled {
-		&:hover {
-			border: 1px solid $color-black;
-			background-color: $color-black;
-			box-shadow: none;
-			cursor: not-allowed;
+		background-color: $color-granit;
+		box-shadow: none;
+		cursor: not-allowed;
+	}
+
+	// States
+	&.is-loading {
+		cursor: wait !important;
+	}
+
+	&.is-loading & {
+		@include e(text) {
+			transform: translateY(-100%);
+			opacity: 0;
+		}
+
+		@include e(spinner) {
+			transform: translate(-50%, -50%);
+			opacity: 1;
 		}
 	}
 
-	// Modifiers
 	@include e(text) {
 		position: relative;
 		top: -#{rhythm(0.2)};
+		transform: translateY(0);
+		transition: 0.3s opacity, 0.3s transform;
+		transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		opacity: 1;
 		color: $color-cyberspace;
 	}
 
+	@include e(spinner) {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: $icon-size-small;
+		height: $icon-size-small;
+		transform: translate(-50%, 50%);
+		transition: 0.3s opacity, 0.3s transform;
+		transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		opacity: 0;
+	}
+
+	// Modifiers
 	@include m(secondary) {
 		box-shadow: 0 0 0 1px inset $color-ocean;
 		color: $color-ocean-light;
@@ -65,6 +95,11 @@
 		}
 
 		@include e(icon) {
+			width: $icon-size;
+			height: $icon-size;
+		}
+
+		@include e(spinner) {
 			width: $icon-size;
 			height: $icon-size;
 		}
@@ -93,6 +128,11 @@
 			width: $icon-size-medium;
 			height: $icon-size-medium;
 			transform: none;
+		}
+
+		@include e(icon) {
+			width: $icon-size-medium;
+			height: $icon-size-medium;
 		}
 	}
 
