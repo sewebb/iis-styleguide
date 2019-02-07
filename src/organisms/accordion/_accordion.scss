@@ -70,7 +70,7 @@
 }
 
 // Styling before Accordion script kicks in
-@include b(js-accordion) {
+.js-accordion {
 	@include e(header) {
 		@extend %header;
 
@@ -88,7 +88,7 @@
 }
 
 .js {
-	@include b(js-accordion) {
+	.js-accordion {
 		@include e(header) {
 			border-bottom: 1px solid $color-granit;
 
