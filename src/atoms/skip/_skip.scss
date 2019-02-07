@@ -22,6 +22,7 @@
 		width: 1px;
 		height: 1px;
 		overflow: hidden;
+		border: 0;
 
 		&:focus {
 			z-index: z_index(foreground);
