@@ -40,6 +40,10 @@
 		&:focus {
 			background-color: $color-snow;
 		}
+
+		+ [aria-live] {
+			width: calc(100% - rhythm(2));
+		}
 	}
 
 	@include e(submit) {
