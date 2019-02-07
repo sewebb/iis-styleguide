@@ -27,7 +27,7 @@
 	@include e(caption) {
 		display: flex;
 		align-items: flex-end;
-		padding: rhythm(2);
+		padding: rhythm(2) rhythm(2) 0 rhythm(2);
 		background-image: none;
 
 		@include bp-up(sm) {
