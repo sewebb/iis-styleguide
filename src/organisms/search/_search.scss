@@ -44,6 +44,10 @@
 		+ [aria-live] {
 			width: calc(100% - #{rhythm(2)});
 		}
+
+		@include m(force-focus-look) {
+			background-color: lighten($color-ash, 4%);
+		}
 	}
 
 	@include e(submit) {
