@@ -6,11 +6,11 @@ module.exports = {
 		content_id: 'content',
 		skip_item: [
 			{
-				id: 'navbar',
+				id: 'siteNav',
 				text: 'Till navigationen'
 			},
 			{
-				id: 'navbar',
+				id: 'siteMain',
 				text: 'Till innehållet',
 				accesskey: 's'
 			}

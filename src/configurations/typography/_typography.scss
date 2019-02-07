@@ -73,9 +73,9 @@ th > a {
 
 	&:hover,
 	&:focus {
-		background-color: $color-ocean-light;
 		border-bottom: rem(2px) solid $color-ocean-light;
 		border-radius: $border-radius;
+		background-color: $color-ocean-light;
 	}
 }
 

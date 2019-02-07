@@ -3,7 +3,7 @@
 <html class="no-js" lang="sv">
 	{{> @head component=true}}
 <body>
-	{{> @skip component=true}}
+	{{render '@skip' component=true}}
 	{{{ yield }}}
 	{{> @scripts component=true}}
 	{{> @icon-sprite component=true}}
