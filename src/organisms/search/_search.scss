@@ -42,7 +42,7 @@
 		}
 
 		+ [aria-live] {
-			width: calc(100% - rhythm(2));
+			width: calc(100% - #{rhythm(2)});
 		}
 	}
 
