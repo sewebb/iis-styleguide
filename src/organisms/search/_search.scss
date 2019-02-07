@@ -47,6 +47,10 @@
 
 		@include m(force-focus-look) {
 			background-color: lighten($color-ash, 4%);
+
+			&:focus {
+				background-color: lighten($color-ash, 4%);
+			}
 		}
 	}
 
