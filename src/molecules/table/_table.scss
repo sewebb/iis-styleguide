@@ -262,11 +262,6 @@
 }
 
 @include b(table-scroll-wrapper) {
-	$breakpoint: map-get($grid-breakpoints, lg);
-
-	table {
-		min-width: $breakpoint;
-	}
 
 	@include b(table-container) {
 		overflow-x: auto;
