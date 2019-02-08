@@ -44,17 +44,27 @@ module.exports = {
 	},
 	variants: [
 		{
+			name: 'Full width',
+			context: {
+				required: false,
+				has_help: false,
+				modifier: 'a-select--full-width'
+			}
+		},
+		{
 			name: 'Help text',
 			context: {
 				required: false,
-				has_help: true
+				has_help: true,
+				modifier: 'a-select--full-width'
 			}
 		},
 		{
 			name: 'Invalid',
 			context: {
 				is_invalid: true,
-				required: true
+				required: true,
+				modifier: 'a-select--full-width'
 			}
 		}
 	]

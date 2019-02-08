@@ -24,6 +24,7 @@
 	border-radius: $border-radius;
 	background-color: lighten($color-ash, 4%);
 	-webkit-appearance: none;
+	font-size: rem(16px);
 }
 
 %input-focus {
