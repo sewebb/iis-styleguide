@@ -268,7 +268,7 @@
 		-webkit-overflow-scrolling: touch;
 	}
 
-	@include bp-up(lg) {
+	@include bp-up(sm) {
 		@include b(scroll-indicator) {
 			display: none;
 		}
