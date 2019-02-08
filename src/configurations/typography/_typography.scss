@@ -79,6 +79,14 @@ th > a {
 	}
 }
 
+li > a {
+	&.is-active {
+		border-radius: $border-radius;
+		border-color: $color-peacock-light;
+		background-color: $color-peacock-light;
+	}
+}
+
 p,
 ul,
 ol,
