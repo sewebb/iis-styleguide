@@ -106,7 +106,6 @@ dl {
 }
 
 .supersize {
-
 	@include plumber(
 		$font-size: 3,
 		$line-height: 4,
@@ -114,7 +113,7 @@ dl {
 		$baseline: $headings-baseline
 	);
 
-	font-family: $font-family-headings;
+	font-family: $font-family-bold;
 
 	@include bp-up(sm) {
 		@include plumber(

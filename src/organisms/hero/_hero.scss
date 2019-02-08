@@ -104,6 +104,13 @@
 			cursor: pointer;
 		}
 
+		> p {
+			@include plumber(
+				$font-size: 2.5,
+				$line-height: 3
+			);
+		}
+
 		@include bp-up(sm) {
 			color: $color-snow;
 		}

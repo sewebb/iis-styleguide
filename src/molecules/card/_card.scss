@@ -96,6 +96,16 @@
 	@include m(wide) {
 		height: auto;
 
+		@include bp-up(md) {
+			@include e(link) {
+				h1,
+				h2 {
+					font-size: rem(32px);
+					line-height: 1.2;
+				}
+			}
+		}
+
 		@include bp-up(lg) {
 			flex-direction: row;
 			height: auto;
@@ -104,7 +114,6 @@
 				display: flex;
 				flex-basis: 50%;
 				flex-direction: column;
-				justify-content: flex-end;
 				padding-top: rhythm(2);
 			}
 

@@ -9,6 +9,7 @@
 	display: inline-block;
 	position: relative;
 	z-index: z_index(middleground);
+	margin-right: rhythm(1);
 	margin-bottom: rhythm(1);
 	padding: rhythm(0.5) rhythm(2);
 	font-size: $small-text;

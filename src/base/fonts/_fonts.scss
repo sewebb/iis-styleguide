@@ -20,6 +20,15 @@
 }
 
 @font-face {
+	font-family: 'HK Grotesk Bold';
+	font-style: normal;
+	font-weight: normal;
+	src:
+		url('https://static.iis.se/internetstiftelsen/fonts/hkgrotesk-bold-webfont.woff2') format('woff2'),
+		url('https://static.iis.se/internetstiftelsen/fonts/hkgrotesk-bold-webfont.woff') format('woff');
+}
+
+@font-face {
 	font-family: 'Roboto Mono Regular';
 	font-style: normal;
 	font-weight: normal;
