@@ -16,8 +16,8 @@
 		th,
 		td {
 			border-top: 2px solid $color-granit;
+			font-family: $font-family-headings;
 			font-size: 90%;
-			font-weight: 700;
 
 			&::before {
 				display: none;
