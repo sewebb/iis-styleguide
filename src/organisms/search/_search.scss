@@ -81,4 +81,26 @@
 			font-size: rem(32px);
 		}
 	}
+
+	@include m(tight) {
+		@include e(submit) {
+			padding: rhythm(0.6) rhythm(1);
+			font-size: rem($size-small);
+
+			@include bp-up(sm) {
+				padding-right: rhythm(3);
+				padding-left: rhythm(3);
+			}
+		}
+
+		@include e(icon) {
+			width: $icon-size;
+			height: $icon-size;
+		}
+
+		@include e(input) {
+			padding: rhythm(1) rhythm(2);
+			font-size: $size-base;
+		}
+	}
 }
