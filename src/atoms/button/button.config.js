@@ -119,7 +119,9 @@ module.exports = {
 		{
 			name: 'Loading',
 			context: {
+				url: false,
 				modifiers: ['large'],
+				additional_classes: 'has-loader',
 				text: 'Click me',
 				el: 'button'
 			}
@@ -127,9 +129,11 @@ module.exports = {
 		{
 			name: 'Standalone icon',
 			context: {
+				url: false,
 				modifiers: ['standalone-icon'],
 				text: '',
-				icon: 'close'
+				icon: 'close',
+				el: 'button'
 			}
 		},
 	]

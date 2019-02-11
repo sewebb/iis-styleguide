@@ -35,7 +35,7 @@
 
 	// States
 	&.is-loading {
-		cursor: wait !important;
+		cursor: wait;
 	}
 
 	&.is-loading & {

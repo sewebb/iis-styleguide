@@ -3,7 +3,7 @@ require('./globals');
 
 const Button = require('./atoms/button/button');
 
-const demoButtons = document.querySelectorAll('button.a-button');
+const demoButtons = document.querySelectorAll('button.a-button.has-loader');
 
 if (demoButtons.length) {
 	demoButtons.forEach((button) => {
