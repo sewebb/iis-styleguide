@@ -11,6 +11,15 @@
 }
 
 @font-face {
+	font-family: 'HK Grotesk Medium';
+	font-style: normal;
+	font-weight: normal;
+	src:
+		url('https://static.iis.se/internetstiftelsen/fonts/hkgrotesk-medium-webfont.woff2') format('woff2'),
+		url('https://static.iis.se/internetstiftelsen/fonts/hkgrotesk-medium-webfont.woff') format('woff');
+}
+
+@font-face {
 	font-family: 'HK Grotesk Semibold';
 	font-style: normal;
 	font-weight: normal;

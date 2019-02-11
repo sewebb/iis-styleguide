@@ -4,8 +4,8 @@
 	padding: rhythm(3) 0;
 
 	&:not(.is-in-mega-menu) {
-		display: none;
-		position: absolute;
+		//display: none;
+		//position: absolute;
 		z-index: z_index(middlegroundImportant);
 		bottom: 0;
 		transform: translateY(0);

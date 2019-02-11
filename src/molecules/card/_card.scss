@@ -76,11 +76,16 @@
 		}
 
 		@include e(content) {
-			padding-right: rhythm(4);
-			padding-left: rhythm(4);
+			padding-right: rhythm(2);
+			padding-left: rhythm(2);
 
 			p {
 				margin-top: rhythm(1);
+			}
+
+			@include bp-up(md) {
+				padding-right: rhythm(4);
+				padding-left: rhythm(4);
 			}
 		}
 	}
