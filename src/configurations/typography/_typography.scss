@@ -87,6 +87,14 @@ li > a {
 	}
 }
 
+li ul,
+li ol {
+	margin-top: rhythm(1);
+	margin-left: rhythm(2);
+	padding-top: 0;
+	padding-left: 0;
+}
+
 p,
 ul,
 ol,
