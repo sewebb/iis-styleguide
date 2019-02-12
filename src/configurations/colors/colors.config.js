@@ -47,39 +47,9 @@ module.exports = {
 		pms: 'PMS',
 		colors: [
 			{
-				name: 'black',
-				title: '$color-black',
-				hex: '#000000',
-				rgb: '0 0 0',
-				cmyk: '50 50 50 100',
-				pms: 'n/a',
-				hasBorder: false
-			},
-			{
-				name: 'snow',
-				title: '$color-snow',
-				hex: '#ffffff',
-				rgb: '255 255 255',
-				cmyk: '0 0 0 0',
-				pms: 'n/a',
-				hasBorder: true
-			},
-			{
-				name: 'granit',
-				title: '$color-granit',
-				hex: '#8E9297',
-				rgb: 'n/a',
-				cmyk: 'n/a',
-				pms: 'n/a',
-				hasBorder: false
-			},
-			{
-				name: 'ash',
-				title: '$color-ash',
-				hex: '#ededed',
-				rgb: 'n/a',
-				cmyk: 'n/a',
-				pms: 'n/a'
+				name: 'ruby-dark',
+				title: '$color-ruby-dark',
+				hex: '#d9002f'
 			},
 			{
 				name: 'ruby',
@@ -100,6 +70,11 @@ module.exports = {
 				hasBorder: false
 			},
 			{
+				name: 'peacock-dark',
+				title: '$color-peacock-dark',
+				hex: '#9826df'
+			},
+			{
 				name: 'peacock',
 				title: '$color-peacock',
 				hex: '#c27fec',
@@ -116,6 +91,11 @@ module.exports = {
 				cmyk: '17 30 0 0',
 				pms: '2635U',
 				hasBorder: false
+			},
+			{
+				name: 'jade-dark',
+				title: '$color-jade-dark',
+				hex: '#2d897a'
 			},
 			{
 				name: 'jade',
@@ -136,6 +116,11 @@ module.exports = {
 				hasBorder: false
 			},
 			{
+				name: 'sandstone-dark',
+				title: '$color-sandstone-dark',
+				hex: '#ed5b09'
+			},
+			{
 				name: 'sandstone',
 				title: '$color-sandstone',
 				hex: '#f99963',
@@ -153,6 +138,11 @@ module.exports = {
 				hasBorder: false
 			},
 			{
+				name: 'lemon-dark',
+				title: '$color-lemon-dark',
+				hex: '#e1ac00'
+			},
+			{
 				name: 'lemon',
 				title: '$color-lemon',
 				hex: '#ffce2e',
@@ -167,6 +157,12 @@ module.exports = {
 				rgb: '255 230 150',
 				cmyk: '0 9 50 0',
 				pms: '1215UP',
+				hasBorder: false
+			},
+			{
+				name: 'ocean-dark',
+				title: '$color-ocean-dark',
+				hex: '#0591fb',
 				hasBorder: false
 			},
 			{
@@ -188,11 +184,47 @@ module.exports = {
 				hasBorder: false
 			},
 			{
+				name: 'granit',
+				title: '$color-granit',
+				hex: '#8E9297',
+				rgb: 'n/a',
+				cmyk: 'n/a',
+				pms: 'n/a',
+				hasBorder: false
+			},
+			{
 				name: 'concrete',
 				title: '$color-concrete',
 				hex: '#d8d8d8',
 				rgb: 'n/a',
 				cmyk: 'n/a',
+				pms: 'n/a',
+				hasBorder: false
+			},
+			{
+				name: 'ash',
+				title: '$color-ash',
+				hex: '#ededed',
+				rgb: 'n/a',
+				cmyk: 'n/a',
+				pms: 'n/a',
+				hasBorder: true
+			},
+			{
+				name: 'black',
+				title: '$color-black',
+				hex: '#000000',
+				rgb: '0 0 0',
+				cmyk: '50 50 50 100',
+				pms: 'n/a',
+				hasBorder: false
+			},
+			{
+				name: 'snow',
+				title: '$color-snow',
+				hex: '#ffffff',
+				rgb: '255 255 255',
+				cmyk: '0 0 0 0',
 				pms: 'n/a',
 				hasBorder: false
 			},

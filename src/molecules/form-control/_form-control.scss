@@ -40,13 +40,14 @@
 				&::before {
 					width: $icon-size;
 					height: $icon-size;
+					margin-top: rem(3px);
 				}
 			}
 
 			&:checked {
 				+ label {
 					&::after {
-						top: rem(15px);
+						top: rem(10px);
 						left: rem(8px);
 						width: rem(8px);
 						height: rem(15px);
@@ -116,20 +117,16 @@
 			+ label {
 				font-size: rem(16px);
 			}
-
-			&:checked {
-				+ label {
-					&::after {
-						top: rem(16px);
-					}
-				}
-			}
 		}
 
 		// Radiobutton
 		@include atom(radio) {
 			+ label {
 				font-size: rem(16px);
+
+				&::before {
+					margin-top: rem(5px);
+				}
 			}
 		}
 
