@@ -57,7 +57,9 @@ module.exports = {
 			context: {
 				modifiers: ['icon'],
 				text: 'Button with icon',
-				icon: 'arrow-forwards'
+				additional_classes: 'has-loader',
+				icon: 'arrow-forwards',
+				el: 'button'
 			}
 		},
 		{
