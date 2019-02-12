@@ -13,25 +13,22 @@ module.exports = {
 		{
 			name: 'Ruby light',
 			context: {
-				modifiers: ['ruby-light','icon'],
-				text: 'Ruby secondary button',
-				icon: 'arrow-forwards'
+				modifiers: ['ruby-light'],
+				text: 'Ruby secondary button'
 			}
 		},
 		{
 			name: 'Lemon',
 			context: {
-				modifiers: ['lemon','icon'],
-				text: 'Lemon button',
-				icon: 'arrow-forwards'
+				modifiers: ['lemon'],
+				text: 'Lemon button'
 			}
 		},
 		{
 			name: 'Lemon light',
 			context: {
-				modifiers: ['lemon-light','icon'],
-				text: 'Lemon secondary button',
-				icon: 'arrow-forwards'
+				modifiers: ['lemon-light'],
+				text: 'Lemon secondary button'
 			}
 		},
 		{
