@@ -40,7 +40,12 @@
 	}
 
 	&.is-loading & {
-		@include e(spinner-text) {
+		@include e(text) {
+			transform: translateY(-100%);
+			opacity: 0;
+		}
+
+		@include e(icon) {
 			transform: translateY(-100%);
 			opacity: 0;
 		}

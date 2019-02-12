@@ -8,8 +8,6 @@ class Button {
 
 	build() {
 		const className = this.button.classList.item(0);
-		this.button.innerHTML = `<span class="${className}__spinner-text">${this.button.innerHTML}</span>`;
-
 		const html = `
 			<svg class="icon ${className}__spinner">
 				<use xlink:href="#icon-spinner-white"></use>
