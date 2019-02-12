@@ -165,6 +165,10 @@
 		@include e(text) {
 			color: $color-cyberspace;
 		}
+
+		@include e(icon) {
+			fill: $color-cyberspace;
+		}
 	}
 
 	@include m(lemon) {
@@ -177,6 +181,10 @@
 
 		@include e(text) {
 			color: $color-cyberspace;
+		}
+
+		@include e(icon) {
+			fill: $color-cyberspace;
 		}
 	}
 
@@ -191,6 +199,10 @@
 
 		@include e(text) {
 			color: $color-cyberspace;
+		}
+
+		@include e(icon) {
+			fill: $color-cyberspace;
 		}
 	}
 }
