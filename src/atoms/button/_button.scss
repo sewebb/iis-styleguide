@@ -45,6 +45,11 @@
 			opacity: 0;
 		}
 
+		@include e(icon) {
+			transform: translateY(-100%);
+			opacity: 0;
+		}
+
 		@include e(spinner) {
 			transform: translate(-50%, -50%);
 			opacity: 1;
