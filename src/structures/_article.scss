@@ -61,4 +61,8 @@ $indent: 50px;
 			}
 		}
 	}
+
+	@include b(a-card) {
+		margin-top: rhythm(4);
+	}
 }
