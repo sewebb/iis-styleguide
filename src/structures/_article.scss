@@ -62,7 +62,7 @@ $indent: 50px;
 		}
 	}
 
-	@include atom(card) {
+	@include molecule(card) {
 		margin-bottom: rhythm(4);
 	}
 }
