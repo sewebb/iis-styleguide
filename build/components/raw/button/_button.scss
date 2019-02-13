@@ -10,48 +10,76 @@
 	justify-content: center;
 	margin: 0;
 	padding: rhythm(1.112) rhythm(2);
+	overflow: hidden;
 	border: 0;
 	border-radius: $border-radius;
 	background-color: currentColor;
 	background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
 	box-shadow: 0 0 0 1px inset currentColor;
-	color: $color-ocean;
+	color: $color-ocean-dark;
 	font-family: $font-family-headings;
+	font-size: rem(16px);
 	text-decoration: none;
+	text-shadow: none;
 	hyphens: auto;
 	cursor: pointer;
 
 	&:hover,
 	&:focus {
-		color: $color-ocean-light;
+		color: $color-ocean;
 	}
 
 	&:disabled {
-		&:hover {
-			border: 1px solid $color-black;
-			background-color: $color-black;
-			box-shadow: none;
-			cursor: not-allowed;
+		background-color: $color-granit;
+		box-shadow: none;
+		cursor: not-allowed;
+	}
+
+	// States
+	&.is-loading {
+		cursor: wait;
+	}
+
+	&.is-loading & {
+		@include e(text) {
+			transform: translateY(-100%);
+			opacity: 0;
+		}
+
+		@include e(icon) {
+			transform: translateY(-100%);
+			opacity: 0;
+		}
+
+		@include e(spinner) {
+			transform: translate(-50%, -50%);
+			opacity: 1;
 		}
 	}
 
-	// Modifiers
 	@include e(text) {
 		position: relative;
 		top: -#{rhythm(0.2)};
-		color: $color-cyberspace;
+		transform: translateY(0);
+		transition: 0.3s opacity, 0.3s transform;
+		transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		opacity: 1;
+		color: $color-snow;
 	}
 
-	@include m(secondary) {
-		box-shadow: 0 0 0 1px inset $color-ocean;
-		color: $color-ocean-light;
+	@include e(spinner) {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: $icon-size-small;
+		height: $icon-size-small;
+		transform: translate(-50%, 50%);
+		transition: 0.3s opacity, 0.3s transform;
+		transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
+		opacity: 0;
 	}
 
-	@include m(transparent) {
-		border-color: transparent;
-		background-color: transparent;
-		box-shadow: none;
-	}
+	// Modifiers
 
 	@include m(small) {
 		padding: rhythm(0.6) rhythm(1.5);
@@ -68,13 +96,30 @@
 			width: $icon-size;
 			height: $icon-size;
 		}
+
+		@include e(spinner) {
+			width: $icon-size;
+			height: $icon-size;
+		}
 	}
 
 	@include m(icon) {
 		justify-content: space-between;
 		max-width: rhythm(50);
-		padding-right: rhythm(6);
+		padding-right: rhythm(5);
 		text-align: left;
+	}
+
+	@include m(icon-left) {
+		justify-content: space-between;
+		max-width: rhythm(50);
+		padding-right: rhythm(2);
+		padding-left: rhythm(5);
+
+		@include e(icon) {
+			right: auto;
+			left: rhythm(1.5);
+		}
 	}
 
 	@include m(standalone-icon) {
@@ -93,6 +138,12 @@
 			width: $icon-size-medium;
 			height: $icon-size-medium;
 			transform: none;
+			fill: $color-cyberspace;
+		}
+
+		@include e(icon) {
+			width: $icon-size-medium;
+			height: $icon-size-medium;
 		}
 	}
 
@@ -100,26 +151,23 @@
 		position: absolute;
 		z-index: z_index(background);
 		top: 50%;
-		right: rhythm(2);
+		right: rhythm(1.5);
 		width: $icon-size-small;
 		height: $icon-size-small;
 		transform: translateY(-50%);
 		transition: fill 100ms linear;
-		fill: $color-cyberspace;
+		fill: $color-snow;
 		pointer-events: none;
 	}
 
 	// More colors
-	@include m(ruby) {
-		color: $color-ruby;
-
-		&:hover,
-		&:focus {
-			color: $color-ruby-light;
-		}
+	@include m(transparent) {
+		border-color: transparent;
+		background-color: transparent;
+		box-shadow: none;
 
 		@include e(text) {
-			color: $color-black; // Special for this color only to meet accessibility contrast values
+			color: $color-cyberspace;
 		}
 	}
 
@@ -131,43 +179,13 @@
 		&:focus {
 			color: $color-ruby;
 		}
-	}
 
-	@include m(peacock) {
-		color: $color-peacock;
-
-		&:hover,
-		&:focus {
-			color: $color-peacock-light;
+		@include e(text) {
+			color: $color-cyberspace;
 		}
-	}
 
-	@include m(peacock-light) {
-		box-shadow: 0 0 0 1px inset $color-peacock;
-		color: $color-peacock-light;
-
-		&:hover,
-		&:focus {
-			background-color: $color-peacock;
-		}
-	}
-
-	@include m(sandstone) {
-		color: $color-sandstone;
-
-		&:hover,
-		&:focus {
-			color: $color-sandstone-light;
-		}
-	}
-
-	@include m(sandstone-light) {
-		box-shadow: 0 0 0 1px inset $color-sandstone;
-		color: $color-sandstone-light;
-
-		&:hover,
-		&:focus {
-			background-color: $color-sandstone;
+		@include e(icon) {
+			fill: $color-cyberspace;
 		}
 	}
 
@@ -177,6 +195,14 @@
 		&:hover,
 		&:focus {
 			color: $color-lemon-light;
+		}
+
+		@include e(text) {
+			color: $color-cyberspace;
+		}
+
+		@include e(icon) {
+			fill: $color-cyberspace;
 		}
 	}
 
@@ -188,24 +214,13 @@
 		&:focus {
 			background-color: $color-lemon;
 		}
-	}
 
-	@include m(jade) {
-		color: $color-jade;
-
-		&:hover,
-		&:focus {
-			color: $color-jade-light;
+		@include e(text) {
+			color: $color-cyberspace;
 		}
-	}
 
-	@include m(jade-light) {
-		box-shadow: 0 0 0 1px inset $color-jade;
-		color: $color-jade-light;
-
-		&:hover,
-		&:focus {
-			background-color: $color-jade;
+		@include e(icon) {
+			fill: $color-cyberspace;
 		}
 	}
 }

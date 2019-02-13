@@ -96,6 +96,45 @@
 
 		</div>
 	</div>
+	<div class="row u-m-b-6">
+		<div class="grid-md-3 display-flex align-items-md-center align-self-stretch justify-content-md-center">
+			<p class="meta">pre > code</p>
+		</div>
+		<div class="grid-18 grid-md-14">
+			<pre><code>const debounce = (func, delay) => {
+	let inDebounce;
+
+	return (...args) => {
+		const context = this;
+		clearTimeout(inDebounce);
+		inDebounce = setTimeout(() => func.apply(context, args), delay);
+	};
+};
+
+const checkElements = debounce(() => {
+	const accordionElementFresh = document.querySelector(`.js-${className}`);
+
+	if (accordionElementFresh) {
+		attachAccordion();
+	}
+}, 50);
+
+const observeHandler = (mutationsList) => {
+	mutationsList.forEach((mutation) => {
+		if (mutation.type !== 'childList') {
+			return;
+		}
+
+		checkElements();
+	});
+};
+
+const observer = new MutationObserver(observeHandler);
+
+observer.observe(document.body, { childList: true, subtree: true });</code>
+			</pre>
+		</div>
+	</div>
 </div>
 
 <h1></h1>

@@ -22,27 +22,33 @@ $colors: (
 	ash: $color-ash,
 	ruby: (
 		base: $color-ruby,
-		light: $color-ruby-light
+		light: $color-ruby-light,
+		dark: $color-ruby-dark
 	),
 	peacock: (
 		base: $color-peacock,
-		light: $color-peacock-light
+		light: $color-peacock-light,
+		dark: $color-peacock-dark
 	),
 	jade: (
 		base: $color-jade,
-		light: $color-jade-light
+		light: $color-jade-light,
+		dark: $color-jade-dark
 	),
 	sandstone: (
 		base: $color-sandstone,
-		light: $color-sandstone-light
+		light: $color-sandstone-light,
+		dark: $color-sandstone-dark
 	),
 	lemon: (
 		base: $color-lemon,
-		light: $color-lemon-light
+		light: $color-lemon-light,
+		dark: $color-lemon-dark
 	),
 	ocean: (
 		base: $color-ocean,
-		light: $color-ocean-light
+		light: $color-ocean-light,
+		dark : $color-ocean-dark
 	)
 );
 

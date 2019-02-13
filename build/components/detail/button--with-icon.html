@@ -157,12 +157,12 @@
 <div class="Browser-panel Browser-code is-active" data-role="tab-panel" id="browser-eb7c29ae9de7ba53bacf9445b6a227eb-panel-html">
     <code class="Code Code--lang-html">
         
-        <pre><span class="hljs-tag">&lt;<span class="hljs-name">a</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"a-button a-button--icon a-button--icon"</span>&gt;</span>
+        <pre><span class="hljs-tag">&lt;<span class="hljs-name">button</span> <span class="hljs-attr">href</span>=<span class="hljs-string">"#"</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"a-button a-button--icon a-button--icon has-loader"</span>&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">span</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"a-button__text"</span>&gt;</span>Button with icon<span class="hljs-tag">&lt;/<span class="hljs-name">span</span>&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon a-button__icon"</span>&gt;</span>
 		<span class="hljs-tag">&lt;<span class="hljs-name">use</span> <span class="hljs-attr">xlink:href</span>=<span class="hljs-string">"#icon-arrow-forwards"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">use</span>&gt;</span>
 	<span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
-<span class="hljs-tag">&lt;/<span class="hljs-name">a</span>&gt;</span></pre>
+<span class="hljs-tag">&lt;/<span class="hljs-name">button</span>&gt;</span></pre>
         
     </code>
 </div>
@@ -193,7 +193,9 @@
   <span class="hljs-attr">"modifiers"</span>: [
     <span class="hljs-string">"icon"</span>
   ],
-  <span class="hljs-attr">"icon"</span>: <span class="hljs-string">"arrow-forwards"</span>
+  <span class="hljs-attr">"additional_classes"</span>: <span class="hljs-string">"has-loader"</span>,
+  <span class="hljs-attr">"icon"</span>: <span class="hljs-string">"arrow-forwards"</span>,
+  <span class="hljs-attr">"el"</span>: <span class="hljs-string">"button"</span>
 }</pre>
             
         
@@ -212,6 +214,8 @@
             <select class="FileBrowser-select" id="filebrowser-select">
                 
                 <option value="file-ed3dfa746d4989d1be1559f5d94e200d">_button.scss</option>
+                
+                <option value="file-deffcc42db533bc342872e48414b7528">button.js</option>
                 
             </select>
         </div>
@@ -237,48 +241,76 @@
 	<span class="hljs-attribute">justify-content</span>: center;
 	<span class="hljs-attribute">margin</span>: <span class="hljs-number">0</span>;
 	<span class="hljs-attribute">padding</span>: rhythm(<span class="hljs-number">1.112</span>) rhythm(<span class="hljs-number">2</span>);
+	<span class="hljs-attribute">overflow</span>: hidden;
 	<span class="hljs-attribute">border</span>: <span class="hljs-number">0</span>;
 	<span class="hljs-attribute">border-radius</span>: <span class="hljs-variable">$border-radius</span>;
 	<span class="hljs-attribute">background-color</span>: currentColor;
 	<span class="hljs-attribute">background-image</span>: none; <span class="hljs-comment">// Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214</span>
 	<span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1px</span> inset currentColor;
-	<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-ocean</span>;
+	<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-ocean-dark</span>;
 	<span class="hljs-attribute">font-family</span>: <span class="hljs-variable">$font-family-headings</span>;
+	<span class="hljs-attribute">font-size</span>: rem(<span class="hljs-number">16px</span>);
 	<span class="hljs-attribute">text-decoration</span>: none;
+	<span class="hljs-attribute">text-shadow</span>: none;
 	<span class="hljs-attribute">hyphens</span>: auto;
 	<span class="hljs-attribute">cursor</span>: pointer;
 
 	&amp;:hover,
 	&amp;:focus {
-		<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-ocean-light</span>;
+		<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-ocean</span>;
 	}
 
 	&amp;:disabled {
-		&amp;:hover {
-			<span class="hljs-attribute">border</span>: <span class="hljs-number">1px</span> solid <span class="hljs-variable">$color-black</span>;
-			<span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$color-black</span>;
-			<span class="hljs-attribute">box-shadow</span>: none;
-			<span class="hljs-attribute">cursor</span>: not-allowed;
+		<span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$color-granit</span>;
+		<span class="hljs-attribute">box-shadow</span>: none;
+		<span class="hljs-attribute">cursor</span>: not-allowed;
+	}
+
+	<span class="hljs-comment">// States</span>
+	&amp;<span class="hljs-selector-class">.is-loading</span> {
+		<span class="hljs-attribute">cursor</span>: wait;
+	}
+
+	&amp;<span class="hljs-selector-class">.is-loading</span> &amp; {
+		@<span class="hljs-keyword">include</span> e(text) {
+			<span class="hljs-attribute">transform</span>: translateY(-<span class="hljs-number">100%</span>);
+			<span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
+		}
+
+		@<span class="hljs-keyword">include</span> e(icon) {
+			<span class="hljs-attribute">transform</span>: translateY(-<span class="hljs-number">100%</span>);
+			<span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
+		}
+
+		@<span class="hljs-keyword">include</span> e(spinner) {
+			<span class="hljs-attribute">transform</span>: translate(-<span class="hljs-number">50%</span>, -<span class="hljs-number">50%</span>);
+			<span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>;
 		}
 	}
 
-	<span class="hljs-comment">// Modifiers</span>
 	@<span class="hljs-keyword">include</span> e(text) {
 		<span class="hljs-attribute">position</span>: relative;
 		<span class="hljs-attribute">top</span>: -#{rhythm(<span class="hljs-number">0.2</span>)};
-		<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-cyberspace</span>;
+		<span class="hljs-attribute">transform</span>: translateY(<span class="hljs-number">0</span>);
+		<span class="hljs-attribute">transition</span>: <span class="hljs-number">0.3s</span> opacity, <span class="hljs-number">0.3s</span> transform;
+		<span class="hljs-attribute">transition-timing-function</span>: cubic-bezier(<span class="hljs-number">0.175</span>, <span class="hljs-number">0.885</span>, <span class="hljs-number">0.32</span>, <span class="hljs-number">1.275</span>);
+		<span class="hljs-attribute">opacity</span>: <span class="hljs-number">1</span>;
+		<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-snow</span>;
 	}
 
-	@<span class="hljs-keyword">include</span> m(secondary) {
-		<span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1px</span> inset <span class="hljs-variable">$color-ocean</span>;
-		<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-ocean-light</span>;
+	@<span class="hljs-keyword">include</span> e(spinner) {
+		<span class="hljs-attribute">position</span>: absolute;
+		<span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;
+		<span class="hljs-attribute">left</span>: <span class="hljs-number">50%</span>;
+		<span class="hljs-attribute">width</span>: <span class="hljs-variable">$icon-size-small</span>;
+		<span class="hljs-attribute">height</span>: <span class="hljs-variable">$icon-size-small</span>;
+		<span class="hljs-attribute">transform</span>: translate(-<span class="hljs-number">50%</span>, <span class="hljs-number">50%</span>);
+		<span class="hljs-attribute">transition</span>: <span class="hljs-number">0.3s</span> opacity, <span class="hljs-number">0.3s</span> transform;
+		<span class="hljs-attribute">transition-timing-function</span>: cubic-bezier(<span class="hljs-number">0.175</span>, <span class="hljs-number">0.885</span>, <span class="hljs-number">0.32</span>, <span class="hljs-number">1.275</span>);
+		<span class="hljs-attribute">opacity</span>: <span class="hljs-number">0</span>;
 	}
 
-	@<span class="hljs-keyword">include</span> m(transparent) {
-		<span class="hljs-attribute">border-color</span>: transparent;
-		<span class="hljs-attribute">background-color</span>: transparent;
-		<span class="hljs-attribute">box-shadow</span>: none;
-	}
+	<span class="hljs-comment">// Modifiers</span>
 
 	@<span class="hljs-keyword">include</span> m(small) {
 		<span class="hljs-attribute">padding</span>: rhythm(<span class="hljs-number">0.6</span>) rhythm(<span class="hljs-number">1.5</span>);
@@ -295,13 +327,30 @@
 			<span class="hljs-attribute">width</span>: <span class="hljs-variable">$icon-size</span>;
 			<span class="hljs-attribute">height</span>: <span class="hljs-variable">$icon-size</span>;
 		}
+
+		@<span class="hljs-keyword">include</span> e(spinner) {
+			<span class="hljs-attribute">width</span>: <span class="hljs-variable">$icon-size</span>;
+			<span class="hljs-attribute">height</span>: <span class="hljs-variable">$icon-size</span>;
+		}
 	}
 
 	@<span class="hljs-keyword">include</span> m(icon) {
 		<span class="hljs-attribute">justify-content</span>: space-between;
 		<span class="hljs-attribute">max-width</span>: rhythm(<span class="hljs-number">50</span>);
-		<span class="hljs-attribute">padding-right</span>: rhythm(<span class="hljs-number">6</span>);
+		<span class="hljs-attribute">padding-right</span>: rhythm(<span class="hljs-number">5</span>);
 		<span class="hljs-attribute">text-align</span>: left;
+	}
+
+	@<span class="hljs-keyword">include</span> m(icon-left) {
+		<span class="hljs-attribute">justify-content</span>: space-between;
+		<span class="hljs-attribute">max-width</span>: rhythm(<span class="hljs-number">50</span>);
+		<span class="hljs-attribute">padding-right</span>: rhythm(<span class="hljs-number">2</span>);
+		<span class="hljs-attribute">padding-left</span>: rhythm(<span class="hljs-number">5</span>);
+
+		@<span class="hljs-keyword">include</span> e(icon) {
+			<span class="hljs-attribute">right</span>: auto;
+			<span class="hljs-attribute">left</span>: rhythm(<span class="hljs-number">1.5</span>);
+		}
 	}
 
 	@<span class="hljs-keyword">include</span> m(standalone-icon) {
@@ -320,6 +369,12 @@
 			<span class="hljs-attribute">width</span>: <span class="hljs-variable">$icon-size-medium</span>;
 			<span class="hljs-attribute">height</span>: <span class="hljs-variable">$icon-size-medium</span>;
 			<span class="hljs-attribute">transform</span>: none;
+			fill: <span class="hljs-variable">$color-cyberspace</span>;
+		}
+
+		@<span class="hljs-keyword">include</span> e(icon) {
+			<span class="hljs-attribute">width</span>: <span class="hljs-variable">$icon-size-medium</span>;
+			<span class="hljs-attribute">height</span>: <span class="hljs-variable">$icon-size-medium</span>;
 		}
 	}
 
@@ -327,26 +382,23 @@
 		<span class="hljs-attribute">position</span>: absolute;
 		<span class="hljs-attribute">z-index</span>: z_index(background);
 		<span class="hljs-attribute">top</span>: <span class="hljs-number">50%</span>;
-		<span class="hljs-attribute">right</span>: rhythm(<span class="hljs-number">2</span>);
+		<span class="hljs-attribute">right</span>: rhythm(<span class="hljs-number">1.5</span>);
 		<span class="hljs-attribute">width</span>: <span class="hljs-variable">$icon-size-small</span>;
 		<span class="hljs-attribute">height</span>: <span class="hljs-variable">$icon-size-small</span>;
 		<span class="hljs-attribute">transform</span>: translateY(-<span class="hljs-number">50%</span>);
 		<span class="hljs-attribute">transition</span>: fill <span class="hljs-number">100ms</span> linear;
-		fill: <span class="hljs-variable">$color-cyberspace</span>;
+		fill: <span class="hljs-variable">$color-snow</span>;
 		<span class="hljs-attribute">pointer-events</span>: none;
 	}
 
 	<span class="hljs-comment">// More colors</span>
-	@<span class="hljs-keyword">include</span> m(ruby) {
-		<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-ruby</span>;
-
-		&amp;:hover,
-		&amp;:focus {
-			<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-ruby-light</span>;
-		}
+	@<span class="hljs-keyword">include</span> m(transparent) {
+		<span class="hljs-attribute">border-color</span>: transparent;
+		<span class="hljs-attribute">background-color</span>: transparent;
+		<span class="hljs-attribute">box-shadow</span>: none;
 
 		@<span class="hljs-keyword">include</span> e(text) {
-			<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-black</span>; <span class="hljs-comment">// Special for this color only to meet accessibility contrast values</span>
+			<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-cyberspace</span>;
 		}
 	}
 
@@ -358,43 +410,13 @@
 		&amp;:focus {
 			<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-ruby</span>;
 		}
-	}
 
-	@<span class="hljs-keyword">include</span> m(peacock) {
-		<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-peacock</span>;
-
-		&amp;:hover,
-		&amp;:focus {
-			<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-peacock-light</span>;
+		@<span class="hljs-keyword">include</span> e(text) {
+			<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-cyberspace</span>;
 		}
-	}
 
-	@<span class="hljs-keyword">include</span> m(peacock-light) {
-		<span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1px</span> inset <span class="hljs-variable">$color-peacock</span>;
-		<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-peacock-light</span>;
-
-		&amp;:hover,
-		&amp;:focus {
-			<span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$color-peacock</span>;
-		}
-	}
-
-	@<span class="hljs-keyword">include</span> m(sandstone) {
-		<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-sandstone</span>;
-
-		&amp;:hover,
-		&amp;:focus {
-			<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-sandstone-light</span>;
-		}
-	}
-
-	@<span class="hljs-keyword">include</span> m(sandstone-light) {
-		<span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1px</span> inset <span class="hljs-variable">$color-sandstone</span>;
-		<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-sandstone-light</span>;
-
-		&amp;:hover,
-		&amp;:focus {
-			<span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$color-sandstone</span>;
+		@<span class="hljs-keyword">include</span> e(icon) {
+			fill: <span class="hljs-variable">$color-cyberspace</span>;
 		}
 	}
 
@@ -404,6 +426,14 @@
 		&amp;:hover,
 		&amp;:focus {
 			<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-lemon-light</span>;
+		}
+
+		@<span class="hljs-keyword">include</span> e(text) {
+			<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-cyberspace</span>;
+		}
+
+		@<span class="hljs-keyword">include</span> e(icon) {
+			fill: <span class="hljs-variable">$color-cyberspace</span>;
 		}
 	}
 
@@ -415,24 +445,13 @@
 		&amp;:focus {
 			<span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$color-lemon</span>;
 		}
-	}
 
-	@<span class="hljs-keyword">include</span> m(jade) {
-		<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-jade</span>;
-
-		&amp;:hover,
-		&amp;:focus {
-			<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-jade-light</span>;
+		@<span class="hljs-keyword">include</span> e(text) {
+			<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-cyberspace</span>;
 		}
-	}
 
-	@<span class="hljs-keyword">include</span> m(jade-light) {
-		<span class="hljs-attribute">box-shadow</span>: <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">0</span> <span class="hljs-number">1px</span> inset <span class="hljs-variable">$color-jade</span>;
-		<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-jade-light</span>;
-
-		&amp;:hover,
-		&amp;:focus {
-			<span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$color-jade</span>;
+		@<span class="hljs-keyword">include</span> e(icon) {
+			fill: <span class="hljs-variable">$color-cyberspace</span>;
 		}
 	}
 }
@@ -452,7 +471,77 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">3.6 KB</span>
+                    <span class="Meta-value">4 KB</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="FileBrowser-item" id="file-deffcc42db533bc342872e48414b7528" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-JavaScript FileBrowser-code">
+                                <pre><span class="hljs-class"><span class="hljs-keyword">class</span> <span class="hljs-title">Button</span> </span>{
+	<span class="hljs-keyword">constructor</span>(button, disabled = true) {
+		<span class="hljs-keyword">this</span>.button = button;
+		<span class="hljs-keyword">this</span>.disabled = disabled;
+
+		<span class="hljs-keyword">this</span>.build();
+	}
+
+	build() {
+		<span class="hljs-keyword">const</span> className = <span class="hljs-keyword">this</span>.button.classList.item(<span class="hljs-number">0</span>);
+		<span class="hljs-keyword">const</span> html = <span class="hljs-string">`
+			&lt;svg class="icon <span class="hljs-subst">${className}</span>__spinner"&gt;
+				&lt;use xlink:href="#icon-spinner-white"&gt;&lt;/use&gt;
+			&lt;/svg&gt;
+		`</span>;
+
+		<span class="hljs-keyword">this</span>.button.appendChild(<span class="hljs-built_in">document</span>.createRange().createContextualFragment(html));
+	}
+
+	isLoading() {
+		<span class="hljs-keyword">return</span> <span class="hljs-keyword">this</span>.button.classList.contains(<span class="hljs-string">'is-loading'</span>);
+	}
+
+	start() {
+		<span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.disabled) {
+			<span class="hljs-keyword">this</span>.button.setAttribute(<span class="hljs-string">'disabled'</span>, <span class="hljs-string">'disabled'</span>);
+		}
+
+		<span class="hljs-keyword">this</span>.button.classList.add(<span class="hljs-string">'is-loading'</span>);
+	}
+
+	stop() {
+		<span class="hljs-keyword">if</span> (<span class="hljs-keyword">this</span>.disabled) {
+			<span class="hljs-keyword">this</span>.button.removeAttribute(<span class="hljs-string">'disabled'</span>);
+		}
+
+		<span class="hljs-keyword">this</span>.button.classList.remove(<span class="hljs-string">'is-loading'</span>);
+	}
+}
+
+<span class="hljs-built_in">module</span>.exports = Button;
+</pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/button/button.js"><span>/components/raw/button/button.js</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">src/atoms/button/button.js</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">774 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -488,39 +577,15 @@
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(18)</em>:</strong>
+            <strong class="Meta-key">Variants <em class="Meta-count">(10)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="button--default.html">
                     <span>Default</span>
                 </a>, 
             
-                <a href="button--secondary.html">
-                    <span>Secondary</span>
-                </a>, 
-            
-                <a href="button--ruby.html">
-                    <span>Ruby</span>
-                </a>, 
-            
                 <a href="button--ruby-light.html">
                     <span>Ruby Light</span>
-                </a>, 
-            
-                <a href="button--peacock.html">
-                    <span>Peacock</span>
-                </a>, 
-            
-                <a href="button--peacock-light.html">
-                    <span>Peacock Light</span>
-                </a>, 
-            
-                <a href="button--sandstone.html">
-                    <span>Sandstone</span>
-                </a>, 
-            
-                <a href="button--sandstone-light.html">
-                    <span>Sandstone Light</span>
                 </a>, 
             
                 <a href="button--lemon.html">
@@ -529,14 +594,6 @@
             
                 <a href="button--lemon-light.html">
                     <span>Lemon Light</span>
-                </a>, 
-            
-                <a href="button--jade.html">
-                    <span>Jade</span>
-                </a>, 
-            
-                <a href="button--jade-light.html">
-                    <span>Jade Light</span>
                 </a>, 
             
                 <a href="button--transparent.html">
@@ -555,8 +612,8 @@
                     <span>With Icon</span>
                 </a>, 
             
-                <a href="button--with-spinner.html">
-                    <span>With Spinner</span>
+                <a href="button--loading.html">
+                    <span>Loading</span>
                 </a>, 
             
                 <a href="button--standalone-icon.html">
@@ -711,152 +768,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="button--secondary.html" data-pjax>
-                <span>Secondary</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="button--ruby.html" data-pjax>
-                <span>Ruby</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="button--ruby-light.html" data-pjax>
                 <span>Ruby Light</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="button--peacock.html" data-pjax>
-                <span>Peacock</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="button--peacock-light.html" data-pjax>
-                <span>Peacock Light</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="button--sandstone.html" data-pjax>
-                <span>Sandstone</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="button--sandstone-light.html" data-pjax>
-                <span>Sandstone Light</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -905,54 +818,6 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="button--lemon-light.html" data-pjax>
                 <span>Lemon Light</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="button--jade.html" data-pjax>
-                <span>Jade</span>
-                
-
-<div class="Status Status--unlabelled">
-
-<div class="Status-dots">
-
-
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
-
-
-</div>
-
-</div>
-
-
-            </a>
-        </li>
-        
-    
-        
-        
-        <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="button--jade-light.html" data-pjax>
-                <span>Jade Light</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -1071,8 +936,8 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="button--with-spinner.html" data-pjax>
-                <span>With Spinner</span>
+            <a class="Tree-entityLink" href="button--loading.html" data-pjax>
+                <span>Loading</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -1721,6 +1586,30 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="select--default.html" data-pjax>
                 <span>Default</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="select--full-width.html" data-pjax>
+                <span>Full Width</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -2418,10 +2307,21 @@
         
     
         
+        <li class="Tree-item Tree-collection Tree-depth-3" data-behaviour="collection" id="tree-components-collection-info-box">
+            <h4 class="Tree-collectionLabel" data-role="toggle">
+                <span>Info Box</span>
+            </h4>
+            <ul class="Tree-collectionItems" data-role="items">
+            
+            
+            
+            
+    
+        
         
         <li class="Tree-item Tree-entity" data-role="item">
-            <a class="Tree-entityLink" href="info-box.html" data-pjax>
-                <span>Info Box</span>
+            <a class="Tree-entityLink" href="info-box--default.html" data-pjax>
+                <span>Default</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -2438,6 +2338,35 @@
 
 
             </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="info-box--big.html" data-pjax>
+                <span>Big</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+
+            </ul>
         </li>
         
     
@@ -2990,6 +2919,30 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="animate-footer.html" data-pjax>
                 <span>Animate Footer</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="internetguider.html" data-pjax>
+                <span>Internetguider</span>
                 
 
 <div class="Status Status--unlabelled">

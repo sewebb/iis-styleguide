@@ -35,9 +35,10 @@ h2,
 	@include bp-up(sm) {
 		@include plumber(
 			$font-size: 2.5,
-			$line-height: 4,
 			$leading-bottom: 1
 		);
+
+		line-height: 1.75rem;
 	}
 }
 
@@ -61,30 +62,37 @@ h4 {
 	font-family: $font-family-headings;
 }
 
-p > a {
+p a,
+li a,
+td a,
+th a {
 	padding: rhythm(0) rhythm(0.5);
-	border-radius: $border-radius;
-	background-color: $color-peacock-light;
-	color: $color-black;
-	text-decoration: none;
-
-	&:hover,
-	&:focus {
-		background-color: $color-ocean-light;
-	}
-}
-
-li > a,
-td > a,
-th > a {
 	border-bottom: rem(2px) solid $color-peacock;
 	color: $color-black;
 	text-decoration: none;
 
 	&:hover,
 	&:focus {
-		border-color: $color-ocean-light;
+		border-bottom: rem(2px) solid $color-ocean-light;
+		border-radius: $border-radius;
+		background-color: $color-ocean-light;
 	}
+}
+
+li > a {
+	&.is-active {
+		border-radius: $border-radius;
+		border-color: $color-peacock-light;
+		background-color: $color-peacock-light;
+	}
+}
+
+li ul,
+li ol {
+	margin-top: rhythm(1);
+	margin-left: rhythm(2);
+	padding-top: 0;
+	padding-left: 0;
 }
 
 p,
@@ -106,7 +114,6 @@ dl {
 }
 
 .supersize {
-
 	@include plumber(
 		$font-size: 3,
 		$line-height: 4,
@@ -114,7 +121,7 @@ dl {
 		$baseline: $headings-baseline
 	);
 
-	font-family: $font-family-headings;
+	font-family: $font-family-bold;
 
 	@include bp-up(sm) {
 		@include plumber(
@@ -137,12 +144,20 @@ dl {
 %preamble {
 
 	@include plumber(
-		$font-size: 3,
-		$line-height: 4,
-		$leading-bottom: 5
+		$font-size: 2.5,
+		$line-height: 3,
+		$leading-bottom: 4
 	);
 
 	letter-spacing: rem(-0.47px);
+
+	@include bp-up(sm) {
+		@include plumber(
+			$font-size: 3,
+			$line-height: 4,
+			$leading-bottom: 4
+		);
+	}
 }
 
 .small,
@@ -185,9 +200,9 @@ blockquote {
 	display: flex;
 	position: relative;
 	flex-direction: column;
-	margin-top: rhythm(7);
+	margin-top: rhythm(6);
 	margin-right: 0;
-	margin-bottom: rhythm(4);
+	margin-bottom: rhythm(5);
 	margin-left: 0;
 	padding-left: rem(40px);
 
