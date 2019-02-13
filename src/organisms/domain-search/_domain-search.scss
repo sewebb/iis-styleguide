@@ -21,6 +21,11 @@
 		}
 	}
 
+	&.is-in-mega-menu {
+		padding-right: rhythm(2);
+		padding-left: rhythm(2);
+	}
+
 	&[tabindex='-1'] {
 		a,
 		button,
@@ -51,6 +56,35 @@
 
 			&:focus {
 				padding-left: rhythm(2);
+			}
+		}
+
+		@include m(force-focus-look) {
+			background-color: lighten($color-ash, 4%);
+
+			&:focus {
+				background-color: lighten($color-ash, 4%);
+			}
+		}
+	}
+
+	@include e(list) {
+		display: flex;
+		flex-wrap: wrap;
+		padding: rhythm(1) rhythm(2) 0 rhythm(2);
+
+		li {
+			padding: rhythm(1) 0 0;
+			white-space: nowrap;
+
+			a {
+				border-bottom: 0;
+				font-size: rem($size-medium-plus);
+				text-decoration: underline;
+			}
+
+			@include bp-up(md) {
+				text-align: center;
 			}
 		}
 	}
