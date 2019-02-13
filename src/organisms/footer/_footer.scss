@@ -30,6 +30,11 @@
 			@extend %normalize-links;
 
 			color: $color-jade;
+
+			&:hover,
+			&:focus {
+				text-decoration: underline;
+			}
 		}
 
 		@include e(inner) {
@@ -127,7 +132,14 @@
 
 @include b(footer-about-link) {
 	@extend %normalize-links;
-	color: $color-jade;
 
+	color: $color-jade;
 	font-size: rem($size-medium);
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+
+	&:hover,
+	&:focus {
+		text-decoration: underline;
+	}
 }

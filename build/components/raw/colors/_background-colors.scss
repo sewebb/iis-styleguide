@@ -1,7 +1,0 @@
-@charset 'UTF-8';
-
-// Generate background color classes e.g. .background-ruby
-/// @group Colors
-.background {
-	@include color_values($colors, 'background-color', $separator: '-');
-}
