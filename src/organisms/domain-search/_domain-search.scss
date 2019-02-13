@@ -100,6 +100,11 @@
 		flex-shrink: 0;
 		padding-right: rhythm(4);
 		padding-left: rhythm(4);
+		font-size: rem(24px);
+
+		@include bp-down(md) {
+			font-size: rem($size-base);
+		}
 
 		@include bp-down(sm) {
 			padding: rhythm(0.6) rhythm(1);
