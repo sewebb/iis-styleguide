@@ -90,6 +90,7 @@
 			@include bp-up(sm) {
 				padding-right: rhythm(3);
 				padding-left: rhythm(3);
+				font-size: $size-base;
 			}
 		}
 
