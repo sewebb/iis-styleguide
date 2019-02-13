@@ -1,0 +1,49 @@
+@include b(section) {
+	margin-top: rhythm(8);
+
+	@include m(tight) {
+		margin-top: rhythm(4);
+	}
+
+	@include m(no-margin) {
+		margin-top: 0;
+	}
+
+	@include m(peacock) {
+		p > a {
+			background-color: $color-peacock-light;
+		}
+
+		::selection {
+			background-color: $color-peacock-light;
+		}
+
+		::-moz-selection {
+			background-color: $color-peacock-light;
+		}
+	}
+
+	@include m(jade) {
+		p > a {
+			background-color: $color-jade-light;
+		}
+
+		::selection {
+			background-color: $color-jade-light;
+		}
+
+		::-moz-selection {
+			background-color: $color-jade-light;
+		}
+	}
+
+	@include e(title) {
+		margin-bottom: rhythm(3);
+		padding-right: rem(15px);
+		padding-left: rem(15px);
+	}
+
+	@include e(label) {
+		text-transform: uppercase;
+	}
+}

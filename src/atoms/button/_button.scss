@@ -106,8 +106,20 @@
 	@include m(icon) {
 		justify-content: space-between;
 		max-width: rhythm(50);
-		padding-right: rhythm(6);
+		padding-right: rhythm(5);
 		text-align: left;
+	}
+
+	@include m(icon-left) {
+		justify-content: space-between;
+		max-width: rhythm(50);
+		padding-right: rhythm(2);
+		padding-left: rhythm(5);
+
+		@include e(icon) {
+			right: auto;
+			left: rhythm(1.5);
+		}
 	}
 
 	@include m(standalone-icon) {
@@ -139,7 +151,7 @@
 		position: absolute;
 		z-index: z_index(background);
 		top: 50%;
-		right: rhythm(2);
+		right: rhythm(1.5);
 		width: $icon-size-small;
 		height: $icon-size-small;
 		transform: translateY(-50%);

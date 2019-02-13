@@ -1,0 +1,64 @@
+$indent: 50px;
+
+@mixin indent($text-indent: $indent) {
+
+}
+
+@include b(article) {
+	@include e(meta) {
+		margin: rhythm(4) 0 rhythm(4.5);
+	}
+
+	@include e(content) {
+		> div,
+		> figure {
+			margin-bottom: rhythm(3);
+		}
+
+		> figure img {
+			border-radius: $border-radius;
+		}
+	}
+
+	@include bp-up(md) {
+		@include m(indent-basic) {
+			> h1,
+			> p {
+				margin-left: rhythm(3);
+			}
+		}
+
+		@include e(content) {
+			margin-left: rem($indent);
+
+			> p:not(.preamble),
+			> h2,
+			> h3,
+			> h4,
+			> h5,
+			> h6,
+			> ul,
+			> ol,
+			> div:not(.wp-block-iis-info),
+			> figure,
+			> blockquote {
+				max-width: rem(612px);
+				margin-left: rem($indent);
+			}
+
+			> p.preamble {
+				max-width: rem(612px);
+			}
+
+			> .wp-block-iis-info {
+				max-width: rem(612px + ($indent * 2));
+			}
+		}
+
+		@include m(no-title) {
+			@include e(content) {
+				margin-left: 0;
+			}
+		}
+	}
+}

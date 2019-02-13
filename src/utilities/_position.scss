@@ -15,3 +15,13 @@
 .u-position-static {
 	position: static !important;
 }
+
+.u-position-sticky-top-0 {
+	position: sticky !important;
+	top: 0 !important;
+}
+
+.u-position-sticky-top-4 {
+	position: sticky !important;
+	top: rhythm(4) !important;
+}

@@ -1,0 +1,20 @@
+@include b(site) {
+	display: flex;
+	flex-direction: column;
+	min-height: 100vh;
+	overflow: hidden;
+
+	@include e(header) {
+		display: flex;
+		position: relative;
+		flex-direction: column;
+	}
+
+	@include e(main) {
+		flex: 1 0 auto;
+
+		@include e(content) {
+			padding-bottom: rhythm(4);
+		}
+	}
+}
