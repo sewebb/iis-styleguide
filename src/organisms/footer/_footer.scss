@@ -124,3 +124,10 @@
 		width: rhythm(7);
 	}
 }
+
+@include b(footer-about-link) {
+	@extend %normalize-links;
+	color: $color-jade;
+
+	font-size: rem($size-medium);
+}
