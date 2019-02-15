@@ -2,7 +2,7 @@
 
 @include b(skip) {
 	position: relative;
-	z-index: z_index(1001);
+	z-index: 1001;
 	height: 0;
 	margin: 0;
 	padding: 0;
