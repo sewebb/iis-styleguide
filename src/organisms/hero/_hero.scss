@@ -132,13 +132,22 @@
 			color: $color-cyberspace;
 		}
 
-		@include e(text) {
-			max-width: 67%;
-			color: $color-cyberspace;
-		}
-
 		@include b(a-tag) {
 			@include tag;
+		}
+
+		@include bp-up(md) {
+			@include e(text) {
+				max-width: 85%;
+				color: $color-cyberspace;
+			}
+		}
+
+		@include bp-up(lg) {
+			@include e(text) {
+				max-width: 67%;
+				color: $color-cyberspace;
+			}
 		}
 	}
 

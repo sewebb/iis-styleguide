@@ -2,8 +2,9 @@
 
 @include organism(domain-search) {
 	padding: rhythm(3) 0;
+	background-color: $color-snow;
 
-	&:not(.is-in-mega-menu) {
+	&:not([class*='is-in-mega-menu']) {
 		display: none;
 		position: absolute;
 		z-index: z_index(middlegroundImportant);
@@ -21,11 +22,6 @@
 		}
 	}
 
-	&.is-in-mega-menu {
-		padding-right: rhythm(2);
-		padding-left: rhythm(2);
-	}
-
 	&[tabindex='-1'] {
 		a,
 		button,
@@ -34,28 +30,44 @@
 		}
 	}
 
+	a {
+		text-align: underline;
+
+		&:hover,
+		&:focus {
+			border-bottom: rem(2px) solid $color-jade;
+			border-radius: 0;
+			background-color: transparent;
+			text-decoration: none;
+		}
+
+		[class*='icon'] {
+			transform: translateY(rem(2px));
+		}
+	}
+
+	@include e(list-container) {
+		padding: 0 rhythm(1) 0 rhythm(1);
+	}
+
 	@include e(input) {
 		display: block;
 		width: calc(100% - #{rhythm(2)});
-		padding: rhythm(1) rhythm(1) rhythm(1) 0;
+		margin-right: rhythm(2);
+		padding: rhythm(1);
 		transition: padding 0.25s ease-out;
 		border: 0;
 		border-radius: $border-radius;
-		background-color: transparent;
+		background-color: $color-snow;
 		letter-spacing: -0.1px;
 		-webkit-appearance: none;
-
-		&:focus {
-			margin-right: rhythm(2);
-			padding-left: rhythm(1);
-			background-color: lighten($color-ash, 4%);
-		}
 
 		@include bp-up(md) {
 			font-size: rem(32px);
 
 			&:focus {
 				padding-left: rhythm(2);
+				background-color: lighten($color-ash, 4%);
 			}
 		}
 
@@ -71,7 +83,7 @@
 	@include e(list) {
 		display: flex;
 		flex-wrap: wrap;
-		padding: rhythm(1) rhythm(2) 0 rhythm(2);
+		padding: rhythm(1) 0 0 0;
 
 		li {
 			padding: rhythm(1) 0 0;
@@ -81,10 +93,6 @@
 				border-bottom: 0;
 				font-size: rem($size-medium-plus);
 				text-decoration: underline;
-			}
-
-			@include bp-up(md) {
-				text-align: center;
 			}
 		}
 	}
