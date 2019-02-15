@@ -81,7 +81,7 @@
 
 	&:hover,
 	&:focus {
-		border: 1px solid $color-snow;
+		border: 1px solid transparent;
 		background-color: rgba($color-snow, 0.5);
 	}
 }
