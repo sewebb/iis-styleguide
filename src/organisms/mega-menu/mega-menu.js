@@ -2,6 +2,7 @@ const createFocusTrap = require('focus-trap');
 /**
  * Collect the needed elements.
  */
+const html = document.querySelector('html');
 const megaMenuButton = document.querySelector('.js-toggle-mega-menu');
 const megaMenu = document.getElementById('megaMenu');
 const content = document.getElementById('siteMain');
@@ -142,6 +143,9 @@ function hideMegaMenu() {
 
 	setTimeout(() => {
 		requestAnimationFrame(animateOut);
+		if (html.classList.contains('tab-highlight')) {
+			focusTrap.deactivate();
+		}
 	}, 50);
 }
 
@@ -157,6 +161,9 @@ function showMegaMenu() {
 
 	setTimeout(() => {
 		requestAnimationFrame(animateIn);
+		if (html.classList.contains('tab-highlight')) {
+			focusTrap.activate();
+		}
 	}, 50);
 }
 
@@ -169,10 +176,8 @@ function toggleMegaMenu(e) {
 
 	if (megaMenu.getAttribute('aria-hidden') === 'false') {
 		hideMegaMenu();
-		focusTrap.deactivate();
 	} else {
 		showMegaMenu();
-		focusTrap.activate();
 	}
 }
 
