@@ -1,3 +1,4 @@
+const createFocusTrap = require('focus-trap');
 /**
  * Collect the needed elements.
  */
@@ -6,6 +7,7 @@ const megaMenu = document.getElementById('megaMenu');
 const content = document.getElementById('siteMain');
 const header = document.getElementById('siteHeader');
 const footer = document.getElementById('siteFooter');
+const focusTrap = createFocusTrap(megaMenu);
 
 /**
  * Check if the element is in the viewport
@@ -167,8 +169,10 @@ function toggleMegaMenu(e) {
 
 	if (megaMenu.getAttribute('aria-hidden') === 'false') {
 		hideMegaMenu();
+		focusTrap.deactivate();
 	} else {
 		showMegaMenu();
+		focusTrap.activate();
 	}
 }
 
