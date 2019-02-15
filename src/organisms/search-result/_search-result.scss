@@ -15,6 +15,10 @@
 			border-top: 1px solid $color-concrete;
 		}
 
+		div > a {
+			@extend %reset-link-style;
+		}
+
 		@include m(article) {
 			article {
 				display: flex;
@@ -73,6 +77,8 @@
 		}
 
 		@include e(link) {
+			@extend %reset-link-style;
+
 			color: $color-cyberspace;
 			text-decoration: none;
 

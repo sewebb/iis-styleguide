@@ -62,6 +62,20 @@ h4 {
 	font-family: $font-family-headings;
 }
 
+%reset-link-style {
+	padding: unset;
+	border-bottom: unset;
+	color: unset;
+	text-decoration: unset;
+
+	&:hover,
+	&:focus {
+		border-bottom: unset;
+		border-radius: unset;
+		background-color: unset;
+	}
+}
+
 p a,
 li a,
 td a,
