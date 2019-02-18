@@ -1,5 +1,3 @@
-require('promise-polyfill');
-
 const createFocusTrap = require('focus-trap');
 const megaMenu = require('./organisms/mega-menu/mega-menu');
 
