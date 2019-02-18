@@ -3,4 +3,5 @@
 @include atom(logotype) {
 	display: flex;
 	width: 100%;
+	overflow-x: visible;
 }
