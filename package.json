@@ -60,6 +60,7 @@
 		"a11y-toggle": "^2.1.0",
 		"focus-trap": "^4.0.2",
 		"natives": "^1.1.6",
+		"promise-polyfill": "8.1.0",
 		"van11y-accessible-accordion-aria": "^3.0.1"
 	},
 	"fractal": {
