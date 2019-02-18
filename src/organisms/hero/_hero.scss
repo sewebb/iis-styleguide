@@ -54,9 +54,16 @@
 	@include e(paragraph) {
 		@include plumber(
 			$font-size: 2.5,
-			$line-height: 3,
-			$leading-bottom: 0
+			$line-height: 3
 		);
+	}
+
+	@include e(tags) {
+		margin-top: rhythm(2);
+
+		@include bp-up(lg) {
+			margin-top: rhythm(3);
+		}
 	}
 
 	@include e(text) {
