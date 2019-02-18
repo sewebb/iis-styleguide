@@ -14,6 +14,7 @@
 	@include e(logotype) {
 		width: 100%;
 		max-width: rem(250px);
+		height: 100%;
 
 		@include bp-up(xl) {
 			max-width: rem(300px);
