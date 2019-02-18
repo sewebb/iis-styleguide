@@ -2,7 +2,7 @@ module.exports = {
 	status: 'wip',
 
 	context: {
-		heading: 'Missa inte lanseringen av Svenskarna och internet',
+		heading: 'There is nothing quite so permanent as a quick fix',
 		text: 'Internetstiftelsen lanserar ett nytt innovativt verktyg för att avslöja trollen på internet. Och nu behöver vi behöver din hjälp att jaga trollen.',
 		has_image: true,
 		has_radius: false
