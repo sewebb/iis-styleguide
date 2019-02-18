@@ -83,7 +83,8 @@ $spacing: rhythm(6);
 		@include m(rectangle-left) {
 			&::after {
 				content: '';
-				position: absolute;
+				position: absolute !important; // Stupid IE11 bug requires this
+				z-index: z_index(middleground);
 				top: 0;
 				left: 0;
 				width: rem(575px);
@@ -97,7 +98,8 @@ $spacing: rhythm(6);
 		@include m(rectangle-right) {
 			&::after {
 				content: '';
-				position: absolute;
+				position: absolute !important; // Stupid IE11 bug requires this
+				z-index: z_index(middleground);
 				top: 0;
 				right: 0;
 				width: rem(450px);
