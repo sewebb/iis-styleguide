@@ -21,6 +21,7 @@
 		width: 100%;
 		max-width: rhythm(10);
 		height: rhythm(2.96);
+		overflow: visible;
 	}
 
 	@include bp-up(md) {
