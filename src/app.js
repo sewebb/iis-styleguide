@@ -1,5 +1,5 @@
 require('./atoms/grid-toggle/grid-toggle');
-require('./globals');
+require('./components');
 
 const Button = require('./atoms/button/button');
 
