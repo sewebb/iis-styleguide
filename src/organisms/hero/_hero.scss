@@ -6,6 +6,12 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
+	// IE11 Fix
+	*::-ms-backdrop,
+	[class*='image'] {
+		max-height: none !important;
+	}
+
 	@include bp-up(sm) {
 		overflow: hidden;
 		background-color: transparent;
