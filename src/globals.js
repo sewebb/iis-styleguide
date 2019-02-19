@@ -6,3 +6,4 @@ require('./organisms/accordion/accordion');
 require('./organisms/domain-search/domain-search');
 require('./organisms/mega-menu/mega-menu');
 require('./molecules/share/share');
+require('./atoms/tooltip/tooltip');
