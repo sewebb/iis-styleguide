@@ -57,6 +57,7 @@
 		font-family: $font-family-base;
 		font-size: $size-small;
 		text-align: left;
+		user-select: none;
 
 		&::after {
 			content: ' ';
