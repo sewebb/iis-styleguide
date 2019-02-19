@@ -2,6 +2,9 @@
 
 @include atom(tooltip) {
 	position: relative;
+	width: $icon-size;
+	height: $icon-size;
+	padding: rhythm(2);
 
 	&:focus,
 	&:hover {
@@ -21,10 +24,14 @@
 	}
 
 	[class*='icon'] {
+		position: absolute;
+		top: 50%;
+		left: 50%;
 		overflow: visible;
+		transform: translateX(-50%) translateY(-50%);
 		transition: box-shadow 0.3s cubic-bezier(0.3, 0, 0, 1);
 		border-radius: 50%;
-		box-shadow: 0 0 0 0 $color-ocean-light;
+		box-shadow: 0 0 0 rem(5px) transparent;
 		fill: $color-cyberspace;
 	}
 
@@ -42,13 +49,14 @@
 		transform: rotateX(90deg) scale(0.2) translateX(-100%);
 		transform-origin: bottom center;
 		-webkit-backface-visibility: hidden;
-		transition: all 0.3s cubic-bezier(0.3, 0, 0, 1);
+		transition: transform 0.3s cubic-bezier(0.3, 0, 0, 1);
 		border-radius: $border-radius;
 		opacity: 0;
 		background-color: $color-cyberspace;
 		color: $color-snow;
+		font-family: $font-family-base;
 		font-size: $size-small;
-		text-align: center;
+		text-align: left;
 
 		&::after {
 			content: ' ';
