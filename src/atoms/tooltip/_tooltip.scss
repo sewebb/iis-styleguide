@@ -39,11 +39,11 @@
 		height: auto;
 		margin: 0 0 rem(5px) 0;
 		padding: rhythm(1);
-		transform: rotateX(20deg) scale(0.8) translateX(-50%);
+		transform: rotateX(90deg) scale(0.2) translateX(-100%);
 		transform-origin: bottom center;
 		-webkit-backface-visibility: hidden;
 		transition: all 0.3s cubic-bezier(0.3, 0, 0, 1);
-		border-radius: 4px;
+		border-radius: $border-radius;
 		opacity: 0;
 		background-color: $color-cyberspace;
 		color: $color-snow;
