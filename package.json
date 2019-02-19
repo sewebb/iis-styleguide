@@ -31,7 +31,7 @@
 		"copy:build": "npm run copy:images:build && npm run copy:fonts:build",
 		"build": "npm run build:css && npm run build:js && npm run build:fractal &&  npm run htmlhint && npm run copy:build",
 		"dev": "concurrently \"npm:start:fractal\" \"npm:watch\"",
-		"package-js": "NODE_ENV=production babel src/js --out-dir dist"
+		"package-js": "NODE_ENV=production babel src --out-dir dist --ignore src/**/*.config.js,src/app.js"
 	},
 	"devDependencies": {
 		"@frctl/fractal": "1.1.7",
