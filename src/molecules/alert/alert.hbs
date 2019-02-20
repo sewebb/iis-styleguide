@@ -1,4 +1,4 @@
-<div class="m-alert m-alert--{{type}}{{#if is_dismissable}} m-alert--dismissable{{/if}}{{#if js_class}} {{js_class}}{{/if}}">
+<div{{#if role}} role="{{role}}"{{/if}} class="m-alert m-alert--{{type}}{{#if is_dismissable}} m-alert--dismissable{{/if}}{{#if js_class}} {{js_class}}{{/if}}">
 	{{#if is_dismissable}}
 		{{> @button el="button" modifiers="icon, standalone-icon" icon="close"}}
 	{{/if}}

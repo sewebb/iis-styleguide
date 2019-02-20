@@ -12,6 +12,7 @@ module.exports = {
 			context: {
 				name: 'Varning',
 				type: 'warning',
+				role: 'alert',
 				text: 'Meddelanderuta med en varning om att något behöver användarens uppmärksamhet, t.ex. att tjänsten stängs ner för underhåll. Tillfälligt meddelande.'
 			}
 		},
@@ -20,6 +21,7 @@ module.exports = {
 			context: {
 				name: 'Fel',
 				type: 'error',
+				role: 'alert',
 				text: 'Meddelanderuta med information om att något är fel, t.ex. att ett formulär inte kunde skickas. Tillfälligt meddelande.'
 			}
 		},
@@ -28,6 +30,7 @@ module.exports = {
 			context: {
 				name: 'Succé',
 				type: 'success',
+				role: 'alert',
 				text: 'Meddelanderuta med information att en uppgift genomförts utan fel, t.ex. att formulär som skickats. Tillfälligt meddelande'
 			}
 		},
@@ -36,6 +39,7 @@ module.exports = {
 			context: {
 				name: 'Avfärda',
 				type: 'success',
+				role: 'alert',
 				text: 'Meddelanderuta med som användaren kan välja att klicka bort.',
 				js_class: 'js-dismiss-alert',
 				is_dismissable: true,

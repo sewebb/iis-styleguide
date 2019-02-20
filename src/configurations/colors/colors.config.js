@@ -49,7 +49,10 @@ module.exports = {
 			{
 				name: 'ruby-dark',
 				title: '$color-ruby-dark',
-				hex: '#d9002f'
+				hex: '#d9002f',
+				rgb: 'n/a',
+				cmyk: 'n/a',
+				pms: 'n/a',
 			},
 			{
 				name: 'ruby',
@@ -72,7 +75,10 @@ module.exports = {
 			{
 				name: 'peacock-dark',
 				title: '$color-peacock-dark',
-				hex: '#9826df'
+				hex: '#9826df',
+				rgb: 'n/a',
+				cmyk: 'n/a',
+				pms: 'n/a',
 			},
 			{
 				name: 'peacock',
@@ -95,7 +101,10 @@ module.exports = {
 			{
 				name: 'jade-dark',
 				title: '$color-jade-dark',
-				hex: '#2d897a'
+				hex: '#2d897a',
+				rgb: 'n/a',
+				cmyk: 'n/a',
+				pms: 'n/a',
 			},
 			{
 				name: 'jade',
@@ -118,7 +127,10 @@ module.exports = {
 			{
 				name: 'sandstone-dark',
 				title: '$color-sandstone-dark',
-				hex: '#ed5b09'
+				hex: '#ed5b09',
+				rgb: 'n/a',
+				cmyk: 'n/a',
+				pms: 'n/a',
 			},
 			{
 				name: 'sandstone',
@@ -140,7 +152,10 @@ module.exports = {
 			{
 				name: 'lemon-dark',
 				title: '$color-lemon-dark',
-				hex: '#e1ac00'
+				hex: '#e1ac00',
+				rgb: 'n/a',
+				cmyk: 'n/a',
+				pms: 'n/a',
 			},
 			{
 				name: 'lemon',
@@ -162,7 +177,10 @@ module.exports = {
 			{
 				name: 'ocean-dark',
 				title: '$color-ocean-dark',
-				hex: '#0591fb',
+				hex: '#0477ce',
+				rgb: 'n/a',
+				cmyk: 'n/a',
+				pms: 'n/a',
 				hasBorder: false
 			},
 			{
