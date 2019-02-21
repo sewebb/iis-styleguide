@@ -73,7 +73,7 @@
 	}
 
 	@include e(text) {
-		a:last-child p {
+		:last-child {
 			margin-bottom: 0;
 		}
 
