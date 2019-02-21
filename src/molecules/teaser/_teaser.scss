@@ -69,8 +69,7 @@
 		@include e(icon) {
 			width: $icon-size-medium;
 			height: $icon-size-medium;
-			margin-left: rhythm(1);
-			transform: translateY(rem(3px));
+			transform: translateY(rem(1px));
 			fill: currentColor;
 		}
 	}
