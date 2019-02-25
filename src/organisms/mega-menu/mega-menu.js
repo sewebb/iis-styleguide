@@ -77,6 +77,7 @@ function animateIn() {
 	megaMenuButton.setAttribute('aria-expanded', 'true');
 	megaMenu.setAttribute('aria-hidden', 'false');
 	footer.style.cssText = 'transform: translateY(0); transition: transform 0.25s ease-in-out;';
+	footer.classList.add('is-animated');
 }
 
 /**
@@ -121,6 +122,7 @@ function animateOut() {
 	megaMenu.setAttribute('aria-hidden', 'true');
 
 	footer.style.transition = '0.25s ease-in-out';
+	footer.classList.remove('is-animated');
 
 	setTimeout(() => {
 		if (!isInViewport(footer)) {
