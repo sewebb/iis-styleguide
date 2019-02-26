@@ -116,6 +116,10 @@
 		@include atom(checkbox) {
 			+ label {
 				font-size: rem(16px);
+
+				&::after {
+					top: rem(12px);
+				}
 			}
 		}
 
