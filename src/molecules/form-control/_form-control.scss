@@ -114,11 +114,13 @@
 
 		// Checkbox
 		@include atom(checkbox) {
-			+ label {
-				font-size: rem(16px);
+			&[type='checkbox'] {
+				+ label {
+					font-size: rem(16px);
 
-				&::after {
-					top: rem(12px);
+					&::after {
+						top: rem(12px);
+					}
 				}
 			}
 		}
@@ -127,9 +129,13 @@
 		@include atom(radio) {
 			+ label {
 				font-size: rem(16px);
+			}
 
-				&::before {
-					margin-top: rem(5px);
+			&:checked {
+				+ label {
+					&::before {
+						margin-top: rem(5px);
+					}
 				}
 			}
 		}
