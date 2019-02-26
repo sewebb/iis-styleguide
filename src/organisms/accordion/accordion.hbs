@@ -1,28 +1,8 @@
-<div style="padding: 40px">
-	<button type="button" class="a-button" id="addAccordion"><span class="a-button__text">Lägg till</span></button>
-</div>
 <div class="js-o-accordion o-accordion">
 	{{#each accordion_item}}
 	<h3 class="js-accordion__header"{{#if is_expanded}} data-accordion-opened="true"{{/if}}>
 		{{#if heading}}
 		{{heading}}
-		{{else if registrar}}
-		<div class="row align-items-center o-accordion__row">
-			{{#if registrar_logo}}
-			<div class="grid-sm-auto grid-18">
-				<img class="o-accordion__logo" src="{{registrar_logo}}" alt="{{registrar}} logotype">
-			</div>
-			{{/if}}
-			<div class="grid">
-				<dl class="o-accordion__list">
-					<dt class="beta"><a href="https://www.google.se">{{registrar}}</a></dt>
-					<dd class="o-accordion__list__item"><span class="o-accordion__list__flag">{{flag}}</span> {{location}}</dd>
-					<dd class="o-accordion__list__item"><a href="{{registrar_url}}">{{registrar_url}}</a></dd>
-					<dd class="o-accordion__list__item">{{{contact}}}</dd>
-					<dd class="o-accordion__list__item"></dd>
-				</dl>
-			</div>
-		</div>
 		{{/if}}
 	</h3>
 	<div class="js-accordion__panel">
@@ -31,6 +11,9 @@
 		</div>
 	</div>
 	{{/each}}
+</div>
+<div style="padding: 20px">
+	<button type="button" class="a-button" id="addAccordion"><span class="a-button__text">Lägg till</span></button>
 </div>
 <script>
 	document.getElementById('addAccordion').addEventListener('click', function () {
