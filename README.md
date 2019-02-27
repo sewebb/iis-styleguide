@@ -59,7 +59,6 @@ The code is validated and fixed on save using our coding standards and conventio
 
 ## Deployment
 
-There is no predefined or preferred way to deploy, that is handled outside this project.
 To be able to deploy you need to build a static version of the styleguide.
 The command `npm run build` will build the static site in the `build` directory in the root the your project.
 
