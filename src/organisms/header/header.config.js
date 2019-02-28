@@ -1,5 +1,5 @@
 module.exports = {
-	status: 'wip',
+	status: 'ready',
 
 	context: {
 		logo_link_text: 'Till startsidan',

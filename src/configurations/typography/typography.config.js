@@ -1,5 +1,5 @@
 module.exports = {
-	status: 'wip',
+	status: 'ready',
 
 	context: {
 		supersize: 'Typografiska regler för Internetstiftelsens webbplatser.',

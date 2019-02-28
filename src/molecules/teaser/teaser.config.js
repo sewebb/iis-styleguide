@@ -1,5 +1,5 @@
 module.exports = {
-	status: 'wip',
+	status: 'ready',
 
 	context: {
 		url: 'http://www.iis.se',
