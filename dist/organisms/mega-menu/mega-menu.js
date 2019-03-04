@@ -1,13 +1,17 @@
 'use strict';
 
+var createFocusTrap = require('focus-trap');
 /**
  * Collect the needed elements.
  */
+var html = document.querySelector('html');
 var megaMenuButton = document.querySelector('.js-toggle-mega-menu');
 var megaMenu = document.getElementById('megaMenu');
 var content = document.getElementById('siteMain');
 var header = document.getElementById('siteHeader');
 var footer = document.getElementById('siteFooter');
+var focusTrap = createFocusTrap(megaMenu);
+var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 
 /**
  * Check if the element is in the viewport
@@ -37,16 +41,18 @@ function prepareAnimation() {
 
 	content.style.cssText = '\n        position: absolute;\n        top: ' + (scrollTop + contentRect.top) + 'px;\n        left: 0;\n        right: 0;\n        bottom: 0;\n        overflow: hidden;\n    ';
 
-	if (!inViewport) {
-		footer.style.transform = 'translateY(100%)';
-	} else {
-		requestAnimationFrame(function () {
-			var newFooterTop = footer.getBoundingClientRect().top;
+	if (!isIE11) {
+		if (!inViewport) {
+			footer.style.transform = 'translateY(100%)';
+		} else {
+			requestAnimationFrame(function () {
+				var newFooterTop = footer.getBoundingClientRect().top;
 
-			if (newFooterTop > initialFooterTop) {
-				footer.style.transform = 'translateY(-' + (newFooterTop - initialFooterTop) + 'px)';
-			}
-		});
+				if (newFooterTop > initialFooterTop) {
+					footer.style.transform = 'translateY(-' + (newFooterTop - initialFooterTop) + 'px)';
+				}
+			});
+		}
 	}
 }
 
@@ -66,7 +72,10 @@ function removeAnimationPreparations() {
 function animateIn() {
 	megaMenuButton.setAttribute('aria-expanded', 'true');
 	megaMenu.setAttribute('aria-hidden', 'false');
-	footer.style.cssText = 'transform: translateY(0); transition: transform 0.25s ease-in-out;';
+	if (!isIE11) {
+		footer.style.cssText = 'transform: translateY(0); transition: transform 0.25s ease-in-out;';
+		footer.classList.add('is-animated');
+	}
 }
 
 /**
@@ -83,14 +92,16 @@ function prepareOutAnimation() {
 	header.removeAttribute('style');
 
 	requestAnimationFrame(function () {
-		var newFooterTop = footer.getBoundingClientRect().top;
+		if (!isIE11) {
+			var newFooterTop = footer.getBoundingClientRect().top;
 
-		footer.style.transition = 'none';
+			footer.style.transition = 'none';
 
-		if (initialFooterTop > newFooterTop) {
-			footer.style.transform = 'translateY(' + (initialFooterTop - newFooterTop) + 'px)';
-		} else if (newFooterTop > initialFooterTop) {
-			footer.style.transform = 'translateY(-' + (newFooterTop - initialFooterTop) + 'px)';
+			if (initialFooterTop > newFooterTop) {
+				footer.style.transform = 'translateY(' + (initialFooterTop - newFooterTop) + 'px)';
+			} else if (newFooterTop > initialFooterTop) {
+				footer.style.transform = 'translateY(-' + (newFooterTop - initialFooterTop) + 'px)';
+			}
 		}
 	});
 }
@@ -104,15 +115,18 @@ function animateOut() {
 	megaMenuButton.setAttribute('aria-expanded', 'false');
 	megaMenu.setAttribute('aria-hidden', 'true');
 
-	footer.style.transition = '0.25s ease-in-out';
+	if (!isIE11) {
+		footer.style.transition = '0.25s ease-in-out';
+		footer.classList.remove('is-animated');
 
-	setTimeout(function () {
-		if (!isInViewport(footer)) {
-			footer.style.transform = 'translateY(100%)';
-		} else {
-			footer.style.transform = 'translateY(0)';
-		}
-	}, 4);
+		setTimeout(function () {
+			if (!isInViewport(footer)) {
+				footer.style.transform = 'translateY(100%)';
+			} else {
+				footer.style.transform = 'translateY(0)';
+			}
+		}, 4);
+	}
 }
 
 /**
@@ -127,6 +141,9 @@ function hideMegaMenu() {
 
 	setTimeout(function () {
 		requestAnimationFrame(animateOut);
+		if (html.classList.contains('tab-highlight')) {
+			focusTrap.deactivate();
+		}
 	}, 50);
 }
 
@@ -142,6 +159,9 @@ function showMegaMenu() {
 
 	setTimeout(function () {
 		requestAnimationFrame(animateIn);
+		if (html.classList.contains('tab-highlight')) {
+			focusTrap.activate();
+		}
 	}, 50);
 }
 
