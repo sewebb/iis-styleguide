@@ -1,43 +1,5 @@
-// const colors = require('../../../getColors');
-//
-// const getVariants = (colors) => {
-// 	const variants = [];
-//
-// 	for (let color in colors) {
-// 		variants.push({
-// 			name: color.replace('$', ''),
-// 			context: {
-// 				title: color,
-// 				name: color.replace('$color-', ''),
-// 				hex: colors[color].toUpperCase(),
-// 				rgb: color.replace('$rgb-', '')
-// 			}
-// 		});
-// 	}
-//
-// 	console.log(variants);
-// 	return variants;
-// };
-//
-// module.exports = {
-// 	status: 'wip',
-// 	order: -1,
-// 	preview: '@layout-colors',
-// 	collated: true,
-// 	default: getVariants(colors)[0].name,
-// 	context: {
-// 		title: '',
-// 		name: '',
-// 		hex: '',
-// 		rgb: '',
-// 		cmyk: '',
-// 		pms: ''
-// 	},
-// 	variants: getVariants(colors)
-// };
-
 module.exports = {
-	status: 'wip',
+	status: 'ready',
 
 	context: {
 		sass: 'SASS',

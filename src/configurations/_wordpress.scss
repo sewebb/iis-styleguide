@@ -5,16 +5,16 @@
 //
 
 // Normalize
-.alignnone,
-.aligncenter,
+.alignnone:not(img),
+.aligncenter:not(img),
 div.aligncenter,
-.alignright,
-.alignleft,
+.alignright:not(img),
+.alignleft:not(img),
 a img.alignright,
 a img.alignnone,
 a img.alignleft,
 a img.aligncenter,
-.wp-caption,
+.wp-caption:not(img),
 .wp-caption.alignnone,
 .wp-caption.alignleft,
 .wp-caption.alignright,

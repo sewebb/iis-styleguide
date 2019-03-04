@@ -3,6 +3,7 @@
 @mixin table() {
 	width: 100%;
 	border-collapse: collapse;
+	border: 0;
 	counter-reset: table-counter;
 
 	thead,
@@ -273,6 +274,11 @@
 			display: none;
 		}
 	}
+}
+
+// Default styling for tables without classes
+table {
+	@include table();
 }
 
 // Styling for default WP Table Block

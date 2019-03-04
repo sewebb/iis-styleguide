@@ -90,6 +90,7 @@ $icon-size-smallest: rem(14px);
 // Z-indexes
 $z-index: (
 	'foreground': 1000,
+	'foregroundMinus': 999,
 	'middleground': 500,
 	'middlegroundImportant': 750,
 	'background': 1

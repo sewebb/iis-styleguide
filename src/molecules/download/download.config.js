@@ -1,5 +1,5 @@
 module.exports = {
-	status: 'wip',
+	status: 'ready',
 
 	context: {
 		url: 'https://www.iis.se/docs/Remiss_se_sv.pdf',

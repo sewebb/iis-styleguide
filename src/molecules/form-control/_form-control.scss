@@ -112,24 +112,6 @@
 			padding: rhythm(0.6) rhythm(1.5);
 		}
 
-		// Checkbox
-		@include atom(checkbox) {
-			+ label {
-				font-size: rem(16px);
-			}
-		}
-
-		// Radiobutton
-		@include atom(radio) {
-			+ label {
-				font-size: rem(16px);
-
-				&::before {
-					margin-top: rem(5px);
-				}
-			}
-		}
-
 		// Select
 		@include atom(select) {
 			padding-top: rhythm(0.5);

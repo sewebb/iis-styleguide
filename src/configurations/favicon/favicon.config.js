@@ -1,7 +1,7 @@
 module.exports = {
-	status: 'wip',
+	status: 'ready',
 
 	context: {
-		url: '/assets/favicon/'
+		url: 'https://internetstiftelsen.se/app/themes/internetstiftelsen/assets/favicon/'
 	}
 }

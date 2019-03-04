@@ -50,23 +50,28 @@
 }
 
 %panel {
-	visibility: visible;
-	max-height: 10000em; // Rediculous height
 	padding: 0;
-	overflow: visible;
 	transition: visibility 0s ease, max-height 0.25s ease, opacity 0.25s ease;
 	transition-delay: 0s;
 	border-bottom: 1px solid $color-granit;
-	opacity: 1;
 	background-color: $color-snow;
+}
 
-	&[aria-hidden='true'] {
-		visibility: hidden;
-		max-height: 0;
-		overflow: hidden;
-		transition-delay: 0.25s, 0s, 0s;
-		opacity: 0;
-	}
+%is-visible {
+	visibility: visible;
+	max-height: 10000em; // Rediculous height
+	overflow: visible;
+	transition: visibility 0s ease, max-height 0.25s ease, opacity 0.25s ease;
+	opacity: 1;
+}
+
+%is-hidden {
+	visibility: hidden;
+	max-height: 0;
+	overflow: hidden;
+	transition: visibility 0s ease, max-height 0.25s ease, opacity 0.25s ease;
+	transition-delay: 0.25s, 0s, 0s;
+	opacity: 0;
 }
 
 // Styling before Accordion script kicks in
@@ -101,6 +106,21 @@
 				display: block;
 			}
 		}
+	}
+
+	@include organism(accordion) {
+		@include e(panel) {
+			&[aria-hidden='false'],
+			&:not([aria-hidden='true']) {
+				@extend %is-visible;
+			}
+		}
+	}
+}
+
+.js-o-accordion {
+	> [class*='panel'] {
+		@extend %is-hidden;
 	}
 }
 
@@ -152,7 +172,7 @@
 			position: relative;
 			padding: rhythm(3);
 
-			:last-child {
+			> :last-child {
 				margin-bottom: 0;
 			}
 		}
@@ -211,6 +231,14 @@
 			margin-right: rhythm(1);
 			font-size: rem(32px);
 			line-height: 1;
+		}
+	}
+}
+
+.no-js {
+	@include organism(accordion) {
+		> [class*='panel'] {
+			@extend %is-visible;
 		}
 	}
 }

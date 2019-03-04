@@ -15,13 +15,13 @@ $namespace: '';
 @import 'configurations/typography/typography';
 @import 'configurations/forms/fields';
 @import 'configurations/wordpress';
+@import 'configurations/recaptcha';
 
 // Atoms
 @import 'atoms/skip/skip';
 @import 'atoms/meta/meta';
 @import 'atoms/tag/tag';
 @import 'atoms/logotype/logotype';
-@import 'atoms/mega-menu-button/mega-menu-button';
 @import 'atoms/main-menu/main-menu';
 @import 'atoms/button/button';
 @import 'atoms/paging/paging';

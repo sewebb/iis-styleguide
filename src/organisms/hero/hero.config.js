@@ -1,5 +1,5 @@
 module.exports = {
-	status: 'wip',
+	status: 'ready',
 
 	context: {
 		heading: 'There is nothing quite so permanent as a quick fix',

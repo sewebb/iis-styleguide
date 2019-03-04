@@ -1,13 +1,15 @@
-<fieldset class="field-group">
-	<legend class="label-legend">Checkbox</legend>
-		<div class="checkbox{{#if is_inline}} checkbox--inline row no-gutters{{/if}}">
-			{{#if is_inline}}
-				<div class="grid-auto">
-			{{/if}}
-				<input type="checkbox" id="{{id}}" name="{{name}}" value="{{value}}" class="a-checkbox u-visuallyhidden" {{#if is_disabled}}disabled{{/if}}>
-				<label for="{{id}}">{{label}}</label>
-			{{#if is_inline}}
+<div class="m-form-control">
+	<fieldset class="field-group">
+		<legend class="label-legend">Checkbox</legend>
+			<div class="checkbox{{#if is_inline}} checkbox--inline row no-gutters{{/if}}">
+				{{#if is_inline}}
+					<div class="grid-auto">
+				{{/if}}
+					<input type="checkbox" id="{{id}}" name="{{name}}" value="{{value}}" class="a-checkbox u-visuallyhidden" {{#if is_disabled}}disabled{{/if}}>
+					<label for="{{id}}">{{label}}</label>
+				{{#if is_inline}}
+				</div>
+				{{/if}}
 			</div>
-			{{/if}}
-		</div>
-</fieldset>
+	</fieldset>
+</div>

@@ -9,6 +9,7 @@ const content = document.getElementById('siteMain');
 const header = document.getElementById('siteHeader');
 const footer = document.getElementById('siteFooter');
 const focusTrap = createFocusTrap(megaMenu);
+const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 
 /**
  * Check if the element is in the viewport
@@ -47,16 +48,18 @@ function prepareAnimation() {
         overflow: hidden;
     `;
 
-	if (!inViewport) {
-		footer.style.transform = 'translateY(100%)';
-	} else {
-		requestAnimationFrame(() => {
-			const newFooterTop = footer.getBoundingClientRect().top;
+	if (!isIE11) {
+		if (!inViewport) {
+			footer.style.transform = 'translateY(100%)';
+		} else {
+			requestAnimationFrame(() => {
+				const newFooterTop = footer.getBoundingClientRect().top;
 
-			if (newFooterTop > initialFooterTop) {
-				footer.style.transform = `translateY(-${newFooterTop - initialFooterTop}px)`;
-			}
-		});
+				if (newFooterTop > initialFooterTop) {
+					footer.style.transform = `translateY(-${newFooterTop - initialFooterTop}px)`;
+				}
+			});
+		}
 	}
 }
 
@@ -76,7 +79,10 @@ function removeAnimationPreparations() {
 function animateIn() {
 	megaMenuButton.setAttribute('aria-expanded', 'true');
 	megaMenu.setAttribute('aria-hidden', 'false');
-	footer.style.cssText = 'transform: translateY(0); transition: transform 0.25s ease-in-out;';
+	if (!isIE11) {
+		footer.style.cssText = 'transform: translateY(0); transition: transform 0.25s ease-in-out;';
+		footer.classList.add('is-animated');
+	}
 }
 
 /**
@@ -99,14 +105,16 @@ function prepareOutAnimation() {
 	header.removeAttribute('style');
 
 	requestAnimationFrame(() => {
-		const newFooterTop = footer.getBoundingClientRect().top;
+		if (!isIE11) {
+			const newFooterTop = footer.getBoundingClientRect().top;
 
-		footer.style.transition = 'none';
+			footer.style.transition = 'none';
 
-		if (initialFooterTop > newFooterTop) {
-			footer.style.transform = `translateY(${initialFooterTop - newFooterTop}px)`;
-		} else if (newFooterTop > initialFooterTop) {
-			footer.style.transform = `translateY(-${newFooterTop - initialFooterTop}px)`;
+			if (initialFooterTop > newFooterTop) {
+				footer.style.transform = `translateY(${initialFooterTop - newFooterTop}px)`;
+			} else if (newFooterTop > initialFooterTop) {
+				footer.style.transform = `translateY(-${newFooterTop - initialFooterTop}px)`;
+			}
 		}
 	});
 }
@@ -120,15 +128,18 @@ function animateOut() {
 	megaMenuButton.setAttribute('aria-expanded', 'false');
 	megaMenu.setAttribute('aria-hidden', 'true');
 
-	footer.style.transition = '0.25s ease-in-out';
+	if (!isIE11) {
+		footer.style.transition = '0.25s ease-in-out';
+		footer.classList.remove('is-animated');
 
-	setTimeout(() => {
-		if (!isInViewport(footer)) {
-			footer.style.transform = 'translateY(100%)';
-		} else {
-			footer.style.transform = 'translateY(0)';
-		}
-	}, 4);
+		setTimeout(() => {
+			if (!isInViewport(footer)) {
+				footer.style.transform = 'translateY(100%)';
+			} else {
+				footer.style.transform = 'translateY(0)';
+			}
+		}, 4);
+	}
 }
 
 /**

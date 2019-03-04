@@ -1,7 +1,5 @@
 module.exports = {
 	status: 'ready',
 
-	context: {
-
-	}
+	context: {}
 }

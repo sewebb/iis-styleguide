@@ -2,12 +2,11 @@
 
 @include organism(footer) {
 	position: relative;
-	z-index: z_index(middlegroundImportant);
+	z-index: z_index(middleground);
 	transform: translateY(0);
 	border-top: 1px solid $color-ash;
 
 	&.is-animated {
-		position: absolute;
 		z-index: z_index(foreground);
 	}
 
