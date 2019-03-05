@@ -35,10 +35,10 @@ function prepareAnimation() {
 	var contentRect = content.getBoundingClientRect();
 	var inViewport = isInViewport(footer);
 
-	header.style.flex = '1 0 auto';
 	megaMenu.style.cssText = 'display: block; flex: 1';
 
 	if (!isIE11) {
+		header.style.flex = '1 0 auto';
 		var initialFooterTop = footer.getBoundingClientRect().top;
 
 		content.style.cssText = '\n\t        position: absolute;\n\t        top: ' + (scrollTop + contentRect.top) + 'px;\n\t        left: 0;\n\t        right: 0;\n\t        bottom: 0;\n\t        overflow: hidden;\n\t    ';

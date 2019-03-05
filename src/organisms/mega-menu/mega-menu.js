@@ -35,10 +35,10 @@ function prepareAnimation() {
 	const contentRect = content.getBoundingClientRect();
 	const inViewport = isInViewport(footer);
 
-	header.style.flex = '1 0 auto';
 	megaMenu.style.cssText = 'display: block; flex: 1';
 
 	if (!isIE11) {
+		header.style.flex = '1 0 auto';
 		const initialFooterTop = footer.getBoundingClientRect().top;
 
 		content.style.cssText = `
