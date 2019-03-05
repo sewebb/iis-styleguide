@@ -38,17 +38,17 @@ function prepareAnimation() {
 	header.style.flex = '1 0 auto';
 	megaMenu.style.cssText = 'display: block; flex: 1';
 
-	content.style.cssText = `
-        position: absolute;
-        top: ${scrollTop + contentRect.top}px;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        overflow: hidden;
-    `;
-
 	if (!isIE11) {
 		const initialFooterTop = footer.getBoundingClientRect().top;
+
+		content.style.cssText = `
+	        position: absolute;
+	        top: ${scrollTop + contentRect.top}px;
+	        left: 0;
+	        right: 0;
+	        bottom: 0;
+	        overflow: hidden;
+	    `;
 
 		if (!inViewport) {
 			footer.style.transform = 'translateY(100%)';
