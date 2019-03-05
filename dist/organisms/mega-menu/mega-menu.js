@@ -33,7 +33,6 @@ function isInViewport(element) {
 function prepareAnimation() {
 	var scrollTop = window.scrollY || document.body.scrollTop;
 	var contentRect = content.getBoundingClientRect();
-	var initialFooterTop = footer.getBoundingClientRect().top;
 	var inViewport = isInViewport(footer);
 
 	header.style.flex = '1 0 auto';
@@ -42,6 +41,8 @@ function prepareAnimation() {
 	content.style.cssText = '\n        position: absolute;\n        top: ' + (scrollTop + contentRect.top) + 'px;\n        left: 0;\n        right: 0;\n        bottom: 0;\n        overflow: hidden;\n    ';
 
 	if (!isIE11) {
+		var initialFooterTop = footer.getBoundingClientRect().top;
+
 		if (!inViewport) {
 			footer.style.transform = 'translateY(100%)';
 		} else {
@@ -91,8 +92,8 @@ function prepareOutAnimation() {
 	content.removeAttribute('style');
 	header.removeAttribute('style');
 
-	requestAnimationFrame(function () {
-		if (!isIE11) {
+	if (!isIE11) {
+		requestAnimationFrame(function () {
 			var newFooterTop = footer.getBoundingClientRect().top;
 
 			footer.style.transition = 'none';
@@ -102,20 +103,19 @@ function prepareOutAnimation() {
 			} else if (newFooterTop > initialFooterTop) {
 				footer.style.transform = 'translateY(-' + (newFooterTop - initialFooterTop) + 'px)';
 			}
-		}
-	});
+		});
+	}
 }
 
 /**
  * Start the animation that hides the mega menu and footer.
  */
 function animateOut() {
-	footer.addEventListener('transitionend', removeAnimationPreparations, { once: true });
-
 	megaMenuButton.setAttribute('aria-expanded', 'false');
 	megaMenu.setAttribute('aria-hidden', 'true');
 
 	if (!isIE11) {
+		footer.addEventListener('transitionend', removeAnimationPreparations, { once: true });
 		footer.style.transition = '0.25s ease-in-out';
 		footer.classList.remove('is-animated');
 
