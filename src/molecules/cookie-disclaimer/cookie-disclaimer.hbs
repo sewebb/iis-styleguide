@@ -1,0 +1,14 @@
+<div class="m-cookie-disclaimer">
+	<div{{#if role}} role="{{role}}"{{/if}} class="m-alert m-alert--{{type}}{{#if is_dismissable}} m-alert--dismissable{{/if}}{{#if js_class}} {{js_class}}{{/if}}">
+		<h2 class="u-m-b-1">{{name}}</h2>
+		<div>
+			{{{text}}}
+		</div>
+		{{#if is_dismissable}}
+		<div class="display-flex justify-content-end">
+			{{> @button el="button" modifiers="transparent a-button--is-static" text="Nej tack" id="js-decline-cookies"}}
+			{{> @button el="button" modifiers="is-static" text="Jag accepterar" id="js-accept-cookies"}}
+		{{/if}}
+		</div>
+	</div>
+</div>

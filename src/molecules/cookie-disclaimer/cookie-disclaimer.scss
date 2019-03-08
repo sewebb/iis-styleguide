@@ -1,0 +1,9 @@
+@charset 'UTF-8';
+
+@include molecule(cookie-disclaimer) {
+	display: none;
+
+	&.is-visible {
+		display: block;
+	}
+}
