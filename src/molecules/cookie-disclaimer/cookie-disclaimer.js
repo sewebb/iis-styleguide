@@ -19,18 +19,28 @@ function deleteCookie(name) { setCookie(name, '', -1); }
 
 // No cookie set? Show cookie disclaimer bar
 if (!getCookie(cookieName)) {
-	cookieBar.classList.add(visibleClass);
+	if (cookieBar) {
+		cookieBar.classList.add(visibleClass);
+	}
 }
 
 function declineCookies() {
 	deleteCookie(cookieName); // Delete cookie if set before
-	cookieBar.classList.remove(visibleClass);
+	if (cookieBar) {
+		cookieBar.classList.remove(visibleClass);
+	}
 }
 
 function acceptCookies() {
 	setCookie(cookieName, 'YES', { expires: 365 });
-	cookieBar.classList.remove(visibleClass);
+	if (cookieBar) {
+		cookieBar.classList.remove(visibleClass);
+	}
+}
+if (declineButton) {
+	declineButton.addEventListener('click', declineCookies);
 }
 
-declineButton.addEventListener('click', declineCookies);
-acceptButton.addEventListener('click', acceptCookies);
+if (acceptButton) {
+	acceptButton.addEventListener('click', acceptCookies);
+}
