@@ -80,6 +80,9 @@ p a,
 li a,
 td a,
 th a {
+
+	@extend %break-long-links;
+
 	padding: rhythm(0) rhythm(0.5);
 	border-bottom: rem(2px) solid $color-peacock;
 	color: $color-black;
@@ -104,9 +107,17 @@ li > a {
 li ul,
 li ol {
 	margin-top: rhythm(1);
-	margin-left: rhythm(2);
+	margin-left: rhythm(4);
 	padding-top: 0;
 	padding-left: 0;
+}
+
+li ol {
+	list-style-type: lower-latin;
+}
+
+li ol li ol {
+	list-style-type: lower-roman;
 }
 
 p,
