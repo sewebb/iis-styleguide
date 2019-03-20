@@ -104,6 +104,11 @@ li > a {
 	}
 }
 
+li {
+	padding-top: rhythm(0.25);
+	padding-bottom: rhythm(0.25);
+}
+
 li ul,
 li ol {
 	margin-top: rhythm(1);
