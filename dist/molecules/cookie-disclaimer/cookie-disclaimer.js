@@ -1,6 +1,6 @@
 'use strict';
 
-var cookieBar = document.querySelector('.m-cookie-disclaimer');
+var cookieBar = document.querySelector('.js-cookie-disclaimer');
 var visibleClass = 'is-visible';
 var cookieName = 'internetstiftelsen-cookie-consent';
 var acceptButton = document.getElementById('js-accept-cookies');
