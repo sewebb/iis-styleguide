@@ -1,4 +1,4 @@
-const cookieBar = document.querySelector('.m-cookie-disclaimer');
+const cookieBar = document.querySelector('.js-cookie-disclaimer');
 const visibleClass = 'is-visible';
 const cookieName = 'internetstiftelsen-cookie-consent';
 const acceptButton = document.getElementById('js-accept-cookies');
