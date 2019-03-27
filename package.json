@@ -14,7 +14,7 @@
 		"browserify": "browserify src/app.js -o public/assets/js/scripts.js",
 		"autoprefixer": "postcss --use autoprefixer -b 'last 2 versions' public/assets/css/app.css -d public/assets/css/",
 		"cssmin": "postcss public/assets/css/app.css > public/assets/css/app.min.css",
-		"cssmin-footer-styling": "postcss public/assets/css/footer-styling.css > public/assets/css/footer-styling.min.css",
+		"cssmin-footer-styling": "postcss src/assets/css/footer-styling.css > src/assets/css/footer-styling.min.css",
 		"eslint": "eslint --fix src",
 		"uglify": "uglifyjs -o public/assets/js/scripts.js public/assets/js/scripts.js",
 		"htmlhint": "htmlhint build/components/preview/**/*.html",
