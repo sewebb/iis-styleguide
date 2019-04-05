@@ -18,6 +18,13 @@ module.exports = {
 			}
 		},
 		{
+			name: 'Ruby dark',
+			context: {
+				modifiers: ['ruby-dark'],
+				text: 'Ruby dark secondary button'
+			}
+		},
+		{
 			name: 'Lemon',
 			context: {
 				modifiers: ['lemon'],

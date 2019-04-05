@@ -189,6 +189,23 @@
 		}
 	}
 
+	@include m(ruby-dark) {
+		color: $color-ruby-dark;
+
+		&:hover,
+		&:focus {
+			color: $color-ruby-dark;
+		}
+
+		@include e(text) {
+			color: $color-snow;
+		}
+
+		@include e(icon) {
+			fill: $color-snow;
+		}
+	}
+
 	@include m(lemon) {
 		color: $color-lemon;
 

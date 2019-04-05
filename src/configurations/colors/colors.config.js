@@ -191,6 +191,15 @@ module.exports = {
 				hasBorder: true
 			},
 			{
+				name: 'cyberspace',
+				title: '$color-cyberspace',
+				hex: '#1f2a36',
+				rgb: '31 42 54',
+				cmyk: '88 71 52 41',
+				pms: 'PMS 289U',
+				hasBorder: false
+			},
+			{
 				name: 'black',
 				title: '$color-black',
 				hex: '#000000',
