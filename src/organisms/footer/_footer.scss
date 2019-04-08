@@ -1,5 +1,4 @@
 @charset 'UTF-8';
-
 @include organism(footer) {
 	position: relative;
 	z-index: z_index(middleground);
@@ -8,6 +7,10 @@
 
 	&.is-animated {
 		z-index: z_index(foreground);
+	}
+
+	@include m(row) {
+		max-width: none !important;
 	}
 
 	@include e(logotype) {
@@ -20,22 +23,22 @@
 		}
 	}
 
+	@include e(link) {
+		@extend %normalize-links;
+
+		color: $color-jade;
+
+		&:hover,
+		&:focus {
+			text-decoration: underline;
+		}
+	}
+
 	@include e(info) {
 		background-color: $color-cyberspace;
 		color: $color-snow;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
-
-		a {
-			@extend %normalize-links;
-
-			color: $color-jade;
-
-			&:hover,
-			&:focus {
-				text-decoration: underline;
-			}
-		}
 
 		@include e(inner) {
 			padding: rhythm(3);
@@ -43,19 +46,19 @@
 			@include bp-up(md) {
 				padding: rhythm(4) rhythm(5);
 
-				p {
+				@include e(paragraph) {
 					max-width: none;
 				}
 			}
 
 			@include bp-down(md) {
-				p {
+				@include e(paragraph) {
 					max-width: 70%;
 				}
 			}
 
 			@include bp-down(sm) {
-				p {
+				@include e(paragraph) {
 					max-width: none;
 				}
 			}
@@ -63,6 +66,8 @@
 	}
 
 	@include e(logotypes) {
+		max-width: 100%;
+		height: auto;
 		background-color: $color-snow;
 	}
 
@@ -94,15 +99,13 @@
 	@include e(contact) {
 		font-size: 80%;
 
-		ul,
-		address {
+		@include e(address) {
 			margin-bottom: rhythm(2);
-		}
-
-		address,
-		ul,
-		li {
 			font-size: inherit;
+
+			@include e(li) {
+				font-size: inherit;
+			}
 		}
 
 		@include bp-up(xxl) {
@@ -121,12 +124,16 @@
 	}
 
 	@include e(ISO-link) {
+		display: flex;
+		align-items: center;
 		font-size: rem($size-small);
 		text-decoration: none;
 	}
 
 	@include e(ISO-logo) {
 		width: rhythm(7);
+		max-width: 100%;
+		height: auto;
 	}
 
 	@include e(bottom-links) {
@@ -135,15 +142,21 @@
 }
 
 @include b(footer-about-link) {
-	@extend %normalize-links;
-
-	color: $color-jade;
 	font-size: rem($size-medium);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
+}
 
-	&:hover,
-	&:focus {
-		text-decoration: underline;
-	}
+@include b(o-footer-grid) {
+	position: relative;
+	flex-basis: 0;
+	flex-grow: 1;
+	width: 100%;
+	max-width: 100%;
+	min-height: 1px;
+	padding-right: $grid-gutter-width / 2;
+	padding-left: $grid-gutter-width / 2;
+	-ms-flex-preferred-size: 0;
+	-webkit-box-flex: 1;
+	-ms-flex-positive: 1;
 }
