@@ -37,7 +37,7 @@
 .iis-global-footer .u-list-clean{margin:0;padding:0;list-style:none;}
 .iis-global-footer .js :focus{outline:0;}
 .iis-global-footer .wrapper-fluid{width:100%;margin-right:auto;margin-left:auto;padding-right:.55555556rem;padding-left:.55555556rem;}
-.iis-global-footer .row{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-.55555556rem;margin-left:-.55555556rem;}
+.iis-global-footer .row{display:-webkit-box;display:-ms-flexbox;display:flex;-ms-flex-wrap:wrap;flex-wrap:wrap;margin-right:-.55555556rem;margin-left:-.55555556rem;max-width: none !important;}
 .iis-global-footer .no-gutters{margin-right:0;margin-left:0;}
 .iis-global-footer .no-gutters>[class*=grid-]{padding-right:0;padding-left:0;}
 .iis-global-footer .grid,.grid-18,.grid-lg-8,.grid-lg-10,.grid-xl-6,.grid-xl-12,.grid-xxl-9{position:relative;width:100%;min-height:1px;padding-right:.55555556rem;padding-left:.55555556rem;}
