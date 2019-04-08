@@ -115,17 +115,22 @@
     background-color: rgb(0, 0, 0);
 }
 
-.o-footer__link {
+.o-footer__link,
+.o-footer__info a {
     padding: 0px;
     border: none;
     border-radius: 0px;
     background-color: initial;
+	color: rgb(85, 199, 180);
 }
 
 .o-footer__link:focus,
-.o-footer__link:hover {
+.o-footer__link:hover,
+.o-footer__info a:focus,
+.o-footer__info a:hover {
     border: none;
     background-color: inherit;
+	text-decoration: underline;
 }
 
 .o-footer {
@@ -149,15 +154,6 @@
     .o-footer__logotype {
         max-width: 16.6667rem;
     }
-}
-
-.o-footer__link {
-    color: rgb(85, 199, 180);
-}
-
-.o-footer__link:focus,
-.o-footer__link:hover {
-    text-decoration: underline;
 }
 
 .o-footer__info {
