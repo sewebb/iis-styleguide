@@ -142,6 +142,8 @@
 
 .o-footer--row {
     max-width: none !important;
+	margin-left: -.55556rem !important;
+	margin-right: -.55556rem !important;
 }
 
 .o-footer__logotype {
