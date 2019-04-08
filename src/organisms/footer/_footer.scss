@@ -10,6 +10,8 @@
 	}
 
 	@include m(row) {
+		display: flex;
+		flex-wrap: wrap;
 		max-width: none !important;
 		margin-right: ($grid-gutter-width / -2);
 		margin-left: ($grid-gutter-width / -2);
@@ -139,6 +141,9 @@
 	}
 
 	@include e(bottom-links) {
+		display: flex;
+		flex-wrap: wrap-reverse;
+		justify-content: center;
 		width: 100%;
 	}
 
