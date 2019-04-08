@@ -45,7 +45,7 @@
     margin-left: -0.55556rem;
 }
 
-.no-gutters {
+.o-footer .no-gutters {
     margin-right: 0px;
     margin-left: 0px;
 }
@@ -140,10 +140,11 @@
     border-top: 1px solid rgb(237, 237, 237);
 }
 
-.o-footer--row {
+.o-footer .o-footer--row,
+.o-footer.o-footer--row {
     max-width: none !important;
-	margin-left: -.55556rem !important;
-	margin-right: -.55556rem !important;
+	margin-left: -.55556rem;
+	margin-right: -.55556rem;
 }
 
 .o-footer__logotype {
