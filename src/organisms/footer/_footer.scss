@@ -139,12 +139,12 @@
 	@include e(bottom-links) {
 		width: 100%;
 	}
-}
 
-@include b(footer-about-link) {
-	font-size: rem($size-medium);
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
+	@include e(about-link) {
+		font-size: rem($size-medium);
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
 }
 
 @include b(o-footer-grid) {
