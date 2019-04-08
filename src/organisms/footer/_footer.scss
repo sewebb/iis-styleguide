@@ -49,23 +49,39 @@
 
 			@include bp-up(md) {
 				padding: rhythm(4) rhythm(5);
-
-				@include e(paragraph) {
-					max-width: none;
-				}
 			}
+		}
+	}
 
-			@include bp-down(md) {
-				@include e(paragraph) {
-					max-width: 70%;
-				}
-			}
+	@include e(paragraph) {
+		max-width: none;
 
-			@include bp-down(sm) {
-				@include e(paragraph) {
-					max-width: none;
-				}
+		a {
+			padding: 0;
+			border: none;
+			border-radius: 0;
+			background-color: initial;
+			color: $color-jade;
+
+			&:hover,
+			&:focus {
+				border: none;
+				background-color: inherit;
+				color: $color-jade;
+				text-decoration: underline;
 			}
+		}
+	}
+
+	@include bp-down(md) {
+		@include e(paragraph) {
+			max-width: 70%;
+		}
+	}
+
+	@include bp-down(sm) {
+		@include e(paragraph) {
+			max-width: none;
 		}
 	}
 
