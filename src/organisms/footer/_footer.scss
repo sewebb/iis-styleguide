@@ -34,6 +34,7 @@
 
 		&:hover,
 		&:focus {
+			color: $color-jade;
 			text-decoration: underline;
 		}
 	}
@@ -54,19 +55,15 @@
 	}
 
 	@include e(paragraph) {
+		@extend %normalize-links;
+
 		max-width: none;
 
 		a {
-			padding: 0;
-			border: none;
-			border-radius: 0;
-			background-color: initial;
 			color: $color-jade;
 
 			&:hover,
 			&:focus {
-				border: none;
-				background-color: inherit;
 				color: $color-jade;
 				text-decoration: underline;
 			}
