@@ -42,7 +42,8 @@ h2,
 	}
 }
 
-h3 {
+h3,
+.gamma {
 	@include plumber(
 		$font-size: 2.4,
 		$line-height: 3,
@@ -51,7 +52,8 @@ h3 {
 	);
 }
 
-h4 {
+h4,
+.delta {
 	@include plumber(
 		$font-size: 2,
 		$line-height: 3,
@@ -143,6 +145,15 @@ dl {
 	}
 }
 
+.small,
+small {
+	@include plumber(
+		$font-size: 1.5,
+		$line-height: 2,
+		$leading-bottom: 0
+	);
+}
+
 .supersize {
 	@include plumber(
 		$font-size: 3,
@@ -190,15 +201,6 @@ dl {
 	}
 }
 
-.small,
-small {
-	@include plumber(
-		$font-size: 1.5,
-		$line-height: 2,
-		$leading-bottom: 0
-	);
-}
-
 .meta {
 	@include plumber(
 		$font-size: 1.75,
@@ -206,7 +208,16 @@ small {
 	);
 
 	font-family: $font-family-mono;
+	font-weight: normal;
 	letter-spacing: rem(0.5px);
+	text-transform: uppercase;
+}
+
+.mono {
+	font-family: $font-family-mono;
+	font-weight: normal;
+	letter-spacing: rem(0.5px);
+	text-decoration: none;
 	text-transform: uppercase;
 }
 
