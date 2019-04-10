@@ -143,6 +143,14 @@
 	@include e(logo-link) {
 		display: flex;
 		justify-content: center;
+		background-color: transparent;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			background-color: transparent;
+			text-decoration: none;
+		}
 	}
 
 	@include e(ISO-link) {
