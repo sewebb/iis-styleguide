@@ -32,6 +32,41 @@
     }
 }
 
+@font-face {
+    font-family: "HK Grotesk";
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://static.iis.se/internetstiftelsen/fonts/hkgrotesk-regular-webfont.woff2) format("woff2"), url("https://static.iis.se/internetstiftelsen/fonts/hkgrotesk-regular-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: "HK Grotesk Medium";
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://static.iis.se/internetstiftelsen/fonts/hkgrotesk-medium-webfont.woff2) format("woff2"), url("https://static.iis.se/internetstiftelsen/fonts/hkgrotesk-medium-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: "HK Grotesk Semibold";
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://static.iis.se/internetstiftelsen/fonts/hkgrotesk-semibold-webfont.woff2) format("woff2"), url("https://static.iis.se/internetstiftelsen/fonts/hkgrotesk-semibold-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: "HK Grotesk Bold";
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://static.iis.se/internetstiftelsen/fonts/hkgrotesk-bold-webfont.woff2) format("woff2"), url("https://static.iis.se/internetstiftelsen/fonts/hkgrotesk-bold-webfont.woff") format("woff");
+}
+
+@font-face {
+    font-family: "Roboto Mono Regular";
+    font-style: normal;
+    font-weight: 400;
+    src: url(https://static.iis.se/internetstiftelsen/fonts/RobotoMono-Regular.ttf) format("truetype");
+}
+
 .u-m-r-0 {
     margin-right: 0px !important;
 }
@@ -179,11 +214,14 @@
 }
 
 .o-footer__link {
+    background-color: transparent;
     color: rgb(85, 199, 180);
+    text-decoration: none;
 }
 
 .o-footer__link:focus,
 .o-footer__link:hover {
+    background-color: transparent;
     color: rgb(85, 199, 180);
     text-decoration: underline;
 }
@@ -210,10 +248,12 @@
 
 .o-footer__paragraph a {
     color: rgb(85, 199, 180);
+    text-decoration: none;
 }
 
 .o-footer__paragraph a:focus,
 .o-footer__paragraph a:hover {
+    background-color: transparent;
     color: rgb(85, 199, 180);
     text-decoration: underline;
 }
