@@ -220,6 +220,7 @@
 }
 
 .o-footer__info {
+	min-height: 445px;
     background-color: rgb(31, 42, 54);
     color: rgb(255, 255, 255);
     -webkit-font-smoothing: antialiased;
