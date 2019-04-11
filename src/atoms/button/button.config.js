@@ -89,5 +89,16 @@ module.exports = {
 				el: 'button'
 			}
 		},
+		{
+			name: 'Standalone icon white',
+			context: {
+				url: false,
+				modifiers: ['standalone-icon'],
+				additional_classes: 'a-button--standalone-icon--white',
+				text: '',
+				icon: 'close',
+				el: 'button'
+			}
+		},
 	]
 };

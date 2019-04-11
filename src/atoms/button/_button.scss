@@ -141,9 +141,10 @@
 			fill: $color-cyberspace;
 		}
 
-		@include e(icon) {
-			width: $icon-size-medium;
-			height: $icon-size-medium;
+		@include m(white) {
+			@include e(icon) {
+				fill: $color-snow;
+			}
 		}
 	}
 
