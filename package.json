@@ -16,9 +16,9 @@
 		"cssmin": "postcss public/assets/css/app.css > public/assets/css/app.min.css",
 
 		"footerscss": "node-sass -o src/assets/css/footer src/app.scss",
-		"remove-unused": "postcss --use postcss-remove-unused -b public/assets/css/footer/footer.css -d public/assets/css/footer",
+		"remove-unused": "postcss postcss-remove-unused src/assets/css/footer/app.css -d src/assets/css/footer/",
+		"isolate-footer": "npm run footerscss && npm run remove-unused",
 
-		"cssmin-footer-styling": "postcss src/assets/css/footer-styling.css > src/assets/css/footer-styling.min.css",
 		"eslint": "eslint --fix src",
 		"uglify": "uglifyjs -o public/assets/js/scripts.js public/assets/js/scripts.js",
 		"htmlhint": "htmlhint build/components/preview/**/*.html",
