@@ -1,11 +1,11 @@
+const postcss = require('postcss');
+const removeUnused = require('postcss-remove-unused');
+
 module.exports = {
     plugins: {
         autoprefixer: { browsers: ['last 2 versions'] },
 		cssnano: { preset: 'default' },
     }
-
-	const postcss = require('postcss');
-	const removeUnused = require('postcss-remove-unused');
 
 	postcss([
 	    removeUnused({html: '<div class="wrapper-fluid"><div class="o-footer--row o-footer" id="siteFooter"><div class="grid-xl-6 grid-lg-8 grid-18 o-footer__info"><div class="o-footer__info__inner">{{{footer_text}}}<div class="o-footer--row"><div class="grid-xxl-9 grid-18 o-footer__contact">{{{contact_1}}}</div><div class="grid-xxl-9 grid-18 o-footer__contact">{{{contact_2}}}</div></div><div class="o-footer--row u-m-t-2"><div class="o-footer-grid"><a href="{{ISO_link}}" class="o-footer__link o-footer__ISO-link"><img src="{{ISO_image}}" class="o-footer__ISO-logo" alt="Certifierade enligt ISO/IEC 27001:2013"><span>{{{ISO_text}}}</span></a></div></div></div></div><div class="grid-xl-12 grid-lg-10 grid-18 o-footer__logotypes"><div class="o-footer--row o-footer__grid-row u-m-r-0"><div class="o-footer__grid-row__item"><a href="https://svenskarnaochinternet.se" class="o-footer__logo-link"><img class="o-footer__logotype" alt="Svenskarna och internet" src="https://static.iis.se/images/logotypes/svenskarna-och-internet.svg"></a></div><div class="o-footer__grid-row__item"><a href="https://internetdagarna.se" class="o-footer__logo-link"><img class="o-footer__logotype" alt="Internetdagarna" src="https://static.iis.se/images/logotypes/internetmuseum.svg"></a></div><div class="o-footer__grid-row__item"><a href="https://goto10.se" class="o-footer__logo-link"><img class="o-footer__logotype" alt="Goto10" src="https://static.iis.se/images/logotypes/goto-10.svg"></a></div><div class="o-footer__grid-row__item"><a href="https://bredbandskollen.se" class="o-footer__logo-link"><img class="o-footer__logotype" alt="Bredbandskollen" src="https://static.iis.se/images/logotypes/bredbandskollen.svg"></a></div><div class="o-footer__grid-row__item"><a href="https://internetmuseum.se" class="o-footer__logo-link"><img class="o-footer__logotype" alt="Internetmuseum" src="https://static.iis.se/images/logotypes/internetmuseum.svg"></a></div><div class="o-footer__grid-row__item"><a href="https://digitalalektioner.iis.se/" class="o-footer__logo-link"><img class="o-footer__logotype" alt="Digitala lektioner" src="https://static.iis.se/images/logotypes/digitala-lektioner.svg"></a></div></div></div><div class="background-black u-p-y-1 o-footer__bottom-links"><nav><ul class="u-list-clean display-flex"><li class="u-p-x-1"><a href="https://internetstiftelsen.se/om-webbplatsen/" class="o-footer__link o-footer__about-link">Om webbplatsen</a></li><li class="u-p-x-1"><a href="https://internetstiftelsen.se/om-webbplatsen/cookies/" class="o-footer__link o-footer__about-link">Om cookies</a></li></ul></nav></div></div></div>'})

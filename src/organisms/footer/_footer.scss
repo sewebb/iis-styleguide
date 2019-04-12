@@ -1,9 +1,13 @@
 @charset 'UTF-8';
+
+$footer-font-size: 18px; // To ensure all footers on all sites have the same font size this component used pixel based values
+
 @include organism(footer) {
 	position: relative;
 	z-index: z_index(middleground);
 	transform: translateY(0);
 	border-top: 1px solid $color-ash;
+	font-size: $footer-font-size;
 
 	&.is-animated {
 		z-index: z_index(foreground);
@@ -19,27 +23,31 @@
 
 	@include e(logotype) {
 		width: 100%;
-		max-width: rem(250px);
+		max-width: 250px;
 		height: 100%;
 
 		@include bp-up(xl) {
-			max-width: rem(300px);
+			max-width: 300px;
 		}
 	}
 
 	@include e(link) {
 		@extend %normalize-links;
 
+		background-color: transparent;
 		color: $color-jade;
+		text-decoration: none;
 
 		&:hover,
 		&:focus {
+			background-color: transparent;
 			color: $color-jade;
 			text-decoration: underline;
 		}
 	}
 
 	@include e(info) {
+		min-height: 445px;
 		background-color: $color-cyberspace;
 		color: $color-snow;
 		-webkit-font-smoothing: antialiased;
@@ -58,12 +66,18 @@
 		@extend %normalize-links;
 
 		max-width: none;
+		font-size: $footer-font-size;
 
 		a {
 			color: $color-jade;
+			text-decoration: none;
 
 			&:hover,
 			&:focus {
+<<<<<<< HEAD
+=======
+				background-color: transparent;
+>>>>>>> develop
 				color: $color-jade;
 				text-decoration: underline;
 			}
@@ -121,7 +135,7 @@
 			font-size: inherit;
 
 			@include e(li) {
-				font-size: inherit;
+				font-size: #{($footer-font-size) - 3px};
 			}
 		}
 
@@ -138,12 +152,21 @@
 	@include e(logo-link) {
 		display: flex;
 		justify-content: center;
+		background-color: transparent;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			background-color: transparent;
+			text-decoration: none;
+		}
 	}
 
 	@include e(ISO-link) {
 		display: flex;
 		align-items: center;
-		font-size: rem($size-small);
+		font-size: 12px;
+		font-size: #{($footer-font-size) - 5px};
 		text-decoration: none;
 	}
 
@@ -161,7 +184,7 @@
 	}
 
 	@include e(about-link) {
-		font-size: rem($size-medium);
+		font-size: #{($footer-font-size) - 4px};
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 	}
