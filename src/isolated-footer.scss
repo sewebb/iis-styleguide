@@ -16,6 +16,7 @@
 @import 'vendor/grid/grid';
 @import 'vendor/grid/flex';
 @import 'vendor/grid/spacing';
+@import 'configurations/grid/grid';
 
 // Theme
 @import 'theme/theme';
@@ -32,7 +33,6 @@ $namespace: '';
 @import 'configurations/colors/colors';
 @import 'configurations/colors/colors-functions';
 @import 'configurations/extends';
-@import 'configurations/typography/typography';
 
 // Organisms
 @import 'organisms/footer/footer';
