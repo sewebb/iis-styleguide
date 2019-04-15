@@ -177,6 +177,7 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 		flex-wrap: wrap-reverse;
 		justify-content: center;
 		width: 100%;
+		background-color: $color-cyberspace;
 	}
 
 	@include e(about-link) {
