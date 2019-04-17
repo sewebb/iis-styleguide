@@ -9,56 +9,53 @@
 						{{#unless increment}}
 						<thead>
 							<tr>
-								<th>{{th}}</th>
-								<th>{{th}}</th>
-								<th>{{th}}</th>
-								<th>{{th}}</th>
-								<th>{{th}}</th>
+								<th>{{th1}}</th>
+								<th>{{th2}}</th>
+								<th>{{th3}}</th>
+								<th>{{th4}}</th>
+								<th>{{th5}}</th>
 							</tr>
 						</thead>
 						{{/unless}}
 						<tbody>
 							<tr>
 								{{#if increment}}<th>&nbsp;</th>{{/if}}
-								<td><a href="#">{{td}}</a></td>
-								<td>{{td_num1}} <small>{{td_unit1}}</small></td>
-								<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
-								<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
-								<td>{{td_num4}} <small>{{td_unit4}}</small> </td>
+								<td data-header="{{th1}}"><a href="#">{{td}}</a></td>
+								<td data-header="{{th2}}">{{td_num1}} <small>{{td_unit1}}</small></td>
+								<td data-header="{{th3}}">{{td_num2}} <small>{{td_unit2}}</small> </td>
+								<td data-header="{{th4}}">{{td_num3}} <small>{{td_unit3}}</small> </td>
+								<td data-header="{{th5}}">{{td_num4}} <small>{{td_unit4}}</small> </td>
 							</tr>
 							<tr>
 								{{#if increment}}<th>&nbsp;</th>{{/if}}
-								<td><a href="#">{{td}}</a></td>
-								<td>{{td_num1}} <small>{{td_unit1}}</small></td>
-								<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
-								<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
-								<td>{{td_num4}} <small>{{td_unit4}}</small> </td>
+								<td data-header="{{th1}}"><a href="#">{{td}}</a></td>
+								<td data-header="{{th2}}">{{td_num1}} <small>{{td_unit1}}</small></td>
+								<td data-header="{{th3}}">{{td_num2}} <small>{{td_unit2}}</small> </td>
+								<td data-header="{{th4}}">{{td_num3}} <small>{{td_unit3}}</small> </td>
+								<td data-header="{{th5}}">{{td_num4}} <small>{{td_unit4}}</small> </td>
 							</tr>
 							<tr>
 								{{#if increment}}<th>&nbsp;</th>{{/if}}
-								<td><a href="#">{{td}}</a></td>
-								<td>{{td_num1}} <small>{{td_unit1}}</small></td>
-								<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
-								<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
-								<td>{{td_num4}} <small>{{td_unit4}}</small> </td>
+								<td data-header="{{th1}}"><a href="#">{{td}}</a></td>
+								<td data-header="{{th2}}">{{td_num1}} <small>{{td_unit1}}</small></td>
+								<td data-header="{{th3}}">{{td_num2}} <small>{{td_unit2}}</small> </td>
+								<td data-header="{{th4}}">{{td_num3}} <small>{{td_unit3}}</small> </td>
+								<td data-header="{{th5}}">{{td_num4}} <small>{{td_unit4}}</small> </td>
 							</tr>
 							<tr>
 								{{#if increment}}<th>&nbsp;</th>{{/if}}
-								<td><a href="#">{{td}}</a></td>
-								<td>{{td_num1}} <small>{{td_unit1}}</small></td>
-								<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
-								<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
-								<td>{{td_num4}} <small>{{td_unit4}}</small> </td>
+								<td data-header="{{th1}}"><a href="#">{{td}}</a></td>
+								<td data-header="{{th2}}">{{td_num1}} <small>{{td_unit1}}</small></td>
+								<td data-header="{{th3}}">{{td_num2}} <small>{{td_unit2}}</small> </td>
+								<td data-header="{{th4}}">{{td_num3}} <small>{{td_unit3}}</small> </td>
+								<td data-header="{{th5}}">{{td_num4}} <small>{{td_unit4}}</small> </td>
 							</tr>
 						</tbody>
 						{{#unless increment}}
 						<tfoot>
 							<tr>
-								<td>{{tfoot}}</td>
-								<td>{{tfoot}}</td>
-								<td>{{tfoot}}</td>
-								<td>{{tfoot}}</td>
-								<td>{{tfoot}}</td>
+								<td colspan="4">{{tfoot1}}</td>
+								<td>{{tfoot2}}</td>
 							</tr>
 						</tfoot>
 						{{/unless}}

@@ -2,9 +2,14 @@ module.exports = {
 	status: 'ready',
 
 	context: {
-		th: 'Table header',
+		th1: 'Lorem',
+		th2: 'Ipsum',
+		th3: 'Dolor sit',
+		th4: 'Amet',
+		th5: 'Curabitur',
 		td: 'Table cell',
-		tfoot: 'Table footer',
+		tfoot1: 'Totalt',
+		tfoot2: '323.000',
 		td_num1: '42',
 		td_unit1: 'mkr',
 		td_num2: '10 000',

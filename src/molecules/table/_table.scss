@@ -17,6 +17,7 @@
 		th,
 		td {
 			border-top: 2px solid $color-granit;
+			background-color: transparent;
 			font-family: $font-family-headings;
 			font-size: 90%;
 
@@ -27,10 +28,6 @@
 			@include bp-up(lg) {
 				font-size: 100%;
 			}
-		}
-
-		td {
-			border-top-width: 1px;
 		}
 	}
 
@@ -82,6 +79,57 @@
 	td {
 		border-bottom-width: 1px;
 	}
+
+	@include bp-down(md) {
+		td {
+			border-bottom-width: 1px;
+		}
+
+		thead {
+			display: none;
+		}
+
+		tr {
+			display: block;
+			margin-bottom: 1rem;
+		}
+
+		td {
+			display: flex;
+
+			&:last-child { border-bottom: 0; }
+		}
+
+		td::before {
+			content: attr(data-header);
+			position: relative;
+			top: rem(3px);
+			min-width: 120px;
+			padding-right: rhythm(2);
+			font-family: $font-family-mono;
+			font-size: 90%;
+			text-transform: uppercase;
+		}
+
+		tfoot {
+			tr {
+				display: flex;
+				border-top: 2px solid $color-granit;
+				border-bottom: 2px solid $color-granit;
+			}
+
+			td,
+			th {
+				float: left;
+				border-width: 0;
+			}
+
+			td:first-child {
+				min-width: 120px;
+				padding-right: rhythm(2);
+			}
+		}
+	}
 }
 
 @include b(table-container) {
@@ -125,10 +173,13 @@
 			border-bottom: 1px solid $color-granit;
 		}
 
-		th,
-		td {
-			&:nth-child(even) {
-				background-color: $color-snow;
+		thead,
+		tbody {
+			th,
+			td {
+				&:nth-child(even) {
+					background-color: $color-snow;
+				}
 			}
 		}
 	}
@@ -192,6 +243,11 @@
 			&::before {
 				content: counter(table-counter);
 				counter-increment: table-counter;
+			}
+
+			@include bp-down(md) {
+				display: flex;
+				min-width: 100%;
 			}
 		}
 	}
