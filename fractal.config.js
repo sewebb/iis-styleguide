@@ -38,6 +38,12 @@ fractal.web.set('static.path', path.join(__dirname, 'public'));
  */
 fractal.web.set('builder.dest', __dirname + '/build');
 
+fractal.web.set('server.syncOptions', {
+	watchOptions: {
+		ignored: path.resolve('public/**/*'),
+	},
+});
+
 const handlebars = require('@frctl/handlebars')({
 	helpers: {
 		attr: function(attr) {

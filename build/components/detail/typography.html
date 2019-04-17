@@ -635,7 +635,8 @@ observer.observe(document.body, { childList: true, subtree: true });<span class=
 	}
 }
 
-<span class="hljs-selector-tag">h3</span> {
+<span class="hljs-selector-tag">h3</span>,
+<span class="hljs-selector-class">.gamma</span> {
 	@<span class="hljs-keyword">include</span> plumber(
 		<span class="hljs-variable">$font-size</span>: 2.4,
 		<span class="hljs-variable">$line-height</span>: 3,
@@ -644,7 +645,8 @@ observer.observe(document.body, { childList: true, subtree: true });<span class=
 	);
 }
 
-<span class="hljs-selector-tag">h4</span> {
+<span class="hljs-selector-tag">h4</span>,
+<span class="hljs-selector-class">.delta</span> {
 	@<span class="hljs-keyword">include</span> plumber(
 		<span class="hljs-variable">$font-size</span>: 2,
 		<span class="hljs-variable">$line-height</span>: 3,
@@ -736,6 +738,15 @@ observer.observe(document.body, { childList: true, subtree: true });<span class=
 	}
 }
 
+<span class="hljs-selector-class">.small</span>,
+<span class="hljs-selector-tag">small</span> {
+	@<span class="hljs-keyword">include</span> plumber(
+		<span class="hljs-variable">$font-size</span>: 1.5,
+		<span class="hljs-variable">$line-height</span>: 2,
+		<span class="hljs-variable">$leading-bottom</span>: 0
+	);
+}
+
 <span class="hljs-selector-class">.supersize</span> {
 	@<span class="hljs-keyword">include</span> plumber(
 		<span class="hljs-variable">$font-size</span>: 3,
@@ -783,15 +794,6 @@ observer.observe(document.body, { childList: true, subtree: true });<span class=
 	}
 }
 
-<span class="hljs-selector-class">.small</span>,
-<span class="hljs-selector-tag">small</span> {
-	@<span class="hljs-keyword">include</span> plumber(
-		<span class="hljs-variable">$font-size</span>: 1.5,
-		<span class="hljs-variable">$line-height</span>: 2,
-		<span class="hljs-variable">$leading-bottom</span>: 0
-	);
-}
-
 <span class="hljs-selector-class">.meta</span> {
 	@<span class="hljs-keyword">include</span> plumber(
 		<span class="hljs-variable">$font-size</span>: 1.75,
@@ -799,7 +801,16 @@ observer.observe(document.body, { childList: true, subtree: true });<span class=
 	);
 
 	<span class="hljs-attribute">font-family</span>: <span class="hljs-variable">$font-family-mono</span>;
+	<span class="hljs-attribute">font-weight</span>: normal;
 	<span class="hljs-attribute">letter-spacing</span>: rem(<span class="hljs-number">0.5px</span>);
+	<span class="hljs-attribute">text-transform</span>: uppercase;
+}
+
+<span class="hljs-selector-class">.mono</span> {
+	<span class="hljs-attribute">font-family</span>: <span class="hljs-variable">$font-family-mono</span>;
+	<span class="hljs-attribute">font-weight</span>: normal;
+	<span class="hljs-attribute">letter-spacing</span>: rem(<span class="hljs-number">0.5px</span>);
+	<span class="hljs-attribute">text-decoration</span>: none;
 	<span class="hljs-attribute">text-transform</span>: uppercase;
 }
 
@@ -917,7 +928,7 @@ observer.observe(document.body, { childList: true, subtree: true });<span class=
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">4.3 KB</span>
+                    <span class="Meta-value">4.5 KB</span>
                 </li>
             </ul>
         </div>
@@ -1111,6 +1122,30 @@ observer.observe(document.body, { childList: true, subtree: true });<span class=
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="button--ruby-dark.html" data-pjax>
+                <span>Ruby Dark</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="button--lemon.html" data-pjax>
                 <span>Lemon</span>
                 
@@ -1281,6 +1316,30 @@ observer.observe(document.body, { childList: true, subtree: true });<span class=
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="button--standalone-icon.html" data-pjax>
                 <span>Standalone Icon</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="button--standalone-icon-white.html" data-pjax>
+                <span>Standalone Icon White</span>
                 
 
 <div class="Status Status--unlabelled">

@@ -1,6 +1,11 @@
 <div class="field-group">
 	{{ render '@label' }}
 	<input type="{{type}}" id="{{id}}" {{#if value}}value="{{value}}"{{/if}} {{#if required}}required{{/if}} {{#if disabled}}disabled{{/if}} placeholder="{{placeholder}}" autocomplete="{{autocomplete}}" class="a-input{{#if has_icon}} has-icon"{{/if}}{{#if has_help}} aria-describedby="first-name-help"{{/if}} {{#if required}} aria-describedby="first-name-help"{{/if}}>
+	{{#if has_icon}}
+	<figure class="input-icon">
+		{{> @icon id="search"}}
+	</figure>
+	{{/if}}
 	{{#if has_help}}
 	<div class="input-help" id="first-name-help">
 		Fyll i ditt tilltalsnamn
@@ -9,10 +14,5 @@
 	<div class="input-help" id="first-name-help">
 		Tillåtna tecken är [a-ö, A-Ö]
 	</div>
-	{{/if}}
-	{{#if has_icon}}
-	<figure class="input-icon">
-		{{> @icon id="search"}}
-	</figure>
 	{{/if}}
 </div>
