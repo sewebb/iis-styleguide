@@ -12,7 +12,7 @@
 		"scss": "node-sass -o public/assets/css src/app.scss",
 		"stylelint": "stylelint 'src/**/*.scss' '!**/vendor/**' '!**/colors/_colors-functions.scss' --fix --cache --cache-location '.stylelintcache'",
 		"autoprefixer": "postcss --use autoprefixer -b 'last 2 versions' public/assets/css/app.css -d public/assets/css/",
-		"cssmin": "postcss --use cssnano -b '' public/assets/css/app.css > public/assets/css/app.min.css",
+		"cssmin": "postcss public/assets/css/app.css > public/assets/css/app.min.css",
 		"footerscss": "node-sass -o src/assets/css/footer src/isolated-footer.scss",
 		"remove-unused": "postcss postcss-remove-unused src/assets/css/footer/isolated-footer.css > src/assets/css/footer/isolate-footer.min.css",
 		"isolate-footer": "npm run footerscss && npm run remove-unused",
