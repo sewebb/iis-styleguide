@@ -21,7 +21,7 @@
 		"uglify": "uglifyjs -o public/assets/js/scripts.js public/assets/js/scripts.js",
 		"htmlhint": "htmlhint build/components/preview/**/*.html",
 		"imagemin": "imagemin --out-dir=public/assets/img src/**/*.{png,jpg,gif}",
-		"build:css": "concurrently \"npm:stylelint\" \"npm:scss\" \"npm:autoprefixer\" \"npm:cssmin\" \"npm:isolate-footer\"",
+		"build:css": "npm run stylelint && npm run scss && npm run autoprefixer && npm run cssmin && npm run isolate-footer",
 		"build:js": "concurrently \"npm:eslint\" \"npm:browserify\" \"npm:uglify\"",
 		"build:img": "npm run imagemin",
 		"watch:css": "onchange 'src/**/*.scss' -- npm run build:css",
