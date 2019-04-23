@@ -32,7 +32,7 @@
 		"copy:images:build": "copyfiles -f src/assets/images/* build/assets/images",
 		"copy:fonts:build": "copyfiles -f src/base/fonts/* build/assets/fonts",
 		"copy:build": "npm run copy:images:build && npm run copy:fonts:build",
-		"build": "npm run build:css && npm run build:js && npm run build:fractal &&  npm run htmlhint && npm run copy:build",
+		"build": "npm run build:css && npm run build:js && npm run build:fractal && npm run htmlhint && npm run copy:build",
 		"dev": "concurrently \"npm:start:fractal\" \"npm:watch\"",
 		"package-js": "NODE_ENV=production babel src --out-dir dist --ignore src/**/*.config.js,src/app.js"
 	},
