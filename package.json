@@ -14,7 +14,7 @@
 		"autoprefixer": "postcss --use autoprefixer -b 'last 2 versions' public/assets/css/app.css -d public/assets/css/",
 		"cssmin": "postcss public/assets/css/app.css > public/assets/css/app.min.css",
 		"footerscss": "node-sass -o src/assets/css/footer src/isolated-footer.scss",
-		"remove-unused": "postcss postcss-remove-unused src/assets/css/footer/isolated-footer.css > src/assets/css/footer/isolate-footer.min.css",
+		"remove-unused": "postcss postcss-remove-unused src/assets/css/footer/isolated-footer.css > src/assets/css/footer/isolated-footer.min.css",
 		"isolate-footer": "npm run footerscss && npm run remove-unused",
 		"browserify": "browserify src/app.js -o public/assets/js/scripts.js",
 		"eslint": "eslint --fix src",
