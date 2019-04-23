@@ -39,9 +39,11 @@ fractal.web.set('static.path', path.join(__dirname, 'public'));
 fractal.web.set('builder.dest', __dirname + '/build');
 
 fractal.web.set('server.syncOptions', {
+	notify: true,
 	watchOptions: {
-		ignored: path.resolve('public/**/*'),
+		ignored: [path.resolve('public/assets/css/app.css'),path.resolve('src/app.js'), path.resolve('src/assets/css/**/*.css'), path.resolve('src/**/*.scss')],
 	},
+	files: ['public/assets/js/scripts.js', 'public/assets/css/app.min.css']
 });
 
 const handlebars = require('@frctl/handlebars')({
