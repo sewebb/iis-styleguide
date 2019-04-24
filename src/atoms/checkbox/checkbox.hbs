@@ -5,7 +5,7 @@
 				{{#if is_inline}}
 					<div class="grid-auto">
 				{{/if}}
-					<input type="checkbox" id="{{id}}" name="{{name}}" value="{{value}}" class="a-checkbox u-visuallyhidden" {{#if is_disabled}}disabled{{/if}} {{#if is_invalid}}aria-invalid="true"{{/if}}>
+					<input type="checkbox" id="{{id}}" name="{{name}}" value="{{value}}" class="a-checkbox u-visuallyhidden" {{#if is_required}}required{{/if}} {{#if is_disabled}}disabled{{/if}} {{#if is_invalid}}aria-invalid="true"{{/if}}>
 					<label for="{{id}}">{{label}}</label>
 				{{#if is_inline}}
 				</div>

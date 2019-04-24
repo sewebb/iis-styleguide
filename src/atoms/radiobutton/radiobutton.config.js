@@ -40,7 +40,8 @@ module.exports = {
 				label: 'Radio button invalid',
 				value: '3',
 				is_inline: false,
-				is_invalid: true
+				is_invalid: true,
+				is_required: true
 			}
 		}
 	]
