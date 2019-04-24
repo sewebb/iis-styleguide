@@ -4200,6 +4200,7 @@
           padding: 2rem 2.5rem; } }
   .o-footer__paragraph {
     max-width: none;
+    margin-bottom: 27px;
     font-size: 18px; }
     .o-footer__paragraph a {
       color: #55c7b4;
