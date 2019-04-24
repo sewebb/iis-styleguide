@@ -15,6 +15,18 @@
 			margin-top: rhythm(1);
 		}
 	}
+
+	&.is-invalid {
+		input,
+		select,
+		textarea {
+			@extend %invalid;
+		}
+
+		@include b(input-help) {
+			background-color: $color-ruby-light;
+		}
+	}
 }
 
 @include b(input-help) {
@@ -28,8 +40,4 @@
 	&:empty {
 		display: none;
 	}
-}
-
-:invalid + .input-help {
-	background-color: $color-ruby-light;
 }

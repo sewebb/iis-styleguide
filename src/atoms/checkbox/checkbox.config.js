@@ -31,6 +31,17 @@ module.exports = {
 				is_inline: false,
 				is_disabled: true
 			}
+		},
+		{
+			name: 'Checkbox invalid',
+			context: {
+
+				id: 'checkbox-3',
+				label: 'Checkbox invalid',
+				value: '3',
+				is_inline: false,
+				is_invalid: true
+			}
 		}
 	]
 }

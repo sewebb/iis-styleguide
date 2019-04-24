@@ -55,7 +55,7 @@
 			+ label {
 				&::before {
 					background-color: $color-ruby-light;
-					box-shadow: 0 0 0 1px $color-ruby;
+					box-shadow: 0 0 0 1px $color-ruby-dark;
 				}
 			}
 		}
@@ -63,6 +63,17 @@
 }
 
 @include b(radio) {
+	&.is-invalid {
+		[type='radio'] {
+			+ label {
+				&::before {
+					background-color: $color-ruby-light;
+					box-shadow: 0 0 0 1px $color-ruby-dark;
+				}
+			}
+		}
+	}
+
 	@include m(inline) {
 		padding-top: 0;
 		padding-bottom: 0;

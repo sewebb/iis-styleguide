@@ -31,6 +31,17 @@ module.exports = {
 				is_inline: false,
 				is_disabled: true
 			}
+		},
+		{
+			name: 'Radio button invalid',
+			context: {
+
+				id: 'radiobutton-3',
+				label: 'Radio button invalid',
+				value: '3',
+				is_inline: false,
+				is_invalid: true
+			}
 		}
 	]
 }
