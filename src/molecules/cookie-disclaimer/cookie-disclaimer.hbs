@@ -1,16 +1,14 @@
 <div class="m-cookie-disclaimer js-cookie-disclaimer">
-	<div{{#if role}} role="{{role}}"{{/if}} class="u-m-b-0 u-p-0 u-p-b-2 m-alert m-alert--{{type}}{{#if is_dismissable}} m-alert--dismissable{{/if}}{{#if js_class}} {{js_class}}{{/if}}">
-		<div class="wrapper">
-			<div class="row">
-				<div class="grid-md-12 display-flex align-items-center u-p-t-2 u-p-r-3">
-					<p class="u-m-b-0">{{{text}}}</p>
-				</div>
-				{{#if is_dismissable}}
-				<div class="grid-md-6 u-p-t-2 display-flex align-items-center justify-content-end">
-					{{> @button el="button" modifiers="is-static" text="Jag förstår" id="js-accept-cookies"}}
-				</div>
-				{{/if}}
+	<div{{#if role}} role="{{role}}"{{/if}} class="m-cookie-disclaimer__wrapper m-alert m-alert--{{type}}{{#if is_dismissable}} m-alert--dismissable{{/if}}{{#if js_class}} {{js_class}}{{/if}}">
+		<div class="m-cookie-disclaimer__inner">
+			<div class="m-cookie-disclaimer__inner-first">
+				<p class="m-cookie-disclaimer__text">{{{text}}}</p>
 			</div>
+			{{#if is_dismissable}}
+			<div class="m-cookie-disclaimer__inner-second">
+				{{> @button el="button" modifiers="is-static" text="Jag förstår" id="js-accept-cookies"}}
+			</div>
+			{{/if}}
 		</div>
 	</div>
 </div>

@@ -14,6 +14,16 @@ module.exports = {
 				no_image_class: 'o-hero--no-image',
 				has_image: false
 			}
+		},
+		{
+			name: 'Video',
+			context: {
+				no_image_class: 'o-hero--border-radius',
+				video_class: 'o-hero--video',
+				limited_width: true,
+				has_video: true,
+				has_image: false
+			}
 		}
 	]
 }

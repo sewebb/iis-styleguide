@@ -34,5 +34,12 @@ $namespace: '';
 @import 'configurations/colors/colors-functions';
 @import 'configurations/extends';
 
+// Atoms
+@import 'atoms/button/button';
+
+// Molecules
+@import 'molecules/alert/alert';
+@import 'molecules/cookie-disclaimer/cookie-disclaimer';
+
 // Organisms
 @import 'organisms/footer/footer';
