@@ -7,10 +7,6 @@
 		display: block;
 	}
 
-	* {
-		box-sizing: border-box;
-	}
-
 	@include bp-up(lg) {
 		position: fixed;
 		z-index: z_index(foreground);

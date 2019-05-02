@@ -4347,8 +4347,6 @@
   display: none; }
   .m-cookie-disclaimer.is-visible {
     display: block; }
-  .m-cookie-disclaimer * {
-    box-sizing: border-box; }
   @media (min-width: 961px) {
     .m-cookie-disclaimer {
       position: fixed;
@@ -4404,14 +4402,16 @@
   .m-cookie-disclaimer__text {
     margin-bottom: 0; }
 
+* {
+  /* Because not all of the old sites have this */
+  box-sizing: border-box; }
+
 .o-footer {
   position: relative;
   z-index: 500;
   transform: translateY(0);
   border-top: 1px solid #ededed;
   font-size: 18px; }
-  .o-footer * {
-    box-sizing: border-box; }
   .o-footer.is-animated {
     z-index: 1000; }
   .o-footer--row {
@@ -4419,8 +4419,7 @@
     flex-wrap: wrap;
     max-width: none !important;
     margin-right: -0.55556rem;
-    margin-left: -0.55556rem;
-    overflow: hidden; }
+    margin-left: -0.55556rem; }
   .o-footer__logotype {
     width: 100%;
     max-width: 250px;
