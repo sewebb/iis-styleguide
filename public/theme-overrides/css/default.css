@@ -1,0 +1,73 @@
+a {
+	color: #50b2fc;
+}
+
+a:hover,
+a:focus {
+	color:#50b2fc;
+}
+
+.Pen-previewLink svg {
+	fill: #000;
+}
+
+.Header {
+	background-color: #000;
+}
+
+.Frame-panel--sidebar,
+.select2-results__option--highlighted[aria-selected] {
+	background-color: #1f2a36 !important;
+}
+
+.Tree-item span,
+.Tree-title {
+	color: #fff;
+}
+
+.Tree-item .Tree-entityLink span,
+.Tree-item .Tree-entityLink:hover,
+.Tree-item .Tree-entityLink:focus {
+	color: #55c7b4;
+}
+
+.Tree-item .Tree-entityLink:hover,
+.Tree-item .Tree-entityLink:focus,
+.Tree-collectionLabel:hover,
+.Tree-item.is-current .Tree-entityLink {
+	background-color: #000;
+}
+
+.Status-dot[style="border-color: #29CC29;"] {
+	background-color: #29CC29;
+}
+
+.Status-dot[style="border-color: #FF3333;"] {
+	background-color: #FF3333;
+}
+
+.Status-dot[style="border-color: #FF9233;"] {
+	background-color: #FF9233;
+}
+
+.Preview {
+	background-color: #fff;
+}
+
+.Browser-panel,
+.Browser-panel .Code pre,
+.Browser-panel .Code {
+	background-color: #ededed;
+}
+
+.FileBrowser-selectWrapper{
+	background-color: #1f2a36;
+}
+
+.Browser-tab.is-active a {
+	border-color: #50b2fc;
+}
+
+.FileBrowser-select-label {
+	color: #fff;
+}

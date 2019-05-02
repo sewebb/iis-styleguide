@@ -4347,6 +4347,8 @@
   display: none; }
   .m-cookie-disclaimer.is-visible {
     display: block; }
+  .m-cookie-disclaimer * {
+    box-sizing: border-box; }
   @media (min-width: 961px) {
     .m-cookie-disclaimer {
       position: fixed;
@@ -4379,6 +4381,8 @@
       border-bottom: 0.11111rem solid #c27fec;
       color: #000;
       text-decoration: none; }
+      .m-cookie-disclaimer__inner-first a:hover, .m-cookie-disclaimer__inner-first a:focus {
+        text-decoration: none; }
     @media (min-width: 769px) {
       .m-cookie-disclaimer__inner-first {
         flex: 0 0 66.66667%;

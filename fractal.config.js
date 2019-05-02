@@ -13,10 +13,11 @@ const path = require('path');
  */
 const fractal = module.exports = require('@frctl/fractal').create();
 fractal.web.set('server.port', ports.fractal);
+
 /*
  * Give your project a title.
  */
-fractal.set('project.title', 'Styleguide');
+fractal.set('project.title', 'Internetstiftelsen Styleguide');
 
 /*
  * Tell Fractal where to look for components.

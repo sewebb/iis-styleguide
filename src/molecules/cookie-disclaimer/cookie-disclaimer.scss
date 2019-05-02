@@ -7,6 +7,10 @@
 		display: block;
 	}
 
+	* {
+		box-sizing: border-box;
+	}
+
 	@include bp-up(lg) {
 		position: fixed;
 		z-index: z_index(foreground);
@@ -46,6 +50,11 @@
 			border-bottom: 0.11111rem solid $color-peacock;
 			color: $color-black;
 			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				text-decoration: none;
+			}
 		}
 
 		@include bp-up(md) {
