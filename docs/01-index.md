@@ -11,7 +11,7 @@ It is built to be fully modular so one can include only what is needed when usin
 
 ## Component statuses
 
-Tthe color codes indicates whether a component is ready for use.
+The color codes indicates whether a component is ready for use.
 
 <ul style="margin-bottom: 3rem;">
 	<li style="display:flex;">
@@ -40,7 +40,7 @@ To use the styleguide in your website or interface you need to install the style
 
 To install it, run `npm i git+ssh://git@github.com:sewebb/iis-styleguide.git`.
 
-When that's done, you need to configure your build. So open up your main SCSS file add the components you need like this:
+When that's done, you need to configure your build. So open up your main SCSS file,and add the components you need like this:
 
 ```scss
 // Configurations, foundation, fonts, utilities etc..
@@ -91,4 +91,4 @@ The code is validated and fixed on save using our coding standards and conventio
 ## Deployment
 
 To be able to deploy you need to build a static version of the styleguide.
-The command `npm run build` will build the static site in the `build` directory in the root the your project.
+The command `npm run build` will build the static site in the `build` directory in the root of the your project.
