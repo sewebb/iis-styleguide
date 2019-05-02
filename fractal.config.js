@@ -14,6 +14,17 @@ const path = require('path');
 const fractal = module.exports = require('@frctl/fractal').create();
 fractal.web.set('server.port', ports.fractal);
 
+/* Theme */
+const myCustomisedTheme = require('@frctl/mandelbrot')({
+    'skin': 'default',
+	'styles': ['default','/theme-overrides/css/default.css']
+});
+
+// specify a directory to hold the theme override templates
+myCustomisedTheme.addLoadPath(__dirname + '/theme-overrides');
+
+fractal.web.theme(myCustomisedTheme);
+
 /*
  * Give your project a title.
  */
