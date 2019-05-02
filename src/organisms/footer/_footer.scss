@@ -9,6 +9,10 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 	border-top: 1px solid $color-ash;
 	font-size: $footer-font-size;
 
+	* {
+		box-sizing: border-box;
+	}
+
 	&.is-animated {
 		z-index: z_index(foreground);
 	}
@@ -164,6 +168,7 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 		align-items: center;
 		font-size: 12px;
 		font-size: #{($footer-font-size) - 5px};
+		line-height: 1.4;
 		text-decoration: none;
 	}
 
@@ -178,7 +183,7 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 		flex-wrap: wrap-reverse;
 		justify-content: center;
 		width: 100%;
-		background-color: $color-cyberspace;
+		background-color: $color-black;
 	}
 
 	@include e(about-link) {

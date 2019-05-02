@@ -4406,6 +4406,8 @@
   transform: translateY(0);
   border-top: 1px solid #ededed;
   font-size: 18px; }
+  .o-footer * {
+    box-sizing: border-box; }
   .o-footer.is-animated {
     z-index: 1000; }
   .o-footer--row {
@@ -4505,6 +4507,7 @@
     align-items: center;
     font-size: 12px;
     font-size: 13px;
+    line-height: 1.4;
     text-decoration: none; }
   .o-footer__ISO-logo {
     width: 3.5rem;
@@ -4515,7 +4518,7 @@
     flex-wrap: wrap-reverse;
     justify-content: center;
     width: 100%;
-    background-color: #1f2a36; }
+    background-color: #000; }
   .o-footer__about-link {
     font-size: 14px;
     -webkit-font-smoothing: antialiased;
