@@ -4419,7 +4419,8 @@
     flex-wrap: wrap;
     max-width: none !important;
     margin-right: -0.55556rem;
-    margin-left: -0.55556rem; }
+    margin-left: -0.55556rem;
+    overflow: hidden; }
   .o-footer__logotype {
     width: 100%;
     max-width: 250px;
