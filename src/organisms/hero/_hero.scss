@@ -178,6 +178,7 @@
 
 	// Hero with video
 	@include m(video) {
+		margin-top: rem(20px);
 		padding-top: 56.25%;
 
 		iframe {
