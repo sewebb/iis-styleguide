@@ -3,7 +3,6 @@ module.exports = {
 
 	context: {
 		label: 'Namn',
-		labelClasses: 'is-required',
 		type: 'text',
 		id: 'name',
 		value: false,

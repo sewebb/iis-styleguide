@@ -1,5 +1,5 @@
 <div class="field-group{{#if is_invalid}} is-invalid{{/if}}">
-	{{ render '@label' }}
+	{{> @label labelClasses="" label="Namn" for="name" }}
 	<input type="{{type}}" id="{{id}}" {{#if is_invalid}}aria-invalid="true"{{/if}} {{#if value}}value="{{value}}"{{/if}} {{#if required}}required{{/if}} {{#if is_disabled}}disabled{{/if}} placeholder="{{placeholder}}" autocomplete="{{autocomplete}}" class="a-input{{#if has_icon}} has-icon"{{/if}}{{#if has_help}} aria-describedby="first-name-help"{{/if}} {{#if required}} aria-describedby="first-name-help"{{/if}}>
 	{{#if has_icon}}
 	<figure class="input-icon">

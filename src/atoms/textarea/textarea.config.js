@@ -3,7 +3,6 @@ module.exports = {
 
 	context: {
 		label: 'Meddelande',
-		labelClasses: 'is-required',
 		placeholder: 'Meddelande',
 		id:'message',
 		required: false,
