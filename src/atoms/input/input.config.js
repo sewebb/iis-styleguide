@@ -22,6 +22,12 @@ module.exports = {
 			}
 		},
 		{
+			name: 'Disabled',
+			context: {
+				is_disabled: true
+			}
+		},
+		{
 			name: 'Invalid',
 			context: {
 				is_invalid: true,

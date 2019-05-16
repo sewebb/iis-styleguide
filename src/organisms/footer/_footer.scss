@@ -1,68 +1,105 @@
 @charset 'UTF-8';
 
+$footer-font-size: 18px; // To ensure all footers on all sites have the same font size this component used pixel based values
+
+* { /* Because not all of the old sites have this */
+	box-sizing: border-box;
+}
+
 @include organism(footer) {
 	position: relative;
 	z-index: z_index(middleground);
 	transform: translateY(0);
 	border-top: 1px solid $color-ash;
+	font-size: $footer-font-size;
 
 	&.is-animated {
 		z-index: z_index(foreground);
 	}
 
+	@include m(row) {
+		display: flex;
+		flex-wrap: wrap;
+		max-width: none !important;
+		margin-right: ($grid-gutter-width / -2);
+		margin-left: ($grid-gutter-width / -2);
+	}
+
 	@include e(logotype) {
 		width: 100%;
-		max-width: rem(250px);
+		max-width: 250px;
 		height: 100%;
 
 		@include bp-up(xl) {
-			max-width: rem(300px);
+			max-width: 300px;
+		}
+	}
+
+	@include e(link) {
+		@extend %normalize-links;
+
+		background-color: transparent;
+		color: $color-jade;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			background-color: transparent;
+			color: $color-jade;
+			text-decoration: underline;
 		}
 	}
 
 	@include e(info) {
+		min-height: 445px;
 		background-color: $color-cyberspace;
 		color: $color-snow;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
-
-		a {
-			@extend %normalize-links;
-
-			color: $color-jade;
-
-			&:hover,
-			&:focus {
-				text-decoration: underline;
-			}
-		}
 
 		@include e(inner) {
 			padding: rhythm(3);
 
 			@include bp-up(md) {
 				padding: rhythm(4) rhythm(5);
-
-				p {
-					max-width: none;
-				}
-			}
-
-			@include bp-down(md) {
-				p {
-					max-width: 70%;
-				}
-			}
-
-			@include bp-down(sm) {
-				p {
-					max-width: none;
-				}
 			}
 		}
 	}
 
+	@include e(paragraph) {
+		@extend %normalize-links;
+
+		max-width: none;
+		margin-bottom: 27px;
+		font-size: $footer-font-size;
+
+		a {
+			color: $color-jade;
+			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				color: $color-jade;
+				text-decoration: underline;
+			}
+		}
+	}
+
+	@include bp-down(md) {
+		@include e(paragraph) {
+			max-width: 70%;
+		}
+	}
+
+	@include bp-down(sm) {
+		@include e(paragraph) {
+			max-width: none;
+		}
+	}
+
 	@include e(logotypes) {
+		max-width: 100%;
+		height: auto;
 		background-color: $color-snow;
 	}
 
@@ -94,15 +131,13 @@
 	@include e(contact) {
 		font-size: 80%;
 
-		ul,
-		address {
+		@include e(address) {
 			margin-bottom: rhythm(2);
-		}
-
-		address,
-		ul,
-		li {
 			font-size: inherit;
+
+			@include e(li) {
+				font-size: #{($footer-font-size) - 3px};
+			}
 		}
 
 		@include bp-up(xxl) {
@@ -118,32 +153,56 @@
 	@include e(logo-link) {
 		display: flex;
 		justify-content: center;
+		background-color: transparent;
+		text-decoration: none;
+
+		&:hover,
+		&:focus {
+			background-color: transparent;
+			text-decoration: none;
+		}
 	}
 
 	@include e(ISO-link) {
-		font-size: rem($size-small);
+		display: flex;
+		align-items: center;
+		font-size: 12px;
+		font-size: #{($footer-font-size) - 5px};
+		line-height: 1.4;
 		text-decoration: none;
 	}
 
 	@include e(ISO-logo) {
 		width: rhythm(7);
+		max-width: 100%;
+		height: auto;
 	}
 
 	@include e(bottom-links) {
+		display: flex;
+		flex-wrap: wrap-reverse;
+		justify-content: center;
 		width: 100%;
+		background-color: $color-black;
+	}
+
+	@include e(about-link) {
+		font-size: #{($footer-font-size) - 4px};
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
 	}
 }
 
-@include b(footer-about-link) {
-	@extend %normalize-links;
-
-	color: $color-jade;
-	font-size: rem($size-medium);
-	-webkit-font-smoothing: antialiased;
-	-moz-osx-font-smoothing: grayscale;
-
-	&:hover,
-	&:focus {
-		text-decoration: underline;
-	}
+@include b(o-footer-grid) {
+	position: relative;
+	flex-basis: 0;
+	flex-grow: 1;
+	width: 100%;
+	max-width: 100%;
+	min-height: 1px;
+	padding-right: $grid-gutter-width / 2;
+	padding-left: $grid-gutter-width / 2;
+	-ms-flex-preferred-size: 0;
+	-webkit-box-flex: 1;
+	-ms-flex-positive: 1;
 }

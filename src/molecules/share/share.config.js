@@ -1,5 +1,5 @@
 module.exports = {
-	status: 'wip',
+	status: 'ready',
 
 	context: {
 		url: 'https://www.iis.se/press/pressmeddelanden/internetstiftelsen-far-utmarkelsen-svensk-kvalitet-for-andra-gangen/',

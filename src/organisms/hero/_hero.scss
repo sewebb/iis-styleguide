@@ -150,6 +150,10 @@
 			color: $color-cyberspace;
 		}
 
+		@include e(text) {
+			color: $color-cyberspace;
+		}
+
 		@include b(a-tag) {
 			@include tag;
 		}
@@ -157,14 +161,12 @@
 		@include bp-up(md) {
 			@include e(text) {
 				max-width: 85%;
-				color: $color-cyberspace;
 			}
 		}
 
 		@include bp-up(lg) {
 			@include e(text) {
 				max-width: 67%;
-				color: $color-cyberspace;
 			}
 		}
 	}
@@ -172,5 +174,23 @@
 	// Hero with border-radius
 	@include m(border-radius) {
 		border-radius: $border-radius;
+	}
+
+	// Hero with video
+	@include m(video) {
+		margin-top: rem(20px);
+		padding-top: 56.25%;
+
+		iframe {
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+		}
+
+		@include bp-up(lg) {
+			margin-top: rhythm(4);
+		}
 	}
 }

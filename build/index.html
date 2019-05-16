@@ -11,10 +11,12 @@
     <script>var cl = document.querySelector('html').classList; cl.remove('no-js'); cl.add('has-js');</script>
     <link rel="shortcut icon" href="themes/mandelbrot/favicon.ico" type="image/ico">
 
-<link rel="stylesheet" href="themes/mandelbrot/css/default.css?cachebust=1.2.0" type="text/css">
+<link rel="stylesheet" href="themes/mandelbrot/css/default.css?cachebust=1.2.1" type="text/css">
+
+<link rel="stylesheet" href="theme-overrides/css/default.css?cachebust=1.2.1" type="text/css">
 
 
-<title>iis-styleguide | Styleguide</title>
+<title>Internetstiftelsen Styleguide | Internetstiftelsen Styleguide</title>
 
 </head>
 <body>
@@ -37,7 +39,7 @@
 </svg>
 
     </button>
-    <a href="" class="Header-title" data-pjax>Styleguide</a>
+    <a href="" class="Header-title" data-pjax>Internetstiftelsen Styleguide</a>
 </div>
 
     </div>
@@ -52,7 +54,7 @@
 
     <div class="Document-header">
         
-        <h1 class="Document-title">iis-styleguide</h1>
+        <h1 class="Document-title">Internetstiftelsen Styleguide</h1>
         
 
 
@@ -69,27 +71,73 @@
 
     
     
-    <h2 id="statuses">Statuses</h2>
-<ul>
+    <h2 id="welcome-to-our-styleguide">Welcome to our styleguide</h2>
+<h2 id="introduction">Introduction</h2>
+<p>The styleguide is a set of components that follows the Atomic Design methodology and is powered by Fractal.
+It is built to be fully modular so one can include only what is needed when using the styleguide.</p>
+<h2 id="component-statuses">Component statuses</h2>
+<p>The color codes indicates whether a component is ready for use.</p>
+<ul style="margin-bottom: 3rem;">
     <li style="display:flex;">
         <div class="Status-dots">
-            <span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+            <span class="Status-dot" style="border-color: #29CC29;background-color:#29CC29" title="Ready"></span>
         </div>&nbsp;&nbsp;
         <label class="Status-label" style="background-color: #29CC29; border-color: #29CC29;">Ready to implement</label>
     </li>
     <li style="display:flex;">
         <div class="Status-dots">
-            <span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+            <span class="Status-dot" style="border-color: #FF9233;background-color: #FF9233;" title="WIP"></span>
         </div>&nbsp;&nbsp;
         <label class="Status-label" style="background-color: #FF9233; border-color: #FF9233;">Work in progress, implement with caution</label>
     </li>
     <li style="display:flex;">
         <div class="Status-dots">
-            <span class="Status-dot" style="border-color: #FF3333;" title="Prototype"></span>
+            <span class="Status-dot" style="border-color: #FF3333;background-color: #FF3333;" title="Prototype"></span>
         </div>&nbsp;&nbsp;
         <label class="Status-label" style="background-color: #FF3333; border-color: #FF3333;">Prototype, do not use</label>
     </li>
 </ul>
+
+<h2 id="usage">Usage</h2>
+<p>To use the styleguide in your website or interface you need to install the styleguide and then decide which components you need.</p>
+<p>To install it, run <code>npm i git+ssh://git@github.com:sewebb/iis-styleguide.git</code>.</p>
+<p>When that’s done, you need to configure your build. So open up your main SCSS file,and add the components you need like this:</p>
+<code class="lang-scss"><pre><span class="hljs-comment">// Configurations, foundation, fonts, utilities etc..</span>
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'~iis-styleguide/src/globals'</span>;
+
+<span class="hljs-comment">// Set a project namespace for namespace prefixed classes</span>
+<span class="hljs-variable">$namespace</span>: <span class="hljs-string">'mysite-'</span>;
+
+<span class="hljs-comment">// Configuration/Base components</span>
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'~iis-styleguide/src/configuration/grid/grid'</span>;
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'~iis-styleguide/src/configuration/colors/colors'</span>;
+
+<span class="hljs-comment">// Atoms</span>
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'~iis-styleguide/src/atoms/button/button'</span>;
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'~iis-styleguide/src/atoms/input/input'</span>;
+
+<span class="hljs-comment">// Molecules</span>
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'~iis-styleguide/src/molecules/card/card'</span>;
+
+<span class="hljs-comment">// Organisms</span>
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'~iis-styleguide/src/organisms/header/header'</span>;</pre></code><p>Peek into the <a href="https://github.com/sewebb/iis-styleguide/blob/master/src/app.scss">app.scss</a> to see the full set of components.</p>
+<p>For javascript it’s basically the same thing. In a javascript file:</p>
+<code class="lang-js"><pre><span class="hljs-comment">// ES5 build version</span>
+<span class="hljs-keyword">import</span> Button <span class="hljs-keyword">from</span> <span class="hljs-string">'iis-styleguide/dist/atoms/button/button'</span>;
+
+<span class="hljs-comment">// Standard ES6 version</span>
+<span class="hljs-keyword">import</span> Button <span class="hljs-keyword">from</span> <span class="hljs-string">'iis-styleguide/src/atoms/button/button'</span>;</pre></code><p>Depending on your browser requirements you may use the src version which is not transpiled to ES5.</p>
+<h2 id="development">Development</h2>
+<p>Before you start, make sure you read and understand our coding <a href="https://github.com/sewebb/iis-start/wiki/IIS-standards-&amp;-conventions">standards and conventions</a>.</p>
+<ol>
+<li>Install dependencies with <code>npm install</code>.</li>
+<li>Run <code>npm run dev</code></li>
+</ol>
+<p>This will watch the files you edit and automatically start the dev environment.
+The code is validated and fixed on save using our coding standards and convention</p>
+<h2 id="deployment">Deployment</h2>
+<p>To be able to deploy you need to build a static version of the styleguide.
+The command <code>npm run build</code> will build the static site in the <code>build</code> directory in the root of the your project.</p>
 
     
 
@@ -194,6 +242,30 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="components/detail/button--ruby-light.html" data-pjax>
                 <span>Ruby Light</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/button--ruby-dark.html" data-pjax>
+                <span>Ruby Dark</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -405,6 +477,30 @@
         </li>
         
     
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/button--standalone-icon-white.html" data-pjax>
+                <span>Standalone Icon White</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
 
             </ul>
         </li>
@@ -474,6 +570,30 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="components/detail/checkbox--checkbox-disabled.html" data-pjax>
                 <span>Checkbox Disabled</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/checkbox--checkbox-invalid.html" data-pjax>
+                <span>Checkbox Invalid</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -586,6 +706,30 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="components/detail/input--help-text.html" data-pjax>
                 <span>Help Text</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/input--disabled.html" data-pjax>
+                <span>Disabled</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -882,6 +1026,30 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="components/detail/radiobutton--radio-button-disabled.html" data-pjax>
                 <span>Radio Button Disabled</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/radiobutton--radio-button-invalid.html" data-pjax>
+                <span>Radio Button Invalid</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -1256,6 +1424,30 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/textarea--disabled.html" data-pjax>
+                <span>Disabled</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="components/detail/textarea--invalid.html" data-pjax>
                 <span>Invalid</span>
                 
@@ -1294,7 +1486,7 @@
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -1597,8 +1789,56 @@
         
         
         <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/byline.html" data-pjax>
+                <span>Byline</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="components/detail/card.html" data-pjax>
                 <span>Card</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/cookie-disclaimer.html" data-pjax>
+                <span>Cookie Disclaimer</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -1806,7 +2046,7 @@
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2150,7 +2390,7 @@
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2226,6 +2466,30 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="components/detail/hero--no-image.html" data-pjax>
                 <span>No Image</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/hero--video.html" data-pjax>
+                <span>Video</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -2485,7 +2749,7 @@
 
 
 
-<script src="themes/mandelbrot/js/mandelbrot.js?cachebust=1.2.0"></script>
+<script src="themes/mandelbrot/js/mandelbrot.js?cachebust=1.2.1"></script>
 
 
 

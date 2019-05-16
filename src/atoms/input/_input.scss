@@ -7,10 +7,6 @@
 		@extend %input-focus;
 	}
 
-	&:invalid {
-		@extend %invalid;
-	}
-
 	&.has-icon {
 		padding-right: rhythm(5);
 	}

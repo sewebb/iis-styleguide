@@ -2,6 +2,6 @@ module.exports = {
 	status: 'ready',
 
 	context: {
-		url: 'https://internetstiftelsen.se/app/themes/internetstiftelsen/assets/favicon/'
+		url: 'https://static.iis.se/favicons/'
 	}
 }

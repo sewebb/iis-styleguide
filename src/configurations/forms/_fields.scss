@@ -15,11 +15,21 @@
 			margin-top: rhythm(1);
 		}
 	}
+
+	&.is-invalid {
+		input,
+		select,
+		textarea {
+			@extend %invalid;
+		}
+
+		@include b(input-help) {
+			background-color: $color-ruby-light;
+		}
+	}
 }
 
 @include b(input-help) {
-	position: absolute;
-	z-index: z_index(background);
 	width: 100%;
 	padding: rhythm(0.5) rhythm(1);
 	transform: translateY(rem(-3px));
@@ -30,8 +40,4 @@
 	&:empty {
 		display: none;
 	}
-}
-
-:invalid + .input-help {
-	background-color: $color-ruby-light;
 }

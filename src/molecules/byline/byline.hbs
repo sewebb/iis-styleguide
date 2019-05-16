@@ -1,0 +1,16 @@
+<div class="m-byline">
+	{{#if author_image}}<img class="m-byline__portrait" src="{{author_image}}" alt="{{author_name}}">{{/if}}
+	<span class="a-meta"><span class="small">Om skribenten</span></span>
+	<p class="gamma"><a href="{{author_archive}}" class="m-byline__link" title="{{archive_text}}">{{author_name}}</a></p>
+	<p class="u-m-b-1">
+		{{author_biography}}
+	</p>
+	{{#if author_email}}
+	<figure class="m-byline__figure">
+		<svg class="m-byline__icon" viewbox="0 0 32 32" width="100%" height="100%">
+			<path d="M4 29h24v2H4zM10.3 26H4v-6.3L22.1 1.6l6.3 6.3L10.3 26zM6 24h3.5L25.6 7.9l-3.5-3.5L6 20.5V24z"></path><path d="M17.07 6.69l1.414-1.414 6.293 6.293-1.414 1.415z"></path>
+		</svg>
+		<a class="m-byline__link small" href="mailto:{{author_email}}">Kontakta mig</a>
+	</figure>
+	{{/if}}
+</div>

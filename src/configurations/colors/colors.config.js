@@ -164,6 +164,24 @@ module.exports = {
 				hasBorder: false
 			},
 			{
+				name: 'black',
+				title: '$color-black',
+				hex: '#000000',
+				rgb: '0 0 0',
+				cmyk: '50 50 50 100',
+				pms: 'n/a',
+				hasBorder: false
+			},
+			{
+				name: 'cyberspace',
+				title: '$color-cyberspace',
+				hex: '#1f2a36',
+				rgb: '31 42 54',
+				cmyk: '88 71 52 41',
+				pms: 'PMS 289U',
+				hasBorder: false
+			},
+			{
 				name: 'granit',
 				title: '$color-granit',
 				hex: '#8E9297',
@@ -190,15 +208,7 @@ module.exports = {
 				pms: 'n/a',
 				hasBorder: true
 			},
-			{
-				name: 'black',
-				title: '$color-black',
-				hex: '#000000',
-				rgb: '0 0 0',
-				cmyk: '50 50 50 100',
-				pms: 'n/a',
-				hasBorder: false
-			},
+
 			{
 				name: 'snow',
 				title: '$color-snow',

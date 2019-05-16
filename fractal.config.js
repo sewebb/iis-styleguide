@@ -13,10 +13,22 @@ const path = require('path');
  */
 const fractal = module.exports = require('@frctl/fractal').create();
 fractal.web.set('server.port', ports.fractal);
+
+/* Theme */
+const myCustomisedTheme = require('@frctl/mandelbrot')({
+    'skin': 'default',
+	'styles': ['default','/theme-overrides/css/default.css']
+});
+
+// specify a directory to hold the theme override templates
+myCustomisedTheme.addLoadPath(__dirname + '/theme-overrides');
+
+fractal.web.theme(myCustomisedTheme);
+
 /*
  * Give your project a title.
  */
-fractal.set('project.title', 'Styleguide');
+fractal.set('project.title', 'Internetstiftelsen Styleguide');
 
 /*
  * Tell Fractal where to look for components.
@@ -37,6 +49,13 @@ fractal.web.set('static.path', path.join(__dirname, 'public'));
  * Tell the Fractal where to build static site.
  */
 fractal.web.set('builder.dest', __dirname + '/build');
+
+fractal.web.set('server.syncOptions', {
+	watchOptions: {
+		ignored: [path.resolve('public/assets/css/app.css'),path.resolve('src/app.js'), path.resolve('src/assets/css/**/*.css'), path.resolve('src/**/*.scss')],
+	},
+	files: ['public/assets/js/scripts.js', 'public/assets/css/app.min.css']
+});
 
 const handlebars = require('@frctl/handlebars')({
 	helpers: {

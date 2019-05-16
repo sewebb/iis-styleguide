@@ -1,6 +1,6 @@
-<div class="field-group">
+<div class="field-group{{#if is_invalid}} is-invalid{{/if}}">
 	{{> @label for="select" label="Select"}}
-	<select id="{{id}}" {{#if required}}required{{/if}} {{#if disabled}}disabled{{/if}} class="a-select{{#if modifier}} {{modifier}}{{/if}}" {{#if has_help}} aria-describedby="select-help"{{/if}} {{#if required}} aria-describedby="select-help"{{/if}}>
+	<select id="{{id}}" {{#if is_invalid}}aria-invalid="true"{{/if}} {{#if required}}required{{/if}} {{#if disabled}}disabled{{/if}} class="a-select{{#if modifier}} {{modifier}}{{/if}}" {{#if has_help}} aria-describedby="select-help"{{/if}} {{#if required}} aria-describedby="select-help"{{/if}}>
 		{{#each options}}
 		<option value="{{value}}"{{#if is_disabled}} disabled{{/if}}{{#if is_selected}} selected{{/if}}>{{text}}</option>
 		{{/each}}
