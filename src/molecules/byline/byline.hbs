@@ -1,6 +1,6 @@
 <div class="m-byline">
 	{{#if author_image}}<img class="m-byline__portrait" src="{{author_image}}" alt="{{author_name}}">{{/if}}
-	<span class="a-meta"><span class="small">Om skribenten</span></span>
+	<span class="a-meta"><span class="small">{{#if author_image}}Om skribenten{{else}}Skribent{{/if}}</span></span>
 	<p class="gamma"><a href="{{author_archive}}" class="m-byline__link" title="{{archive_text}}">{{author_name}}</a></p>
 	<p class="u-m-b-1">
 		{{author_biography}}
