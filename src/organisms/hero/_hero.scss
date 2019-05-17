@@ -33,7 +33,7 @@
 	@include e(caption) {
 		display: flex;
 		align-items: flex-end;
-		padding: rhythm(2) 0 0 0;
+		padding: rhythm(2) 0;
 		background-image: none;
 
 		@include bp-up(sm) {
