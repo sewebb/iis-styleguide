@@ -62,7 +62,7 @@ $colors: (
 				@include color_values($value, $attribute, $separator);
 			}
 			@else {
-				#{$attribute}: $value;
+				#{$attribute}: $value !important;
 			}
 		}
 	}
