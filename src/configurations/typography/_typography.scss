@@ -96,6 +96,10 @@ th a {
 		border-radius: $border-radius;
 		background-color: $color-ocean-light;
 	}
+
+	&[href^='mailto'] {
+		hyphens: none;
+	}
 }
 
 li > a {
