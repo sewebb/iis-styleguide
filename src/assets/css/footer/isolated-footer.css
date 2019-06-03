@@ -4344,13 +4344,14 @@
     color: #1f2a36; }
 
 .m-cookie-disclaimer {
-  display: none; }
+  display: none;
+  position: relative;
+  z-index: 1000; }
   .m-cookie-disclaimer.is-visible {
     display: block; }
   @media (min-width: 961px) {
     .m-cookie-disclaimer {
       position: fixed;
-      z-index: 1000;
       right: 0;
       bottom: 0;
       left: 0; } }
