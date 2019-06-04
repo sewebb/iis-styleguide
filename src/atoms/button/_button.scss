@@ -130,7 +130,7 @@
 		box-shadow: none;
 
 		@include e(text) {
-			display: none;
+			@include visuallyhidden;
 		}
 
 		@include e(icon) {
