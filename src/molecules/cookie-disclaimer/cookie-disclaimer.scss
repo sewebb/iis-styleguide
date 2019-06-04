@@ -2,6 +2,8 @@
 
 @include molecule(cookie-disclaimer) {
 	display: none;
+	position: relative;
+	z-index: z_index(foreground);
 
 	&.is-visible {
 		display: block;
@@ -9,7 +11,6 @@
 
 	@include bp-up(lg) {
 		position: fixed;
-		z-index: z_index(foreground);
 		right: 0;
 		bottom: 0;
 		left: 0;
