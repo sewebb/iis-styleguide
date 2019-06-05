@@ -4246,7 +4246,14 @@
     background-color: transparent;
     box-shadow: none; }
     .a-button--standalone-icon .a-button__text {
-      display: none; }
+      position: absolute;
+      width: 1px;
+      height: 1px;
+      margin: -1px;
+      padding: 0;
+      overflow: hidden;
+      clip: rect(0 0 0 0);
+      clip: rect(0, 0, 0, 0); }
     .a-button--standalone-icon .a-button__icon {
       position: static;
       width: 1.11111rem;

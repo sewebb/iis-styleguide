@@ -32,6 +32,13 @@ module.exports = {
 				hide_mobile: true
 			},
 			{
+				text: 'Lyssna',
+				url: false,
+				is_current: false,
+				icon: 'icon-speaker',
+				hide_mobile: false
+			},
+			{
 				text: 'Sök ledig domän',
 				url: false,
 				is_current: false,
