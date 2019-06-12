@@ -173,9 +173,10 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 	}
 
 	@include e(ISO-logo) {
-		width: rhythm(7);
+		width: rhythm(6);
 		max-width: 100%;
 		height: auto;
+		margin-right: rhythm(2);
 	}
 
 	@include e(bottom-links) {

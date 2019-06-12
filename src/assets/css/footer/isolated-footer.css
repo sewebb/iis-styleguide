@@ -4522,9 +4522,10 @@
     line-height: 1.4;
     text-decoration: none; }
   .o-footer__ISO-logo {
-    width: 3.5rem;
+    width: 3rem;
     max-width: 100%;
-    height: auto; }
+    height: auto;
+    margin-right: 1rem; }
   .o-footer__bottom-links {
     display: flex;
     flex-wrap: wrap-reverse;
