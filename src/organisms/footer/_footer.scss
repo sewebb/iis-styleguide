@@ -218,6 +218,7 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 
 			@include e(li) {
 				font-size: #{($footer-font-size) - 3px};
+				line-height: 1.3;
 			}
 		}
 
