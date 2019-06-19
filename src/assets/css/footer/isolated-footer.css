@@ -4561,7 +4561,8 @@
       margin-bottom: 1rem;
       font-size: inherit; }
       .o-footer__contact__address__li {
-        font-size: 15px; }
+        font-size: 15px;
+        line-height: 1.3; }
     @media (min-width: 1400px) {
       .o-footer__contact {
         padding-right: 0.5rem; }

@@ -7,7 +7,7 @@ module.exports = {
 		contact_1: '<ul class="u-list-clean o-footer__contact__address"><li class="o-footer__contact__address__li">Internetstiftelsen</li><li class="o-footer__contact__address__li">Hammarby Kaj 10D</li><li class="o-footer__contact__address__li">Box 92073</li><li class="o-footer__contact__address__li">120 07 Stockholm</li></ul>',
 		contact_2: '<ul class="u-list-clean o-footer__contact__address"><li class="o-footer__contact__address__li">E-post: <a class="o-footer__link" href="mailto:info@internetstiftelsen.se">info@internetstiftelsen.se</a></li><li class="o-footer__contact__address__li">Telefon: <a class="o-footer__link" href="tel:084523500">08-452 35 00</a></li><li class="o-footer__contact__address__li">Organisationsnummer: 802405-0190</li></ul>',
 		ISO_link: 'https://internetstiftelsen.se/docs/Certifikat_27001_UKAS_sv.pdf',
-		ISO_image: 'https://stage.internetstiftelsen.se/app/themes/internetstiftelsen/images/ISO_27001_2013_black_TM.svg',
+		ISO_image: 'https://internetstiftelsen.se/app/themes/internetstiftelsen/images/ISO_27001_2013_black_TM.svg',
 		ISO_text: 'Certifierade enligt ISO/IEC<br>27001:2013',
 		CC_license: 'Creative Commons licens<br>Erkännande 4.0 Internationell',
 		site_heading_1: 'Svenskarna och internet',
