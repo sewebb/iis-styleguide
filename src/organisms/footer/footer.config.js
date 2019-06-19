@@ -9,5 +9,18 @@ module.exports = {
 		ISO_link: 'https://internetstiftelsen.se/docs/Certifikat_27001_UKAS_sv.pdf',
 		ISO_image: 'https://stage.internetstiftelsen.se/app/themes/internetstiftelsen/images/ISO_27001_2013_black_TM.svg',
 		ISO_text: 'Certifierade enligt ISO/IEC<br>27001:2013',
+		CC_license: 'Creative Commons licens<br>Erkännande 4.0 Internationell',
+		site_heading_1: 'Svenskarna och internet',
+		site_description_1: 'En årlig studie av svenska folkets internetvanor',
+		site_heading_2: 'Internetdagarna',
+		site_description_2: 'Internetdagarna är en konferens som arrangeras av Internetstiftelsen',
+		site_heading_3: 'Goto 10',
+		site_description_3: 'Goto 10 är en start- och mötesplats för internetrelaterade frågor som drivs av Internetstiftelsen',
+		site_heading_4: 'Bredbandskollen',
+		site_description_4: 'Bredbandskollen är ett oberoende konsumentverktyg som drivs av Internetstiftelsen',
+		site_heading_5: 'Internetmuseum',
+		site_description_5: 'Internetmuseum är ett digitalt museum som byggts, och kureras av Internetstiftelsen',
+		site_heading_6: 'Digitala lektioner',
+		site_description_6: 'Digitala lektioner är en kostnadsfri lärresurs från Internetstiftelsen med lektioner och material som täcker allt som rör digital kompetens och programmering i grundskolan',
 	}
 }

@@ -114,11 +114,14 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 			flex-shrink: 1;
 			justify-content: center;
 			min-height: 200px;
+			padding: 0 rhythm(4);
+			overflow: hidden;
 			border-bottom: 1px solid $color-ash;
 			border-left: 1px solid $color-ash;
 
 			@include bp-up(sm) {
 				flex-basis: 50%;
+				padding: 0;
 			}
 
 			@include bp-up(md) {
@@ -241,7 +244,7 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 		}
 	}
 
-	@include e(ISO-link) {
+	@include e(external-link) {
 		display: flex;
 		align-items: center;
 		font-size: 12px;
@@ -250,7 +253,7 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 		text-decoration: none;
 	}
 
-	@include e(ISO-logo) {
+	@include e(external-logo) {
 		width: rhythm(6);
 		max-width: 100%;
 		height: auto;
@@ -274,7 +277,7 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 
 @include b(o-footer-grid) {
 	position: relative;
-	flex-basis: 0;
+	flex-basis: 100%;
 	flex-grow: 1;
 	width: 100%;
 	max-width: 100%;
@@ -284,4 +287,16 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 	-ms-flex-preferred-size: 0;
 	-webkit-box-flex: 1;
 	-ms-flex-positive: 1;
+
+	& + & {
+		margin-top: rhythm(2);
+	}
+
+	@include bp-up(sm) {
+		flex-basis: 0;
+
+		& + & {
+			margin-top: 0;
+		}
+	}
 }
