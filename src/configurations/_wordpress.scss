@@ -63,6 +63,7 @@ div.aligncenter {
 .instagram-media,
 [class^='EmbeddedTweet'] {
 	width: 100% !important;
+	max-width: 100% !important;
 }
 
 .wp-embed-aspect-9-16,
@@ -101,6 +102,12 @@ div.aligncenter {
 .wp-embed-aspect-16-9 {
 	.embed-container {
 		padding-bottom: 56.25%;
+	}
+}
+
+.wp-block-embed-spotify {
+	.embed-container {
+		padding-bottom: 113%;
 	}
 }
 
