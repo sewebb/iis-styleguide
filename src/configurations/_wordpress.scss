@@ -61,11 +61,6 @@ div.aligncenter {
 
 .wp-embed-aspect-9-16,
 .wp-embed-aspect-16-9 {
-	position: relative;
-	max-width: 100%;
-	height: 0;
-	overflow: hidden;
-
 	&.alignright,
 	&.aligncenter,
 	&.alignleft {
@@ -73,21 +68,34 @@ div.aligncenter {
 		float: none;
 	}
 
-	.embed-container {
+	iframe,
+	object,
+	embed {
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
 	}
+
+	.embed-container {
+		position: relative;
+		max-width: 100%;
+		height: 0;
+		overflow: hidden;
+	}
 }
 
 .wp-embed-aspect-9-16 {
-	padding-bottom: 177.78%;
+	.embed-container {
+		padding-bottom: 177.78%;
+	}
 }
 
 .wp-embed-aspect-16-9 {
-	padding-bottom: 56.25%;
+	.embed-container {
+		padding-bottom: 56.25%;
+	}
 }
 
 .wp-block-gallery {
