@@ -59,9 +59,10 @@ div.aligncenter {
 	}
 }
 
+// stylelint-disable selector-class-pattern
 .twitter-tweet,
 .instagram-media,
-[class*='EmbeddedTweet'] {
+.EmbeddedTweet {
 	width: 100% !important;
 	max-width: 100% !important;
 }
