@@ -59,7 +59,8 @@ div.aligncenter {
 	}
 }
 
-[class^='wp-block-embed-'] {
+.wp-embed-aspect-9-16,
+.wp-embed-aspect-16-9 {
 	position: relative;
 	max-width: 100%;
 	height: 0;
@@ -87,7 +88,7 @@ div.aligncenter {
 	}
 }
 
-.wp-embed-aspect-16-9 {
+.wp-embed-aspect-9-16 {
 	padding-bottom: 177.78%;
 }
 
