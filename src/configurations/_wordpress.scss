@@ -73,18 +73,12 @@ div.aligncenter {
 		float: none;
 	}
 
-	iframe,
-	object,
-	embed {
+	.embed-container {
 		position: absolute;
 		top: 0;
 		left: 0;
 		width: 100%;
 		height: 100%;
-	}
-
-	.embed-container {
-		position: static;
 	}
 }
 
