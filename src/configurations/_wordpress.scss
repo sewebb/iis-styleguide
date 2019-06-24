@@ -61,7 +61,7 @@ div.aligncenter {
 
 .twitter-tweet,
 .instagram-media,
-[class^='EmbeddedTweet'] {
+[class*='EmbeddedTweet'] {
 	width: 100% !important;
 	max-width: 100% !important;
 }
