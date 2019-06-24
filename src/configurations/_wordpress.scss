@@ -59,6 +59,12 @@ div.aligncenter {
 	}
 }
 
+.twitter-tweet,
+.instagram-media,
+[class^='EmbeddedTweet'] {
+	width: 100% !important;
+}
+
 .wp-embed-aspect-9-16,
 .wp-embed-aspect-16-9 {
 	&.alignright,
