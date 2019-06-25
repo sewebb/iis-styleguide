@@ -4,4 +4,4 @@
 /// @group Colors
 .background {
 	@include color_values($colors, 'background-color', $separator: '-');
-}
+} 
