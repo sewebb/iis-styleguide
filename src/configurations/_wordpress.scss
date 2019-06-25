@@ -59,22 +59,13 @@ div.aligncenter {
 	}
 }
 
-.wp-embed-aspect-9-16 {
-	position: relative;
-	max-width: 100%;
-	height: 0;
-	padding-bottom: 56.25%;
-	overflow: hidden;
-
+.wp-embed-aspect-9-16,
+.wp-embed-aspect-16-9 {
 	&.alignright,
 	&.aligncenter,
 	&.alignleft {
 		margin: 0;
 		float: none;
-	}
-
-	.embed-container {
-		position: static;
 	}
 
 	iframe,
@@ -85,6 +76,31 @@ div.aligncenter {
 		left: 0;
 		width: 100%;
 		height: 100%;
+	}
+
+	.embed-container {
+		position: relative;
+		max-width: 100%;
+		height: 0;
+		overflow: hidden;
+	}
+}
+
+.wp-embed-aspect-9-16 {
+	.embed-container {
+		padding-bottom: 177.78%;
+	}
+}
+
+.wp-embed-aspect-16-9 {
+	.embed-container {
+		padding-bottom: 56.25%;
+	}
+}
+
+.wp-block-embed-spotify {
+	.embed-container {
+		padding-bottom: 113%;
 	}
 }
 
