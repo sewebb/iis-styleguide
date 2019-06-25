@@ -1,3 +1,12 @@
+.color-primary {
+  color: #ff4069 !important; }
+
+.color-secondary {
+  color: #55c7b4 !important; }
+
+.color-subtle {
+  color: #8e9297 !important; }
+
 .display-flex {
   display: flex !important; }
 
@@ -3876,6 +3885,21 @@
   margin-top: 4rem !important;
   margin-bottom: 4rem !important; }
 
+.u-m-default {
+  margin: 1rem !important; }
+
+.u-m-t-default {
+  margin-top: 1rem !important; }
+
+.u-m-b-default {
+  margin-bottom: 1rem !important; }
+
+.u-m-l-default {
+  margin-left: 1rem !important; }
+
+.u-m-r-default {
+  margin-right: 1rem !important; }
+
 /* stylelint-disable */
 .u-p-0 {
   padding: 0rem !important; }
@@ -4083,6 +4107,21 @@
 .u-p-y-8 {
   padding-top: 4rem !important;
   padding-bottom: 4rem !important; }
+
+.u-p-default {
+  padding: 1rem !important; }
+
+.u-p-t-default {
+  padding-top: 1rem !important; }
+
+.u-p-b-default {
+  padding-bottom: 1rem !important; }
+
+.u-p-l-default {
+  padding-left: 1rem !important; }
+
+.u-p-r-default {
+  padding-right: 1rem !important; }
 
 
 .u-visuallyhidden {

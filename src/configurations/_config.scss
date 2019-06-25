@@ -1,5 +1,8 @@
 @charset 'UTF-8';
 
+@import '../configurations/colors/colors';
+@import '../configurations/colors/colors-functions';
+
 /// Namespace
 /// Prepended to all outputted classes
 ///
@@ -19,3 +22,25 @@ $breakpoints: (
 	'md': 640px,
 	'lg': 1100px
 );
+
+/// Default margin and padding
+///
+/// @group Config
+$default-margin: rhythm(2) !default;
+$default-padding: rhythm(2) !default;
+
+/// Theme colors
+///
+/// @group Config
+$theme-colors: (
+	primary: $color-ruby,
+	secondary: $color-jade,
+	subtle: $color-granit
+);
+
+/// Text colors
+///
+/// @group Config
+.color {
+	@include color_values($theme-colors, 'color', $separator: '-');
+}

@@ -48,3 +48,23 @@ $class-p-y: u-p-y !default;
 		padding-bottom: rhythm($i) !important;
 	}
 }
+
+.u-p-default {
+	padding: $default-padding !important;
+}
+
+.u-p-t-default {
+	padding-top: $default-padding !important;
+}
+
+.u-p-b-default {
+	padding-bottom: $default-padding !important;
+}
+
+.u-p-l-default {
+	padding-left: $default-padding !important;
+}
+
+.u-p-r-default {
+	padding-right: $default-padding !important;
+}

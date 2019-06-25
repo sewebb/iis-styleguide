@@ -47,3 +47,23 @@ $class-m-y: u-m-y !default;
 		margin-bottom: rhythm($i) !important;
 	}
 }
+
+.u-m-default {
+	margin: $default-margin !important;
+}
+
+.u-m-t-default {
+	margin-top: $default-margin !important;
+}
+
+.u-m-b-default {
+	margin-bottom: $default-margin !important;
+}
+
+.u-m-l-default {
+	margin-left: $default-margin !important;
+}
+
+.u-m-r-default {
+	margin-right: $default-margin !important;
+}
