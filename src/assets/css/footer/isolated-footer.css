@@ -4221,9 +4221,11 @@
   .a-button:hover, .a-button:focus {
     color: #50b2fc; }
   .a-button:disabled {
-    background-color: #8e9297;
+    background-color: #8e9297 !important;
     box-shadow: none;
     cursor: not-allowed; }
+    .a-button:disabled [class*='text'] {
+      color: #fff !important; }
   .a-button.is-loading {
     cursor: wait; }
   .a-button.is-loading .a-button__text {
