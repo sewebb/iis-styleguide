@@ -85,3 +85,100 @@ a:focus {
 .FileBrowser-select-label {
 	color: #fff;
 }
+
+ul.Tree-items {
+	counter-reset: nav-counter;
+	display: flex;
+	flex-direction: column;
+}
+
+/* ul.Tree-items > li > h4 > span::before {
+	content: counter(nav-counter) '.';
+	counter-increment: nav-counter;
+	opacity: 1;
+	position: static;
+}
+
+ul.Tree-items > li > h4 > span::first-letter {
+	visibility: hidden;
+} */
+
+#tree-components-collection-configurations {
+	order: 0;
+}
+
+#tree-components-collection-atoms {
+	order: 1;
+}
+
+#tree-components-collection-molecules {
+	order: 2;
+}
+
+#tree-components-collection-organisms {
+	order: 3;
+}
+
+#tree-components-collection-pages {
+	order: 4;
+}
+
+#tree-components-collection-brandbook {
+	order: 5;
+}
+
+#tree-components-collection-brandbook .Tree-collectionLabel {
+	cursor: auto;
+	pointer-events: none;
+}
+
+#tree-components-collection-brandbook .Tree-collectionLabel:hover {
+	background-color: transparent;
+}
+
+#tree-components-collection-brandbook.is-closed ul {
+	display: block;
+}
+
+#tree-components-collection-brandbook .Tree-collection .Tree-collectionLabel {
+	pointer-events: all !important;
+	cursor: pointer;
+}
+
+#tree-components-collection-brandbook > .Tree-depth-2 .Tree-collectionLabel, #tree-components-collection-brandbook > .Tree-depth-2 .Tree-entityLink,
+#tree-components-collection-brandbook .Tree-depth-3 .Tree-collectionLabel span {
+	padding-left: 0.75rem !important;
+}
+
+#tree-components-collection-brandbook .Tree-depth-3 .Tree-collectionLabel, #tree-components-collection-brandbook .Tree-depth-3 .Tree-entityLink,
+#tree-components-collection-brandbook .Tree-depth-2 .Tree-collectionLabel,  #tree-components-collection-brandbook .Tree-depth-2 .Tree-entityLink {
+	padding-left: 2rem;
+}
+
+#tree-components-collection-brandbook > .Tree-collectionItems {
+	display: flex;
+	flex-direction: column;
+}
+
+#tree-components-collection-brandbook .Tree-collection {
+	order: 0;
+}
+
+#tree-components-collection-brandbook .Tree-entity {
+	order: 1;
+}
+
+#tree-components-collection-brandbook :not(data-behaviour) .Tree-entityLink {
+	padding-left: 1rem;
+}
+
+#tree-components-collection-brandbook > h4 > span {
+	font-feature-settings: "dlig" 1;
+	font: normal 0.75rem/1.66667 "Open Sans", Helvetica, Arial, sans-serif;
+    letter-spacing: 0.075em;
+    text-transform: uppercase;
+    -webkit-padding-start: 1rem;
+    padding-inline-start: 0.75rem;
+    margin-bottom: 0;
+	margin-top: 1rem;
+}

@@ -4162,7 +4162,8 @@
   padding: 0;
   list-style: none; }
 
-.u-list-clean > li ul {
+.u-list-clean > li ul,
+.u-list-clean > li ol {
   margin-top: 0.5rem;
   margin-left: 1rem; }
 

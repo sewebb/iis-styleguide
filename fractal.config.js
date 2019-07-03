@@ -17,6 +17,7 @@ fractal.web.set('server.port', ports.fractal);
 /* Theme */
 const myCustomisedTheme = require('@frctl/mandelbrot')({
     'skin': 'default',
+	'favicon': 'https://static.iis.se/favicons/favicon.ico',
 	'styles': ['default','/theme-overrides/css/default.css']
 });
 
@@ -34,6 +35,7 @@ fractal.set('project.title', 'Internetstiftelsen Styleguide');
  * Tell Fractal where to look for components.
  */
 fractal.components.set('path', path.join(__dirname, 'src'));
+fractal.components.set('label', 'Contents');
 
 /*
  * Tell Fractal where to look for documentation pages.

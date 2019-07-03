@@ -1,70 +1,71 @@
 <div class="site" id="site">
-    <div class="site__header" id="siteHeader">
-        <div class="u-position-relative">
-            <header class="o-header">
-                <div class="wrapper">
-                    <div class="row justify-content-between align-items-center flex-nowrap">
-                        <div class="grid-auto">
-                            <a href="/" class="o-header__logo-link">
-                        <span class="o-header__logo"><svg class="logotype">
-                            <use xlink:href="#logotype-default"></use>
-                        </svg>
-                    </span>
-                                <span class="u-visuallyhidden">Till startsidan</span>
-                            </a>
-                        </div>
-                        <div class="grid">
-                            <nav class="a-main-menu">
-                                <ul class="a-main-menu__list">
-                                    <li class="u-hidden-mobile">
-                                        <a href="#" class="a-main-menu__list__link">
-                                            <span class="a-main-menu__list__text">Kunskap</span>
-                                        </a>
-                                    </li>
-                                    <li class="u-hidden-mobile">
-                                        <a href="#" class="a-main-menu__list__link">
-                                            <span class="a-main-menu__list__text">Innovation</span>
-                                        </a>
-                                    </li>
-                                    <li class="u-hidden-mobile">
-                                        <a href="#" class="a-main-menu__list__link is-current">
-                                            <span class="a-main-menu__list__text">Domäner</span>
-                                        </a>
-                                    </li>
-                                    <li class="u-hidden-mobile">
-                                        <a href="#" class="a-main-menu__list__link">
-                                            <span class="a-main-menu__list__text">Om oss</span>
-                                        </a>
-                                    </li>
-                                    <li class="u-hidden-mobile">
-                                        <button type="button" class="a-main-menu__list__link js-toggle-domain-search" aria-expanded="false" data-a11y-toggle="domain-search">
-                                            <span class="a-main-menu__list__text">Sök ledig domän</span>
-                                            <div class="icon-arrow-down"></div>
-                                        </button>
-                                    </li>
-                                    <li>
-                                        <button type="button" class="a-main-menu__list__link js-toggle-mega-menu" aria-expanded="false">
-                                            <span class="a-main-menu__list__text">Meny</span>
-                                            <div class="icon-hamburger"></div>
-                                        </button>
-                                    </li>
-                                </ul>
-                            </nav>
+	<div class="site__header" id="siteHeader">
+		<div class="u-position-relative">
+			<header class="o-header">
+				<div class="wrapper">
+					<div class="row justify-content-between align-items-center flex-nowrap">
+						<div class="grid-auto">
+							<a href="/" class="o-header__logo-link">
+								<span class="o-header__logo">
+									<svg class="logotype">
+										<use xlink:href="#logotype-default"></use>
+									</svg>
+								</span>
+								<span class="u-visuallyhidden">Till startsidan</span>
+							</a>
+						</div>
+						<div class="grid">
+							<nav class="a-main-menu">
+								<ul class="a-main-menu__list">
+									<li class="u-hidden-mobile">
+										<a href="#" class="a-main-menu__list__link">
+											<span class="a-main-menu__list__text">Kunskap</span>
+										</a>
+									</li>
+									<li class="u-hidden-mobile">
+										<a href="#" class="a-main-menu__list__link">
+											<span class="a-main-menu__list__text">Innovation</span>
+										</a>
+									</li>
+									<li class="u-hidden-mobile">
+										<a href="#" class="a-main-menu__list__link is-current">
+											<span class="a-main-menu__list__text">Domäner</span>
+										</a>
+									</li>
+									<li class="u-hidden-mobile">
+										<a href="#" class="a-main-menu__list__link">
+											<span class="a-main-menu__list__text">Om oss</span>
+										</a>
+									</li>
+									<li class="u-hidden-mobile">
+										<button type="button" class="a-main-menu__list__link js-toggle-domain-search" aria-expanded="false" data-a11y-toggle="domain-search">
+											<span class="a-main-menu__list__text">Sök ledig domän</span>
+											<div class="icon-arrow-down"></div>
+										</button>
+									</li>
+									<li>
+										<button type="button" class="a-main-menu__list__link js-toggle-mega-menu" aria-expanded="false">
+											<span class="a-main-menu__list__text">Meny</span>
+											<div class="icon-hamburger"></div>
+										</button>
+									</li>
+								</ul>
+							</nav>
 
-                        </div>
-                    </div>
-                </div>
-            </header>
+						</div>
+					</div>
+				</div>
+			</header>
 
-            {{> @domain-search}}
-        </div>
+			{{> @domain-search}}
+		</div>
 
-        {{> @mega-menu id="megaMenu"}}
-    </div>
-    <div class="site__main" id="siteMain">
-        {{render '@sections'}}
-    </div>
-    <div class="site__footer">
-        {{render '@footer'}}
-    </div>
+		{{> @mega-menu id="megaMenu"}}
+	</div>
+	<div class="site__main" id="siteMain">
+		{{render '@sections'}}
+	</div>
+	<div class="site__footer">
+		{{render '@footer'}}
+	</div>
 </div>

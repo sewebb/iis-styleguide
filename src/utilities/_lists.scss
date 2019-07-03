@@ -9,7 +9,8 @@
 .u-list-clean {
 	@extend %list-clean;
 
-	> li ul {
+	> li ul,
+	> li ol {
 		margin-top: rhythm(1);
 		margin-left: rhythm(2);
 	}
