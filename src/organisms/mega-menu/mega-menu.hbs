@@ -1,85 +1,103 @@
-<div class="wrapper-fluid o-mega-menu" aria-hidden="{{hidden}}" id="{{id}}">
-	{{> @domain-search hidden="true" input_id="search-domain-2" addidional_classes="o-domain-search--is-in-mega-menu" id=false}}
-	<div class="wrapper o-mega-menu__wrapper">
-		<div class="row align-items-start">
-			<div class="grid-lg-4 grid-18">
-				<a href="#" class="o-mega-menu__link o-mega-menu__link--large">Domäner</a>
-				<dl class="o-mega-menu__list">
-					<dt class="o-mega-menu__list__topic"><a href="#" class="o-mega-menu__link">Är domänen ledig?</a></dt>
-					<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Regler och beskrivning av whois</a></dd>
-					<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Registrera en domän</a></dd>
-					<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Villkor och regler</a></dd>
-					<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">.se-/.nu-domäner som snart kan bli lediga</a></dd>
-					<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Tips innan du registrerar en domän/Inspiration och tips</a></dd>
-					<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Återförsäljare</a></dd>
-					<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Kontakta din kundtjänst</a></dd>
-					<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Så fungerar ett domännamn</a></dd>
-					<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Oseriösa metoder</a></dd>
-					<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Tvistlösning</a></dd>
-					<dt class="o-mega-menu__list__topic"><a href="#" class="o-mega-menu__link">Domännamnsbranschen</a></dt>
-					<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Tjänster </a></dd>
-					<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Domänstatistik</a></dd>
-				</dl>
+<div class="o-mega-menu" aria-hidden="{{hidden}}" id="{{id}}">
+	<div class="wrapper-fluid">
+		<div class="row u-m-b-2">
+			<div class="grid-18 o-domain-search-wrapper u-p-x-0">
+				{{> @domain-search hidden="true" input_id="search-domain-2" addidional_classes="o-domain-search--is-in-mega-menu" id=false}}
 			</div>
-			<div class="grid-lg-4 grid-18">
-				<a href="#" class="o-mega-menu__link o-mega-menu__link--large">Kunskap</a>
-				<dl class="o-mega-menu__list">
-					<dt class="o-mega-menu__list__topic"><a href="#" class="o-mega-menu__link">För skolan</a></dt>
-					<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Digitala lektioner</a></dd>
-					<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Lärarfortbildning</a></dd>
-					<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Fördjupning</a></dd>
-					<dt class="o-mega-menu__list__topic"><a href="#" class="o-mega-menu__link">För samhället</a></dt>
-					<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Svenskarna och internet</a></dd>
-					<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Projekt internetaccess</a></dd>
-					<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Federationer</a></dd>
-					<dt class="o-mega-menu__list__topic"><a href="#" class="o-mega-menu__link">För allmänheten</a></dt>
-					<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Digitala lektioner</a></dd>
-					<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Lärarfortbildning</a></dd>
-					<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Fördjupning</a></dd>
-				</dl>
-			</div>
-			<div class="grid-lg-10 grid-18">
-				<div class="row">
-					<div class="grid-lg-8 grid-18">
-						<a href="#" class="o-mega-menu__link o-mega-menu__link--large">Mötesplatser</a>
-						<dl class="o-mega-menu__list">
-							<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Internetdagarna {{> @icon id="external-link" additional_classes="o-mega-menu__link__icon"}}</a></dd>
-							<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Goto 10 {{> @icon id="external-link" additional_classes="o-mega-menu__link__icon"}}</a></dd>
-							<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Forskningssamarbeten {{> @icon id="external-link" additional_classes="o-mega-menu__link__icon"}}</a></dd>
-							<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Internetstiftelsen stöttar {{> @icon id="external-link" additional_classes="o-mega-menu__link__icon"}}</a></dd>
-							<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Investeringar {{> @icon id="external-link" additional_classes="o-mega-menu__link__icon"}}</a></dd>
-						</dl>
-					</div>
-					<div class="grid-lg-8 grid-18">
-						<a href="#" class="o-mega-menu__link o-mega-menu__link--large">English</a>
-						<dl class="o-mega-menu__list">
-							<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Lorem ipsum</a></dd>
-							<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Dolor sit amet</a></dd>
-							<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Aenean sodales vestibulum</a></dd>
-						</dl>
+			<div class="grid-18 background-jade-dark">
+				<div class="wrapper">
+					<div class="row">
+						<div class="grid-18 u-m-y-2 u-p-x-2">
+							<div class="row display-flex align-items-center">
+								<div class="grid-auto u-p-x-0">
+									<span class="o-search__icon">
+										<svg class="icon">
+											<use xlink:href="#icon-search"></use>
+										</svg>
+									</span>
+								</div>
+								<form role="search" method="get" action="/" class="grid u-p-x-0 display-flex">
+									<label for="" class="u-visuallyhidden">sök internetstiftelsen.se</label>
+									<input type="search" name="s" class="o-search__input" value="" placeholder="sök internetstiftelsen.se" aria-describedby="number-of-hits" id="">
+									<button id="o-search-result-submit" type="submit" class="a-button a-button o-search__submit background-jade color-jade">
+										<span class="a-button__text">Sök</span>
+									</button>
+								</form>
+							</div>
+						</div>
 					</div>
 				</div>
-				<div class="row">
-					<div class="grid-lg-8 grid-18">
-						<a href="#" class="o-mega-menu__link o-mega-menu__link--large">Om oss</a>
-						<dl class="o-mega-menu__list">
-							<dt class="o-mega-menu__list__topic"><a href="#" class="o-mega-menu__link">Presentation</a></dt>
-							<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Jobba hos oss</a></dd>
-							<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Press</a></dd>
-							<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Pressbilder och biografier</a></dd>
-							<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Kontakt</a></dd>
-						</dl>
+			</div>
+		</div>
+		<div class="wrapper wrapper-fluid">
+			<div class="row align-items-start">
+				<div class="grid-lg-4 grid-18">
+					<a href="#" class="o-mega-menu__link o-mega-menu__link--large">Domäner</a>
+					<dl class="o-mega-menu__list">
+						<dt class="o-mega-menu__list__topic"><a href="#" class="o-mega-menu__link">Är domänen ledig?</a></dt>
+						<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Regler och beskrivning av whois</a></dd>
+						<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Registrera en domän</a></dd>
+						<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Villkor och regler</a></dd>
+						<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">.se-/.nu-domäner som snart kan bli lediga</a></dd>
+						<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Tips innan du registrerar en domän/Inspiration och tips</a></dd>
+						<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Återförsäljare</a></dd>
+						<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Kontakta din kundtjänst</a></dd>
+						<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Så fungerar ett domännamn</a></dd>
+						<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Oseriösa metoder</a></dd>
+						<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Tvistlösning</a></dd>
+						<dt class="o-mega-menu__list__topic"><a href="#" class="o-mega-menu__link">Domännamnsbranschen</a></dt>
+						<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Tjänster </a></dd>
+						<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Domänstatistik</a></dd>
+					</dl>
+				</div>
+				<div class="grid-lg-4 grid-18">
+					<a href="#" class="o-mega-menu__link o-mega-menu__link--large">Kunskap</a>
+					<dl class="o-mega-menu__list">
+						<dt class="o-mega-menu__list__topic"><a href="#" class="o-mega-menu__link">För skolan</a></dt>
+						<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Digitala lektioner</a></dd>
+						<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Lärarfortbildning</a></dd>
+						<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Fördjupning</a></dd>
+						<dt class="o-mega-menu__list__topic"><a href="#" class="o-mega-menu__link">För samhället</a></dt>
+						<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Svenskarna och internet</a></dd>
+						<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Projekt internetaccess</a></dd>
+						<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Federationer</a></dd>
+						<dt class="o-mega-menu__list__topic"><a href="#" class="o-mega-menu__link">För allmänheten</a></dt>
+						<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Digitala lektioner</a></dd>
+						<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Lärarfortbildning</a></dd>
+						<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Fördjupning</a></dd>
+					</dl>
+				</div>
+				<div class="grid-lg-10 grid-18">
+					<div class="row">
+						<div class="grid-lg-8 grid-18">
+							<a href="#" class="o-mega-menu__link o-mega-menu__link--large">Mötesplatser</a>
+							<dl class="o-mega-menu__list">
+								<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Internetdagarna {{> @icon id="external-link" additional_classes="o-mega-menu__link__icon"}}</a></dd>
+								<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Goto 10 {{> @icon id="external-link" additional_classes="o-mega-menu__link__icon"}}</a></dd>
+								<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Forskningssamarbeten {{> @icon id="external-link" additional_classes="o-mega-menu__link__icon"}}</a></dd>
+								<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Internetstiftelsen stöttar {{> @icon id="external-link" additional_classes="o-mega-menu__link__icon"}}</a></dd>
+								<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Investeringar {{> @icon id="external-link" additional_classes="o-mega-menu__link__icon"}}</a></dd>
+							</dl>
+						</div>
+						<div class="grid-lg-8 grid-18">
+							<a href="#" class="o-mega-menu__link o-mega-menu__link--large">English</a>
+							<dl class="o-mega-menu__list">
+								<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Lorem ipsum</a></dd>
+								<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Dolor sit amet</a></dd>
+								<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Aenean sodales vestibulum</a></dd>
+							</dl>
+						</div>
 					</div>
-					<div class="grid-lg-8 grid-18">
-						<span class="o-mega-menu__link o-mega-menu__link--large u-m-b-2">Sök på Internetstiftelsen.se</span>
-						<div class="row">
-							<div class="grid">
-								<label for="search" class="u-visuallyhidden">Sök på Internetstiftelsen.se</label>
-								<input type="search" class="a-input" id="search" placeholder="Sökfras">
-							</div>
-							<div class="grid-auto">
-								{{> @button text="Sök"}}
-							</div>
+					<div class="row">
+						<div class="grid-lg-8 grid-18">
+							<a href="#" class="o-mega-menu__link o-mega-menu__link--large">Om oss</a>
+							<dl class="o-mega-menu__list">
+								<dt class="o-mega-menu__list__topic"><a href="#" class="o-mega-menu__link">Presentation</a></dt>
+								<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Jobba hos oss</a></dd>
+								<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Press</a></dd>
+								<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Pressbilder och biografier</a></dd>
+								<dd class="o-mega-menu__list__item"><a href="#" class="o-mega-menu__link">Kontakt</a></dd>
+							</dl>
 						</div>
 					</div>
 				</div>

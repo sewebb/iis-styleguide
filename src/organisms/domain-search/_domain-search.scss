@@ -1,8 +1,16 @@
 @charset 'UTF-8';
 
+@include organism(domain-search-wrapper) {
+	background-color: $color-cyberspace;
+
+	@include bp-up(xl) {
+		display: none;
+	}
+}
+
 @include organism(domain-search) {
-	padding: rhythm(3) 0;
-	background-color: $color-snow;
+	padding: rhythm(2) 0;
+	background-color: $color-cyberspace;
 
 	&:not([class*='is-in-mega-menu']) {
 		display: none;
@@ -11,10 +19,17 @@
 		bottom: 0;
 		transform: translateY(0);
 		transition: transform 0.25s ease-out;
+		background-color: $color-snow;
 
 		&[aria-hidden='false'] {
 			transform: translateY(100%);
 			box-shadow: 0 rhythm(0.5) rhythm(0.5) rgba($color-cyberspace, 0.1);
+		}
+
+		[class*='icon'] {
+			svg {
+				fill: $color-cyberspace;
+			}
 		}
 
 		@include bp-up(xl) {
@@ -47,14 +62,14 @@
 	}
 
 	@include e(list-container) {
-		padding: 0 rhythm(1) 0 rhythm(1);
+		padding: 0 rhythm(3);
 	}
 
 	@include e(input) {
 		display: block;
 		width: calc(100% - #{rhythm(2)});
 		margin-right: rhythm(2);
-		padding: rhythm(1);
+		padding: rhythm(1) rhythm(2);
 		transition: padding 0.25s ease-out;
 		border: 0;
 		border-radius: $border-radius;
@@ -63,10 +78,7 @@
 		-webkit-appearance: none;
 
 		@include bp-up(md) {
-			font-size: rem(32px);
-
 			&:focus {
-				padding-left: rhythm(2);
 				background-color: lighten($color-ash, 4%);
 			}
 		}
@@ -81,24 +93,27 @@
 	}
 
 	@include e(list) {
-		display: flex;
-		flex-wrap: wrap;
-		padding: rhythm(1) 0 0 0;
+		display: none;
 
-		li {
-			padding: rhythm(1) 0 0;
-			white-space: nowrap;
+		@include bp-up(xl) {
+			display: flex;
+			flex-wrap: wrap;
+			padding: rhythm(1) 0 0 0;
 
-			a {
-				border-bottom: 0;
-				font-size: rem($size-medium-plus);
-				text-decoration: underline;
+			li {
+				padding: rhythm(1) 0 0;
+				white-space: nowrap;
+
+				a {
+					border-bottom: 0;
+					font-size: rem($size-medium-plus);
+					text-decoration: underline;
+				}
 			}
 		}
 	}
 
 	@include bp-up(md) {
-
 		@include e(pretext) {
 			font-size: rem(32px);
 		}
@@ -108,19 +123,10 @@
 		flex-shrink: 0;
 		padding-right: rhythm(4);
 		padding-left: rhythm(4);
-		font-size: rem(24px);
-
-		@include bp-down(md) {
-			font-size: rem($size-base);
-		}
 
 		@include bp-down(sm) {
 			padding: rhythm(0.6) rhythm(1);
 			font-size: rem($size-small);
 		}
-	}
-
-	@include bp-up(xl) {
-		display: none;
 	}
 }

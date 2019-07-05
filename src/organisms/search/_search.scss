@@ -16,6 +16,10 @@
 		width: $icon-size;
 		height: $icon-size;
 		margin-right: rhythm(2);
+
+		svg {
+			fill: $color-snow;
+		}
 	}
 
 	@include e(status) {
@@ -64,21 +68,6 @@
 		@include e(submit) {
 			padding: rhythm(0.6) rhythm(1);
 			font-size: rem($size-small);
-		}
-	}
-
-	@include bp-up(md) {
-		@include e(padded) {
-			padding: rhythm(3);
-		}
-
-		@include e(icon) {
-			width: $icon-size * 1.5;
-			height: $icon-size * 1.5;
-		}
-
-		@include e(input) {
-			font-size: rem(32px);
 		}
 	}
 

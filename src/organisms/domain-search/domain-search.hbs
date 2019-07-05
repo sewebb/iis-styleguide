@@ -1,11 +1,18 @@
 <div class="wrapper-fluid o-domain-search{{#if addidional_classes}} {{addidional_classes}}{{/if}}" {{#if id}}id="domain-search"{{/if}} aria-hidden="{{hidden}}">
 	<div class="wrapper u-p-x-0">
 		<div class="grid">
-			<div class="display-flex align-items-center">
+			<div class="display-flex align-items-center u-p-x-2">
+				<div class="grid-auto u-p-x-0">
+					<span class="o-search__icon">
+						<svg class="icon">
+							<use xlink:href="#icon-domain"></use>
+						</svg>
+					</span>
+				</div>
 				<div class="grid display-flex u-p-x-0">
 					<label for="{{input_id}}" class="u-visuallyhidden">{{#if label}}{{label}}{{/if}}</label>
-					<input type="search" class="o-domain-search__input js-search-domain-input" autocomplete="off" {{#if label}}placeholder="{{label}}"{{/if}} id="{{input_id}}">
-					{{> @button el="button" button_type="submit" text="Sök" modifiers="secondary o-domain-search__submit" id="o-domain-search-submit"}}
+					<input type="search" class="o-domain-search__input js-search-domain-input" autocomplete="off" placeholder="sök en .se- eller .nu-domän" id="{{input_id}}">
+					{{> @button el="button" button_type="submit" text="Sök" modifiers="secondary o-domain-search__submit background-jade color-jade" id="o-domain-search-submit"}}
 				</div>
 			</div>
 			<div class="row o-domain-search__list-container">
