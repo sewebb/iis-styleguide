@@ -17,8 +17,10 @@
 		height: $icon-size;
 		margin-right: rhythm(2);
 
-		svg {
-			fill: $color-snow;
+		@include m(white) {
+			svg {
+				fill: $color-snow;
+			}
 		}
 	}
 
