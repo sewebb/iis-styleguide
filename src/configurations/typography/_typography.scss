@@ -78,12 +78,10 @@ h4,
 	}
 }
 
-p a:not([class*='button']),
-ul:not([class*='skip']) li a:not([class*='button']),
-ol li a:not([class*='button']),
-dl:not([class*='menu']) dd a,
-td a:not([class*='button']),
-th a:not([class*='button']) {
+p a,
+li a,
+td a,
+th a {
 
 	@extend %break-long-links;
 
@@ -104,8 +102,7 @@ th a:not([class*='button']) {
 	}
 }
 
-li > a,
-dd > a {
+li > a {
 	&.is-active {
 		border-radius: $border-radius;
 		border-color: $color-peacock-light;
