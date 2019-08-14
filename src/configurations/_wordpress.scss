@@ -78,7 +78,8 @@ div.aligncenter {
 		height: 100%;
 	}
 
-	.embed-container {
+	.embed-container,
+	[class*='wp-block-embed__wrapper'] {
 		position: relative;
 		max-width: 100%;
 		height: 0;
@@ -87,19 +88,22 @@ div.aligncenter {
 }
 
 .wp-embed-aspect-9-16 {
-	.embed-container {
+	.embed-container,
+	[class*='wp-block-embed__wrapper'] {
 		padding-bottom: 177.78%;
 	}
 }
 
 .wp-embed-aspect-16-9 {
-	.embed-container {
+	.embed-container,
+	[class*='wp-block-embed__wrapper'] {
 		padding-bottom: 56.25%;
 	}
 }
 
 .wp-block-embed-spotify {
-	.embed-container {
+	.embed-container,
+	[class*='wp-block-embed__wrapper'] {
 		padding-bottom: 113%;
 	}
 }
