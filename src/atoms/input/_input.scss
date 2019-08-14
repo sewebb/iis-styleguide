@@ -14,6 +14,10 @@
 	&[disabled] {
 		@extend %disabled;
 	}
+
+	@include m(discreet) {
+		@extend %discreet;
+	}
 }
 
 @include b(input-icon) {

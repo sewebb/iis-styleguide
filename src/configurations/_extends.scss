@@ -66,6 +66,17 @@
 	}
 }
 
+%discreet {
+	border-style: dashed;
+	border-color: lighten($color-granit, 20%);
+	background-color: transparent;
+
+	&:focus {
+		border-style: solid;
+		background-color: lighten($color-ash, 4%);
+	}
+}
+
 %word-break {
 	overflow-wrap: break-word;
 	word-wrap: break-word;

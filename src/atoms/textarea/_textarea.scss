@@ -14,4 +14,8 @@
 	&[disabled] {
 		@extend %disabled;
 	}
+
+	@include m(discreet) {
+		@extend %discreet;
+	}
 }

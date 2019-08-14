@@ -66,6 +66,13 @@ module.exports = {
 				required: true,
 				modifier: 'a-select--full-width'
 			}
+		},
+		{
+			name: 'Discreet',
+			context: {
+				modifier: 'a-input--discreet',
+				has_icon: false
+			}
 		}
 	]
 }

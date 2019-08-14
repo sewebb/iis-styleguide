@@ -32,6 +32,13 @@ module.exports = {
 				is_invalid: true,
 				required: true
 			}
+		},
+		{
+			name: 'Discreet',
+			context: {
+				modifier: 'a-input--discreet',
+				has_icon: false
+			}
 		}
 	]
 }
