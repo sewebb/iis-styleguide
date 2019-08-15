@@ -29,9 +29,11 @@
 		"watch": "concurrently \"npm:watch:css\" \"npm:watch:js\"",
 		"copy:images": "copyfiles -f src/assets/images/* public/assets/images",
 		"copy:fonts": "copyfiles -f src/base/fonts/* public/assets/fonts",
+		"copy:zip": "copyfiles -f src/assets/zip/* public/assets/zip",
 		"copy:images:build": "copyfiles -f src/assets/images/* build/assets/images",
+		"copy:zip:build": "copyfiles -f src/assets/zip/* build/assets/zip",
 		"copy:fonts:build": "copyfiles -f src/base/fonts/* build/assets/fonts",
-		"copy:build": "npm run copy:images:build && npm run copy:fonts:build",
+		"copy:build": "npm run copy:images:build && npm run copy:zip:build && npm run copy:fonts:build",
 		"build": "npm run build:css && npm run build:js && npm run build:fractal && npm run htmlhint && npm run copy:build",
 		"dev": "concurrently \"npm:start:fractal\" \"npm:watch\"",
 		"package-js": "NODE_ENV=production babel src --out-dir dist --ignore src/**/*.config.js,src/app.js"
