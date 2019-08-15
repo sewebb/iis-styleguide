@@ -36,6 +36,7 @@ module.exports = {
 				url: false,
 				is_current: false,
 				icon: 'icon-speaker',
+				extra_classes: 'a-button a-button--standalone-icon a-button--icon u-p-0',
 				hide_mobile: false
 			},
 			{

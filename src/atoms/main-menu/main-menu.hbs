@@ -4,8 +4,14 @@
 		<li {{#if hide_mobile}}class="u-hidden-mobile"{{/if}}>
 			<{{#if url}}a href="{{url}}"{{else}}button type="button"{{/if}} class="a-main-menu__list__link{{#if is_current}} is-current{{/if}}{{#if extra_class}} {{extra_class}}{{/if}}" {{#if has_expandable}}aria-expanded="false" data-a11y-toggle="{{controls}}"{{/if}}>
 				<span class="a-main-menu__list__text">{{text}}</span>
-				{{#if icon}}
-				<div class="{{icon}}"></div>
+				{{#if extra_classes}}
+					<div class="{{extra_classes}}">
+						{{> @icon id="speaker" additional_classes="a-button__icon"}}
+					</div>
+				{{else}}
+					{{#if icon}}
+					<div class="{{icon}}"></div>
+					{{/if}}
 				{{/if}}
 				{{#if url}}</a>{{else}}</button>{{/if}}
 		</li>
