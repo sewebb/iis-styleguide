@@ -1,0 +1,15 @@
+@charset 'UTF-8';
+
+/* Force normalize links */
+.u-link-normal {
+	padding: 0;
+	border: 0;
+
+	&:hover,
+	&:focus {
+		border: 0;
+		border-radius: none;
+		background-color: transparent;
+		text-decoration: underline;
+	}
+}
