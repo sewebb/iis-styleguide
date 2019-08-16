@@ -3,6 +3,7 @@ module.exports = {
 
 	context: {
 		hidden: 'false',
-		id: 'mega-menu'
+		id: 'mega-menu',
+		extra_style: ''
 	}
 }

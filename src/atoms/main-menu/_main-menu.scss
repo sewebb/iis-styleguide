@@ -76,6 +76,13 @@
 				}
 			}
 
+			@include b(icon) {
+				width: rhythm(2.8);
+				height: rhythm(2.8);
+				margin-left: rhythm(1);
+				fill: $color-cyberspace;
+			}
+
 			@include b(icon-hamburger) {
 				display: flex;
 				position: relative;
