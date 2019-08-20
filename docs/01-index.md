@@ -78,6 +78,34 @@ import Button from 'iis-styleguide/src/atoms/button/button';
 
 Depending on your browser requirements you may use the src version which is not transpiled to ES5.
 
+## Setup
+
+Be sure to include the following features in your setup.
+
+### A no-js/js class to the HTML-element
+
+Add the class `no-js` as default and a javascript that switches that to `js` e.g. below. Some styles are relying on this class to properly display tab highlighting but of course it can be handy in many other cases too.
+```
+<html class="no-js"
+```
+
+```
+<script type="text/javascript">
+	document.querySelector('html').classList.remove('no-js');
+	document.querySelector('html').className += 'js';
+</script>
+```
+
+### Tab Highlighting
+
+Add Tab Highlighting to your site. This ensures clear visual focus styles when navigating the site by tabbing.
+https://github.com/sewebb/iis-styleguide/tree/master/src/utilities/tab-highlighting
+
+### Skip navigation
+
+Add a "skip navigation" to your site. This navigation should contain anchor links to allow users to easily skip to and passed repeating content that is included on every page such as header and main navigation.
+https://styleguide.internetstiftelsen.se/components/detail/skip.html
+
 ## Development
 
 Before you start, make sure you read and understand our coding [standards and conventions](https://github.com/sewebb/iis-start/wiki/IIS-standards-&-conventions).
