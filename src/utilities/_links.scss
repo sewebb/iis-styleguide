@@ -17,3 +17,8 @@
 		background-color: transparent;
 	}
 }
+
+/* Force body text link link-styles */
+.u-link {
+	@extend %link-styles;
+}

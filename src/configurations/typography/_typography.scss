@@ -84,22 +84,7 @@ td a,
 th a {
 
 	@extend %break-long-links;
-
-	padding: rhythm(0) rhythm(0.5);
-	border-bottom: rem(2px) solid $color-peacock;
-	color: $color-black;
-	text-decoration: none;
-
-	&:hover,
-	&:focus {
-		border-bottom: rem(2px) solid $color-ocean-light;
-		border-radius: $border-radius;
-		background-color: $color-ocean-light;
-	}
-
-	&[href^='mailto'] {
-		hyphens: none;
-	}
+	@extend %link-styles;
 }
 
 li > a {
