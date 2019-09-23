@@ -679,22 +679,7 @@ observer.observe(document.body, { childList: true, subtree: true });<span class=
 <span class="hljs-selector-tag">th</span> <span class="hljs-selector-tag">a</span> {
 
 	@<span class="hljs-keyword">extend</span> %break-long-links;
-
-	<span class="hljs-attribute">padding</span>: rhythm(<span class="hljs-number">0</span>) rhythm(<span class="hljs-number">0.5</span>);
-	<span class="hljs-attribute">border-bottom</span>: rem(<span class="hljs-number">2px</span>) solid <span class="hljs-variable">$color-peacock</span>;
-	<span class="hljs-attribute">color</span>: <span class="hljs-variable">$color-black</span>;
-	<span class="hljs-attribute">text-decoration</span>: none;
-
-	&amp;:hover,
-	&amp;:focus {
-		<span class="hljs-attribute">border-bottom</span>: rem(<span class="hljs-number">2px</span>) solid <span class="hljs-variable">$color-ocean-light</span>;
-		<span class="hljs-attribute">border-radius</span>: <span class="hljs-variable">$border-radius</span>;
-		<span class="hljs-attribute">background-color</span>: <span class="hljs-variable">$color-ocean-light</span>;
-	}
-
-	&amp;<span class="hljs-selector-attr">[href^='mailto']</span> {
-		<span class="hljs-attribute">hyphens</span>: none;
-	}
+	@<span class="hljs-keyword">extend</span> %link-styles;
 }
 
 <span class="hljs-selector-tag">li</span> &gt; <span class="hljs-selector-tag">a</span> {
@@ -934,7 +919,7 @@ observer.observe(document.body, { childList: true, subtree: true });<span class=
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">4.6 KB</span>
+                    <span class="Meta-value">4.3 KB</span>
                 </li>
             </ul>
         </div>

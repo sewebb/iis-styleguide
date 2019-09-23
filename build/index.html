@@ -127,6 +127,19 @@ It is built to be fully modular so one can include only what is needed when usin
 
 <span class="hljs-comment">// Standard ES6 version</span>
 <span class="hljs-keyword">import</span> Button <span class="hljs-keyword">from</span> <span class="hljs-string">'iis-styleguide/src/atoms/button/button'</span>;</pre></code><p>Depending on your browser requirements you may use the src version which is not transpiled to ES5.</p>
+<h2 id="setup">Setup</h2>
+<p>Be sure to include the following features in your setup.</p>
+<h3 id="a-no-js-js-class-to-the-html-element">A no-js/js class to the HTML-element</h3>
+<p>Add the class <code>no-js</code> as default and a javascript that switches that to <code>js</code> e.g. below. Some styles are relying on this class to properly display tab highlighting but of course it can be handy in many other cases too.</p>
+<code><pre>&lt;html <span class="hljs-keyword">class</span>=<span class="hljs-string">"no-js"</span></pre></code><code><pre><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><span class="javascript">
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'html'</span>).classList.remove(<span class="hljs-string">'no-js'</span>);
+    <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'html'</span>).className += <span class="hljs-string">'js'</span>;
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></pre></code><h3 id="tab-highlighting">Tab Highlighting</h3>
+<p>Add Tab Highlighting to your site. This ensures clear visual focus styles when navigating the site by tabbing.
+<a href="https://github.com/sewebb/iis-styleguide/tree/master/src/utilities/tab-highlighting">https://github.com/sewebb/iis-styleguide/tree/master/src/utilities/tab-highlighting</a></p>
+<h3 id="skip-navigation">Skip navigation</h3>
+<p>Add a “skip navigation” to your site. This navigation should contain anchor links to allow users to easily skip to and passed repeating content that is included on every page such as header and main navigation.
+<a href="https://styleguide.internetstiftelsen.se/components/detail/skip.html">https://styleguide.internetstiftelsen.se/components/detail/skip.html</a></p>
 <h2 id="development">Development</h2>
 <p>Before you start, make sure you read and understand our coding <a href="https://github.com/sewebb/iis-start/wiki/IIS-standards-&amp;-conventions">standards and conventions</a>.</p>
 <ol>
