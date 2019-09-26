@@ -34,19 +34,3 @@ function acceptCookies() {
 if (acceptButton) {
 	acceptButton.addEventListener('click', acceptCookies);
 }
-
-// ## Don't use this for now
-
-// function deleteCookie(name) { setCookie(name, '', -1); }
-
-// function declineCookies() {
-// 	deleteCookie(cookieName); // Delete cookie if set before
-// 	if (cookieBar) {
-// 		cookieBar.classList.remove(visibleClass);
-// 	}
-// }
-
-
-// if (declineButton) {
-// 	declineButton.addEventListener('click', declineCookies);
-// }
