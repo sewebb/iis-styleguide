@@ -45,12 +45,7 @@
 		}
 	}
 
-	svg:not([class*='logotype']),
-	svg:not([class*='logotype']) svg,
-	svg:not([class*='logotype']) path,
-	svg:not([class*='logotype']) polygon,
-	:not([class*='graph']) svg,
-	:not([class*='graph']) svg * {
+	svg[class*='icon'] {
 		fill: $color-snow !important;
 	}
 
