@@ -48,7 +48,9 @@
 	svg:not([class*='logotype']),
 	svg:not([class*='logotype']) svg,
 	svg:not([class*='logotype']) path,
-	svg:not([class*='logotype']) polygon {
+	svg:not([class*='logotype']) polygon,
+	:not([class*='graph']) svg,
+	:not([class*='graph']) svg * {
 		fill: $color-snow !important;
 	}
 
