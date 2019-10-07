@@ -1,0 +1,21 @@
+@charset 'UTF-8';
+
+.u-z-index-background {
+	z-index: z_index(background) !important;
+}
+
+.u-z-index-foreground {
+	z-index: z_index(foreround) !important;
+}
+
+.u-z-index-foreground-minus {
+	z-index: z_index(foregroundMinus) !important;
+}
+
+.u-z-index-middleground {
+	z-index: z_index(middleground) !important;
+}
+
+.u-z-index-middleground-important {
+	z-index: z_index(middlegroundImportant) !important;
+}
