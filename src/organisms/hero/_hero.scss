@@ -174,6 +174,52 @@
 	// Hero with border-radius
 	@include m(border-radius) {
 		border-radius: $border-radius;
+
+		@include bp-up(md) {
+			@include e(text) {
+				max-width: 100%;
+
+				.supersize {
+					@include plumber(
+						$font-size: 4.5,
+						$line-height: 5,
+						$leading-bottom: 1
+					);
+				}
+			}
+		}
+
+		@include bp-up(lg) {
+			@include e(text) {
+				max-width: 90%;
+			}
+		}
+
+		@include bp-up(xl) {
+			@include e(text) {
+				.supersize {
+					@include plumber(
+						$font-size: 5.5,
+						$line-height: 7,
+						$leading-bottom: 1
+					);
+				}
+			}
+		}
+
+		@include bp-up(xxl) {
+			@include e(text) {
+				max-width: 80%;
+
+				.supersize {
+					@include plumber(
+						$font-size: 7,
+						$line-height: 8,
+						$leading-bottom: 2
+					);
+				}
+			}
+		}
 	}
 
 	// Hero with video
