@@ -2,21 +2,16 @@ const cookieBar = document.querySelector('.js-cookie-disclaimer');
 const visibleClass = 'is-visible';
 const cookieName = 'internetstiftelsen-cookie-consent';
 const acceptButton = document.getElementById('js-accept-cookies');
-// const declineButton = document.getElementById('js-decline-cookies');
+const { protocol } = document.location.protocol;
 
-function isHttps() {
-	return (document.location.protocol === 'https:');
-}
 
 function setCookie(name, value, days) {
 	const d = new Date();
 	d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
 
-	if(isHttps) {
+	if (protocol === 'https:') {
 		document.cookie = `${name}=${value};path=/;SameSite=Strict;Secure;expires=${d.toGMTString()}`;
-	}
-
-	else {
+	} else {
 		document.cookie = `${name}=${value};path=/;SameSite=Strict;expires=${d.toGMTString()}`;
 	}
 }
