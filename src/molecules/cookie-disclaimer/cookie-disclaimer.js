@@ -2,14 +2,15 @@ const cookieBar = document.querySelector('.js-cookie-disclaimer');
 const visibleClass = 'is-visible';
 const cookieName = 'internetstiftelsen-cookie-consent';
 const acceptButton = document.getElementById('js-accept-cookies');
-const { protocol } = document.location.protocol;
+const currentProtocol = document.location.protocol;
+console.log(currentProtocol);
 
 
 function setCookie(name, value, days) {
 	const d = new Date();
 	d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
 
-	if (protocol === 'https:') {
+	if (currentProtocol === 'https:') {
 		document.cookie = `${name}=${value};path=/;SameSite=Strict;Secure;expires=${d.toGMTString()}`;
 	} else {
 		document.cookie = `${name}=${value};path=/;SameSite=Strict;expires=${d.toGMTString()}`;
