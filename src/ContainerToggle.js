@@ -53,4 +53,4 @@ class ContainerToggle {
 	}
 }
 
-module.exports = element => new ContainerToggle(element);
+module.exports = (element) => new ContainerToggle(element);

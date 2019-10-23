@@ -1,16 +1,7 @@
 {
     "parser": "babel-eslint",
-    "extends": "airbnb-base",
+    "extends": "@internetstiftelsen/eslint-config",
     "env": {
         "browser": true
-    },
-    "rules": {
-        "indent": ["error", "tab"],
-        "no-tabs": 0,
-        "import/no-unresolved": [2, {"ignore": ["src/"]}],
-        "no-console": 0
-    },
-    "globals": {
-        "iis_debug": true
     }
 }
