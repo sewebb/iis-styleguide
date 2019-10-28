@@ -4,17 +4,14 @@ var cookieBar = document.querySelector('.js-cookie-disclaimer');
 var visibleClass = 'is-visible';
 var cookieName = 'internetstiftelsen-cookie-consent';
 var acceptButton = document.getElementById('js-accept-cookies');
-// const declineButton = document.getElementById('js-decline-cookies');
-
-function isHttps() {
-	return document.location.protocol === 'https:';
-}
+var currentProtocol = document.location.protocol;
+console.log(currentProtocol);
 
 function setCookie(name, value, days) {
 	var d = new Date();
 	d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
 
-	if (isHttps) {
+	if (currentProtocol === 'https:') {
 		document.cookie = name + '=' + value + ';path=/;SameSite=Strict;Secure;expires=' + d.toGMTString();
 	} else {
 		document.cookie = name + '=' + value + ';path=/;SameSite=Strict;expires=' + d.toGMTString();
