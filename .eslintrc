@@ -3,5 +3,8 @@
     "extends": "@internetstiftelsen/eslint-config",
     "env": {
         "browser": true
+    },
+    "rules": {
+        "no-param-reassign": [2, { "props": false }],
     }
 }

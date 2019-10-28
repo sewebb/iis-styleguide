@@ -24,6 +24,7 @@ export default class Form {
 		this.validationRules = null;
 
 		this.recaptcha = this.element.getAttribute('data-recaptcha');
+
 		if (this.recaptcha) {
 			window.captchaCallback = this.captchaCallback;
 			this.renderCaptchaForm();
@@ -123,11 +124,13 @@ export default class Form {
 		e.preventDefault();
 
 		this.updateData();
+		this.clearFieldErrors();
 
 		if (this.validate()) {
 			if (this.recaptcha) {
 				this.captchaCallback();
 			}
+
 			this.send();
 		} else {
 			this.displayError({ message: this.i18n('Alla fält måste vara ifyllda') });
@@ -155,8 +158,10 @@ export default class Form {
 			return;
 		}
 
+		const errorMessage = (typeof error === 'object') ? error.message : error;
+
 		this.error.classList.remove('is-hidden');
-		this.error.innerHTML = error.message;
+		this.error.innerHTML = errorMessage || this.i18n('Något gick fel');
 	};
 
 	displayFieldError = ([name, error]) => {
@@ -194,6 +199,23 @@ export default class Form {
 		help.innerHTML = error.map(validationMessage).join('<br>');
 	};
 
+	clearFieldErrors() {
+		this.inputs.forEach((input) => {
+			let id = input.getAttribute('aria-describedby');
+
+			if (!id) {
+				id = `${input.getAttribute('name')}-help`;
+				input.setAttribute('aria-describedby', id);
+			}
+
+			const help = document.getElementById(id);
+
+			if (help) {
+				help.innerHTML = '';
+			}
+		});
+	}
+
 	hideMessages() {
 		this.success.classList.add('is-hidden');
 		this.error.classList.add('is-hidden');
@@ -205,16 +227,27 @@ export default class Form {
 
 		const data = Object.entries(this.data).map(([key, value]) => `${key}=${value}`);
 		let dataParam = data.join('&');
+
 		if (this.token) {
 			dataParam += `&token=${this.token}`;
 		}
+
 		fetch(this.element.getAttribute('data-form'), {
 			method: 'POST',
 			body: dataParam,
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded',
 			},
-		}).then((res) => res.json()).then(this.onSuccess).catch(this.displayError);
+		})
+			.then((response) => {
+				if (response.status !== 200) {
+					throw new Error(response.statusText);
+				}
+
+				return response;
+			})
+			.then((res) => res.json()).then(this.onSuccess)
+			.catch(this.displayError);
 	}
 
 	onSuccess = (json) => {
