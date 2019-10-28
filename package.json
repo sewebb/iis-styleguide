@@ -58,7 +58,6 @@
 		"eslint-config-strongloop": "^2.1.0",
 		"eslint-plugin-filenames": "^1.3.2",
 		"eslint-plugin-import": "^2.18.2",
-		"htmlhint": "^0.10.1",
 		"imagemin-cli": "^3.0.0",
 		"node-sass": "^4.13.0",
 		"onchange": "^5.0.2",
