@@ -28,6 +28,5 @@ if (demoButtons.length) {
 }
 
 if (demoForms.length) {
-	console.log(demoForms);
 	demoForms.forEach((element) => new Form(element));
 }
