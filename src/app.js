@@ -1,9 +1,10 @@
+import Form from './molecules/form/Form';
+
 require('./atoms/grid-toggle/grid-toggle');
 require('./atoms/toggle-high-contrast/toggle-high-contrast');
 require('./components');
 
 const Button = require('./atoms/button/Button');
-const Form = require('./molecules/form/Form');
 
 const demoButtons = document.querySelectorAll('button.a-button.has-loader');
 const demoForms = document.querySelectorAll('[data-form]');
