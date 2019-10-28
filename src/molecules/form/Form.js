@@ -76,6 +76,8 @@ export default class Form {
 
 			if ((type === 'checkbox' && input.checked) || (type !== 'checkbox' && value && value.length)) {
 				data[name] = value;
+			} else if (type === 'checkbox' && !input.checked) {
+				delete data[name];
 			}
 		});
 
