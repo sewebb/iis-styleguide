@@ -3,7 +3,6 @@ const visibleClass = 'is-visible';
 const cookieName = 'internetstiftelsen-cookie-consent';
 const acceptButton = document.getElementById('js-accept-cookies');
 const currentProtocol = document.location.protocol;
-console.log(currentProtocol);
 
 
 function setCookie(name, value, days) {
