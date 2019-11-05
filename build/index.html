@@ -102,7 +102,7 @@ It is built to be fully modular so one can include only what is needed when usin
 <p>To use the styleguide in your website or interface you need to install the styleguide and then decide which components you need.</p>
 <p>To install it, run <code>npm i git+ssh://git@github.com:sewebb/iis-styleguide.git</code>.</p>
 <p>When that’s done, you need to configure your build. So open up your main SCSS file,and add the components you need like this:</p>
-<code class="lang-scss"><pre><span class="hljs-comment">// Configurations, foundation, fonts, utilities etc..</span>
+<pre><code class="language-scss"><span class="hljs-comment">// Configurations, foundation, fonts, utilities etc..</span>
 @<span class="hljs-keyword">import</span> <span class="hljs-string">'~iis-styleguide/src/globals'</span>;
 
 <span class="hljs-comment">// Set a project namespace for namespace prefixed classes</span>
@@ -120,21 +120,21 @@ It is built to be fully modular so one can include only what is needed when usin
 @<span class="hljs-keyword">import</span> <span class="hljs-string">'~iis-styleguide/src/molecules/card/card'</span>;
 
 <span class="hljs-comment">// Organisms</span>
-@<span class="hljs-keyword">import</span> <span class="hljs-string">'~iis-styleguide/src/organisms/header/header'</span>;</pre></code><p>Peek into the <a href="https://github.com/sewebb/iis-styleguide/blob/master/src/app.scss">app.scss</a> to see the full set of components.</p>
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'~iis-styleguide/src/organisms/header/header'</span>;</code></pre><p>Peek into the <a href="https://github.com/sewebb/iis-styleguide/blob/master/src/app.scss">app.scss</a> to see the full set of components.</p>
 <p>For javascript it’s basically the same thing. In a javascript file:</p>
-<code class="lang-js"><pre><span class="hljs-comment">// ES5 build version</span>
+<pre><code class="language-js"><span class="hljs-comment">// ES5 build version</span>
 <span class="hljs-keyword">import</span> Button <span class="hljs-keyword">from</span> <span class="hljs-string">'iis-styleguide/dist/atoms/button/button'</span>;
 
 <span class="hljs-comment">// Standard ES6 version</span>
-<span class="hljs-keyword">import</span> Button <span class="hljs-keyword">from</span> <span class="hljs-string">'iis-styleguide/src/atoms/button/button'</span>;</pre></code><p>Depending on your browser requirements you may use the src version which is not transpiled to ES5.</p>
+<span class="hljs-keyword">import</span> Button <span class="hljs-keyword">from</span> <span class="hljs-string">'iis-styleguide/src/atoms/button/button'</span>;</code></pre><p>Depending on your browser requirements you may use the src version which is not transpiled to ES5.</p>
 <h2 id="setup">Setup</h2>
 <p>Be sure to include the following features in your setup.</p>
-<h3 id="a-no-js-js-class-to-the-html-element">A no-js/js class to the HTML-element</h3>
+<h3 id="a-no-jsjs-class-to-the-html-element">A no-js/js class to the HTML-element</h3>
 <p>Add the class <code>no-js</code> as default and a javascript that switches that to <code>js</code> e.g. below. Some styles are relying on this class to properly display tab highlighting but of course it can be handy in many other cases too.</p>
-<code><pre>&lt;html <span class="hljs-keyword">class</span>=<span class="hljs-string">"no-js"</span></pre></code><code><pre><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><span class="javascript">
+<pre><code>&lt;html <span class="hljs-keyword">class</span>=<span class="hljs-string">"no-js"</span></code></pre><pre><code><span class="hljs-tag">&lt;<span class="hljs-name">script</span> <span class="hljs-attr">type</span>=<span class="hljs-string">"text/javascript"</span>&gt;</span><span class="javascript">
     <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'html'</span>).classList.remove(<span class="hljs-string">'no-js'</span>);
     <span class="hljs-built_in">document</span>.querySelector(<span class="hljs-string">'html'</span>).className += <span class="hljs-string">'js'</span>;
-</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></pre></code><h3 id="tab-highlighting">Tab Highlighting</h3>
+</span><span class="hljs-tag">&lt;/<span class="hljs-name">script</span>&gt;</span></code></pre><h3 id="tab-highlighting">Tab Highlighting</h3>
 <p>Add Tab Highlighting to your site. This ensures clear visual focus styles when navigating the site by tabbing.
 <a href="https://github.com/sewebb/iis-styleguide/tree/master/src/utilities/tab-highlighting">https://github.com/sewebb/iis-styleguide/tree/master/src/utilities/tab-highlighting</a></p>
 <h3 id="skip-navigation">Skip navigation</h3>
