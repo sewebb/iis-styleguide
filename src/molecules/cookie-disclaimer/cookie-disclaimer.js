@@ -14,7 +14,12 @@ function showCookieFail() {
 // Check for cookie support
 (function checkCookieSupport() {
 	if (!cookieEnabled) {
-		document.cookie = `${testCookieSupport}=Yes;path=/;SameSite=Strict;Secure;`;
+		if (currentProtocol === 'https:') {
+			document.cookie = `${testCookieSupport}=Yes;path=/;SameSite=Strict;Secure;`;
+		} else {
+			document.cookie = `${testCookieSupport}=Yes;path=/;SameSite=Strict;`;
+		}
+
 		cookieEnabled = document.cookie.indexOf(testCookieSupport) !== -1;
 	}
 	return cookieEnabled || showCookieFail();
