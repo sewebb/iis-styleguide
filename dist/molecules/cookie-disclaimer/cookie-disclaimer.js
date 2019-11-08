@@ -3,36 +3,57 @@
 var cookieBar = document.querySelector('.js-cookie-disclaimer');
 var visibleClass = 'is-visible';
 var cookieName = 'internetstiftelsen-cookie-consent';
+var testCookieSupport = 'Cookies are enabled';
 var acceptButton = document.getElementById('js-accept-cookies');
-// const declineButton = document.getElementById('js-decline-cookies');
+var currentProtocol = document.location.protocol;
+var cookieEnabled = navigator.cookieEnabled.cookieEnabled;
 
-function isHttps() {
-	return document.location.protocol === 'https:';
+// Cookies are disabled
+
+function showCookieFail() {
+	console.warn('Cookies are disabled, engage tinfoil hat mode.');
 }
 
+// Check for cookie support
+(function checkCookieSupport() {
+	if (!cookieEnabled) {
+		if (currentProtocol === 'https:') {
+			document.cookie = testCookieSupport + '=Yes;path=/;SameSite=Strict;Secure;';
+		} else {
+			document.cookie = testCookieSupport + '=Yes;path=/;SameSite=Strict;';
+		}
+
+		cookieEnabled = document.cookie.indexOf(testCookieSupport) !== -1;
+	}
+	return cookieEnabled || showCookieFail();
+})();
+
+// Set cookie
 function setCookie(name, value, days) {
 	var d = new Date();
 	d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
 
-	if (isHttps) {
+	if (currentProtocol === 'https:') {
 		document.cookie = name + '=' + value + ';path=/;SameSite=Strict;Secure;expires=' + d.toGMTString();
 	} else {
 		document.cookie = name + '=' + value + ';path=/;SameSite=Strict;expires=' + d.toGMTString();
 	}
 }
 
+// Get cookie
 function getCookie(name) {
 	var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
 	return v ? v[2] : null;
 }
 
 // No cookie set? Show cookie disclaimer bar
-if (!getCookie(cookieName)) {
+if (!getCookie(cookieName) && cookieEnabled) {
 	if (cookieBar) {
 		cookieBar.classList.add(visibleClass);
 	}
 }
 
+// Cookies accepted
 function acceptCookies() {
 	setCookie(cookieName, 'YES', 365);
 	if (cookieBar) {
@@ -40,6 +61,7 @@ function acceptCookies() {
 	}
 }
 
+// Button click
 if (acceptButton) {
 	acceptButton.addEventListener('click', acceptCookies);
 }
