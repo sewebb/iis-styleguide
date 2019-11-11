@@ -40,9 +40,9 @@
 		"package-js": "NODE_ENV=production babel src --out-dir dist --ignore src/**/*.config.js,src/app.js"
 	},
 	"devDependencies": {
-		"@frctl/fractal": "^1.2.0",
+		"@frctl/fractal": "^1.2.1-beta.1",
 		"@internetstiftelsen/eslint-config": "0.0.2",
-		"autoprefixer": "^9.7.0",
+		"autoprefixer": "^9.7.1",
 		"babel-cli": "^6.26.0",
 		"babel-eslint": "^10.0.3",
 		"babel-plugin-syntax-dynamic-import": "^6.18.0",
@@ -60,12 +60,12 @@
 		"eslint-plugin-import": "^2.18.2",
 		"imagemin-cli": "^3.0.0",
 		"node-sass": "^4.13.0",
-		"onchange": "^5.0.2",
+		"onchange": "^6.1.0",
 		"postcss-cli": "^6.1.3",
 		"sass-extract": "^2.1.0",
 		"stylelint": "^9.8.0",
 		"stylelint-config-property-sort-order-smacss": "^4.0.1",
-		"stylelint-scss": "^3.12.0",
+		"stylelint-scss": "^3.12.1",
 		"uglify-es": "^3.3.9"
 	},
 	"dependencies": {

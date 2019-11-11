@@ -1,4 +1,4 @@
-# IIS Styleguide
+# Internetstiftelsen Styleguide
 
 The styleguide is a set of components that follows the Atomic Design methodology and is powered by Fractal.
 It is built to be fully modular so one can include only what is needed when using the styleguide.
