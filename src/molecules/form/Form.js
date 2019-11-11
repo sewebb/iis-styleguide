@@ -11,7 +11,6 @@ export default class Form {
 		this.error = this.element.querySelector('[data-form-error]');
 		this.success = this.element.querySelector('[data-form-success]');
 		this.successMessage = this.success.innerHTML;
-		this.errorMessage = this.error.innerHTML;
 		this.validation = this.element.querySelector('meta[name="form-validation"]');
 		this.i18n = i18n;
 
