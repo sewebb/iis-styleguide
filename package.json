@@ -7,6 +7,7 @@
 		"fractal": "3000"
 	},
 	"scripts": {
+        "start": "npm run dev",
 		"start:fractal": "fractal start -s",
 		"build:fractal": "fractal build",
 		"scss": "node-sass -o public/assets/css src/app.scss",
