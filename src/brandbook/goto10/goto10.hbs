@@ -138,187 +138,19 @@
 							<div class="row">
 								<div class="grid-18">
 									<h2>Färger</h2>
-									<table class="colors">
-										<tbody>
-											<tr>
-												<td style="background-color: #ffe100;color:#000">
-													Gul <br>
-													HEX #ffe100 <br>
-													RGB 255/225/0 <br>
-													PMS 108 <br>
-													CMYK 0/10/100/0 <br>
-													<br>
-													<br>
-													<br>
-												</td>
-												<td style="background-color: #4c4c4c;color:#fff">
-													Grå <br>
-													HEX #4c4c4c <br>
-													RGB 76/76/76 <br>
-													PMS Warm Gray 11 <br>
-													CMYK 0/0/0/70 <br>
-													<br>
-													<br>
-													<br>
-												</td>
-												<td style="background-color: #000000;color:#fff">
-													Svart <br>
-													HEX #000 <br>
-													RGB 0/0/0 <br>
-													PMS Process Black <br>
-													CMYK 0/30/0/100 <br>
-													<br>
-													<br>
-													<br>
-												</td>
-												<td style="background-color: #ffffff">
-													Vit <br>
-													HEX #fff <br>
-													RGB 250/250/250 <br>
-													PMS – <br>
-													CMYK 0/0/0/0 <br>
-													<br>
-													<br>
-													<br>
-												</td>
-											</tr>
-											<tr>
-												<td style="background-color: #ffe419">
-													#ffe419
-												</td>
-
-												<td style="background-color: #5e5e5e;color:#fff">
-													#5e5e5e
-												</td>
-
-												<td style="background-color: #eee">
-												</td>
-
-												<td style="background-color: #eee">
-												</td>
-											</tr>
-											<tr>
-												<td style="background-color: #ffe733">
-													#ffe733
-												</td>
-
-												<td style="background-color: #707070">
-													#707070
-												</td>
-
-												<td style="background-color: #eee">
-												</td>
-
-												<td style="background-color: #eee">
-												</td>
-											</tr>
-											<tr>
-												<td style="background-color: #ffea4c">
-													#ffea4c
-												</td>
-
-												<td style="background-color: #818181">
-													#818181
-												</td>
-
-												<td style="background-color: #eee">
-												</td>
-
-												<td style="background-color: #eee">
-												</td>
-											</tr>
-											<tr>
-												<td style="background-color: #ffed66">
-													#ffed66
-												</td>
-
-												<td style="background-color: #949494">
-													#949494
-												</td>
-
-												<td style="background-color: #eee">
-												</td>
-
-												<td style="background-color: #eee">
-												</td>
-											</tr>
-											<tr>
-												<td style="background-color: #fff07f">
-													#fff07f
-												</td>
-
-												<td style="background-color: #a5a5a5">
-													#a5a5a5
-												</td>
-
-												<td style="background-color: #eee">
-												</td>
-
-												<td style="background-color: #eee">
-												</td>
-											</tr>
-											<tr>
-												<td style="background-color: #fff399">
-													#fff399
-												</td>
-
-												<td style="background-color: #b7b7b7">
-													#b7b7b7
-												</td>
-
-												<td style="background-color: #eee">
-												</td>
-
-												<td style="background-color: #eee">
-												</td>
-											</tr>
-											<tr>
-												<td style="background-color: #fff6b2">
-													#fff6b2
-												</td>
-
-												<td style="background-color: #c9c9c9">
-													#c9c9c9
-												</td>
-
-												<td style="background-color: #eee">
-												</td>
-
-												<td style="background-color: #eee">
-												</td>
-											</tr>
-											<tr>
-												<td style="background-color: #fff9cc">
-													#fff9cc
-												</td>
-
-												<td style="background-color: #dbdbdb">
-													#dbdbdb
-												</td>
-
-												<td style="background-color: #eee">
-												</td>
-
-												<td style="background-color: #eee">
-												</td>
-											</tr>
-											<tr>
-												<td style="background-color: #fffce5">
-													#fffce5
-												</td>
-
-												<td style="background-color: #ededed">
-													#ededed
-												</td>
-
-												<td style="background-color: #eee">
-												</td>
-
-												<td style="background-color: #eee">
-												</td>
-											</tr>
-										</tbody>
-									</table>
+									<div class="colors">
+										{{#each colors}}
+										<div class="color">
+											<div class="background-{{name}}{{#if hasBorder}} has_border{{/if}}"></div>
+											<p class="beta color-name">{{name}}</p>
+											<p><strong>{{../sass}}:</strong> {{title}}</p>
+											<p><strong>{{../hex}}:</strong> {{hex}}</p>
+											<p><strong>{{../rgb}}:</strong> {{rgb}}</p>
+											<p><strong>{{../cmyk}}:</strong> {{cmyk}}</p>
+											<p><strong>{{../pms}}:</strong> {{pms}}</p>
+										</div>
+										{{/each}}
+									</div>
 								</div>
 							</div>
 						</div>
@@ -328,3 +160,52 @@
 		</div>
 	</div>
 </div>
+
+<style>
+	.colors {
+		display: flex;
+		flex-wrap: wrap;
+		margin-bottom: 2em;
+	}
+
+	.color {
+		flex: 100% 1 0;
+		max-width: 100vw;
+	}
+
+	@media (min-width: 768px) {
+		.color {
+			flex: 50% 1 0;
+		}
+		.color-33 {
+			flex: 33.333333% 1 0;
+		}
+	}
+
+	.color div {
+		width: 100%;
+		height: 80px;
+		margin-bottom: 10px;
+	}
+
+	.has_border {
+		border: 1px solid #d8d8d8;
+	}
+
+	.color p {
+		line-height: 1.25;
+		margin: 0 10px;
+	}
+
+	.color p:last-child {
+		margin-bottom: 40px;
+	}
+
+	.color p strong {
+		font-family: 'Roboto Mono Regular', monotype;
+	}
+
+	.color-name::first-letter {
+		text-transform: uppercase;
+	}
+</style>
