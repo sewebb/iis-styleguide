@@ -137,9 +137,24 @@
 							</div>
 							<div class="row">
 								<div class="grid-18">
-									<h2>Färger</h2>
+									<h2 class="alpha">Primära färger</h2>
 									<div class="colors">
 										{{#each colors}}
+										<div class="color">
+											<div class="background-{{name}}{{#if hasBorder}} has_border{{/if}}"></div>
+											<p class="beta color-name">{{name}}</p>
+											<p><strong>{{../sass}}:</strong> {{title}}</p>
+											<p><strong>{{../hex}}:</strong> {{hex}}</p>
+											<p><strong>{{../rgb}}:</strong> {{rgb}}</p>
+											<p><strong>{{../cmyk}}:</strong> {{cmyk}}</p>
+											<p><strong>{{../pms}}:</strong> {{pms}}</p>
+										</div>
+										{{/each}}
+									</div>
+									<h2 class="alpha">Sekundära färger</h2>
+									<p></p>
+									<div class="colors">
+										{{#each secondaryColors}}
 										<div class="color">
 											<div class="background-{{name}}{{#if hasBorder}} has_border{{/if}}"></div>
 											<p class="beta color-name">{{name}}</p>
