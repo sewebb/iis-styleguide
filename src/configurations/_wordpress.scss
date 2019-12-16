@@ -52,6 +52,11 @@ div.aligncenter {
 
 .wp-block-image {
 	figure {
+		&.aligncenter {
+			figcaption {
+				text-align: center;
+			}
+		}
 		@include bp-down(sm) {
 			&.alignright,
 			&.aligncenter,
@@ -60,6 +65,14 @@ div.aligncenter {
 				float: none;
 			}
 		}
+	}
+
+	figcaption {
+		@include plumber(
+			$font-size: 1.5,
+			$line-height: 2,
+			$leading-bottom: 0
+		);
 	}
 }
 

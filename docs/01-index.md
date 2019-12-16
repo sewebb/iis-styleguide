@@ -64,6 +64,14 @@ $namespace: 'mysite-';
 @import '~iis-styleguide/src/organisms/header/header';
 ```
 
+### SCSS Mixins explained:
+```scss
+@include e(nested-element) {} // Element (.parent-element__nested-element{})
+@include m(modifier-name) {} // Modifier (.parent-element--modifier-name{})
+@include b(block-name) {} // Block (.block-name{})
+
+```
+
 Peek into the [app.scss](https://github.com/sewebb/iis-styleguide/blob/master/src/app.scss) to see the full set of components.
 
 For javascript it's basically the same thing. In a javascript file:
