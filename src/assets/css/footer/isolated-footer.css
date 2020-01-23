@@ -4321,6 +4321,10 @@
     box-shadow: none; }
     .a-button--transparent .a-button__text {
       color: #1f2a36; }
+    .a-button--transparent .a-button__icon {
+      width: 1.33333rem;
+      height: 1.33333rem;
+      fill: #1f2a36; }
   .a-button--ruby-light {
     box-shadow: 0 0 0 1px inset #ff4069;
     color: #ff9fb4; }

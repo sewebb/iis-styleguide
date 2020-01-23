@@ -23,12 +23,6 @@
 
 	@include e(button) {
 		padding-left: 0;
-
-		@include b(icon) {
-			width: $icon-size;
-			height: $icon-size;
-			fill: $color-cyberspace;
-		}
 	}
 
 	@include e(icon) {

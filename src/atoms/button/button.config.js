@@ -8,6 +8,7 @@ module.exports = {
 		button_type: false,
 		type: false,
 		id: false,
+		aria_controls: false
 	},
 	variants: [
 		{
@@ -65,6 +66,15 @@ module.exports = {
 				modifiers: ['icon'],
 				text: 'Button with icon',
 				additional_classes: 'has-loader',
+				icon: 'arrow-forwards',
+				el: 'button'
+			}
+		},
+		{
+			name: 'Transparent with icon',
+			context: {
+				modifiers: ['transparent'],
+				text: 'Going home',
 				icon: 'arrow-forwards',
 				el: 'button'
 			}
