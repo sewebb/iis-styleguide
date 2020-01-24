@@ -20,13 +20,29 @@
 		left: rhythm(1);
 		width: auto;
 		min-width: calc(100% - #{rhythm(1)});
-		padding: rhythm(1) rhythm(2) rhythm(2);
 		border: 1px solid $color-concrete;
 		background-color: $color-snow;
 		white-space: nowrap;
 
 		&[aria-hidden='true'] {
 			display: none;
+		}
+	}
+
+	@include e(item) {
+		padding: 0;
+
+		& + & {
+			border-top: 1px solid $color-concrete;
+		}
+
+		a {
+			display: block;
+			padding: rhythm(1) rhythm(2);
+
+			&:hover {
+				background-color: $color-ash;
+			}
 		}
 	}
 }
