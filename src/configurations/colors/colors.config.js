@@ -74,7 +74,7 @@ module.exports = {
 				name: 'sandstone-light',
 				title: '$color-sandstone-light',
 				hex: '#fcccb1',
-				rgb: '249 153 99',
+				rgb: '252 204 177',
 				cmyk: '1 20 30 0',
 				pms: '719UP',
 				hasBorder: false
