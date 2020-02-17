@@ -80,8 +80,8 @@ h4,
 
 p a,
 li a,
-td a,
-th a {
+td a:not([class*='tag']),
+th a:not([class*='tag']) {
 
 	@extend %break-long-links;
 	@extend %link-styles;
