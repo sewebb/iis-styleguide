@@ -87,7 +87,7 @@
 	&[role='tabpanel'] {
 		position: relative;
 		z-index: 2;
-		padding: rhythm(2);
+		padding: rhythm(2) rhythm(3);
 		background-color: $color-snow;
 
 		&[aria-hidden='true'] {
