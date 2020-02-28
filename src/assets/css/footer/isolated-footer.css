@@ -4196,6 +4196,7 @@
   background-color: initial; }
   .o-footer__link:hover, .o-footer__paragraph:hover, .o-footer__link:focus, .o-footer__paragraph:focus {
     border: none;
+    border-radius: 0;
     background-color: inherit; }
 
 .a-button {

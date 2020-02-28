@@ -4,6 +4,7 @@ require('a11y-toggle');
 require('./vendor/toggle/a11y.toggle-switcher');
 require('./molecules/cookie-disclaimer/cookie-disclaimer');
 require('./organisms/accordion/accordion');
+require('./organisms/tabs/tabs');
 require('./organisms/domain-search/domain-search');
 require('./organisms/mega-menu/mega-menu');
 require('./molecules/share/share');
