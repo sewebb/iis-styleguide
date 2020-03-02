@@ -8,9 +8,7 @@ window.a11yTabs = (function tabsComponentIIFE(global, document) {
 	*/
 	const TabComponent = function TabComponent(element, options) {
 		if (!element || !element.nodeType) {
-			throw new Error(
-				'The DOM element was not found when creating the tab component',
-			);
+			return;
 		}
 
 		const className = 'o-tab-list';
