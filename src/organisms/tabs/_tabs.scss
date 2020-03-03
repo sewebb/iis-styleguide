@@ -89,6 +89,9 @@
 		position: relative;
 		z-index: 2;
 		padding: rhythm(2) rhythm(3);
+		border-top-right-radius: $border-radius;
+		border-bottom-right-radius: $border-radius;
+		border-bottom-left-radius: $border-radius;
 		background-color: $color-snow;
 
 		&[aria-hidden='true'] {
