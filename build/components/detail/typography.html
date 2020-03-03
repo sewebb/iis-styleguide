@@ -675,8 +675,8 @@ observer.observe(document.body, { childList: true, subtree: true });<span class=
 
 <span class="hljs-selector-tag">p</span> <span class="hljs-selector-tag">a</span>,
 <span class="hljs-selector-tag">li</span> <span class="hljs-selector-tag">a</span>,
-<span class="hljs-selector-tag">td</span> <span class="hljs-selector-tag">a</span>,
-<span class="hljs-selector-tag">th</span> <span class="hljs-selector-tag">a</span> {
+<span class="hljs-selector-tag">td</span> <span class="hljs-selector-tag">a</span>:not(<span class="hljs-selector-attr">[class*='tag']</span>),
+<span class="hljs-selector-tag">th</span> <span class="hljs-selector-tag">a</span>:not(<span class="hljs-selector-attr">[class*='tag']</span>) {
 
 	@<span class="hljs-keyword">extend</span> %break-long-links;
 	@<span class="hljs-keyword">extend</span> %link-styles;
@@ -774,8 +774,6 @@ observer.observe(document.body, { childList: true, subtree: true });<span class=
 		<span class="hljs-variable">$leading-bottom</span>: 4
 	);
 
-	<span class="hljs-attribute">letter-spacing</span>: rem(-<span class="hljs-number">0.47px</span>);
-
 	@<span class="hljs-keyword">include</span> bp-up(sm) {
 		@<span class="hljs-keyword">include</span> plumber(
 			<span class="hljs-variable">$font-size</span>: 3,
@@ -858,7 +856,7 @@ observer.observe(document.body, { childList: true, subtree: true });<span class=
 
 	<span class="hljs-selector-class">.meta</span> {
 		@<span class="hljs-keyword">include</span> plumber(
-			<span class="hljs-variable">$font-size</span>: 1.5,
+			<span class="hljs-variable">$font-size</span>: 1.75,
 			<span class="hljs-variable">$leading-bottom</span>: 0
 		);
 
@@ -885,11 +883,6 @@ observer.observe(document.body, { childList: true, subtree: true });<span class=
 		}
 
 		<span class="hljs-selector-class">.meta</span> {
-			@<span class="hljs-keyword">include</span> plumber(
-				<span class="hljs-variable">$font-size</span>: 1.77778,
-				<span class="hljs-variable">$leading-bottom</span>: 0
-			);
-
 			<span class="hljs-comment">// Apparently not allowed to use decimals in plumber...</span>
 			<span class="hljs-attribute">margin-top</span>: rhythm(<span class="hljs-number">0.5</span>);
 			<span class="hljs-attribute">line-height</span>: rhythm(<span class="hljs-number">3.5</span>);
@@ -919,7 +912,7 @@ observer.observe(document.body, { childList: true, subtree: true });<span class=
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">4.3 KB</span>
+                    <span class="Meta-value">4.2 KB</span>
                 </li>
             </ul>
         </div>
@@ -1259,6 +1252,30 @@ observer.observe(document.body, { childList: true, subtree: true });<span class=
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="button--with-icon.html" data-pjax>
                 <span>With Icon</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="button--transparent-with-icon.html" data-pjax>
+                <span>Transparent With Icon</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -2871,7 +2888,7 @@ observer.observe(document.body, { childList: true, subtree: true });<span class=
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2888,6 +2905,30 @@ observer.observe(document.body, { childList: true, subtree: true });<span class=
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="card.html" data-pjax>
                 <span>Card</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="context-menu.html" data-pjax>
+                <span>Context Menu</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -3672,6 +3713,30 @@ observer.observe(document.body, { childList: true, subtree: true });<span class=
 
 
 <span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="tabs.html" data-pjax>
+                <span>Tabs</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
 
 
 </div>

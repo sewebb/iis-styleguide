@@ -120,7 +120,11 @@ It is built to be fully modular so one can include only what is needed when usin
 @<span class="hljs-keyword">import</span> <span class="hljs-string">'~iis-styleguide/src/molecules/card/card'</span>;
 
 <span class="hljs-comment">// Organisms</span>
-@<span class="hljs-keyword">import</span> <span class="hljs-string">'~iis-styleguide/src/organisms/header/header'</span>;</code></pre><p>Peek into the <a href="https://github.com/sewebb/iis-styleguide/blob/master/src/app.scss">app.scss</a> to see the full set of components.</p>
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'~iis-styleguide/src/organisms/header/header'</span>;</code></pre><h3 id="scss-mixins-explained">SCSS Mixins explained:</h3>
+<pre><code class="language-scss">@<span class="hljs-keyword">include</span> e(nested-element) {} <span class="hljs-comment">// Element (.parent-element__nested-element{})</span>
+@<span class="hljs-keyword">include</span> m(modifier-name) {} <span class="hljs-comment">// Modifier (.parent-element--modifier-name{})</span>
+@<span class="hljs-keyword">include</span> b(block-name) {} <span class="hljs-comment">// Block (.block-name{})</span>
+</code></pre><p>Peek into the <a href="https://github.com/sewebb/iis-styleguide/blob/master/src/app.scss">app.scss</a> to see the full set of components.</p>
 <p>For javascript it’s basically the same thing. In a javascript file:</p>
 <pre><code class="language-js"><span class="hljs-comment">// ES5 build version</span>
 <span class="hljs-keyword">import</span> Button <span class="hljs-keyword">from</span> <span class="hljs-string">'iis-styleguide/dist/atoms/button/button'</span>;
@@ -423,6 +427,30 @@ The command <code>npm run build</code> will build the static site in the <code>b
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="components/detail/button--with-icon.html" data-pjax>
                 <span>With Icon</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/button--transparent-with-icon.html" data-pjax>
+                <span>Transparent With Icon</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -2035,7 +2063,7 @@ The command <code>npm run build</code> will build the static site in the <code>b
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -2052,6 +2080,30 @@ The command <code>npm run build</code> will build the static site in the <code>b
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="components/detail/card.html" data-pjax>
                 <span>Card</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/context-menu.html" data-pjax>
+                <span>Context Menu</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -2836,6 +2888,30 @@ The command <code>npm run build</code> will build the static site in the <code>b
 
 
 <span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/tabs.html" data-pjax>
+                <span>Tabs</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
 
 
 </div>

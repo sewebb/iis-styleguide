@@ -314,9 +314,23 @@
 
 </pre>
         
+            <pre><span class="hljs-comment">&lt;!-- Print --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">use</span> <span class="hljs-attr">xlink:href</span>=<span class="hljs-string">"#icon-print"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">use</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+
+</pre>
+        
             <pre><span class="hljs-comment">&lt;!-- Chapters --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon"</span>&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">use</span> <span class="hljs-attr">xlink:href</span>=<span class="hljs-string">"#icon-chapters"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">use</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Link --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">use</span> <span class="hljs-attr">xlink:href</span>=<span class="hljs-string">"#icon-link"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">use</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
 
 </pre>
@@ -352,6 +366,13 @@
             <pre><span class="hljs-comment">&lt;!-- Gauge --&gt;</span>
 <span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon"</span>&gt;</span>
 	<span class="hljs-tag">&lt;<span class="hljs-name">use</span> <span class="hljs-attr">xlink:href</span>=<span class="hljs-string">"#icon-gauge"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">use</span>&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+
+</pre>
+        
+            <pre><span class="hljs-comment">&lt;!-- Play --&gt;</span>
+<span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"icon"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">use</span> <span class="hljs-attr">xlink:href</span>=<span class="hljs-string">"#icon-play"</span>&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">use</span>&gt;</span>
 <span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
 
 </pre>
@@ -639,10 +660,28 @@
 </pre>
         
             <pre>
+<span class="hljs-comment">/* Print */</span>
+{
+  <span class="hljs-attr">"additional_classes"</span>: <span class="hljs-string">""</span>,
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"print"</span>
+}
+
+</pre>
+        
+            <pre>
 <span class="hljs-comment">/* Chapters */</span>
 {
   <span class="hljs-attr">"additional_classes"</span>: <span class="hljs-string">""</span>,
   <span class="hljs-attr">"id"</span>: <span class="hljs-string">"chapters"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Link */</span>
+{
+  <span class="hljs-attr">"additional_classes"</span>: <span class="hljs-string">""</span>,
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"link"</span>
 }
 
 </pre>
@@ -688,6 +727,15 @@
 {
   <span class="hljs-attr">"additional_classes"</span>: <span class="hljs-string">""</span>,
   <span class="hljs-attr">"id"</span>: <span class="hljs-string">"gauge"</span>
+}
+
+</pre>
+        
+            <pre>
+<span class="hljs-comment">/* Play */</span>
+{
+  <span class="hljs-attr">"additional_classes"</span>: <span class="hljs-string">""</span>,
+  <span class="hljs-attr">"id"</span>: <span class="hljs-string">"play"</span>
 }
 
 </pre>
@@ -828,6 +876,8 @@
                 
                 <option value="file-cead123e9028d2bf8f9854d6acb9f42c">latency.svg</option>
                 
+                <option value="file-f85f501684a72c7357a6f1e466163d06">link.svg</option>
+                
                 <option value="file-de99c77d5df74f7cf52b67a3ff573faf">linkedin.svg</option>
                 
                 <option value="file-8aa044b3b6c2c9f28bb69d2283e9941b">lte.svg</option>
@@ -835,6 +885,10 @@
                 <option value="file-205c296068f9a6e8861d81ec3e1d2984">mute.svg</option>
                 
                 <option value="file-6febd97e3c234e97a76dcb6740eecb28">pin.svg</option>
+                
+                <option value="file-1332128d10fde1ca9263ad66316b0e33">play.svg</option>
+                
+                <option value="file-9cbb14ff2ac3e688ad6aff2bb5e63dc8">print.svg</option>
                 
                 <option value="file-3d382723692228afaa080e5e3c94297e">questionmark.svg</option>
                 
@@ -890,7 +944,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">19.4 KB</span>
+                    <span class="Meta-value">20.7 KB</span>
                 </li>
             </ul>
         </div>
@@ -1516,6 +1570,36 @@
             </ul>
         </div>
         
+        <div class="FileBrowser-item" id="file-f85f501684a72c7357a6f1e466163d06" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-SVG FileBrowser-code">
+                                <pre><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"icon-link"</span> <span class="hljs-attr">viewbox</span>=<span class="hljs-string">"0 0 32 32"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"32"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"32"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M14.3 16.3l.7.7c.9.9 2.1 1.4 3.3 1.4 1.3 0 2.5-.5 3.4-1.4l5.1-5.1c1.9-1.9 1.9-4.9 0-6.8s-4.9-1.9-6.8 0l-3.6 3.6L13.7 6l3.6-3.6c3.3-3.3 8.8-3.3 12.1 0 3.3 3.3 3.3 8.8 0 12.1l-5.1 5.1c-1.6 1.6-3.8 2.5-6.1 2.5s-4.4-.9-6-2.5l-.7-.7 2.8-2.6z"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M17.7 15.7L17 15c-1.9-1.8-4.9-1.8-6.7 0l-5.1 5c-1.9 1.9-1.9 4.9 0 6.8.9.9 2.1 1.4 3.4 1.4s2.5-.5 3.4-1.4l3.6-3.6 2.7 2.7-3.6 3.6C13 31.1 10.9 32 8.6 32s-4.5-.9-6.1-2.5c-3.3-3.3-3.3-8.8 0-12.1l5.1-5.1c3.3-3.3 8.8-3.3 12.1 0l.7.7-2.7 2.7z"</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+</pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/icon/link.svg"><span>/components/raw/icon/link.svg</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">src/atoms/icon/link.svg</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">566 Bytes</span>
+                </li>
+            </ul>
+        </div>
+        
         <div class="FileBrowser-item" id="file-de99c77d5df74f7cf52b67a3ff573faf" data-role="resource-preview">
             <ul class="Meta">
                 <li class="Meta-item">
@@ -1644,6 +1728,68 @@
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
                     <span class="Meta-value">328 Bytes</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="FileBrowser-item" id="file-1332128d10fde1ca9263ad66316b0e33" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-SVG FileBrowser-code">
+                                <pre><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">xmlns</span>=<span class="hljs-string">"http://www.w3.org/2000/svg"</span> <span class="hljs-attr">viewBox</span>=<span class="hljs-string">"0 0 32 32"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M16 28.5c6.9 0 12.5-5.6 12.5-12.5S22.9 3.5 16 3.5 3.5 9.1 3.5 16 9.1 28.5 16 28.5m0 3C7.4 31.5.5 24.6.5 16S7.4.5 16 .5 31.5 7.4 31.5 16 24.6 31.5 16 31.5"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M11.7 8.2l11.4 7.7-11.4 7.7z"</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span></pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/icon/play.svg"><span>/components/raw/icon/play.svg</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">src/atoms/icon/play.svg</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">271 Bytes</span>
+                </li>
+            </ul>
+        </div>
+        
+        <div class="FileBrowser-item" id="file-9cbb14ff2ac3e688ad6aff2bb5e63dc8" data-role="resource-preview">
+            <ul class="Meta">
+                <li class="Meta-item">
+                    <strong class="Meta-key">Content:</strong>
+                    <span class="Meta-value">
+                        <div class="FileBrowser-itemPreview">
+                            
+                            <code class="Code Code--lang-SVG FileBrowser-code">
+                                <pre><span class="hljs-tag">&lt;<span class="hljs-name">svg</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"icon-print"</span> <span class="hljs-attr">viewbox</span>=<span class="hljs-string">"0 0 32 32"</span> <span class="hljs-attr">width</span>=<span class="hljs-string">"32"</span> <span class="hljs-attr">height</span>=<span class="hljs-string">"32"</span>&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"cls-1"</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M32 9.78h-5.51V6L20.6 0h-15v9.78H0v14.44h5.56V32h20.93v-7.78H32zM23 6h-3.14V2.82zM8.06 2.5h9.8V8H24v1.78H8.06zM24 29.5H8.06v-7.62l15.94.05zm5.51-7.78h-3v-2.28l-20.95-.07v2.35H2.5v-9.44h27z"</span>/&gt;</span>
+	<span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"cls-1"</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M10.94 23.25h10v1.5h-10zM10.94 26.5h10V28h-10zM23.85 14h3.8v2h-3.8z"</span>/&gt;</span>
+<span class="hljs-tag">&lt;/<span class="hljs-name">svg</span>&gt;</span>
+</pre>
+                            </code>
+                            
+                        </div>
+                    </span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">URL:</strong>
+                    <span class="Meta-value"><a data-no-pjax href="../raw/icon/print.svg"><span>/components/raw/icon/print.svg</span></a></span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Filesystem Path:</strong>
+                    <span class="Meta-value">src/atoms/icon/print.svg</span>
+                </li>
+                <li class="Meta-item">
+                    <strong class="Meta-key">Size:</strong>
+                    <span class="Meta-value">383 Bytes</span>
                 </li>
             </ul>
         </div>
@@ -2070,8 +2216,18 @@
 			<span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M6.3 10.2h7.4V23h4.9V10.2H26L16.1.3z"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M28.5 4v24.5h-25V4H0v28h32V4z"</span>/&gt;</span>
 		<span class="hljs-tag">&lt;/<span class="hljs-name">symbol</span>&gt;</span>
 
+		<span class="hljs-tag">&lt;<span class="hljs-name">symbol</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"icon-print"</span> <span class="hljs-attr">viewbox</span>=<span class="hljs-string">"0 0 32 32"</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"cls-1"</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M32 9.78h-5.51V6L20.6 0h-15v9.78H0v14.44h5.56V32h20.93v-7.78H32zM23 6h-3.14V2.82zM8.06 2.5h9.8V8H24v1.78H8.06zM24 29.5H8.06v-7.62l15.94.05zm5.51-7.78h-3v-2.28l-20.95-.07v2.35H2.5v-9.44h27z"</span>/&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"cls-1"</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M10.94 23.25h10v1.5h-10zM10.94 26.5h10V28h-10zM23.85 14h3.8v2h-3.8z"</span>/&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">symbol</span>&gt;</span>
+
 		<span class="hljs-tag">&lt;<span class="hljs-name">symbol</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"icon-chapters"</span> <span class="hljs-attr">viewbox</span>=<span class="hljs-string">"0 0 32 32"</span>&gt;</span>
 			<span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M26.7 6.4V1H2.5v25.7L7.1 31h22.4V6.4h-2.8zm-2.3-3.1v3H8.9l-2.7-3h18.2zm2.8 25.4H8l-3.2-3V5.4l3 3.3h3.9v7.6l2.4-1.5 2.2 1.5V8.7h10.8v20z"</span>/&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">symbol</span>&gt;</span>
+
+		<span class="hljs-tag">&lt;<span class="hljs-name">symbol</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"icon-link"</span> <span class="hljs-attr">viewbox</span>=<span class="hljs-string">"0 0 32 32"</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M14.3 16.3l.7.7c.9.9 2.1 1.4 3.3 1.4 1.3 0 2.5-.5 3.4-1.4l5.1-5.1c1.9-1.9 1.9-4.9 0-6.8s-4.9-1.9-6.8 0l-3.6 3.6L13.7 6l3.6-3.6c3.3-3.3 8.8-3.3 12.1 0 3.3 3.3 3.3 8.8 0 12.1l-5.1 5.1c-1.6 1.6-3.8 2.5-6.1 2.5s-4.4-.9-6-2.5l-.7-.7 2.8-2.6z"</span>/&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M17.7 15.7L17 15c-1.9-1.8-4.9-1.8-6.7 0l-5.1 5c-1.9 1.9-1.9 4.9 0 6.8.9.9 2.1 1.4 3.4 1.4s2.5-.5 3.4-1.4l3.6-3.6 2.7 2.7-3.6 3.6C13 31.1 10.9 32 8.6 32s-4.5-.9-6.1-2.5c-3.3-3.3-3.3-8.8 0-12.1l5.1-5.1c3.3-3.3 8.8-3.3 12.1 0l.7.7-2.7 2.7z"</span>/&gt;</span>
 		<span class="hljs-tag">&lt;/<span class="hljs-name">symbol</span>&gt;</span>
 
 		<span class="hljs-tag">&lt;<span class="hljs-name">symbol</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"icon-share"</span> <span class="hljs-attr">viewbox</span>=<span class="hljs-string">"0 0 32 32"</span>&gt;</span>
@@ -2088,6 +2244,10 @@
 		<span class="hljs-tag">&lt;/<span class="hljs-name">symbol</span>&gt;</span>
 		<span class="hljs-tag">&lt;<span class="hljs-name">symbol</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"icon-gauge"</span> <span class="hljs-attr">viewbox</span>=<span class="hljs-string">"0 0 32 32"</span>&gt;</span>
 			<span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M9.2 23.1c0 .3-.2.5-.5.5s-.5-.2-.5-.5.2-.5.5-.5.5.2.5.5M6.9 20c0 .3-.2.5-.5.5s-.5-.3-.5-.5c0-.3.2-.5.5-.5s.5.2.5.5M6.9 12.8c0 .3-.2.5-.5.5s-.5-.3-.5-.5c0-.3.2-.5.5-.5s.5.2.5.5M9.2 9.5c0 .3-.2.5-.5.5s-.4-.2-.4-.5.2-.5.4-.5c.3 0 .5.2.5.5M12.4 6.9c0 .3-.2.5-.5.5s-.5-.2-.5-.5.2-.5.5-.5.5.2.5.5M16.6 5.8c0 .4-.3.7-.7.7-.4 0-.7-.3-.7-.7s.3-.7.7-.7c.4-.1.7.3.7.7M6.3 16.6c0 .4-.3.7-.7.7-.4 0-.7-.3-.7-.7 0-.4.3-.7.7-.7.4 0 .7.3.7.7M22.7 23.1c0 .3.2.5.5.5s.5-.2.5-.5-.2-.5-.5-.5-.5.2-.5.5M25 20c0 .3.2.5.5.5s.5-.2.5-.5-.2-.5-.5-.5-.5.2-.5.5M25 12.8c0 .3.2.5.5.5s.5-.2.5-.5-.2-.5-.5-.5-.5.2-.5.5M22.7 9.5c0 .3.2.5.5.5s.5-.2.5-.5-.3-.5-.6-.5c-.2 0-.4.2-.4.5M19.4 6.9c0 .3.2.5.5.5s.5-.2.5-.5-.2-.5-.5-.5-.5.2-.5.5M25.5 16.6c0 .4.3.7.7.7.4 0 .7-.3.7-.7 0-.4-.3-.7-.7-.7-.4 0-.7.3-.7.7"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">g</span> <span class="hljs-attr">transform</span>=<span class="hljs-string">"translate(-624 -576)"</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">class</span>=<span class="hljs-string">"st0"</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M640 604.5c6.9 0 12.5-5.6 12.5-12.5s-5.6-12.5-12.5-12.5-12.5 5.6-12.5 12.5 5.6 12.5 12.5 12.5m0 3c-8.6 0-15.5-6.9-15.5-15.5s6.9-15.5 15.5-15.5 15.5 6.9 15.5 15.5-6.9 15.5-15.5 15.5"</span>/&gt;</span><span class="hljs-tag">&lt;/<span class="hljs-name">g</span>&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M18.1 14.1c-1-1.1-2.8-1.2-3.9-.2s-3.6 7-3.6 7 6.2-1.9 7.3-3c1.2-1 1.3-2.7.2-3.8zM16 17.4c-.7 0-1.3-.6-1.3-1.3 0-.7.6-1.3 1.3-1.3.7 0 1.3.6 1.3 1.3.1.7-.5 1.3-1.3 1.3z"</span>/&gt;</span>
+		<span class="hljs-tag">&lt;/<span class="hljs-name">symbol</span>&gt;</span>
+		<span class="hljs-tag">&lt;<span class="hljs-name">symbol</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"icon-play"</span> <span class="hljs-attr">viewbox</span>=<span class="hljs-string">"0 0 32 32"</span>&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M16 28.5c6.9 0 12.5-5.6 12.5-12.5S22.9 3.5 16 3.5 3.5 9.1 3.5 16 9.1 28.5 16 28.5m0 3C7.4 31.5.5 24.6.5 16S7.4.5 16 .5 31.5 7.4 31.5 16 24.6 31.5 16 31.5"</span>/&gt;</span>
+			<span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M11.7 8.2l11.4 7.7-11.4 7.7z"</span>/&gt;</span>
 		<span class="hljs-tag">&lt;/<span class="hljs-name">symbol</span>&gt;</span>
 		<span class="hljs-tag">&lt;<span class="hljs-name">symbol</span> <span class="hljs-attr">id</span>=<span class="hljs-string">"icon-author"</span> <span class="hljs-attr">viewbox</span>=<span class="hljs-string">"0 0 32 32"</span>&gt;</span>
 			<span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M4 29h24v2H4zM10.3 26H4v-6.3L22.1 1.6l6.3 6.3L10.3 26zM6 24h3.5L25.6 7.9l-3.5-3.5L6 20.5V24z"</span>/&gt;</span><span class="hljs-tag">&lt;<span class="hljs-name">path</span> <span class="hljs-attr">d</span>=<span class="hljs-string">"M17.07 6.69l1.414-1.414 6.293 6.293-1.414 1.415z"</span>/&gt;</span>
@@ -2146,7 +2306,7 @@
                 </li>
                 <li class="Meta-item">
                     <strong class="Meta-key">Size:</strong>
-                    <span class="Meta-value">15.3 KB</span>
+                    <span class="Meta-value">16.5 KB</span>
                 </li>
             </ul>
         </div>
@@ -2300,7 +2460,7 @@
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Variants <em class="Meta-count">(37)</em>:</strong>
+            <strong class="Meta-key">Variants <em class="Meta-count">(40)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="icon--default.html">
@@ -2391,8 +2551,16 @@
                     <span>App Share</span>
                 </a>, 
             
+                <a href="icon--print.html">
+                    <span>Print</span>
+                </a>, 
+            
                 <a href="icon--chapters.html">
                     <span>Chapters</span>
+                </a>, 
+            
+                <a href="icon--link.html">
+                    <span>Link</span>
                 </a>, 
             
                 <a href="icon--share.html">
@@ -2413,6 +2581,10 @@
             
                 <a href="icon--gauge.html">
                     <span>Gauge</span>
+                </a>, 
+            
+                <a href="icon--play.html">
+                    <span>Play</span>
                 </a>, 
             
                 <a href="icon--author.html">
@@ -2478,7 +2650,7 @@
         
         
         <li class="Meta-item">
-            <strong class="Meta-key">Referenced by <em class="Meta-count">(31)</em>:</strong>
+            <strong class="Meta-key">Referenced by <em class="Meta-count">(32)</em>:</strong>
             <span class="Meta-value Meta-value--linkList">
             
                 <a href="archive-link.html">@<span>archive-link</span></a>, 
@@ -2500,6 +2672,8 @@
                 <a href="button--large.html">@<span>button--large</span></a>, 
             
                 <a href="button--with-icon.html">@<span>button--with-icon</span></a>, 
+            
+                <a href="button--transparent-with-icon.html">@<span>button--transparent-with-icon</span></a>, 
             
                 <a href="button--loading.html">@<span>button--loading</span></a>, 
             
@@ -2831,6 +3005,30 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="button--with-icon.html" data-pjax>
                 <span>With Icon</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="button--transparent-with-icon.html" data-pjax>
+                <span>Transparent With Icon</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -4443,7 +4641,7 @@
 <div class="Status-dots">
 
 
-<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
 
 
 </div>
@@ -4460,6 +4658,30 @@
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="card.html" data-pjax>
                 <span>Card</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="context-menu.html" data-pjax>
+                <span>Context Menu</span>
                 
 
 <div class="Status Status--unlabelled">
@@ -5244,6 +5466,30 @@
 
 
 <span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="tabs.html" data-pjax>
+                <span>Tabs</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #FF9233;" title="WIP"></span>
 
 
 </div>
