@@ -45,7 +45,7 @@
 	}
 
 	[role='presentation'] {
-		display: block;
+		display: flex;
 		flex: 0 0 auto;
 		padding: 0;
 
@@ -57,8 +57,9 @@
 	[role='tab'] {
 		@extend %normalize-links;
 
-		display: block;
+		display: inline-flex;
 		position: relative;
+		align-items: center;
 		padding: rhythm(1.5) rhythm(3);
 		border-top-left-radius: $border-radius;
 		border-top-right-radius: $border-radius;
