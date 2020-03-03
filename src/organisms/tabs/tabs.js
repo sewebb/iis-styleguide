@@ -137,8 +137,9 @@ window.a11yTabs = (function tabsComponentIIFE(global, document) {
 	* @param {string} selector
 	*/
 	function createTabComponent(selector, options) {
-		const element = document.querySelector(selector);
-		return tabInstances.get(element) || new TabComponent(element, options);
+		const elements = document.querySelectorAll(selector);
+		[].forEach.call(elements, element => tabInstances.get(element)
+		|| new TabComponent(element, options));
 	}
 
 	/**
@@ -147,9 +148,7 @@ window.a11yTabs = (function tabsComponentIIFE(global, document) {
 	*/
 	function destroyTabComponent(element) {
 		if (!element || !element.nodeType) {
-			throw new Error(
-				'The DOM element was not found when deleting the tab component',
-			);
+			return;
 		}
 
 		const component = tabInstances.get(element);
