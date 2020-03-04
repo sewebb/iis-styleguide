@@ -1,6 +1,5 @@
 {
 	"name": "@internetstiftelsen/styleguide",
-	"private": true,
 	"version": "1.8.4",
 	"main": "src/components.js",
 	"ports": {
