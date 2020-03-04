@@ -1,8 +1,8 @@
 {
-	"name": "iis-styleguide",
+	"name": "@internetstiftelsen/styleguide",
 	"private": true,
-	"version": "0.0.1",
-	"main": "src/",
+	"version": "1.8.4",
+	"main": "src/components.js",
 	"ports": {
 		"fractal": "3000"
 	},
