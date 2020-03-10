@@ -38,30 +38,30 @@ The color codes indicates whether a component is ready for use.
 
 To use the styleguide in your website or interface you need to install the styleguide and then decide which components you need.
 
-To install it, run `npm i git+ssh://git@github.com:sewebb/iis-styleguide.git`.
+To install it, run `npm i @internetstiftelsen/styleguide`.
 
 When that's done, you need to configure your build. So open up your main SCSS file,and add the components you need like this:
 
 ```scss
 // Configurations, foundation, fonts, utilities etc..
-@import '~iis-styleguide/src/globals';
+@import '~@internetstiftelsen/styleguide/src/globals';
 
 // Set a project namespace for namespace prefixed classes
 $namespace: 'mysite-';
 
 // Configuration/Base components
-@import '~iis-styleguide/src/configuration/grid/grid';
-@import '~iis-styleguide/src/configuration/colors/colors';
+@import '~@internetstiftelsen/styleguide/src/configuration/grid/grid';
+@import '~@internetstiftelsen/styleguide/src/configuration/colors/colors';
 
 // Atoms
-@import '~iis-styleguide/src/atoms/button/button';
-@import '~iis-styleguide/src/atoms/input/input';
+@import '~@internetstiftelsen/styleguide/src/atoms/button/button';
+@import '~@internetstiftelsen/styleguide/src/atoms/input/input';
 
 // Molecules
-@import '~iis-styleguide/src/molecules/card/card';
+@import '~@internetstiftelsen/styleguide/src/molecules/card/card';
 
 // Organisms
-@import '~iis-styleguide/src/organisms/header/header';
+@import '~@internetstiftelsen/styleguide/src/organisms/header/header';
 ```
 
 ### SCSS Mixins explained:

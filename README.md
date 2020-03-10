@@ -7,30 +7,30 @@ It is built to be fully modular so one can include only what is needed when usin
 
 To use the styleguide in your website or interface you need to install the styleguide and then decide which components you need.
 
-To install it, run `npm i @internetstiftelsen/styleguide`.
+To install it, run `npm i git+ssh://git@github.com:sewebb/iis-styleguide.git`.
 
 When that's done, you need to configure your build. So open up your main SCSS file and add the components you need like this:
 
 ```scss
 // Configurations, foundation, fonts, utilities etc..
-@import '~@internetstiftelsen/styleguide/src/globals';
+@import '~iis-styleguide/src/globals';
 
 // Set a project namespace for namespace prefixed classes
 $namespace: 'mysite-';
 
 // Configuration/Base components
-@import '~@internetstiftelsen/styleguide/src/configuration/grid/grid';
-@import '~@internetstiftelsen/styleguide/src/configuration/colors/colors';
+@import '~iis-styleguide/src/configuration/grid/grid';
+@import '~iis-styleguide/src/configuration/colors/colors';
 
 // Atoms
-@import '~@internetstiftelsen/styleguide/src/atoms/button/button';
-@import '~@internetstiftelsen/styleguide/src/atoms/input/input';
+@import '~iis-styleguide/src/atoms/button/button';
+@import '~iis-styleguide/src/atoms/input/input';
 
 // Molecules
-@import '~@internetstiftelsen/styleguide/src/molecules/card/card';
+@import '~iis-styleguide/src/molecules/card/card';
 
 // Organisms
-@import '~@internetstiftelsen/styleguide/src/organisms/header/header';
+@import '~iis-styleguide/src/organisms/header/header';
 ```
 
 ### SCSS Mixins explained:
