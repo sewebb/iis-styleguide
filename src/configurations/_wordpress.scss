@@ -111,7 +111,8 @@ div.aligncenter {
 	}
 }
 
-.wp-embed-aspect-16-9 {
+.wp-embed-aspect-16-9,
+.wp-embed-aspect-4-3 {
 	.embed-container,
 	[class*='wp-block-embed__wrapper'] {
 		padding-bottom: 56.25%;
@@ -156,6 +157,16 @@ div.aligncenter {
 				font-size: $size-base;
 			}
 		}
+	}
+}
+
+.wp-block-embed {
+	figcaption {
+		@include plumber(
+			$font-size: 1.5,
+			$line-height: 2,
+			$leading-bottom: 0
+		);
 	}
 }
 
