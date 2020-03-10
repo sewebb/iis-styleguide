@@ -78,10 +78,10 @@ For javascript it's basically the same thing. In a javascript file:
 
 ```js
 // ES5 build version
-import Button from 'iis-styleguide/dist/atoms/button/button';
+import Button from '@internetstiftelsen/styleguide/dist/atoms/button/button';
 
 // Standard ES6 version
-import Button from 'iis-styleguide/src/atoms/button/button';
+import Button from '@internetstiftelsen/styleguide/src/atoms/button/button';
 ```
 
 Depending on your browser requirements you may use the src version which is not transpiled to ES5.
