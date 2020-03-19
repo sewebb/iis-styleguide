@@ -1,0 +1,25 @@
+@charset 'UTF-8';
+
+.u-show-xs {
+	@include bp-down(xs) {
+		display: initial !important;
+	}
+}
+
+.u-show-sm {
+	@include bp-down(sm) {
+		display: initial !important;
+	}
+}
+
+.u-show-md {
+	@include bp-down(md) {
+		display: initial !important;
+	}
+}
+
+.u-show-lg {
+	@include bp-down(lg) {
+		display: initial !important;
+	}
+}
