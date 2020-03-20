@@ -100,37 +100,37 @@ It is built to be fully modular so one can include only what is needed when usin
 
 <h2 id="usage">Usage</h2>
 <p>To use the styleguide in your website or interface you need to install the styleguide and then decide which components you need.</p>
-<p>To install it, run <code>npm i git+ssh://git@github.com:sewebb/iis-styleguide.git</code>.</p>
+<p>To install it, run <code>npm i @internetstiftelsen/styleguide</code>.</p>
 <p>When that’s done, you need to configure your build. So open up your main SCSS file,and add the components you need like this:</p>
 <pre><code class="language-scss"><span class="hljs-comment">// Configurations, foundation, fonts, utilities etc..</span>
-@<span class="hljs-keyword">import</span> <span class="hljs-string">'~iis-styleguide/src/globals'</span>;
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'~@internetstiftelsen/styleguide/src/globals'</span>;
 
 <span class="hljs-comment">// Set a project namespace for namespace prefixed classes</span>
 <span class="hljs-variable">$namespace</span>: <span class="hljs-string">'mysite-'</span>;
 
 <span class="hljs-comment">// Configuration/Base components</span>
-@<span class="hljs-keyword">import</span> <span class="hljs-string">'~iis-styleguide/src/configuration/grid/grid'</span>;
-@<span class="hljs-keyword">import</span> <span class="hljs-string">'~iis-styleguide/src/configuration/colors/colors'</span>;
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'~@internetstiftelsen/styleguide/src/configuration/grid/grid'</span>;
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'~@internetstiftelsen/styleguide/src/configuration/colors/colors'</span>;
 
 <span class="hljs-comment">// Atoms</span>
-@<span class="hljs-keyword">import</span> <span class="hljs-string">'~iis-styleguide/src/atoms/button/button'</span>;
-@<span class="hljs-keyword">import</span> <span class="hljs-string">'~iis-styleguide/src/atoms/input/input'</span>;
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'~@internetstiftelsen/styleguide/src/atoms/button/button'</span>;
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'~@internetstiftelsen/styleguide/src/atoms/input/input'</span>;
 
 <span class="hljs-comment">// Molecules</span>
-@<span class="hljs-keyword">import</span> <span class="hljs-string">'~iis-styleguide/src/molecules/card/card'</span>;
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'~@internetstiftelsen/styleguide/src/molecules/card/card'</span>;
 
 <span class="hljs-comment">// Organisms</span>
-@<span class="hljs-keyword">import</span> <span class="hljs-string">'~iis-styleguide/src/organisms/header/header'</span>;</code></pre><h3 id="scss-mixins-explained">SCSS Mixins explained:</h3>
+@<span class="hljs-keyword">import</span> <span class="hljs-string">'~@internetstiftelsen/styleguide/src/organisms/header/header'</span>;</code></pre><h3 id="scss-mixins-explained">SCSS Mixins explained:</h3>
 <pre><code class="language-scss">@<span class="hljs-keyword">include</span> e(nested-element) {} <span class="hljs-comment">// Element (.parent-element__nested-element{})</span>
 @<span class="hljs-keyword">include</span> m(modifier-name) {} <span class="hljs-comment">// Modifier (.parent-element--modifier-name{})</span>
 @<span class="hljs-keyword">include</span> b(block-name) {} <span class="hljs-comment">// Block (.block-name{})</span>
 </code></pre><p>Peek into the <a href="https://github.com/sewebb/iis-styleguide/blob/master/src/app.scss">app.scss</a> to see the full set of components.</p>
 <p>For javascript it’s basically the same thing. In a javascript file:</p>
 <pre><code class="language-js"><span class="hljs-comment">// ES5 build version</span>
-<span class="hljs-keyword">import</span> Button <span class="hljs-keyword">from</span> <span class="hljs-string">'iis-styleguide/dist/atoms/button/button'</span>;
+<span class="hljs-keyword">import</span> Button <span class="hljs-keyword">from</span> <span class="hljs-string">'@internetstiftelsen/styleguide/dist/atoms/button/button'</span>;
 
 <span class="hljs-comment">// Standard ES6 version</span>
-<span class="hljs-keyword">import</span> Button <span class="hljs-keyword">from</span> <span class="hljs-string">'iis-styleguide/src/atoms/button/button'</span>;</code></pre><p>Depending on your browser requirements you may use the src version which is not transpiled to ES5.</p>
+<span class="hljs-keyword">import</span> Button <span class="hljs-keyword">from</span> <span class="hljs-string">'@internetstiftelsen/styleguide/src/atoms/button/button'</span>;</code></pre><p>Depending on your browser requirements you may use the src version which is not transpiled to ES5.</p>
 <h2 id="setup">Setup</h2>
 <p>Be sure to include the following features in your setup.</p>
 <h3 id="a-no-jsjs-class-to-the-html-element">A no-js/js class to the HTML-element</h3>
