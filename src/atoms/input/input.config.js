@@ -8,7 +8,7 @@ module.exports = {
 		value: false,
 		placeholder: 'Förnamn',
 		autocomplete: 'off',
-		has_icon: true,
+		has_icon: false,
 		required: false,
 		disabled: false
 	},
@@ -17,20 +17,32 @@ module.exports = {
 			name: 'Help text',
 			context: {
 				required: false,
-				has_help: true
+				has_help: false,
+				has_icon: false
+			}
+		},
+		{
+			name: 'With icon',
+			context: {
+				label: 'Sök',
+				placeholder: 'Söktext',
+				required: false,
+				has_icon: true
 			}
 		},
 		{
 			name: 'Disabled',
 			context: {
-				is_disabled: true
+				is_disabled: true,
+				has_icon: false
 			}
 		},
 		{
 			name: 'Invalid',
 			context: {
 				is_invalid: true,
-				required: true
+				required: true,
+				has_icon: false
 			}
 		},
 		{

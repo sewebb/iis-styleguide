@@ -170,6 +170,7 @@
 		border-color: transparent;
 		background-color: transparent;
 		box-shadow: none;
+		color: inherit;
 
 		@include e(text) {
 			color: $color-cyberspace;
