@@ -10,3 +10,4 @@ require('./organisms/mega-menu/mega-menu');
 require('./molecules/share/share');
 require('./atoms/tooltip/tooltip');
 require('./atoms/toggle-high-contrast/toggle-high-contrast');
+require('./atoms/password-toggle/password-toggle');

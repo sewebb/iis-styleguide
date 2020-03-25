@@ -4320,7 +4320,10 @@
     border-color: transparent;
     background-color: transparent;
     box-shadow: none;
-    color: inherit; }
+    color: #1f2a36; }
+    .a-button--transparent:hover, .a-button--transparent:focus {
+      color: inherit;
+      text-decoration: underline; }
     .a-button--transparent .a-button__text {
       color: #1f2a36; }
     .a-button--transparent .a-button__icon {
