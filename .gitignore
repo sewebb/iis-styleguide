@@ -3,7 +3,6 @@ public/assets
 npm-debug.log
 .DS_Store
 .env
-package-lock.json
 .vs/
 build
 .stylelintcache
