@@ -1,6 +1,4 @@
 require('./atoms/grid-toggle/grid-toggle');
-require('./atoms/toggle-high-contrast/toggle-high-contrast');
-require('./molecules/context-menu/context-menu');
 require('./components');
 
 const Button = require('./atoms/button/button');

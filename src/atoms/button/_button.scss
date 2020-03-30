@@ -170,6 +170,13 @@
 		border-color: transparent;
 		background-color: transparent;
 		box-shadow: none;
+		color: $color-cyberspace;
+
+		&:hover,
+		&:focus {
+			color: inherit;
+			text-decoration: underline;
+		}
 
 		@include e(text) {
 			color: $color-cyberspace;

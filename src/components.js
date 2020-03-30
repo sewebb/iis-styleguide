@@ -10,3 +10,5 @@ require('./organisms/mega-menu/mega-menu');
 require('./molecules/share/share');
 require('./atoms/tooltip/tooltip');
 require('./atoms/toggle-high-contrast/toggle-high-contrast');
+require('./molecules/context-menu/context-menu');
+require('./atoms/password-toggle/password-toggle');
