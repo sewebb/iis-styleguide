@@ -4157,6 +4157,9 @@
   .u-hide-lg {
     display: none !important; } }
 
+.u-overflow-hidden {
+  overflow: hidden !important; }
+
 .u-list-clean {
   margin: 0;
   padding: 0;
@@ -4246,7 +4249,8 @@
     transition: 0.3s opacity, 0.3s transform;
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     opacity: 1;
-    color: #fff; }
+    color: #fff;
+    pointer-events: none; }
   .a-button__spinner {
     position: absolute;
     top: 50%;
