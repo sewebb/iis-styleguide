@@ -103,27 +103,27 @@ It is built to be fully modular so one can include only what is needed when usin
 <p>To install it, run <code>npm i @internetstiftelsen/styleguide</code>.</p>
 <p>When that’s done, you need to configure your build. So open up your main SCSS file,and add the components you need like this:</p>
 <pre><code class="language-scss"><span class="hljs-comment">// Configurations, foundation, fonts, utilities etc..</span>
-@<span class="hljs-keyword">import</span> <span class="hljs-string">'~@internetstiftelsen/styleguide/src/globals'</span>;
+<span class="hljs-keyword">@import</span> <span class="hljs-string">'~@internetstiftelsen/styleguide/src/globals'</span>;
 
 <span class="hljs-comment">// Set a project namespace for namespace prefixed classes</span>
 <span class="hljs-variable">$namespace</span>: <span class="hljs-string">'mysite-'</span>;
 
 <span class="hljs-comment">// Configuration/Base components</span>
-@<span class="hljs-keyword">import</span> <span class="hljs-string">'~@internetstiftelsen/styleguide/src/configuration/grid/grid'</span>;
-@<span class="hljs-keyword">import</span> <span class="hljs-string">'~@internetstiftelsen/styleguide/src/configuration/colors/colors'</span>;
+<span class="hljs-keyword">@import</span> <span class="hljs-string">'~@internetstiftelsen/styleguide/src/configuration/grid/grid'</span>;
+<span class="hljs-keyword">@import</span> <span class="hljs-string">'~@internetstiftelsen/styleguide/src/configuration/colors/colors'</span>;
 
 <span class="hljs-comment">// Atoms</span>
-@<span class="hljs-keyword">import</span> <span class="hljs-string">'~@internetstiftelsen/styleguide/src/atoms/button/button'</span>;
-@<span class="hljs-keyword">import</span> <span class="hljs-string">'~@internetstiftelsen/styleguide/src/atoms/input/input'</span>;
+<span class="hljs-keyword">@import</span> <span class="hljs-string">'~@internetstiftelsen/styleguide/src/atoms/button/button'</span>;
+<span class="hljs-keyword">@import</span> <span class="hljs-string">'~@internetstiftelsen/styleguide/src/atoms/input/input'</span>;
 
 <span class="hljs-comment">// Molecules</span>
-@<span class="hljs-keyword">import</span> <span class="hljs-string">'~@internetstiftelsen/styleguide/src/molecules/card/card'</span>;
+<span class="hljs-keyword">@import</span> <span class="hljs-string">'~@internetstiftelsen/styleguide/src/molecules/card/card'</span>;
 
 <span class="hljs-comment">// Organisms</span>
-@<span class="hljs-keyword">import</span> <span class="hljs-string">'~@internetstiftelsen/styleguide/src/organisms/header/header'</span>;</code></pre><h3 id="scss-mixins-explained">SCSS Mixins explained:</h3>
-<pre><code class="language-scss">@<span class="hljs-keyword">include</span> e(nested-element) {} <span class="hljs-comment">// Element (.parent-element__nested-element{})</span>
-@<span class="hljs-keyword">include</span> m(modifier-name) {} <span class="hljs-comment">// Modifier (.parent-element--modifier-name{})</span>
-@<span class="hljs-keyword">include</span> b(block-name) {} <span class="hljs-comment">// Block (.block-name{})</span>
+<span class="hljs-keyword">@import</span> <span class="hljs-string">'~@internetstiftelsen/styleguide/src/organisms/header/header'</span>;</code></pre><h3 id="scss-mixins-explained">SCSS Mixins explained:</h3>
+<pre><code class="language-scss"><span class="hljs-keyword">@include</span> e(nested-element) {} <span class="hljs-comment">// Element (.parent-element__nested-element{})</span>
+<span class="hljs-keyword">@include</span> m(modifier-name) {} <span class="hljs-comment">// Modifier (.parent-element--modifier-name{})</span>
+<span class="hljs-keyword">@include</span> b(block-name) {} <span class="hljs-comment">// Block (.block-name{})</span>
 </code></pre><p>Peek into the <a href="https://github.com/sewebb/iis-styleguide/blob/master/src/app.scss">app.scss</a> to see the full set of components.</p>
 <p>For javascript it’s basically the same thing. In a javascript file:</p>
 <pre><code class="language-js"><span class="hljs-comment">// ES5 build version</span>
@@ -283,6 +283,54 @@ The command <code>npm run build</code> will build the static site in the <code>b
         <li class="Tree-item Tree-entity" data-role="item">
             <a class="Tree-entityLink" href="components/detail/button--ruby-dark.html" data-pjax>
                 <span>Ruby Dark</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/button--jade-light.html" data-pjax>
+                <span>Jade Light</span>
+                
+
+<div class="Status Status--unlabelled">
+
+<div class="Status-dots">
+
+
+<span class="Status-dot" style="border-color: #29CC29;" title="Ready"></span>
+
+
+</div>
+
+</div>
+
+
+            </a>
+        </li>
+        
+    
+        
+        
+        <li class="Tree-item Tree-entity" data-role="item">
+            <a class="Tree-entityLink" href="components/detail/button--jade-dark.html" data-pjax>
+                <span>Jade Dark</span>
                 
 
 <div class="Status Status--unlabelled">

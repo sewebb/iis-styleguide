@@ -26,6 +26,20 @@ module.exports = {
 			}
 		},
 		{
+			name: 'Jade light',
+			context: {
+				modifiers: ['jade-light'],
+				text: 'Jade secondary button'
+			}
+		},
+		{
+			name: 'Jade dark',
+			context: {
+				modifiers: ['jade-dark'],
+				text: 'Jade dark secondary button'
+			}
+		},
+		{
 			name: 'Lemon',
 			context: {
 				modifiers: ['lemon'],

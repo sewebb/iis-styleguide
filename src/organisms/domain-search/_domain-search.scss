@@ -15,6 +15,7 @@
 		&[aria-hidden='false'] {
 
 			@extend %box-shadow;
+
 			transform: translateY(100%);
 		}
 

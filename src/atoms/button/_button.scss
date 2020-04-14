@@ -225,6 +225,41 @@
 		}
 	}
 
+	@include m(jade-light) {
+		box-shadow: 0 0 0 1px inset $color-jade;
+		color: $color-jade-light;
+
+		&:hover,
+		&:focus {
+			color: $color-jade;
+		}
+
+		@include e(text) {
+			color: $color-cyberspace;
+		}
+
+		@include e(icon) {
+			fill: $color-cyberspace;
+		}
+	}
+
+	@include m(jade-dark) {
+		color: $color-jade-dark;
+
+		&:hover,
+		&:focus {
+			color: $color-jade;
+		}
+
+		@include e(text) {
+			color: $color-snow;
+		}
+
+		@include e(icon) {
+			fill: $color-snow;
+		}
+	}
+
 	@include m(lemon) {
 		color: $color-lemon;
 

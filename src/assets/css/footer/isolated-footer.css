@@ -4351,6 +4351,23 @@
       color: #fff; }
     .a-button--ruby-dark .a-button__icon {
       fill: #fff; }
+  .a-button--jade-light {
+    box-shadow: 0 0 0 1px inset #55c7b4;
+    color: #aae3d9; }
+    .a-button--jade-light:hover, .a-button--jade-light:focus {
+      color: #55c7b4; }
+    .a-button--jade-light .a-button__text {
+      color: #1f2a36; }
+    .a-button--jade-light .a-button__icon {
+      fill: #1f2a36; }
+  .a-button--jade-dark {
+    color: #2d897a; }
+    .a-button--jade-dark:hover, .a-button--jade-dark:focus {
+      color: #55c7b4; }
+    .a-button--jade-dark .a-button__text {
+      color: #fff; }
+    .a-button--jade-dark .a-button__icon {
+      fill: #fff; }
   .a-button--lemon {
     color: #ffce2e; }
     .a-button--lemon:hover, .a-button--lemon:focus {
