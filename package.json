@@ -39,7 +39,7 @@
 	},
 	"devDependencies": {
 		"@frctl/fractal": "^1.2.1",
-		"@frctl/mandelbrot": "^1.2.1",
+		"@frctl/mandelbrot": "^1.3.0",
 		"autoprefixer": "^9.7.4",
 		"babel": "^6.23.0",
 		"babel-cli": "^6.26.0",
