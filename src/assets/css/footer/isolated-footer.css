@@ -4385,6 +4385,16 @@
       color: #1f2a36; }
     .a-button--lemon-light .a-button__icon {
       fill: #1f2a36; }
+  .a-button--dashed {
+    border: 1px dashed;
+    background: transparent;
+    box-shadow: none;
+    color: #1f2a36; }
+    .a-button--dashed:hover, .a-button--dashed:focus {
+      color: #1f2a36;
+      text-decoration: underline; }
+    .a-button--dashed .a-button__text {
+      color: inherit; }
 
 .m-alert {
   position: relative;

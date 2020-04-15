@@ -294,4 +294,21 @@
 			fill: $color-cyberspace;
 		}
 	}
+
+	@include m(dashed) {
+		border: 1px dashed;
+		background: transparent;
+		box-shadow: none;
+		color: $color-cyberspace;
+
+		&:hover,
+		&:focus {
+			color: $color-cyberspace;
+			text-decoration: underline;
+		}
+
+		@include e(text) {
+			color: inherit;
+		}
+	}
 }

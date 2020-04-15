@@ -61,6 +61,13 @@ module.exports = {
 			}
 		},
 		{
+			name: 'Dashed',
+			context: {
+				modifiers: ['dashed'],
+				text: 'Dashed hollow button'
+			}
+		},
+		{
 			name: 'Small',
 			context: {
 				modifiers: ['small'],
