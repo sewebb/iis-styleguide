@@ -1,5 +1,5 @@
 a {
-	color: #50b2fc;
+	color: #0477ce;
 }
 
 a:hover,
@@ -181,4 +181,12 @@ ul.Tree-items > li > h4 > span::first-letter {
     padding-inline-start: 0.75rem;
     margin-bottom: 0;
 	margin-top: 1rem;
+}
+
+.Search {
+	margin-bottom: 1rem;
+}
+
+.Search-label {
+	color: #fff;
 }
