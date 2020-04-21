@@ -1,0 +1,152 @@
+<div class="o-features-box background-snow u-border-radius u-p-4">
+
+	<ul class="o-features-box__list u-list-clean">
+
+		<li class="display-flex">
+			<div class="grid-1">{{> @icon id="arrow-backwards" additional_classes="u-icon u-icon--small u-m-t-1"}}</div>
+			<div class="grid-17">Max 40 personer</div>
+		</li>
+
+		<li class="display-flex">
+			<div class="grid-1">{{> @icon id="arrow-backwards" additional_classes="u-icon u-icon--small u-m-t-1"}}</div>
+			<div class="grid-17">Bildskärm med anslutning via HDMI eller Mini Display Port.</div>
+		</li>
+
+		<li class="display-flex">
+			<div class="grid-1">{{> @icon id="arrow-backwards" additional_classes="u-icon u-icon--small u-m-t-1"}}</div>
+			<div class="grid-17">Sunt dolores aliquam non repellat sed nihil doloribus placeat. Autem debitis ut veniam
+				est enim quo et ab accusamus. Et corrupti magni ut id dolores eligendi blanditiis aliquid quis.</div>
+		</li>
+
+		<li class="display-flex">
+			<div class="grid-1">{{> @icon id="check" additional_classes="u-icon u-icon--small u-m-t-1"}}</div>
+			<div class="grid-17">Bildskärm med anslutning via HDMI eller Mini Display Port.</div>
+		</li>
+
+		<li class="display-flex">
+			<div class="grid-1">{{> @icon id="check" additional_classes="u-icon u-icon--small u-m-t-1"}}</div>
+			<div class="grid-17">5 headsets och 4 handmikrofoner</div>
+		</li>
+
+		<li class="display-flex">
+			<div class="grid-1">{{> @icon id="check" additional_classes="u-icon u-icon--small u-m-t-1"}}</div>
+			<div class="grid-17">Riggat för livesändning</div>
+		</li>
+
+		<li class="display-flex">
+			<div class="grid-1">{{> @icon id="check" additional_classes="u-icon u-icon--small u-m-t-1"}}</div>
+			<div class="grid-17">Rullstolsanpassad lokal med ramp</div>
+		</li>
+	</ul>
+
+	<div class="grid-18 row">
+		<button href="http://www.google.se"
+			class="a-button a-button--lemon a-button--icon display-flex u-flex-grow-1 grid-18 u-m-t-4">
+			<span class="a-button__text u-align-center u-flex-grow-1">Skapa event</span>
+			<svg class="icon a-button__icon">
+				<use xlink:href="#icon-arrow-forwards"></use>
+			</svg>
+		</button>
+	</div>
+
+</div>
+
+<div class="o-search-result">
+	<ul class="o-search-result__list">
+		<li class="o-search-result__item o-search-result__item--article">
+			<article class="row">
+				<div class="grid-18 grid-md-4">
+					<a href="#"><img src="{{img_url}}" alt="{{alt}}"
+							class="o-search-result__image o-search-result__image--article"></a>
+				</div>
+				<div class="grid-18 grid-md-14">
+					<div class="o-search-result__item__content">
+						<header>
+							{{> @meta text="September 27, 2018"}}
+							{{render '@read-time'}}
+						</header>
+						<h2>
+							<a href="#" class="o-search-result__item__link">Nätneutraliteten</a>
+						</h2>
+						<p>{{exerpt}}</p>
+					</div>
+				</div>
+			</article>
+		</li>
+		<li class="o-search-result__item o-search-result__item--article">
+			<article class="row">
+				<div class="grid-18 grid-md-4">
+					<a href="#"><img src="{{img_url}}" alt="{{alt}}"
+							class="o-search-result__image o-search-result__image--article"></a>
+				</div>
+				<div class="grid-18 grid-md-14">
+					<div class="o-search-result__item__content">
+						<header>
+							{{> @meta text="September 27, 2018"}}
+							{{render '@read-time'}}
+						</header>
+						<h2>
+							<a href="#" class="o-search-result__item__link">Nätneutraliteten</a>
+						</h2>
+						<p>{{exerpt}}</p>
+					</div>
+				</div>
+			</article>
+		</li>
+		<li class="o-search-result__item o-search-result__item--file">
+			<article class="row">
+				<div class="o-search-result__item__content">
+					<header>
+						{{> @meta text="September 27, 2018"}}
+					</header>
+					<h2>
+						<a href="#" class="o-search-result__item__link">Nätneutraliteten</a>
+					</h2>
+					<p>{{exerpt}}</p>
+				</div>
+				<div class="grid">
+					{{render '@download'}}
+				</div>
+			</article>
+		</li>
+		<li class="o-search-result__item o-search-result__item--page">
+			<article class="row flex-row-reverse">
+				<div class="grid-18 grid-md-9">
+					<a href="#"><img src="{{img_url}}" alt="{{alt}}"
+							class="o-search-result__image o-search-result__image--page"></a>
+				</div>
+				<div class="grid-18 grid-md-9">
+					<div class="o-search-result__item__content">
+						<header>
+							{{> @meta text="September 27, 2018"}}
+						</header>
+						<h2>
+							<a href="#" class="o-search-result__item__link">Nätneutraliteten</a>
+						</h2>
+						<p>{{exerpt}}</p>
+					</div>
+				</div>
+			</article>
+		</li>
+		<li class="o-search-result__item o-search-result__item--article">
+			<article class="row">
+				<div class="grid-18 grid-md-4">
+					<a href="#"><img src="{{img_url}}" alt="{{alt}}"
+							class="o-search-result__image o-search-result__image--article"></a>
+				</div>
+				<div class="grid-18 grid-md-14">
+					<div class="o-search-result__item__content">
+						<header>
+							{{> @meta text="September 27, 2018"}}
+							{{render '@read-time'}}
+						</header>
+						<h2>
+							<a href="#" class="o-search-result__item__link">Nätneutraliteten</a>
+						</h2>
+						<p>{{exerpt}}</p>
+					</div>
+				</div>
+			</article>
+		</li>
+	</ul>
+</div>
