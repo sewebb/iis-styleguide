@@ -17,15 +17,13 @@
 	@include e(caption) {
 		display: flex;
 		position: absolute;
-		z-index: 500;
 		bottom: 0;
 		flex-direction: column;
 		width: 680px;
 	}
 
-	@include e(link) {
+	@include e(content) {
 		position: relative;
-		z-index: z_index(background);
 		align-items: flex-end;
 		align-self: stretch;
 		width: 100%;
@@ -37,6 +35,7 @@
 		&::after {
 			content: '';
 			position: absolute;
+			z-index: -1;
 			top: 0;
 			right: 0;
 			bottom: 0;
@@ -47,15 +46,9 @@
 		}
 	}
 
-
-	@include e(exerpt) {
-		z-index: 1;
-	}
-
 	@include e(headline) {
 		display: flex;
 		position: relative;
-		z-index: z_index(middleground);
 
 		@include e(icon) {
 			width: $icon-size-medium;
