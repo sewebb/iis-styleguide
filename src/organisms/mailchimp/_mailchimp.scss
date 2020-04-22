@@ -59,10 +59,10 @@
 	@include m(sliding) {
 		position: fixed;
 		z-index: z_index(foregroundMinus);
-		right: -120vw;
-		bottom: rhythm(1);
+		right: -500px;
+		bottom: rhythm(2);
 		max-width: 420px;
-		transition: right ease-out 1s;
+		transition: right ease-out 0.35s;
 
 		input,
 		button,
