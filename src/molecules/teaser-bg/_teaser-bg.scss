@@ -1,10 +1,11 @@
 @charset 'UTF-8';
 
 @include molecule(teaser-bg) {
-	width: 680px;
+	display: flex;
 	height: 100%;
 	overflow: hidden;
 	border-radius: $border-radius;
+	background: red;
 
 	@include e(image) {
 		display: block;
@@ -19,7 +20,6 @@
 		position: absolute;
 		bottom: 0;
 		flex-direction: column;
-		width: 680px;
 	}
 
 	@include e(content) {
