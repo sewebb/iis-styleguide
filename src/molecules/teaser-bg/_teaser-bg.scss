@@ -18,7 +18,6 @@
 		display: flex;
 		position: absolute;
 		bottom: 0;
-		flex-direction: column;
 	}
 
 	@include e(content) {
