@@ -1,5 +1,4 @@
-{{#unless headline}}
-{{#unless large}}
+{{#if version1}}
 <div class="background-snow u-border-radius u-p-y-5 u-p-x-4">
 	<ul class="u-list-clean">
 
@@ -47,10 +46,9 @@
 	</div>
 
 </div>
-{{/unless}}
-{{/unless}}
+{{/if}}
 
-{{#if headline}}
+{{#if version2}}
 <div class="background-snow u-border-radius u-p-3">
 
 	<h2 class="u-m-b-2">Vårt utbud i Stockholm</h2>
@@ -106,7 +104,7 @@
 </div>
 {{/if}}
 
-{{#if large}}
+{{#if version3}}
 <div class="background-lemon u-border-radius u-p-6">
 
 	<h2 class="u-m-b-3 supersize">Vårt utbud i Stockholm</h2>
@@ -148,6 +146,55 @@
 			<div>Ekologiskt café med lunchservering.</div>
 		</li>
 	</ul>
+
+</div>
+{{/if}}
+
+{{#if version4}}
+
+<div class="background-snow u-border-radius u-p-y-5 u-p-x-4">
+	<ul class="u-list-clean u-display-table">
+
+		<li class="u-display-table-row">
+			<div class="u-p-r-3 u-p-t-2 u-display-table-cell">Arrangör:</div>
+			<div class="u-display-table-cell"><a href="https://example.com">Creator Circle</a></div>
+		</li>
+
+		<li class="u-display-table-row">
+			<div class="u-p-r-3 u-p-t-2 u-display-table-cell">Språk:</div>
+			<div class="u-display-table-cell">Svenska</div>
+		</li>
+
+		<li class="u-display-table-row">
+			<div class="u-p-r-3 u-p-t-2 u-display-table-cell">{{> @icon id="time" additional_classes="u-icon"}}</div>
+			<div class="u-display-table-cell">24 januari 2020 18:20-21:30</div>
+		</li>
+
+		<li class="u-display-table-row">
+			<div class="u-p-r-3 u-p-t-2 u-display-table-cell">{{> @icon id="pin" additional_classes="u-icon"}}</div>
+			<div class="u-display-table-cell">
+				<span>Gradängen, Goto10</span>
+				<br /><span class="color-granit">Hammarby Slussväg 4, 118 60 Stockholm</span>
+			</div>
+		</li>
+
+		<li class="u-display-table-row">
+			<div class="u-p-r-3 u-p-t-2 u-display-table-cell">{{> @icon id="streaming" additional_classes="u-icon"}}
+			</div>
+			<div class="u-display-table-cell">Sänds live</div>
+		</li>
+
+		<li class="u-display-table-row">
+			<div class="u-p-r-3 u-p-t-2 u-display-table-cell">{{> @icon id="info" additional_classes="u-icon"}}</div>
+			<div class="u-display-table-cell"><a href="#">Spara i din kalender (.ics)</a></div>
+		</li>
+	</ul>
+
+	<div class="grid-18 row">
+		<button href="http://www.google.se" class="a-button a-button--lemon display-flex u-flex-grow-1 grid-18 u-m-t-4">
+			<span class="a-button__text u-align-center u-flex-grow-1">Anmäl dig</span>
+		</button>
+	</div>
 
 </div>
 {{/if}}
