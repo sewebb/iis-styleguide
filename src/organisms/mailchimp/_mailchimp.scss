@@ -60,12 +60,24 @@
 		position: fixed;
 		z-index: z_index(foregroundMinus);
 		right: -120vw;
-		bottom: rhythm(2);
+		bottom: rhythm(1);
 		max-width: 420px;
 		transition: right ease-out 1s;
 
+		input,
+		button,
+		a {
+			display: none;
+		}
+
 		&.is-visible {
 			right: 0;
+
+			input,
+			button,
+			a {
+				display: initial;
+			}
 		}
 
 		@include e(wrapper) {

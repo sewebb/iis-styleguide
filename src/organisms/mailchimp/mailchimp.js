@@ -1,8 +1,30 @@
 const slidingForm = document.querySelector('[class*="--sliding"]');
 const staticForm = document.querySelector('[class*="--static"]');
+const closeButton = document.querySelector('[class*="--sliding"] .js-close-mailchimp-popup');
 const timeout = slidingForm.getAttribute('data-timeout');
-let countDown;
+let timer;
 const throttle = 66; // Trigger event every 66ms
+const visibleClass = 'is-visible';
+const cookieName = 'internetstiftelsen-mailchimp-form-closed';
+const currentProtocol = document.location.protocol;
+
+// Set cookie
+function setCookie(name, value, days) {
+	const d = new Date();
+	d.setTime(d.getTime() + 24 * 60 * 60 * 1000 * days);
+
+	if (currentProtocol === 'https:') {
+		document.cookie = `${name}=${value};path=/;SameSite=Strict;Secure;expires=${d.toGMTString()}`;
+	} else {
+		document.cookie = `${name}=${value};path=/;SameSite=Strict;expires=${d.toGMTString()}`;
+	}
+}
+
+// Get cookie
+function getCookie(name) {
+	const v = document.cookie.match(`(^|;) ?${name}=([^;]*)(;|$)`);
+	return v ? v[2] : null;
+}
 
 function isInViewport(element) {
 	let top = element.offsetTop;
@@ -19,26 +41,19 @@ function isInViewport(element) {
 	);
 }
 
-console.log('timeout', timeout);
-
 function slideForm() {
-	const inViewport = isInViewport(staticForm);
+	if (!getCookie(cookieName)) {
+		const inViewport = isInViewport(staticForm);
+		clearTimeout(timer);
 
-	if (!inViewport) {
-		console.log('inViewport', inViewport);
-		console.log(timeout);
-
-		// The static form is not in the viewport, start timeout to show the sliding form
-		countDown = setTimeout(() => {
-			slidingForm.classList.add('is-visible');
-			slidingForm.tabIndex = 1;
-		}, timeout);
-		console.log('countDown', countDown);
-	} else {
-		console.log('inViewport', inViewport);
-		// Any part the static form in the viewport, clear timeout
-		clearTimeout(countDown);
-		console.log('countDown', countDown);
+		if (!inViewport) {
+			// The static form is not in the viewport, start timeout to show the sliding form
+			timer = setTimeout(() => {
+				slidingForm.classList.add(visibleClass);
+			}, timeout);
+		} else {
+			slidingForm.classList.remove(visibleClass);
+		}
 	}
 }
 
@@ -59,6 +74,16 @@ const elementIsInViewport = debounce(() => {
 }, throttle);
 
 window.addEventListener('scroll', () => {
-	console.log('scroll');
 	elementIsInViewport();
 });
+function closeForm() {
+	setCookie(cookieName, 'YES', 1);
+	slidingForm.classList.remove(visibleClass);
+	slidingForm.tabIndex = -1;
+}
+
+if (closeButton) {
+	closeButton.addEventListener('click', () => {
+		closeForm();
+	});
+}
