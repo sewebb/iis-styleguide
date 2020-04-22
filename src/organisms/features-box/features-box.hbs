@@ -1,8 +1,8 @@
-<div class="background-snow u-border-radius u-p-4">
-
+{{#unless headline}}
+<div class="background-snow u-border-radius u-p-y-5 u-p-x-4">
 	<ul class="u-list-clean">
 
-		<li class="display-flex u-m-t-1">
+		<li class="display-flex">
 			<div class="u-m-r-4">{{> @icon id="capacity" additional_classes="u-icon"}}</div>
 			<div>Max 40 personer</div>
 		</li>
@@ -46,14 +46,16 @@
 	</div>
 
 </div>
+{{/unless}}
 
-<div class="background-snow u-border-radius u-p-4">
+{{#if headline}}
+<div class="background-snow u-border-radius u-p-3">
 
-	<h2>Vårt utbud i Stockholm</h2>
+	<h2 class="u-m-b-2">Vårt utbud i Stockholm</h2>
 
 	<ul class="u-list-clean">
 
-		<li class="display-flex u-m-t-1">
+		<li class="display-flex">
 			<div class="u-m-r-4">{{> @icon id="capacity" additional_classes="u-icon"}}</div>
 			<div>3 fullt utrustade eventlokaler med plats för upp till 99 personer.</div>
 		</li>
@@ -100,3 +102,4 @@
 	</div>
 
 </div>
+{{/if}}
