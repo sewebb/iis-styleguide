@@ -1,4 +1,5 @@
 {{#unless headline}}
+{{#unless large}}
 <div class="background-snow u-border-radius u-p-y-5 u-p-x-4">
 	<ul class="u-list-clean">
 
@@ -46,6 +47,7 @@
 	</div>
 
 </div>
+{{/unless}}
 {{/unless}}
 
 {{#if headline}}
@@ -100,6 +102,52 @@
 			</svg>
 		</button>
 	</div>
+
+</div>
+{{/if}}
+
+{{#if large}}
+<div class="background-lemon u-border-radius u-p-3">
+
+	<h2 class="u-m-b-3 supersize">Vårt utbud i Stockholm</h2>
+
+	<ul class="u-list-clean preamble">
+
+		<li class="display-flex">
+			<div class="u-m-r-4 u-m-t-1">{{> @icon id="capacity" additional_classes="u-icon"}}</div>
+			<div>3 fullt utrustade eventlokaler med plats för upp till 99 personer.</div>
+		</li>
+
+		<li class="display-flex u-m-t-2">
+			<div class="u-m-r-4 u-m-t-1">{{> @icon id="wifi" additional_classes="u-icon"}}</div>
+			<div>Öppet coworking space med fritt wifi.</div>
+		</li>
+
+		<li class="display-flex u-m-t-2">
+			<div class="u-m-r-4 u-m-t-1">{{> @icon id="podcast" additional_classes="u-icon"}}</div>
+			<div>Fullt utrustad poddcaststudio.</div>
+		</li>
+
+		<li class="display-flex u-m-t-2">
+			<div class="u-m-r-4 u-m-t-1">{{> @icon id="3d" additional_classes="u-icon"}}</div>
+			<div>Tillgång till 3D-skrivare.</div>
+		</li>
+
+		<li class="display-flex u-m-t-2">
+			<div class="u-m-r-4 u-m-t-1">{{> @icon id="capacity" additional_classes="u-icon"}}</div>
+			<div>Bokningsbara mötesrum.</div>
+		</li>
+
+		<li class="display-flex u-m-t-2">
+			<div class="u-m-r-4 u-m-t-1">{{> @icon id="accessibility" additional_classes="u-icon"}}</div>
+			<div>Rullstolsanpassad lokal med ramp</div>
+		</li>
+
+		<li class="display-flex u-m-t-2">
+			<div class="u-m-r-4 u-m-t-1">{{> @icon id="cafe" additional_classes="u-icon"}}</div>
+			<div>Ekologiskt café med lunchservering.</div>
+		</li>
+	</ul>
 
 </div>
 {{/if}}
