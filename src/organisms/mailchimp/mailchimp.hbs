@@ -1,0 +1,131 @@
+{{render '@footer'}}
+{{render '@footer'}}
+{{render '@footer'}}
+{{render '@footer'}}
+<section class="o-mailchimp o-mailchimp--static" data-mailchimp="iis-mailchimp-static-form">
+	<div class="wrapper">
+		<div class="o-mailchimp__wrapper">
+			<div class="row flex-row-reverse o-mailchimp__close">
+				<button type="button" class="a-button a-button--transparent a-button--icon">
+					<span class="a-button__text">Stäng</span>
+					<svg class="icon a-button__icon">
+						<use xlink:href="#icon-close"></use>
+					</svg>
+				</button>
+			</div>
+			<div class="row flex-row-reverse">
+				{{#if has_image}}
+				<div class="o-mailchimp__image-container grid-18 grid-lg-10">
+					<img src="/assets/images/hero.jpg" alt="hero" class="o-mailchimp__image">
+				</div>
+				{{else}}
+				<div class="o-mailchimp__image-container grid-18 grid-lg-10">
+					<div class="o-mailchimp__image-missing">
+						{{>@icon id="email"}}
+					</div>
+				</div>
+				{{/if}}
+				<div class="o-mailchimp__content grid-18 grid-lg-8">
+					<h1 class="o-mailchimp__headline">{{heading}}</h1>
+					<p class="o-mailchimp__preamble">{{preable}}</p>
+					<form action="./" method="post">
+						<div class="m-form-control row">
+							<div class="m-form__row grid-18 grid-lg-14 grid-md-10">
+								<div class="field-group">
+									<label for="email" class="a-label u-visuallyhidden">{{label}}</label>
+									<input type="email" class="a-input js-mailchimp-email" name="email" placeholder="{{label}}" required/>
+								</div>
+							</div>
+							<div class="m-form__row grid-18 grid-lg-14 grid-md-10">
+								<div class="o-mailchimp__policy">
+									<fieldset class="field-group">
+										<legend class="u-visuallyhidden">{{policy_agree_short}}</legend>
+										<div class="checkbox">
+											<input id="pa-iis-mailchimp-static-form" name="policy-agree" class="o-mailchimp__policy-agree a-checkbox" type="checkbox" value="1" />
+											<label for="pa-iis-mailchimp-static-form">
+												<span>{{{policy_agree}}}</span>
+											</label>
+										</div>
+									</fieldset>
+								</div>
+							</div>
+						</div>
+						<input type="text" name="hname" class="mailchimp__hname-field is-hidden" placeholder="Leave this field empty" />
+						<input type="hidden" name="mailchimp_list" value="b28f7d99cd"  />
+						<input type="hidden" name="tags" value=""  />
+						<button type="submit" class="a-button js-mailchimp-btn u-m-t-2">
+							<span class="a-button__text">{{subscribe}}</span>
+						</button>
+						<div data-mailchimp-result="1"></div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+<section class="o-mailchimp o-mailchimp--sliding" data-mailchimp="iis-mailchimp-sliding-form" data-timeout="5000" tabindex="-1">
+	<div class="wrapper">
+		<div class="o-mailchimp__wrapper">
+			<div class="row flex-row-reverse o-mailchimp__close">
+				<button type="button" class="a-button a-button--transparent a-button--icon">
+					<span class="a-button__text">Stäng</span>
+					<svg class="icon a-button__icon">
+						<use xlink:href="#icon-close"></use>
+					</svg>
+				</button>
+			</div>
+			<div class="row flex-row-reverse">
+				{{#if has_image}}
+				<div class="o-mailchimp__image-container grid-18 grid-lg-10">
+					<img src="/assets/images/hero.jpg" alt="hero" class="o-mailchimp__image">
+				</div>
+				{{else}}
+				<div class="o-mailchimp__image-container grid-18 grid-lg-10">
+					<div class="o-mailchimp__image-missing">
+						{{>@icon id="email"}}
+					</div>
+				</div>
+				{{/if}}
+				<div class="o-mailchimp__content grid-18 grid-lg-8">
+					<h1 class="o-mailchimp__headline">{{heading}}</h1>
+					<p class="o-mailchimp__preamble">{{preable}}</p>
+					<form action="./" method="post">
+						<div class="m-form-control row">
+							<div class="m-form__row grid-18 grid-lg-14 grid-md-10">
+								<div class="field-group">
+									<label for="email" class="a-label u-visuallyhidden">{{label}}</label>
+									<input type="email" class="a-input js-mailchimp-email" name="email" placeholder="{{label}}" required/>
+								</div>
+							</div>
+							<div class="m-form__row grid-18 grid-lg-14 grid-md-10">
+								<div class="o-mailchimp__policy">
+									<fieldset class="field-group">
+										<legend class="u-visuallyhidden">{{policy_agree_short}}</legend>
+										<div class="checkbox">
+											<input id="pa-iis-mailchimp-static-form" name="policy-agree" class="o-mailchimp__policy-agree a-checkbox" type="checkbox" value="1" />
+											<label for="pa-iis-mailchimp-static-form">
+												<span>{{{policy_agree}}}</span>
+											</label>
+										</div>
+									</fieldset>
+								</div>
+							</div>
+						</div>
+						<input type="text" name="hname" class="mailchimp__hname-field is-hidden" placeholder="Leave this field empty" />
+						<input type="hidden" name="mailchimp_list" value="b28f7d99cd"  />
+						<input type="hidden" name="tags" value=""  />
+						<button type="submit" class="a-button js-mailchimp-btn u-m-t-2">
+							<span class="a-button__text">{{subscribe}}</span>
+						</button>
+						<div data-mailchimp-result="1"></div>
+					</form>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>
+{{render '@footer'}}
+{{render '@footer'}}
+{{render '@footer'}}
+{{render '@footer'}}
+{{render '@footer'}}
