@@ -8,6 +8,8 @@ const visibleClass = 'is-visible';
 const cookieName = 'internetstiftelsen-mailchimp-form-closed';
 const currentProtocol = document.location.protocol;
 
+slidingForm.setAttribute('aria-hidden', 'true');
+
 // Set cookie
 function setCookie(name, value, days) {
 	const d = new Date();
@@ -50,9 +52,11 @@ function slideForm() {
 			// The static form is not in the viewport, start timeout to show the sliding form
 			timer = setTimeout(() => {
 				slidingForm.classList.add(visibleClass);
+				slidingForm.setAttribute('aria-hidden', 'false');
 			}, timeout);
 		} else {
 			slidingForm.classList.remove(visibleClass);
+			slidingForm.setAttribute('aria-hidden', 'true');
 		}
 	}
 }
@@ -79,7 +83,7 @@ window.addEventListener('scroll', () => {
 function closeForm() {
 	setCookie(cookieName, 'YES', 1);
 	slidingForm.classList.remove(visibleClass);
-	slidingForm.tabIndex = -1;
+	slidingForm.setAttribute('aria-hidden', 'true');
 }
 
 if (closeButton) {
