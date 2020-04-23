@@ -16,10 +16,11 @@
 	}
 
 	@include e(image-container) {
-		display: flex;
 		margin-bottom: rhythm(2);
 
 		@include bp-up(lg) {
+			display: flex;
+			display: -webkit-box; // Weird Sarafi bug needs this
 			width: 50%;
 			margin-bottom: 0;
 		}
@@ -27,6 +28,7 @@
 
 	@include e(image) {
 		display: block;
+		flex-grow: 0;
 		border-radius: $border-radius;
 		object-fit: cover;
 	}
@@ -60,7 +62,7 @@
 		position: fixed;
 		z-index: z_index(foregroundMinus);
 		right: -500px;
-		bottom: rhythm(2);
+		bottom: rhythm(1);
 		max-width: 420px;
 		transition: right ease-out 0.35s;
 
