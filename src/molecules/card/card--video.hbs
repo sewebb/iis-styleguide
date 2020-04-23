@@ -1,0 +1,23 @@
+<div
+	class="m-card{{#if is_padded}} m-card--padded{{/if}}{{#if is_wide}} m-card--wide{{/if}}{{#if has_shadow}} m-card--shadow{{/if}}{{#if has_border}} m-card--bordered{{/if}}">
+
+	<div class="m-card__image m-card__image--iconOverlay">
+		<img src="{{img_url}}" class="m-card__image__elm" alt="{{alt}}" />
+		<div class="m-card__image__overlayImage">
+			{{> @icon id="play" additional_classes=""}}
+		</div>
+	</div>
+
+	<div class="m-card__content">
+		<div class="m-card__meta">
+			{{> @meta text="2020-04-23" }}
+		</div>
+		<a href="{{url}}" class="m-card__link">
+			<h2 class="m-card__heading-link__heading">Lorem ipsum dolor</h2>
+		</a>
+		<p class="m-card__text">
+			Et et placeat odit dolor. Omnis maiores excepturi. Voluptatem possimus sapiente labore magni.
+		</p>
+	</div>
+
+</div>
