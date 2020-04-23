@@ -12,6 +12,16 @@
 		border-radius: $border-radius;
 	}
 
+	@include e(map) {
+		display: block;
+		overflow: hidden;
+		border-radius: $border-radius;
+		@include e(elm) {
+			width: 100%;
+			height: 100%;
+		}
+	}
+
 	@include e(link) {
 		color: $color-cyberspace;
 		text-decoration: none;
@@ -21,7 +31,7 @@
 			display: block;
 			position: absolute;
 			top: 0;
-			right: 0,;
+			right: 0;
 			bottom: 0;
 			left: 0;
 			cursor: pointer;
@@ -69,6 +79,17 @@
 		background-color: $color-snow;
 
 		@include e(image) {
+			flex: 0 0 auto;
+			width: 100%;
+			max-width: 100%;
+			border-bottom-right-radius: 0;
+			border-bottom-left-radius: 0;
+		}
+
+		@include e(map) {
+			@include e(elm) {
+			}
+
 			flex: 0 0 auto;
 			width: 100%;
 			max-width: 100%;
@@ -126,6 +147,18 @@
 			@include e(image) {
 				max-width: 50%;
 				height: 100%;
+				margin-bottom: 0;
+				border-top-left-radius: $border-radius;
+				border-top-right-radius: 0;
+				border-bottom-left-radius: $border-radius;
+			}
+
+			@include e(map) {
+				@include e(elm) {
+				}
+
+				max-width: 50%;
+				// height: 100%;
 				margin-bottom: 0;
 				border-top-left-radius: $border-radius;
 				border-top-right-radius: 0;
