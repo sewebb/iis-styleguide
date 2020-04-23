@@ -1,0 +1,15 @@
+<div class="m-modal">
+	<div class="m-modal__overlay"></div>
+	<div class="m-modal__container">
+		{{> @button el="button" modifiers="icon, standalone-icon" icon="close"}}
+		<div class="m-modal__content">
+			<h4>{{title}}</h4>
+			<p>{{{text}}}</p>
+		</div>
+		<div class="m-modal__buttons">
+			<a href="#" class="a-button a-button--lemon">
+				<span class="a-button__text">{{button_text}}</span>
+			</a>
+		</div>
+	</div>
+</div>
