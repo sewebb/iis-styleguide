@@ -13,5 +13,8 @@ module.exports = {
 		{
 			name: "event-info",
 		},
+		{
+			name: "contact-details",
+		},
 	],
 };
