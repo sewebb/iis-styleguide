@@ -1,31 +1,17 @@
 module.exports = {
 	status: "wip",
+	title: 'Features box',
 	context: {
 	},
 	variants: [
 		{
-			name: "Normal",
-			context: {
-				version1: true
-			},
+			name: "headline",
 		},
 		{
-			name: "With headline",
-			context: {
-				version2: true
-			},
+			name: "large-text",
 		},
 		{
-			name: "With larger text",
-			context: {
-				version3: true
-			},
-		},
-		{
-			name: "With event info",
-			context: {
-				version4: true
-			},
+			name: "event-info",
 		},
 	],
 };
