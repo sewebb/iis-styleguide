@@ -1,0 +1,48 @@
+@include molecule(modal) {
+	display: flex;
+	position: fixed;
+	top: 0;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	align-items: center;
+	justify-content: center;
+	width: 100vw;
+	height: 100vh;
+
+	// Adjust close button position
+	@include e(overlay) {
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		background: rgba(0, 0, 0, 0.5);
+	}
+
+	@include e(container) {
+		display: flex;
+		position: relative;
+		flex-direction: column;
+		max-width: rem(400px);
+		padding: rhythm(8) rhythm(8) rhythm(6) rhythm(8);
+		border-radius: $border-radius;
+		background: $color-snow;
+
+		> button {
+			position: absolute;
+			z-index: z_index(background);
+			top: rhythm(1);
+			right: rhythm(1);
+		}
+	}
+
+	@include e(content) {
+		position: relative;
+	}
+
+	@include e(buttons) {
+		display: flex;
+		justify-content: flex-end;
+	}
+}
