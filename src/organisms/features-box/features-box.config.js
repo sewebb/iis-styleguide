@@ -3,7 +3,7 @@ module.exports = {
 	title: 'Features box',
 	context: {
 		color: 'snow',
-		padding: 'u-p-y-5 u-p-x-4',
+		padding: 'u-p-x-4 u-p-t-3 u-p-b-4',
 		heading: false,
 		heading_classes: false,
 		button: true,
@@ -42,6 +42,7 @@ module.exports = {
 		{
 			name: "headline",
 			context: {
+				padding: 'u-p-x-4 u-p-t-2 u-p-b-4',
 				heading: 'Vårt utbud i Stockholm',
 				heading_classes: 'u-m-b-2',
 				button_classes: false,
@@ -78,7 +79,7 @@ module.exports = {
 			name: "large-text",
 			context: {
 				color: 'lemon',
-				padding: 'u-p-6',
+				padding: 'u-p-x-6 u-p-t-4 u-p-b-6',
 				heading: 'Vårt utbud i Stockholm',
 				heading_classes: 'u-m-b-3 supersize',
 				button: false,

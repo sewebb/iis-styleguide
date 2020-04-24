@@ -1,8 +1,8 @@
-<div class="background-{{color}} u-border-radius {{padding}}">
+<div class="background-{{color}} {{padding}} u-border-radius">
 	{{#if heading}}
 		<h2 class="{{heading_classes}}">{{heading}}</h2>
 	{{/if}}
-	<ul class="u-list-clean {{#if button}}u-m-b-4{{/if}}">
+	<ul class="u-list-clean">
 		{{#each list_items}}
 		<li class="display-flex u-m-b-1">
 			{{#if icon}}
@@ -14,8 +14,10 @@
 	</ul>
 
 	{{#if button}}
-	<div class="grid-18 grid-md-9 row">
-		{{> @button el="a" text=this.button_text modifiers=this.button_modifiers icon=this.button_icon}}
+	<div class="row u-m-t-4">
+		<div class="grid-18 grid-md-9">
+			{{> @button el="a" text=this.button_text modifiers=this.button_modifiers icon=this.button_icon}}
+		</div>
 	</div>
 	{{/if}}
 
