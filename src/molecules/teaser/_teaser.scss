@@ -1,6 +1,7 @@
 @charset 'UTF-8';
 
 @include molecule(teaser) {
+	display: flex;
 	position: relative;
 	height: 100%;
 	overflow: hidden;
@@ -23,21 +24,24 @@
 	@include e(caption) {
 		display: flex;
 		position: absolute;
-		top: 0;
-		right: 0;
 		bottom: 0;
-		left: 0;
-		align-content: stretch;
+	}
+
+	@include e(content) {
+		position: relative;
+		align-items: flex-end;
+		width: 100%;
+		padding: rhythm(4) rhythm(3);
+		overflow: hidden;
+		color: $color-snow;
 	}
 
 	@include e(link) {
 		display: flex;
-		position: relative;
 		z-index: z_index(background);
 		align-items: flex-end;
 		align-self: stretch;
 		width: 100%;
-		padding: rhythm(4) rhythm(3);
 		overflow: hidden;
 		color: $color-snow;
 		text-decoration: none;
@@ -45,6 +49,7 @@
 		&::after {
 			content: '';
 			position: absolute;
+			z-index: 0;
 			top: 0;
 			right: 0;
 			bottom: 0;
@@ -71,6 +76,18 @@
 			height: $icon-size-medium;
 			transform: translateY(rem(1px));
 			fill: currentColor;
+		}
+	}
+
+	@include m(excerpt_button) {
+		@include e(button) {
+			z-index: 1;
+			align-self: flex-end;
+		}
+
+		@include e(excerpt) {
+			position: relative;
+			z-index: 1;
 		}
 	}
 }
