@@ -1,46 +1,24 @@
-<div class="background-snow u-border-radius u-p-y-5 u-p-x-4">
+<div class="background-{{color}} {{padding}} u-border-radius">
+	{{#if heading}}
+		<h2 class="{{heading_classes}}">{{heading}}</h2>
+	{{/if}}
 	<ul class="u-list-clean">
-
-		<li class="display-flex">
-			<div class="u-m-r-4">{{> @icon id="capacity" additional_classes="u-icon"}}</div>
-			<div>Max 40 personer</div>
+		{{#each list_items}}
+		<li class="display-flex u-m-b-1">
+			{{#if icon}}
+				<div class="u-m-r-4">{{> @icon id=this.icon additional_classes="u-icon"}}</div>
+			{{/if}}
+			<div>{{{li_text}}}</div>
 		</li>
-
-		<li class="display-flex u-m-t-1">
-			<div class="u-m-r-4">{{> @icon id="display" additional_classes="u-icon"}}</div>
-			<div>Bildskärm med anslutning via HDMI eller Mini Display Port.</div>
-		</li>
-
-		<li class="display-flex u-m-t-1">
-			<div class="u-m-r-4">{{> @icon id="headset" additional_classes="u-icon"}}</div>
-			<div>Lång text för att testa radbryt och så. Sunt dolores aliquam non repellat sed nihil
-				doloribus placeat. Autem debitis ut veniam.</div>
-		</li>
-
-		<li class="display-flex u-m-t-1">
-			<div class="u-m-r-4">{{> @icon id="headset" additional_classes="u-icon"}}</div>
-			<div>5 headsets och 4 handmikrofoner</div>
-		</li>
-
-		<li class="display-flex u-m-t-1">
-			<div class="u-m-r-4">{{> @icon id="streaming" additional_classes="u-icon"}}</div>
-			<div>Riggat för livesändning</div>
-		</li>
-
-		<li class="display-flex u-m-t-1">
-			<div class="u-m-r-4">{{> @icon id="accessibility" additional_classes="u-icon"}}</div>
-			<div>Rullstolsanpassad lokal med ramp</div>
-		</li>
+		{{/each}}
 	</ul>
 
-	<div class="grid-18 row">
-		<button href="http://www.google.se"
-			class="a-button a-button--lemon a-button--icon display-flex u-flex-grow-1 grid-18 u-m-t-4">
-			<span class="a-button__text u-align-center u-flex-grow-1">Skapa event</span>
-			<svg class="icon a-button__icon">
-				<use xlink:href="#icon-plus"></use>
-			</svg>
-		</button>
+	{{#if button}}
+	<div class="row u-m-t-4">
+		<div class="grid-18 grid-md-9">
+			{{> @button el="a" text=this.button_text modifiers=this.button_modifiers icon=this.button_icon}}
+		</div>
 	</div>
+	{{/if}}
 
 </div>
