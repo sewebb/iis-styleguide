@@ -83,6 +83,10 @@
 		}
 
 		@include e(wrapper) {
+			margin-top: 0;
+		}
+
+		@include e(wrapper) {
 			margin-bottom: 0;
 		}
 
