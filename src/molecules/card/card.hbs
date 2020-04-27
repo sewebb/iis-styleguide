@@ -1,5 +1,15 @@
 <div class="m-card{{#if is_padded}} m-card--padded{{/if}}{{#if is_wide}} m-card--wide{{/if}}{{#if has_shadow}} m-card--shadow{{/if}}{{#if has_border}} m-card--bordered{{/if}}">
-	{{#if img_url}}<img src="{{img_url}}" class="m-card__image" alt="{{alt}}">{{/if}}
+	{{#if has_icon_overlay}}
+		<div class="m-card__image m-card__image--iconOverlay">
+			<img src="{{img_url}}" class="m-card__image__elm" alt="{{alt}}" />
+			<div class="m-card__image__overlayImage">
+				{{> @icon id=overlay_icon additional_classes=""}}
+			</div>
+		</div>
+	{{else if img_url}}
+		<img src="{{img_url}}" class="m-card__image" alt="{{alt}}">
+	{{/if}}
+
 	{{#if has_map}}
 		<div class="m-card__map">
 			<iframe

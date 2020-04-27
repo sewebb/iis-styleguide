@@ -17,7 +17,9 @@ module.exports = {
 		read_time: true,
 		date: true,
 		has_map: false,
-		has_contact_info: false
+		has_contact_info: false,
+		has_icon_overlay: false,
+		overlay_icon: false,
 	},
 	variants: [
 		{
@@ -40,7 +42,16 @@ module.exports = {
 				url: false,
 				exerpt: false,
 				has_map: true,
-				has_contact_info: true
+				has_contact_info: true,
+			},
+		},
+		{
+			name: "With image overlay icon",
+			context: {
+				date: true,
+				read_time: false,
+				has_icon_overlay: true,
+				overlay_icon: "play",
 			},
 		},
 	],
