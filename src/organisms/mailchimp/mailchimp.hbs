@@ -26,7 +26,7 @@
 					<p class="o-mailchimp__preamble">{{preable}}</p>
 					<form action="./" method="post">
 						<div class="m-form-control row">
-							<div class="m-form__row grid-18 grid-lg-14 grid-md-10">
+							<div class="m-form__row grid-18 grid-lg-14 grid-md-10 u-m-b-2">
 								<div class="field-group">
 									<label for="email" class="a-label u-visuallyhidden">{{label}}</label>
 									<input type="email" class="a-input js-mailchimp-email" name="email" placeholder="{{label}}" required/>
@@ -38,7 +38,7 @@
 										<legend class="u-visuallyhidden">{{policy_agree_short}}</legend>
 										<div class="checkbox">
 											<input id="pa-iis-mailchimp-static-form" name="policy-agree" class="o-mailchimp__policy-agree a-checkbox u-visuallyhidden" type="checkbox" value="1" />
-											<label for="pa-iis-mailchimp-static-form"><span>{{{policy_agree}}}</span></label>
+											<label for="pa-iis-mailchimp-static-form" class="u-p-r-0"><span>{{{policy_agree}}}</span></label>
 										</div>
 									</fieldset>
 								</div>
@@ -57,7 +57,7 @@
 		</div>
 	</div>
 </section>
-<section class="o-mailchimp o-mailchimp--sliding" data-mailchimp="iis-mailchimp-sliding-form" id="iis-mailchimp-sliding-form" data-slider-delay="5000">
+<section class="o-mailchimp o-mailchimp--sliding" data-mailchimp="iis-mailchimp-sliding-form" id="iis-mailchimp-sliding-form" data-slider-delay="5000" aria-hidden="true">
 	<div class="wrapper">
 		<div class="o-mailchimp__wrapper">
 			<div class="row flex-row-reverse o-mailchimp__close">
@@ -85,7 +85,7 @@
 					<p class="o-mailchimp__preamble">{{preable}}</p>
 					<form action="./" method="post">
 						<div class="m-form-control row">
-							<div class="m-form__row grid-18 grid-lg-14 grid-md-10">
+							<div class="m-form__row grid-18 grid-lg-14 grid-md-10 u-m-b-2">
 								<div class="field-group">
 									<label for="email" class="a-label u-visuallyhidden">{{label}}</label>
 									<input type="email" class="a-input js-mailchimp-email" name="email" placeholder="{{label}}" required/>
@@ -97,7 +97,7 @@
 										<legend class="u-visuallyhidden">{{policy_agree_short}}</legend>
 										<div class="checkbox">
 											<input id="pa-iis-mailchimp-sliding-form" name="policy-agree" class="o-mailchimp__policy-agree a-checkbox" type="checkbox" value="1" />
-											<label for="pa-iis-mailchimp-sliding-form">
+											<label for="pa-iis-mailchimp-sliding-form" class="u-p-r-0">
 												<span>{{{policy_agree}}}</span>
 											</label>
 										</div>
