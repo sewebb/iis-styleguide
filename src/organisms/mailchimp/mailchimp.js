@@ -1,7 +1,7 @@
 const slidingForm = document.querySelector('[class*="--sliding"]');
 const staticForm = document.querySelector('[class*="--static"]');
 const closeButton = document.querySelector('[class*="--sliding"] .js-close-mailchimp-popup');
-const timeout = slidingForm.getAttribute('data-timeout');
+const timeout = slidingForm.getAttribute('data-slider-delay');
 let timer;
 const throttle = 66; // Trigger event every 66ms
 const visibleClass = 'is-visible';
