@@ -33,15 +33,6 @@
 	}
 
 	@include e(link) {
-		display: flex;
-		position: relative;
-		z-index: z_index(background);
-		align-items: flex-end;
-		align-self: stretch;
-		width: 100%;
-		padding: rhythm(4) rhythm(3);
-		overflow: hidden;
-		color: $color-snow;
 		text-decoration: none;
 
 		&:hover,
@@ -69,8 +60,15 @@
 	@include e(headline) {
 		position: relative;
 		z-index: z_index(middleground);
+		align-items: flex-end;
+		align-self: stretch;
+		width: 100%;
+		padding: rhythm(4) rhythm(3);
+		overflow: hidden;
+		color: $color-snow;
 
 		@include e(icon) {
+			position: relative;
 			width: $icon-size-medium;
 			height: $icon-size-medium;
 			transform: translateY(rem(1px));
