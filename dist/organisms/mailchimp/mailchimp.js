@@ -3,12 +3,14 @@
 var slidingForm = document.querySelector('[class*="--sliding"]');
 var staticForm = document.querySelector('[class*="--static"]');
 var closeButton = document.querySelector('[class*="--sliding"] .js-close-mailchimp-popup');
-var timeout = slidingForm.getAttribute('data-timeout');
+var timeout = slidingForm.getAttribute('data-slider-delay');
 var timer = void 0;
 var throttle = 66; // Trigger event every 66ms
 var visibleClass = 'is-visible';
 var cookieName = 'internetstiftelsen-mailchimp-form-closed';
 var currentProtocol = document.location.protocol;
+
+slidingForm.setAttribute('aria-hidden', 'true');
 
 // Set cookie
 function setCookie(name, value, days) {
@@ -49,9 +51,11 @@ function slideForm() {
 			// The static form is not in the viewport, start timeout to show the sliding form
 			timer = setTimeout(function () {
 				slidingForm.classList.add(visibleClass);
+				slidingForm.setAttribute('aria-hidden', 'false');
 			}, timeout);
 		} else {
 			slidingForm.classList.remove(visibleClass);
+			slidingForm.setAttribute('aria-hidden', 'true');
 		}
 	}
 }
@@ -84,7 +88,7 @@ window.addEventListener('scroll', function () {
 function closeForm() {
 	setCookie(cookieName, 'YES', 1);
 	slidingForm.classList.remove(visibleClass);
-	slidingForm.tabIndex = -1;
+	slidingForm.setAttribute('aria-hidden', 'true');
 }
 
 if (closeButton) {
