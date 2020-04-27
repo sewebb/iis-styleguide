@@ -1,21 +1,30 @@
 	<figure class="m-teaser">
-		<img src="{{background_image}}" alt="{{alt}}" class="m-teaser__image">
-		<figcaption class="m-teaser__caption">
-			<div class="m-teaser__content">
+    <img src="{{background_image}}" alt="{{alt}}" class="m-teaser__image">
+    <figcaption class="m-teaser__caption">
+	<div class="m-teaser__overlay">
+		 	{{#unless excerpt_button}}
 			<a href="{{url}}" class="m-teaser__link">
 				<h1 class="m-teaser__headline">
 					{{link_text}}
 					{{> @icon id=icon additional_classes="m-teaser__headline__icon"}}
 				</h1>
 			</a>
+			{{/unless}}
 			{{#if excerpt_button}}
+			<div class="m-teaser__headline-wrapper">
+				<h1 class="m-teaser__headline">
+					{{content_text}}
+				</h1>
+				</div>
+			<div class="m-teaser__excerpt-wrapper">
 				<p class="m-teaser__excerpt">
 					{{excerpt}}
 				</p>
 				<a href="#" class="m-teaser__button a-button a-button--lemon">
 					<span class="a-button__text">{{button_text}}</span>
 				</a>
-			{{/if}}
 			</div>
-		</figcaption>
-	</figure>
+			{{/if}}
+		</div>
+    </figcaption>
+</figure>
