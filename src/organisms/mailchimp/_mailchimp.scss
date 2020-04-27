@@ -84,9 +84,6 @@
 
 		@include e(wrapper) {
 			margin-top: 0;
-		}
-
-		@include e(wrapper) {
 			margin-bottom: 0;
 		}
 
@@ -102,6 +99,7 @@
 			flex: 0 0 100%;
 			width: 100%;
 			max-width: 100%;
+			padding-right: rhythm(3);
 			padding-bottom: rhythm(2);
 		}
 
