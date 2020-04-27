@@ -2,19 +2,20 @@
     <img src="{{background_image}}" alt="{{alt}}" class="m-teaser__image">
     <figcaption class="m-teaser__caption">
 	<div class="m-teaser__overlay">
-		 	{{#if url}}
+		 	{{#unless excerpt_button}}
 			<a href="{{url}}" class="m-teaser__link">
 				<h1 class="m-teaser__headline">
 					{{link_text}}
 					{{> @icon id=icon additional_classes="m-teaser__headline__icon"}}
 				</h1>
 			</a>
-			{{else}}
+			{{/unless}}
+			{{#if excerpt_button}}
+			<div class="m-teaser__headline-wrapper">
 				<h1 class="m-teaser__headline">
 					{{content_text}}
 				</h1>
-			{{/if}}
-			{{#if excerpt_button}}
+				</div>
 			<div class="m-teaser__excerpt-wrapper">
 				<p class="m-teaser__excerpt">
 					{{excerpt}}
