@@ -30,7 +30,7 @@ function getCookie(name) {
 	return v ? v[2] : null;
 }
 
-// User is sent from email campaign with URL paramter ?noForm=true,
+// User is sent from email campaign with URL parameter ?noForm=true,
 // set cookie and don't show slide-in form
 if (noForm) {
 	setCookie(cookieName, 'YES', 7);
