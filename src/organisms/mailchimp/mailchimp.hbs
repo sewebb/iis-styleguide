@@ -9,7 +9,7 @@
 					</svg>
 				</button>
 			</div>
-			<div class="row flex-row-reverse">
+			<div class="row flex-row-reverse o-mailchimp__row-bottom">
 				{{#if has_image}}
 				<div class="o-mailchimp__image-container grid-18 grid-lg-10">
 					<img src="/assets/images/hero.jpg" alt="hero" class="o-mailchimp__image">
@@ -32,6 +32,19 @@
 									<input type="email" class="a-input js-mailchimp-email" name="email" placeholder="{{label}}" required/>
 								</div>
 							</div>
+							{{#if has_groups}}
+							<div class="m-form__row grid-18 grid-lg-14 grid-md-10 u-m-b-2">
+								<fieldset class="field-group">
+									<legend>{{group_name}}</legend>
+									{{#each groups}}
+									<div class="checkbox">
+										<input id="{{text}}" name="groups" class="o-mailchimp__policy-agree a-checkbox u-visuallyhidden" type="checkbox" value="{{text}}" />
+										<label for="{{text}}" class="u-p-r-0"><span>{{{text}}}</span></label>
+									</div>
+									{{/each}}
+								</fieldset>
+							</div>
+							{{/if}}
 							<div class="m-form__row grid-18 grid-lg-14 grid-md-10">
 								<div class="o-mailchimp__policy">
 									<fieldset class="field-group">
@@ -68,7 +81,7 @@
 					</svg>
 				</button>
 			</div>
-			<div class="row flex-row-reverse">
+			<div class="row flex-row-reverse o-mailchimp__row-bottom">
 				{{#if has_image}}
 				<div class="o-mailchimp__image-container grid-18 grid-lg-10">
 					<img src="/assets/images/hero.jpg" alt="hero" class="o-mailchimp__image">
@@ -91,12 +104,25 @@
 									<input type="email" class="a-input js-mailchimp-email" name="email" placeholder="{{label}}" required/>
 								</div>
 							</div>
+							{{#if has_groups}}
+							<div class="m-form__row grid-18 grid-lg-14 grid-md-10 u-m-b-2">
+								<fieldset class="field-group">
+									<legend>{{group_name}}</legend>
+									{{#each groups}}
+									<div class="checkbox">
+										<input id="{{text}}" name="groups" class="o-mailchimp__policy-agree a-checkbox u-visuallyhidden" type="checkbox" value="{{text}}" />
+										<label for="{{text}}" class="u-p-r-0"><span>{{{text}}}</span></label>
+									</div>
+									{{/each}}
+								</fieldset>
+							</div>
+							{{/if}}
 							<div class="m-form__row grid-18 grid-lg-14 grid-md-10">
 								<div class="o-mailchimp__policy">
 									<fieldset class="field-group">
 										<legend class="u-visuallyhidden">{{policy_agree_short}}</legend>
 										<div class="checkbox">
-											<input id="pa-iis-mailchimp-sliding-form" name="policy-agree" class="o-mailchimp__policy-agree a-checkbox" type="checkbox" value="1" />
+											<input id="pa-iis-mailchimp-sliding-form" name="policy-agree" class="o-mailchimp__policy-agree a-checkbox u-visuallyhidden" type="checkbox" value="1" />
 											<label for="pa-iis-mailchimp-sliding-form" class="u-p-r-0">
 												<span>{{{policy_agree}}}</span>
 											</label>

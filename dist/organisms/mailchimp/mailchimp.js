@@ -3,12 +3,15 @@
 var slidingForm = document.querySelector('[class*="--sliding"]');
 var staticForm = document.querySelector('[class*="--static"]');
 var closeButton = document.querySelector('[class*="--sliding"] .js-close-mailchimp-popup');
-var timeout = slidingForm.getAttribute('data-timeout');
+var timeout = slidingForm.getAttribute('data-slider-delay');
 var timer = void 0;
 var throttle = 66; // Trigger event every 66ms
 var visibleClass = 'is-visible';
 var cookieName = 'internetstiftelsen-mailchimp-form-closed';
 var currentProtocol = document.location.protocol;
+var queryString = window.location.search;
+var urlParams = new URLSearchParams(queryString);
+var noForm = urlParams.get('noForm');
 
 // Set cookie
 function setCookie(name, value, days) {
@@ -27,6 +30,15 @@ function getCookie(name) {
 	var v = document.cookie.match('(^|;) ?' + name + '=([^;]*)(;|$)');
 	return v ? v[2] : null;
 }
+
+// User is sent from email campaign with URL parameter ?noForm=true,
+// set cookie and don't show slide-in form
+if (noForm) {
+	setCookie(cookieName, 'YES', 7);
+}
+
+// Add hidden attribute on page load
+slidingForm.setAttribute('aria-hidden', 'true');
 
 function isInViewport(element) {
 	var top = element.offsetTop;
@@ -49,9 +61,11 @@ function slideForm() {
 			// The static form is not in the viewport, start timeout to show the sliding form
 			timer = setTimeout(function () {
 				slidingForm.classList.add(visibleClass);
+				slidingForm.setAttribute('aria-hidden', 'false');
 			}, timeout);
 		} else {
 			slidingForm.classList.remove(visibleClass);
+			slidingForm.setAttribute('aria-hidden', 'true');
 		}
 	}
 }
@@ -82,9 +96,9 @@ window.addEventListener('scroll', function () {
 	elementIsInViewport();
 });
 function closeForm() {
-	setCookie(cookieName, 'YES', 1);
+	setCookie(cookieName, 'YES', 7);
 	slidingForm.classList.remove(visibleClass);
-	slidingForm.tabIndex = -1;
+	slidingForm.setAttribute('aria-hidden', 'true');
 }
 
 if (closeButton) {
