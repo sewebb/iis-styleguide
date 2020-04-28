@@ -66,25 +66,29 @@
 		max-width: 420px;
 		transition: right ease-out 0.35s;
 
-		input,
-		button,
-		a {
-			display: none;
-		}
-
 		&.is-visible {
 			right: 0;
 
-			input,
-			button,
-			a {
-				display: initial;
+			@include e(wrapper) {
+				display: block;
 			}
 		}
 
 		@include e(wrapper) {
+			display: none;
 			margin-top: 0;
 			margin-bottom: 0;
+		}
+
+		@include e(row-bottom) {
+			max-height: rem(550px);
+			overflow-x: hidden;
+			overflow-y: auto;
+
+			@include bp-up(sm) {
+				max-height: none;
+				overflow: visible;
+			}
 		}
 
 		@include e(close) {
