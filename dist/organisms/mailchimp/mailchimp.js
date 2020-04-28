@@ -12,7 +12,6 @@ var currentProtocol = document.location.protocol;
 var queryString = window.location.search;
 var urlParams = new URLSearchParams(queryString);
 var noForm = urlParams.get('noForm');
-console.log(noForm);
 
 // Set cookie
 function setCookie(name, value, days) {

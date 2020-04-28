@@ -10,7 +10,6 @@ const currentProtocol = document.location.protocol;
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
 const noForm = urlParams.get('noForm');
-console.log(noForm);
 
 // Set cookie
 function setCookie(name, value, days) {
