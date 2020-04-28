@@ -35,10 +35,28 @@
 			top: rhythm(1);
 			right: rhythm(1);
 		}
+
+		@include m(form) {
+			max-width: rem(540px);
+		}
 	}
 
 	@include e(content) {
 		position: relative;
+
+		@include m(form-name) {
+			display: flex;
+			justify-content: space-between;
+		}
+
+		@include m(form-check) {
+			display: flex;
+		}
+
+		@include m(form-text) {
+			display: flex;
+			justify-content: center;
+		}
 	}
 
 	@include e(buttons) {
