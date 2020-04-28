@@ -10,21 +10,29 @@ module.exports = {
 		policy_agree_short: 'Integritetspolicy',
 		subscribe: 'Prenumerera',
 		email_help_text: 'E-post är obligatoriskt',
-		has_groups: true,
-		group_name: 'Årskurs',
-		groups: [
-			{
-				text: 'F-3'
-			},
-			{
-				text: '4-6'
-			},
-			{
-				text: '7-9'
-			},
-			{
-				text: 'Gymnasiet'
+		has_groups: false
+	},
+	variants: [
+		{
+			name: "Has groups",
+			context: {
+				has_groups: true,
+				group_name: 'Årskurs',
+				groups: [
+					{
+						text: 'F-3'
+					},
+					{
+						text: '4-6'
+					},
+					{
+						text: '7-9'
+					},
+					{
+						text: 'Gymnasiet'
+					}
+				]
 			}
-		]
-	}
+		}
+	]
 }
