@@ -1,7 +1,10 @@
 .u-divider-pipe {
 	display: inline-block;
+	position: relative;
 	width: 1px;
 	height: 1em;
+	margin: 0 0.5em;
+	padding: 0.7em 0;
 	background: $color-black;
-	vertical-align: middle;
+	vertical-align: sub;
 }
