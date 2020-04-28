@@ -7,8 +7,10 @@ const throttle = 66; // Trigger event every 66ms
 const visibleClass = 'is-visible';
 const cookieName = 'internetstiftelsen-mailchimp-form-closed';
 const currentProtocol = document.location.protocol;
-
-slidingForm.setAttribute('aria-hidden', 'true');
+const queryString = window.location.search;
+const urlParams = new URLSearchParams(queryString);
+const noForm = urlParams.get('noForm');
+console.log(noForm);
 
 // Set cookie
 function setCookie(name, value, days) {
@@ -27,6 +29,15 @@ function getCookie(name) {
 	const v = document.cookie.match(`(^|;) ?${name}=([^;]*)(;|$)`);
 	return v ? v[2] : null;
 }
+
+// User is sent from email campaign with URL paramter ?noForm=true,
+// set cookie and don't show slide-in form
+if (noForm) {
+	setCookie(cookieName, 'YES', 7);
+}
+
+// Add hidden attribute on page load
+slidingForm.setAttribute('aria-hidden', 'true');
 
 function isInViewport(element) {
 	let top = element.offsetTop;
