@@ -81,7 +81,7 @@ window.addEventListener('scroll', () => {
 	elementIsInViewport();
 });
 function closeForm() {
-	setCookie(cookieName, 'YES', 1);
+	setCookie(cookieName, 'YES', 7);
 	slidingForm.classList.remove(visibleClass);
 	slidingForm.setAttribute('aria-hidden', 'true');
 }
