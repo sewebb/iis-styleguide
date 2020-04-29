@@ -10,7 +10,7 @@ module.exports = {
 		button_icon: 'plus',
 		button_text: 'Skapa event',
 		additional_classes: 'display-flex u-flex-grow-1 justify-content-center',
-		button_modifiers: 'icon, lemon',
+		button_modifiers: 'icon, lemon, icon-left',
 		list_items: [
 			{
 				li_text: 'Max 40 personer',
@@ -46,7 +46,7 @@ module.exports = {
 				heading: 'Vårt utbud i Stockholm',
 				heading_classes: 'u-m-b-2',
 				button_classes: false,
-				button_modifiers: 'icon, lemon',
+				button_modifiers: 'icon, icon-left, lemon',
 				list_items: [
 					{
 						li_text: 'Max 40 personer',
