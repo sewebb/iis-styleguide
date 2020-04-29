@@ -16,7 +16,7 @@ module.exports = {
 			is_form: true,
 			check_text: 'Prenumerera på våra lokala nyhetsbrev:',
 			terms_text: 'Jag godkänner Goto 10:s medlemsvillkor och integritetspolicy.',
-			bottom_text: 'Har du redan ett konto? Logga in'
+			bottom_text: 'Har du redan ett konto? <a href="#">Logga in</a>'
 			}
 		}
 	]
