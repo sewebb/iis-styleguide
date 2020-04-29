@@ -10,6 +10,7 @@
 	width: 100vw;
 	height: 100vh;
 	overflow-y: auto;
+	background: $color-snow;
 
 	// Adjust close button position
 	@include e(overlay) {
@@ -26,7 +27,8 @@
 		position: relative;
 		flex-direction: column;
 		max-width: rem(400px);
-		padding: rhythm(8) rhythm(8) rhythm(6) rhythm(8);
+		max-height: 100vh;
+		padding: rhythm(4) rhythm(4) rhythm(6) rhythm(4);
 		border-radius: $border-radius;
 		background: $color-snow;
 
@@ -40,14 +42,30 @@
 		@include m(form) {
 			max-width: rem(540px);
 		}
+
+		@media screen and (min-width: 576px) {
+			padding: rhythm(8) rhythm(8) rhythm(6) rhythm(8);
+		}
 	}
 
 	@include e(content) {
 		position: relative;
 
-		@include m(form-name) {
-			display: flex;
-			justify-content: space-between;
+		@media screen and (min-width: 576px) {
+
+			@include m(form-name) {
+				display: flex;
+				justify-content: space-between;
+				margin-bottom: rhythm(2);
+			}
+
+			@include m(form-email) {
+				margin-bottom: rhythm(2);
+			}
+
+			@include m(form-username) {
+				margin-bottom: rhythm(2);
+			}
 		}
 
 		@include m(form-check) {
@@ -62,6 +80,20 @@
 
 	@include e(buttons) {
 		display: flex;
-		justify-content: flex-end;
+		justify-content: center;
+
+		@media screen and (min-width: 576px) {
+			justify-content: flex-end;
+		}
+	}
+
+	@include b(field-group) {
+		margin-bottom: rhythm(1);
+	}
+
+	@include b(h1) {
+		@media screen and (max-width: 576px) {
+			margin-bottom: 0.5rem;
+		}
 	}
 }
