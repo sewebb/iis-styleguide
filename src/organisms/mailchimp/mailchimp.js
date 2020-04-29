@@ -36,7 +36,7 @@ if (noForm) {
 }
 
 if (slidingForm) {
-	slidingForm.getAttribute('data-slider-delay');
+	timeout = slidingForm.getAttribute('data-slider-delay');
 
 	// Add hidden attribute on page load
 	slidingForm.setAttribute('aria-hidden', 'true');
