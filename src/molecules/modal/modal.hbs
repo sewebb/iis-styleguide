@@ -1,15 +1,70 @@
 <div class="m-modal">
 	<div class="m-modal__overlay"></div>
-	<div class="m-modal__container">
+	<div class="m-modal__container {{#if is_form}}m-modal__container--form{{/if}}">
 		{{> @button el="button" modifiers="icon, standalone-icon" icon="close"}}
 		<div class="m-modal__content">
-			<h4>{{title}}</h4>
-			<p>{{{text}}}</p>
+			{{#unless is_form}}
+				<h4>{{title}}</h4>
+				<p>{{{text}}}</p>
+			{{/unless}}
+			{{#if is_form}}
+			 	<h1>{{title}}</h1>
+			{{/if}}
 		</div>
-		<div class="m-modal__buttons">
+		{{#if is_form}}
+			<div class="field-group u-m-b-default">
+			<div class="u-m-b-default">
+				<label for="label">E-post</label>
+					<input type="text" id="name" placeholder="hej@mail.com" autocomplete="off" class="a-input ">
+			</div>
+				<div class="m-modal__content--form-name u-m-b-default">
+					<div class="m-modal__input-wrapper">
+						<label for="label">Förnamn</label>
+						<input type="text" id="name" placeholder="Anna" autocomplete="off" class="a-input ">
+					</div>
+					<div >
+						<label for="label">Efternamn</label>
+						<input type="text" id="name" placeholder="Johansson" autocomplete="off" class="a-input ">
+					</div>
+				</div>
+				<div class="u-m-b-default">
+					<label for="label">Användarnamn</label>
+					<input type="text" id="name" placeholder="tex kattsmurfen89" autocomplete="off" class="a-input ">
+				</div>
+				<div class="u-m-b-default">
+				 <label for="password">Lösenord</label>
+					<input type="password" id="password" placeholder="" autocomplete="off" class="a-input has-icon ">
+					<button class="input-icon js-toggle-input-type">
+						<svg class="icon">
+							<use xlink:href="#icon-read"></use>
+						</svg>
+						<span class="u-visuallyhidden">Visa lösenordet</span>
+					</button>
+					</div>
+
+					<p class="small">{{check_text}}</p>
+					<div class="m-modal__content--form-check u-m-b-default">
+						<div class="checkbox">
+							<input type="checkbox" id="radiobutton-0" name="Checkbox default" value="0" class="a-checkbox u-visuallyhidden">
+							<label for="radiobutton-0">Stockholm</label>
+						</div>
+
+						<div class="checkbox">
+							<input type="checkbox" id="radiobutton-1" name="Checkbox default" value="0" class="a-checkbox u-visuallyhidden">
+							<label for="radiobutton-1">Malmö</label>
+						</div>
+					</div>
+					<div class="checkbox">
+						<input type="checkbox" id="radiobutton-2" name="Checkbox default" value="0" class="a-checkbox u-visuallyhidden">
+						<label for="radiobutton-2">{{{terms_text}}}</label>
+					</div>
+			</div>
+		{{/if}}
+		<div class="m-modal__buttons u-m-b-default">
 			<a href="#" class="a-button a-button--lemon">
 				<span class="a-button__text">{{button_text}}</span>
 			</a>
 		</div>
+		<div class="m-modal__content--form-text"><p class="small">{{bottom_text}}</p></div>
 	</div>
 </div>

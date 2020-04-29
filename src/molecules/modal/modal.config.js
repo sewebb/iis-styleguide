@@ -5,5 +5,19 @@ module.exports = {
 		title: 'Du har sparat FooCoding Graduation!',
 		text: 'En påminnelse kommer skickas till din adress <a href="#">15 minuter</a> innan streamen startar.',
 		button_text: 'Stäng'
-	}
+	},
+
+	variants: [
+		{
+		name: 'form',
+		context: {
+			title: 'Skapa konto',
+			button_text: 'Skapa konto',
+			is_form: true,
+			check_text: 'Prenumerera på våra lokala nyhetsbrev:',
+			terms_text: 'Jag godkänner Goto 10:s medlemsvillkor och integritetspolicy.',
+			bottom_text: 'Har du redan ett konto? Logga in'
+			}
+		}
+	]
 }
