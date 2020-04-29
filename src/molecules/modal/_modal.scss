@@ -75,6 +75,7 @@
 		@include m(form-text) {
 			display: flex;
 			justify-content: center;
+			margin-bottom: rhythm(2);
 		}
 	}
 
