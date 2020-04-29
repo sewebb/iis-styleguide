@@ -1,0 +1,17 @@
+@charset 'UTF-8';
+
+// Adds a divider between two words, like a pipe (|) character.
+// Example usage:
+// `Gradängen, Stockholm <span class="u-divider-pipe"></span> Svenska`
+// Output will be like:
+// `Gradängen, Stockholm | Svenska`
+.u-divider-pipe {
+	display: inline-block;
+	position: relative;
+	width: 1px;
+	height: 1em;
+	margin: 0 0.5em;
+	padding: 0.7em 0;
+	background: $color-black;
+	vertical-align: sub;
+}
