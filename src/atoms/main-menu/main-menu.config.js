@@ -35,7 +35,8 @@ module.exports = {
 				text: 'Lyssna',
 				url: false,
 				is_current: false,
-				icon: 'icon-speaker',
+				icon: false,
+				has_readspeaker: true,
 				hide_mobile: false
 			},
 			{

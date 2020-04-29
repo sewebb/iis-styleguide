@@ -1,7 +1,7 @@
 const slidingForm = document.querySelector('[class*="--sliding"]');
 const staticForm = document.querySelector('[class*="--static"]');
 const closeButton = document.querySelector('[class*="--sliding"] .js-close-mailchimp-popup');
-const timeout = slidingForm.getAttribute('data-slider-delay');
+let timeout;
 let timer;
 const throttle = 66; // Trigger event every 66ms
 const visibleClass = 'is-visible';
@@ -35,8 +35,12 @@ if (noForm) {
 	setCookie(cookieName, 'YES', 7);
 }
 
-// Add hidden attribute on page load
-slidingForm.setAttribute('aria-hidden', 'true');
+if (slidingForm) {
+	slidingForm.getAttribute('data-slider-delay');
+
+	// Add hidden attribute on page load
+	slidingForm.setAttribute('aria-hidden', 'true');
+}
 
 function isInViewport(element) {
 	let top = element.offsetTop;
