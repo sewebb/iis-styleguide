@@ -15,8 +15,8 @@ module.exports = {
 			button_text: 'Skapa konto',
 			is_form: true,
 			check_text: 'Prenumerera på våra lokala nyhetsbrev:',
-			terms_text: 'Jag godkänner Goto 10:s medlemsvillkor och integritetspolicy.',
-			bottom_text: 'Har du redan ett konto? Logga in'
+			terms_text: 'Jag godkänner Goto 10:s <a href="#">medlemsvillkor</a> och <a href="#">integritetspolicy</a>.',
+			bottom_text: 'Har du redan ett konto? <a href="#">Logga in</a>'
 			}
 		}
 	]

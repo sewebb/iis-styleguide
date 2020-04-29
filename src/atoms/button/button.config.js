@@ -92,6 +92,16 @@ module.exports = {
 			}
 		},
 		{
+			name: 'With left icon',
+			context: {
+				modifiers: ['icon', 'icon-left'],
+				text: 'Button with left icon',
+				additional_classes: 'has-loader',
+				icon: 'arrow-forwards',
+				el: 'button'
+			}
+		},
+		{
 			name: 'Transparent with icon',
 			context: {
 				modifiers: ['transparent'],

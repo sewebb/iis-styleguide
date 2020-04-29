@@ -3,3 +3,77 @@
 .u-border-radius {
 	border-radius: $border-radius;
 }
+
+$class-b: u-b !default;
+$class-b-t: u-b-t !default;
+$class-b-r: u-b-r !default;
+$class-b-b: u-b-b !default;
+$class-b-l: u-b-l !default;
+$class-b-x: u-b-x !default;
+$class-b-y: u-b-y !default;
+
+.u-b-solid {
+	border-style: solid !important;
+}
+
+.u-b-dashed {
+	border-style: dashed !important;
+}
+
+.u-b-dotted {
+	border-style: dotted !important;
+}
+
+.u-b-double {
+	border-style: double !important;
+}
+
+.u-b-none {
+	border-style: none;
+}
+
+// Generate border color classes e.g. .border-color-ruby
+/// @group Colors
+.u-b {
+	@include color_values($colors, 'border-color', $separator: '-');
+}
+
+// Generate classes for border widths e.g. .u-b-0 and .u-b-l-4.
+@for $i from 0 through 8 {
+	// Border all
+	.#{$class-b}-#{$i} {
+		border-width: #{$i}px !important;
+	}
+
+	// Border top
+	.#{$class-b-t}-#{$i} {
+		border-top-width: #{$i}px !important;
+	}
+
+	// Border right
+	.#{$class-b-r}-#{$i} {
+		border-right-width: #{$i}px !important;
+	}
+
+	// Border bottom
+	.#{$class-b-b}-#{$i} {
+		border-bottom-width: #{$i}px !important;
+	}
+
+	// Border left
+	.#{$class-b-l}-#{$i} {
+		border-left-width: #{$i}px !important;
+	}
+
+	// Border x (left and right)
+	.#{$class-b-x}-#{$i} {
+		border-right-width: #{$i}px !important;
+		border-left-width: #{$i}px !important;
+	}
+
+	// Border x (left and right)
+	.#{$class-b-y}-#{$i} {
+		border-top-width: #{$i}px !important;
+		border-bottom-width: #{$i}px !important;
+	}
+}
