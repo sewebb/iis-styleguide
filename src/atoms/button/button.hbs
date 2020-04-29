@@ -1,4 +1,18 @@
-<{{getelement el "a"}} {{#if id}}id="{{id}}""{{/if}} {{#if button_type}}type="{{button_type}}"{{/if}} {{#if url}}href="{{ url }}"{{/if}} class="a-button{{#if modifiers}} {{getmodifiers modifiers "a-button"}}{{/if}}{{#if icon }} a-button--icon{{/if}}{{#if additional_classes}} {{ additional_classes}}{{/if}}" {{{attr attributes}}}>
+<{{getelement el "a"}} 
+	{{#if id}}id="{{id}}""{{/if}} 
+	{{#if button_type}}type="{{button_type}}"{{/if}} 
+	{{#if url}}href="{{ url }}"{{/if}} 
+	class="a-button{{#if modifiers}} {{getmodifiers modifiers "a-button"}}{{/if}}{{#if icon }} a-button--icon{{/if}}{{#if additional_classes}} {{ additional_classes}}{{/if}}" 
+	{{{attr attributes}}}
+	{{#if has_states}}
+		data-statebutton-default-text="Anmäl dig"
+		data-statebutton-activated-text="Anmäld"
+		data-statebutton-activated-icon="check"
+		data-statebutton-deactivate-text="Avanmäl"
+		data-statebutton-deactivate-icon="close"
+		data-statebutton-state-current="default"
+	{{/if}} 
+>
 	<span class="a-button__text">{{ text }}</span>
 	{{#if icon}}
 	{{> @icon id=icon additional_classes="a-button__icon"}}
