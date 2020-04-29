@@ -1,16 +1,4 @@
-<div>
-	<h1>Event som streamas | som är på plats | som är nåt annat ˯</h1>
-</div>
-
-<div>Sök event</div>
-
-<p>Alla event anordnas av medlemmarna i vårt community. <a href="#">Läs mer</a> om hur du kan skapa ett event.
-	På <a href="#">din profilsida</a> kan du
-	se dina tidigare besökta event.</p>
-
-<h2 class="alpha">Januari</h2>
-
-<article class="background-snow u-border-radius u-p-4 u-b-0 u-b-l-4 u-b-solid u-b-ruby">
+<article class="{{containerClasses}} {{containerPadding}} u-b-{{borderColor}}">
 
 	<div class="row">
 		<div class="grid-18 grid-sm">
@@ -18,7 +6,7 @@
 
 			<h3 class="beta">FooCoding Graduation</h3>
 
-			<p class="small"><strong>Av:</strong> FooCoding</p>
+			<p class="small u-m-b-0"><strong>Av:</strong> FooCoding</p>
 		</div>
 
 		<div class="grid-18 grid-sm-auto">
@@ -30,17 +18,15 @@
 		<div class="grid">
 
 			<p class="small">
-				{{> @icon id="pin" additional_classes="u-icon u-icon--medium u-display-inline-block u-m-r-1"}}
-				Gradängen, Stockholm
-				<span class="u-divider-pipe"></span>
-				Svenska
+				{{> @icon id="pin" additional_classes="u-icon u-icon--medium u-display-inline-block u-m-r-1 u-valign-text-top"}}
+				Gradängen, Stockholm <span class="u-divider-pipe"></span> Svenska
 			</p>
 		</div>
 
 		<div class="grid-auto">
 			<p class="small">
 				<a href="#">
-					{{> @icon id="streaming" additional_classes="u-icon u-icon--medium u-display-inline-block u-m-r-1"}}
+					{{> @icon id="streaming" additional_classes="u-icon u-icon--medium u-display-inline-block u-m-r-1 u-valign-text-top"}}
 					Sänds live
 				</a>
 			</p>
@@ -71,4 +57,4 @@
 	</div>
 	{{/if}}
 
-</div>
+</article>
