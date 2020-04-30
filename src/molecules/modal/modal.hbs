@@ -42,21 +42,23 @@
 					</button>
 					</div>
 
-					<p class="small">{{check_text}}</p>
-					<div class="m-modal__content--form-check">
-						<div class="checkbox">
-							<input type="checkbox" id="radiobutton-0" name="Checkbox default" value="0" class="a-checkbox u-visuallyhidden">
-							<label for="radiobutton-0"><span class="small">Stockholm</span></label>
+					<fieldset>
+						<legend class="label-legend">{{check_text}}</legend>
+						<div class="checkbox checkbox--inline row no-gutters u-m-b-2">
+							<div class="grid-auto">
+								<input type="checkbox" id="radiobutton-0" name="Checkbox default" value="0" class="a-checkbox u-visuallyhidden">
+								<label for="radiobutton-0"><span>Stockholm</span></label>
+							</div>
+							<div class="grid-auto">
+								<input type="checkbox" id="radiobutton-1" name="Checkbox default" value="0" class="a-checkbox u-visuallyhidden">
+								<label for="radiobutton-1"><span>Malmö</span></label>
+							</div>
 						</div>
+					</fieldset>
 
-						<div class="checkbox">
-							<input type="checkbox" id="radiobutton-1" name="Checkbox default" value="0" class="a-checkbox u-visuallyhidden">
-							<label for="radiobutton-1"><span class="small">Malmö</span></label>
-						</div>
-					</div>
 					<div class="checkbox">
 						<input type="checkbox" id="radiobutton-2" name="Checkbox default" value="0" class="a-checkbox u-visuallyhidden">
-						<label for="radiobutton-2"><p class="small">{{{terms_text}}}</p></label>
+						<label for="radiobutton-2"><span>{{{terms_text}}}</span></label>
 					</div>
 			</div>
 		{{/if}}
@@ -65,6 +67,6 @@
 				<span class="a-button__text">{{button_text}}</span>
 			</a>
 		</div>
-		<div class="m-modal__content--form-text"><p class="small">{{{bottom_text}}}</p></div>
+		<div class="m-modal__content--form-text">{{{bottom_text}}}</div>
 	</div>
 </div>

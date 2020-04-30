@@ -6,55 +6,25 @@
 
 			<h3 class="beta">FooCoding Graduation</h3>
 
-			<p class="small"><strong>Av:</strong> FooCoding</p>
+			<div><strong>Av:</strong> FooCoding</div>
 		</div>
 
-		<div class="grid-18 grid-sm-auto">
-			<p>{{> @button text="Spara" modifiers="lemon small" }}</p>
+		<div class="grid-18 grid-sm-auto u-m-b-2">
+			{{> @button text="Spara" modifiers="lemon " }}
 		</div>
 	</div>
 
 	<div class="row">
 		<div class="grid-18 grid-sm u-m-b-1">
-
-			<p class="small">
 				{{> @icon id="pin" additional_classes="u-icon u-icon--medium u-display-inline-block u-m-r-1 u-valign-text-top"}}
 				Gradängen, Stockholm <span class="u-divider-pipe"></span> Svenska
-			</p>
 		</div>
 
 		<div class="grid-auto">
-			<p class="small">
-				<a href="#">
-					{{> @icon id="streaming" additional_classes="u-icon u-icon--medium u-display-inline-block u-m-r-1 u-valign-text-top"}}
-					Sänds live
-				</a>
-			</p>
+			<a href="#" class="u-link display-flex align-items-center">
+				{{> @icon id="streaming" additional_classes="u-icon u-icon--medium u-display-inline-block u-m-r-1 u-valign-text-top"}}
+				Sänds live
+			</a>
 		</div>
 	</div>
-</article>
-
-<div class="background-{{color}} {{padding}} u-border-radius">
-	{{#if heading}}
-	<h2 class="{{heading_classes}}">{{heading}}</h2>
-	{{/if}}
-	<ul class="u-list-clean">
-		{{#each list_items}}
-		<li class="display-flex u-m-b-1">
-			{{#if icon}}
-			<div class="u-m-r-4">{{> @icon id=this.icon additional_classes="u-icon"}}</div>
-			{{/if}}
-			<div>{{{li_text}}}</div>
-		</li>
-		{{/each}}
-	</ul>
-
-	{{#if button}}
-	<div class="row u-m-t-4">
-		<div class="grid-18">
-			{{> @button el="a" text=this.button_text modifiers=this.button_modifiers icon=this.button_icon}}
-		</div>
-	</div>
-	{{/if}}
-
 </article>
