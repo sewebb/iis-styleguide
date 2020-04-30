@@ -48,16 +48,33 @@
 		}
 	}
 
+	@media screen and (min-width: 576px) {
+
+		@include e(input-wrapper) {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: rhythm(2);
+		}
+	}
+
 	@include e(content) {
 		position: relative;
 
-		@media screen and (min-width: 576px) {
+		@include m(form-name) {
+			flex: 0 0 45%;
+		}
 
-			@include m(form-name) {
-				display: flex;
-				justify-content: space-between;
-				margin-bottom: rhythm(2);
-			}
+		@include m(form-lname) {
+			flex: 0 0 45%;
+		}
+
+		@include e(input-wrapper) {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: rhythm(2);
+		}
+
+		@media screen and (min-width: 576px) {
 
 			@include m(form-email) {
 				margin-bottom: rhythm(2);
@@ -67,7 +84,6 @@
 				margin-bottom: rhythm(2);
 			}
 		}
-
 		@include m(form-check) {
 			display: flex;
 		}
@@ -75,12 +91,14 @@
 		@include m(form-text) {
 			display: flex;
 			justify-content: center;
+			margin-top: rhythm(-1);
 			margin-bottom: rhythm(2);
 		}
 	}
 
 	@include e(buttons) {
 		display: flex;
+		flex-shrink: 0;
 		justify-content: flex-end;
 	}
 
