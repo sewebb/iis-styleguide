@@ -34,6 +34,22 @@ module.exports = {
 				has_video: true,
 				has_image: false
 			}
+		},
+		{
+			name: 'Event hero',
+				context: {
+					event_title: 'Creator Circle Meetup',
+					organizer: '<a href="#">Creator Circle</a>',
+					city: '<strong>Stockholm</strong>',
+					time: '24 januari 2020 18:20-21:30',
+					no_image_class: 'o-hero--border-radius',
+					icon_share: 'share',
+					icon_export: 'external-link',
+					limited_width: true,
+					has_image: false,
+					has_video: false,
+					is_event: true
+				}
 		}
 	]
 }
