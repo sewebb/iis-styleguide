@@ -12,6 +12,38 @@
 		max-height: none !important;
 	}
 
+	@include m(event) {
+		width: 100vw;
+		height: 100vh;
+		background: $color-peacock-light !important;
+	}
+
+	@include e(event-content) {
+		padding: rhythm(4) rhythm(6);
+
+		@include e(icon) {
+			position: relative;
+			width: $icon-size-medium;
+			height: $icon-size-medium;
+			margin-left: rhythm(0.5);
+			transform: translateY(rem(1px));
+			fill: currentColor;
+		}
+	}
+
+	@include e(event-text) {
+		margin-bottom: 0;
+	}
+
+	@include e(event-button) {
+		padding-left: 0;
+		border-color: transparent;
+
+		@include e(text) {
+			margin-right: rhythm(2);
+		}
+	}
+
 	@include bp-up(sm) {
 		overflow: hidden;
 		background-color: transparent;
