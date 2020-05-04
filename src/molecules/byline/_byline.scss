@@ -20,17 +20,7 @@
 	}
 
 	@include e(link) {
-		margin: 0;
-		padding: 0;
-		border-radius: 0;
-		color: inherit;
-		text-decoration: none;
-
-		&:hover,
-		&:focus {
-			border-radius: 0;
-			background-color: transparent;
-		}
+		margin-left: rhythm(-0.5);
 	}
 
 	@include e(portrait) {
