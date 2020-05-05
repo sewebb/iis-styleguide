@@ -39,8 +39,8 @@ module.exports = {
 			name: 'Event hero',
 				context: {
 					event_title: 'Creator Circle Meetup',
-					organizer: '<a href="#">Creator Circle</a>',
-					city: '<strong>Stockholm</strong>',
+					organizer: 'Creator Circle',
+					city: 'Stockholm',
 					time: '24 januari 2020 18:20-21:30',
 					no_image_class: 'o-hero--border-radius',
 					icon_share: 'share',

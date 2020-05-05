@@ -3,20 +3,20 @@
 	<div class="row">
 		<div class="grid">
 {{/if}}
-<figure class="o-hero{{#if no_image_class}} {{no_image_class}}{{/if}}{{#if has_radius}} o-hero--border-radius{{/if}}{{#if has_video}} {{video_class}}{{/if}} {{#if is_event}}o-hero--event{{/if}}">
+<figure class="o-hero{{#if no_image_class}} {{no_image_class}}{{/if}}{{#if has_radius}} o-hero--border-radius{{/if}}{{#if has_video}} {{video_class}}{{/if}} {{#if is_event}}o-hero--event background-peacock-light{{/if}}">
 	{{#if has_image}}<img src="/assets/images/hero.jpg" alt="hero" class="o-hero__image">{{/if}}
 	{{#if has_video}}
 		<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/3RVcnx-hOk8?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	{{else if is_event}}
 		<figcaption>
 			<div class="o-hero__event-content">
-				<p class="o-hero__event-text">Event på Goto 10 i {{{city}}}</p>
+				<p class="o-hero__event-text">Event på Goto 10 i <strong>{{city}}</strong></p>
 				<h1 class="supersize">{{event_title}}</h1>
 				<p class="o-hero__event-text">
-					{{time}} | Arrangör: {{{organizer}}}
-					<a href="#" class="o-hero__event-button">
-					{{> @icon id="external-link" additional_classes="o-hero__event-content__icon--external"}}
-					</a>
+					{{time}} | Arrangör: <a href="#">{{organizer}}
+					<svg class="icon o-mega-menu__link__icon">
+						<use xlink:href="#icon-external-link"></use>
+					</svg></a>
 				</p>
 				<a href="#" class="o-hero__event-button a-button a-button--transparent">
 					<span class="o-hero__event-button__text a-button__text">Dela</span>
