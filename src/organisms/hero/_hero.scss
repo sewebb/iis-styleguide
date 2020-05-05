@@ -13,8 +13,7 @@
 	}
 
 	@include m(event) {
-		width: 100vw;
-		background: $color-peacock-light !important;
+		width: 100%;
 	}
 
 	@include e(event-content) {
