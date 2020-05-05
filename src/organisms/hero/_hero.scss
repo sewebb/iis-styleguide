@@ -28,6 +28,11 @@
 			margin-left: rhythm(0.5);
 			transform: translateY(rem(1px));
 			fill: currentColor;
+
+			@include m(external) {
+				width: $icon-size-smallest;
+				height: $icon-size-smallest;
+			}
 		}
 	}
 
