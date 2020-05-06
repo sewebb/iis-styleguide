@@ -29,7 +29,6 @@
 		display: flex;
 		position: relative;
 		flex-direction: column;
-		max-width: rem(400px);
 		max-height: 100vh;
 		padding: rhythm(4) rhythm(4) rhythm(6) rhythm(4);
 		border-radius: $border-radius;
@@ -48,6 +47,10 @@
 
 		@media screen and (min-width: 576px) {
 			padding: rhythm(8) rhythm(8) rhythm(6) rhythm(8);
+		}
+
+		@include m(hidden) {
+			display: none;
 		}
 	}
 

@@ -1,6 +1,6 @@
 <div class="m-modal m-modal--has-overlay">
-	<div class="m-modal__container {{#if is_form}}m-modal__container--form{{/if}}">
-		{{> @button el="button" modifiers="icon, standalone-icon" icon="close"}}
+	<div id="modal-container" class="m-modal__container {{#if is_hidden}}m-modal__container--hidden{{/if}} {{#if is_form}}m-modal__container--form{{/if}}">
+		{{> @button el="button" additional_classes="modal-close" modifiers="icon, standalone-icon" icon="close"}}
 		<div class="m-modal__content">
 			{{#unless is_form}}
 				<h4>{{title}}</h4>
@@ -11,6 +11,7 @@
 			{{/if}}
 		</div>
 		{{#if is_form}}
+		<form class="m-modal__form">
 			<div class="field-group">
 			<div class="m-modal__content--form-email">
 				<label for="label">E-post</label>
@@ -60,12 +61,18 @@
 						<label for="radiobutton-2"><span>{{{terms_text}}}</span></label>
 					</div>
 			</div>
+			</form>
 		{{/if}}
 		<div class="m-modal__buttons u-m-b-default">
-			<a href="#" class="a-button a-button--lemon">
+			<a href="#" class="modal-close a-button a-button--lemon">
 				<span class="a-button__text">{{button_text}}</span>
 			</a>
 		</div>
 		<div class="m-modal__content--form-text">{{{bottom_text}}}</div>
 	</div>
 </div>
+{{#if is_hidden}}
+	<button class="modal-button a-button a-button--lemon">
+		<span class="a-button__text">{{btn_text}}</span>
+	</button>
+{{/if}}
