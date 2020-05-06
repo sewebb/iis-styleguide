@@ -245,7 +245,11 @@
 		width: 100%;
 
 		@include e(content) {
-			padding: rhythm(4) rhythm(6);
+			padding: rhythm(2) rhythm(3);
+
+			@include bp-up(sm) {
+				padding: rhythm(4) rhythm(6);
+			}
 
 			@include e(icon) {
 				position: relative;
@@ -265,6 +269,11 @@
 		@include e(text) {
 			margin-bottom: 0;
 			color: $color-cyberspace;
+		}
+
+		@include e(spacer) {
+			display: inline-flex;
+			margin-right: rhythm(1);
 		}
 	}
 }
