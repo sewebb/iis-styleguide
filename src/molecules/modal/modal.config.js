@@ -18,6 +18,13 @@ module.exports = {
 			terms_text: 'Jag godkänner Goto 10:s <a href="#" class="u-link">medlemsvillkor</a> och <a href="#" class="u-link">integritetspolicy</a>.',
 			bottom_text: 'Har du redan ett konto? <a href="#" class="u-link">Logga in</a>'
 			}
+		},
+		{
+		name: 'hidden',
+			context: {
+				btn_text: 'Öppna modal',
+				is_hidden: true
+			}
 		}
 	]
 }
