@@ -1,6 +1,6 @@
 const createFocusTrap = require('focus-trap');
 
-const button = document.querySelector('.modal-button');
+const button = document.querySelector('.js-modal-open');
 const modal = document.querySelector('#modal-container');
 
 const focusTrapOne = createFocusTrap('#modal-container', {
@@ -25,7 +25,7 @@ button.addEventListener('click', (e) => {
 });
 
 modal.addEventListener('click', (e) => {
-	if (e.target.classList.contains('modal-close')) {
+	if (e.target.classList.contains('js-modal-close')) {
 		e.preventDefault();
 		closeModal();
 	}
