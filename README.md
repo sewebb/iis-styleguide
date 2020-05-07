@@ -7,30 +7,38 @@ It is built to be fully modular so one can include only what is needed when usin
 
 To use the styleguide in your website or interface you need to install the styleguide and then decide which components you need.
 
-To install it, run `npm i git+ssh://git@github.com:sewebb/iis-styleguide.git`.
+To install it, run `npm i @internetstiftelsen/styleguide`.
 
 When that's done, you need to configure your build. So open up your main SCSS file and add the components you need like this:
 
 ```scss
 // Configurations, foundation, fonts, utilities etc..
-@import '~iis-styleguide/src/globals';
+@import '~@internetstiftelsen/styleguide/src/globals';
 
 // Set a project namespace for namespace prefixed classes
 $namespace: 'mysite-';
 
 // Configuration/Base components
-@import '~iis-styleguide/src/configuration/grid/grid';
-@import '~iis-styleguide/src/configuration/colors/colors';
+@import '~@internetstiftelsen/styleguide/src/configuration/grid/grid';
+@import '~@internetstiftelsen/styleguide/src/configuration/colors/colors';
 
 // Atoms
-@import '~iis-styleguide/src/atoms/button/button';
-@import '~iis-styleguide/src/atoms/input/input';
+@import '~@internetstiftelsen/styleguide/src/atoms/button/button';
+@import '~@internetstiftelsen/styleguide/src/atoms/input/input';
 
 // Molecules
-@import '~iis-styleguide/src/molecules/card/card';
+@import '~@internetstiftelsen/styleguide/src/molecules/card/card';
 
 // Organisms
-@import '~iis-styleguide/src/organisms/header/header';
+@import '~@internetstiftelsen/styleguide/src/organisms/header/header';
+```
+
+### SCSS Mixins explained:
+```scss
+@include e(nested-element) {} // Element (.parent-element__nested-element)
+@include m(modifier-name) {} // Modifier (.parent-element--modifier-name)
+	@include b(block-name) {} // Block (.block-name)
+
 ```
 
 Peek into the [app.scss](https://github.com/sewebb/iis-styleguide/blob/master/src/app.scss) to see the full set of components.
@@ -39,10 +47,10 @@ For javascript it's basically the same thing. In a javascript file:
 
 ```js
 // ES5 build version
-import Button from 'iis-styleguide/dist/atoms/button/button';
+import Button from '@internetstiftelsen/styleguide/dist/atoms/button/button';
 
 // Standard ES6 version
-import Button from 'iis-styleguide/src/atoms/button/button';
+import Button from '@internetstiftelsen/styleguide/src/atoms/button/button';
 ```
 
 Depending on your browser requirements you may use the src version which is not transpiled to ES5.
@@ -88,4 +96,4 @@ The code is validated and fixed on save using our coding standards and conventio
 ## Deployment
 
 To be able to deploy you need to build a static version of the styleguide.
-The command `npm run build` will build the static site in the `build` directory in the root of the your project.
+The command `npm run build` will build the static site in the `build` directory in the root of the your project. NOTE: Always run this command before pushing your to git.

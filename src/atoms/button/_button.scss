@@ -69,6 +69,7 @@
 		transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 		opacity: 1;
 		color: $color-snow;
+		pointer-events: none;
 	}
 
 	@include e(spinner) {
@@ -170,9 +171,22 @@
 		border-color: transparent;
 		background-color: transparent;
 		box-shadow: none;
+		color: $color-cyberspace;
+
+		&:hover,
+		&:focus {
+			color: inherit;
+			text-decoration: underline;
+		}
 
 		@include e(text) {
 			color: $color-cyberspace;
+		}
+
+		@include e(icon) {
+			width: $icon-size;
+			height: $icon-size;
+			fill: $color-cyberspace;
 		}
 	}
 
@@ -200,6 +214,41 @@
 		&:hover,
 		&:focus {
 			color: $color-ruby;
+		}
+
+		@include e(text) {
+			color: $color-snow;
+		}
+
+		@include e(icon) {
+			fill: $color-snow;
+		}
+	}
+
+	@include m(jade-light) {
+		box-shadow: 0 0 0 1px inset $color-jade;
+		color: $color-jade-light;
+
+		&:hover,
+		&:focus {
+			color: $color-jade;
+		}
+
+		@include e(text) {
+			color: $color-cyberspace;
+		}
+
+		@include e(icon) {
+			fill: $color-cyberspace;
+		}
+	}
+
+	@include m(jade-dark) {
+		color: $color-jade-dark;
+
+		&:hover,
+		&:focus {
+			color: $color-jade;
 		}
 
 		@include e(text) {
@@ -243,6 +292,23 @@
 
 		@include e(icon) {
 			fill: $color-cyberspace;
+		}
+	}
+
+	@include m(dashed) {
+		border: 1px dashed;
+		background: transparent;
+		box-shadow: none;
+		color: $color-cyberspace;
+
+		&:hover,
+		&:focus {
+			color: $color-cyberspace;
+			text-decoration: underline;
+		}
+
+		@include e(text) {
+			color: inherit;
 		}
 	}
 }

@@ -4157,6 +4157,9 @@
   .u-hide-lg {
     display: none !important; } }
 
+.u-overflow-hidden {
+  overflow: hidden !important; }
+
 .u-list-clean {
   margin: 0;
   padding: 0;
@@ -4196,6 +4199,7 @@
   background-color: initial; }
   .o-footer__link:hover, .o-footer__paragraph:hover, .o-footer__link:focus, .o-footer__paragraph:focus {
     border: none;
+    border-radius: 0;
     background-color: inherit; }
 
 .a-button {
@@ -4245,7 +4249,8 @@
     transition: 0.3s opacity, 0.3s transform;
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     opacity: 1;
-    color: #fff; }
+    color: #fff;
+    pointer-events: none; }
   .a-button__spinner {
     position: absolute;
     top: 50%;
@@ -4318,9 +4323,17 @@
   .a-button--transparent {
     border-color: transparent;
     background-color: transparent;
-    box-shadow: none; }
+    box-shadow: none;
+    color: #1f2a36; }
+    .a-button--transparent:hover, .a-button--transparent:focus {
+      color: inherit;
+      text-decoration: underline; }
     .a-button--transparent .a-button__text {
       color: #1f2a36; }
+    .a-button--transparent .a-button__icon {
+      width: 1.33333rem;
+      height: 1.33333rem;
+      fill: #1f2a36; }
   .a-button--ruby-light {
     box-shadow: 0 0 0 1px inset #ff4069;
     color: #ff9fb4; }
@@ -4337,6 +4350,23 @@
     .a-button--ruby-dark .a-button__text {
       color: #fff; }
     .a-button--ruby-dark .a-button__icon {
+      fill: #fff; }
+  .a-button--jade-light {
+    box-shadow: 0 0 0 1px inset #55c7b4;
+    color: #aae3d9; }
+    .a-button--jade-light:hover, .a-button--jade-light:focus {
+      color: #55c7b4; }
+    .a-button--jade-light .a-button__text {
+      color: #1f2a36; }
+    .a-button--jade-light .a-button__icon {
+      fill: #1f2a36; }
+  .a-button--jade-dark {
+    color: #2d897a; }
+    .a-button--jade-dark:hover, .a-button--jade-dark:focus {
+      color: #55c7b4; }
+    .a-button--jade-dark .a-button__text {
+      color: #fff; }
+    .a-button--jade-dark .a-button__icon {
       fill: #fff; }
   .a-button--lemon {
     color: #ffce2e; }
@@ -4355,6 +4385,16 @@
       color: #1f2a36; }
     .a-button--lemon-light .a-button__icon {
       fill: #1f2a36; }
+  .a-button--dashed {
+    border: 1px dashed;
+    background: transparent;
+    box-shadow: none;
+    color: #1f2a36; }
+    .a-button--dashed:hover, .a-button--dashed:focus {
+      color: #1f2a36;
+      text-decoration: underline; }
+    .a-button--dashed .a-button__text {
+      color: inherit; }
 
 .m-alert {
   position: relative;

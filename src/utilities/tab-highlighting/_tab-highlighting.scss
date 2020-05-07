@@ -16,6 +16,12 @@ $color-tab-highlight: $color-ruby !default;
 	+ label {
 		box-shadow: 0 0 0 2px inset $color-tab-highlight !important;
 	}
+
+	&.input-icon {
+		> svg {
+			box-shadow: 0 0 0 2px inset $color-tab-highlight !important;
+		}
+	}
 }
 
 // Use when element is on dark background

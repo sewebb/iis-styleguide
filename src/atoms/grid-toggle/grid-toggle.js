@@ -6,5 +6,5 @@ function classToggle() {
 }
 
 if (element) {
-	document.querySelector('.grid-toggle').addEventListener('click', classToggle);
+	element.addEventListener('click', classToggle);
 }

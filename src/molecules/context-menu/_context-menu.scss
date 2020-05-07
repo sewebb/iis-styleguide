@@ -1,0 +1,48 @@
+@charset 'UTF-8';
+
+@include molecule(context-menu) {
+	display: inline-flex;
+	position: relative;
+	flex-direction: column;
+
+	button {
+		span {
+			pointer-events: none;
+		}
+	}
+
+	@include e(list) {
+
+		@extend %box-shadow;
+
+		position: absolute;
+		top: 100%;
+		left: rhythm(1);
+		width: auto;
+		min-width: calc(100% - #{rhythm(1)});
+		border: 1px solid $color-concrete;
+		background-color: $color-snow;
+		white-space: nowrap;
+
+		&[aria-hidden='true'] {
+			display: none;
+		}
+	}
+
+	@include e(item) {
+		padding: 0;
+
+		& + & {
+			border-top: 1px solid $color-concrete;
+		}
+
+		a {
+			display: block;
+			padding: rhythm(1) rhythm(2);
+
+			&:hover {
+				background-color: $color-ash;
+			}
+		}
+	}
+}

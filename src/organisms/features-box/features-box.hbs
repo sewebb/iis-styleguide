@@ -1,0 +1,24 @@
+<div class="background-{{color}} {{padding}} u-border-radius">
+	{{#if heading}}
+		<h2 class="{{heading_classes}}">{{heading}}</h2>
+	{{/if}}
+	<ul class="u-list-clean">
+		{{#each list_items}}
+		<li class="display-flex u-m-b-1">
+			{{#if icon}}
+				<div class="u-m-r-4">{{> @icon id=this.icon additional_classes="u-icon"}}</div>
+			{{/if}}
+			<div>{{{li_text}}}</div>
+		</li>
+		{{/each}}
+	</ul>
+
+	{{#if button}}
+	<div class="row u-m-t-4">
+		<div class="grid-18">
+			{{> @button el="a" text=this.button_text modifiers=this.button_modifiers icon=this.button_icon}}
+		</div>
+	</div>
+	{{/if}}
+
+</div>

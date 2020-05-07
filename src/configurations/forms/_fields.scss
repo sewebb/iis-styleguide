@@ -36,6 +36,7 @@
 	border-bottom-right-radius: $border-radius;
 	border-bottom-left-radius: $border-radius;
 	background-color: $color-concrete;
+	font-size: rem(16px);
 
 	&:empty {
 		display: none;

@@ -8,6 +8,7 @@ module.exports = {
 		button_type: false,
 		type: false,
 		id: false,
+		aria_controls: false
 	},
 	variants: [
 		{
@@ -22,6 +23,20 @@ module.exports = {
 			context: {
 				modifiers: ['ruby-dark'],
 				text: 'Ruby dark secondary button'
+			}
+		},
+		{
+			name: 'Jade light',
+			context: {
+				modifiers: ['jade-light'],
+				text: 'Jade secondary button'
+			}
+		},
+		{
+			name: 'Jade dark',
+			context: {
+				modifiers: ['jade-dark'],
+				text: 'Jade dark secondary button'
 			}
 		},
 		{
@@ -46,6 +61,13 @@ module.exports = {
 			}
 		},
 		{
+			name: 'Dashed',
+			context: {
+				modifiers: ['dashed'],
+				text: 'Dashed hollow button'
+			}
+		},
+		{
 			name: 'Small',
 			context: {
 				modifiers: ['small'],
@@ -65,6 +87,25 @@ module.exports = {
 				modifiers: ['icon'],
 				text: 'Button with icon',
 				additional_classes: 'has-loader',
+				icon: 'arrow-forwards',
+				el: 'button'
+			}
+		},
+		{
+			name: 'With left icon',
+			context: {
+				modifiers: ['icon', 'icon-left'],
+				text: 'Button with left icon',
+				additional_classes: 'has-loader',
+				icon: 'arrow-forwards',
+				el: 'button'
+			}
+		},
+		{
+			name: 'Transparent with icon',
+			context: {
+				modifiers: ['transparent'],
+				text: 'Going home',
 				icon: 'arrow-forwards',
 				el: 'button'
 			}

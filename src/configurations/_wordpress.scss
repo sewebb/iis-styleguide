@@ -52,6 +52,11 @@ div.aligncenter {
 
 .wp-block-image {
 	figure {
+		&.aligncenter {
+			figcaption {
+				text-align: center;
+			}
+		}
 		@include bp-down(sm) {
 			&.alignright,
 			&.aligncenter,
@@ -61,10 +66,19 @@ div.aligncenter {
 			}
 		}
 	}
+
+	figcaption {
+		@include plumber(
+			$font-size: 1.5,
+			$line-height: 2,
+			$leading-bottom: 0
+		);
+	}
 }
 
 .wp-embed-aspect-9-16,
-.wp-embed-aspect-16-9 {
+.wp-embed-aspect-16-9,
+.wp-embed-aspect-4-3 {
 	&.alignright,
 	&.aligncenter,
 	&.alignleft {
@@ -98,7 +112,8 @@ div.aligncenter {
 	}
 }
 
-.wp-embed-aspect-16-9 {
+.wp-embed-aspect-16-9,
+.wp-embed-aspect-4-3 {
 	.embed-container,
 	[class*='wp-block-embed__wrapper'] {
 		padding-bottom: 56.25%;
@@ -143,6 +158,16 @@ div.aligncenter {
 				font-size: $size-base;
 			}
 		}
+	}
+}
+
+.wp-block-embed {
+	figcaption {
+		@include plumber(
+			$font-size: 1.5,
+			$line-height: 2,
+			$leading-bottom: 0
+		);
 	}
 }
 

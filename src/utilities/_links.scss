@@ -5,16 +5,18 @@
 .u-link-normal * {
 	padding: 0;
 	border: 0;
-	overflow-wrap: normal;
+	border-radius: 0;
 	word-wrap: normal;
 	word-break: normal;
 	hyphens: none;
+	overflow-wrap: normal;
 
 	&:hover,
 	&:focus {
 		border: 0;
-		border-radius: none;
+		border-radius: 0;
 		background-color: transparent;
+		text-decoration: underline;
 	}
 }
 

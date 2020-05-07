@@ -1,5 +1,7 @@
 @charset 'UTF-8';
 
+@import 'https://static.iis.se/styles/readspeaker/skins/iisReadSpeakerSkin/iisReadSpeakerSkin.css?ver=1.0.0';
+
 @include atom(main-menu) {
 
 	@include e(list) {

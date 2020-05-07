@@ -70,6 +70,7 @@
 	&:hover,
 	&:focus {
 		border: 1px solid $color-granit;
+		border-radius: rem(17.5px);
 		background-color: $color-granit;
 		color: $color-snow;
 	}

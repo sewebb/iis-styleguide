@@ -1,0 +1,15 @@
+<div data-tab-component>
+	<ul class="o-tab-list js-o-tab-list">
+		{{#each tab_item}}
+		<li class="o-tab-list__item">
+			<a class="o-tab-list__link" href="#{{id}}">{{{heading}}}</a>
+		</li>
+		{{/each}}
+	</ul>
+	{{#each tab_item}}
+	<section id="{{id}}" class="o-tab-panel">
+		<h2>{{{heading}}}</h2>
+		{{{content}}}
+	</section>
+	{{/each}}
+</div>

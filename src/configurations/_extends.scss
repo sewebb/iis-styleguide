@@ -9,6 +9,7 @@
 	&:hover,
 	&:focus {
 		border: none;
+		border-radius: 0;
 		background-color: inherit;
 	}
 }
@@ -109,4 +110,8 @@
 
 %tag-light {
 	@include tag-light;
+}
+
+%box-shadow {
+	box-shadow: 0 rhythm(0.5) rhythm(0.5) rgba($color-cyberspace, 0.1) !important;
 }

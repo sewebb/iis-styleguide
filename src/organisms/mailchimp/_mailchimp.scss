@@ -1,0 +1,121 @@
+@charset 'UTF-8';
+
+@include organism(mailchimp) {
+	@include e(wrapper) {
+		@include card-shadow($color-cyberspace, 0.2);
+
+		margin-top: rhythm(4);
+		margin-bottom: rhythm(8);
+		padding: rhythm(2);
+		border-radius: $border-radius;
+		background-color: $color-snow;
+	}
+
+	@include e(close) {
+		display: none;
+	}
+
+	@include e(image-container) {
+		margin-bottom: rhythm(2);
+
+		@include bp-up(lg) {
+			display: flex;
+			display: -webkit-box; // Weird Sarafi bug needs this
+			width: 50%;
+			margin-bottom: 0;
+		}
+	}
+
+	@include e(image) {
+		display: block;
+		flex-grow: 0;
+		border-radius: $border-radius;
+		object-fit: cover;
+	}
+
+	@include e(image-missing) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		width: 100%;
+		height: 100%;
+		border-radius: $border-radius;
+		background-color: $color-cyberspace;
+
+		svg {
+			width: 100%;
+			height: 80%;
+			min-height: rhythm(20);
+			fill: $color-jade;
+		}
+	}
+
+	@include e(content) {
+		padding: 0 rhythm(3) 0 rhythm(3);
+
+		@include bp-up(lg) {
+			padding-right: rhythm(4);
+		}
+	}
+
+	@include m(sliding) {
+		position: fixed;
+		z-index: z_index(foreground);
+		top: rhythm(1);
+		right: -500px;
+		bottom: rhythm(1);
+		max-width: 420px;
+		transition: right ease-out 0.35s;
+
+		&.is-visible {
+			right: 0;
+
+			@include e(wrapper) {
+				display: block;
+			}
+		}
+
+		@include bp-up(sm) {
+			top: auto;
+		}
+
+		@include e(wrapper) {
+			display: none;
+			margin-top: 0;
+			margin-bottom: 0;
+		}
+
+		@include e(row-bottom) {
+			max-height: calc(100vh - 94px);
+			overflow-x: hidden;
+			overflow-y: auto;
+
+			@include bp-up(sm) {
+				max-height: none;
+				overflow: visible;
+			}
+		}
+
+		@include e(close) {
+			display: flex;
+		}
+
+		@include e(image-container) {
+			display: none;
+		}
+
+		@include e(content) {
+			flex: 0 0 100%;
+			width: 100%;
+			max-width: 100%;
+			padding-right: rhythm(3);
+			padding-bottom: rhythm(2);
+		}
+
+		@include b(m-form__row) {
+			flex: 0 0 100%;
+			width: 100%;
+			max-width: 100%;
+		}
+	}
+}
