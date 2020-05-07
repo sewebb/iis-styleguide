@@ -1,4 +1,4 @@
-import template from '../../assets/js/template';
+import template from 'lodash.template';
 import Button from '../../atoms/button/Button';
 import className from '../../assets/js/className';
 import validationMessage from '../../assets/js/validationMessage';
@@ -10,7 +10,12 @@ export default class Form {
 		this.submit = new Button(this.element.querySelector('button[type="submit"]'));
 		this.error = this.element.querySelector('[data-form-error]');
 		this.success = this.element.querySelector('[data-form-success]');
-		this.successMessage = this.success.innerHTML;
+
+		if (this.success) {
+			const tpl = document.getElementById(this.success.getAttribute('data-form-success'));
+			this.successMessage = (tpl) ? tpl.innerHTML : '';
+		}
+
 		this.validation = this.element.querySelector('meta[name="form-validation"]');
 		this.i18n = i18n;
 
@@ -227,15 +232,25 @@ export default class Form {
 		this.setLoading(true);
 
 		const data = Object.entries(this.data).map(([key, value]) => `${key}=${value}`);
+		const method = this.element.getAttribute('method').toUpperCase() || 'POST';
+		let url = this.element.getAttribute('data-form');
 		let dataParam = data.join('&');
 
 		if (this.token) {
 			dataParam += `&token=${this.token}`;
 		}
 
-		fetch(this.element.getAttribute('data-form'), {
-			method: 'POST',
-			body: dataParam,
+		if (method === 'GET') {
+			if (url.indexOf('?') > -1) {
+				url += `${dataParam}`;
+			} else {
+				url += `?${dataParam}`;
+			}
+		}
+
+		fetch(url, {
+			method,
+			body: (method !== 'GET') ? dataParam : null,
 			headers: {
 				'Content-Type': 'application/x-www-form-urlencoded',
 			},

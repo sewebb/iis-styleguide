@@ -1,14 +1,12 @@
-<form class="m-form" data-form="https://jsonplaceholder.typicode.com/todos/1" action="" method="get">
-    <meta name="form-validation" content="name=required,min:3|terms=required">
+<form class="m-form" data-form="https://www.thecocktaildb.com/api/json/v1/1/search.php" action="" method="get">
+    <meta name="form-validation" content="s=required,min:3|terms=required">
 
     <div role="alert" data-form-error class="m-alert m-alert--error is-hidden"></div>
-    <div role="alert" data-form-success class="m-alert m-alert--success is-hidden">
-        <p>{success}</p>
-    </div>
+    <div role="alert" data-form-success="drinks" class="m-alert m-alert--success is-hidden"></div>
     <div class="m-form-control m-form-control--small">
         <div class="m-form__row u-m-b-2">
             <div class="field-group">
-                <input type="text" name="name" class="a-input" placeholder="Name">
+                <input type="text" name="s" class="a-input" placeholder="Your favorite cocktail">
             </div>
         </div>
         <div class="m-form__row u-m-b-2">
@@ -25,4 +23,7 @@
             </button>
         </div>
     </div>
+    <script type="iis/template" id="drinks">
+    	<% drinks.forEach(function (drink) { %><li><%- drink.strDrink %> (<%- drink.strAlcoholic %>)</li><% }); %>
+    </script>
 </form>
