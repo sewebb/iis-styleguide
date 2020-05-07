@@ -7,16 +7,16 @@
 	left: 0;
 	align-items: center;
 	justify-content: center;
-	width: 100vw;
 	height: 100vh;
 	overflow-y: auto;
 	background: $color-snow;
 
 	// Adjust close button position
 	@include m(has-overlay) {
-		&::before {
+		&::after {
 			content: '';
 			position: absolute;
+			z-index: z_index(foregroundMinus);
 			top: 0;
 			right: 0;
 			bottom: 0;
@@ -28,8 +28,11 @@
 	@include e(container) {
 		display: flex;
 		position: relative;
+		z-index: z_index(foreground);
 		flex-direction: column;
 		max-height: 100vh;
+		margin-right: rhythm(1);
+		margin-left: rhythm(1);
 		padding: rhythm(4) rhythm(4) rhythm(6) rhythm(4);
 		border-radius: $border-radius;
 		background: $color-snow;
@@ -42,10 +45,6 @@
 		}
 		@media screen and (min-width: 576px) {
 			padding: rhythm(8) rhythm(8) rhythm(6) rhythm(8);
-		}
-
-		@include m(hidden) {
-			display: none;
 		}
 	}
 
