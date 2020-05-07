@@ -1,7 +1,9 @@
+import './molecules/form';
+
 require('./atoms/grid-toggle/grid-toggle');
 require('./components');
 
-const Button = require('./atoms/button/button');
+const Button = require('./atoms/button/Button');
 
 const demoButtons = document.querySelectorAll('button.a-button.has-loader');
 
