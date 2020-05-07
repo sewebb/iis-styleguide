@@ -12,9 +12,9 @@ var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _template = require('../../assets/js/template');
+var _lodash = require('lodash.template');
 
-var _template2 = _interopRequireDefault(_template);
+var _lodash2 = _interopRequireDefault(_lodash);
 
 var _Button = require('../../atoms/button/Button');
 
@@ -120,7 +120,7 @@ var Form = function () {
 
 			_this.setLoading(false);
 
-			var tmpl = (0, _template2.default)(_this.successMessage);
+			var tmpl = (0, _lodash2.default)(_this.successMessage);
 
 			_this.success.classList.remove('is-hidden');
 			_this.success.innerHTML = tmpl(json);
@@ -140,7 +140,12 @@ var Form = function () {
 		this.submit = new _Button2.default(this.element.querySelector('button[type="submit"]'));
 		this.error = this.element.querySelector('[data-form-error]');
 		this.success = this.element.querySelector('[data-form-success]');
-		this.successMessage = this.success.innerHTML;
+
+		if (this.success) {
+			var tpl = document.getElementById(this.success.getAttribute('data-form-success'));
+			this.successMessage = tpl ? tpl.innerHTML : '';
+		}
+
 		this.validation = this.element.querySelector('meta[name="form-validation"]');
 		this.i18n = i18n;
 
@@ -331,15 +336,25 @@ var Form = function () {
 
 				return key + '=' + value;
 			});
+			var method = this.element.getAttribute('method').toUpperCase() || 'POST';
+			var url = this.element.getAttribute('data-form');
 			var dataParam = data.join('&');
 
 			if (this.token) {
 				dataParam += '&token=' + this.token;
 			}
 
-			fetch(this.element.getAttribute('data-form'), {
-				method: 'POST',
-				body: dataParam,
+			if (method === 'GET') {
+				if (url.indexOf('?') > -1) {
+					url += '' + dataParam;
+				} else {
+					url += '?' + dataParam;
+				}
+			}
+
+			fetch(url, {
+				method: method,
+				body: method !== 'GET' ? dataParam : null,
 				headers: {
 					'Content-Type': 'application/x-www-form-urlencoded'
 				}
