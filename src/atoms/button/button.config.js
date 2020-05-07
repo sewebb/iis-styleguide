@@ -8,7 +8,7 @@ module.exports = {
 		button_type: false,
 		type: false,
 		id: false,
-		aria_controls: false
+		aria_controls: false,
 	},
 	variants: [
 		{

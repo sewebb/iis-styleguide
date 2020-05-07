@@ -32,7 +32,9 @@ class ContainerToggle {
 				this.containerElement.tabIndex = 0;
 				this.focusTrap.activate();
 
-				megaMenu.hide();
+				if (megaMenu) {
+					megaMenu.hide();
+				}
 			} else {
 				this.focusTrap.deactivate();
 				this.containerElement.addEventListener('transitionend', () => {

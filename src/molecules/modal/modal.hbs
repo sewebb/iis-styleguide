@@ -1,6 +1,11 @@
-<div id="modal-container" class="m-modal m-modal--has-overlay{{#if is_hidden}} is-hidden{{/if}}" aria-hidden="true">
+<div id="modal-container" class="m-modal m-modal--has-overlay" aria-hidden="true">
 	<div class="m-modal__container {{#if is_form}}m-modal__container--form{{/if}}">
-		{{> @button button_type="button" el="button" additional_classes="js-modal-close" modifiers="icon, standalone-icon" icon="close" aria-controls="modal-container" text=this.button_text}}
+		<button type="button" class="a-button a-button--icon a-button--transparent a-button--icon js-toggle-modal" aria-expanded="false" data-a11y-toggle="{{aria_controls}}" aria-controls="{{aria_controls}}">
+			<span class="a-button__text">{{button_text}}</span>
+			<svg class="icon a-button__icon">
+				<use xlink:href="#icon-close"></use>
+			</svg>
+		</button>
 		<div class="m-modal__content">
 			{{#unless is_form}}
 				<h4>{{title}}</h4>
@@ -64,7 +69,9 @@
 			</form>
 		{{/if}}
 		<div class="m-modal__buttons u-m-t-2">
-			{{> @button button_type="button" el="button" additional_classes="js-modal-close, a-button--lemon" aria-controls="modal-container" text=this.button_text}}
+			<button type="button" class="a-button a-button--lemon js-toggle-modal" aria-expanded="false" data-a11y-toggle="{{aria_controls}}" aria-controls="{{aria_controls}}">
+				<span class="a-button__text">{{button_text}}</span>
+			</button>
 		</div>
 		{{#if is_form}}
 		<div class="m-modal__content--form-text u-m-t-2">{{{bottom_text}}}</div>
@@ -72,7 +79,7 @@
 	</div>
 </div>
 {{#if is_hidden}}
-	<button type="button" class="js-modal-open a-button a-button--lemon" aria-controls="modal-container">
+	<button style="z-index:1001" type="button" class="js-toggle-modal a-button a-button--lemon" aria-expanded="false" data-a11y-toggle="{{aria_controls}}" aria-controls="{{aria_controls}}">
 		<span class="a-button__text">{{btn_text}}</span>
 	</button>
 {{/if}}

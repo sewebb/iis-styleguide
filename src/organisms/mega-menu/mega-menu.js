@@ -146,18 +146,20 @@ function animateOut() {
  * Hide the mega menu (and footer)
  */
 function hideMegaMenu() {
-	if (megaMenu.getAttribute('aria-hidden') === 'true') {
-		return;
-	}
-
-	prepareOutAnimation();
-
-	setTimeout(() => {
-		requestAnimationFrame(animateOut);
-		if (html.classList.contains('tab-highlight')) {
-			focusTrap.deactivate();
+	if (megaMenu) {
+		if (megaMenu.getAttribute('aria-hidden') === 'true') {
+			return;
 		}
-	}, 50);
+
+		prepareOutAnimation();
+
+		setTimeout(() => {
+			requestAnimationFrame(animateOut);
+			if (html.classList.contains('tab-highlight')) {
+				focusTrap.deactivate();
+			}
+		}, 50);
+	}
 }
 
 /**

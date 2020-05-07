@@ -1,35 +1,9 @@
-const createFocusTrap = require('focus-trap');
+const containerToggle = require('../../ContainerToggle');
 
-const button = document.querySelector('.js-modal-open');
-const modal = document.querySelector('#modal-container');
+const buttonsToggleModal = document.querySelectorAll('.js-toggle-modal');
 
-
-const focusTrapOne = createFocusTrap('#modal-container', {
-	onDeactivate() {
-		modal.classList.add('is-hidden');
-		modal.setAttribute('aria-hidden', 'true');
-	},
-});
-
-
-function openModal() {
-	modal.classList.remove('is-hidden');
-	modal.setAttribute('aria-hidden', 'false');
-	focusTrapOne.activate();
+if (buttonsToggleModal) {
+	[].forEach.call(buttonsToggleModal, (toggleModal) => {
+		containerToggle(toggleModal);
+	});
 }
-
-function closeModal() {
-	focusTrapOne.deactivate();
-}
-
-button.addEventListener('click', (e) => {
-	e.preventDefault();
-	openModal();
-});
-
-modal.addEventListener('click', (e) => {
-	if (e.target.classList.contains('js-modal-close')) {
-		e.preventDefault();
-		closeModal();
-	}
-});
