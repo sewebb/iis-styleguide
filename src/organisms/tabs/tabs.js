@@ -138,7 +138,7 @@ window.a11yTabs = (function tabsComponentIIFE(global, document) {
 	*/
 	function createTabComponent(selector, options) {
 		const elements = document.querySelectorAll(selector);
-		[].forEach.call(elements, element => tabInstances.get(element)
+		[].forEach.call(elements, (element) => tabInstances.get(element)
 		|| new TabComponent(element, options));
 	}
 
