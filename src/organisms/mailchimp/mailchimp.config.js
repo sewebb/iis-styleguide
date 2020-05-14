@@ -2,7 +2,7 @@ module.exports = {
 	status: 'wip',
 
 	context: {
-		has_image: false,
+		has_image: true,
 		heading: 'Nyhetsbrev från Internetstiftelsen',
 		preable: 'Cirka en gång i månaden tipsar vi om intressanta evenemang och roliga projekt som vi driver. Se till att du håller dig uppdaterad genom att prenumerera på nyhetsbrevet!',
 		label: 'Din e-postadress',
