@@ -39,11 +39,12 @@
 		justify-content: center;
 		width: 100%;
 		height: 100%;
+		padding: rhythm(4);
 		border-radius: $border-radius;
 		background-color: $color-cyberspace;
 
 		svg {
-			width: 100%;
+			width: 80%;
 			height: 80%;
 			min-height: rhythm(20);
 			fill: $color-jade;
