@@ -1,7 +1,7 @@
-<div id="modal-container" class="m-modal m-modal--has-overlay" aria-hidden="true">
+<div id="modal-container" class="m-modal m-modal--has-overlay" {{#if is_hidden}}aria-hidden="true"{{/if}}>
 	<div class="m-modal__container {{#if is_form}}m-modal__container--form{{/if}}">
-		<button type="button" class="a-button a-button--icon a-button--transparent a-button--icon js-toggle-modal" aria-expanded="false" data-a11y-toggle="{{aria_controls}}" aria-controls="{{aria_controls}}">
-			<span class="a-button__text">{{button_text}}</span>
+		<button type="button" class="a-button a-button--standalone-icon a-button--transparent js-toggle-modal" aria-expanded="false" data-a11y-toggle="{{aria_controls}}" aria-controls="{{aria_controls}}">
+			<span class="a-button__text u-visuallyhidden">{{button_text}}</span>
 			<svg class="icon a-button__icon">
 				<use xlink:href="#icon-close"></use>
 			</svg>

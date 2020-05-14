@@ -37,7 +37,7 @@
 		max-height: 100vh;
 		margin-right: rhythm(1);
 		margin-left: rhythm(1);
-		padding: rhythm(4) rhythm(4) rhythm(6) rhythm(4);
+		padding: rhythm(4) rhythm(2) rhythm(4) rhythm(2);
 		border-radius: $border-radius;
 		background: $color-snow;
 
@@ -47,13 +47,17 @@
 			top: rhythm(1);
 			right: rhythm(1);
 		}
-		@media screen and (min-width: 576px) {
+
+		@include bp-up(sm) {
+			padding: rhythm(4) rhythm(4) rhythm(6) rhythm(4);
+		}
+
+		@include bp-up(md) {
 			padding: rhythm(8) rhythm(8) rhythm(6) rhythm(8);
 		}
 	}
 
-	@media screen and (min-width: 576px) {
-
+	@include bp-up(md) {
 		@include e(input-wrapper) {
 			display: flex;
 			justify-content: space-between;
@@ -63,6 +67,11 @@
 
 	@include e(content) {
 		position: relative;
+		margin-right: rhythm(2);
+
+		@include bp-up(sm) {
+			margin-right: 0;
+		}
 
 		@include m(form-name) {
 			flex: 0 0 45%;
@@ -78,7 +87,7 @@
 			margin-bottom: rhythm(2);
 		}
 
-		@media screen and (min-width: 576px) {
+		@include bp-up(md) {
 
 			@include m(form-email) {
 				margin-bottom: rhythm(2);
@@ -107,11 +116,5 @@
 
 	@include b(field-group) {
 		margin-bottom: rhythm(1);
-	}
-
-	@include b(h1) {
-		@media screen and (max-width: 576px) {
-			margin-bottom: 0.5rem;
-		}
 	}
 }
