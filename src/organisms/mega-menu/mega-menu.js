@@ -1,4 +1,4 @@
-const createFocusTrap = require('focus-trap');
+import createFocusTrap from 'focus-trap';
 /**
  * Collect the needed elements.
  */
@@ -8,8 +8,12 @@ const megaMenu = document.getElementById('megaMenu');
 const content = document.getElementById('siteMain');
 const header = document.getElementById('siteHeader');
 const footer = document.getElementById('siteFooter');
-const focusTrap = createFocusTrap(megaMenu);
 const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+let focusTrap = null;
+
+if (megaMenu) {
+	focusTrap = createFocusTrap(megaMenu);
+}
 
 /**
  * Check if the element is in the viewport
@@ -194,11 +198,15 @@ function toggleMegaMenu(e) {
 	}
 }
 
-if (megaMenuButton && megaMenu) {
-	megaMenuButton.addEventListener('click', toggleMegaMenu);
+function handleMouseUp(e) {
+	const button = e.target.closest('.js-toggle-domain-search');
+
+	if (button && megaMenu.getAttribute('aria-hidden') === 'false') {
+		hideMegaMenu();
+	}
 }
 
-module.exports = {
-	show: showMegaMenu,
-	hide: hideMegaMenu,
-};
+if (megaMenuButton && megaMenu) {
+	megaMenuButton.addEventListener('click', toggleMegaMenu);
+	document.addEventListener('mouseup', handleMouseUp);
+}
