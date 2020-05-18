@@ -5,22 +5,7 @@
 			<use xlink:href="#icon-download"></use>
 		</svg>
 	</button>
-	<ul class="m-context-menu__list u-list-clean" id="contextMenu">
-		<li class="m-context-menu__item"><a href="#" class="u-link-normal">PDF</a></li>
-		<li class="m-context-menu__item"><a href="#" class="u-link-normal">JSON</a></li>
-		<li class="m-context-menu__item"><a href="#" class="u-link-normal">PNG</a></li>
-		<li class="m-context-menu__item"><a href="#" class="u-link-normal">Excel</a></li>
-	</ul>
-</nav>
-
-<nav class="m-context-menu js-context-menu">
-	<button type="button" class="a-button a-button--icon a-button--transparent a-button--icon js-context-menu-btn" aria-expanded="false" data-a11y-toggle="{{controls}}2" aria-controls="{{controls}}2">
-		<span class="a-button__text">Exportera</span>
-		<svg class="icon a-button__icon">
-			<use xlink:href="#icon-download"></use>
-		</svg>
-	</button>
-	<ul class="m-context-menu__list u-list-clean" id="contextMenu2" data-focus-trap="false">
+	<ul class="m-context-menu__list u-list-clean" id="{{controls}}" {{#unless focusTrap}}data-focus-trap="false"{{/unless}}>
 		<li class="m-context-menu__item"><a href="#" class="u-link-normal">PDF</a></li>
 		<li class="m-context-menu__item"><a href="#" class="u-link-normal">JSON</a></li>
 		<li class="m-context-menu__item"><a href="#" class="u-link-normal">PNG</a></li>
