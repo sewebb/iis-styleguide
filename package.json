@@ -27,7 +27,8 @@
 		"build:img": "npm run imagemin",
 		"watch:css": "onchange 'src/**/*.scss' -- npm run build:css",
 		"watch:js": "onchange 'src/**/*.js' -- npm run build:js",
-		"watch": "concurrently \"npm:watch:css\" \"npm:watch:js\"",
+        "watch:icons": "onchange 'src/atoms/icon/*.svg' -- npm run create-icons-config",
+		"watch": "concurrently \"npm:watch:css\" \"npm:watch:js\" \"npm:watch:icons\"",
 		"copy:images": "copyfiles -f src/assets/images/* public/assets/images",
 		"copy:fonts": "copyfiles -f src/base/fonts/* public/assets/fonts",
 		"copy:zip": "copyfiles -f src/assets/zip/* public/assets/zip",
@@ -38,7 +39,8 @@
 		"copy:build": "npm run copy:images:build && npm run copy:zip:build && npm run copy:fonts:build",
 		"build": "npm run build:css && npm run build:js && npm run uglify && npm run build:fractal && npm run htmlhint && npm run copy:build",
 		"dev": "concurrently \"npm:start:fractal\" \"npm:watch\" \"npm:copy:local-assets\"",
-		"package-js": "NODE_ENV=production babel src --out-dir dist --ignore src/**/*.config.js,src/app.js"
+		"package-js": "NODE_ENV=production babel src --out-dir dist --ignore src/**/*.config.js,src/app.js",
+        "create-icons-config": "node ./createIconsJson"
 	},
 	"devDependencies": {
 		"@frctl/fractal": "^1.2.1",
