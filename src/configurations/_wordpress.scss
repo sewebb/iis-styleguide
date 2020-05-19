@@ -3,17 +3,6 @@
 //
 // Modifies Wordpress Core classes
 //
-.wp-blocks-wrapper {
-	overflow-x: hidden;
-}
-
-.wp-blocks-content {
-	> *:not(.alignfull) {
-		max-width: rem(612px);
-		overflow: hidden;
-	}
-}
-
 .wp-caption {
 	margin-bottom: rhythm(3);
 }
