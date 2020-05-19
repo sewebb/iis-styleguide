@@ -3,30 +3,15 @@
 //
 // Modifies Wordpress Core classes
 //
+.wp-blocks-wrapper {
+	overflow-x: hidden;
+}
 
-// Normalize
-.alignnone:not(img),
-.aligncenter:not(img),
-div.aligncenter,
-.alignright:not(img),
-.alignleft:not(img),
-a img.alignright,
-a img.alignnone,
-a img.alignleft,
-a img.aligncenter,
-.wp-caption:not(img),
-.wp-caption.alignnone,
-.wp-caption.alignleft,
-.wp-caption.alignright,
-.wp-caption img,
-.wp-caption p.wp-caption-text {
-	max-width: none;
-	margin: 0;
-	padding: 0;
-	float: none;
-	background: none;
-	font-size: initial;
-	line-height: initial;
+.wp-blocks-content {
+	> *:not(.alignfull) {
+		max-width: rem(612px);
+		overflow: hidden;
+	}
 }
 
 .wp-caption {
@@ -37,35 +22,31 @@ a img.aligncenter,
 .aligncenter,
 div.aligncenter {
 	display: block;
-	margin: 0 auto;
+	margin: 0 auto rhythm(3);
 }
 
 .alignright {
-	margin: 0 0 0 rhythm(2);
+	max-width: percentage(6 / 18);
+	margin: 0 0 rhythm(3) rhythm(2);
 	float: right;
 }
 
 .alignleft {
-	margin: 0 rhythm(2) 0 0;
+	max-width: percentage(6 / 18);
+	margin: 0 rhythm(2) rhythm(3) 0;
 	float: left;
 }
 
+.alignfull {
+	position: relative;
+	left: 50%;
+	width: 100vw;
+	margin-left: -50vw;
+	clear: both;
+}
+
 .wp-block-image {
-	figure {
-		&.aligncenter {
-			figcaption {
-				text-align: center;
-			}
-		}
-		@include bp-down(sm) {
-			&.alignright,
-			&.aligncenter,
-			&.alignleft {
-				margin: 0;
-				float: none;
-			}
-		}
-	}
+	margin-bottom: rhythm(3);
 
 	figcaption {
 		@include plumber(
@@ -73,6 +54,20 @@ div.aligncenter {
 			$line-height: 2,
 			$leading-bottom: 0
 		);
+	}
+
+	&.aligncenter {
+		figcaption {
+			text-align: center;
+		}
+	}
+	@include bp-down(sm) {
+		&.alignright,
+		&.aligncenter,
+		&.alignleft {
+			margin: 0;
+			float: none;
+		}
 	}
 }
 
