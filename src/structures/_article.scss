@@ -42,8 +42,10 @@ $indent: 50px;
 			> div:not(.wp-block-iis-info),
 			> figure,
 			> blockquote {
-				max-width: rem(612px);
-				margin-left: rem($indent);
+				&:not(.alignfull) {
+					max-width: rem(612px);
+					margin-left: rem($indent);
+				}
 			}
 
 			> p.preamble {
