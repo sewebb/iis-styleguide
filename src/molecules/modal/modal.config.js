@@ -18,7 +18,7 @@ module.exports = {
 			is_form: true,
 			is_hidden: false,
 			check_text: 'Prenumerera på våra lokala nyhetsbrev:',
-			terms_text: 'Jag godkänner Goto 10:s <a href="#" class="u-link">medlemsvillkor</a> och <a href="#" class="u-link">integritetspolicy</a>.',
+			terms_text: 'Jag godkänner Goto 10:s <a href="#" class="u-link">medlemsvillkor</a> och <a href="https://internetstiftelsen.se/om-webbplatsen/integritetspolicy-for-besokare-pa-internetstiftelsens-webbplatser/" class="u-link">integritetspolicy</a>.',
 			bottom_text: 'Har du redan ett konto? <a href="#" class="u-link">Logga in</a>'
 			}
 		},
