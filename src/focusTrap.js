@@ -80,21 +80,5 @@ function handleFocusTrap(e, element) {
 	}, 0);
 }
 
-function handleMouseUp(e) {
-	const button = e.target.closest('[data-a11y-toggle]');
-	const containers = document.querySelectorAll('[data-container]');
-
-	if (!e.target.closest('[data-focus-trap]')) {
-		[].forEach.call(containers, (container) => {
-			const id = (button) ? button.getAttribute('data-a11y-toggle') : '';
-
-			if (container.getAttribute('aria-hidden') === 'false' && container.id !== id) {
-				window.a11yToggle(container);
-			}
-		});
-	}
-}
-
 document.addEventListener('click', delegate.bind(null, handleFocusTrap));
 document.addEventListener('keydown', delegate.bind(null, handleKeyDown), { once: true });
-document.addEventListener('mouseup', handleMouseUp);
