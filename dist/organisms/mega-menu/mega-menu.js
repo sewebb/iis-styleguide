@@ -1,6 +1,11 @@
 'use strict';
 
-var createFocusTrap = require('focus-trap');
+var _focusTrap = require('focus-trap');
+
+var _focusTrap2 = _interopRequireDefault(_focusTrap);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 /**
  * Collect the needed elements.
  */
@@ -10,8 +15,12 @@ var megaMenu = document.getElementById('megaMenu');
 var content = document.getElementById('siteMain');
 var header = document.getElementById('siteHeader');
 var footer = document.getElementById('siteFooter');
-var focusTrap = createFocusTrap(megaMenu);
 var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
+var focusTrap = null;
+
+if (megaMenu) {
+	focusTrap = (0, _focusTrap2.default)(megaMenu);
+}
 
 /**
  * Check if the element is in the viewport
@@ -133,18 +142,20 @@ function animateOut() {
  * Hide the mega menu (and footer)
  */
 function hideMegaMenu() {
-	if (megaMenu.getAttribute('aria-hidden') === 'true') {
-		return;
-	}
-
-	prepareOutAnimation();
-
-	setTimeout(function () {
-		requestAnimationFrame(animateOut);
-		if (html.classList.contains('tab-highlight')) {
-			focusTrap.deactivate();
+	if (megaMenu) {
+		if (megaMenu.getAttribute('aria-hidden') === 'true') {
+			return;
 		}
-	}, 50);
+
+		prepareOutAnimation();
+
+		setTimeout(function () {
+			requestAnimationFrame(animateOut);
+			if (html.classList.contains('tab-highlight')) {
+				focusTrap.deactivate();
+			}
+		}, 50);
+	}
 }
 
 /**
@@ -179,11 +190,15 @@ function toggleMegaMenu(e) {
 	}
 }
 
-if (megaMenuButton && megaMenu) {
-	megaMenuButton.addEventListener('click', toggleMegaMenu);
+function handleMouseUp(e) {
+	var button = e.target.closest('.js-toggle-domain-search');
+
+	if (button && megaMenu.getAttribute('aria-hidden') === 'false') {
+		hideMegaMenu();
+	}
 }
 
-module.exports = {
-	show: showMegaMenu,
-	hide: hideMegaMenu
-};
+if (megaMenuButton && megaMenu) {
+	megaMenuButton.addEventListener('click', toggleMegaMenu);
+	document.addEventListener('mouseup', handleMouseUp);
+}
