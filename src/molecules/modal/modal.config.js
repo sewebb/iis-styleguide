@@ -1,9 +1,9 @@
 module.exports = {
-	status: 'wip',
+	status: 'ready',
 
 	context: {
 		title: 'Du har sparat FooCoding Graduation!',
-		text: 'En påminnelse kommer skickas till din adress <a href="#" class="u-link">15 minuter</a> innan streamen startar.',
+		text: 'En påminnelse kommer skickas till din adress <a href="https://internetstiftelsen.se/om-webbplatsen/integritetspolicy-for-besokare-pa-internetstiftelsens-webbplatser/" class="u-link">15 minuter</a> innan streamen startar.',
 		button_text: 'Stäng',
 		aria_controls: '',
 		is_hidden: false,
