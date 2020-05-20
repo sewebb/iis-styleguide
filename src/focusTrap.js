@@ -7,6 +7,7 @@ function getContainer(element) {
 function focusTrap(container) {
 	if (container && container.getAttribute('data-focus-trap') !== 'false' && !container.focusTrap) {
 		container.focusTrap = createFocusTrap(`#${container.id}`, { clickOutsideDeactivates: true });
+		container.setAttribute('data-focus-trap', 'true');
 	}
 }
 
@@ -83,13 +84,15 @@ function handleMouseUp(e) {
 	const button = e.target.closest('[data-a11y-toggle]');
 	const containers = document.querySelectorAll('[data-container]');
 
-	[].forEach.call(containers, (container) => {
-		const id = (button) ? button.getAttribute('data-a11y-toggle') : '';
+	if (!e.target.closest('[data-focus-trap]')) {
+		[].forEach.call(containers, (container) => {
+			const id = (button) ? button.getAttribute('data-a11y-toggle') : '';
 
-		if (container.getAttribute('aria-hidden') === 'false' && container.id !== id) {
-			window.a11yToggle(container);
-		}
-	});
+			if (container.getAttribute('aria-hidden') === 'false' && container.id !== id) {
+				window.a11yToggle(container);
+			}
+		});
+	}
 }
 
 document.addEventListener('click', delegate.bind(null, handleFocusTrap));
