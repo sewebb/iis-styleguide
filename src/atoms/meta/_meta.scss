@@ -1,16 +1,46 @@
 @charset 'UTF-8';
 
 @include atom(meta) {
-
 	@include plumber(
 		$font-size: 1.7,
 		$baseline: $mono-baseline,
 		$leading-bottom: 0
 	);
 
-	display: block;
+	@include color_values($colors, 'fill', $prefix: '--', $separator: '-');
+
+	display: flex;
+	position: relative;
+	align-items: center;
+	margin-left: rhythm(1);
 	color: $color-cyberspace;
 	font-family: $font-family-mono;
 	text-decoration: none;
 	text-transform: uppercase;
+	white-space: nowrap;
+
+	span {
+		margin-left: rem(3px);
+	}
+
+	@include b(icon) {
+		display: flex;
+		align-items: center;
+		width: $icon-size;
+		height: $icon-size;
+		margin-right: rhythm(1);
+		fill: inherit;
+	}
+
+	@include m(light) {
+		color: $color-snow;
+
+		@include b(icon) {
+			fill: $color-snow;
+		}
+	}
+
+	@include m(lowercase) {
+		text-transform: lowercase;
+	}
 }

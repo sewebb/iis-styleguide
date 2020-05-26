@@ -1,34 +1,43 @@
 @include molecule(modal) {
 	display: flex;
 	position: fixed;
+	z-index: z_index(foreground);
 	top: 0;
 	right: 0;
 	bottom: 0;
 	left: 0;
 	align-items: center;
 	justify-content: center;
-	width: 100vw;
-	height: 100vh;
 	overflow-y: auto;
 	background: $color-snow;
 
+	&[aria-hidden='true'] {
+		display: none;
+	}
+
 	// Adjust close button position
-	@include e(overlay) {
-		position: absolute;
-		top: 0;
-		right: 0;
-		bottom: 0;
-		left: 0;
-		background: rgba(0, 0, 0, 0.5);
+	@include m(has-overlay) {
+		&::after {
+			content: '';
+			position: absolute;
+			z-index: z_index(foregroundMinus);
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background: rgba(0, 0, 0, 0.5);
+		}
 	}
 
 	@include e(container) {
 		display: flex;
 		position: relative;
+		z-index: z_index(foreground);
 		flex-direction: column;
-		max-width: rem(400px);
 		max-height: 100vh;
-		padding: rhythm(4) rhythm(4) rhythm(6) rhythm(4);
+		margin-right: rhythm(1);
+		margin-left: rhythm(1);
+		padding: rhythm(4) rhythm(2) rhythm(4) rhythm(2);
 		border-radius: $border-radius;
 		background: $color-snow;
 
@@ -39,25 +48,46 @@
 			right: rhythm(1);
 		}
 
-		@include m(form) {
-			max-width: rem(540px);
+		@include bp-up(sm) {
+			padding: rhythm(4) rhythm(4) rhythm(6) rhythm(4);
 		}
 
-		@media screen and (min-width: 576px) {
+		@include bp-up(md) {
 			padding: rhythm(8) rhythm(8) rhythm(6) rhythm(8);
+		}
+	}
+
+	@include bp-up(md) {
+		@include e(input-wrapper) {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: rhythm(2);
 		}
 	}
 
 	@include e(content) {
 		position: relative;
+		margin-right: rhythm(2);
 
-		@media screen and (min-width: 576px) {
+		@include bp-up(sm) {
+			margin-right: 0;
+		}
 
-			@include m(form-name) {
-				display: flex;
-				justify-content: space-between;
-				margin-bottom: rhythm(2);
-			}
+		@include m(form-name) {
+			flex: 0 0 45%;
+		}
+
+		@include m(form-lname) {
+			flex: 0 0 45%;
+		}
+
+		@include e(input-wrapper) {
+			display: flex;
+			justify-content: space-between;
+			margin-bottom: rhythm(2);
+		}
+
+		@include bp-up(md) {
 
 			@include m(form-email) {
 				margin-bottom: rhythm(2);
@@ -67,7 +97,6 @@
 				margin-bottom: rhythm(2);
 			}
 		}
-
 		@include m(form-check) {
 			display: flex;
 		}
@@ -75,25 +104,17 @@
 		@include m(form-text) {
 			display: flex;
 			justify-content: center;
+			margin-top: rhythm(2);
 		}
 	}
 
 	@include e(buttons) {
 		display: flex;
-		justify-content: center;
-
-		@media screen and (min-width: 576px) {
-			justify-content: flex-end;
-		}
+		flex-shrink: 0;
+		justify-content: flex-end;
 	}
 
 	@include b(field-group) {
 		margin-bottom: rhythm(1);
-	}
-
-	@include b(h1) {
-		@media screen and (max-width: 576px) {
-			margin-bottom: 0.5rem;
-		}
 	}
 }

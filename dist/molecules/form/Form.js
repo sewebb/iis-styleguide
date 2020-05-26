@@ -1,0 +1,376 @@
+'use strict';
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _extends = Object.assign || function (target) { for (var i = 1; i < arguments.length; i++) { var source = arguments[i]; for (var key in source) { if (Object.prototype.hasOwnProperty.call(source, key)) { target[key] = source[key]; } } } return target; };
+
+var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
+
+var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+var _lodash = require('lodash.template');
+
+var _lodash2 = _interopRequireDefault(_lodash);
+
+var _Button = require('../../atoms/button/Button');
+
+var _Button2 = _interopRequireDefault(_Button);
+
+var _className = require('../../assets/js/className');
+
+var _className2 = _interopRequireDefault(_className);
+
+var _validationMessage = require('../../assets/js/validationMessage');
+
+var _validationMessage2 = _interopRequireDefault(_validationMessage);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Form = function () {
+	function Form(element) {
+		var _this = this;
+
+		var i18n = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : null;
+
+		_classCallCheck(this, Form);
+
+		this.onSubmit = function (e) {
+			e.preventDefault();
+
+			_this.updateData();
+			_this.clearFieldErrors();
+
+			if (_this.validate()) {
+				if (_this.recaptcha) {
+					_this.captchaCallback();
+				}
+
+				_this.send();
+			} else {
+				_this.displayError({ message: _this.i18n('Alla fält måste vara ifyllda') });
+			}
+		};
+
+		this.displayError = function (error) {
+			_this.setLoading(false);
+
+			if (Object.keys(_this.errors).length) {
+				Object.entries(_this.errors).forEach(_this.displayFieldError);
+
+				return;
+			}
+
+			var errorMessage = (typeof error === 'undefined' ? 'undefined' : _typeof(error)) === 'object' ? error.message : error;
+
+			_this.error.classList.remove('is-hidden');
+			_this.error.innerHTML = errorMessage || _this.i18n('Något gick fel');
+		};
+
+		this.displayFieldError = function (_ref) {
+			var _ref2 = _slicedToArray(_ref, 2),
+			    name = _ref2[0],
+			    error = _ref2[1];
+
+			var input = _this.element.querySelector('[name="' + name + '"]');
+
+			if (!input) {
+				return;
+			}
+
+			var id = input.getAttribute('aria-describedby');
+
+			if (!id) {
+				id = name + '-help';
+				input.setAttribute('aria-describedby', id);
+			}
+
+			var help = document.getElementById(id);
+
+			if (!help) {
+				help = document.createElement('div');
+				help.id = id;
+				help.className = (0, _className2.default)('input-help');
+
+				if (input.getAttribute('type') === 'checkbox') {
+					var checkboxParent = input.closest('.' + (0, _className2.default)('checkbox'));
+
+					if (checkboxParent) {
+						checkboxParent.parentNode.insertBefore(help, checkboxParent.nextSibling);
+					}
+				} else {
+					input.parentNode.insertBefore(help, input.nextSibling);
+				}
+			}
+
+			help.innerHTML = error.map(_validationMessage2.default).join('<br>');
+		};
+
+		this.onSuccess = function (json) {
+			if ('code' in json && json.code !== 200) {
+				_this.displayError(json);
+
+				return;
+			}
+
+			_this.setLoading(false);
+
+			var tmpl = (0, _lodash2.default)(_this.successMessage);
+
+			_this.success.classList.remove('is-hidden');
+			_this.success.innerHTML = tmpl(json);
+		};
+
+		this.captchaCallback = function () {
+			if (typeof window.grecaptcha !== 'undefined' && 'CAPTCHA_KEY' in process.env) {
+				/* global grecaptcha */
+				grecaptcha.execute(process.env.CAPTCHA_KEY, { action: _this.recaptcha }).then(function (token) {
+					_this.token = token;
+				});
+			}
+		};
+
+		this.element = element;
+		this.inputs = this.element.querySelectorAll('input');
+		this.submit = new _Button2.default(this.element.querySelector('button[type="submit"]'));
+		this.error = this.element.querySelector('[data-form-error]');
+		this.success = this.element.querySelector('[data-form-success]');
+
+		if (this.success) {
+			var tpl = document.getElementById(this.success.getAttribute('data-form-success'));
+			this.successMessage = tpl ? tpl.innerHTML : '';
+		}
+
+		this.validation = this.element.querySelector('meta[name="form-validation"]');
+		this.i18n = i18n;
+
+		if (!this.i18n) {
+			this.i18n = function (str) {
+				return str;
+			};
+		}
+
+		this.data = {};
+		this.errors = {};
+		this.validationRules = null;
+
+		this.recaptcha = this.element.getAttribute('data-recaptcha');
+
+		if (this.recaptcha) {
+			window.captchaCallback = this.captchaCallback;
+			this.renderCaptchaForm();
+		}
+
+		if (this.validation) {
+			this.parseValidationRules();
+		}
+
+		this.attach();
+	}
+
+	_createClass(Form, [{
+		key: 'renderCaptchaForm',
+		value: function renderCaptchaForm() {
+			var s = document.createElement('script');
+			s.defer = true;
+			s.setAttribute('data-origin', this.recaptcha);
+			s.setAttribute('src', 'https://www.google.com/recaptcha/api.js?onload=captchaCallback&render=6LdtNnkUAAAAACYo0vISI-z9tOyr3djjZore-6wY&hl=sv');
+			document.body.appendChild(s);
+		}
+	}, {
+		key: 'parseValidationRules',
+		value: function parseValidationRules() {
+			var _this2 = this;
+
+			var validationsStr = this.validation.getAttribute('content');
+			var validations = validationsStr.split('|');
+
+			if (!validations.length) {
+				return;
+			}
+
+			this.validationRules = {};
+
+			validations.forEach(function (validation) {
+				var _validation$split = validation.split('='),
+				    _validation$split2 = _slicedToArray(_validation$split, 2),
+				    name = _validation$split2[0],
+				    rulesStr = _validation$split2[1];
+
+				_this2.validationRules[name] = rulesStr.split(',');
+			});
+		}
+	}, {
+		key: 'attach',
+		value: function attach() {
+			this.element.addEventListener('submit', this.onSubmit);
+		}
+	}, {
+		key: 'updateData',
+		value: function updateData() {
+			var data = _extends({}, this.data);
+
+			this.inputs.forEach(function (input) {
+				var name = input.getAttribute('name');
+				var value = input.value;
+
+				var type = input.getAttribute('type');
+
+				if (type === 'checkbox' && input.checked || type !== 'checkbox' && value && value.length) {
+					data[name] = value;
+				} else if (type === 'checkbox' && !input.checked) {
+					delete data[name];
+				}
+			});
+
+			this.data = data;
+		}
+	}, {
+		key: 'validateRule',
+		value: function validateRule(value, rule, field) {
+			var _rule$split = rule.split(':'),
+			    _rule$split2 = _slicedToArray(_rule$split, 2),
+			    ruleName = _rule$split2[0],
+			    ruleData = _rule$split2[1];
+
+			switch (ruleName) {
+				case 'required':
+					{
+						return field in this.data;
+					}
+				case 'min':
+					{
+						return !value || value.length >= parseInt(ruleData, 10);
+					}
+				default:
+					{
+						return true;
+					}
+			}
+		}
+	}, {
+		key: 'validate',
+		value: function validate() {
+			var _this3 = this;
+
+			this.errors = {};
+
+			if (!this.validationRules) {
+				return true;
+			}
+
+			Object.entries(this.validationRules).forEach(function (_ref3) {
+				var _ref4 = _slicedToArray(_ref3, 2),
+				    field = _ref4[0],
+				    rules = _ref4[1];
+
+				rules.forEach(function (rule) {
+					if (!_this3.validateRule(_this3.data[field], rule, field)) {
+						if (!(field in _this3.errors)) {
+							_this3.errors[field] = [];
+						}
+
+						_this3.errors[field].push(rule);
+					}
+				});
+			});
+
+			return Object.keys(this.errors).length < 1;
+		}
+	}, {
+		key: 'setLoading',
+		value: function setLoading(loading) {
+			if (loading) {
+				this.inputs.forEach(function (input) {
+					input.disabled = true;
+				});
+				this.submit.start();
+				this.element.classList.add('is-loading');
+			} else {
+				this.inputs.forEach(function (input) {
+					input.disabled = false;
+				});
+				this.submit.stop();
+				this.element.classList.remove('is-loading');
+			}
+		}
+	}, {
+		key: 'clearFieldErrors',
+		value: function clearFieldErrors() {
+			this.inputs.forEach(function (input) {
+				var id = input.getAttribute('aria-describedby');
+
+				if (!id) {
+					id = input.getAttribute('name') + '-help';
+					input.setAttribute('aria-describedby', id);
+				}
+
+				var help = document.getElementById(id);
+
+				if (help) {
+					help.innerHTML = '';
+				}
+			});
+		}
+	}, {
+		key: 'hideMessages',
+		value: function hideMessages() {
+			this.success.classList.add('is-hidden');
+			this.error.classList.add('is-hidden');
+		}
+	}, {
+		key: 'send',
+		value: function send() {
+			this.hideMessages();
+			this.setLoading(true);
+
+			var data = Object.entries(this.data).map(function (_ref5) {
+				var _ref6 = _slicedToArray(_ref5, 2),
+				    key = _ref6[0],
+				    value = _ref6[1];
+
+				return key + '=' + value;
+			});
+			var method = this.element.getAttribute('method').toUpperCase() || 'POST';
+			var url = this.element.getAttribute('data-form');
+			var dataParam = data.join('&');
+
+			if (this.token) {
+				dataParam += '&token=' + this.token;
+			}
+
+			if (method === 'GET') {
+				if (url.indexOf('?') > -1) {
+					url += '' + dataParam;
+				} else {
+					url += '?' + dataParam;
+				}
+			}
+
+			fetch(url, {
+				method: method,
+				body: method !== 'GET' ? dataParam : null,
+				headers: {
+					'Content-Type': 'application/x-www-form-urlencoded'
+				}
+			}).then(function (response) {
+				if (response.status !== 200) {
+					throw new Error(response.statusText);
+				}
+
+				return response;
+			}).then(function (res) {
+				return res.json();
+			}).then(this.onSuccess).catch(this.displayError);
+		}
+	}]);
+
+	return Form;
+}();
+
+exports.default = Form;

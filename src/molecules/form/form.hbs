@@ -1,0 +1,29 @@
+<form class="m-form" data-form="https://www.thecocktaildb.com/api/json/v1/1/search.php" action="" method="get">
+    <meta name="form-validation" content="s=required,min:3|terms=required">
+
+    <div role="alert" data-form-error class="m-alert m-alert--error is-hidden"></div>
+    <div role="alert" data-form-success="drinks" class="m-alert m-alert--success is-hidden"></div>
+    <div class="m-form-control m-form-control--small">
+        <div class="m-form__row u-m-b-2">
+            <div class="field-group">
+                <input type="text" name="s" class="a-input" placeholder="Your favorite cocktail">
+            </div>
+        </div>
+        <div class="m-form__row u-m-b-2">
+            <div class="field-group">
+                <div class="checkbox">
+                    <input id="newsletterTerms" type="checkbox" name="terms" value="1" class="a-checkbox u-visuallyhidden">
+                    <label for="newsletterTerms"><span>Accept the terms</span></label>
+                </div>
+            </div>
+        </div>
+        <div class="m-form__row">
+            <button type="submit" class="a-button a-button--small">
+                <span class="a-button__text">Fetch</span>
+            </button>
+        </div>
+    </div>
+    <script type="iis/template" id="drinks">
+    	<% drinks.forEach(function (drink) { %><li><%- drink.strDrink %> (<%- drink.strAlcoholic %>)</li><% }); %>
+    </script>
+</form>

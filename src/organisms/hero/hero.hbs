@@ -1,12 +1,29 @@
 {{#if limited_width}}
-<div class="wrapper">
+{{#unless is_event}}<div class="wrapper">{{/unless}}
 	<div class="row">
 		<div class="grid">
 {{/if}}
-<figure class="o-hero{{#if no_image_class}} {{no_image_class}}{{/if}}{{#if has_radius}} o-hero--border-radius{{/if}}{{#if has_video}} {{video_class}}{{/if}}">
+<figure class="o-hero{{#if no_image_class}} {{no_image_class}}{{/if}}{{#if has_radius}} o-hero--border-radius{{/if}}{{#if has_video}} {{video_class}}{{/if}} {{#if is_event}}o-hero--event background-peacock-light{{/if}}">
 	{{#if has_image}}<img src="/assets/images/hero.jpg" alt="hero" class="o-hero__image">{{/if}}
 	{{#if has_video}}
 		<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/3RVcnx-hOk8?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+	{{else if is_event}}
+		<figcaption>
+			<div class="o-hero__content">
+				<p class="o-hero__text">Event på Goto 10 i <strong>{{city}}</strong></p>
+				<h1 class="supersize">{{event_title}}</h1>
+				<p class="o-hero__text display-flex flex-wrap">
+					<span class="meta u-m-y-0 u-p-y-0 u-p-r-1">{{time}}</span>
+					<span class="o-hero__spacer">|</span>
+					<span>Arrangör: <a href="#">{{organizer}}
+						<svg class="icon o-mega-menu__link__icon">
+							<use xlink:href="#icon-external-link"></use>
+						</svg></a>
+					</span>
+				</p>
+				{{render '@share'}}
+		</div>
+	</figcaption>
 	{{else}}
 	<figcaption class="o-hero__caption">
 		<div class="wrapper">
@@ -26,5 +43,5 @@
 {{#if limited_width}}
 		</div>
 	</div>
-</div>
+{{#unless is_event}}</div>{{/unless}}
 {{/if}}

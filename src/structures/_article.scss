@@ -29,8 +29,6 @@ $indent: 50px;
 		}
 
 		@include e(content) {
-			margin-left: rem($indent);
-
 			> p:not(.preamble),
 			> h2,
 			> h3,
@@ -42,12 +40,15 @@ $indent: 50px;
 			> div:not(.wp-block-iis-info),
 			> figure,
 			> blockquote {
-				max-width: rem(612px);
-				margin-left: rem($indent);
+				&:not(.alignfull) {
+					max-width: rem(612px);
+					margin-left: rem($indent * 2);
+				}
 			}
 
 			> p.preamble {
 				max-width: rem(612px);
+				margin-left: rem($indent);
 			}
 
 			> .wp-block-iis-info {

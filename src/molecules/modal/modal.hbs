@@ -1,7 +1,11 @@
-<div class="m-modal">
-	<div class="m-modal__overlay"></div>
+<div id="modal-container" class="m-modal m-modal--has-overlay" {{#if is_hidden}}aria-hidden="true"{{/if}}>
 	<div class="m-modal__container {{#if is_form}}m-modal__container--form{{/if}}">
-		{{> @button el="button" modifiers="icon, standalone-icon" icon="close"}}
+		<button type="button" class="a-button a-button--standalone-icon a-button--transparent js-toggle-modal" aria-expanded="false" data-a11y-toggle="{{aria_controls}}" aria-controls="{{aria_controls}}">
+			<span class="a-button__text u-visuallyhidden">{{button_text}}</span>
+			<svg class="icon a-button__icon">
+				<use xlink:href="#icon-close"></use>
+			</svg>
+		</button>
 		<div class="m-modal__content">
 			{{#unless is_form}}
 				<h4>{{title}}</h4>
@@ -12,59 +16,70 @@
 			{{/if}}
 		</div>
 		{{#if is_form}}
+		<form class="m-modal__form">
 			<div class="field-group">
 			<div class="m-modal__content--form-email">
 				<label for="label">E-post</label>
 					<input type="text" id="name" placeholder="hej@mail.com" autocomplete="off" class="a-input ">
 			</div>
+			<div class="m-modal__input-wrapper">
 				<div class="m-modal__content--form-name">
-					<div class="m-modal__input-wrapper">
-						<label for="label">Förnamn</label>
-						<input type="text" id="name" placeholder="Anna" autocomplete="off" class="a-input ">
-					</div>
-					<div >
-						<label for="label">Efternamn</label>
-						<input type="text" id="name" placeholder="Johansson" autocomplete="off" class="a-input ">
-					</div>
+					<label for="label">Förnamn</label>
+					<input type="text" id="name" placeholder="Anna" autocomplete="off" class="a-input ">
 				</div>
-				<div class="m-modal__content--form-username">
-					<label for="label">Användarnamn</label>
-					<input type="text" id="name" placeholder="tex kattsmurfen89" autocomplete="off" class="a-input ">
+				<div class="m-modal__content--form-lname">
+					<label for="label">Efternamn</label>
+					<input type="text" id="name" placeholder="Johansson" autocomplete="off" class="a-input ">
 				</div>
-				<div class="m-modal__content--form-password u-m-b-default">
-				 <label for="password">Lösenord</label>
-					<input type="password" id="password" placeholder="" autocomplete="off" class="a-input has-icon ">
-					<button class="input-icon js-toggle-input-type">
-						<svg class="icon">
-							<use xlink:href="#icon-read"></use>
-						</svg>
-						<span class="u-visuallyhidden">Visa lösenordet</span>
-					</button>
-					</div>
-
-					<p class="small">{{check_text}}</p>
-					<div class="m-modal__content--form-check">
-						<div class="checkbox">
-							<input type="checkbox" id="radiobutton-0" name="Checkbox default" value="0" class="a-checkbox u-visuallyhidden">
-							<label for="radiobutton-0"><span class="small">Stockholm</span></label>
-						</div>
-
-						<div class="checkbox">
-							<input type="checkbox" id="radiobutton-1" name="Checkbox default" value="0" class="a-checkbox u-visuallyhidden">
-							<label for="radiobutton-1"><span class="small">Malmö</span></label>
-						</div>
-					</div>
-					<div class="checkbox">
-						<input type="checkbox" id="radiobutton-2" name="Checkbox default" value="0" class="a-checkbox u-visuallyhidden">
-						<label for="radiobutton-2"><p class="small">{{{terms_text}}}</p></label>
-					</div>
 			</div>
+			<div class="m-modal__content--form-username">
+				<label for="label">Användarnamn</label>
+				<input type="text" id="name" placeholder="tex kattsmurfen89" autocomplete="off" class="a-input ">
+			</div>
+			<div class="modal__content--form-password u-m-b-default">
+			 <label for="password">Lösenord</label>
+				<input type="password" id="password" placeholder="" autocomplete="off" class="a-input has-icon ">
+				<button class="input-icon js-toggle-input-type">
+					<svg class="icon">
+						<use xlink:href="#icon-read"></use>
+					</svg>
+					<span class="u-visuallyhidden">Visa lösenordet</span>
+				</button>
+				</div>
+
+				<fieldset>
+					<legend class="label-legend">{{check_text}}</legend>
+					<div class="checkbox checkbox--inline row no-gutters u-m-b-2">
+						<div class="grid-auto">
+							<input type="checkbox" id="radiobutton-0" name="Checkbox default" value="0" class="a-checkbox u-visuallyhidden">
+							<label for="radiobutton-0"><span>Stockholm</span></label>
+						</div>
+						<div class="grid-auto">
+							<input type="checkbox" id="radiobutton-1" name="Checkbox default" value="0" class="a-checkbox u-visuallyhidden">
+							<label for="radiobutton-1"><span>Malmö</span></label>
+						</div>
+					</div>
+				</fieldset>
+
+				<div class="checkbox">
+					<input type="checkbox" id="radiobutton-2" name="Checkbox default" value="0" class="a-checkbox u-visuallyhidden">
+					<label for="radiobutton-2"><span>{{{terms_text}}}</span></label>
+				</div>
+			</div>
+			</form>
 		{{/if}}
-		<div class="m-modal__buttons u-m-b-default">
-			<a href="#" class="a-button a-button--lemon">
+		<div class="m-modal__buttons u-m-t-2">
+			<button type="button" class="a-button a-button--lemon js-toggle-modal" aria-expanded="false" data-a11y-toggle="{{aria_controls}}" aria-controls="{{aria_controls}}">
 				<span class="a-button__text">{{button_text}}</span>
-			</a>
+			</button>
 		</div>
-		<div class="m-modal__content--form-text"><p class="small">{{{bottom_text}}}</p></div>
+		{{#if is_form}}
+		<div class="m-modal__content--form-text u-m-t-2">{{{bottom_text}}}</div>
+		{{/if}}
 	</div>
 </div>
+{{#if is_hidden}}
+	<button type="button" class="js-toggle-modal a-button a-button--lemon" aria-expanded="false" data-a11y-toggle="{{aria_controls}}" aria-controls="{{aria_controls}}">
+		<span class="a-button__text">{{btn_text}}</span>
+	</button>
+{{/if}}

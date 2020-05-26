@@ -1,5 +1,5 @@
 module.exports = {
-	status: "wip",
+	status: 'ready',
 	title: 'Features box',
 	context: {
 		color: 'snow',

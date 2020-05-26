@@ -3,7 +3,7 @@
 var slidingForm = document.querySelector('[class*="--sliding"]');
 var staticForm = document.querySelector('[class*="--static"]');
 var closeButton = document.querySelector('[class*="--sliding"] .js-close-mailchimp-popup');
-var timeout = slidingForm.getAttribute('data-slider-delay');
+var timeout = void 0;
 var timer = void 0;
 var throttle = 66; // Trigger event every 66ms
 var visibleClass = 'is-visible';
@@ -37,8 +37,12 @@ if (noForm) {
 	setCookie(cookieName, 'YES', 7);
 }
 
-// Add hidden attribute on page load
-slidingForm.setAttribute('aria-hidden', 'true');
+if (slidingForm) {
+	timeout = slidingForm.getAttribute('data-slider-delay');
+
+	// Add hidden attribute on page load
+	slidingForm.setAttribute('aria-hidden', 'true');
+}
 
 function isInViewport(element) {
 	var top = element.offsetTop;
