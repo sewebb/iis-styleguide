@@ -121,17 +121,6 @@ module.exports = {
 			}
 		},
 		{
-			name: 'Multiple states',
-			context: {
-				url: false,
-				modifiers: ['large'],
-				has_states: true,
-				additional_classes: 'has-states',
-				text: 'Anmäl dig',
-				el: 'button'
-			}
-		},
-		{
 			name: 'Standalone icon',
 			context: {
 				url: false,
