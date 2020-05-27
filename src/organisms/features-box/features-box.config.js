@@ -4,6 +4,7 @@ module.exports = {
 	context: {
 		color: 'snow',
 		padding: 'u-p-x-4 u-p-t-3 u-p-b-4',
+		height: '',
 		heading: false,
 		heading_classes: false,
 		button: true,
@@ -177,6 +178,32 @@ module.exports = {
 					{
 						li_text: '<a href="tel:08-10 10 10">08–10 10 10</a>',
 						icon: 'phone'
+					},
+					{
+						li_text: 'Riggat för livesändning',
+						icon: 'streaming'
+					},
+					{
+						li_text: 'Rullstolsanpassad lokal med ramp',
+						icon: 'accessibility'
+					},
+				]
+			}
+		},
+		{
+			name: "full-height",
+			context: {
+				height: 'u-height-full',
+				additional_classes: false,
+				button: false,
+				list_items: [
+					{
+						li_text: '<span>Gradängen, Goto10</span><br /><span class="color-granit">Hammarby Slussväg 4, 118 60 Stockholm</span>',
+						icon: 'pin'
+					},
+					{
+						li_text: 'Vardagar: 8:00-17:00<br />Helger: Stängt',
+						icon: 'time'
 					},
 					{
 						li_text: 'Riggat för livesändning',
