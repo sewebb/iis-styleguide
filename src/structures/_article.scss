@@ -1,4 +1,4 @@
-$indent: 50px;
+$indent: 3.78825%;
 
 @mixin indent($text-indent: $indent) {
 
@@ -41,19 +41,19 @@ $indent: 50px;
 			> figure,
 			> blockquote {
 				&:not(.alignfull):not(.alignleft):not(.alignright) {
-					max-width: calc(#{percentage(12 / 18)} - #{rem($indent * 2) + $grid-gutter-width});
+					max-width: 46.364%;
 					margin-right: $grid-gutter-width / 2;
-					margin-left: rem($indent * 2);
+					margin-left: $indent * 2;
 				}
 			}
 
 			> p.preamble {
 				max-width: rem(612px);
-				margin-left: rem($indent);
+				margin-left: $indent;
 			}
 
 			> .wp-block-iis-info {
-				max-width: rem(612px + ($indent * 2));
+				max-width: calc(#{rem(612px)} + #{($indent * 2)});
 			}
 		}
 
