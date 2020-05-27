@@ -11,3 +11,4 @@ import './molecules/share/share';
 import './atoms/tooltip/tooltip';
 import './atoms/toggle-high-contrast/toggle-high-contrast';
 import './focusTrap';
+import './atoms/textarea/textarea';

@@ -35,6 +35,12 @@ module.exports = {
 				modifier: 'a-input--discreet',
 				has_icon: false
 			}
+		},
+		{
+			name: 'Rich text',
+			context: {
+				is_richtext: true,
+			}
 		}
 	]
 }
