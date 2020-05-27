@@ -16,7 +16,7 @@ div.aligncenter {
 
 .alignright {
 	max-width: percentage(6 / 18);
-	margin: 0 0 rhythm(3) rhythm(2);
+	margin: 0 0 rhythm(3) ($grid-gutter-width / 2);
 	float: right;
 }
 

@@ -40,8 +40,9 @@ $indent: 50px;
 			> div:not(.wp-block-iis-info),
 			> figure,
 			> blockquote {
-				&:not(.alignfull) {
-					max-width: rem(612px);
+				&:not(.alignfull):not(.alignleft):not(.alignright) {
+					max-width: calc(#{percentage(12 / 18)} - #{rem($indent * 2) + $grid-gutter-width});
+					margin-right: $grid-gutter-width / 2;
 					margin-left: rem($indent * 2);
 				}
 			}
