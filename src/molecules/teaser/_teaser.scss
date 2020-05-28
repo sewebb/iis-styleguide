@@ -33,6 +33,10 @@
 	}
 
 	@include e(link) {
+		display: block;
+		position: relative;
+		z-index: z_index(middleground);
+		padding: rhythm(4);
 		text-decoration: none;
 
 		&:hover,
@@ -47,6 +51,7 @@
 		&::after {
 			content: '';
 			position: absolute;
+			z-index: z_index(background);
 			top: 0;
 			right: 0;
 			bottom: 0;
@@ -57,15 +62,23 @@
 		}
 	}
 
-	@include e(headline) {
+	@include e(headline-wrapper) {
 		position: relative;
 		z-index: z_index(middleground);
+		padding: rhythm(4);
+	}
+
+	@include e(headline) {
+		position: relative;
 		align-items: flex-end;
 		align-self: stretch;
 		width: 100%;
-		padding: rhythm(4) rhythm(3);
 		overflow: hidden;
 		color: $color-snow;
+
+		+ a {
+			margin-top: rhythm(3);
+		}
 
 		@include e(icon) {
 			position: relative;
@@ -76,18 +89,11 @@
 		}
 	}
 
-	@include e(excerpt-wrapper) {
-		position: relative;
-		z-index: 2;
-		padding: rhythm(4) rhythm(3);
-	}
-
 	@include e(excerpt) {
-		margin-top: rhythm(-8);
 		color: $color-snow;
-	}
 
-	@include e(button) {
-		z-index: 1;
+		&:last-child {
+			margin-bottom: 0;
+		}
 	}
 }
