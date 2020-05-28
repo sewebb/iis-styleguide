@@ -1,7 +1,11 @@
 @charset 'UTF-8';
 
 .u-border-radius {
-	border-radius: $border-radius;
+	border-radius: $border-radius !important;
+}
+
+.u-border-radius-50 {
+	border-radius: 50% !important;
 }
 
 $class-b: u-b !default;

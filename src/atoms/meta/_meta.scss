@@ -40,6 +40,6 @@
 	}
 
 	@include m(lowercase) {
-		text-transform: lowercase;
+		text-transform: initial;
 	}
 }

@@ -12,7 +12,7 @@ function initRichText(Quill, textarea) {
 	textarea.editor = new Quill(container, {
 		placeholder: textarea.getAttribute('placeholder'),
 		modules: {
-			toolbar: ['bold', 'italic', 'underline', 'strike', 'link'],
+			toolbar: '#toolbar',
 		},
 	});
 
