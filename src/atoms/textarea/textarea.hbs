@@ -1,6 +1,15 @@
 <div class="field-group{{#if is_invalid}} is-invalid{{/if}}">
 	{{> @label for="message" label="Meddelande" }}
-	<textarea class="a-textarea{{#if modifier}} {{modifier}}{{/if}}" id="{{id}}" {{#if is_invalid}}aria-invalid="true"{{/if}} {{#if required}}required{{/if}} {{#if is_disabled}}disabled{{/if}} placeholder="{{placeholder}}" autocomplete="{{autocomplete}}"{{#if has_help}} aria-describedby="textarea-help"{{/if}} {{#if required}} aria-describedby="textarea-help"{{/if}}></textarea>
+	{{#if is_richtext}}
+	<div id="toolbar" class="ql-toolbar">
+		<!-- Add buttons as you would before -->
+		<button class="ql-bold"><span class="u-visuallyhidden">Bold</span>{{> @icon id="richtext-bold"}}</button>
+		<button class="ql-italic"><span class="u-visuallyhidden">Italic</span>{{> @icon id="richtext-italic"}}</button>
+		<button class="ql-list" value="bullet"><span class="u-visuallyhidden">Bullet list</span>{{> @icon id="richtext-bullet-list"}}</button>
+		<button class="ql-link"><span class="u-visuallyhidden">Link</span>{{> @icon id="link"}}</button>
+	</div>
+	{{/if}}
+	<textarea class="a-textarea{{#if modifier}} {{modifier}}{{/if}}" id="{{id}}" {{#if is_invalid}}aria-invalid="true"{{/if}} {{#if is_richtext}}data-rich-text {{/if}} {{#if required}}required {{/if}} {{#if is_disabled}}disabled {{/if}} placeholder="{{placeholder}}" autocomplete="{{autocomplete}}"{{#if has_help}} aria-describedby="textarea-help"{{/if}} {{#if required}} aria-describedby="textarea-help"{{/if}}></textarea>
 	{{#if has_help}}
 	<div class="input-help" id="textarea-help">
 		Välj det som passar dig bäst

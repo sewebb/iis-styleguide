@@ -19,3 +19,32 @@
 		@extend %discreet;
 	}
 }
+
+.ql-editor {
+	@extend %input;
+
+	min-width: 100%;
+	max-width: 100%;
+	min-height: 100px;
+
+	&:focus {
+		@extend %input-focus;
+	}
+
+	&[disabled] {
+		@extend %disabled;
+	}
+
+	p {
+		font-size: rem(16px);
+	}
+}
+
+.ql-toolbar {
+	button {
+		@extend %button-toolbar;
+
+		margin-right: rhythm(0.5);
+		margin-bottom: rhythm(1);
+	}
+}

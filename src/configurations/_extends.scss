@@ -115,3 +115,47 @@
 %box-shadow {
 	box-shadow: 0 rhythm(0.5) rhythm(0.5) rgba($color-cyberspace, 0.1) !important;
 }
+
+%button-toolbar {
+	display: inline-flex;
+	position: relative;
+	flex-wrap: nowrap;
+	align-items: center;
+	justify-content: center;
+	width: rhythm(4);
+	height: rhythm(4);
+	margin: 0;
+	padding: rhythm(1);
+	overflow: hidden;
+	border: 0;
+	border-radius: 0;
+	border-radius: $border-radius;
+	background-color: $color-snow;
+	cursor: pointer;
+
+	&:hover,
+	&:focus,
+	&:active {
+		background-color: $color-cyberspace;
+
+		svg {
+			fill: $color-snow;
+		}
+	}
+
+	&:disabled {
+		background-color: $color-granit !important;
+		box-shadow: none;
+		cursor: not-allowed;
+
+		[class*='text'] {
+			color: $color-snow !important;
+		}
+	}
+
+	svg {
+		width: rhythm(2);
+		height: rhythm(2);
+		fill: $color-cyberspace;
+	}
+}
