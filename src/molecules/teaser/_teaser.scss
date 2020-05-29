@@ -6,10 +6,24 @@
 	overflow: hidden;
 	border-radius: $border-radius;
 
-	&:hover {
+	&:hover,
+	&:focus {
 		img {
 			opacity: 0.8;
 		}
+	}
+
+	&::after {
+		content: '';
+		position: absolute;
+		z-index: z_index(background);
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		transition: opacity 0.75s ease-out;
+		border-radius: $border-radius;
+		background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba($color-cyberspace, 0) 55%, rgba($color-cyberspace, 1) 100%);
 	}
 
 	@include e(image) {
@@ -23,6 +37,7 @@
 	@include e(caption) {
 		display: flex;
 		position: absolute;
+		z-index: z_index(middleground);
 		top: 0;
 		right: 0;
 		bottom: 0;
@@ -34,42 +49,32 @@
 
 	@include e(link) {
 		display: block;
-		position: relative;
-		z-index: z_index(middleground);
 		padding: rhythm(4);
 		text-decoration: none;
 
 		&:hover,
 		&:focus {
-			&::after {
-				opacity: 0.8;
-			}
+			color: $color-snow;
+			text-decoration: underline;
 		}
-	}
 
-	@include e(overlay) {
 		&::after {
 			content: '';
 			position: absolute;
-			z-index: z_index(background);
+			z-index: z_index(middleground);
 			top: 0;
 			right: 0;
 			bottom: 0;
 			left: 0;
-			transition: opacity 0.75s ease-out;
-			border-radius: $border-radius;
-			background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba($color-cyberspace, 0) 55%, rgba($color-cyberspace, 1) 100%);
+			cursor: pointer;
 		}
 	}
 
 	@include e(headline-wrapper) {
-		position: relative;
-		z-index: z_index(middleground);
 		padding: rhythm(4);
 	}
 
 	@include e(headline) {
-		position: relative;
 		align-items: flex-end;
 		align-self: stretch;
 		width: 100%;
@@ -94,6 +99,21 @@
 
 		&:last-child {
 			margin-bottom: 0;
+		}
+	}
+
+	@include e(button) {
+		position: static;
+
+		&::after {
+			content: '';
+			position: absolute;
+			z-index: z_index(middleground);
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			cursor: pointer;
 		}
 	}
 }
