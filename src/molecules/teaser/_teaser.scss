@@ -81,8 +81,10 @@
 		overflow: hidden;
 		color: $color-snow;
 
-		+ a {
-			margin-top: rhythm(3);
+		@include bp-up(sm) {
+			+ a {
+				margin-top: rhythm(2);
+			}
 		}
 
 		@include e(icon) {
