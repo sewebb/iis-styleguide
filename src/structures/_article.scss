@@ -41,7 +41,7 @@ $indent: 3.78825%;
 			> figure,
 			> blockquote {
 				&:not(.alignfull):not(.alignleft):not(.alignright) {
-					max-width: 46.364%;
+					max-width: calc(#{rem(612px)} + #{($indent * 2)});
 					margin-right: $grid-gutter-width / 2;
 					margin-left: $indent * 2;
 				}
@@ -52,8 +52,26 @@ $indent: 3.78825%;
 				margin-left: $indent;
 			}
 
-			> .wp-block-iis-info {
-				max-width: calc(46.364% + #{($indent * 2)});
+			@include m(full-width) {
+				> p:not(.preamble),
+				> h2,
+				> h3,
+				> h4,
+				> h5,
+				> h6,
+				> ul,
+				> ol,
+				> div:not(.wp-block-iis-info),
+				> figure,
+				> blockquote {
+					&:not(.alignfull):not(.alignleft):not(.alignright) {
+						max-width: 46.364%;
+					}
+				}
+
+				> .wp-block-iis-info {
+					max-width: calc(46.364% + #{($indent * 2)});
+				}
 			}
 		}
 
