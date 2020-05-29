@@ -24,9 +24,9 @@ module.exports = {
 			}
 		},
 		{
-			name: 'Combine',
+			name: 'Combined',
 			context: {
-				text: 'background',
+				text: 'combined',
 				href: '#',
 				is_light: true,
 				background_color: 'ruby'
