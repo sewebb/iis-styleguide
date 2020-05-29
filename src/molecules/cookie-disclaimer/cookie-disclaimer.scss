@@ -18,7 +18,7 @@
 
 	@include e(wrapper) {
 		width: 100%;
-		margin-bottom: 0;
+		margin-bottom: 0 !important;
 		padding: rhythm(2) 0;
 	}
 

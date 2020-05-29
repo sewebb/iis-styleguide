@@ -13,6 +13,24 @@ module.exports = {
 				href: '#',
 				is_light: true
 			}
+		},
+		{
+			name: 'Background',
+			context: {
+				text: 'background',
+				href: '#',
+				is_light: false,
+				background_color: 'jade'
+			}
+		},
+		{
+			name: 'Combine',
+			context: {
+				text: 'background',
+				href: '#',
+				is_light: true,
+				background_color: 'ruby'
+			}
 		}
 	]
 }

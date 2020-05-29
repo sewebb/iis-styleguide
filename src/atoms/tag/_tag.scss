@@ -17,6 +17,11 @@
 	text-decoration: none;
 	text-transform: uppercase;
 
+	&--background {
+		@include color_values($colors, 'background-color', $separator: '-');
+		@include color_values($colors, 'border-color', $separator: '-');
+	}
+
 	@include m(light) {
 		@extend %tag-light;
 	}
