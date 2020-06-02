@@ -22,3 +22,7 @@
 @function z_index($layer) {
 	@return map_get($z-index, $layer);
 }
+
+@function make_col($size, $columns: $grid-columns) {
+	@return percentage($size / $columns);
+}

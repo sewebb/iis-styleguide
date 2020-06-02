@@ -16,13 +16,13 @@ div.aligncenter {
 
 @include bp-up(md) {
 	.alignright {
-		max-width: percentage(6 / 18);
-		margin: 0 0 rhythm(3) ($grid-gutter-width / 2);
+		max-width: calc(#{make_col(6)} - 12px); // <== You ugly magic number you, we hates it!
+		margin: 0 0 rhythm(3) 0;
 		float: right;
 	}
 
 	.alignleft {
-		max-width: percentage(6 / 18);
+		max-width: calc(#{make_col(6)} - 12px); // <== You ugly magic number you, we hates it!
 		margin: 0 rhythm(2) rhythm(3) 0;
 		float: left;
 	}
@@ -51,6 +51,11 @@ div.aligncenter {
 		figcaption {
 			text-align: center;
 		}
+	}
+
+	> figure:not(.alignright),
+	> figure:not(.alignleft) {
+		max-width: 46.364%;
 	}
 }
 

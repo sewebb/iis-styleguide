@@ -24,8 +24,8 @@ module.exports = {
 		{
 			name: 'colored icon',
 			context: {
-				text: 'video',
-				icon: 'play',
+				text: 'artikel',
+				icon: 'article',
 				color: 'ruby',
 			}
 		},
