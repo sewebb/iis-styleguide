@@ -47,9 +47,18 @@ div.aligncenter {
 		);
 	}
 
-	&.aligncenter {
-		figcaption {
-			text-align: center;
+	figure {
+		&.aligncenter {
+			figcaption {
+				text-align: center;
+			}
+		}
+
+		&.alignfull {
+			img {
+				display: block;
+				margin: 0 auto;
+			}
 		}
 	}
 }
