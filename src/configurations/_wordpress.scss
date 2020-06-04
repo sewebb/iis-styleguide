@@ -154,3 +154,13 @@ div.aligncenter {
 .vcard {
 	text-transform: capitalize;
 }
+
+.wp-block-iis-grid {
+	.row {
+		> [class*='grid'] {
+			> *:only-child {
+				margin-bottom: 0;
+			}
+		}
+	}
+}

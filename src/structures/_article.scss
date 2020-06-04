@@ -10,7 +10,7 @@ $indent: 3.78825%;
 	}
 
 	@include e(content) {
-		> div,
+		> div:not(.wp-block-iis-grid),
 		> figure {
 			margin-bottom: rhythm(3);
 		}
