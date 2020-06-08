@@ -171,6 +171,60 @@
 		}
 	}
 
+	// Hero without darkened caption
+	@include m(clean) {
+		@include e(caption) {
+			background: none;
+		}
+	}
+
+	// Hero with earlier mobile breakpoint
+	@include m(break-early) {
+		@include e(caption) {
+			@include bp-up(sm) {
+				position: static;
+			}
+			@include bp-up(xl) {
+				position: absolute;
+				z-index: z_index(middlegroundImportant);
+				top: 0;
+				right: 0;
+				bottom: 0;
+				left: 0;
+				padding: rhythm(4);
+				background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba($color-black, 0) 55%, rgba($color-black, 1) 100%);
+				text-shadow: 0 0 rhythm(2) rgba($color-black, 0.5);
+			}
+		}
+
+		@include e(text) {
+			max-width: 100%;
+
+			@include bp-up(xl) {
+				max-width: 70%;
+			}
+		}
+
+		@include e(link) {
+			color: $color-cyberspace;
+			text-shadow: none;
+		}
+
+		@include e(link) {
+			@include bp-up(xl) {
+				color: $color-snow;
+			}
+		}
+
+		@include b(a-tag) {
+			@include tag;
+
+			@include bp-up(xl) {
+				@include tag-light;
+			}
+		}
+	}
+
 	// Hero with border-radius
 	@include m(border-radius) {
 		border-radius: $border-radius;

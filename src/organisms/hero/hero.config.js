@@ -50,6 +50,18 @@ module.exports = {
 					has_video: false,
 					is_event: true
 				}
-		}
+		},
+		{
+			name: 'Clean',
+			context: {
+				no_image_class: 'o-hero--clean',
+			}
+		},
+		{
+			name: 'Early breakpoint',
+			context: {
+				no_image_class: 'o-hero--break-early',
+			}
+		},
 	]
 }
