@@ -156,10 +156,16 @@ div.aligncenter {
 }
 
 .wp-block-iis-grid {
-	.row {
+	> .row {
 		> [class*='grid'] {
 			> *:only-child {
 				margin-bottom: 0;
+			}
+
+			@include molecule(card) {
+				&:not(:only-child) {
+					height: auto;
+				}
 			}
 		}
 	}
