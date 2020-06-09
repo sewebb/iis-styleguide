@@ -1,6 +1,6 @@
 {
 	"name": "@internetstiftelsen/styleguide",
-	"version": "1.11.9-beta.0.1",
+	"version": "1.11.9-beta.0.6",
 	"main": "dist/components.js",
 	"ports": {
 		"fractal": "3000"
@@ -58,6 +58,7 @@
 		"concat": "^1.0.3",
 		"concurrently": "^5.2.0",
 		"copyfiles": "^2.2.0",
+		"css-loader": "^3.5.3",
 		"cssnano": "^4.1.10",
 		"eslint": "^6.5.1",
 		"eslint-config-strongloop": "^2.1.0",

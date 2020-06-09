@@ -60,7 +60,7 @@ module.exports = {
 		{
 			name: 'Early breakpoint',
 			context: {
-				no_image_class: 'o-hero--break-early',
+				no_image_class: 'o-hero--break-early o-hero--clean',
 			}
 		},
 	]
