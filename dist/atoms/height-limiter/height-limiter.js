@@ -8,6 +8,7 @@ if (elements) {
 		var innerContainer = element.querySelector('[class*="inner"]');
 		var button = element.querySelector('.js-toggle-height');
 		var buttonText = button.querySelector('span');
+		var toggleText = element.getAttribute('data-toggle-text');
 
 		if (element.offsetHeight >= height) {
 			innerContainer.setAttribute('style', 'max-height:' + height + 'px;');
@@ -22,7 +23,7 @@ if (elements) {
 		button.addEventListener('click', function () {
 			innerContainer.classList.toggle('is-limited');
 			innerContainer.setAttribute('style', innerContainer.style.maxHeight === height + 'px' ? 'max-height:none' : 'max-height:' + height + 'px');
-			buttonText.innerText = buttonText.innerText === 'Visa mer' ? 'Visa mindre' : 'Visa mer';
+			buttonText.innerText = buttonText.innerText === 'Visa mer' ? toggleText : 'Visa mer';
 			button.classList.toggle('is-clicked');
 		});
 
