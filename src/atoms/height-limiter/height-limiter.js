@@ -5,7 +5,8 @@ if (elements) {
 		const height = element.getAttribute('data-height');
 		const innerContainer = element.querySelector('[class*="inner"]');
 		const button = element.querySelector('.js-toggle-height');
-		const buttonText = button.querySelector('span');
+		const buttonTextElement = button.querySelector('span');
+		const buttonText = buttonTextElement.innerText;
 		const toggleText = element.getAttribute('data-toggle-text');
 
 		if (element.offsetHeight >= height) {
@@ -20,8 +21,10 @@ if (elements) {
 
 		button.addEventListener('click', () => {
 			innerContainer.classList.toggle('is-limited');
-			innerContainer.setAttribute('style', (innerContainer.style.maxHeight === `${height}px`) ? 'max-height:none' : `max-height:${height}px`);
-			buttonText.innerText = (buttonText.innerText === 'Visa mer') ? toggleText : 'Visa mer';
+			innerContainer.setAttribute('style',
+				(innerContainer.style.maxHeight === `${height}px`) ? 'max-height:none' : `max-height:${height}px`);
+			buttonTextElement.innerText = (
+				buttonTextElement.innerText === buttonText) ? toggleText : buttonText;
 			button.classList.toggle('is-clicked');
 		});
 
