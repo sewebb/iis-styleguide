@@ -3,3 +3,7 @@
 .u-box-shadow {
 	@extend %box-shadow;
 }
+
+.u-box-shadow-card {
+	@include card-shadow($color-cyberspace, 0.2);
+}
