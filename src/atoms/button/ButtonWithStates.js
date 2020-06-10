@@ -142,7 +142,26 @@ class ButtonWithStates {
 		}
 
 		// State updated, set new state as current state.
+		const prevStateName = this.states.current;
 		this.states.current = newStateName;
+
+		// Trigger events for activating and deactivating.
+		let eventName;
+		if (
+			prevStateName === 'defaultHover'
+			&& this.states.current === 'activated'
+		) {
+			eventName = 'activated';
+		} else if (
+			prevStateName === 'deactivate'
+			&& this.states.current === 'default'
+		) {
+			eventName = 'deactivated';
+		}
+		if (eventName) {
+			const event = new Event(eventName);
+			this.button.dispatchEvent(event);
+		}
 	}
 }
 

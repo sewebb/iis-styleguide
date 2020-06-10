@@ -32,5 +32,14 @@ if (demoButtonsMultipleStates.length) {
 	demoButtonsMultipleStates.forEach((button) => {
 		const b = new ButtonWithStates(button);
 		b.init(button);
+
+		// Add example listeners.
+		button.addEventListener('activated', () => {
+			console.log('Button state is activated');
+		});
+
+		button.addEventListener('deactivated', () => {
+			console.log('Button state is deactivated');
+		});
 	});
 }
