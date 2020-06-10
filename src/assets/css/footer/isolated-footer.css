@@ -4231,6 +4231,8 @@
     cursor: not-allowed; }
     .a-button:disabled [class*='text'] {
       color: #fff !important; }
+  .a-button.has-states {
+    transition: 0.3s background-color; }
   .a-button.is-loading {
     cursor: wait; }
   .a-button.is-loading .a-button__text {
