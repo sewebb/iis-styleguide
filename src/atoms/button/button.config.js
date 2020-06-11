@@ -141,5 +141,27 @@ module.exports = {
 				el: 'button'
 			}
 		},
+		{
+			name: 'Multiple states default',
+			context: {
+				url: false,
+				has_states: true,
+				current_state: 'default',
+				additional_classes: 'has-states',
+				text: '',
+				el: 'button',
+			}
+		},
+		{
+			name: 'Multiple states activated',
+			context: {
+				url: false,
+				has_states: true,
+				current_state: 'activated',
+				additional_classes: 'has-states',
+				text: '',
+				el: 'button',
+			}
+		},
 	]
 };

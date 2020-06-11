@@ -135,7 +135,8 @@
 
 	&:hover,
 	&:focus,
-	&:active {
+	&:active,
+	&.ql-active {
 		background-color: $color-cyberspace;
 
 		svg {

@@ -39,6 +39,11 @@
 		}
 	}
 
+	// Multiple states button
+	&.has-states {
+		transition: 0.3s background-color;
+	}
+
 	// States
 	&.is-loading {
 		cursor: wait;
