@@ -70,10 +70,6 @@
 		}
 	}
 
-	@include e(headline-wrapper) {
-		padding: rhythm(4);
-	}
-
 	@include e(headline) {
 		align-items: flex-end;
 		align-self: stretch;
@@ -93,29 +89,6 @@
 			height: $icon-size-medium;
 			transform: translateY(rem(1px));
 			fill: currentColor;
-		}
-	}
-
-	@include e(excerpt) {
-		color: $color-snow;
-
-		&:last-child {
-			margin-bottom: rhythm(1);
-		}
-	}
-
-	@include e(button) {
-		position: static;
-
-		&::after {
-			content: '';
-			position: absolute;
-			z-index: z_index(middleground);
-			top: 0;
-			right: 0;
-			bottom: 0;
-			left: 0;
-			cursor: pointer;
 		}
 	}
 }
