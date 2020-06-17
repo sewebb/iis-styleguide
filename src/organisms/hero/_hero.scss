@@ -72,6 +72,20 @@
 		}
 	}
 
+	@include e(buttons) {
+		display: flex;
+		flex-direction: column;
+		margin: -#{rhythm(1)} 0 0 -#{rhythm(3)};
+
+		@include atom(button) {
+			margin: rhythm(1) 0 0 rhythm(3);
+		}
+
+		@include bp-up(sm) {
+			flex-direction: row;
+		}
+	}
+
 	@include e(text) {
 		:last-child {
 			margin-bottom: 0;
