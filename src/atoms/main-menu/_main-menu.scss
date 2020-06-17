@@ -1,7 +1,6 @@
 @charset 'UTF-8';
 
-// The ReadSpeaker skin must be included in the theme if Readspeaker is to be used. Enqueue it with php
-//@import 'https://static.iis.se/styles/readspeaker/skins/iisReadSpeakerSkin/iisReadSpeakerSkin.css?ver=1.0.0';
+@import 'https://static.iis.se/styles/readspeaker/skins/iisReadSpeakerSkin/iisReadSpeakerSkin.css?ver=1.0.0';
 
 @include atom(main-menu) {
 
