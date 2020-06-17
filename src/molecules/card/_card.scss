@@ -249,6 +249,7 @@
 			justify-content: flex-end;
 			padding: rhythm(4);
 			color: $color-snow;
+			text-shadow: $text-shadow;
 		}
 
 		@include e(link) {
