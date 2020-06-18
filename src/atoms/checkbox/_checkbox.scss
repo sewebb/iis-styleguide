@@ -54,6 +54,10 @@
 		&[disabled] {
 			+ label {
 				@extend %disabled;
+
+				&::before {
+					background-color: darken($color-concrete, 5%);
+				}
 			}
 		}
 
