@@ -8,7 +8,6 @@
 	left: 0;
 	align-items: center;
 	justify-content: center;
-	overflow-y: auto;
 
 	&[aria-hidden='true'] {
 		display: none;
@@ -37,6 +36,7 @@
 		margin-right: rhythm(1);
 		margin-left: rhythm(1);
 		padding: rhythm(4) rhythm(2) rhythm(4) rhythm(2);
+		overflow-y: auto;
 		border-radius: $border-radius;
 		background: $color-snow;
 
