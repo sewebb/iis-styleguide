@@ -1,4 +1,4 @@
-<div class="m-card{{#if is_padded}} m-card--padded{{/if}}{{#if is_wide}} m-card--wide{{/if}}{{#if has_shadow}} m-card--shadow{{/if}}{{#if has_border}} m-card--bordered{{/if}}">
+<{{#if top_level}}article{{else}}div{{/if}} class="m-card{{#if is_padded}} m-card--padded{{/if}}{{#if is_wide}} m-card--wide{{/if}}{{#if has_shadow}} m-card--shadow{{/if}}{{#if has_border}} m-card--bordered{{/if}}{{#if teaser}} m-card--teaser{{/if}}">
 	{{#if has_icon_overlay}}
 		<div class="m-card__image m-card__image--iconOverlay">
 			<img src="{{img_url}}" class="m-card__image__elm" alt="{{alt}}" />
@@ -25,17 +25,36 @@
 				{{#if read_time}}{{render '@meta--lower-case'}}{{/if}}
 			</div>
 		{{/if}}
-		{{#if url}}<a href="{{url}}" class="m-card__link"><h2 class="m-card__heading-link__heading">{{title}}</h2></a>{{/if}}
-		{{#if exerpt}}<p class="m-card__text">{{{exerpt}}}</p>{{/if}}
+		{{#if url}}
+			<a href="{{url}}" class="m-card__link">
+				<{{#if top_level}}h1{{else}}h2{{/if}} class="{{#if teaser}}alpha{{/if}}">
+					{{title}}
+					{{#if icon}}
+						{{> @icon id=icon additional_classes="m-card__headline__icon"}}
+					{{/if}}
+				</{{#if top_level}}h1{{else}}h2{{/if}}>
+			</a>
+		{{else}}
+			<{{#if top_level}}h1{{else}}h2{{/if}} class="{{#if teaser}}alpha{{/if}}">
+				{{title}}
+				{{#if icon}}
+					{{> @icon id=icon additional_classes="m-card__headline__icon"}}
+				{{/if}}
+			</{{#if top_level}}h1{{else}}h2{{/if}}>
+		{{/if}}
+		{{#if excerpt}}<p class="m-card__text">{{{excerpt}}}</p>{{/if}}
 		{{#if has_contact_info}}{{render '@features-box--contact-info'}}{{/if}}
-		<div class="m-card__bottom">
-			{{#if tag}}
+		{{#if tag}}
+			<div class="m-card__bottom">
 				{{> @tag text="Utbildning" href="#" }}
 				{{> @tag text="goto10" href="#" }}
-
-			{{else if has_button}}
-				{{render '@button'}}
-			{{/if}}
-		</div>
+			</div>
+		{{else if has_button}}
+			<div class="m-card__bottom">
+				<a href="#" class="a-button {{#if button_color}}a-button--{{button_color}}{{/if}}">
+					<span class="a-button__text">{{button_text}}</span>
+				</a>
+			</div>
+		{{/if}}
 	</div>
-</div>
+</{{#if top_level}}article{{else}}div{{/if}}>

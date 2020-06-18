@@ -5,7 +5,9 @@ module.exports = {
 		heading: 'Meningsfull tid i rapporten Svenskarna och internet 2019',
 		has_image: true,
 		has_radius: false,
-		limited_width: false
+		limited_width: false,
+		has_buttons: false,
+		has_tags: true,
 	},
 	variants: [
 		{
@@ -16,6 +18,14 @@ module.exports = {
 				has_radius: true,
 				text: 'Nästan alla i Sverige använder internet – men hur meningsfull är tiden vi spenderar där? I rapporten Svenskarna och internet 2019 frågar vi för första gången om meningsfullhet, och det syns stora skillnader mellan olika aktiviteter. Tid på sociala medier tycker bara var fjärde är meningsfull.',
 			}
+		},
+		{
+			name: 'Buttons',
+			context: {
+				has_tags: false,
+				has_buttons: true,
+				text: 'Så gott som alla svenskar använder internet och digitala tjänster idag',
+			},
 		},
 		{
 			name: 'No image',

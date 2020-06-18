@@ -66,6 +66,16 @@
 		}
 	}
 
+	@include e(headline) {
+		@include e(icon) {
+			position: relative;
+			width: $icon-size-medium;
+			height: $icon-size-medium;
+			transform: translateY(rem(1px));
+			fill: currentColor;
+		}
+	}
+
 	@include e(meta) {
 		display: flex;
 		flex-wrap: nowrap;
@@ -190,6 +200,69 @@
 			@include e(bottom) {
 				margin-top: 0;
 			}
+		}
+	}
+
+	@include m(teaser) {
+		display: block;
+		overflow: hidden;
+
+		&:hover,
+		&:focus {
+			img {
+				opacity: 0.8;
+			}
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			z-index: z_index(background);
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			transition: opacity 0.75s ease-out;
+			border-radius: $border-radius;
+			background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba($color-cyberspace, 0) 55%, rgba($color-cyberspace, 1) 100%);
+		}
+
+		@include e(image) {
+			width: 100%;
+			max-width: none;
+			height: 100%;
+			transition: opacity 0.25s ease-out;
+			object-fit: cover;
+			border-radius: 0;
+		}
+
+		@include e(content) {
+			display: flex;
+			position: absolute;
+			z-index: z_index(middleground);
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			flex-direction: column;
+			align-content: stretch;
+			justify-content: flex-end;
+			padding: rhythm(4);
+			color: $color-snow;
+			text-shadow: $text-shadow;
+		}
+
+		@include e(link) {
+			color: $color-snow;
+		}
+
+		@include e(text) {
+			margin-top: 0;
+			color: $color-snow;
+		}
+
+		@include e(bottom) {
+			margin-top: 0;
 		}
 	}
 }

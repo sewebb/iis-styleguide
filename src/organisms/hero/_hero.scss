@@ -45,7 +45,7 @@
 			left: 0;
 			padding: rhythm(4);
 			background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba($color-black, 0) 55%, rgba($color-black, 1) 100%);
-			text-shadow: 0 0 rhythm(2) rgba($color-black, 0.5);
+			text-shadow: $text-shadow;
 		}
 
 		@include bp-up(md) {
@@ -69,6 +69,20 @@
 
 		@include bp-up(lg) {
 			margin-top: rhythm(3);
+		}
+	}
+
+	@include e(buttons) {
+		display: flex;
+		flex-direction: column;
+		margin: -#{rhythm(1)} 0 0 -#{rhythm(3)};
+
+		@include atom(button) {
+			margin: rhythm(1) 0 0 rhythm(3);
+		}
+
+		@include bp-up(sm) {
+			flex-direction: row;
 		}
 	}
 
