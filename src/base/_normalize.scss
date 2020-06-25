@@ -24,6 +24,7 @@ body {
 	//iPhone X landscape Notch fix
 	padding-right: constant(safe-area-inset-right);
 	padding-left: constant(safe-area-inset-left);
+	overflow-x: hidden;
 	font-family: $font-family-base;
 	-ms-overflow-style: auto;
 	-webkit-overflow-scrolling: touch;
