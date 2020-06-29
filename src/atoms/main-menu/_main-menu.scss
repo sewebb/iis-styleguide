@@ -3,6 +3,8 @@
 @include atom(main-menu) {
 
 	@include e(list) {
+		$root: &;
+
 		display: flex;
 		justify-content: flex-end;
 		width: 100%;
@@ -13,18 +15,16 @@
 		li {
 			display: flex;
 			align-items: center;
-		}
 
-		&:last-child {
-			@include e(link) {
-				padding-right: 0;
+			&:last-child {
+				#{$root}#{$element-separator}link {
+					padding-right: 0;
+				}
 			}
 		}
 
 		@include e(button) {
-			@include bp-up(md) {
-				padding: rhythm(2) 0 rhythm(2) rhythm(3);
-			}
+			padding: rhythm(2) rhythm(1);
 		}
 
 		@include e(link) {
@@ -32,7 +32,7 @@
 
 			display: flex;
 			align-items: center;
-			padding: rhythm(2) 0;
+			padding: rhythm(2) rhythm(1);
 			border: 0;
 			background-color: transparent;
 			color: $color-cyberspace;
@@ -49,10 +49,6 @@
 			&.is-current {
 				color: $color-ruby;
 				font-family: $font-family-medium;
-			}
-
-			&:not(button) {
-				padding: rhythm(2) rhythm(1);
 			}
 
 			&[aria-expanded='true'] {
@@ -161,10 +157,6 @@
 
 			@include bp-up(sm) {
 				font-size: $size-base;
-			}
-
-			@include bp-up(md) {
-				padding: rhythm(2) 0 rhythm(2) rhythm(3);
 			}
 		}
 
