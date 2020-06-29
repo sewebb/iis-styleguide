@@ -50,6 +50,14 @@ module.exports = {
 				hide_mobile: true
 			},
 			{
+				text: 'Bli medlem',
+				url: '#',
+				is_current: false,
+				icon: false,
+				hide_mobile: false,
+				is_button: true
+			},
+			{
 				text: 'Meny',
 				url: false,
 				is_current: false,

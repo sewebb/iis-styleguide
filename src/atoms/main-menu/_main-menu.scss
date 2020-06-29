@@ -10,9 +10,20 @@
 		padding: 0;
 		list-style: none;
 
+		li {
+			display: flex;
+			align-items: center;
+		}
+
 		&:last-child {
 			@include e(link) {
 				padding-right: 0;
+			}
+		}
+
+		@include e(button) {
+			@include bp-up(md) {
+				padding: rhythm(2) 0 rhythm(2) rhythm(3);
 			}
 		}
 
