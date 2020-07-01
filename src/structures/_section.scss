@@ -1,6 +1,5 @@
 @include b(section) {
 	margin-top: rhythm(8);
-	overflow-x: hidden;
 
 	@include m(tight) {
 		margin-top: rhythm(2);
