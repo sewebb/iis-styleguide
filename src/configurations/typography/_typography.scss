@@ -85,18 +85,9 @@ th a:not([class*='tag']) {
 	@extend %link-styles;
 }
 
-// This hack shouldn't be needed. li a styles should only apply to body text
-// to avoid problems like this.
-ul:not([class*='menu__list']) {
+ul:not([class]),
+ol:not([class]) {
 	li > a {
-		&.is-active {
-			border-radius: $border-radius;
-			border-color: $color-peacock-light;
-			background-color: $color-peacock-light;
-		}
-	}
-
-	li a {
 		@extend %break-long-links;
 		@extend %link-styles;
 	}

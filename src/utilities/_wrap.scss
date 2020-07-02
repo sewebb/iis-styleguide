@@ -1,11 +1,11 @@
 @charset 'UTF-8';
 
 .u-nowrap {
-	white-space: nowrap;
-	hyphens: none;
+	white-space: nowrap !important;
+	hyphens: none !important;
 }
 
 .u-wrap {
-	white-space: wrap;
-	hyphens: auto;
+	white-space: wrap !important;
+	hyphens: auto !important;
 }
