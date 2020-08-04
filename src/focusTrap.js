@@ -11,7 +11,7 @@ function focusTrap(container) {
 	}
 }
 
-const buttons = document.querySelectorAll('[data-a11y-toggle');
+const buttons = document.querySelectorAll('[data-a11y-toggle]');
 
 [].forEach.call(buttons, (button) => {
 	const container = getContainer(button);
