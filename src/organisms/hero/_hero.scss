@@ -197,7 +197,7 @@
 				padding: rhythm(3) rhythm(1);
 			}
 
-			@include bp-up(xxl) {
+			@include bp-up(lg) {
 				position: absolute;
 				z-index: z_index(middlegroundImportant);
 				top: 50%;
@@ -214,11 +214,21 @@
 		@include e(text) {
 			max-width: 100%;
 
-			@include bp-up(xl) {
+			@include bp-up(lg) {
 				max-width: 70%;
 			}
 
-			@include bp-up(xxl) {
+			@include bp-only(lg) {
+				.supersize {
+					@include plumber(
+						$font-size: 6,
+						$line-height: 7,
+						$leading-bottom: 2
+					);
+				}
+			}
+
+			@include bp-up(xl) {
 				max-width: 50%;
 			}
 		}
@@ -227,7 +237,7 @@
 			color: $color-cyberspace;
 			text-shadow: none;
 
-			@include bp-up(xxl) {
+			@include bp-up(lg) {
 				color: $color-snow;
 				text-shadow: 0 0 rhythm(2) rgba($color-black, 0.5);
 			}
@@ -236,7 +246,7 @@
 		@include b(a-tag) {
 			@include tag;
 
-			@include bp-up(xxl) {
+			@include bp-up(lg) {
 				@include tag-light;
 			}
 		}
