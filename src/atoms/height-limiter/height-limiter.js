@@ -1,43 +1,45 @@
 const elements = document.querySelectorAll('.js-height-limit');
 
-if (elements) {
-	[].forEach.call(elements, (element) => {
-		const height = element.getAttribute('data-height');
-		const innerContainer = element.querySelector('[class*="inner"]');
-		const button = element.querySelector('.js-toggle-height');
-		const buttonTextElement = button.querySelector('span');
-		const buttonText = buttonTextElement.innerText;
-		const toggleText = element.getAttribute('data-toggle-text');
+function update(innerContainer, button, height) {
+	if (button.classList.contains('is-clicked')) {
+		return;
+	}
 
-		if (element.offsetHeight >= height) {
-			innerContainer.setAttribute('style', `max-height:${height}px;`);
-			innerContainer.classList.add('is-limited');
-			button.classList.remove('is-hidden');
-		} else {
-			innerContainer.removeAttribute('style');
-			innerContainer.classList.remove('is-limited');
-			button.classList.add('is-hidden');
-		}
+	if (innerContainer.offsetHeight >= height) {
+		innerContainer.setAttribute('style', `max-height:${height}px;`);
+		innerContainer.classList.add('is-limited');
+		button.classList.remove('is-hidden');
+	} else {
+		innerContainer.removeAttribute('style');
+		innerContainer.classList.remove('is-limited');
+		button.classList.add('is-hidden');
+	}
+}
 
-		button.addEventListener('click', () => {
-			innerContainer.classList.toggle('is-limited');
-			innerContainer.setAttribute('style',
-				(innerContainer.style.maxHeight === `${height}px`) ? 'max-height:none' : `max-height:${height}px`);
-			buttonTextElement.innerText = (
-				buttonTextElement.innerText === buttonText) ? toggleText : buttonText;
-			button.classList.toggle('is-clicked');
-		});
+function setup(element) {
+	const height = element.getAttribute('data-height');
+	const innerContainer = element.querySelector('[class*="inner"]');
+	const button = element.querySelector('.js-toggle-height');
+	const buttonTextElement = button.querySelector('span');
+	const buttonText = buttonTextElement.innerText;
+	const toggleText = element.getAttribute('data-toggle-text');
 
-		window.addEventListener('resize', () => {
-			if (innerContainer.offsetHeight >= height) {
-				innerContainer.setAttribute('style', `max-height:${height}px;`);
-				innerContainer.classList.add('is-limited');
-				button.classList.remove('is-hidden');
-			} else {
-				innerContainer.removeAttribute('style');
-				innerContainer.classList.remove('is-limited');
-				button.classList.add('is-hidden');
-			}
-		});
+	update(innerContainer, button, height);
+
+	button.addEventListener('click', () => {
+		innerContainer.classList.toggle('is-limited');
+		innerContainer.setAttribute('style',
+			(innerContainer.style.maxHeight === `${height}px`) ? 'max-height:none' : `max-height:${height}px`);
+		buttonTextElement.innerText = (
+			buttonTextElement.innerText === buttonText) ? toggleText : buttonText;
+		button.classList.toggle('is-clicked');
+
+		setTimeout(() => update(innerContainer, button, height), 1);
 	});
+
+	window.addEventListener('resize', () => update(innerContainer, button, height));
+}
+
+if (elements) {
+	[].forEach.call(elements, setup);
 }
