@@ -25,6 +25,24 @@
 
 		@include e(button) {
 			padding: rhythm(2) rhythm(1);
+
+			@include atom(button) {
+				padding: rhythm(0.4) rhythm(1.5);
+				font-size: rem($size-small);
+
+				@include e(text) {
+					overflow: hidden;
+					text-overflow: ellipsis;
+					white-space: nowrap;
+				}
+			}
+
+			@include bp-up(sm) {
+				@include atom(button) {
+					padding: rhythm(0.6) rhythm(1.5);
+					font-size: rem(16px);
+				}
+			}
 		}
 
 		@include e(link) {
