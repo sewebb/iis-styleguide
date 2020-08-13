@@ -1,0 +1,29 @@
+<form class="wrapper">
+	<h1 data-if="type" data-if-effect="text" data-if-values="podd:Bokning av poddutrustning">Håll event</h1>
+	<p data-if="type:podd" style="display: none">Den här texten visas bara om podd är vald.</p>
+
+	<div class="field-group">
+		<label for="select">Typ</label>
+		<select id="select" class="a-select" name="type">
+			<option value="" disabled selected>Välj</option>
+			<option value="podd">Podd</option>
+			<option value="presentation">Presentation</option>
+		</select>
+	</div>
+	<div class="field-group">
+		<label for="select">Stad</label>
+		<select id="select" class="a-select" name="city">
+			<option value="" disabled selected>Välj</option>
+			<option value="stockholm">Stockholm</option>
+			<option value="malmo">Malmö</option>
+		</select>
+	</div>
+	<div class="field-group">
+		<label for="select">Lokal</label>
+		<select id="select" class="a-select" data-if="city" data-if-effect="disable">
+			<option value="" disabled selected>Välj</option>
+			<option data-if="city:stockholm" value="1">En lokal i stockholm</option>
+			<option data-if="city:malmo" value="2">En lokal i malmö</option>
+		</select>
+	</div>
+</form>
