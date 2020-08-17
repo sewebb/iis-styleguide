@@ -29,3 +29,5 @@ require('./focusTrap');
 require('./atoms/textarea/textarea');
 
 require('./atoms/height-limiter/height-limiter');
+
+require('./assets/js/conditional');

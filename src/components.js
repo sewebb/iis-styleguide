@@ -13,3 +13,4 @@ import './atoms/toggle-high-contrast/toggle-high-contrast';
 import './focusTrap';
 import './atoms/textarea/textarea';
 import './atoms/height-limiter/height-limiter';
+import './assets/js/conditional';
