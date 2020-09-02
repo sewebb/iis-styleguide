@@ -147,8 +147,8 @@ module.exports = {
 				url: false,
 				has_states: true,
 				current_state: 'default',
-				additional_classes: 'has-states',
-				text: '',
+				additional_classes: 'a-button--lemon-light has-states',
+				text: 'Anmäl dig',
 				el: 'button',
 			}
 		},
@@ -159,7 +159,7 @@ module.exports = {
 				has_states: true,
 				current_state: 'activated',
 				additional_classes: 'has-states',
-				text: '',
+				text: 'Anmäld',
 				el: 'button',
 			}
 		},

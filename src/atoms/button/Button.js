@@ -1,40 +1,173 @@
+const colors = ['ruby', 'ruby-light', 'jade', 'jade-light', 'lemon', 'lemon-light'];
+
+/**
+ * A button wrapper with helpful state management
+ *
+ * @class
+ * @constructor
+ * @public
+ */
 class Button {
-	constructor(button, disabled = true) {
-		this.button = button;
-		this.disabled = disabled;
+	/**
+	 * New button instance
+	 *
+	 * @param {Node} button
+	 * @param {object} config
+	 */
+	constructor(button, config = {}, initialState = {}) {
+		/**
+		 * The html element
+		 * @type {Node}
+		 */
+		this.element = button;
+		this.base = this.element.classList.item(0);
+		this.config = {
+			hasStates: false,
+			...config,
+		};
+
+		this.state = {
+			loading: false,
+			activated: false,
+			mouseover: false,
+			...initialState,
+		};
+
+		this.m = (m) => `${this.base}--${m}`;
+		this.e = (e) => `${this.base}__${e}`;
+		this.on = (...args) => this.element.addEventListener(...args);
+		this.off = (...args) => this.element.removeEventListener(...args);
 
 		this.build();
+
+		if (this.config.hasStates) {
+			this.attach();
+		}
+
+		this.render();
 	}
 
-	build() {
-		const className = this.button.classList.item(0);
+	removeIcon() {
+		// Remove current icon
+		const currentIcon = this.element.querySelector('.icon');
+
+		if (currentIcon) {
+			currentIcon.parentNode.removeChild(currentIcon);
+		}
+	}
+
+	buildIcon(icon, className) {
+		this.removeIcon();
+
 		const html = `
-			<svg class="icon ${className}__spinner">
-				<use xlink:href="#icon-spinner-white"></use>
+			<svg class="icon ${this.e(className)}">
+				<use xlink:href="#icon-${icon}"></use>
 			</svg>
 		`;
 
-		this.button.appendChild(document.createRange().createContextualFragment(html));
+		this.element.appendChild(document.createRange().createContextualFragment(html));
 	}
 
+	build() {
+		this.buildIcon('spinner-white', 'spinner');
+	}
+
+	attach() {
+		this.on('mouseover', this.onMouseEnter);
+		this.on('mouseleave', this.onMouseLeave);
+	}
+
+	setState(newState) {
+		this.state = { ...this.state, ...newState };
+		this.render();
+	}
+
+	onMouseEnter = () => this.setState({ mouseover: true });
+
+	onMouseLeave = () => this.setState({ mouseover: false });
+
 	isLoading() {
-		return this.button.classList.contains('is-loading');
+		return this.state.loading;
+	}
+
+	isActivated() {
+		return this.state.activated;
 	}
 
 	start() {
-		if (this.disabled) {
-			this.button.setAttribute('disabled', 'disabled');
-		}
-
-		this.button.classList.add('is-loading');
+		this.setState({ loading: true, mouseover: false });
 	}
 
 	stop() {
-		if (this.disabled) {
-			this.button.removeAttribute('disabled');
+		this.setState({ activated: false });
+	}
+
+	activate() {
+		this.setState({ activated: true, loading: false });
+	}
+
+	deactivate() {
+		this.setState({ activated: false, loading: false });
+	}
+
+	render() {
+		if (this.isLoading()) {
+			this.buildIcon('spinner-white', 'spinner');
+
+			this.element.setAttribute('disabled', 'disabled');
+			this.element.classList.add('is-loading');
+
+			return;
 		}
 
-		this.button.classList.remove('is-loading');
+		const clone = this.element.cloneNode();
+
+		this.element.removeAttribute('disabled');
+		clone.classList.remove('is-loading');
+
+		if (!this.config.hasStates) {
+			return;
+		}
+
+		let state;
+
+		if (this.isActivated() && !this.state.mouseover) {
+			state = 'active';
+		} else if (this.isActivated() && this.state.mouseover) {
+			state = 'deactivate';
+		} else {
+			state = 'default';
+		}
+
+		const color = this.config[`${state}Color`];
+		const icon = this.config[`${state}Icon`];
+		const text = this.config[`${state}Text`];
+
+		if (color) {
+			colors.forEach((c) => clone.classList.remove(this.m(c)));
+			clone.classList.add(this.m(color));
+		}
+
+		if (icon) {
+			const prevIcon = this.element.querySelector(`.${this.e('icon')}`);
+
+			if (prevIcon) {
+				prevIcon.parentNode.removeChild(prevIcon);
+			}
+
+			this.buildIcon(icon, 'icon');
+
+			clone.classList.add(this.m('icon'));
+		} else {
+			this.removeIcon();
+			clone.classList.remove(this.m('icon'));
+		}
+
+		if (text) {
+			this.element.querySelector(`.${this.e('text')}`).innerHTML = text;
+		}
+
+		this.element.className = clone.className;
 	}
 }
 
