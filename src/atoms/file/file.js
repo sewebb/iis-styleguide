@@ -24,6 +24,7 @@ Array.prototype.forEach.call(inputs, (input) => {
 		if (fileName) labelText.innerHTML = fileName;
 		else labelText.innerHTML = labelVal;
 		removebutton.classList.add('is-hidden');
+		input.value = '';
 		input.focus();
 	});
 });
