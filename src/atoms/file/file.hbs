@@ -1,0 +1,11 @@
+<div class="field-group display-flex align-items-center">
+	<input type="{{type}}" id="{{id}}" {{#if is_invalid}}aria-invalid="true"{{/if}} class="a-file {{#if modifier}} {{modifier}}{{/if}}"  data-multiple-caption="{count} filer valda" {{#if is_multiple}} multiple{{/if}}>
+	<label for="file" class="a-button a-button--icon a-file-icon">
+		<span class="a-button__text">{{placeholder}}</span>
+		{{> @icon id=icon additional_classes="a-button__icon"}}
+	</label>
+	<button type="button" class="a-button a-button--standalone-icon a-button--icon js-remove-file is-hidden">
+		<span class="a-button__text u-visuallyhidden">Ta bort</span>
+		{{> @icon id="trash" additional_classes="a-button__icon"}}
+	</button>
+</div>

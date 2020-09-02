@@ -1,0 +1,23 @@
+@charset 'UTF-8';
+
+.js {
+	@include atom(file) {
+		@extend %u-visuallyhidden;
+
+		&:focus {
+			@extend %input-focus;
+		}
+
+		&.has-icon {
+			padding-right: rhythm(5);
+		}
+
+		&[disabled] {
+			@extend %disabled;
+		}
+
+		@include m(discreet) {
+			@extend %discreet;
+		}
+	}
+}
