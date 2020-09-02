@@ -1,6 +1,6 @@
 <div class="field-group display-flex align-items-center">
 	<input type="{{type}}" id="{{id}}" {{#if is_invalid}}aria-invalid="true"{{/if}} class="a-file {{#if modifier}} {{modifier}}{{/if}}"  data-multiple-caption="{count} filer valda" {{#if is_multiple}} multiple{{/if}}>
-	<label for="file" class="a-button a-button--icon a-file-icon">
+	<label for="{{id}}" class="a-button a-button--icon a-file-icon{{#if color_variant}} background-{{color_variant}} color-{{color_variant}}{{/if}}">
 		<span class="a-button__text a-file-text">{{placeholder}}</span>
 		{{> @icon id=icon additional_classes="a-button__icon"}}
 	</label>

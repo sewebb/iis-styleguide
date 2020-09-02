@@ -19,6 +19,12 @@ module.exports = {
 				is_multiple: true,
 				placeholder: 'Välj filer'
 			}
+		},
+		{
+			name: 'Color variant',
+			context: {
+				color_variant: 'cyberspace'
+			}
 		}
 	]
 }
