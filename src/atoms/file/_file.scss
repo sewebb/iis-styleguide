@@ -20,4 +20,11 @@
 			@extend %discreet;
 		}
 	}
+
+	@include atom(file-text) {
+		max-width: 250px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
 }
