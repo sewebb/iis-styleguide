@@ -142,6 +142,7 @@ module.exports = {
 			}
 		},
 		{
+			status: 'wip',
 			name: 'Multiple states default',
 			context: {
 				url: false,
@@ -153,6 +154,7 @@ module.exports = {
 			}
 		},
 		{
+			status: 'wip',
 			name: 'Multiple states activated',
 			context: {
 				url: false,

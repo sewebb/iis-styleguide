@@ -30,6 +30,7 @@ class Button {
 			loading: false,
 			activated: false,
 			mouseover: false,
+			focus: false,
 			...initialState,
 		};
 
@@ -74,7 +75,9 @@ class Button {
 
 	attach() {
 		this.on('mouseover', this.onMouseEnter);
+		this.on('focus', this.onFocus);
 		this.on('mouseleave', this.onMouseLeave);
+		this.on('blur', this.onBlur);
 	}
 
 	setState(newState) {
@@ -85,6 +88,17 @@ class Button {
 	onMouseEnter = () => this.setState({ mouseover: true });
 
 	onMouseLeave = () => this.setState({ mouseover: false });
+
+	onFocus = (e) => {
+		console.log(e);
+		this.setState({ focus: true });
+	};
+
+	onBlur = () => {
+		if (!this.element.disabled) {
+			this.setState({ focus: false });
+		}
+	};
 
 	isLoading() {
 		return this.state.loading;
@@ -129,11 +143,18 @@ class Button {
 			return;
 		}
 
-		let state;
+		if (this.state.focus) {
+			setTimeout(() => {
+				this.element.focus();
+			}, 0);
+		}
 
-		if (this.isActivated() && !this.state.mouseover) {
+		let state;
+		const over = (this.state.focus) ? true : this.state.mouseover;
+
+		if (this.isActivated() && !over) {
 			state = 'active';
-		} else if (this.isActivated() && this.state.mouseover) {
+		} else if (this.isActivated() && over) {
 			state = 'deactivate';
 		} else {
 			state = 'default';
