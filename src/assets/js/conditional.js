@@ -1,7 +1,7 @@
 function update(element, value) {
 	const effect = element.getAttribute('data-if-effect') || 'toggle';
 	const [, match] = element.getAttribute('data-if').split(':');
-	const conditionMet = (!match && value) || (match === value);
+	const conditionMet = (!match && !!value) || (match === value);
 
 	if (effect === 'disable') {
 		element.disabled = !conditionMet;
@@ -21,7 +21,7 @@ function update(element, value) {
 	}
 
 	// If element is option and it was selected, we need to reset the value
-	if (element.tagName.toLowerCase() === 'option' && element.selected) {
+	if (element.tagName.toLowerCase() === 'option' && element.selected && !conditionMet) {
 		element.closest('select').value = '';
 	}
 }

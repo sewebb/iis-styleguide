@@ -9,7 +9,7 @@ function update(element, value) {
 	    _element$getAttribute2 = _slicedToArray(_element$getAttribute, 2),
 	    match = _element$getAttribute2[1];
 
-	var conditionMet = !match && value || match === value;
+	var conditionMet = !match && !!value || match === value;
 
 	if (effect === 'disable') {
 		element.disabled = !conditionMet;
@@ -34,7 +34,7 @@ function update(element, value) {
 	}
 
 	// If element is option and it was selected, we need to reset the value
-	if (element.tagName.toLowerCase() === 'option' && element.selected) {
+	if (element.tagName.toLowerCase() === 'option' && element.selected && !conditionMet) {
 		element.closest('select').value = '';
 	}
 }

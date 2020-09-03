@@ -13,16 +13,16 @@
 	<div class="field-group">
 		<label for="select2">Stad</label>
 		<select id="select2" class="a-select" name="city">
-			<option value="" disabled selected>Välj</option>
-			<option value="stockholm">Stockholm</option>
+			<option value="" disabled>Välj</option>
+			<option selected value="stockholm">Stockholm</option>
 			<option value="malmo">Malmö</option>
 		</select>
 	</div>
 	<div class="field-group">
 		<label for="select3">Lokal</label>
 		<select id="select3" class="a-select" data-if="city" data-if-effect="disable">
-			<option value="" disabled selected>Välj</option>
-			<option data-if="city:stockholm" value="1">En lokal i stockholm</option>
+			<option value="" disabled>Välj</option>
+			<option selected data-if="city:stockholm" value="1">En lokal i stockholm</option>
 			<option data-if="city:malmo" value="2">En lokal i malmö</option>
 		</select>
 	</div>
