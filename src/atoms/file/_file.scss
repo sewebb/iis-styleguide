@@ -1,0 +1,30 @@
+@charset 'UTF-8';
+
+.js {
+	@include atom(file) {
+		@extend %u-visuallyhidden;
+
+		&:focus {
+			@extend %input-focus;
+		}
+
+		&.has-icon {
+			padding-right: rhythm(5);
+		}
+
+		&[disabled] {
+			@extend %disabled;
+		}
+
+		@include m(discreet) {
+			@extend %discreet;
+		}
+	}
+
+	@include atom(file-text) {
+		max-width: 250px;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+	}
+}

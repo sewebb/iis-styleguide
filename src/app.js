@@ -4,7 +4,6 @@ require('./atoms/grid-toggle/grid-toggle');
 require('./components');
 
 const Button = require('./atoms/button/Button');
-const ButtonWithStates = require('./atoms/button/ButtonWithStates');
 
 const demoButtons = document.querySelectorAll('button.a-button.has-loader');
 
@@ -26,20 +25,44 @@ if (demoButtons.length) {
 	});
 }
 
+/**
+ * @type {NodeListOf<HTMLButtonElement>}
+ */
 const demoButtonsMultipleStates = document.querySelectorAll('button.a-button.has-states');
 
 if (demoButtonsMultipleStates.length) {
 	demoButtonsMultipleStates.forEach((button) => {
-		const b = new ButtonWithStates(button);
-		b.init(button);
-
-		// Add example listeners.
-		button.addEventListener('activated', () => {
-			console.log('Button state is activated');
+		const b = new Button(button, {
+			hasStates: true,
+			defaultColor: button.getAttribute('data-button-default-color'),
+			defaultText: button.getAttribute('data-button-default-text'),
+			defaultIcon: button.getAttribute('data-button-default-icon'),
+			activeIcon: button.getAttribute('data-button-activated-icon'),
+			activeColor: button.getAttribute('data-button-activated-color'),
+			activeText: button.getAttribute('data-button-activated-text'),
+			deactivateColor: button.getAttribute('data-button-deactivate-color'),
+			deactivateText: button.getAttribute('data-button-deactivate-text'),
+			deactivateIcon: button.getAttribute('data-button-deactivate-icon'),
+		}, {
+			activated: button.getAttribute('data-button-state') === 'activated',
 		});
 
-		button.addEventListener('deactivated', () => {
-			console.log('Button state is deactivated');
+		b.on('click', () => {
+			b.start();
+
+			if (!b.isActivated()) {
+				// Fake request
+				setTimeout(() => {
+					b.activate();
+				}, 1000);
+			} else {
+				b.start();
+
+				// Fake request
+				setTimeout(() => {
+					b.deactivate();
+				}, 1000);
+			}
 		});
 	});
 }
