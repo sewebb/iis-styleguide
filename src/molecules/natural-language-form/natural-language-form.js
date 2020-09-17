@@ -51,5 +51,10 @@ if (inputs) {
 		input.addEventListener('keyup', () => {
 			setWidth();
 		});
+
+		window.addEventListener('resize', () => {
+			setWidth();
+		});
+		
 	});
 }
