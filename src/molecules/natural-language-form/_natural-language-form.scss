@@ -34,5 +34,17 @@
 		background: transparent;
 		text-decoration: underline;
 		cursor: pointer;
+
+		&[data-color='ocean'] {
+			color: $color-ocean;
+		}
+
+		&[data-color='peacock'] {
+			color: $color-peacock;
+		}
+
+		&[data-color='jade'] {
+			color: $color-jade;
+		}
 	}
 }
