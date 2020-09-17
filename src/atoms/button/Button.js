@@ -113,7 +113,7 @@ class Button {
 	}
 
 	stop() {
-		this.setState({ activated: false });
+		this.setState({ loading: false, activated: false });
 	}
 
 	activate() {
@@ -140,6 +140,7 @@ class Button {
 		clone.classList.remove('is-loading');
 
 		if (!this.config.hasStates) {
+			this.element.className = clone.className;
 			return;
 		}
 
