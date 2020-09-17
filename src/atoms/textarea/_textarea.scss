@@ -48,3 +48,11 @@
 		margin-bottom: rhythm(1);
 	}
 }
+
+.ql-clipboard {
+	position: absolute;
+	top: 50%;
+	left: -100000px;
+	height: 1px;
+	overflow-y: hidden;
+}

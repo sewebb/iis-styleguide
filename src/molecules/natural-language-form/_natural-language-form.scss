@@ -1,0 +1,28 @@
+@charset 'UTF-8';
+
+@include molecule(natural-language-form) {
+	@include e(select) {
+		padding-right: 0;
+		padding-left: 0;
+		border: 0;
+		background: transparent;
+		text-decoration: underline;
+		cursor: pointer;
+
+		&[data-color='ocean'] {
+			color: $color-ocean;
+		}
+
+		&[data-color='peacock'] {
+			color: $color-peacock;
+		}
+
+		&[data-color='jade'] {
+			color: $color-jade;
+		}
+	}
+
+	@include e(temp-text) {
+		display: inline-block;
+	}
+}
