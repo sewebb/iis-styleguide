@@ -55,6 +55,5 @@ if (inputs) {
 		window.addEventListener('resize', () => {
 			setWidth();
 		});
-		
 	});
 }

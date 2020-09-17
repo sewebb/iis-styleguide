@@ -86,7 +86,7 @@ module.exports = {
 			context: {
 				modifiers: ['icon'],
 				text: 'Button with icon',
-				additional_classes: 'has-loader',
+				additional_classes: '',
 				icon: 'arrow-forwards',
 				el: 'button'
 			}
@@ -96,7 +96,7 @@ module.exports = {
 			context: {
 				modifiers: ['icon', 'icon-left'],
 				text: 'Button with left icon',
-				additional_classes: 'has-loader',
+				additional_classes: '',
 				icon: 'arrow-forwards',
 				el: 'button'
 			}
