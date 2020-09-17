@@ -25,4 +25,14 @@
 	@include e(temp-text) {
 		display: inline-block;
 	}
+
+	@include e(input) {
+		width: auto;
+		min-width: none;
+		max-width: none;
+		border: 0;
+		background: transparent;
+		text-decoration: underline;
+		cursor: pointer;
+	}
 }

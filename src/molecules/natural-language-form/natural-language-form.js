@@ -1,30 +1,54 @@
-const elements = document.querySelectorAll('.js-natural-language-select');
+const selects = document.querySelectorAll('.js-natural-language-select');
+const inputs = document.querySelectorAll('.js-natural-language-input');
 
-if (elements) {
-	[].forEach.call(elements, (element) => {
-		const tempTextElement = element.nextElementSibling;
+if (selects) {
+	[].forEach.call(selects, (select) => {
+		const tempTextElement = select.nextElementSibling;
 
 		function setWidth() {
-			const optionText = element.options[element.selectedIndex].text;
+			const optionText = select.options[select.selectedIndex].text;
 			tempTextElement.innerText = optionText;
 
-			// Show temp element to get it's width
+			// Show temp select to get it's width
 			tempTextElement.classList.remove('is-hidden');
-			const elementWidth = tempTextElement.offsetWidth + 3;
-			// Hide temp element again
+			const selectWidth = tempTextElement.offsetWidth + 3;
+			// Hide temp select again
 			tempTextElement.classList.add('is-hidden');
-			element.style.width = `${elementWidth}px`;
+			select.style.width = `${selectWidth}px`;
 		}
 		setWidth();
 
-		element.addEventListener('change', () => {
-			const { color } = element.options[element.selectedIndex].dataset;
-			element.dataset.color = color;
+		select.addEventListener('change', () => {
+			const { color } = select.options[select.selectedIndex].dataset;
+			select.dataset.color = color;
 
 			setWidth();
 		});
 
 		window.addEventListener('resize', () => {
+			setWidth();
+		});
+	});
+}
+
+if (inputs) {
+	[].forEach.call(inputs, (input) => {
+		const tempTextElement = input.nextElementSibling;
+
+		function setWidth() {
+			tempTextElement.innerHTML = input.value;
+
+			// Show temp select to get it's width
+			tempTextElement.classList.remove('is-hidden');
+			const selectWidth = tempTextElement.offsetWidth + 7;
+			// Hide temp select again
+			tempTextElement.classList.add('is-hidden');
+			input.style.width = `${selectWidth}px`;
+		}
+
+		setWidth();
+
+		input.addEventListener('keyup', () => {
 			setWidth();
 		});
 	});
