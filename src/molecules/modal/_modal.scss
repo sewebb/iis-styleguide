@@ -32,9 +32,8 @@
 		position: relative;
 		z-index: z_index(foreground);
 		flex-direction: column;
-		max-height: 100vh;
-		margin-right: rhythm(1);
-		margin-left: rhythm(1);
+		max-height: calc(100vh - #{rhythm(2)});
+		margin: rhythm(1);
 		padding: rhythm(4) rhythm(2) rhythm(4) rhythm(2);
 		overflow-y: auto;
 		border-radius: $border-radius;
