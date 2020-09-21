@@ -20,6 +20,8 @@ require('./organisms/mega-menu/mega-menu');
 
 require('./molecules/share/share');
 
+require('./molecules/natural-language-form/natural-language-form');
+
 require('./atoms/tooltip/tooltip');
 
 require('./atoms/toggle-high-contrast/toggle-high-contrast');
@@ -31,3 +33,5 @@ require('./atoms/textarea/textarea');
 require('./atoms/height-limiter/height-limiter');
 
 require('./assets/js/conditional');
+
+require('./atoms/file/file');
