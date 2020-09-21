@@ -1,28 +1,48 @@
+function effectDisable(element, disable, value) {
+	element.disabled = disable;
+
+	if (!disable && element.tagName.toLowerCase() === 'select') {
+		const options = element.querySelectorAll(`option[data-if$=":${value}"]`);
+
+		if (options.length === 1) {
+			element.value = options[0].value;
+		}
+	}
+}
+
+function effectToggle(element, show) {
+	element.style.display = show ? null : 'none';
+
+	// If element is option and it was selected, we need to reset the value
+	if (element.tagName.toLowerCase() === 'option' && element.selected && !show) {
+		element.closest('select').value = '';
+	}
+}
+
+function effectText(element, value) {
+	if (!element.hasAttribute('data-if-default')) {
+		element.setAttribute('data-if-default', element.innerText);
+	}
+
+	const values = element.getAttribute('data-if-values').split('|');
+	const text = values
+		.map((item) => item.split(':'))
+		.find(([m]) => m === value);
+
+	element.innerText = (text) ? text[1] : element.getAttribute('data-if-default');
+}
+
 function update(element, value) {
 	const effect = element.getAttribute('data-if-effect') || 'toggle';
 	const [, match] = element.getAttribute('data-if').split(':');
 	const conditionMet = (!match && !!value) || (match === value);
 
 	if (effect === 'disable') {
-		element.disabled = !conditionMet;
+		effectDisable(element, !conditionMet, value);
 	} else if (effect === 'toggle') {
-		element.style.display = conditionMet ? null : 'none';
+		effectToggle(element, conditionMet);
 	} else if (effect === 'text') {
-		if (!element.hasAttribute('data-if-default')) {
-			element.setAttribute('data-if-default', element.innerText);
-		}
-
-		const values = element.getAttribute('data-if-values').split('|');
-		const text = values
-			.map((item) => item.split(':'))
-			.find(([m]) => m === value);
-
-		element.innerText = (text) ? text[1] : element.getAttribute('data-if-default');
-	}
-
-	// If element is option and it was selected, we need to reset the value
-	if (element.tagName.toLowerCase() === 'option' && element.selected && !conditionMet) {
-		element.closest('select').value = '';
+		effectText(element, value);
 	}
 }
 
