@@ -149,7 +149,7 @@ var Button = function () {
 	}, {
 		key: 'stop',
 		value: function stop() {
-			this.setState({ activated: false });
+			this.setState({ loading: false, activated: false });
 		}
 	}, {
 		key: 'activate',
@@ -181,6 +181,7 @@ var Button = function () {
 			clone.classList.remove('is-loading');
 
 			if (!this.config.hasStates) {
+				this.element.className = clone.className;
 				return;
 			}
 
