@@ -8,6 +8,14 @@
 						<span class="a-button__text">{{text}}</span>
 					</a>
 				</span>
+				<span class="a-main-menu__list__button">
+					<a href="/medlem/rhedman" class="a-button a-button--icon a-button--icon-left a-button--icon a-button--transparent">
+						<span class="a-button__text u-nowrap">Min sida</span>
+						<svg class="icon a-button__icon">
+							<use xlink:href="#icon-user"></use>
+						</svg>
+					</a>
+				</span>
 			{{else has_readspeaker}}
 			<div id="readspeaker_button1" class="rs_skip rsbtn rs_preserve">
 				<a rel="nofollow" accesskey="L" class="rsbtn_play a-main-menu__list__link is-top-level" aria-describedby="readspeaker-info" href="//app-eu.readspeaker.com/cgi-bin/rsent?customerid=10645&amp;lang=<?php echo iis_set_language( 'sv_SE' ); ?>&amp;voice=Maja&amp;readclass=site__main&amp;url=<?php the_permalink(); ?>">
@@ -31,5 +39,5 @@
 			{{/if}}
 		</li>
 		{{/each}}
-	</ul>
+</ul>
 </nav>
