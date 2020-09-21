@@ -1,0 +1,91 @@
+<div class="wrapper">
+	<div class="row">
+		<div class="grid-9">
+			{{render '@teaser--excerpt-button'}}
+		</div>
+		<div class="grid-9">
+			{{render '@teaser--excerpt-button'}}
+		</div>
+	</div>
+</div>
+
+<!-- Example: Våra lokaler i Stockholm -->
+<div class="wrapper">
+	<div class="row">
+		<div class="grid-md-10 offset-md-1 u-m-t-6">
+			<h1 class="supersize">Våra lokaler i Stockholm</h1>
+			<p class="preamble">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Mauris eu dui et urna dignissim
+				sollicitudin. Praesent
+				faucibus purus venenatis eros interdum aliquet.</p>
+		</div>
+	</div>
+
+	<div class="row">
+		<div class="grid-lg-11 u-m-t-4">
+			<img class="u-border-radius u-object-fit-cover u-display-block" src="/assets/images/ALX_7251.jpg" alt="">
+		</div>
+		<div class="grid-lg-7 u-m-t-4">
+			{{render '@features-box' }}
+		</div>
+	</div>
+
+	<div class="row u-m-t-4">
+		<div class="grid-lg-9">
+			<h2 class="alpha u-m-b-4">Gradängen</h2>
+			<p>Gradängen är ett öppet utrymme med plats för max 40 personer som passar bra för föreläsningar, seminarier
+				och nätverkande. Här finns bildskärm med tillhörande kablar för presentationer, headsets och mikrofoner
+				för talare, och en fastmonterad kamera som kan spela in och sända evenemang live på Goto 10:s
+				YouTube-kanal.</p>
+		</div>
+	</div>
+</div>
+
+<div class="wrapper">
+	<div class="row">
+		<div class="grid-lg-11 u-m-t-4">
+			<img class="u-border-radius u-object-fit-cover u-display-block " src="/assets/images/ALX_2629.jpg" alt="">
+		</div>
+		<div class="grid-lg-7 u-m-t-4">
+			{{render '@features-box--full-height' }}
+		</div>
+	</div>
+
+	<div class="row u-m-t-4">
+		<div class="grid-lg-9">
+			<h2 class="alpha u-m-b-4">Annexet</h2>
+			<p>Annexet är ett luftigt och flexibelt utrymme för max 30 personer. med hårda ytor som passar bra för
+				interaktiva workshops av olika slag. Det är särskilt lämpat för att skapa med verktyg och material.
+				Stora fönster erbjuder även möjlighet till ambulerande utställningar. Här finns bildskärm med
+				tillhörande kablar för presentationer, samt bord, stolar och ljudisolerande väggar som kan ställas i
+				ordning efter behov.</p>
+		</div>
+	</div>
+</div>
+
+<div class="wrapper u-m-b-4">
+	<div class="row">
+		<div class="grid-md-11 u-m-t-6">
+			<p>Eventinfo med rubrik och text och bild osv.</p>
+		</div>
+		<div class="grid-md-6 offset-md-1">
+			<div class="row">
+				<div class="grid-18 u-m-t-4">
+					{{render '@features-box--event-info' }}
+				</div>
+				<div class="grid-18 u-m-t-4">
+					{{render '@map-box'}}
+				</div>
+			</div>
+		</div>
+	</div>
+</div>
+
+
+<!-- Exempel: large full width yellow features box -->
+<div class="wrapper u-m-b-4">
+	<div class="row">
+		<div class="grid-md-18 u-m-t-6">
+			{{render '@features-box--large-text' }}
+		</div>
+	</div>
+</div>
