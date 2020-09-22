@@ -52,7 +52,7 @@
 		}
 
 		@include bp-up(lg) {
-			min-height: rhythm(50);
+			min-height: rhythm(44);
 			padding-top: 0;
 
 			@include e(elm) {
