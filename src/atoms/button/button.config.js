@@ -141,29 +141,5 @@ module.exports = {
 				el: 'button'
 			}
 		},
-		{
-			status: 'wip',
-			name: 'Multiple states default',
-			context: {
-				url: false,
-				has_states: true,
-				current_state: 'default',
-				additional_classes: 'a-button--lemon-light has-states',
-				text: 'Anmäl dig',
-				el: 'button',
-			}
-		},
-		{
-			status: 'wip',
-			name: 'Multiple states activated',
-			context: {
-				url: false,
-				has_states: true,
-				current_state: 'activated',
-				additional_classes: 'has-states',
-				text: 'Anmäld',
-				el: 'button',
-			}
-		},
 	]
 };
