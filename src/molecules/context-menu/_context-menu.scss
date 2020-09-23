@@ -39,8 +39,11 @@
 		a {
 			display: block;
 			padding: rhythm(1) rhythm(2);
+			color: $color-cyberspace;
+			text-decoration: none;
 
-			&:hover {
+			&:hover,
+			&:focus {
 				background-color: $color-ash;
 			}
 		}
