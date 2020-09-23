@@ -56,3 +56,12 @@
 	height: 1px;
 	overflow-y: hidden;
 }
+
+.ql-editor p,
+.ql-editor ul,
+.ql-editor ol {
+	@include plumber(
+		$font-size: 1.75,
+		$leading-bottom: 2
+	);
+}
