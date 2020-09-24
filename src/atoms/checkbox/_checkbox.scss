@@ -60,15 +60,6 @@
 				}
 			}
 		}
-
-		&:invalid {
-			+ label {
-				&::before {
-					border-color: $color-ruby;
-					background-color: $color-ruby-light;
-				}
-			}
-		}
 	}
 }
 

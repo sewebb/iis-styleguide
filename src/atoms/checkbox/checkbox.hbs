@@ -13,3 +13,12 @@
 			</div>
 	</fieldset>
 </div>
+<script type="text/javascript">
+	//Example JS validation
+	const checkbox = document.querySelector('#{{id}}');
+	const checkboxContainer = document.querySelector('.checkbox.is-invalid');
+
+	checkbox.addEventListener('change', function(){
+		checkboxContainer.classList.toggle('is-invalid')
+	});
+</script>
