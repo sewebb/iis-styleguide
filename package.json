@@ -1,6 +1,6 @@
 {
 	"name": "@internetstiftelsen/styleguide",
-	"version": "2.3.3",
+	"version": "2.3.4-beta",
 	"main": "dist/components.js",
 	"ports": {
 		"fractal": "3000"
