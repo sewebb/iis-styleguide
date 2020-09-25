@@ -27,6 +27,14 @@ $alert-text: $color-cyberspace;
 		margin-bottom: rhythm(0.5);
 	}
 
+	a {
+		@extend %normalize-links;
+
+		color: $color-cyberspace;
+		font-family: $font-family-headings;
+		text-decoration: underline;
+	}
+
 	@include m(dismissable) {
 		padding-right: rhythm(4);
 

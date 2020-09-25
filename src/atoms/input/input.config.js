@@ -17,7 +17,7 @@ module.exports = {
 			name: 'Help text',
 			context: {
 				required: false,
-				has_help: false,
+				has_help: true,
 				has_icon: false
 			}
 		},

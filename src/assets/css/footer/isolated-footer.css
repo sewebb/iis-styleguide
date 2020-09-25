@@ -4192,12 +4192,12 @@
   .u-list__icon--red {
     fill: #ff4069; }
 
-.o-footer__link, .o-footer__paragraph {
+.m-alert a, .o-footer__link, .o-footer__paragraph {
   padding: 0;
   border: none;
   border-radius: 0;
   background-color: initial; }
-  .o-footer__link:hover, .o-footer__paragraph:hover, .o-footer__link:focus, .o-footer__paragraph:focus {
+  .m-alert a:hover, .o-footer__link:hover, .o-footer__paragraph:hover, .m-alert a:focus, .o-footer__link:focus, .o-footer__paragraph:focus {
     border: none;
     border-radius: 0;
     background-color: inherit; }
@@ -4408,6 +4408,10 @@
     max-width: 33.33333rem; }
   .m-alert > p:last-child {
     margin-bottom: 0.25rem; }
+  .m-alert a {
+    color: #1f2a36;
+    font-family: "HK Grotesk Semibold", sans-serif;
+    text-decoration: underline; }
   .m-alert--dismissable {
     padding-right: 2rem; }
     .m-alert--dismissable button:not(.a-button--is-static) {
