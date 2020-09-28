@@ -86,6 +86,11 @@
 
 	// Modifiers
 
+	@include m(full-width) {
+		display: flex;
+		width: 100%;
+	}
+
 	@include m(small) {
 		padding: rhythm(0.6) rhythm(1.5);
 	}
@@ -187,6 +192,23 @@
 			width: $icon-size;
 			height: $icon-size;
 			fill: $color-cyberspace;
+		}
+	}
+
+	@include m(cyberspace) {
+		color: $color-cyberspace;
+
+		&:hover,
+		&:focus {
+			color: $color-granit;
+		}
+
+		@include e(text) {
+			color: $color-snow;
+		}
+
+		@include e(icon) {
+			fill: $color-snow;
 		}
 	}
 

@@ -4261,6 +4261,9 @@
     transition: 0.3s opacity, 0.3s transform;
     transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
     opacity: 0; }
+  .a-button--full-width {
+    display: flex;
+    width: 100%; }
   .a-button--small {
     padding: 0.3rem 0.75rem; }
   .a-button--large {
@@ -4334,6 +4337,14 @@
       width: 1.33333rem;
       height: 1.33333rem;
       fill: #1f2a36; }
+  .a-button--cyberspace {
+    color: #1f2a36; }
+    .a-button--cyberspace:hover, .a-button--cyberspace:focus {
+      color: #8e9297; }
+    .a-button--cyberspace .a-button__text {
+      color: #fff; }
+    .a-button--cyberspace .a-button__icon {
+      fill: #fff; }
   .a-button--ruby-light {
     box-shadow: 0 0 0 1px inset #ff4069;
     color: #ff9fb4; }

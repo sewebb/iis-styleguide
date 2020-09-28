@@ -54,6 +54,13 @@ module.exports = {
 			}
 		},
 		{
+			name: 'Cyberspace',
+			context: {
+				modifiers: ['cyberspace'],
+				text: 'Cyberspace button'
+			}
+		},
+		{
 			name: 'Transparent',
 			context: {
 				modifiers: ['transparent'],
@@ -65,6 +72,13 @@ module.exports = {
 			context: {
 				modifiers: ['dashed'],
 				text: 'Dashed hollow button'
+			}
+		},
+		{
+			name: 'Full width',
+			context: {
+				modifiers: ['full-width'],
+				text: 'Way wide'
 			}
 		},
 		{
