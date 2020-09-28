@@ -2,6 +2,7 @@ import template from 'lodash.template';
 import Button from '../../atoms/button/Button';
 import className from '../../assets/js/className';
 import validationMessage from '../../assets/js/validationMessage';
+import request from '../../assets/js/request';
 
 export default class Form {
 	constructor(element, i18n = null) {
@@ -158,16 +159,24 @@ export default class Form {
 	displayError = (error) => {
 		this.setLoading(false);
 
+		if ('response' in error) {
+			const { response } = error;
+
+			if ('data' in response && response.data.errors) {
+				this.errors = response.data.errors;
+			}
+		}
+
 		if (Object.keys(this.errors).length) {
 			Object.entries(this.errors).forEach(this.displayFieldError);
 
 			return;
 		}
 
-		const errorMessage = (typeof error === 'object') ? error.message : error;
+		const message = ('response' in error) ? error.response.message : error.statusText;
 
 		this.error.classList.remove('is-hidden');
-		this.error.innerHTML = errorMessage || this.i18n('Något gick fel');
+		this.error.innerHTML = message || this.i18n('Något gick fel');
 	};
 
 	displayFieldError = ([name, error]) => {
@@ -203,6 +212,12 @@ export default class Form {
 		}
 
 		help.innerHTML = error.map(validationMessage).join('<br>');
+
+		const fieldGroup = input.closest('.field-group');
+
+		if (fieldGroup) {
+			fieldGroup.classList.add('is-invalid');
+		}
 	};
 
 	clearFieldErrors() {
@@ -219,6 +234,12 @@ export default class Form {
 			if (help) {
 				help.innerHTML = '';
 			}
+
+			const fieldGroup = input.closest('.field-group');
+
+			if (fieldGroup) {
+				fieldGroup.classList.remove('is-invalid');
+			}
 		});
 	}
 
@@ -231,48 +252,20 @@ export default class Form {
 		this.hideMessages();
 		this.setLoading(true);
 
-		const data = Object.entries(this.data).map(([key, value]) => `${key}=${value}`);
+		const data = { ...this.data };
 		const method = this.element.getAttribute('method').toUpperCase() || 'POST';
-		let url = this.element.getAttribute('data-form');
-		let dataParam = data.join('&');
+		const url = this.element.getAttribute('data-form');
 
 		if (this.token) {
-			dataParam += `&token=${this.token}`;
+			data.token = this.token;
 		}
 
-		if (method === 'GET') {
-			if (url.indexOf('?') > -1) {
-				url += `${dataParam}`;
-			} else {
-				url += `?${dataParam}`;
-			}
-		}
-
-		fetch(url, {
-			method,
-			body: (method !== 'GET') ? dataParam : null,
-			headers: {
-				'Content-Type': 'application/x-www-form-urlencoded',
-			},
-		})
-			.then((response) => {
-				if (response.status !== 200) {
-					throw new Error(response.statusText);
-				}
-
-				return response;
-			})
-			.then((res) => res.json()).then(this.onSuccess)
+		request(url, data, method)
+			.then(this.onSuccess)
 			.catch(this.displayError);
 	}
 
 	onSuccess = (json) => {
-		if ('code' in json && json.code !== 200) {
-			this.displayError(json);
-
-			return;
-		}
-
 		this.setLoading(false);
 
 		const tmpl = template(this.successMessage);

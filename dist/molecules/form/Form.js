@@ -8,8 +8,6 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
-var _typeof = typeof Symbol === "function" && typeof Symbol.iterator === "symbol" ? function (obj) { return typeof obj; } : function (obj) { return obj && typeof Symbol === "function" && obj.constructor === Symbol && obj !== Symbol.prototype ? "symbol" : typeof obj; };
-
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
 var _lodash = require('lodash.template');
@@ -27,6 +25,10 @@ var _className2 = _interopRequireDefault(_className);
 var _validationMessage = require('../../assets/js/validationMessage');
 
 var _validationMessage2 = _interopRequireDefault(_validationMessage);
+
+var _request = require('../../assets/js/request');
+
+var _request2 = _interopRequireDefault(_request);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -60,16 +62,25 @@ var Form = function () {
 		this.displayError = function (error) {
 			_this.setLoading(false);
 
+			if ('response' in error) {
+				var response = error.response;
+
+
+				if ('data' in response && response.data.errors) {
+					_this.errors = response.data.errors;
+				}
+			}
+
 			if (Object.keys(_this.errors).length) {
 				Object.entries(_this.errors).forEach(_this.displayFieldError);
 
 				return;
 			}
 
-			var errorMessage = (typeof error === 'undefined' ? 'undefined' : _typeof(error)) === 'object' ? error.message : error;
+			var message = 'response' in error ? error.response.message : error.statusText;
 
 			_this.error.classList.remove('is-hidden');
-			_this.error.innerHTML = errorMessage || _this.i18n('Något gick fel');
+			_this.error.innerHTML = message || _this.i18n('Något gick fel');
 		};
 
 		this.displayFieldError = function (_ref) {
@@ -109,15 +120,15 @@ var Form = function () {
 			}
 
 			help.innerHTML = error.map(_validationMessage2.default).join('<br>');
+
+			var fieldGroup = input.closest('.field-group');
+
+			if (fieldGroup) {
+				fieldGroup.classList.add('is-invalid');
+			}
 		};
 
 		this.onSuccess = function (json) {
-			if ('code' in json && json.code !== 200) {
-				_this.displayError(json);
-
-				return;
-			}
-
 			_this.setLoading(false);
 
 			var tmpl = (0, _lodash2.default)(_this.successMessage);
@@ -315,6 +326,12 @@ var Form = function () {
 				if (help) {
 					help.innerHTML = '';
 				}
+
+				var fieldGroup = input.closest('.field-group');
+
+				if (fieldGroup) {
+					fieldGroup.classList.remove('is-invalid');
+				}
 			});
 		}
 	}, {
@@ -329,44 +346,15 @@ var Form = function () {
 			this.hideMessages();
 			this.setLoading(true);
 
-			var data = Object.entries(this.data).map(function (_ref5) {
-				var _ref6 = _slicedToArray(_ref5, 2),
-				    key = _ref6[0],
-				    value = _ref6[1];
-
-				return key + '=' + value;
-			});
+			var data = _extends({}, this.data);
 			var method = this.element.getAttribute('method').toUpperCase() || 'POST';
 			var url = this.element.getAttribute('data-form');
-			var dataParam = data.join('&');
 
 			if (this.token) {
-				dataParam += '&token=' + this.token;
+				data.token = this.token;
 			}
 
-			if (method === 'GET') {
-				if (url.indexOf('?') > -1) {
-					url += '' + dataParam;
-				} else {
-					url += '?' + dataParam;
-				}
-			}
-
-			fetch(url, {
-				method: method,
-				body: method !== 'GET' ? dataParam : null,
-				headers: {
-					'Content-Type': 'application/x-www-form-urlencoded'
-				}
-			}).then(function (response) {
-				if (response.status !== 200) {
-					throw new Error(response.statusText);
-				}
-
-				return response;
-			}).then(function (res) {
-				return res.json();
-			}).then(this.onSuccess).catch(this.displayError);
+			(0, _request2.default)(url, data, method).then(this.onSuccess).catch(this.displayError);
 		}
 	}]);
 

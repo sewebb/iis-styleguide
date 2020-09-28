@@ -24,6 +24,10 @@
         </div>
     </div>
     <script type="iis/template" id="drinks">
+		<% if (drinks && drinks.length) { %>
     	<% drinks.forEach(function (drink) { %><li><%- drink.strDrink %> (<%- drink.strAlcoholic %>)</li><% }); %>
+		<% } else { %>
+		Inga drinkar hittades. Testa en ny sökning.
+		<% } %>
     </script>
 </form>
