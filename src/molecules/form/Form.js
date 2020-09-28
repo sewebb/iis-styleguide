@@ -78,7 +78,7 @@ export default class Form {
 			const { value } = input;
 			const type = input.getAttribute('type');
 
-			if ((type === 'checkbox' && input.checked) || (type !== 'checkbox' && value && value.length)) {
+			if ((type === 'radio' && input.checked) || (type === 'checkbox' && input.checked) || (type !== 'checkbox' && type !== 'radio' && value && value.length)) {
 				data[name] = value;
 			} else if (type === 'checkbox' && !input.checked) {
 				delete data[name];
