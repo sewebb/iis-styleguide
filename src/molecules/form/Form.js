@@ -7,7 +7,6 @@ import request from '../../assets/js/request';
 export default class Form {
 	constructor(element, i18n = null) {
 		this.element = element;
-		this.inputs = this.element.querySelectorAll('input');
 		this.submit = new Button(this.element.querySelector('button[type="submit"]'));
 		this.error = this.element.querySelector('[data-form-error]');
 		this.success = this.element.querySelector('[data-form-success]');
@@ -39,7 +38,12 @@ export default class Form {
 			this.parseValidationRules();
 		}
 
+		this.collectInputs();
 		this.attach();
+	}
+
+	collectInputs() {
+		this.inputs = this.element.querySelectorAll('input');
 	}
 
 	renderCaptchaForm() {
@@ -74,6 +78,7 @@ export default class Form {
 	updateData() {
 		const data = { ...this.data };
 
+		this.collectInputs();
 		this.inputs.forEach((input) => {
 			const name = input.getAttribute('name');
 			const { value } = input;

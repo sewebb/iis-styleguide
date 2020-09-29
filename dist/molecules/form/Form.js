@@ -147,7 +147,6 @@ var Form = function () {
 		};
 
 		this.element = element;
-		this.inputs = this.element.querySelectorAll('input');
 		this.submit = new _Button2.default(this.element.querySelector('button[type="submit"]'));
 		this.error = this.element.querySelector('[data-form-error]');
 		this.success = this.element.querySelector('[data-form-success]');
@@ -181,10 +180,16 @@ var Form = function () {
 			this.parseValidationRules();
 		}
 
+		this.collectInputs();
 		this.attach();
 	}
 
 	_createClass(Form, [{
+		key: 'collectInputs',
+		value: function collectInputs() {
+			this.inputs = this.element.querySelectorAll('input');
+		}
+	}, {
 		key: 'renderCaptchaForm',
 		value: function renderCaptchaForm() {
 			var s = document.createElement('script');
@@ -226,6 +231,7 @@ var Form = function () {
 		value: function updateData() {
 			var data = _extends({}, this.data);
 
+			this.collectInputs();
 			this.inputs.forEach(function (input) {
 				var name = input.getAttribute('name');
 				var value = input.value;
