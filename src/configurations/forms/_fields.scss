@@ -42,3 +42,21 @@
 		display: none;
 	}
 }
+
+fieldset {
+	&[disabled] {
+		input,
+		textarea,
+		select,
+		button {
+			@extend %disabled;
+		}
+
+		[type='checkbox'],
+		[type='radio'] {
+			+ label {
+				@extend %disabled;
+			}
+		}
+	}
+}
