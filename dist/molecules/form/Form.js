@@ -146,6 +146,14 @@ var Form = function () {
 			}
 		};
 
+		this.reset = function () {
+			_this.element.reset();
+			_this.hideMessages();
+
+			_this.success.innerHTML = '';
+			_this.error.innerHTML = '';
+		};
+
 		this.element = element;
 		this.submit = new _Button2.default(this.element.querySelector('button[type="submit"]'));
 		this.error = this.element.querySelector('[data-form-error]');
@@ -225,6 +233,7 @@ var Form = function () {
 		key: 'attach',
 		value: function attach() {
 			this.element.addEventListener('submit', this.onSubmit);
+			this.element.addEventListener('reset', this.reset);
 		}
 	}, {
 		key: 'updateData',

@@ -73,6 +73,7 @@ export default class Form {
 
 	attach() {
 		this.element.addEventListener('submit', this.onSubmit);
+		this.element.addEventListener('reset', this.reset);
 	}
 
 	updateData() {
@@ -287,5 +288,13 @@ export default class Form {
 					this.token = token;
 				});
 		}
+	};
+
+	reset = () => {
+		this.element.reset();
+		this.hideMessages();
+
+		this.success.innerHTML = '';
+		this.error.innerHTML = '';
 	};
 }
