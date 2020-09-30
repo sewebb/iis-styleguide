@@ -25,11 +25,13 @@
 			}
 		}
 
-		&:focus,
-		&:hover {
-			+ label {
-				&::before {
-					background-color: darken($color-ash, 5%);
+		&:not([disabled]) {
+			&:focus,
+			&:hover {
+				+ label {
+					&::before {
+						background-color: darken($color-ash, 5%);
+					}
 				}
 			}
 		}

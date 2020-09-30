@@ -79,7 +79,8 @@
 	opacity: 0.5;
 	cursor: not-allowed;
 
-	&:hover {
+	&:hover,
+	&:focus {
 		color: currentColor;
 		text-decoration: none;
 	}
