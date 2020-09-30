@@ -61,6 +61,10 @@ fieldset[disabled] {
 		}
 	}
 
+	.ql-editor {
+		pointer-events: none;
+	}
+
 	[type='file'] {
 		+ label {
 			@extend %disabled;
@@ -116,28 +120,4 @@ fieldset[disabled] {
 			}
 		}
 	}
-
-	// [type='checkbox'] {
-	// 	+ label {
-	// 		/* stylelint-disable */
-	// 		&::before {
-	// 			background-color: darken($color-concrete, 5%);
-	// 		}
-	// 		/* stylelint-enable */
-	// 	}
-	// }
-	//
-	// [type='radio'] {
-	// 	+ label {
-	// 		@extend %disabled;
-	//
-	// 		/* stylelint-disable */
-	// 		&:checked {
-	// 			&::before {
-	// 				background-color: $color-cyberspace;
-	// 			}
-	// 		}
-	// 		/* stylelint-enable */
-	// 	}
-	// }
 }
