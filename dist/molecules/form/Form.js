@@ -108,20 +108,16 @@ var Form = function () {
 				help.id = id;
 				help.className = (0, _className2.default)('input-help');
 
-				if (input.getAttribute('type') === 'checkbox') {
-					var checkboxParent = input.closest('.' + (0, _className2.default)('checkbox'));
+				var _fieldGroup = input.closest('[class*="field-group"]');
 
-					if (checkboxParent) {
-						checkboxParent.parentNode.insertBefore(help, checkboxParent.nextSibling);
-					}
-				} else {
-					input.parentNode.insertBefore(help, input.nextSibling);
+				if (_fieldGroup) {
+					_fieldGroup.appendChild(help);
 				}
 			}
 
 			help.innerHTML = error.map(_validationMessage2.default).join('<br>');
 
-			var fieldGroup = input.closest('.field-group');
+			var fieldGroup = input.closest('[class*="field-group"]');
 
 			if (fieldGroup) {
 				fieldGroup.classList.add('is-invalid');

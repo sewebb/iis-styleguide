@@ -206,20 +206,16 @@ export default class Form {
 			help.id = id;
 			help.className = className('input-help');
 
-			if (input.getAttribute('type') === 'checkbox') {
-				const checkboxParent = input.closest(`.${className('checkbox')}`);
+			const fieldGroup = input.closest('[class*="field-group"]');
 
-				if (checkboxParent) {
-					checkboxParent.parentNode.insertBefore(help, checkboxParent.nextSibling);
-				}
-			} else {
-				input.parentNode.insertBefore(help, input.nextSibling);
+			if (fieldGroup) {
+				fieldGroup.appendChild(help);
 			}
 		}
 
 		help.innerHTML = error.map(validationMessage).join('<br>');
 
-		const fieldGroup = input.closest('.field-group');
+		const fieldGroup = input.closest('[class*="field-group"]');
 
 		if (fieldGroup) {
 			fieldGroup.classList.add('is-invalid');
