@@ -74,8 +74,15 @@ function delegate(_ref3) {
 		return;
 	}
 
+	var value = target.value;
+
+
+	if (['checkbox', 'radio'].includes(target.getAttribute('type'))) {
+		value = target.checked ? target.value : null;
+	}
+
 	[].forEach.call(elements, function (element) {
-		return update(element, target.value);
+		return update(element, value);
 	});
 }
 
@@ -96,7 +103,14 @@ function init() {
 		var related = form.querySelector('[name="' + name + '"]');
 
 		if (related) {
-			update(element, related.value);
+			var value = related.value;
+
+
+			if (['checkbox', 'radio'].includes(related.getAttribute('type'))) {
+				value = related.checked ? related.value : null;
+			}
+
+			update(element, value);
 		}
 	});
 }
