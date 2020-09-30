@@ -59,7 +59,13 @@ function delegate({ target }) {
 		return;
 	}
 
-	[].forEach.call(elements, (element) => update(element, target.value));
+	let { value } = target;
+
+	if (['checkbox', 'radio'].includes(target.getAttribute('type'))) {
+		value = (target.checked) ? target.value : null;
+	}
+
+	[].forEach.call(elements, (element) => update(element, value));
 }
 
 function init() {
@@ -76,7 +82,13 @@ function init() {
 		const related = form.querySelector(`[name="${name}"]`);
 
 		if (related) {
-			update(element, related.value);
+			let { value } = related;
+
+			if (['checkbox', 'radio'].includes(related.getAttribute('type'))) {
+				value = (related.checked) ? related.value : null;
+			}
+
+			update(element, value);
 		}
 	});
 }
