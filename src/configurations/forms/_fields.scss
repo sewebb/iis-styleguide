@@ -43,20 +43,101 @@
 	}
 }
 
-fieldset {
-	&[disabled] {
-		input,
-		textarea,
-		select,
-		button {
-			@extend %disabled;
-		}
+fieldset[disabled] {
+	input,
+	textarea,
+	select,
+	button,
+	.ql-editor {
+		@extend %disabled;
+	}
 
-		[type='checkbox'],
-		[type='radio'] {
-			+ label {
-				@extend %disabled;
+	button {
+		&:hover,
+		&:focus {
+			svg {
+				fill: $color-cyberspace;
 			}
 		}
 	}
+
+	[type='file'] {
+		+ label {
+			@extend %disabled;
+
+			background-color: $color-granit;
+			box-shadow: 0 0 0 1px inset $color-granit;
+			color: $color-granit;
+
+			&:hover,
+			&:focus {
+				cursor: not-allowed;
+			}
+		}
+	}
+
+	[type='checkbox'] {
+		+ label {
+			@extend %disabled;
+
+			&::before {
+				background-color: darken($color-concrete, 5%) !important;
+			}
+		}
+	}
+
+	[type='radio'] {
+		+ label {
+			@extend %disabled;
+
+			&::before {
+				background-color: darken($color-concrete, 5%);
+			}
+
+			&:hover,
+			&:focus {
+				/* stylelint-disable */
+				&::before {
+					background-color: darken($color-concrete, 5%);
+				}
+				/* stylelint-enable */
+			}
+		}
+
+		&:checked {
+			+ label {
+				@extend %disabled;
+
+				/* stylelint-disable */
+				&::before {
+					background-color: $color-cyberspace;
+				}
+				/* stylelint-enable */
+			}
+		}
+	}
+
+	// [type='checkbox'] {
+	// 	+ label {
+	// 		/* stylelint-disable */
+	// 		&::before {
+	// 			background-color: darken($color-concrete, 5%);
+	// 		}
+	// 		/* stylelint-enable */
+	// 	}
+	// }
+	//
+	// [type='radio'] {
+	// 	+ label {
+	// 		@extend %disabled;
+	//
+	// 		/* stylelint-disable */
+	// 		&:checked {
+	// 			&::before {
+	// 				background-color: $color-cyberspace;
+	// 			}
+	// 		}
+	// 		/* stylelint-enable */
+	// 	}
+	// }
 }

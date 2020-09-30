@@ -1,48 +1,56 @@
 <form class="m-form" data-form="https://www.thecocktaildb.com/api/json/v1/1/search.php" action="" method="get">
-    <meta name="form-validation" content="s=required,min:3|terms=required">
+	<meta name="form-validation" content="s=required,min:3|terms=required">
 
-    <div role="alert" data-form-error class="m-alert m-alert--error is-hidden"></div>
-    <div role="alert" data-form-success="drinks" class="m-alert m-alert--success is-hidden"></div>
-    <div class="m-form-control m-form-control--small">
-        <div class="m-form__row u-m-b-2">
-            <div class="field-group">
-                <input type="text" name="s" class="a-input" placeholder="Your favorite cocktail">
-            </div>
-        </div>
-		<div class="m-form__row u-m-b-2">
-			<div class="field-group">
-				<legend class="label-legend">Category</legend>
-				<div class="u-display-flex">
-					<div class="radio">
-						<input checked type="radio" id="c-cocktail" name="c" value="Cocktail" class="a-radio u-visuallyhidden">
-						<label for="c-cocktail">Cocktail</label>
-					</div>
-					<div class="radio">
-						<input type="radio" id="c-drink" name="c" value="Ordinary_Drink" class="a-radio u-visuallyhidden">
-						<label for="c-drink">Ordinary drink</label>
+	<div role="alert" data-form-error class="m-alert m-alert--error is-hidden"></div>
+	<div role="alert" data-form-success="drinks" class="m-alert m-alert--success is-hidden"></div>
+	<fieldset disabled>
+		<div class="m-form-control">
+			<div class="m-form__row u-m-b-2">
+				<div class="field-group">
+					<input type="text" name="s" class="a-input" placeholder="Your favorite cocktail">
+				</div>
+			</div>
+			<div class="m-form__row u-m-b-2">
+				<div class="field-group">
+					<legend class="label-legend">Category</legend>
+					<div class="u-display-flex">
+						<div class="radio">
+							<input checked type="radio" id="c-cocktail" name="c" value="Cocktail" class="a-radio u-visuallyhidden">
+							<label for="c-cocktail">Cocktail</label>
+						</div>
+						<div class="radio">
+							<input type="radio" id="c-drink" name="c" value="Ordinary_Drink" class="a-radio u-visuallyhidden">
+							<label for="c-drink">Ordinary drink</label>
+						</div>
 					</div>
 				</div>
 			</div>
+			<div class="m-form__row u-m-b-2">
+				<div class="field-group">
+					<div class="checkbox">
+						<input id="newsletterTerms" type="checkbox" name="terms" value="1" class="a-checkbox u-visuallyhidden">
+						<label for="newsletterTerms"><span>Accept the terms</span></label>
+					</div>
+				</div>
+			</div>
+			<div class="m-form__row u-m-b-2">
+				{{render '@file'}}
+			</div>
+			<div class="m-form__row u-m-b-2">
+				{{render '@textarea--rich-text'}}
+			</div>
+			<div class="m-form__row">
+				<button type="submit" class="a-button">
+					<span class="a-button__text">Fetch</span>
+				</button>
+			</div>
 		</div>
-        <div class="m-form__row u-m-b-2">
-            <div class="field-group">
-                <div class="checkbox">
-                    <input id="newsletterTerms" type="checkbox" name="terms" value="1" class="a-checkbox u-visuallyhidden">
-                    <label for="newsletterTerms"><span>Accept the terms</span></label>
-                </div>
-            </div>
-        </div>
-        <div class="m-form__row">
-            <button type="submit" class="a-button a-button--small">
-                <span class="a-button__text">Fetch</span>
-            </button>
-        </div>
-    </div>
-    <script type="iis/template" id="drinks">
-		<% if (drinks && drinks.length) { %>
-    	<% drinks.forEach(function (drink) { %><li><%- drink.strDrink %> (<%- drink.strAlcoholic %>)</li><% }); %>
+	</fieldset>
+	<script type="iis/template" id="drinks">
+	<% if (drinks && drinks.length) { %>
+		<% drinks.forEach(function (drink) { %><li><%- drink.strDrink %> (<%- drink.strAlcoholic %>)</li><% }); %>
 		<% } else { %>
-		Inga drinkar hittades. Testa en ny sökning.
-		<% } %>
-    </script>
-</form>
+			Inga drinkar hittades. Testa en ny sökning.
+			<% } %>
+			</script>
+		</form>
