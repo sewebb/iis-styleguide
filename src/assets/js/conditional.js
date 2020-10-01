@@ -1,22 +1,56 @@
+const selectStore = {};
+
+function effectChain(element, value) {
+	const options = element.querySelectorAll('option[data-if-chain]');
+
+	if (!(element.name in selectStore)) {
+		// First time, cache options
+		selectStore[element.name] = [];
+
+		[].forEach.call(options, (el) => {
+			selectStore[element.name].push(el.cloneNode(true));
+		});
+	}
+
+	[].forEach.call(options, (el) => {
+		if (element.value === el.value) {
+			element.value = '';
+		}
+
+		element.removeChild(el);
+	});
+
+	if (!value) {
+		return;
+	}
+
+	const cached = selectStore[element.name];
+
+	if (!cached.length) {
+		return;
+	}
+
+	const newOptions = cached.filter((el) => el.getAttribute('data-if-chain') === value);
+
+	if (newOptions.length) {
+		newOptions.forEach((el) => element.appendChild(el.cloneNode(true)));
+	}
+
+	if (newOptions.length === 1) {
+		element.value = newOptions[0].value;
+	}
+}
+
 function effectDisable(element, disable, value) {
 	element.disabled = disable;
 
 	if (!disable && element.tagName.toLowerCase() === 'select') {
-		const options = element.querySelectorAll(`option[data-if$=":${value}"]`);
-
-		if (options.length === 1) {
-			element.value = options[0].value;
-		}
+		effectChain(element, value);
 	}
 }
 
 function effectToggle(element, show) {
 	element.style.display = show ? null : 'none';
-
-	// If element is option and it was selected, we need to reset the value
-	if (element.tagName.toLowerCase() === 'option' && element.selected && !show) {
-		element.closest('select').value = '';
-	}
 }
 
 function effectText(element, value) {

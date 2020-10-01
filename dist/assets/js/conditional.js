@@ -2,25 +2,63 @@
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
+var selectStore = {};
+
+function effectChain(element, value) {
+	var options = element.querySelectorAll('option[data-if-chain]');
+
+	if (!(element.name in selectStore)) {
+		// First time, cache options
+		selectStore[element.name] = [];
+
+		[].forEach.call(options, function (el) {
+			selectStore[element.name].push(el.cloneNode(true));
+		});
+	}
+
+	[].forEach.call(options, function (el) {
+		if (element.value === el.value) {
+			element.value = '';
+		}
+
+		element.removeChild(el);
+	});
+
+	if (!value) {
+		return;
+	}
+
+	var cached = selectStore[element.name];
+
+	if (!cached.length) {
+		return;
+	}
+
+	var newOptions = cached.filter(function (el) {
+		return el.getAttribute('data-if-chain') === value;
+	});
+
+	if (newOptions.length) {
+		newOptions.forEach(function (el) {
+			return element.appendChild(el.cloneNode(true));
+		});
+	}
+
+	if (newOptions.length === 1) {
+		element.value = newOptions[0].value;
+	}
+}
+
 function effectDisable(element, disable, value) {
 	element.disabled = disable;
 
 	if (!disable && element.tagName.toLowerCase() === 'select') {
-		var options = element.querySelectorAll('option[data-if$=":' + value + '"]');
-
-		if (options.length === 1) {
-			element.value = options[0].value;
-		}
+		effectChain(element, value);
 	}
 }
 
 function effectToggle(element, show) {
 	element.style.display = show ? null : 'none';
-
-	// If element is option and it was selected, we need to reset the value
-	if (element.tagName.toLowerCase() === 'option' && element.selected && !show) {
-		element.closest('select').value = '';
-	}
 }
 
 function effectText(element, value) {
