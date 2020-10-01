@@ -113,6 +113,32 @@
 		}
 	}
 
+	@include m(large-responsive) {
+		padding: rhythm(1.6) rhythm(4);
+
+		@include e(text) {
+			font-size: rem(24px);
+		}
+
+		@include e(icon) {
+			width: $icon-size;
+			height: $icon-size;
+		}
+
+		@include e(spinner) {
+			width: $icon-size;
+			height: $icon-size;
+		}
+
+		@include bp-down(sm) {
+			padding: rhythm(1.112) rhythm(2);
+
+			@include e(text) {
+				font-size: rem(16px);
+			}
+		}
+	}
+
 	@include m(icon) {
 		justify-content: space-between;
 		max-width: rhythm(50);

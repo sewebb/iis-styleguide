@@ -96,6 +96,13 @@ module.exports = {
 			}
 		},
 		{
+			name: 'Large responsive',
+			context: {
+				modifiers: ['large-responsive'],
+				text: 'Going home'
+			}
+		},
+		{
 			name: 'With icon',
 			context: {
 				modifiers: ['icon'],
