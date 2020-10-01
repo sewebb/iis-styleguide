@@ -4276,6 +4276,21 @@
     .a-button--large .a-button__spinner {
       width: 1.33333rem;
       height: 1.33333rem; }
+  .a-button--large-responsive {
+    padding: 0.8rem 2rem; }
+    .a-button--large-responsive .a-button__text {
+      font-size: 1.33333rem; }
+    .a-button--large-responsive .a-button__icon {
+      width: 1.33333rem;
+      height: 1.33333rem; }
+    .a-button--large-responsive .a-button__spinner {
+      width: 1.33333rem;
+      height: 1.33333rem; }
+    @media (max-width: 768px) {
+      .a-button--large-responsive {
+        padding: 0.556rem 1rem; }
+        .a-button--large-responsive .a-button__text {
+          font-size: 0.88889rem; } }
   .a-button--icon {
     justify-content: space-between;
     max-width: 25rem;
