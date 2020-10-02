@@ -20,6 +20,18 @@
 		&[data-color='jade'] {
 			color: $color-jade;
 		}
+
+		@include m(arrow) {
+			padding-right: rhythm(4);
+			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-arrow-down' viewBox='0 0 32 18.9' width='100%25' height='100%25'%3E%3Cpolygon points='32,2.9 16,18.9 0,2.9 2.9,0 16,13.1 29.1,0 '%3E%3C/polygon%3E%3C/svg%3E%0A");
+			background-repeat: no-repeat;
+			background-position: calc(95%) 60%;
+			background-size: $icon-size-medium $icon-size-medium;
+
+			@include bp-up(sm) {
+				background-position: calc(100%) 60%;
+			}
+		}
 	}
 
 	@include e(temp-text) {

@@ -1,10 +1,10 @@
 <div class="m-natural-language-form">
 	<{{textElement}}{{#if elementClass}} class="{{elementClass}}"{{/if}}>Event
-	{{#if select}}<select class="m-natural-language-form__select js-natural-language-select" data-color="peacock">
+	{{#if select}}<select class="m-natural-language-form__select js-natural-language-select{{#if modifier}} m-natural-language-form__select--{{modifier}}{{/if}}" data-color="peacock">
 		<option value="stockholm" data-color="peacock">i Stockholm</option>
 		<option value="malmo" data-color="jade">i Malmö</option>
 		<option value="streaming" data-color="ocean">som streamas</option>
 	</select>{{/if}}
-	{{#unless select}}<input type="text" value="i Stockholm" class="m-natural-language-form__input js-natural-language-input" data-color="peacock">{{/unless}} lorem ipsum
-	<span class="m-natural-language-form__temp-text is-hidden js-temp-text"></span></{{textElement}}>
+	{{#unless select}}<input type="text" value="i Stockholm" class="m-natural-language-form__input js-natural-language-input" data-color="peacock">{{/unless}}{{#unless modifier}} lorem ipsum{{/unless}}
+	<span class="m-natural-language-form__temp-text is-hidden js-temp-text">{{textElement}}</span>
 </div>
