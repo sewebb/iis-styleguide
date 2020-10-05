@@ -13,9 +13,21 @@ if (selects) {
 
 			// Show temp select to get it's width
 			tempTextElement.classList.remove('is-hidden');
-			var selectWidth = tempTextElement.offsetWidth + 3;
+
+			var selectWidth = '';
+
+			var className = select.className.split('-');
+
+			if (className.indexOf('arrow') !== -1) {
+				selectWidth = tempTextElement.offsetWidth + 40;
+			} else {
+				selectWidth = tempTextElement.offsetWidth + 3;
+			}
+
 			// Hide temp select again
 			tempTextElement.classList.add('is-hidden');
+
+			// Set width to select
 			select.style.width = selectWidth + 'px';
 		}
 		setWidth();
