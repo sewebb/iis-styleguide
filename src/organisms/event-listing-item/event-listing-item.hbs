@@ -1,29 +1,32 @@
 <article class="{{containerClasses}} {{containerPadding}} u-b-{{borderColor}} u-position-relative">
 	<div class="row">
 		<div class="grid-18 grid-sm u-m-b-2 u-p-t-0 u-position-static">
-			<p class="meta u-m-b-0">22 januari 17:00-20:00</p>
+			<p class="meta u-m-b-0">22 januari 2021, 17:00-20:00</p>
 
-			<h3 class="beta"><a href="#" class="u-link-area">FooCoding Graduation</a></h3>
+			<h3 class="beta"><a href="#" class="u-link-area">Förvaltning och ansvar kring öppna data</a></h3>
 
-			<div><strong>Av:</strong> FooCoding</div>
+			<div class="small"><strong>Arrangeras av:</strong> Job Tech Dev (Arbetsförmedlingen), TrafikLab (Samtrafiken)</div>
 		</div>
-
-		<div class="grid-18 grid-sm-auto u-m-b-2 u-position-static">
-			{{> @button text="Spara" modifiers="lemon " }}
+		<div class="u-hide-sm u-p-r-1">
+			{{> @button text="Läs mer" modifiers="lemon " }}
 		</div>
 	</div>
 
-	<div class="row">
-		<div class="grid-18 grid-sm u-m-b-1 u-position-static">
-				{{> @icon id="pin" additional_classes="u-icon u-icon--medium u-display-inline-block u-m-r-1 u-valign-text-top"}}
-				Gradängen, Stockholm <span class="u-divider-pipe"></span> Svenska
-		</div>
-
-		<div class="grid-auto u-position-static">
-			<a href="#" class="u-link display-flex align-items-center u-position-relative">
-				{{> @icon id="streaming" additional_classes="u-icon u-icon--medium u-display-inline-block u-m-r-1 u-valign-text-top"}}
-				Sänds live
-			</a>
-		</div>
+	<div class="row justify-content-between align-items-center u-p-r-1">
+			<div class="grid-auto u-position-static small u-m-t-1">
+				<div class="row no-gutters flex-wrap">
+					<div class="grid-auto">
+						{{> @icon id="pin" additional_classes="u-icon u-icon--medium u-display-inline-block u-m-r-1 u-valign-text-top"}}
+						Stockholm <span class="u-divider-pipe u-m-x-2"></span>
+					</div>
+					<div class="grid-auto">
+						<a href="#" class="u-link-area">
+							{{> @icon id="streaming" additional_classes="u-icon u-icon--medium u-display-inline-block u-m-r-1 u-valign-text-top"}}
+							Sänds live
+						</a>
+					</div>
+				</div>
+			</div>
+			{{> @button text="Läs mer" modifiers="lemon" additional_classes="u-hide-md-up u-m-t-2" }}
 	</div>
 </article>

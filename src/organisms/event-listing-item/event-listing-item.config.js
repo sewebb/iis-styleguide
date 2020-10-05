@@ -3,7 +3,7 @@ module.exports = {
 	title: "Event listing",
 	context: {
 		containerClasses: 'background-snow u-border-radius u-b-0 u-b-l-4 u-b-solid',
-		containerPadding: 'u-p-4',
+		containerPadding: 'u-p-2',
 		borderColor: "ruby",
 	},
 	variants: [

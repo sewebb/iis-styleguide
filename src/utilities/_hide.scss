@@ -53,6 +53,30 @@
 	}
 }
 
+.u-hide-xs-up {
+	@include bp-up(xs) {
+		display: none !important;
+	}
+}
+
+.u-hide-sm-up {
+	@include bp-up(sm) {
+		display: none !important;
+	}
+}
+
+.u-hide-md-up {
+	@include bp-up(md) {
+		display: none !important;
+	}
+}
+
+.u-hide-lg-up {
+	@include bp-up(lg) {
+		display: none !important;
+	}
+}
+
 .u-overflow-hidden {
 	overflow: hidden !important;
 }

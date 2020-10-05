@@ -4157,6 +4157,21 @@
   .u-hide-lg {
     display: none !important; } }
 
+.u-hide-xs-up {
+  display: none !important; }
+
+@media (min-width: 576px) {
+  .u-hide-sm-up {
+    display: none !important; } }
+
+@media (min-width: 769px) {
+  .u-hide-md-up {
+    display: none !important; } }
+
+@media (min-width: 961px) {
+  .u-hide-lg-up {
+    display: none !important; } }
+
 .u-overflow-hidden {
   overflow: hidden !important; }
 
