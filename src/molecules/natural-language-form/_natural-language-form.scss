@@ -10,6 +10,10 @@
 		text-decoration: underline;
 		cursor: pointer;
 
+		option:not(:checked) {
+			color: $color-cyberspace;
+		}
+
 		&[data-color='ocean'] {
 			color: $color-ocean;
 		}

@@ -17,7 +17,7 @@ if (selects) {
 			const className = select.className.split('-');
 
 			if (className.indexOf('arrow') !== -1) {
-				selectWidth = tempTextElement.offsetWidth + 40;
+				selectWidth = tempTextElement.offsetWidth + 43;
 			} else {
 				selectWidth = tempTextElement.offsetWidth + 3;
 			}
