@@ -31,7 +31,7 @@
 
 	@include atom(file-preview) {
 		position: relative;
-		width: rem(300px);
+		width: 100%;
 		height: rem(169px);
 		margin-bottom: rhythm(1);
 		overflow: hidden;
@@ -58,6 +58,10 @@
 			&[src=''] {
 				display: none;
 			}
+		}
+
+		@include bp-up(sm) {
+			width: rem(300px);
 		}
 	}
 }
