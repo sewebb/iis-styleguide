@@ -55,7 +55,8 @@
 			object-fit: cover;
 			object-position: center;
 
-			&[src=''] {
+			&[src=''],
+			&[src='null'] {
 				display: none;
 			}
 		}
