@@ -25,6 +25,12 @@ module.exports = {
 			context: {
 				color_variant: 'cyberspace'
 			}
+		},
+		{
+			name: 'With preview',
+			context: {
+				has_preview: true
+			}
 		}
 	]
 }
