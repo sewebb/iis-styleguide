@@ -35,3 +35,5 @@ require('./atoms/height-limiter/height-limiter');
 require('./assets/js/conditional');
 
 require('./atoms/file/file');
+
+require('./atoms/file/filePreview');

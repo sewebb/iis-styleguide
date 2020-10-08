@@ -16,3 +16,4 @@ import './atoms/textarea/textarea';
 import './atoms/height-limiter/height-limiter';
 import './assets/js/conditional';
 import './atoms/file/file';
+import './atoms/file/filePreview';
