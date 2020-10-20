@@ -238,6 +238,24 @@
 		}
 	}
 
+	@include m(ruby) {
+		color: $color-ruby;
+
+		&:hover,
+		&:focus {
+			color: $color-ruby;
+		}
+
+		@include e(text) {
+			color: $color-snow;
+			text-shadow: 0 0 rhythm(0.5) $color-ruby-dark;
+		}
+
+		@include e(icon) {
+			fill: $color-snow;
+		}
+	}
+
 	@include m(ruby-light) {
 		box-shadow: 0 0 0 1px inset $color-ruby;
 		color: $color-ruby-light;

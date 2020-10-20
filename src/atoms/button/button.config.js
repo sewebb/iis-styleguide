@@ -12,6 +12,13 @@ module.exports = {
 	},
 	variants: [
 		{
+			name: 'Ruby',
+			context: {
+				modifiers: ['ruby'],
+				text: 'Ruby secondary button'
+			}
+		},
+		{
 			name: 'Ruby light',
 			context: {
 				modifiers: ['ruby-light'],
