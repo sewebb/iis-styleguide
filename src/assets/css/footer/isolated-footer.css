@@ -4172,6 +4172,10 @@
   .u-hide-lg-up {
     display: none !important; } }
 
+@media (min-width: 1200px) {
+  .u-hide-xl-up {
+    display: none !important; } }
+
 .u-overflow-hidden {
   overflow: hidden !important; }
 
