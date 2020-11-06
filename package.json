@@ -43,8 +43,8 @@
 		"create-icons-config": "node ./createIconsJson"
 	},
 	"devDependencies": {
-		"@frctl/fractal": "^1.3.0",
-		"@frctl/mandelbrot": "^1.3.0",
+		"@frctl/fractal": "^1.5.0",
+		"@frctl/mandelbrot": "^1.5.0",
 		"@internetstiftelsen/eslint-config": "0.0.2",
 		"autoprefixer": "^9.7.4",
 		"babel": "^6.23.0",
