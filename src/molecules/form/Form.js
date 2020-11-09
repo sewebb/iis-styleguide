@@ -168,7 +168,7 @@ export default class Form {
 		if ('response' in error) {
 			const { response } = error;
 
-			if ('data' in response && response.data.errors) {
+			if ('data' in response && response.data && response.data.errors) {
 				this.errors = response.data.errors;
 			}
 		}

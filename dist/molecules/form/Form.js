@@ -66,7 +66,7 @@ var Form = function () {
 				var response = error.response;
 
 
-				if ('data' in response && response.data.errors) {
+				if ('data' in response && response.data && response.data.errors) {
 					_this.errors = response.data.errors;
 				}
 			}
