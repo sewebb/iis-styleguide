@@ -1,73 +1,52 @@
 const selects = document.querySelectorAll('.js-natural-language-select');
 const inputs = document.querySelectorAll('.js-natural-language-input');
 
-function setWidth(select) {
-	const tempTextElement = select.nextElementSibling;
-	tempTextElement.innerText = select.options[select.selectedIndex].text;
+function sync(el, option) {
+	const { color } = option.dataset;
 
-	// Show temp select to get it's width
-	tempTextElement.classList.remove('is-hidden');
-
-	const className = select.className.split('-');
-	const extraWidth = (className.indexOf('arrow') !== -1) ? 43 : 3;
-	const selectWidth = tempTextElement.offsetWidth + extraWidth;
-
-	// Hide temp select again
-	tempTextElement.classList.add('is-hidden');
-
-	// Set width to select
-	select.style.width = `${selectWidth}px`;
+	el.dataset.color = color;
+	el.innerText = option.innerText;
 }
 
-function setColor(select) {
-	const { color } = select.options[select.selectedIndex].dataset;
-	select.dataset.color = color;
+function setupSelect(select) {
+	const parent = select.parentNode;
+	const text = parent.querySelector('label');
+
+	select.addEventListener('change', () => {
+		sync(text, select.options[select.selectedIndex]);
+	});
+
+	// Next tick
+	setTimeout(() => {
+		sync(text, select.options[select.selectedIndex]);
+	}, 0);
 }
 
 if (selects) {
-	[].forEach.call(selects, (select) => {
-		select.addEventListener('change', () => {
-			setColor(select);
-			setWidth(select);
-		});
-
-		window.addEventListener('resize', () => {
-			setWidth(select);
-		});
-
-		// Next tick
-		setTimeout(() => {
-			setColor(select);
-			setWidth(select);
-		}, 0);
-	});
+	[].forEach.call(selects, setupSelect);
 }
 
-function setInputWidth(input) {
-	const tempTextElement = input.nextElementSibling;
+function syncInput(el, input, value) {
+	el.innerText = value;
 
-	tempTextElement.innerHTML = input.value;
-
-	// Show temp select to get it's width
-	tempTextElement.classList.remove('is-hidden');
-	const selectWidth = tempTextElement.offsetWidth + 7;
-	// Hide temp select again
-	tempTextElement.classList.add('is-hidden');
-	input.style.width = `${selectWidth}px`;
+	setTimeout(() => {
+		const selectWidth = el.getBoundingClientRect().width;
+		input.style.width = `${selectWidth}px`;
+	}, 0);
 }
 
 if (inputs) {
 	[].forEach.call(inputs, (input) => {
-		setTimeout(() => {
-			setInputWidth(input);
-		}, 0);
+		const text = input.nextElementSibling;
 
-		input.addEventListener('keyup', () => {
-			setInputWidth(input);
+		syncInput(text, input, input.value);
+
+		input.addEventListener('input', (e) => {
+			syncInput(text, input, e.target.value);
 		});
 
-		window.addEventListener('resize', () => {
-			setInputWidth(input);
+		input.addEventListener('change', (e) => {
+			syncInput(text, input, e.target.value);
 		});
 	});
 }
