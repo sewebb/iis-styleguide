@@ -37,7 +37,22 @@
 			position: static;
 			flex-shrink: 0;
 			width: auto;
+			max-width: rem(250px);
 			min-height: 0;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+
+		@include bp-up(sm) {
+			max-width: rem(300px);
+		}
+
+		@include bp-up(lg) {
+			max-width: rem(350px);
+		}
+
+		@include bp-up(xl) {
+			max-width: rem(400px);
 		}
 	}
 
