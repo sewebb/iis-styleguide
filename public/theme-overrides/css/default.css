@@ -144,10 +144,6 @@ ul.Tree-items > li > h4 > span::first-letter {
 	background-color: transparent;
 }
 
-#tree-components-collection-brandbook.is-closed ul {
-	display: block;
-}
-
 #tree-components-collection-brandbook .Tree-collection .Tree-collectionLabel {
 	cursor: pointer;
 	pointer-events: all !important;
@@ -183,7 +179,7 @@ ul.Tree-items > li > h4 > span::first-letter {
 	padding-left: 1rem;
 }
 
-#tree-components-collection-brandbook > h4 > span {
+#tree-components-collection-brandbook > button {
 	margin-top: 1rem;
 	margin-bottom: 0;
 	font: normal 0.75rem/1.66667 'Open Sans', Helvetica, Arial, sans-serif;
@@ -192,6 +188,22 @@ ul.Tree-items > li > h4 > span::first-letter {
 	font-feature-settings: 'dlig' 1;
 	-webkit-padding-start: 1rem;
 	padding-inline-start: 0.75rem;
+}
+
+.Tree-item.Tree-collection > button::before {
+	display: none;
+}
+
+#tree-components-collection-brandbook.is-closed ul {
+	display: initial;
+}
+
+.Tree-item.Tree-collection.Tree-depth-3.is-closed > ul {
+	display: none !important;
+}
+
+.Tree-item.Tree-collection.Tree-depth-3 > button {
+	padding-left: 1rem !important;
 }
 
 .Search {
