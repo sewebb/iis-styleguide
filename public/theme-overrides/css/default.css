@@ -187,7 +187,7 @@ ul.Tree-items > li > h4 > span::first-letter {
 	text-transform: uppercase;
 	font-feature-settings: 'dlig' 1;
 	-webkit-padding-start: 1rem;
-	padding-inline-start: 0.75rem;
+	padding-inline-start: 1rem;
 }
 
 .Tree-item.Tree-collection > button::before {
