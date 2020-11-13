@@ -1,5 +1,5 @@
 module.exports = {
-	status: 'wip',
+	status: 'ready',
 	label: 'Identitet',
 	title: 'Identitet'
 }
