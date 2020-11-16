@@ -49,6 +49,7 @@
 
 	@include e(label) {
 		display: inline-block;
+		font-family: inherit;
 		font-size: inherit;
 		text-decoration: underline;
 		cursor: pointer;
