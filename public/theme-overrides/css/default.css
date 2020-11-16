@@ -156,15 +156,26 @@ ul.Tree-items > li > h4 > span::first-letter {
 }
 
 .Tree-collectionItems {
+	padding-left: 0;
+}
+
+.Tree-items.Tree-depth-1 .Tree-collectionItems {
+	padding-left: 0.75rem;
+}
+
+.Tree-collectionItems .Tree-item.Tree-collection.Tree-depth-3 .Tree-collectionItems {
 	padding-left: 0.75rem;
 }
 
 [dir=ltr] .Tree-depth-2 .Tree-entityLink {
-	padding-left: 0.75rem;
+	padding-left: 1rem;
 }
 
 #tree-components-collection-brandbook .Tree-depth-3 .Tree-collectionLabel,
-#tree-components-collection-brandbook .Tree-depth-3 .Tree-entityLink,
+#tree-components-collection-brandbook .Tree-depth-3 .Tree-entityLink {
+	padding-left: 1.5rem;
+}
+
 #tree-components-collection-brandbook .Tree-depth-2 .Tree-collectionLabel,
 #tree-components-collection-brandbook .Tree-depth-2 .Tree-entityLink {
 	padding-left: 2rem;
@@ -206,12 +217,17 @@ ul.Tree-items > li > h4 > span::first-letter {
 	display: initial;
 }
 
+#tree-components-collection-brandbook-items,
+#tree-components-collection-brandbook-items .Tree-collectionItems {
+	padding-left: 0;
+}
+
 .Tree-item.Tree-collection.Tree-depth-3.is-closed > ul {
 	display: none !important;
 }
 
 .Tree-item.Tree-collection.Tree-depth-3 > button {
-	padding-left: 0.75rem !important;
+	padding-left: 1rem !important;
 }
 
 .Search {
