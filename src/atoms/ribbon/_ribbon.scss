@@ -2,7 +2,7 @@
 
 @include atom(ribbon) {
 	position: fixed;
-	z-index: z_index(foregroundImportant);
+	z-index: z_index(foreground);
 	top: 0;
 	left: 0;
 	padding: rhythm(1) 0;
@@ -35,5 +35,9 @@
 
 	@include bp-up(sm) {
 		font-size: $size-medium;
+	}
+
+	@include bp-up(xxl) {
+		font-size: $size-base;
 	}
 }
