@@ -1,0 +1,43 @@
+@charset "UTF-8";
+
+@include atom(ribbon) {
+	position: fixed;
+	z-index: z_index(foregroundImportant);
+	top: 0;
+	left: 0;
+	padding: rhythm(1) 0;
+	transform: translateX(-33.33%) rotate(-45deg);
+	transform-origin: top right;
+	border-top: 1px solid $color-peacock;
+	border-bottom: 1px solid $color-peacock;
+	background-color: $color-concrete;
+	font-family: $font-family-headings;
+	font-size: $size-small;
+	text-align: center;
+	text-transform: uppercase;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		top: 0;
+		width: 200%;
+		height: calc(100% + 1px);
+		margin: 0 -1px;
+		border-top: 1px solid $color-peacock;
+		border-bottom: 1px solid $color-peacock;
+		background-color: inherit;
+	}
+
+	&::before {
+		right: 100%;
+	}
+
+	&::after {
+		left: 100%;
+	}
+
+	@include bp-up(sm) {
+		font-size: $size-medium;
+	}
+}
