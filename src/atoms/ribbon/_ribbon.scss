@@ -2,14 +2,16 @@
 
 @include atom(ribbon) {
 	position: fixed;
-	z-index: z_index(foreground);
-	top: 0;
+	z-index: 100000; // Must be higher than WP's admin toolbar
+	bottom: 0;
 	left: 0;
 	padding: rhythm(1) 0;
-	transform: translateX(-33.33%) rotate(-45deg);
-	transform-origin: top right;
-	background-color: $color-concrete;
+	transform: translateX(-33.33%) rotate(45deg);
+	transform-origin: bottom right;
+	border: 0;
+	background-color: #e0bff5;
 	font-family: $font-family-headings;
+	font-family: sans-serif;
 	font-size: $size-small;
 	text-align: center;
 	text-transform: uppercase;

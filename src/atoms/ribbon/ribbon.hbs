@@ -1,3 +1,50 @@
-<div class="a-ribbon background-{{background}}">
+<div class="ribbon">
 	{{text}}
 </div>
+
+<style media="screen">
+.ribbon {
+	position: fixed;
+	z-index: 100000; /* Must be higher than WP's admin toolbar */
+	bottom: 0;
+	left: 0;
+	padding: 0.5rem 0;
+	-webkit-transform: translateX(-33.33%) rotate(45deg);
+	transform: translateX(-33.33%) rotate(45deg);
+	-webkit-transform-origin: bottom right;
+	transform-origin: bottom right;
+	border: 0;
+	background-color: #e0bff5;
+	font-family: "HK Grotesk Semibold", sans-serif;
+	font-family: sans-serif;
+	font-size: 12px;
+	text-align: center;
+	text-transform: uppercase;
+}
+
+.ribbon::before, .ribbon::after {
+	content: '';
+	position: absolute;
+	top: 0;
+	width: 200%;
+	height: 100%;
+	margin: 0 -1px;
+	background-color: inherit;
+}
+.ribbon::before {
+	right: 100%;
+}
+.ribbon::after {
+	left: 100%;
+}
+@media (min-width: 576px) {
+	.ribbon {
+		font-size: 14px;
+	}
+}
+@media (min-width: 1400px) {
+	.ribbon {
+		font-size: 18px;
+	}
+}
+</style>
