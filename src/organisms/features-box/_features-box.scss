@@ -1,0 +1,44 @@
+@charset "UTF-8";
+
+@include organism(features-box) {
+	padding: rhythm(2) rhythm(3) rhythm(3) rhythm(3);
+	border-radius: $border-radius;
+
+	@include bp-up(lg) {
+		padding: rhythm(3) rhythm(4) rhythm(4) rhythm(4);
+	}
+
+	@include m(large-text) {
+		@include bp-up(lg) {
+			padding: rhythm(4) rhythm(6) rhythm(6) rhythm(6);
+		}
+	}
+
+	@include e(list) {
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		@include e(item) {
+			display: flex;
+			margin-bottom: rhythm(2);
+
+			a {
+				@extend %link-styles;
+			}
+		}
+
+		@include e(icon) {
+			display: flex;
+			margin-right: rhythm(2);
+
+			> svg {
+				margin-top: rhythm(0.5);
+			}
+
+			@include bp-up(lg) {
+				margin-right: rhythm(4);
+			}
+		}
+	}
+}

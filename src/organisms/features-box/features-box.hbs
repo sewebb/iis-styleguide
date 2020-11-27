@@ -1,12 +1,12 @@
-<div class="background-{{color}} {{padding}} {{height}} u-border-radius">
+<div class="o-features-box{{#if modifier}} o-features-box--{{modifier}}{{/if}} background-{{color}} {{height}}">
 	{{#if heading}}
 		<h2 class="{{heading_classes}}">{{heading}}</h2>
 	{{/if}}
-	<ul class="u-list-clean">
+	<ul class="o-features-box__list">
 		{{#each list_items}}
-		<li class="display-flex u-m-b-1">
+		<li class="o-features-box__list__item">
 			{{#if icon}}
-				<div class="u-m-r-4">{{> @icon id=this.icon additional_classes="u-icon"}}</div>
+				<div class="o-features-box__list__icon">{{> @icon id=this.icon additional_classes="u-icon"}}</div>
 			{{/if}}
 			<div>{{{li_text}}}</div>
 		</li>

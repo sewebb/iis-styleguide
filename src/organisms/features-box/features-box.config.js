@@ -46,6 +46,7 @@ module.exports = {
 				padding: 'u-p-x-4 u-p-t-2 u-p-b-4',
 				heading: 'Vårt utbud i Stockholm',
 				heading_classes: 'u-m-b-2',
+				modifier: false,
 				button_classes: false,
 				button_modifiers: 'icon, icon-left, lemon',
 				list_items: [
@@ -79,6 +80,7 @@ module.exports = {
 		{
 			name: "large-text",
 			context: {
+				modifier: 'large-text',
 				color: 'lemon',
 				padding: 'u-p-x-6 u-p-t-4 u-p-b-6',
 				heading: 'Vårt utbud i Stockholm',
@@ -119,6 +121,7 @@ module.exports = {
 		{
 			name: "event-info",
 			context: {
+				modifier: false,
 				button: true,
 				button_icon: false,
 				button_text: 'Anmäl dig',
@@ -156,6 +159,7 @@ module.exports = {
 		{
 			name: "contact-info",
 			context: {
+				modifier: false,
 				button: true,
 				button_icon: false,
 				button_text: 'Alla kontaktuppgifter',
@@ -193,6 +197,7 @@ module.exports = {
 		{
 			name: "full-height",
 			context: {
+				modifier: false,
 				height: 'u-height-full',
 				additional_classes: false,
 				button: false,
