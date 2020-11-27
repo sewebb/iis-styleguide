@@ -10,7 +10,7 @@ module.exports = {
 		button: true,
 		button_icon: 'plus',
 		button_text: 'Skapa event',
-		additional_classes: 'display-flex u-flex-grow-1 justify-content-center',
+		additional_classes: 'o-features-box__button',
 		button_modifiers: 'icon, lemon, icon-left',
 		list_items: [
 			{
