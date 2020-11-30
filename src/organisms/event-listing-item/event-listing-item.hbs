@@ -1,29 +1,27 @@
-<article class="{{containerClasses}} {{containerPadding}} u-b-{{borderColor}} u-position-relative">
+<article class="o-event-listing-item u-b-{{borderColor}}">
 	<div class="row">
-		<div class="grid-18 grid-sm u-m-b-1 u-p-t-0 u-position-static">
-			<p class="meta u-m-b-0">22 januari 2021, 17:00-20:00</p>
+		<div class="o-event-listing-item__upper grid-18">
+			<span class="meta">22 januari 2021, 17:00-20:00</span>
 
-			<h3 class="beta"><a href="#" class="u-link-area">Förvaltning och ansvar kring öppna data</a></h3>
+			<h3 class="o-event-listing-item__heading"><a href="#" class="u-link-area">Förvaltning och ansvar kring öppna data</a></h3>
 
-			<div class="small"><strong>Arrangeras av:</strong> Job Tech Dev (Arbetsförmedlingen), TrafikLab (Samtrafiken)</div>
+			<strong>Arrangeras av:</strong> Job Tech Dev (Arbetsförmedlingen), TrafikLab (Samtrafiken)</div>
 		</div>
 	</div>
 
-	<div class="row justify-content-between align-items-center u-p-x-1">
-			<div class="grid-auto u-position-static small u-m-t-1 u-p-l-0">
-				<div class="row no-gutters flex-wrap">
-					<div class="grid-auto">
-						{{> @icon id="pin" additional_classes="u-icon u-icon--medium u-display-inline-block u-m-r-1 u-valign-text-top"}}
-						Stockholm <span class="u-divider-pipe u-m-x-2"></span>
-					</div>
-					<div class="grid-auto">
-						<a href="#" class="u-link-area">
-							{{> @icon id="streaming" additional_classes="u-icon u-icon--medium u-display-inline-block u-m-r-1 u-valign-text-top"}}
-							Sänds live
-						</a>
-					</div>
+	<div class="row o-event-listing-item__lower">
+		<div class="grid-auto u-position-static">
+			<div class="o-event-listing-item__footer row no-gutters flex-wrap">
+				<div class="o-event-listing-item__icon-wrapper grid-auto">
+					{{> @icon id="pin" additional_classes="o-event-listing-item__icon u-icon u-icon--medium"}}
+					Stockholm <span class="u-divider-pipe u-m-x-2"></span>
+				</div>
+				<div class="o-event-listing-item__icon-wrapper grid-auto">
+					{{> @icon id="streaming" additional_classes="o-event-listing-item__icon u-icon u-icon--medium"}}
+					Sänds live
 				</div>
 			</div>
-			{{> @button text="Läs mer" modifiers="lemon" additional_classes="u-m-t-2" }}
+		</div>
+		{{> @button text="Läs mer" modifiers="lemon" additional_classes="o-event-listing-item__button" }}
 	</div>
 </article>

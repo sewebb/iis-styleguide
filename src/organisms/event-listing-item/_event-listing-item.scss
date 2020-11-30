@@ -1,0 +1,63 @@
+@charset "UTF-8";
+
+@include organism(event-listing-item) {
+
+	@include e(button) {
+
+	}
+
+	position: relative;
+	padding: rhythm(2);
+	border-left: 4px solid;
+	border-radius: $border-radius;
+	background-color: $color-snow;
+	font-size: $size-medium-plus;
+
+	@include bp-up(md) {
+		font-size: $size-base;
+	}
+
+	@include e(upper) {
+		position: static;
+		flex-direction: column;
+		margin-bottom: rhythm(1);
+	}
+
+	@include e(lower) {
+		align-items: center;
+		justify-content: space-between;
+		margin-top: rhythm(1);
+	}
+
+	@include e(heading) {
+		@include plumber(
+			$font-size: 2.5,
+			$leading-bottom: 1
+		);
+
+		font-family: $font-family-headings;
+		line-height: 1.75rem;
+	}
+
+	@include e(footer) {
+		margin-bottom: rhythm(2);
+
+		@include bp-up(sm) {
+			margin-bottom: 0;
+		}
+	}
+
+	@include e(button) {
+		margin-right: rhythm(1);
+		margin-left: rhythm(1);
+	}
+
+	@include e(icon-wrapper) {
+		display: flex;
+		align-items: center;
+	}
+
+	@include e(icon) {
+		margin-right: rhythm(1);
+	}
+}
