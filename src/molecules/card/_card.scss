@@ -150,7 +150,7 @@
 			}
 		}
 
-		@include bp-up(lg) {
+		@include bp-up(md) {
 			flex-direction: row;
 			height: auto;
 
@@ -162,7 +162,10 @@
 			}
 
 			@include e(image) {
-				height: 100%;
+				display: block;
+				min-height: 100%;
+				object-fit: cover;
+				object-position: 50% center;
 			}
 
 			@include e(media) {
