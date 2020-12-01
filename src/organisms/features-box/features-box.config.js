@@ -10,8 +10,8 @@ module.exports = {
 		button: true,
 		button_icon: 'plus',
 		button_text: 'Skapa event',
-		additional_classes: 'o-features-box__button',
-		button_modifiers: 'icon, lemon, icon-left',
+		additional_classes: false,
+		button_modifiers: 'icon, lemon, icon-left o-features-box__button',
 		list_items: [
 			{
 				li_text: 'Max 40 personer',
@@ -48,7 +48,8 @@ module.exports = {
 				heading_classes: 'u-m-b-2',
 				modifier: false,
 				button_classes: false,
-				button_modifiers: 'icon, icon-left, lemon',
+				button_modifiers: 'icon, icon-left, lemon o-features-box__button',
+				additional_classes: false,
 				list_items: [
 					{
 						li_text: 'Max 40 personer',
@@ -85,6 +86,7 @@ module.exports = {
 				padding: 'u-p-x-6 u-p-t-4 u-p-b-6',
 				heading: 'Vårt utbud i Stockholm',
 				heading_classes: 'u-m-b-3 supersize',
+				additional_classes: false,
 				button: false,
 				list_items: [
 					{

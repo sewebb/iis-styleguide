@@ -5,33 +5,12 @@
 	position: relative;
 	flex-direction: column;
 	height: 100%;
+	overflow: hidden;
 	border-radius: $border-radius;
 
 	@include e(image) {
 		display: block;
 		border-radius: $border-radius;
-
-		@include m(iconOverlay) {
-			position: relative;
-			overflow: hidden;
-
-			@include e(elm) {
-				display: block;
-			}
-			@include e(overlayImage) {
-				position: absolute;
-				top: 50%;
-				left: 50%;
-				transform: translateX(-50%) translateY(-50%);
-
-				.icon {
-					width: rhythm(10);
-					height: rhythm(10);
-					fill: $color-snow;
-					filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.4));
-				}
-			}
-		}
 	}
 
 	@include e(map) {
@@ -41,7 +20,7 @@
 		overflow: hidden;
 		border-radius: $border-radius;
 
-		@include e(elm) {
+		> iframe {
 			position: absolute;
 			top: 0;
 			right: 0;
@@ -55,7 +34,7 @@
 			min-height: rhythm(44);
 			padding-top: 0;
 
-			@include e(elm) {
+			> iframe {
 				position: static;
 			}
 		}
@@ -127,18 +106,7 @@
 	@include m(padded) {
 		background-color: $color-snow;
 
-		@include e(image) {
-			flex: 0 0 auto;
-			width: 100%;
-			max-width: 100%;
-			border-bottom-right-radius: 0;
-			border-bottom-left-radius: 0;
-		}
-
-		@include e(map) {
-			@include e(elm) {
-			}
-
+		@include e(media) {
 			flex: 0 0 auto;
 			width: 100%;
 			max-width: 100%;
@@ -194,20 +162,11 @@
 			}
 
 			@include e(image) {
-				max-width: 50%;
 				height: 100%;
-				margin-bottom: 0;
-				border-top-left-radius: $border-radius;
-				border-top-right-radius: 0;
-				border-bottom-left-radius: $border-radius;
 			}
 
-			@include e(map) {
-				@include e(elm) {
-				}
-
+			@include e(media) {
 				max-width: 50%;
-				// height: 100%;
 				margin-bottom: 0;
 				border-top-left-radius: $border-radius;
 				border-top-right-radius: 0;
@@ -249,8 +208,8 @@
 			max-width: none;
 			height: 100%;
 			transition: opacity 0.25s ease-out;
-			object-fit: cover;
 			border-radius: 0;
+			object-fit: cover;
 		}
 
 		@include e(content) {

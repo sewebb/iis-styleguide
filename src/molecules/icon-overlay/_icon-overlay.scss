@@ -1,0 +1,29 @@
+@charset "UTF-8";
+
+@include molecule(icon-overlay) {
+	position: relative;
+	width: 100%;
+	overflow: hidden;
+
+	> img {
+		display: block;
+		width: 100%;
+	}
+
+	@include e(icon) {
+		position: absolute;
+		z-index: z_index(foregroundMinus);
+		top: 50%;
+		left: 50%;
+		width: rhythm(7);
+		height: rhythm(7);
+		transform: translateX(-50%) translateY(-50%);
+		fill: $color-snow;
+		filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.4));
+
+		@include bp-up(sm) {
+			width: rhythm(10);
+			height: rhythm(10);
+		}
+	}
+}

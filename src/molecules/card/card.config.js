@@ -56,7 +56,6 @@ module.exports = {
 				date: true,
 				read_time: false,
 				has_icon_overlay: true,
-				overlay_icon: "play",
 			},
 		},
 		{

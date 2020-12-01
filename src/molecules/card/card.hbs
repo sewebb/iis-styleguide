@@ -1,17 +1,11 @@
 <{{#if top_level}}article{{else}}div{{/if}} class="m-card{{#if is_padded}} m-card--padded{{/if}}{{#if is_wide}} m-card--wide{{/if}}{{#if has_shadow}} m-card--shadow{{/if}}{{#if has_border}} m-card--bordered{{/if}}{{#if teaser}} m-card--teaser{{/if}}">
 	{{#if has_icon_overlay}}
-		<div class="m-card__image m-card__image--iconOverlay">
-			<img src="{{img_url}}" class="m-card__image__elm" alt="{{alt}}" />
-			<div class="m-card__image__overlayImage">
-				{{> @icon id=overlay_icon additional_classes=""}}
-			</div>
-		</div>
+		{{>@icon-overlay overlay_icon="play" additional_classes="m-card__image m-card__media"}}
 	{{else if img_url}}
-		<img src="{{img_url}}" class="m-card__image" alt="{{alt}}">
+		<img src="{{img_url}}" class="m-card__image m-card__media" alt="{{alt}}">
 	{{/if}}
-
 	{{#if has_map}}
-		<div class="m-card__map">
+		<div class="m-card__map m-card__media">
 			<iframe
 				src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d8147.136286742923!2d18.0823964!3d59.3031634!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xd9fb0cec146dfb7a!2sGoto%2010!5e0!3m2!1sen!2sse!4v1587631996713!5m2!1sen!2sse"
 				class="m-card__map__elm" width="100%" height="100%" allowfullscreen="" aria-hidden="false"
@@ -43,7 +37,7 @@
 			</{{#if top_level}}h1{{else}}h2{{/if}}>
 		{{/if}}
 		{{#if excerpt}}<p class="m-card__text">{{{excerpt}}}</p>{{/if}}
-		{{#if has_contact_info}}{{render '@features-box--contact-info'}}{{/if}}
+		{{#if has_contact_info}}{{> '@features-box' (contextData '@features-box--contact-info') additional_classes="u-p-0" modifier="contact-info" color="snow"}}{{/if}}
 		{{#if tag}}
 			<div class="m-card__bottom">
 				{{> @tag text="Utbildning" href="#" }}

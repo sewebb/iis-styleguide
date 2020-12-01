@@ -1,4 +1,4 @@
-<div class="o-features-box{{#if modifier}} o-features-box--{{modifier}}{{/if}} background-{{color}} {{height}}">
+<div class="o-features-box{{#if modifier}} o-features-box--{{modifier}}{{/if}} background-{{color}} {{height}} {{#if additional_classes}} {{additional_classes}}{{/if}}">
 	{{#if heading}}
 		<h2 class="{{heading_classes}}">{{heading}}</h2>
 	{{/if}}
@@ -16,7 +16,7 @@
 	{{#if button}}
 	<div class="row u-m-t-4">
 		<div class="grid-18">
-			{{> @button el="a" text=this.button_text modifiers=this.button_modifiers icon=this.button_icon}}
+			{{> @button el="a" text=this.button_text modifiers=this.button_modifiers icon=this.button_icon additional_classes=""}}
 		</div>
 	</div>
 	{{/if}}
