@@ -3,74 +3,53 @@
 var selects = document.querySelectorAll('.js-natural-language-select');
 var inputs = document.querySelectorAll('.js-natural-language-input');
 
-function setWidth(select) {
-	var tempTextElement = select.nextElementSibling;
-	tempTextElement.innerText = select.options[select.selectedIndex].text;
+function sync(el, option) {
+	var color = option.dataset.color;
 
-	// Show temp select to get it's width
-	tempTextElement.classList.remove('is-hidden');
 
-	var className = select.className.split('-');
-	var extraWidth = className.indexOf('arrow') !== -1 ? 43 : 3;
-	var selectWidth = tempTextElement.offsetWidth + extraWidth;
-
-	// Hide temp select again
-	tempTextElement.classList.add('is-hidden');
-
-	// Set width to select
-	select.style.width = selectWidth + 'px';
+	el.dataset.color = color;
+	el.innerText = option.innerText;
 }
 
-function setColor(select) {
-	var color = select.options[select.selectedIndex].dataset.color;
+function setupSelect(select) {
+	var parent = select.parentNode;
+	var text = parent.querySelector('label');
 
-	select.dataset.color = color;
+	select.addEventListener('change', function () {
+		sync(text, select.options[select.selectedIndex]);
+	});
+
+	// Next tick
+	setTimeout(function () {
+		sync(text, select.options[select.selectedIndex]);
+	}, 0);
 }
 
 if (selects) {
-	[].forEach.call(selects, function (select) {
-		select.addEventListener('change', function () {
-			setColor(select);
-			setWidth(select);
-		});
-
-		window.addEventListener('resize', function () {
-			setWidth(select);
-		});
-
-		// Next tick
-		setTimeout(function () {
-			setColor(select);
-			setWidth(select);
-		}, 0);
-	});
+	[].forEach.call(selects, setupSelect);
 }
 
-function setInputWidth(input) {
-	var tempTextElement = input.nextElementSibling;
+function syncInput(el, input, value) {
+	el.innerText = value;
 
-	tempTextElement.innerHTML = input.value;
-
-	// Show temp select to get it's width
-	tempTextElement.classList.remove('is-hidden');
-	var selectWidth = tempTextElement.offsetWidth + 7;
-	// Hide temp select again
-	tempTextElement.classList.add('is-hidden');
-	input.style.width = selectWidth + 'px';
+	setTimeout(function () {
+		var selectWidth = el.getBoundingClientRect().width;
+		input.style.width = selectWidth + 'px';
+	}, 0);
 }
 
 if (inputs) {
 	[].forEach.call(inputs, function (input) {
-		setTimeout(function () {
-			setInputWidth(input);
-		}, 0);
+		var text = input.nextElementSibling;
 
-		input.addEventListener('keyup', function () {
-			setInputWidth(input);
+		syncInput(text, input, input.value);
+
+		input.addEventListener('input', function (e) {
+			syncInput(text, input, e.target.value);
 		});
 
-		window.addEventListener('resize', function () {
-			setInputWidth(input);
+		input.addEventListener('change', function (e) {
+			syncInput(text, input, e.target.value);
 		});
 	});
 }

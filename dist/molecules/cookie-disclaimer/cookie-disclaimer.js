@@ -11,7 +11,7 @@ var cookieEnabled = navigator.cookieEnabled.cookieEnabled;
 // Cookies are disabled
 
 function showCookieFail() {
-	console.warn('Cookies are disabled, engage tinfoil hat mode.');
+	console.warn('Cookies are disabled.');
 }
 
 // Check for cookie support
