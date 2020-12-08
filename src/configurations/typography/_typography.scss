@@ -263,7 +263,6 @@ blockquote {
 			$leading-bottom: 0
 		);
 
-		// Apparently not allowed to use decimals in plumber...
 		margin-top: rhythm(1);
 		line-height: rhythm(2.5);
 	}
@@ -286,7 +285,6 @@ blockquote {
 		}
 
 		.meta {
-			// Apparently not allowed to use decimals in plumber...
 			margin-top: rhythm(0.5);
 			line-height: rhythm(3.5);
 		}
