@@ -21,7 +21,7 @@ module.exports = {
 				name: 'ruby-light',
 				title: '$color-ruby-light',
 				hex: '#ff9fb4',
-				rgb: '255 109 180',
+				rgb: '255 159 180',
 				cmyk: '0 51 13 0',
 				pms: '708UP',
 				hasBorder: false
@@ -100,7 +100,7 @@ module.exports = {
 				name: 'ocean',
 				title: '$color-ocean',
 				hex: '#50b2fc',
-				rgb: '80 178 256',
+				rgb: '80 178 252',
 				cmyk: '69 10 0 0',
 				pms: '299U',
 				hasBorder: false
@@ -136,8 +136,8 @@ module.exports = {
 				name: 'granit',
 				title: '$color-granit',
 				hex: '#8E9297',
-				rgb: 'n/a',
-				cmyk: 'n/a',
+				rgb: '142 146 151',
+				cmyk: '6 3 0 41',
 				pms: 'n/a',
 				hasBorder: false
 			},
@@ -145,8 +145,8 @@ module.exports = {
 				name: 'concrete',
 				title: '$color-concrete',
 				hex: '#d8d8d8',
-				rgb: 'n/a',
-				cmyk: 'n/a',
+				rgb: '216 216 216',
+				cmyk: '0 0 0 15',
 				pms: 'n/a',
 				hasBorder: false
 			},
@@ -154,8 +154,8 @@ module.exports = {
 				name: 'ash',
 				title: '$color-ash',
 				hex: '#ededed',
-				rgb: 'n/a',
-				cmyk: 'n/a',
+				rgb: '237 237 237',
+				cmyk: '0 0 0 7',
 				pms: 'n/a',
 				hasBorder: true
 			},
