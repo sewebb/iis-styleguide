@@ -80,6 +80,26 @@ $spacing: rhythm(6);
 		position: relative;
 		z-index: z_index(middleground);
 
+		@include m(peacock) {
+			::selection {
+				background-color: $color-peacock-light;
+			}
+
+			::-moz-selection {
+				background-color: $color-peacock-light;
+			}
+		}
+
+		@include m(jade) {
+			::selection {
+				background-color: $color-jade-light;
+			}
+
+			::-moz-selection {
+				background-color: $color-jade-light;
+			}
+		}
+
 		@include m(rectangle-left) {
 			&::after {
 				content: '';

@@ -45,7 +45,7 @@ module.exports = {
 					},
 					{
 						type: 'white',
-						modifier: 'rectangle-left',
+						modifier: 'rectangle-left o-section__content--peacock',
 						heading: 'Section white',
 						has_header: true,
 						has_grid: true,
@@ -54,7 +54,7 @@ module.exports = {
 					},
 					{
 						type: false,
-						modifier: 'rectangle-right',
+						modifier: 'rectangle-right o-section__content--jade',
 						heading: 'Section grey',
 						has_header: true,
 						has_grid: true,
