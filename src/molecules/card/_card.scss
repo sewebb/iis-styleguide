@@ -10,6 +10,7 @@
 
 	@include e(image) {
 		display: block;
+		width: 100%;
 		border-radius: $border-radius;
 	}
 
