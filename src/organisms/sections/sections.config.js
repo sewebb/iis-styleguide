@@ -49,6 +49,7 @@ module.exports = {
 						heading: 'Section white',
 						has_header: true,
 						has_grid: true,
+						meta: true,
 						text: 'Vi tycker om och tror på internet och brinner för att dela med oss av vår kunskap. Vår vision är att alla i Sverige vill, vågar och kan använda internet. För att det ska bli verklighet krävs kunskap om hur internet och digital teknik fungerar, både vad gäller tekniska aspekter och saker som källkritik och riskmedvetenhet.'
 					},
 					{
@@ -57,6 +58,7 @@ module.exports = {
 						heading: 'Section grey',
 						has_header: true,
 						has_grid: true,
+						meta: true,
 						text: 'Vi verkar för ett internet som bidrar positivt till människan och samhället. Därför är vi intresserade av hur internet i Sverige används och hur vi kan hjälpa medborgarna att använda det bättre och försäkra sig om att de får vad de betalar för.'
 					},
 				]
