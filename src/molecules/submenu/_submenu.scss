@@ -34,7 +34,7 @@
 				width: $icon-size-small;
 				height: $icon-size-small;
 				margin-left: rhythm(1);
-				transform: rotate(180deg);
+				transform: rotate(-90deg);
 			}
 
 			@include bp-up(md) {
@@ -122,18 +122,18 @@
 
 @keyframes up-icon {
 	0% {
-		transform: translateY(0) rotate(180deg);
+		transform: translateY(0) rotate(-90deg);
 	}
 
 	25% {
-		transform: translateY(-#{rhythm(0.5)}) rotate(180deg);
+		transform: translateY(-#{rhythm(0.5)}) rotate(-90deg);
 	}
 
 	75% {
-		transform: translateY(rhythm(0.5)) rotate(180deg);
+		transform: translateY(rhythm(0.5)) rotate(-90deg);
 	}
 
 	100% {
-		transform: translateY(0) rotate(180deg);
+		transform: translateY(0) rotate(-90deg);
 	}
 }
