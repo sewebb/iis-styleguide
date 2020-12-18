@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+@include molecule(submenu) {
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	border-radius: $border-radius;
+	background-color: $color-snow;
+	list-style: none;
+
+	@include e(title) {
+		background-color: var(--m-submenu-background-color);
+
+		@include e(link) {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: rhythm(2);
+			color: $color-cyberspace;
+			font-family: $font-family-headings;
+			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				text-decoration: underline;
+
+				> svg {
+					animation: up-icon 1.5s infinite linear;
+				}
+			}
+
+			> svg {
+				flex-shrink: 0;
+				width: $icon-size-small;
+				height: $icon-size-small;
+				margin-left: rhythm(1);
+				transform: rotate(180deg);
+			}
+
+			@include bp-up(md) {
+				padding: rhythm(2) rhythm(3);
+
+				> svg {
+					width: $icon-size-medium;
+					height: $icon-size-medium;
+				}
+			}
+		}
+	}
+
+	@include e(item) {
+		margin: 0;
+		padding: 0;
+
+		& + & {
+			border-top: 1px solid $color-ash;
+		}
+
+		&:last-child {
+			> a {
+				padding-bottom: rhythm(2);
+
+				@include bp-up(md) {
+					padding-bottom: rhythm(3);
+				}
+			}
+		}
+
+		@include e(link) {
+			display: flex;
+			align-items: center;
+			justify-content: space-between;
+			padding: rhythm(1) rhythm(2);
+			color: $color-cyberspace;
+			text-decoration: none;
+
+			&:hover,
+			&:focus {
+				text-decoration: underline;
+
+				> svg {
+					background-color: var(--m-submenu-icon-background-color);
+					box-shadow: 0 0 0 rhythm(0.5) var(--m-submenu-icon-background-color);
+					fill: var(--m-submenu-icon-hover-color);
+
+					@include bp-up(md) {
+						box-shadow: 0 0 0 rhythm(1) var(--m-submenu-icon-background-color);
+					}
+				}
+			}
+
+			> svg {
+				flex-shrink: 0;
+				width: $icon-size-small;
+				height: $icon-size-small;
+				margin-left: rhythm(1);
+				border-radius: 50%;
+				fill: currentColor;
+
+				@include bp-up(md) {
+					width: $icon-size-medium;
+					height: $icon-size-medium;
+				}
+			}
+
+			&.is-current {
+				background-color: lighten($color-ash, 5%);
+				font-family: $font-family-headings;
+				pointer-events: none;
+
+				> svg {
+					display: none;
+				}
+			}
+
+			@include bp-up(md) {
+				padding: rhythm(2) rhythm(3);
+			}
+		}
+	}
+}
+
+@keyframes up-icon {
+	0% {
+		transform: translateY(0) rotate(180deg);
+	}
+
+	25% {
+		transform: translateY(-#{rhythm(0.5)}) rotate(180deg);
+	}
+
+	75% {
+		transform: translateY(rhythm(0.5)) rotate(180deg);
+	}
+
+	100% {
+		transform: translateY(0) rotate(180deg);
+	}
+}

@@ -82,6 +82,13 @@ a:focus {
 	background-color: #ededed;
 }
 
+pre,
+code {
+	border-radius: 1px;
+	background-color: #d8d8d8;
+	box-shadow: 0 0 0 3px #d8d8d8;
+}
+
 .FileBrowser-selectWrapper {
 	background-color: #1f2a36;
 }
