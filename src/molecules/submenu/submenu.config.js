@@ -3,8 +3,8 @@ module.exports = {
 
 	context: {
 		background_color: '#ffce2e',
-		icon_background_color: '#ffce2e',
-		icon_hover_color: '#1f2a36',
+		icon_fill_color: '#1f2a36',
+		icon_background_hover_color: '#ffce2e',
 	},
 	variants: [
 		{

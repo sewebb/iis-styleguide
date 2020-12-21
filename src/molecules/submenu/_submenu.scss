@@ -71,7 +71,7 @@
 			align-items: center;
 			justify-content: space-between;
 			padding: rhythm(1) rhythm(2);
-			color: $color-cyberspace;
+			color: var(--m-submenu-icon-fill-color);
 			text-decoration: none;
 
 			&:hover,
@@ -79,12 +79,12 @@
 				text-decoration: underline;
 
 				> svg {
-					background-color: var(--m-submenu-icon-background-color);
-					box-shadow: 0 0 0 rhythm(0.5) var(--m-submenu-icon-background-color);
-					fill: var(--m-submenu-icon-hover-color);
+					background-color: var(--m-submenu-icon-background-hover-color);
+					box-shadow: 0 0 0 rhythm(0.5) var(--m-submenu-icon-background-hover-color);
+					fill: var(--m-submenu-icon-background-fill-color);
 
 					@include bp-up(md) {
-						box-shadow: 0 0 0 rhythm(1) var(--m-submenu-icon-background-color);
+						box-shadow: 0 0 0 rhythm(1) var(--m-submenu-icon-background-hover-color);
 					}
 				}
 			}
