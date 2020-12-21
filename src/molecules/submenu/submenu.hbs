@@ -18,12 +18,34 @@
 			{{> @icon id="arrow-variant"}}
 		</a>
 	</dd>
+	{{#unless has_sublevel}}
 	<dd class="m-submenu__item">
 		<a href="#" class="m-submenu__item__link is-current">
 			<span>Kontakt</span>
 			{{> @icon id="arrow-variant"}}
 		</a>
 	</dd>
+	{{/unless}}
+	{{#if has_sublevel}}
+	<dd class="m-submenu__item">
+		<a href="#" class="m-submenu__item__link m-submenu__item__link--has-sublevel">
+			<span>Press</span>
+			<button type="button" class="m-submenu__item__toggle-button" data-a11y-toggle="sublvl007" aria-controls="sublvl007">{{> @icon id="arrow-down"}}</button>
+		</a>
+		<ul class="m-submenu__sublevel" aria-hidden="true" id="sublvl007" data-focus-trap="false">
+			<li class="m-submenu__sublevel__item">
+				<a href="#" class="m-submenu__item__link">
+					<span>Styrelse</span>
+				</a>
+			</li>
+			<li class="m-submenu__sublevel__item">
+				<a href="#" class="m-submenu__item__link">
+					<span>Stadgar</span>
+				</a>
+			</li>
+		</ul>
+	</dd>
+	{{/if}}
 	<dd class="m-submenu__item">
 		<a href="#" class="m-submenu__item__link">
 			<span>Press</span>
