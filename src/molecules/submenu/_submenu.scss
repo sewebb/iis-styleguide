@@ -148,7 +148,7 @@
 			}
 
 			&[aria-expanded='true'] {
-				border-left: 1px solid lighten($color-ash, 5%);
+				margin-bottom: -1px;
 				background-color: lighten($color-ash, 5%);
 
 				> svg {
@@ -165,11 +165,13 @@
 	@include e(sublevel) {
 		margin: 0;
 		padding: 0;
+		border-top: 1px solid $color-ash;
 		background-color: lighten($color-ash, 5%);
 		list-style: none;
 
 		&[aria-hidden='true'] {
 			display: none;
+			border-top: 1px solid transparent;
 		}
 
 		@include e(item) {
