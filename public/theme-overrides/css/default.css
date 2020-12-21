@@ -78,12 +78,18 @@ a:focus {
 
 .Browser-panel,
 .Browser-panel .Code pre,
+.Prose code,
 .Browser-panel .Code {
 	background-color: #ededed;
 }
 
-pre,
-code {
+.Prose code {
+	border-radius: 1px;
+	background-color: #ededed;
+	box-shadow: 0 0 0 3px #ededed;
+}
+
+.Browser-notes code {
 	border-radius: 1px;
 	background-color: #d8d8d8;
 	box-shadow: 0 0 0 3px #d8d8d8;
