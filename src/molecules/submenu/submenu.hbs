@@ -28,10 +28,12 @@
 	{{/unless}}
 	{{#if has_sublevel}}
 	<dd class="m-submenu__item">
-		<a href="#" class="m-submenu__item__link m-submenu__item__link--has-sublevel">
-			<span>Press</span>
+		<div class="m-submenu__item__sublevel">
+			<a href="#" class="m-submenu__item__link m-submenu__item__link--has-sublevel">
+				<span>Press</span>
+			</a>
 			<button type="button" class="m-submenu__item__toggle-button" data-a11y-toggle="sublvl007" aria-controls="sublvl007">{{> @icon id="arrow-down"}}</button>
-		</a>
+		</div>
 		<ul class="m-submenu__sublevel" aria-hidden="true" id="sublvl007" data-focus-trap="false">
 			<li class="m-submenu__sublevel__item">
 				<a href="#" class="m-submenu__item__link">

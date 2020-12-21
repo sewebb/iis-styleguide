@@ -118,10 +118,17 @@
 			}
 
 			@include m(has-sublevel) {
+				display: flex;
+				flex-grow: 1;
 				padding-top: 0;
 				padding-right: 0;
 				padding-bottom: 0;
 			}
+		}
+
+		@include e(sublevel) {
+			display: flex;
+			justify-content: space-between;
 		}
 
 		@include e(toggle-button) {
