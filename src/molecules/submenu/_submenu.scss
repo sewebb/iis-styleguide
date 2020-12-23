@@ -81,7 +81,7 @@
 				> svg {
 					background-color: var(--m-submenu-icon-background-hover-color);
 					box-shadow: 0 0 0 rhythm(0.5) var(--m-submenu-icon-background-hover-color);
-					fill: var(--m-submenu-icon-background-fill-color);
+					fill: var(--m-submenu-icon-fill-color);
 
 					@include bp-up(md) {
 						box-shadow: 0 0 0 rhythm(1) var(--m-submenu-icon-background-hover-color);
@@ -184,6 +184,28 @@
 		@include e(item) {
 			& + & {
 				border-top: 1px solid $color-ash;
+			}
+
+			/* Support for icon on sublevel */
+
+			@include e(link) {
+				> svg {
+					width: $icon-size-small;
+					height: $icon-size-small;
+					fill: $color-granit;
+				}
+
+				&:hover,
+				&:focus {
+					> svg {
+						background-color: $color-concrete;
+						box-shadow: 0 0 0 rhythm(0.5) $color-concrete;
+
+						@include bp-up(md) {
+							box-shadow: 0 0 0 rhythm(1) $color-concrete;
+						}
+					}
+				}
 			}
 		}
 	}

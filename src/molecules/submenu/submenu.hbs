@@ -30,19 +30,21 @@
 	<dd class="m-submenu__item">
 		<div class="m-submenu__item__sublevel">
 			<a href="#" class="m-submenu__item__link m-submenu__item__link--has-sublevel">
-				<span>Press</span>
+				<span>Mer om oss</span>
 			</a>
 			<button type="button" class="m-submenu__item__toggle-button" data-a11y-toggle="sublvl007" aria-controls="sublvl007">{{> @icon id="arrow-down"}}</button>
 		</div>
 		<ul class="m-submenu__sublevel" aria-hidden="true" id="sublvl007" data-focus-trap="false">
 			<li class="m-submenu__sublevel__item">
-				<a href="#" class="m-submenu__item__link">
+				<a href="#" class="m-submenu__item__link m-submenu__sublevel__item__link">
 					<span>Styrelse</span>
+					{{#if sublevel_has_icon}}{{> @icon id="arrow-variant"}}{{/if}}
 				</a>
 			</li>
 			<li class="m-submenu__sublevel__item">
-				<a href="#" class="m-submenu__item__link">
+				<a href="#" class="m-submenu__item__link m-submenu__sublevel__item__link">
 					<span>Stadgar</span>
+					{{#if sublevel_has_icon}}{{> @icon id="arrow-variant"}}{{/if}}
 				</a>
 			</li>
 		</ul>
