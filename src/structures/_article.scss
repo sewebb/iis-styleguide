@@ -72,6 +72,7 @@ $indent: 3.78825%;
 
 				> .wp-block-iis-info {
 					max-width: calc(46.364% + #{($indent * 2)});
+					margin-left: $indent;
 				}
 			}
 		}
