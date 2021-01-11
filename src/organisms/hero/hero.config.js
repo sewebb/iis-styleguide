@@ -13,7 +13,8 @@ module.exports = {
 		{
 			name: 'Wrapped',
 			context: {
-				no_image_class: 'o-hero--border-radius',
+				no_image_class: false,
+				has_radius: true,
 				limited_width: true,
 				has_radius: true,
 				text: 'Nästan alla i Sverige använder internet – men hur meningsfull är tiden vi spenderar där? I rapporten Svenskarna och internet 2019 frågar vi för första gången om meningsfullhet, och det syns stora skillnader mellan olika aktiviteter. Tid på sociala medier tycker bara var fjärde är meningsfull.',
@@ -31,6 +32,7 @@ module.exports = {
 			name: 'No image',
 			context: {
 				no_image_class: 'o-hero--no-image',
+				has_radius: false,
 				has_image: false,
 				text: 'Nästan alla i Sverige använder internet – men hur meningsfull är tiden vi spenderar där? I rapporten Svenskarna och internet 2019 frågar vi för första gången om meningsfullhet, och det syns stora skillnader mellan olika aktiviteter. Tid på sociala medier tycker bara var fjärde är meningsfull.',
 			}
@@ -38,7 +40,8 @@ module.exports = {
 		{
 			name: 'Video',
 			context: {
-				no_image_class: 'o-hero--border-radius',
+				no_image_class: false,
+				has_radius: true,
 				video_class: 'o-hero--video',
 				limited_width: true,
 				has_video: true,
