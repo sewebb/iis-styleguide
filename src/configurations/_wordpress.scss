@@ -22,7 +22,7 @@ div.aligncenter {
 	}
 
 	.alignleft {
-		max-width: calc(#{make_col(6)} - 13px); // <== You ugly magic number you, we hates it!
+		width: calc(#{make_col(6)} - 13px); // <== You ugly magic number you, we hates it!
 		margin: 0 rhythm(2) rhythm(3) 0;
 		float: left;
 	}
