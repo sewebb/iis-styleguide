@@ -68,9 +68,11 @@
 
 		@include e(link) {
 			display: flex;
+			position: relative;
 			align-items: center;
 			justify-content: space-between;
 			padding: rhythm(1) rhythm(2);
+			overflow: hidden;
 			color: var(--m-submenu-icon-fill-color);
 			text-decoration: none;
 
@@ -80,28 +82,30 @@
 
 				> svg {
 					display: flex;
-					background-color: var(--m-submenu-icon-background-hover-color);
-					box-shadow: 0 0 0 rhythm(0.5) var(--m-submenu-icon-background-hover-color);
-					fill: var(--m-submenu-icon-fill-color);
-
-					@include bp-up(md) {
-						box-shadow: 0 0 0 rhythm(1) var(--m-submenu-icon-background-hover-color);
-					}
 				}
 			}
 
 			> svg {
 				display: none;
+				position: absolute;
+				top: 50%;
+				right: rhythm(2);
 				flex-shrink: 0;
-				width: $icon-size-small;
-				height: $icon-size-small;
+				width: $icon-size;
+				height: $icon-size;
 				margin-left: rhythm(1);
+				padding: rhythm(0.5);
+				overflow: hidden;
+				transform: translateY(-50%);
 				border-radius: 50%;
-				fill: currentColor;
+				background-color: var(--m-submenu-icon-background-hover-color);
+				fill: var(--m-submenu-icon-fill-color);
 
 				@include bp-up(md) {
-					width: $icon-size-medium;
-					height: $icon-size-medium;
+					right: rhythm(3);
+					width: $icon-size * 1.6;
+					height: $icon-size * 1.6;
+					padding: rhythm(1);
 				}
 			}
 
@@ -132,40 +136,69 @@
 
 		@include e(toggle-button) {
 			display: flex;
+			position: relative;
+			position: relative;
 			align-items: center;
 			margin: 0;
-			padding: rhythm(1) rhythm(2);
+			padding: rhythm(1) rhythm(3);
 			border: 0;
 			border-left: 1px solid $color-ash;
 			background-color: transparent;
 
-			&:hover {
-				background-color: lighten($color-ash, 5%);
+			&::before,
+			&::after {
+				content: '';
+				display: block;
+				position: absolute;
+				top: rem(22px);
+				right: rem(25px);
+				width: $icon-size-small / 1.5;
+				height: 2px;
+				transform-origin: center center;
+				transition: transform 0.25s ease-out;
+				background-color: $color-cyberspace;
 			}
 
-			> svg {
-				width: $icon-size-small;
-				height: $icon-size-small;
-				transform: rotate(0);
-				transition: transform 0.25 ease-out;
+			&::before {
+				transform: rotate(45deg);
+			}
 
-				@include bp-up(md) {
-					width: $icon-size-medium;
-					height: $icon-size-medium;
-				}
+			&::after {
+				right: rem(18px);
+				transform: rotate(-45deg);
 			}
 
 			&[aria-expanded='true'] {
 				margin-bottom: -1px;
 				background-color: lighten($color-ash, 5%);
 
-				> svg {
-					transform: rotate(180deg);
+				&::after {
+					transform: rotate(-135deg);
+				}
+
+				&::before {
+					transform: rotate(135deg);
 				}
 			}
 
+			&:hover {
+				background-color: lighten($color-ash, 5%);
+			}
+
 			@include bp-up(md) {
-				padding: rhythm(2) rhythm(3);
+				padding: rhythm(2) rhythm(4);
+
+				&::before,
+				&::after {
+					top: rem(31px);
+					right: rem(33px);
+					width: $icon-size-small;
+					height: 3px;
+				}
+
+				&::after {
+					right: rem(23px);
+				}
 			}
 		}
 	}
@@ -191,18 +224,20 @@
 
 			@include e(link) {
 				> svg {
+					display: none;
+					padding: rhythm(0.5);
+					background-color: $color-concrete;
 					fill: $color-granit;
+
+					@include bp-up(md) {
+						padding: rhythm(1);
+					}
 				}
 
 				&:hover,
 				&:focus {
 					> svg {
-						background-color: $color-concrete;
-						box-shadow: 0 0 0 rhythm(0.5) $color-concrete;
-
-						@include bp-up(md) {
-							box-shadow: 0 0 0 rhythm(1) $color-concrete;
-						}
+						display: flex;
 					}
 				}
 			}
