@@ -1,29 +1,29 @@
 const cookieBar = document.querySelector('.js-cookie-disclaimer');
 const visibleClass = 'is-visible';
 const cookieName = 'internetstiftelsen-cookie-consent';
-const testCookieSupport = 'Cookies are enabled';
+// const testCookieSupport = 'Cookies are enabled';
 const acceptButton = document.getElementById('js-accept-cookies');
 const currentProtocol = document.location.protocol;
-let { cookieEnabled } = navigator.cookieEnabled;
+// const { cookieEnabled } = navigator.cookieEnabled;
 
 // Cookies are disabled
-function showCookieFail() {
-	console.warn('Cookies are disabled.');
-}
+// function showCookieFail() {
+// 	console.warn('Cookies are disabled.');
+// }
 
 // Check for cookie support
-(function checkCookieSupport() {
-	if (!cookieEnabled) {
-		if (currentProtocol === 'https:') {
-			document.cookie = `${testCookieSupport}=Yes;path=/;SameSite=Strict;Secure;`;
-		} else {
-			document.cookie = `${testCookieSupport}=Yes;path=/;SameSite=Strict;`;
-		}
-
-		cookieEnabled = document.cookie.indexOf(testCookieSupport) !== -1;
-	}
-	return cookieEnabled || showCookieFail();
-}());
+// (function checkCookieSupport() {
+// 	if (!cookieEnabled) {
+// 		if (currentProtocol === 'https:') {
+// 			document.cookie = `${testCookieSupport}=Yes;path=/;SameSite=Strict;Secure;`;
+// 		} else {
+// 			document.cookie = `${testCookieSupport}=Yes;path=/;SameSite=Strict;`;
+// 		}
+//
+// 		cookieEnabled = document.cookie.indexOf(testCookieSupport) !== -1;
+// 	}
+// 	return cookieEnabled || showCookieFail();
+// }());
 
 // Set cookie
 function setCookie(name, value, days) {
@@ -44,7 +44,8 @@ function getCookie(name) {
 }
 
 // No cookie set? Show cookie disclaimer bar
-if (!getCookie(cookieName) && cookieEnabled) {
+// if (!getCookie(cookieName) && cookieEnabled) {
+if (!getCookie(cookieName)) {
 	if (cookieBar) {
 		cookieBar.classList.add(visibleClass);
 	}
