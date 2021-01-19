@@ -22,20 +22,20 @@
 
 /* Force body text link link-styles */
 .u-link {
-	padding: rhythm(0) rhythm(0.5);
-	border-bottom: rem(2px) solid $color-peacock;
-	color: $color-black;
-	text-decoration: none;
+	padding: rhythm(0) rhythm(0.5) !important;
+	border-bottom: rem(2px) solid $color-peacock !important;
+	color: $color-black !important;
+	text-decoration: none !important;
 
 	&:hover,
 	&:focus {
-		border-bottom: rem(2px) solid $color-ocean-light;
-		border-radius: $border-radius;
-		background-color: $color-ocean-light;
+		border-bottom: rem(2px) solid $color-ocean-light !important;
+		border-radius: $border-radius !important;
+		background-color: $color-ocean-light !important;
 	}
 
 	&[href^='mailto'] {
-		hyphens: none;
+		hyphens: none !important;
 	}
 }
 
