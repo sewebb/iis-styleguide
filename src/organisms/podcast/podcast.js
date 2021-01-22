@@ -124,6 +124,5 @@ stepBackward.addEventListener('click', () => {
 
 audio.ontimeupdate = () => {
 	const timer = `${(audio.currentTime / audio.duration) * 100}%`;
-	console.log(timer);
 	progress.style.width = timer;
 };
