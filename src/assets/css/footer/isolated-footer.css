@@ -4147,6 +4147,9 @@
   .u-hidden-mobile {
     display: none !important; } }
 
+.u-visibility-hidden {
+  visibility: hidden !important; }
+
 @media (max-width: 575px) {
   .u-hide-xs {
     display: none !important; } }

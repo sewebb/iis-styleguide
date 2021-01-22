@@ -1,11 +1,11 @@
 @charset 'UTF-8';
 
 .u-weight-normal {
-	font-family: $font-family-base;
-	font-weight: normal;
+	font-family: $font-family-base !important;
+	font-weight: normal !important;
 }
 
 .u-weight-bold {
-	font-family: $font-family-headings;
-	font-weight: normal;
+	font-family: $font-family-headings !important;
+	font-weight: normal !important;
 }

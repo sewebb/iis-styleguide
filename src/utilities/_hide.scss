@@ -29,6 +29,11 @@
 	}
 }
 
+// Visibility-hidden
+.u-visibility-hidden {
+	visibility: hidden !important;
+}
+
 .u-hide-xs {
 	@include bp-down(xs) {
 		display: none !important;

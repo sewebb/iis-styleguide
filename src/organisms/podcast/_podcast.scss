@@ -1,0 +1,133 @@
+@charset "UTF-8";
+
+@include organism(podcast) {
+	position: fixed;
+	right: 0;
+	bottom: 0;
+	left: 0;
+	padding: rhythm(1) 0 0 0;
+	transform: translateY(0);
+	transition: transform 0.25s ease-out;
+	background-color: $color-snow;
+	box-shadow: 0 -#{rhythm(1)} rhythm(3) lighten($color-cyberspace, 70%);
+
+	@include m(hidden) {
+		transform: translateY(100%);
+	}
+
+	@include e(image) {
+		flex-grow: 0;
+		width: rhythm(7);
+		height: rhythm(7);
+		margin-right: rhythm(2);
+		border-radius: $border-radius;
+	}
+
+	@include e(player) {
+		display: flex;
+		flex-grow: 1;
+		align-items: center;
+	}
+
+	@include e(controls) {
+		display: flex;
+		flex-grow: 1;
+		align-items: center;
+		justify-content: center;
+	}
+
+	@include e(show-info) {
+		display: flex;
+		flex-direction: column;
+	}
+
+	@include e(title) {
+		margin-bottom: 0;
+		color: $color-ruby;
+		font-family: $font-family-headings;
+	}
+
+	@include e(description) {
+		display: block;
+		max-width: rem(500px);
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+
+		> p {
+			display: none;
+		}
+	}
+
+	@include e(spacer) {
+		margin-right: rhythm(0.5);
+		margin-left: rhythm(0.5);
+	}
+
+	@include e(button) {
+		display: flex;
+		align-items: center;
+		margin: 0 rhythm(1);
+		padding: 0;
+		border: 0;
+		background-color: transparent;
+
+		&:hover {
+			> svg {
+				fill: $color-ruby;
+			}
+		}
+	}
+
+	@include e(timeleft) {
+		min-width: 65px;
+	}
+
+	@include e(rewind-icon) {
+		width: $icon-size-large * 1.2;
+		height: $icon-size-large * 1.2;
+	}
+
+	@include e(forward-icon) {
+		width: $icon-size-large * 1.2;
+		height: $icon-size-large * 1.2;
+	}
+
+	@include e(play-icon) {
+		display: block;
+		width: $icon-size-large * 1.5;
+		height: $icon-size-large * 1.5;
+	}
+
+	@include e(progressbar) {
+		flex-wrap: wrap;
+		width: 100%;
+		height: rhythm(0.5);
+		margin-top: rhythm(1);
+		background-color: $color-concrete;
+
+		@include e(progress) {
+			width: 0;
+			height: rhythm(1);
+		}
+	}
+
+	@include e(track-list) {
+		display: flex;
+		flex-direction: column;
+
+		> li {
+			display: flex;
+			padding: rhythm(1) rhythm(2);
+
+			+ li {
+				border-top: 1px solid $color-concrete;
+			}
+
+			> button {
+				display: flex;
+				align-items: center;
+			}
+		}
+	}
+}

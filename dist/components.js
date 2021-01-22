@@ -37,3 +37,5 @@ require('./assets/js/conditional');
 require('./atoms/file/file');
 
 require('./atoms/file/filePreview');
+
+require('./organisms/podcast/podcast');
