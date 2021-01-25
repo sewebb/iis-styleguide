@@ -1,18 +1,19 @@
 <div id="site" data-namespace="">
-
+	{{#if playlist}}
 	<ul class="o-podcast__track-list u-list-clean js-track-list"></ul>
+	{{/if}}
 
-	<div class="o-podcast o-podcast--hidden js-podcast">
+	<div class="o-podcast{{#if hidden}} o-podcast--hidden{{/if}} js-podcast">
 		<div class="wrapper">
 			<div class="row justify-content-between align-items-center">
-				<img src="https://ssl-static.libsyn.com/p/assets/6/d/2/e/6d2e956d35d4abaa/dummafragorominternet-poddbild.jpg" class="o-podcast__image js-image" alt="podcast image">
+				<img src="{{#if image}}{{image}}{{/if}}" class="o-podcast__image js-image" alt="podcast image">
 				<div class="o-podcast__player">
 					<div class="o-podcast__player__show-info">
-						<h4 class="o-podcast__title color-ruby js-title"></h4>
+						<h4 class="o-podcast__title color-ruby js-title">{{#if title}}{{title}}{{/if}}</h4>
 						<div class="display-flex align-items-center">
-							<time class="o-podcast__playtime js-duration"></time>
+							<time class="o-podcast__playtime js-duration">{{#if duration}}{{duration}}{{/if}}</time>
 							<span class="o-podcast__spacer">-</span>
-							<div class="o-podcast__description js-description"></div>
+							<div class="o-podcast__description js-description">{{#if description}}{{description}}{{/if}}</div>
 						</div>
 					</div>
 					<div class="o-podcast__controls">
@@ -29,8 +30,8 @@
 							<span class="u-visuallyhidden" >Forward 60 seconds</span>
 							{{>@ icon id="forward-60" additional_classes="o-podcast__rewind-icon"}}
 						</button>
-						<time class="o-podcast__timeleft u-visibility-hidden js-timeleft"></time>
-						<audio controls id="podcastPlayer" class="u-visuallyhidden"></audio>
+						<time class="o-podcast__timeleft {{#unless duration}}u-visibility-hidden{{/unless}} js-timeleft">{{#if duration}}{{duration}}{{/if}}</time>
+						<audio controls id="podcastPlayer" class="u-visuallyhidden" {{#if src}}src="{{src}}"{{/if}}></audio>
 					</div>
 				</div>
 			</div>

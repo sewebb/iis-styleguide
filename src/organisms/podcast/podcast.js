@@ -54,7 +54,7 @@ fetch(rssURL)
 					data-description="${el.querySelector('description').innerHTML.replace(/(<([^>]+)>)/gi, '').replace('<![CDATA[', '').replace(']]>', '')}"
 					data-image="${el.querySelector('image').getAttribute('href')}"
 					data-duration="${el.querySelector('duration').innerHTML}"
-					class="o-podcast__button display-flex js-play-episode" type="button"><svg class="icon ${namespace.dataset.namespace}o-podcast__play-icon u-m-r-2"><use xlink:href="#icon-play"></use></svg></div><div class="u-align-left spp-play-title"></button>
+					class="o-podcast__button display-flex js-play-episode" type="button"><svg class="icon ${namespace.dataset.namespace}o-podcast__play-icon u-m-r-2"><use xlink:href="#icon-play"></use></svg></div><div class="u-align-left"></button>
 				<div class="o-podcast__show-info">
 					<div class="o-podcast__title">${el.querySelector('title').innerHTML}</div>
 					<div class="o-podcast__description">${el.querySelector('description').innerHTML}</div>
@@ -62,7 +62,9 @@ fetch(rssURL)
 			</li>
 		`;
 
-			jsTrackList.innerHTML = html;
+			if (jsTrackList) {
+				jsTrackList.innerHTML = html;
+			}
 
 			const playEpisodes = document.querySelectorAll('.js-play-episode');
 
@@ -74,6 +76,7 @@ fetch(rssURL)
 					description.innerHTML = playEpisode.dataset.description;
 					image.src = playEpisode.dataset.image;
 					podCast.classList.remove(`${namespace.dataset.namespace}o-podcast--hidden`);
+					timeleftElement.classList.add('u-visibility-hidden');
 
 					if (audio.play) {
 						audio.pause();
@@ -83,9 +86,11 @@ fetch(rssURL)
 						audio.currentTime = 0;
 					}
 
+					audio.play();
+					timeupdate();
+
 					setTimeout(() => {
-						audio.play();
-						timeupdate();
+						timeleftElement.classList.remove('u-visibility-hidden');
 					}, 1000);
 				});
 			});
@@ -99,6 +104,9 @@ playButton.addEventListener('click', () => {
 		audio.play();
 		pauseIcon.classList.remove('is-hidden');
 		playIcon.classList.add('is-hidden');
+		timeleftElement.classList.add('u-visibility-hidden');
+		timeupdate();
+		timeleftElement.classList.remove('u-visibility-hidden');
 	} else {
 		audio.pause();
 		pauseIcon.classList.add('is-hidden');
