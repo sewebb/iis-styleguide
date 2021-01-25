@@ -1,4 +1,5 @@
-const namespace = document.querySelector('#site');
+const namespaceElement = document.querySelector('#site');
+let namespace;
 const podCast = document.querySelector('.js-podcast');
 const audio = document.getElementById('podcastPlayer');
 const jsTrackList = document.querySelector('.js-track-list');
@@ -15,6 +16,12 @@ const playIcon = document.querySelector('.js-play-icon');
 const pauseIcon = document.querySelector('.js-pause-icon');
 
 const rssURL = 'https://internetpodden.libsyn.com/rss';
+
+if (!namespaceElement) {
+	namespace = '';
+} else {
+	namespace = namespaceElement.dataset.namespace;
+}
 
 function timeupdate() {
 	audio.addEventListener('timeupdate', () => {
@@ -49,15 +56,16 @@ fetch(rssURL)
 			html += `
 			<li>
 				<button
+					class="${namespace}o-podcast__button display-flex js-play-episode"
 					data-src="${el.querySelector('enclosure').getAttribute('url')}"
 					data-title="${el.querySelector('title').innerHTML}"
 					data-description="${el.querySelector('description').innerHTML.replace(/(<([^>]+)>)/gi, '').replace('<![CDATA[', '').replace(']]>', '')}"
 					data-image="${el.querySelector('image').getAttribute('href')}"
 					data-duration="${el.querySelector('duration').innerHTML}"
-					class="o-podcast__button display-flex js-play-episode" type="button"><svg class="icon ${namespace.dataset.namespace}o-podcast__play-icon u-m-r-2"><use xlink:href="#icon-play"></use></svg></div><div class="u-align-left"></button>
-				<div class="o-podcast__show-info">
-					<div class="o-podcast__title">${el.querySelector('title').innerHTML}</div>
-					<div class="o-podcast__description">${el.querySelector('description').innerHTML}</div>
+					type="button"><svg class="icon ${namespace}o-podcast__play-icon u-m-r-2"><use xlink:href="#icon-play"></use></svg></div><div class="u-align-left"></button>
+				<div class="${namespace}o-podcast__show-info">
+					<div class="${namespace}o-podcast__title">${el.querySelector('title').innerHTML}</div>
+					<div class="${namespace}o-podcast__description">${el.querySelector('description').innerHTML}</div>
 				</div>
 			</li>
 		`;
@@ -75,7 +83,7 @@ fetch(rssURL)
 					title.innerHTML = playEpisode.dataset.title;
 					description.innerHTML = playEpisode.dataset.description;
 					image.src = playEpisode.dataset.image;
-					podCast.classList.remove(`${namespace.dataset.namespace}o-podcast--hidden`);
+					podCast.classList.remove(`${namespace}o-podcast--hidden`);
 					timeleftElement.classList.add('u-visibility-hidden');
 
 					if (audio.play) {
@@ -99,38 +107,46 @@ fetch(rssURL)
 		items.forEach(getItems);
 	});
 
-playButton.addEventListener('click', () => {
-	if (audio.paused) {
-		audio.play();
-		pauseIcon.classList.remove('is-hidden');
-		playIcon.classList.add('is-hidden');
-		timeleftElement.classList.add('u-visibility-hidden');
-		timeupdate();
-		timeleftElement.classList.remove('u-visibility-hidden');
-	} else {
-		audio.pause();
+if (playButton) {
+	playButton.addEventListener('click', () => {
+		if (audio.paused) {
+			audio.play();
+			pauseIcon.classList.remove('is-hidden');
+			playIcon.classList.add('is-hidden');
+			timeleftElement.classList.add('u-visibility-hidden');
+			timeupdate();
+			timeleftElement.classList.remove('u-visibility-hidden');
+		} else {
+			audio.pause();
+			pauseIcon.classList.add('is-hidden');
+			playIcon.classList.remove('is-hidden');
+		}
+	});
+}
+
+if (audio) {
+	audio.onended = () => {
 		pauseIcon.classList.add('is-hidden');
 		playIcon.classList.remove('is-hidden');
-	}
-});
+		timeleftElement.classList.add('u-visibility-hidden');
+	};
 
-audio.onended = () => {
-	pauseIcon.classList.add('is-hidden');
-	playIcon.classList.remove('is-hidden');
-	timeleftElement.classList.add('u-visibility-hidden');
-};
+	audio.ontimeupdate = () => {
+		const timer = `${(audio.currentTime / audio.duration) * 100}%`;
+		progress.style.width = timer;
+	};
+}
 
-stepForward.addEventListener('click', () => {
-	audio.currentTime += 60;
-	timeupdate();
-});
+if (stepForward) {
+	stepForward.addEventListener('click', () => {
+		audio.currentTime += 60;
+		timeupdate();
+	});
+}
 
-stepBackward.addEventListener('click', () => {
-	audio.currentTime -= 15;
-	timeupdate();
-});
-
-audio.ontimeupdate = () => {
-	const timer = `${(audio.currentTime / audio.duration) * 100}%`;
-	progress.style.width = timer;
-};
+if (stepBackward) {
+	stepBackward.addEventListener('click', () => {
+		audio.currentTime -= 15;
+		timeupdate();
+	});
+}

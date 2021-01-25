@@ -25,6 +25,22 @@ module.exports = {
 				description: false,
 				duration: false
 			}
+		},
+		{
+			name: 'Episodes list',
+			context: {
+				episodes: [
+					{
+
+					},
+					{
+
+					},
+					{
+
+					}
+				]
+			}
 		}
 	]
 }
