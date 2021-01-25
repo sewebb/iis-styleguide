@@ -1,13 +1,13 @@
 <div id="site" data-namespace="">
 
-	<ul class="o-podcast__track-list u-list-clean spp-play-list js-track-list"></ul>
+	<ul class="o-podcast__track-list u-list-clean js-track-list"></ul>
 
-	<div class="o-podcast o-podcast--hidden spp-main-region js-podcast">
+	<div class="o-podcast o-podcast--hidden js-podcast">
 		<div class="wrapper">
 			<div class="row justify-content-between align-items-center">
 				<img src="https://ssl-static.libsyn.com/p/assets/6/d/2/e/6d2e956d35d4abaa/dummafragorominternet-poddbild.jpg" class="o-podcast__image js-image" alt="podcast image">
 				<div class="o-podcast__player">
-					<div class="spp-artist-and-title">
+					<div class="o-podcast__player__show-info">
 						<h4 class="o-podcast__title color-ruby js-title"></h4>
 						<div class="display-flex align-items-center">
 							<time class="o-podcast__playtime js-duration"></time>
@@ -15,10 +15,10 @@
 							<div class="o-podcast__description js-description"></div>
 						</div>
 					</div>
-					<div class="o-podcast__controls spp-controls">
+					<div class="o-podcast__controls">
 						<button type="button" class="o-podcast__button js-step-backward" title="Back 15 seconds">
 							<span class="u-visuallyhidden" >Back 15 seconds</span>
-							{{>@ icon id="backward-15" additional_classes="o-podcast__rewind-icon spp-control"}}
+							{{>@ icon id="backward-15" additional_classes="o-podcast__rewind-icon"}}
 						</button>
 						<button type="button" class="o-podcast__button o-podcast__button--play js-play-button" title="Play/Pause">
 							<span class="u-visuallyhidden">Play/Pause</span>
@@ -27,7 +27,7 @@
 						</button>
 						<button type="button" class="o-podcast__button js-step-forward" title="Forward 60 seconds">
 							<span class="u-visuallyhidden" >Forward 60 seconds</span>
-							{{>@ icon id="forward-60" additional_classes="o-podcast__rewind-icon spp-control"}}
+							{{>@ icon id="forward-60" additional_classes="o-podcast__rewind-icon"}}
 						</button>
 						<time class="o-podcast__timeleft u-visibility-hidden js-timeleft"></time>
 						<audio controls id="podcastPlayer" class="u-visuallyhidden"></audio>
@@ -35,7 +35,7 @@
 				</div>
 			</div>
 		</div>
-		<div class="o-podcast__progressbar spp-progress-bar">
+		<div class="o-podcast__progressbar">
 			<div class="o-podcast__progressbar__progress background-ruby js-progress"></div>
 		</div>
 	</div>

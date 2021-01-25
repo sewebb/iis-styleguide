@@ -16,17 +16,30 @@
 	}
 
 	@include e(image) {
-		flex-grow: 0;
-		width: rhythm(7);
-		height: rhythm(7);
-		margin-right: rhythm(2);
-		border-radius: $border-radius;
+		display: none;
+
+		@include bp-up(md) {
+			display: flex;
+			flex-grow: 0;
+			width: rhythm(7);
+			height: rhythm(7);
+			margin-right: rhythm(2);
+			border-radius: $border-radius;
+		}
 	}
 
 	@include e(player) {
 		display: flex;
 		flex-grow: 1;
 		align-items: center;
+
+		@include e(show-info) {
+			display: none;
+
+			@include bp-up(sm) {
+				display: block;
+			}
+		}
 	}
 
 	@include e(controls) {
@@ -49,13 +62,21 @@
 
 	@include e(description) {
 		display: block;
-		max-width: rem(500px);
+		max-width: rem(200px);
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 
 		> p {
 			display: none;
+		}
+
+		@include bp-up(sm) {
+			max-width: rem(300px);
+		}
+
+		@include bp-up(lg) {
+			max-width: rem(500px);
 		}
 	}
 
