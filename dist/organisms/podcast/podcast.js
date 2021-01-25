@@ -1,6 +1,7 @@
 'use strict';
 
-var namespace = document.querySelector('#site');
+var namespaceElement = document.querySelector('#site');
+var namespace = void 0;
 var podCast = document.querySelector('.js-podcast');
 var audio = document.getElementById('podcastPlayer');
 var jsTrackList = document.querySelector('.js-track-list');
@@ -17,6 +18,12 @@ var playIcon = document.querySelector('.js-play-icon');
 var pauseIcon = document.querySelector('.js-pause-icon');
 
 var rssURL = 'https://internetpodden.libsyn.com/rss';
+
+if (!namespaceElement) {
+	namespace = '';
+} else {
+	namespace = namespaceElement.dataset.namespace;
+}
 
 function timeupdate() {
 	audio.addEventListener('timeupdate', function () {
@@ -48,9 +55,11 @@ fetch(rssURL).then(function (response) {
 	var html = '';
 
 	function getItems(el) {
-		html += '\n\t\t\t<li>\n\t\t\t\t<button\n\t\t\t\t\tdata-src="' + el.querySelector('enclosure').getAttribute('url') + '"\n\t\t\t\t\tdata-title="' + el.querySelector('title').innerHTML + '"\n\t\t\t\t\tdata-description="' + el.querySelector('description').innerHTML.replace(/(<([^>]+)>)/gi, '').replace('<![CDATA[', '').replace(']]>', '') + '"\n\t\t\t\t\tdata-image="' + el.querySelector('image').getAttribute('href') + '"\n\t\t\t\t\tdata-duration="' + el.querySelector('duration').innerHTML + '"\n\t\t\t\t\tclass="o-podcast__button display-flex js-play-episode" type="button"><svg class="icon ' + namespace.dataset.namespace + 'o-podcast__play-icon u-m-r-2"><use xlink:href="#icon-play"></use></svg></div><div class="u-align-left spp-play-title"></button>\n\t\t\t\t<div class="o-podcast__show-info">\n\t\t\t\t\t<div class="o-podcast__title">' + el.querySelector('title').innerHTML + '</div>\n\t\t\t\t\t<div class="o-podcast__description">' + el.querySelector('description').innerHTML + '</div>\n\t\t\t\t</div>\n\t\t\t</li>\n\t\t';
+		html += '\n\t\t\t<li>\n\t\t\t\t<button\n\t\t\t\t\tclass="' + namespace + 'o-podcast__button display-flex js-play-episode"\n\t\t\t\t\tdata-src="' + el.querySelector('enclosure').getAttribute('url') + '"\n\t\t\t\t\tdata-title="' + el.querySelector('title').innerHTML + '"\n\t\t\t\t\tdata-description="' + el.querySelector('description').innerHTML.replace(/(<([^>]+)>)/gi, '').replace('<![CDATA[', '').replace(']]>', '') + '"\n\t\t\t\t\tdata-image="' + el.querySelector('image').getAttribute('href') + '"\n\t\t\t\t\tdata-duration="' + el.querySelector('duration').innerHTML + '"\n\t\t\t\t\ttype="button"><svg class="icon ' + namespace + 'o-podcast__play-icon u-m-r-2"><use xlink:href="#icon-play"></use></svg></div><div class="u-align-left"></button>\n\t\t\t\t<div class="' + namespace + 'o-podcast__show-info">\n\t\t\t\t\t<div class="' + namespace + 'o-podcast__title">' + el.querySelector('title').innerHTML + '</div>\n\t\t\t\t\t<div class="' + namespace + 'o-podcast__description">' + el.querySelector('description').innerHTML + '</div>\n\t\t\t\t</div>\n\t\t\t</li>\n\t\t';
 
-		jsTrackList.innerHTML = html;
+		if (jsTrackList) {
+			jsTrackList.innerHTML = html;
+		}
 
 		var playEpisodes = document.querySelectorAll('.js-play-episode');
 
@@ -61,7 +70,8 @@ fetch(rssURL).then(function (response) {
 				title.innerHTML = playEpisode.dataset.title;
 				description.innerHTML = playEpisode.dataset.description;
 				image.src = playEpisode.dataset.image;
-				podCast.classList.remove(namespace.dataset.namespace + 'o-podcast--hidden');
+				podCast.classList.remove(namespace + 'o-podcast--hidden');
+				timeleftElement.classList.add('u-visibility-hidden');
 
 				if (audio.play) {
 					audio.pause();
@@ -71,9 +81,11 @@ fetch(rssURL).then(function (response) {
 					audio.currentTime = 0;
 				}
 
+				audio.play();
+				timeupdate();
+
 				setTimeout(function () {
-					audio.play();
-					timeupdate();
+					timeleftElement.classList.remove('u-visibility-hidden');
 				}, 1000);
 			});
 		});
@@ -82,34 +94,46 @@ fetch(rssURL).then(function (response) {
 	items.forEach(getItems);
 });
 
-playButton.addEventListener('click', function () {
-	if (audio.paused) {
-		audio.play();
-		pauseIcon.classList.remove('is-hidden');
-		playIcon.classList.add('is-hidden');
-	} else {
-		audio.pause();
+if (playButton) {
+	playButton.addEventListener('click', function () {
+		if (audio.paused) {
+			audio.play();
+			pauseIcon.classList.remove('is-hidden');
+			playIcon.classList.add('is-hidden');
+			timeleftElement.classList.add('u-visibility-hidden');
+			timeupdate();
+			timeleftElement.classList.remove('u-visibility-hidden');
+		} else {
+			audio.pause();
+			pauseIcon.classList.add('is-hidden');
+			playIcon.classList.remove('is-hidden');
+		}
+	});
+}
+
+if (audio) {
+	audio.onended = function () {
 		pauseIcon.classList.add('is-hidden');
 		playIcon.classList.remove('is-hidden');
-	}
-});
+		timeleftElement.classList.add('u-visibility-hidden');
+	};
 
-audio.onended = function () {
-	pauseIcon.classList.add('is-hidden');
-	playIcon.classList.remove('is-hidden');
-	timeleftElement.classList.add('u-visibility-hidden');
-};
+	audio.ontimeupdate = function () {
+		var timer = audio.currentTime / audio.duration * 100 + '%';
+		progress.style.width = timer;
+	};
+}
 
-stepForward.addEventListener('click', function () {
-	audio.currentTime += 60;
-	timeupdate();
-});
+if (stepForward) {
+	stepForward.addEventListener('click', function () {
+		audio.currentTime += 60;
+		timeupdate();
+	});
+}
 
-stepBackward.addEventListener('click', function () {
-	audio.currentTime -= 15;
-	timeupdate();
-});
-
-audio.ontimeupdate = function () {
-	progress.style.width = audio.currentTime / (audio.duration * 100);
-};
+if (stepBackward) {
+	stepBackward.addEventListener('click', function () {
+		audio.currentTime -= 15;
+		timeupdate();
+	});
+}
