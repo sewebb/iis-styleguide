@@ -1,5 +1,5 @@
 module.exports = {
-	status: 'prototype',
+	status: 'wip',
 	default: 'player',
 
 	context: {
@@ -15,6 +15,7 @@ module.exports = {
 	variants: [
 		{
 			name: 'with playlist',
+			status: 'prototype',
 			context: {
 				playlist: true,
 				hidden: true,
