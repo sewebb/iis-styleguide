@@ -6,7 +6,7 @@
 	<div class="o-podcast{{#if hidden}} o-podcast--hidden{{/if}} js-podcast">
 		<div class="wrapper">
 			<div class="row justify-content-between align-items-center">
-				<img src="{{#if image}}{{image}}{{/if}}" class="o-podcast__image js-image" alt="podcast image">
+				{{#if image}}<img src="{{image}}" class="o-podcast__image js-image" alt="{{title}}">{{/if}}
 				<div class="o-podcast__player">
 					<div class="o-podcast__player__show-info">
 						<h4 class="o-podcast__title color-ruby js-title">{{#if title}}{{title}}{{/if}}</h4>
