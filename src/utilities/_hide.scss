@@ -40,6 +40,12 @@
 	}
 }
 
+.u-hide-sm-xs {
+	@include bp-down(sm-xs) {
+		display: none !important;
+	}
+}
+
 .u-hide-sm {
 	@include bp-down(sm) {
 		display: none !important;

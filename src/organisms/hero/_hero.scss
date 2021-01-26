@@ -20,6 +20,7 @@
 	@include e(image) {
 		display: block;
 		object-fit: cover;
+		object-position: 50% 0;
 		width: 100%;
 		border-radius: $border-radius;
 

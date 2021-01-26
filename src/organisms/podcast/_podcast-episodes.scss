@@ -28,11 +28,10 @@
 			margin-bottom: rhythm(2);
 
 			@include e(image) {
-				width: rem(100px);
-				height: rem(100px);
-				border-radius: $border-radius;
+				display: none;
 
 				@include bp-up(md) {
+					display: block;
 					width: rem(170px);
 					height: rem(170px);
 				}
@@ -65,16 +64,18 @@
 		}
 
 		@include e(image) {
-			width: rem(120px);
-			height: rem(120px);
-			margin-right: rhythm(2);
 			margin-bottom: rhythm(2);
 			border-radius: $border-radius;
 
-			@include bp-up(md) {
+			@include bp-down(sm) {
+				display: none;
+			}
+
+			@include bp-up(sm) {
+				display: block;
 				width: rem(255px);
 				height: rem(255px);
-				margin-bottom: 0;
+				margin-right: rhythm(2);
 			}
 		}
 
@@ -94,7 +95,7 @@
 				text-overflow: ellipsis;
 				white-space: nowrap;
 
-				@include bp-up(sm) {
+				@include bp-up(sm-xs) {
 					overflow: visible;
 					text-overflow: inherit;
 					white-space: normal;
@@ -140,6 +141,7 @@
 				@include bp-up(md) {
 					display: block;
 					margin-right: rhythm(2);
+					margin-bottom: 0;
 					margin-left: rhythm(2);
 					line-height: 1;
 				}
@@ -147,7 +149,6 @@
 
 			@include e(list) {
 				display: flex;
-				margin-bottom: rhythm(2);
 
 				> dt {
 					margin-right: rhythm(2);
@@ -179,6 +180,10 @@
 
 			> svg {
 				transform: translateY(3px);
+			}
+
+			@include bp-up(md) {
+				margin-bottom: 0;
 			}
 
 			@include bp-up(md) {

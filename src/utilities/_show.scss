@@ -6,6 +6,12 @@
 	}
 }
 
+.u-show-sm-xs {
+	@include bp-down(sm-xs) {
+		display: initial !important;
+	}
+}
+
 .u-show-sm {
 	@include bp-down(sm) {
 		display: initial !important;
