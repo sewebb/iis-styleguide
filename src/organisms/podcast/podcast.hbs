@@ -1,43 +1,43 @@
 <div id="site" data-namespace="">
 	{{#if playlist}}
-	<ul class="o-podcast__track-list u-list-clean js-track-list"></ul>
+	<ul class="o-podcast-track-list u-list-clean js-track-list"></ul>
 	{{/if}}
 
-	<div class="o-podcast{{#if hidden}} o-podcast--hidden{{/if}} js-podcast">
+	<div class="o-podcast-player{{#if hidden}} o-podcast-player--hidden{{/if}} js-podcast">
 		<div class="wrapper">
 			<div class="row justify-content-between align-items-center">
-				<img src="{{imageSrc}}" class="o-podcast__image js-image" alt="{{title}}">
-				<div class="o-podcast__player">
-					<div class="o-podcast__player__show-info">
-						<h4 class="o-podcast__title color-ruby js-title">{{#if title}}{{title}}{{/if}}</h4>
+				<img src="{{imageSrc}}" class="o-podcast-player__player__image js-image" alt="{{title}}">
+				<div class="o-podcast-player__player">
+					<div class="o-podcast-player__player__show-info">
+						<h4 class="o-podcast-player__title color-ruby js-title">{{#if title}}{{title}}{{/if}}</h4>
 						<div class="display-flex align-items-center">
-							<time class="o-podcast__playtime js-duration">{{#if duration}}{{duration}}{{/if}}</time>
-							<span class="o-podcast__spacer">-</span>
-							<div class="o-podcast__description js-description">{{#if description}}{{description}}{{/if}}</div>
+							<time class="o-podcast-player__playtime js-duration">{{#if duration}}{{duration}}{{/if}}</time>
+							<span class="o-podcast-player__spacer">-</span>
+							<div class="o-podcast-player__description js-description">{{#if description}}{{description}}{{/if}}</div>
 						</div>
 					</div>
-					<div class="o-podcast__controls">
-						<button type="button" class="o-podcast__button js-step-backward" title="Back 15 seconds">
+					<div class="o-podcast-player__controls">
+						<button type="button" class="o-podcast-player__button js-step-backward" title="Back 15 seconds">
 							<span class="u-visuallyhidden" >Back 15 seconds</span>
-							{{>@ icon id="backward-15" additional_classes="o-podcast__rewind-icon"}}
+							{{>@ icon id="backward-15" additional_classes="o-podcast-player__rewind-icon"}}
 						</button>
-						<button type="button" class="o-podcast__button o-podcast__button--play js-play-button" title="Play/Pause">
+						<button type="button" class="o-podcast-player__button o-podcast-player__button--play js-play-button" title="Play/Pause">
 							<span class="u-visuallyhidden">Play/Pause</span>
-							{{>@ icon id="play" additional_classes="o-podcast__play-icon js-play-icon"}}
-							{{>@ icon id="pause" additional_classes="o-podcast__play-icon js-pause-icon is-hidden"}}
+							{{>@ icon id="play" additional_classes="o-podcast-player__play-icon js-play-icon"}}
+							{{>@ icon id="pause" additional_classes="o-podcast-player__play-icon js-pause-icon is-hidden"}}
 						</button>
-						<button type="button" class="o-podcast__button js-step-forward" title="Forward 60 seconds">
+						<button type="button" class="o-podcast-player__button js-step-forward" title="Forward 60 seconds">
 							<span class="u-visuallyhidden" >Forward 60 seconds</span>
-							{{>@ icon id="forward-60" additional_classes="o-podcast__rewind-icon"}}
+							{{>@ icon id="forward-60" additional_classes="o-podcast-player__rewind-icon"}}
 						</button>
-						<time class="o-podcast__timeleft {{#unless duration}}u-visibility-hidden{{/unless}} js-timeleft">{{#if duration}}{{duration}}{{/if}}</time>
+						<time class="o-podcast-player__timeleft {{#unless duration}}u-visibility-hidden{{/unless}} js-timeleft">{{#if duration}}{{duration}}{{/if}}</time>
 						<audio controls id="podcastPlayer" class="u-visuallyhidden" {{#if src}}src="{{src}}"{{/if}}></audio>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="o-podcast__progressbar">
-			<div class="o-podcast__progressbar__progress background-ruby js-progress"></div>
+		<div class="o-podcast-player__progressbar">
+			<div class="o-podcast-player__progressbar__progress background-ruby js-progress"></div>
 		</div>
 	</div>
 </div>

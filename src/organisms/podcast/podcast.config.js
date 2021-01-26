@@ -10,7 +10,9 @@ module.exports = {
 		imageSrc: 'https://ssl-static.libsyn.com/p/assets/a/9/6/5/a9653e010511f97e/internetpodden-logo.png',
 		title: 'Svenskarna och internet 2020',
 		description: 'Årets högtidsstund för alla som älskar internetstatistik är här! Vår rapport Svenskarna och internet har utökats inför ett speciellt år med extra frågor kring Coronapandemin. Jannike Tillå, Måns Jonasson och Jenny Andersson från Internetstiftelsen diskuterar insikterna från årets rapport.',
-		duration: '53:04'
+		duration: '53:04',
+		has_modifier: false,
+		is_single_episode: true,
 	},
 
 	variants: [
@@ -24,12 +26,15 @@ module.exports = {
 				image: false,
 				title: false,
 				description: false,
-				duration: false
+				duration: false,
+				is_single_episode: false
 			}
 		},
 		{
-			name: 'Episodes list',
+			name: 'Episode list',
 			context: {
+				is_single_episode: false,
+				modifiers: ['list'],
 				episodes: [
 					{
 
@@ -41,6 +46,13 @@ module.exports = {
 
 					}
 				]
+			}
+		},
+		{
+			name: 'Hero',
+			context: {
+				is_single_episode: true,
+				modifiers: ['hero'],
 			}
 		}
 	]

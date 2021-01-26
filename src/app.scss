@@ -76,7 +76,8 @@ $namespace: '';
 @import 'organisms/mailchimp/mailchimp';
 @import 'organisms/features-box/features-box';
 @import 'organisms/event-listing-item/event-listing-item';
-@import 'organisms/podcast/podcast';
+@import 'organisms/podcast/podcast-episodes';
+@import 'organisms/podcast/podcast-player';
 
 // Structures
 @import 'structures/manifest';

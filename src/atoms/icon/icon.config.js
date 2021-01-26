@@ -27,7 +27,8 @@ module.exports = {
 	},
 
 	context: {
-		additional_classes: ''
+		additional_classes: '',
+		fill: ''
 	},
 
 	variants: icons.map((icon) => {

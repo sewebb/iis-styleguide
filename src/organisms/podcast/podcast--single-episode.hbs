@@ -1,0 +1,40 @@
+<{{getelement el "div"}} class="o-podcast-episodes__episode{{#if modifiers}} {{getmodifiers modifiers "o-podcast-episodes__episode"}}{{/if}} row">
+	<div class="grid-18 grid-sm-auto display-flex justify-content-center">
+		<figure>
+			<img class="o-podcast-episodes__episode__image" src="https://ssl-static.libsyn.com/p/assets/4/a/1/e/4a1ecd9510edaccb/Internetpodden_avsnitt4.jpg" alt="Svenskarna och internet 2020">
+		</figure>
+	</div>
+	<div class="grid">
+		<div class="o-podcast-episodes__episode__meta">
+			<span class="a-meta">53:04</span><span class="a-meta u-p-x-1">|</span><span class="a-meta">5 januari, 2020</span>
+		</div>
+		<div class="o-podcast-episodes__episode__info">
+			<h2 class="display-flex align-items-center">
+				<button class="o-podcast-episodes__episode__button display-flex u-m-r-1 u-m-l-0 js-play-episode" data-src="https://traffic.libsyn.com/secure/internetpodden/20201215-svenskarna-och-internet-2020.mp3?dest-id=1534313" data-title="Svenskarna och internet 2020" data-description="Årets högtidsstund för alla som älskar internetstatistik är här! Vår rapport Svenskarna och internet har utökats inför ett speciellt år med extra frågor kring Coronapandemin. Jannike Tillå, Måns Jonasson och Jenny Andersson från Internetstiftelsen diskuterar insikterna från årets rapport." data-image="https://ssl-static.libsyn.com/p/assets/a/9/6/5/a9653e010511f97e/internetpodden-logo.png" data-duration="53:04" type="button">
+					<svg class="icon o-podcast-episodes__play-icon"><use xlink:href="#icon-play"></use></svg>
+					<div class="u-align-left"></div>
+				</button>
+				<{{getelement el2 "a"}} class="o-podcast-episodes__episode__link">Svenskarna och internet 2020</{{getelement el2 "a"}}>
+			</h2>
+			<p>Årets högtidsstund för alla som älskar internetstatistik är här! Vår rapport Svenskarna och internet har utökats inför ett speciellt år med extra frågor kring Coronapandemin. Jannike Tillå, Måns Jonasson och Jenny Andersson från Internetstiftelsen diskuterar insikterna från årets rapport.</p>
+		</div>
+		<div class="o-podcast-episodes__episode__share">
+			<a class="o-podcast-episodes__episode__download-link" download href="https://traffic.libsyn.com/secure/internetpodden/20201215-svenskarna-och-internet-2020.mp3?dest-id=1534313">
+				{{> '@icon' id="download" additional_classes="o-podcast-episodes__episode__download-icon background-peacock-light"}}
+				<span>Ladda ner</span>
+			</a>
+			<span class="o-podcast-episodes__episode__share__spacer">|</span>
+
+			<dl class="o-podcast-episodes__episode__share__list u-list-clean">
+				<dt><strong>Lyssna:</strong></dt>
+				<dd><a href="#" class="o-podcast-episodes__episode__listen-link">Spotify</a></dd>
+				<dd><a href="#" class="o-podcast-episodes__episode__listen-link">Apple</a></dd>
+				<dd><a href="#" class="o-podcast-episodes__episode__listen-link">Libsyn</a></dd>
+			</dl>
+		</div>
+	</div>
+</{{getelement el "div"}}>
+
+{{#if is_single_episode}}
+	{{> '@podcast--player' hidden=true}}
+{{/if}}

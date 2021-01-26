@@ -56,16 +56,16 @@ fetch(rssURL)
 			html += `
 			<li>
 				<button
-					class="${namespace}o-podcast__button display-flex js-play-episode"
+					class="${namespace}o-podcast-player__button display-flex js-play-episode"
 					data-src="${el.querySelector('enclosure').getAttribute('url')}"
 					data-title="${el.querySelector('title').innerHTML}"
 					data-description="${el.querySelector('description').innerHTML.replace(/(<([^>]+)>)/gi, '').replace('<![CDATA[', '').replace(']]>', '')}"
 					data-image="${el.querySelector('image').getAttribute('href')}"
 					data-duration="${el.querySelector('duration').innerHTML}"
-					type="button"><svg class="icon ${namespace}o-podcast__play-icon u-m-r-2"><use xlink:href="#icon-play"></use></svg></div><div class="u-align-left"></button>
-				<div class="${namespace}o-podcast__show-info">
-					<div class="${namespace}o-podcast__title">${el.querySelector('title').innerHTML}</div>
-					<div class="${namespace}o-podcast__description">${el.querySelector('description').innerHTML}</div>
+					type="button"><svg class="icon ${namespace}o-podcast-player__play-icon u-m-r-2"><use xlink:href="#icon-play"></use></svg></div><div class="u-align-left"></button>
+				<div class="${namespace}o-podcast-player__show-info">
+					<div class="${namespace}o-podcast-player__title">${el.querySelector('title').innerHTML}</div>
+					<div class="${namespace}o-podcast-player__description">${el.querySelector('description').innerHTML}</div>
 				</div>
 			</li>
 		`;
@@ -83,7 +83,7 @@ fetch(rssURL)
 					title.innerHTML = playEpisode.dataset.title;
 					description.innerHTML = playEpisode.dataset.description;
 					image.src = playEpisode.dataset.image;
-					podCast.classList.remove(`${namespace}o-podcast--hidden`);
+					podCast.classList.remove(`${namespace}o-podcast-player--hidden`);
 					timeleftElement.classList.add('u-visibility-hidden');
 
 					if (audio.play) {
