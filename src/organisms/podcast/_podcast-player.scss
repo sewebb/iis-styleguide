@@ -1,6 +1,11 @@
 @charset "UTF-8";
 
 @include organism(podcast-player) {
+
+	// Player
+
+	$time-left-width: rem(65px);
+
 	position: fixed;
 	z-index: z_index(middlegroundImportant);
 	right: 0;
@@ -16,7 +21,6 @@
 		transform: translateY(100%);
 	}
 
-	// Player
 	@include e(player) {
 		display: flex;
 		flex-grow: 1;
@@ -67,7 +71,7 @@
 		}
 
 		@include bp-up(sm) {
-			max-width: rem(300px);
+			max-width: rem(280px);
 		}
 
 		@include bp-up(lg) {
@@ -80,6 +84,11 @@
 		flex-grow: 1;
 		align-items: center;
 		justify-content: center;
+		transform: translateX($time-left-width / 2);
+
+		@include bp-up(sm) {
+			transform: translateX(0);
+		}
 	}
 
 	@include e(spacer) {
@@ -103,7 +112,7 @@
 	}
 
 	@include e(timeleft) {
-		min-width: 65px;
+		min-width: $time-left-width;
 	}
 
 	@include e(rewind-icon) {
