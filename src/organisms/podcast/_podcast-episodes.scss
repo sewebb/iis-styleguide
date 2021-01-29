@@ -138,7 +138,7 @@
 				display: none;
 				margin-bottom: rhythm(2);
 
-				@include bp-up(md) {
+				@include bp-up(lg) {
 					display: block;
 					margin-right: rhythm(2);
 					margin-bottom: 0;
@@ -149,6 +149,7 @@
 
 			@include e(list) {
 				display: flex;
+				flex-basis: 100%;
 
 				> dt {
 					margin-right: rhythm(2);
@@ -156,6 +157,10 @@
 
 				> dd {
 					margin-left: 0;
+				}
+
+				@include bp-up(lg) {
+					flex-basis: auto;
 				}
 			}
 		}
@@ -182,7 +187,7 @@
 				transform: translateY(3px);
 			}
 
-			@include bp-up(md) {
+			@include bp-up(lg) {
 				margin-bottom: 0;
 			}
 
