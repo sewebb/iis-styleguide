@@ -19,6 +19,7 @@
 
 	@include m(hidden) {
 		transform: translateY(100%);
+		box-shadow: none;
 	}
 
 	@include e(player) {

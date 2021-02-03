@@ -16,8 +16,7 @@ var stepBackward = document.querySelector('.js-step-backward');
 var playButton = document.querySelector('.js-play-button');
 var playIcon = document.querySelector('.js-play-icon');
 var pauseIcon = document.querySelector('.js-pause-icon');
-
-var rssURL = 'https://internetpodden.libsyn.com/rss';
+var rssURL = podCast.dataset.rss;
 
 if (!namespaceElement) {
 	namespace = '';
@@ -46,52 +45,57 @@ function timeupdate() {
 	}, false);
 }
 
+var html = '';
+
+function getItems(el) {
+	html += '\n\t<li>\n\t\t<button\n\t\t\tclass="' + namespace + 'o-podcast-player__button display-flex js-play-episode"\n\t\t\tdata-src="' + el.querySelector('enclosure').getAttribute('url') + '"\n\t\t\tdata-title="' + el.querySelector('title').innerHTML + '"\n\t\t\tdata-description="' + el.querySelector('description').innerHTML.replace(/(<([^>]+)>)/gi, '').replace('<![CDATA[', '').replace(']]>', '') + '"\n\t\t\tdata-image="' + el.querySelector('image').getAttribute('href') + '"\n\t\t\tdata-duration="' + el.querySelector('duration').innerHTML + '"\n\t\t\ttype="button"><svg class="icon ' + namespace + 'o-podcast-player__play-icon u-m-r-2"><use xlink:href="#icon-play"></use></svg></div><div class="u-align-left"></button>\n\t\t<div class="' + namespace + 'o-podcast-player__show-info">\n\t\t\t<div class="' + namespace + 'o-podcast-player__title">' + el.querySelector('title').innerHTML + '</div>\n\t\t\t<div class="' + namespace + 'o-podcast-player__description">' + el.querySelector('description').innerHTML + '</div>\n\t\t</div>\n\t</li>\n';
+
+	if (jsTrackList) {
+		jsTrackList.innerHTML = html;
+	}
+}
+
 fetch(rssURL).then(function (response) {
 	return response.text();
 }).then(function (str) {
 	return new window.DOMParser().parseFromString(str, 'text/xml');
 }).then(function (data) {
 	var items = data.querySelectorAll('item');
-	var html = '';
-
-	function getItems(el) {
-		html += '\n\t\t\t<li>\n\t\t\t\t<button\n\t\t\t\t\tclass="' + namespace + 'o-podcast__button display-flex js-play-episode"\n\t\t\t\t\tdata-src="' + el.querySelector('enclosure').getAttribute('url') + '"\n\t\t\t\t\tdata-title="' + el.querySelector('title').innerHTML + '"\n\t\t\t\t\tdata-description="' + el.querySelector('description').innerHTML.replace(/(<([^>]+)>)/gi, '').replace('<![CDATA[', '').replace(']]>', '') + '"\n\t\t\t\t\tdata-image="' + el.querySelector('image').getAttribute('href') + '"\n\t\t\t\t\tdata-duration="' + el.querySelector('duration').innerHTML + '"\n\t\t\t\t\ttype="button"><svg class="icon ' + namespace + 'o-podcast__play-icon u-m-r-2"><use xlink:href="#icon-play"></use></svg></div><div class="u-align-left"></button>\n\t\t\t\t<div class="' + namespace + 'o-podcast__show-info">\n\t\t\t\t\t<div class="' + namespace + 'o-podcast__title">' + el.querySelector('title').innerHTML + '</div>\n\t\t\t\t\t<div class="' + namespace + 'o-podcast__description">' + el.querySelector('description').innerHTML + '</div>\n\t\t\t\t</div>\n\t\t\t</li>\n\t\t';
-
-		if (jsTrackList) {
-			jsTrackList.innerHTML = html;
-		}
-
-		var playEpisodes = document.querySelectorAll('.js-play-episode');
-
-		[].forEach.call(playEpisodes, function (playEpisode) {
-			playEpisode.addEventListener('click', function () {
-				audio.src = playEpisode.dataset.src;
-				durationElement.innerHTML = playEpisode.dataset.duration;
-				title.innerHTML = playEpisode.dataset.title;
-				description.innerHTML = playEpisode.dataset.description;
-				image.src = playEpisode.dataset.image;
-				podCast.classList.remove(namespace + 'o-podcast--hidden');
-				timeleftElement.classList.add('u-visibility-hidden');
-
-				if (audio.play) {
-					audio.pause();
-					pauseIcon.classList.remove('is-hidden');
-					playIcon.classList.add('is-hidden');
-
-					audio.currentTime = 0;
-				}
-
-				audio.play();
-				timeupdate();
-
-				setTimeout(function () {
-					timeleftElement.classList.remove('u-visibility-hidden');
-				}, 1000);
-			});
-		});
-	}
 
 	items.forEach(getItems);
+});
+
+function playEpisode(playBtn) {
+	audio.src = playBtn.dataset.src;
+	durationElement.innerHTML = playBtn.dataset.duration;
+	title.innerHTML = playBtn.dataset.title;
+	description.innerHTML = playBtn.dataset.description;
+	image.src = playBtn.dataset.image;
+	podCast.classList.remove(namespace + 'o-podcast-player--hidden');
+	timeleftElement.classList.add('u-visibility-hidden');
+
+	if (audio.play) {
+		audio.pause();
+		pauseIcon.classList.remove('is-hidden');
+		playIcon.classList.add('is-hidden');
+
+		audio.currentTime = 0;
+	}
+
+	audio.play();
+	timeupdate();
+
+	setTimeout(function () {
+		timeleftElement.classList.remove('u-visibility-hidden');
+	}, 1000);
+}
+
+document.body.addEventListener('click', function (e) {
+	var playBtn = e.target.closest('.js-play-episode');
+	if (playBtn) {
+		e.preventDefault();
+		playEpisode(playBtn);
+	}
 });
 
 if (playButton) {

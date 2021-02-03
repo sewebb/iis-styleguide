@@ -126,6 +126,10 @@
 					fill: $color-ruby;
 				}
 			}
+
+			* {
+				pointer-events: none;
+			}
 		}
 
 		@include e(share) {
