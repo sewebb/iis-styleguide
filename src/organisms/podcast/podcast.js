@@ -67,35 +67,6 @@ function getItems(el) {
 	if (jsTrackList) {
 		jsTrackList.innerHTML = html;
 	}
-
-	const playEpisodes = document.querySelectorAll('.js-play-episode');
-
-	[].forEach.call(playEpisodes, (playEpisode) => {
-		playEpisode.addEventListener('click', () => {
-			audio.src = playEpisode.dataset.src;
-			durationElement.innerHTML = playEpisode.dataset.duration;
-			title.innerHTML = playEpisode.dataset.title;
-			description.innerHTML = playEpisode.dataset.description;
-			image.src = playEpisode.dataset.image;
-			podCast.classList.remove(`${namespace}o-podcast-player--hidden`);
-			timeleftElement.classList.add('u-visibility-hidden');
-
-			if (audio.play) {
-				audio.pause();
-				pauseIcon.classList.remove('is-hidden');
-				playIcon.classList.add('is-hidden');
-
-				audio.currentTime = 0;
-			}
-
-			audio.play();
-			timeupdate();
-
-			setTimeout(() => {
-				timeleftElement.classList.remove('u-visibility-hidden');
-			}, 1000);
-		});
-	});
 }
 
 fetch(rssURL)
@@ -106,6 +77,40 @@ fetch(rssURL)
 
 		items.forEach(getItems);
 	});
+
+
+function playEpisode(playBtn) {
+	audio.src = playBtn.dataset.src;
+	durationElement.innerHTML = playBtn.dataset.duration;
+	title.innerHTML = playBtn.dataset.title;
+	description.innerHTML = playBtn.dataset.description;
+	image.src = playBtn.dataset.image;
+	podCast.classList.remove(`${namespace}o-podcast-player--hidden`);
+	timeleftElement.classList.add('u-visibility-hidden');
+
+	if (audio.play) {
+		audio.pause();
+		pauseIcon.classList.remove('is-hidden');
+		playIcon.classList.add('is-hidden');
+
+		audio.currentTime = 0;
+	}
+
+	audio.play();
+	timeupdate();
+
+	setTimeout(() => {
+		timeleftElement.classList.remove('u-visibility-hidden');
+	}, 1000);
+}
+
+document.body.addEventListener('click', (e) => {
+	const playBtn = e.target.closest('.js-play-episode');
+	if (playBtn) {
+		e.preventDefault();
+		playEpisode(playBtn);
+	}
+});
 
 if (playButton) {
 	playButton.addEventListener('click', () => {
