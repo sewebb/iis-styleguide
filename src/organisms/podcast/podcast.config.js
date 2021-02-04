@@ -7,13 +7,12 @@ module.exports = {
 		hidden: false,
 		src: 'https://traffic.libsyn.com/secure/internetpodden/20201215-svenskarna-och-internet-2020.mp3?dest-id=1534313',
 		image: true,
-		imageSrc: 'https://ssl-static.libsyn.com/p/assets/a/9/6/5/a9653e010511f97e/internetpodden-logo.png',
 		title: 'Svenskarna och internet 2020',
 		description: 'Årets högtidsstund för alla som älskar internetstatistik är här! Vår rapport Svenskarna och internet har utökats inför ett speciellt år med extra frågor kring Coronapandemin. Jannike Tillå, Måns Jonasson och Jenny Andersson från Internetstiftelsen diskuterar insikterna från årets rapport.',
 		duration: '53:04',
 		has_modifier: false,
 		is_single_episode: true,
-		episodeImage: false
+		episodeImage: 'https://ssl-static.libsyn.com/p/assets/a/9/6/5/a9653e010511f97e/internetpodden-logo.png'
 	},
 
 	variants: [
