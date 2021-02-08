@@ -81,12 +81,15 @@ function effectText(element, value) {
 
 function update(element, value) {
 	var effect = element.getAttribute('data-if-effect') || 'toggle';
-
-	var _element$getAttribute = element.getAttribute('data-if').split(':'),
-	    _element$getAttribute2 = _slicedToArray(_element$getAttribute, 2),
-	    match = _element$getAttribute2[1];
-
-	var conditionMet = !match && !!value || match === value;
+	var values = element.getAttribute('data-if').split('|').map(function (match) {
+		return match.split(':')[1];
+	}).filter(function (v) {
+		return v;
+	});
+	var matches = values.some(function (match) {
+		return match === value;
+	});
+	var conditionMet = !values.length && !!value || matches;
 
 	if (effect === 'disable') {
 		effectDisable(element, !conditionMet, value);
@@ -128,9 +131,9 @@ function init() {
 	var elements = document.querySelectorAll('[data-if]');
 
 	[].forEach.call(elements, function (element) {
-		var _element$getAttribute3 = element.getAttribute('data-if').split(':'),
-		    _element$getAttribute4 = _slicedToArray(_element$getAttribute3, 1),
-		    name = _element$getAttribute4[0];
+		var _element$getAttribute = element.getAttribute('data-if').split(':'),
+		    _element$getAttribute2 = _slicedToArray(_element$getAttribute, 1),
+		    name = _element$getAttribute2[0];
 
 		var form = element.closest('form');
 
