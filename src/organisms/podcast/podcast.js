@@ -1,5 +1,5 @@
-const namespaceElement = document.querySelector('#site');
 let namespace;
+const namespaceElement = document.querySelector('#site');
 const podCast = document.querySelector('.js-podcast');
 const audio = document.getElementById('podcastPlayer');
 const jsTrackList = document.querySelector('.js-track-list');
@@ -14,7 +14,11 @@ const stepBackward = document.querySelector('.js-step-backward');
 const playButton = document.querySelector('.js-play-button');
 const playIcon = document.querySelector('.js-play-icon');
 const pauseIcon = document.querySelector('.js-pause-icon');
-const rssURL = podCast.dataset.rss;
+let rssURL = '';
+
+if (podCast) {
+	rssURL = podCast.dataset.rss;
+}
 
 if (!namespaceElement) {
 	namespace = '';
