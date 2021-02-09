@@ -73,14 +73,16 @@ function getItems(el) {
 	}
 }
 
-fetch(rssURL)
-	.then((response) => response.text())
-	.then((str) => new window.DOMParser().parseFromString(str, 'text/xml'))
-	.then((data) => {
-		const items = data.querySelectorAll('item');
+if (rssURL) {
+	fetch(rssURL)
+		.then((response) => response.text())
+		.then((str) => new window.DOMParser().parseFromString(str, 'text/xml'))
+		.then((data) => {
+			const items = data.querySelectorAll('item');
 
-		items.forEach(getItems);
-	});
+			items.forEach(getItems);
+		});
+}
 
 
 function playEpisode(playBtn) {
