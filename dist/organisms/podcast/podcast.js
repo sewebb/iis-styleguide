@@ -1,7 +1,7 @@
 'use strict';
 
-var namespaceElement = document.querySelector('#site');
 var namespace = void 0;
+var namespaceElement = document.querySelector('#site');
 var podCast = document.querySelector('.js-podcast');
 var audio = document.getElementById('podcastPlayer');
 var jsTrackList = document.querySelector('.js-track-list');
@@ -16,7 +16,11 @@ var stepBackward = document.querySelector('.js-step-backward');
 var playButton = document.querySelector('.js-play-button');
 var playIcon = document.querySelector('.js-play-icon');
 var pauseIcon = document.querySelector('.js-pause-icon');
-var rssURL = podCast.dataset.rss;
+var rssURL = '';
+
+if (podCast) {
+	rssURL = podCast.dataset.rss;
+}
 
 if (!namespaceElement) {
 	namespace = '';
