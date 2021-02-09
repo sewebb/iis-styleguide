@@ -68,8 +68,9 @@ function effectText(element, value) {
 
 function update(element, value) {
 	const effect = element.getAttribute('data-if-effect') || 'toggle';
-	const [, match] = element.getAttribute('data-if').split(':');
-	const conditionMet = (!match && !!value) || (match === value);
+	const values = element.getAttribute('data-if').split('|').map((match) => match.split(':')[1]).filter((v) => v);
+	const matches = values.some((match) => match === value);
+	const conditionMet = (!values.length && !!value) || matches;
 
 	if (effect === 'disable') {
 		effectDisable(element, !conditionMet, value);
