@@ -138,7 +138,8 @@ function init() {
 		var form = element.closest('form');
 
 		if (!form) {
-			throw new Error('Conditionals must be inside a form to avoid conflicts');
+			console.warn('Conditionals must be inside a form to avoid conflicts');
+			return;
 		}
 
 		var related = form.querySelector('[name="' + name + '"]');
