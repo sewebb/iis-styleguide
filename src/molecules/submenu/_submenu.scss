@@ -227,7 +227,6 @@
 					display: none;
 					padding: rhythm(0.5);
 					background-color: $color-concrete;
-					fill: $color-granit;
 
 					@include bp-up(md) {
 						padding: rhythm(1);
