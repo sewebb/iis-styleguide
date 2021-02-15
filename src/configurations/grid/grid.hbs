@@ -1,24 +1,24 @@
 <style>
-	.styleguide-visible-grid {
-		background-color: #0477ce;
-		margin-bottom: 1rem;
-		color: #fff;
-	}
+.styleguide-visible-grid {
+	background-color: #0477ce;
+	margin-bottom: 1rem;
+	color: #fff;
+}
 
-	.styleguide-align-containers {
-		background-color: #a7d8fd;
-		height: 100px;
-		margin-bottom: 2rem;
-		color: #fff;
-	}
+.styleguide-align-containers {
+	background-color: #a7d8fd;
+	height: 100px;
+	margin-bottom: 2rem;
+	color: #fff;
+}
 
-	.align-items-stretch .styleguide-visible-grid {
-		min-height: 100%;
-	}
+.align-items-stretch .styleguide-visible-grid {
+	min-height: 100%;
+}
 
-	code {
-		background-color: #ededed;
-	}
+code {
+	background-color: #ededed;
+}
 </style>
 
 <div class="wrapper u-p-y-4" id="content">
@@ -656,115 +656,118 @@
 		</div>
 	</div>
 
+	<h2>Wordpress gutenberg columns block grid</h2>
+
+	<div class="row background-ocean-light">
+		<div class="grid-18">
+			<div class="wp-block-columns">
+				<div class="wp-block-column background-ocean-dark color-snow">
+					50%
+				</div>
+				<div class="wp-block-column background-ocean-dark color-snow">
+					50%
+				</div>
+			</div>
+
+			<h2>Two columns; one-third, two-thirds split</h2>
+
+			<div class="wp-block-columns">
+				<div class="wp-block-column background-ocean-dark color-snow">
+					30%
+				</div>
+				<div class="wp-block-column background-ocean-dark color-snow">
+					70%
+				</div>
+			</div>
+
+			<div class="wp-block-columns">
+				<div class="wp-block-column background-ocean-dark color-snow">
+					70%
+				</div>
+				<div class="wp-block-column background-ocean-dark color-snow">
+					30%
+				</div>
+			</div>
+
+			<h2>Three columns; equal split</h2>
+
+			<div class="wp-block-columns">
+				<div class="wp-block-column background-ocean-dark color-snow">
+					<p>33%</p>
+				</div>
+				<div class="wp-block-column background-ocean-dark color-snow">
+					<p>33%</p>
+				</div>
+				<div class="wp-block-column background-ocean-dark color-snow">
+					<p>33%</p>
+				</div>
+			</div>
+
+			<h2>Three columns; wide center column</h2>
+
+			<div class="wp-block-columns">
+				<div class="wp-block-column background-ocean-dark color-snow">
+					<p>25%</p>
+				</div>
+				<div class="wp-block-column background-ocean-dark color-snow">
+					50%
+				</div>
+				<div class="wp-block-column background-ocean-dark color-snow">
+					<p>25%</p>
+				</div>
+			</div>
+
+			<h2>One column</h2>
+
+			<div class="wp-block-columns">
+				<div class="wp-block-column background-ocean-dark color-snow">
+					<p>100%</p>
+				</div>
+			</div>
+		</div>
+	</div>
+
 	<div class="row">
-        <div class="grid-sm-12 grid-18">
-            <h2>Asymmetrisk grid</h2>
-            <p>Placera kolumner asymmetriskt<p>
-        </div>
-    </div>
+		<div class="grid-sm-12 grid-18">
+			<h2>Asymmetrisk grid</h2>
+			<p>Placera kolumner asymmetriskt<p>
+			</div>
+		</div>
 
-    <div class="row asymmetric-sm">
-        <div class="grid-18 grid-sm-6">
-            <div class="styleguide-visible-grid">
-                Column 1
-            </div>
-        </div>
-        <div class="grid-18 grid-sm-6">
-            <div class="styleguide-visible-grid">
-                Column 2
-            </div>
-        </div>
-        <div class="grid-18 grid-sm-6">
-            <div class="styleguide-visible-grid">
-                Column 3
-            </div>
-        </div>
-    </div>
+		<div class="row asymmetric-sm">
+			<div class="grid-18 grid-sm-6">
+				<div class="styleguide-visible-grid">
+					Column 1
+				</div>
+			</div>
+			<div class="grid-18 grid-sm-6">
+				<div class="styleguide-visible-grid">
+					Column 2
+				</div>
+			</div>
+			<div class="grid-18 grid-sm-6">
+				<div class="styleguide-visible-grid">
+					Column 3
+				</div>
+			</div>
+		</div>
 
-    <div class="row asymmetric-sm asymmetric-reversed">
-        <div class="grid-18 grid-sm-6">
-            <div class="styleguide-visible-grid">
-                Column 1
-            </div>
-        </div>
-        <div class="grid-18 grid-sm-6">
-            <div class="styleguide-visible-grid">
-                Column 2
-            </div>
-        </div>
-        <div class="grid-18 grid-sm-6">
-            <div class="styleguide-visible-grid">
-                Column 3
-            </div>
-        </div>
-    </div>
-</div>
-
-<h1>WP Column Block Test</h1>
-
-<h2>Two columns; equal split</h2>
-
-<div class="wp-block-columns">
-	<div class="wp-block-column">
-		<p>50%</p>
-	</div>
-	<div class="wp-block-column">
-		<p>50%</p>
-	</div>
-</div>
-
-<h2>Two columns; one-third, two-thirds split</h2>
-
-<div class="wp-block-columns">
-	<div class="wp-block-column" style="flex-basis:33.33%">
-		<p>30%</p>
-	</div>
-	<div class="wp-block-column" style="flex-basis:66.66%">
-		<p>70%</p>
-	</div>
-</div>
-
-<div class="wp-block-columns">
-	<div class="wp-block-column" style="flex-basis:66.66%">
-		<p>70%</p>
-	</div>
-	<div class="wp-block-column" style="flex-basis:33.33%">
-		<p>30%</p>
-	</div>
-</div>
-
-<h2>Three columns; equal split</h2>
-
-<div class="wp-block-columns">
-	<div class="wp-block-column">
-		<p>33%</p>
-	</div>
-	<div class="wp-block-column is-vertically-aligned-top">
-		<p>33%</p>
-	</div>
-	<div class="wp-block-column">
-		<p>33%</p>
-	</div>
-</div>
-
-<h2>Three columns; wide center column</h2>
-
-<div class="wp-block-columns">
-	<div class="wp-block-column" style="flex-basis:25%">
-		<p>25%</p>
-	</div>
-	<div class="wp-block-column" style="flex-basis:50%">
-		<p>50%</p>
-	</div>
-	<div class="wp-block-column" style="flex-basis:25%">
-		<p>25%</p>
-	</div>
-</div>
-
-<h2>One column</h2>
-
-<div class="wp-block-columns">
-	<div class="wp-block-column">
-		<p>100%</p>
+		<div class="row asymmetric-sm asymmetric-reversed">
+			<div class="grid-18 grid-sm-6">
+				<div class="styleguide-visible-grid">
+					Column 1
+				</div>
+			</div>
+			<div class="grid-18 grid-sm-6">
+				<div class="styleguide-visible-grid">
+					Column 2
+				</div>
+			</div>
+			<div class="grid-18 grid-sm-6">
+				<div class="styleguide-visible-grid">
+					Column 3
+				</div>
+			</div>
+		</div>
 	</div>
 </div>
