@@ -1,6 +1,8 @@
 @charset 'UTF-8';
 
 @include organism(mailchimp) {
+	clear: both;
+
 	@include e(wrapper) {
 		@include card-shadow($color-cyberspace, 0.2);
 

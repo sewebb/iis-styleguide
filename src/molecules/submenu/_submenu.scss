@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 @include molecule(submenu) {
-	margin: 0;
+	margin: 0 0 rhythm(2) 0;
 	padding: 0;
 	overflow: hidden;
 	border-radius: $border-radius;
@@ -71,7 +71,7 @@
 			position: relative;
 			align-items: center;
 			justify-content: space-between;
-			padding: rhythm(1) rhythm(2);
+			padding: rhythm(1) rhythm(6) rhythm(1) rhythm(2);
 			overflow: hidden;
 			color: var(--m-submenu-icon-fill-color);
 			text-decoration: none;
@@ -110,7 +110,7 @@
 			}
 
 			&.is-current {
-				background-color: lighten($color-ash, 5%);
+				background-color: lighten($color-ash, 3%);
 				font-family: $font-family-headings;
 				pointer-events: none;
 
@@ -120,7 +120,7 @@
 			}
 
 			@include bp-up(md) {
-				padding: rhythm(2) rhythm(3);
+				padding: rhythm(2) rhythm(7) rhythm(2) rhythm(3);
 			}
 
 			@include m(has-sublevel) {
@@ -142,7 +142,7 @@
 			margin: 0;
 			padding: rhythm(1) rhythm(3);
 			border: 0;
-			border-left: 1px solid $color-ash;
+			border-left: 1px solid darken($color-ash, 5%);
 			background-color: transparent;
 
 			&::before,
@@ -170,7 +170,7 @@
 
 			&[aria-expanded='true'] {
 				margin-bottom: -1px;
-				background-color: lighten($color-ash, 5%);
+				background-color: lighten($color-ash, 3%);
 
 				&::after {
 					transform: rotate(-135deg);
@@ -182,7 +182,7 @@
 			}
 
 			&:hover {
-				background-color: lighten($color-ash, 5%);
+				background-color: lighten($color-ash, 3%);
 			}
 
 			@include bp-up(md) {
@@ -206,8 +206,8 @@
 	@include e(sublevel) {
 		margin: 0;
 		padding: 0;
-		border-top: 1px solid $color-ash;
-		background-color: lighten($color-ash, 5%);
+		border-top: 1px solid darken($color-ash, 3);
+		background-color: lighten($color-ash, 3%);
 		list-style: none;
 
 		&[aria-hidden='true'] {
@@ -217,7 +217,7 @@
 
 		@include e(item) {
 			& + & {
-				border-top: 1px solid $color-ash;
+				border-top: 1px solid darken($color-ash, 4);
 			}
 
 			/* Support for icon on sublevel */
