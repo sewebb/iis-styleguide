@@ -206,11 +206,7 @@ div.aligncenter {
 		flex-basis: 100% !important;
 	}
 }
-@include bp-between(sm, md) {
-	.wp-block-column {
-		flex-basis: calc(50% - #{$grid-gutter-width / 2)}) !important;
-	}
-}
+
 @include bp-up(md) {
 	.wp-block-column {
 		flex-basis: 0;
