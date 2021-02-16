@@ -29,6 +29,7 @@
 	}
 
 	@include m(basic) {
+		margin-top: 0;
 		padding: rhythm(2);
 		border-top: 0;
 		border-color: none;
