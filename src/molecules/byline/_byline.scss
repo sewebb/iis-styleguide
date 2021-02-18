@@ -29,9 +29,5 @@
 		height: rem(64px);
 		margin-bottom: rhythm(1);
 		border-radius: 50%;
-
-		+ [class*='meta'] {
-			margin-bottom: rhythm(0);
-		}
 	}
 }
