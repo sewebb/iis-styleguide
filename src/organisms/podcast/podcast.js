@@ -60,7 +60,7 @@ function getItems(el) {
 			data-description="${el.querySelector('description').innerHTML.replace(/(<([^>]+)>)/gi, '').replace('<![CDATA[', '').replace(']]>', '')}"
 			data-image="${el.querySelector('image').getAttribute('href')}"
 			data-duration="${el.querySelector('duration').innerHTML}"
-			type="button"><svg class="icon ${namespace}o-podcast-player__play-icon u-m-r-2"><use xlink:href="#icon-play"></use></svg></div><div class="u-align-left"></button>
+			type="button"><svg class="icon ${namespace}o-podcast-player__play-icon u-m-r-2"><use xlink:href="#icon-play"></use></svg></div><div class="u-visuallyhidden">Spela avsnittet ${el.querySelector('title').innerHTML}</div></button>
 		<div class="${namespace}o-podcast-player__show-info">
 			<div class="${namespace}o-podcast-player__title">${el.querySelector('title').innerHTML}</div>
 			<div class="${namespace}o-podcast-player__description">${el.querySelector('description').innerHTML}</div>
