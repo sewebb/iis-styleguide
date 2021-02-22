@@ -12,6 +12,7 @@ module.exports = {
 		duration: '53:04',
 		has_modifier: false,
 		is_single_episode: true,
+		date: '15 december, 2020',
 		episodeImage: 'https://ssl-static.libsyn.com/p/assets/a/9/6/5/a9653e010511f97e/internetpodden-logo.png'
 	},
 
