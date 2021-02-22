@@ -52,6 +52,8 @@
 			@include e(image) {
 				width: rem(310px);
 				height: rem(310px);
+				margin-right: 0;
+				margin-left: rhythm(4);
 			}
 
 			@include e(info) {
