@@ -69,6 +69,7 @@ module.exports = {
 			context: {
 				is_single_episode: true,
 				modifiers: ['hero'],
+				is_hero: true
 			}
 		}
 	]

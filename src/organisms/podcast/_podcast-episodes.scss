@@ -85,7 +85,16 @@
 		}
 
 		@include e(info) {
-			svg {
+			h1 span {
+				pointer-events: none;
+			}
+
+			h1 svg {
+				width: $icon-size-large * 1.5;
+				height: $icon-size-large * 1.5;
+			}
+
+			h2 svg {
 				width: $icon-size-large * 1.2;
 				height: $icon-size-large * 1.2;
 			}
@@ -110,6 +119,7 @@
 			&:hover,
 			&:focus {
 				text-decoration: underline;
+				cursor: pointer;
 			}
 		}
 
