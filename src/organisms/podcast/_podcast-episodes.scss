@@ -63,6 +63,10 @@
 					white-space: normal;
 				}
 			}
+
+			@include e(link) {
+				pointer-events: none;
+			}
 		}
 
 		@include e(image) {
