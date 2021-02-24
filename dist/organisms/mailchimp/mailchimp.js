@@ -1,5 +1,11 @@
 'use strict';
 
+var _debounce = require('../../assets/js/debounce');
+
+var _debounce2 = _interopRequireDefault(_debounce);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
 var slidingForm = document.querySelector('[class*="--sliding"]');
 var staticForm = document.querySelector('[class*="--static"]');
 var closeButton = document.querySelector('[class*="--sliding"] .js-close-mailchimp-popup');
@@ -74,23 +80,7 @@ function slideForm() {
 	}
 }
 
-var debounce = function debounce(func, delay) {
-	var inDebounce = void 0;
-
-	return function () {
-		for (var _len = arguments.length, args = Array(_len), _key = 0; _key < _len; _key++) {
-			args[_key] = arguments[_key];
-		}
-
-		var context = undefined;
-		clearTimeout(inDebounce);
-		inDebounce = setTimeout(function () {
-			return func.apply(context, args);
-		}, delay);
-	};
-};
-
-var elementIsInViewport = debounce(function () {
+var elementIsInViewport = (0, _debounce2.default)(function () {
 	if (slidingForm) {
 		slideForm();
 	}
