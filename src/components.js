@@ -18,3 +18,4 @@ import './assets/js/conditional';
 import './atoms/file/file';
 import './atoms/file/filePreview';
 import './organisms/podcast/podcast';
+import './assets/js/responsivePosition';
