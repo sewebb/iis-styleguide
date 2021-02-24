@@ -1,3 +1,5 @@
+import debounce from '../../assets/js/debounce';
+
 require('van11y-accessible-accordion-aria');
 
 const className = 'o-accordion';
@@ -24,16 +26,6 @@ function attachAccordion() {
 if (accordionElement) {
 	attachAccordion();
 }
-
-const debounce = (func, delay) => {
-	let inDebounce;
-
-	return (...args) => {
-		const context = this;
-		clearTimeout(inDebounce);
-		inDebounce = setTimeout(() => func.apply(context, args), delay);
-	};
-};
 
 const checkElements = debounce(() => {
 	const accordionElementFresh = document.querySelector(`.js-${className}`);

@@ -1,3 +1,5 @@
+import debounce from '../../assets/js/debounce';
+
 const slidingForm = document.querySelector('[class*="--sliding"]');
 const staticForm = document.querySelector('[class*="--static"]');
 const closeButton = document.querySelector('[class*="--sliding"] .js-close-mailchimp-popup');
@@ -74,16 +76,6 @@ function slideForm() {
 		}
 	}
 }
-
-const debounce = (func, delay) => {
-	let inDebounce;
-
-	return (...args) => {
-		const context = this;
-		clearTimeout(inDebounce);
-		inDebounce = setTimeout(() => func.apply(context, args), delay);
-	};
-};
 
 const elementIsInViewport = debounce(() => {
 	if (slidingForm) {
