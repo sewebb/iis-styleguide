@@ -40,7 +40,7 @@ function repositionElement(element) {
 
 	var newParent = document.getElementById(position);
 
-	if (!newParent) {
+	if (!newParent || element.parentNode === newParent) {
 		return;
 	}
 

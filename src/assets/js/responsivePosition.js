@@ -29,7 +29,7 @@ function repositionElement(element) {
 
 	const newParent = document.getElementById(position);
 
-	if (!newParent) {
+	if (!newParent || element.parentNode === newParent) {
 		return;
 	}
 
