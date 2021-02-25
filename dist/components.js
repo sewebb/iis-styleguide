@@ -39,3 +39,5 @@ require('./atoms/file/file');
 require('./atoms/file/filePreview');
 
 require('./organisms/podcast/podcast');
+
+require('./assets/js/responsivePosition');
