@@ -18,7 +18,7 @@
 		}
 	}
 
-	@include bp-up(md) {
+	@include bp-up(lg) {
 		@include m(indent-basic) {
 			> h1,
 			> p {
