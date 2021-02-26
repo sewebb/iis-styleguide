@@ -164,6 +164,8 @@ div.aligncenter {
 }
 
 .wp-block-iis-grid {
+	clear: both;
+
 	> .row {
 		> [class*='grid'] {
 			> *:only-child {
