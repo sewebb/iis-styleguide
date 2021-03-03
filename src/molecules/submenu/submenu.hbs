@@ -5,62 +5,64 @@
 	--m-submenu-icon-background-hover-color: {{icon_background_hover_color}};
 }
 </style>
-<dl class="m-submenu">
-	<dt class="m-submenu__title">
-		<a href="#" class="m-submenu__title__link">
-			<span>Om oss</span>
-			{{> @icon id="arrow-variant"}}
-		</a>
-	</dt>
-	<dd class="m-submenu__item">
-		<a href="#" class="m-submenu__item__link">
-			<span>Vi är internetstiftelsen</span>
-			{{> @icon id="arrow-variant"}}
-		</a>
-	</dd>
-	{{#unless has_sublevel}}
-	<dd class="m-submenu__item">
-		<a href="#" class="m-submenu__item__link is-current">
-			<span>Kontakt</span>
-			{{> @icon id="arrow-variant"}}
-		</a>
-	</dd>
-	{{/unless}}
-	{{#if has_sublevel}}
-	<dd class="m-submenu__item">
-		<div class="m-submenu__item__sublevel">
-			<a href="#" class="m-submenu__item__link m-submenu__item__link--has-sublevel">
-				<span>Mer om oss</span>
+<nav>
+	<dl class="m-submenu">
+		<dt class="m-submenu__title">
+			<a href="#" class="m-submenu__title__link">
+				<span>Om oss</span>
 				{{> @icon id="arrow-variant"}}
 			</a>
-			<button type="button" class="m-submenu__item__toggle-button" data-a11y-toggle="sublvl007" aria-controls="sublvl007"><span class="u-visuallyhidden">Öppna/stäng</span></button>
-		</div>
-		<ul class="m-submenu__sublevel" aria-hidden="true" id="sublvl007" data-focus-trap="false">
-			<li class="m-submenu__sublevel__item">
-				<a href="#" class="m-submenu__item__link m-submenu__sublevel__item__link">
-					<span>Styrelse</span>
-					{{#if sublevel_has_icon}}{{> @icon id="arrow-variant"}}{{/if}}
+		</dt>
+		<dd class="m-submenu__item">
+			<a href="#" class="m-submenu__item__link">
+				<span>Vi är internetstiftelsen</span>
+				{{> @icon id="arrow-variant"}}
+			</a>
+		</dd>
+		{{#unless has_sublevel}}
+		<dd class="m-submenu__item">
+			<a href="#" class="m-submenu__item__link is-current">
+				<span>Kontakt</span>
+				{{> @icon id="arrow-variant"}}
+			</a>
+		</dd>
+		{{/unless}}
+		{{#if has_sublevel}}
+		<dd class="m-submenu__item">
+			<div class="m-submenu__item__sublevel">
+				<a href="#" class="m-submenu__item__link m-submenu__item__link--has-sublevel">
+					<span>Mer om oss</span>
+					{{> @icon id="arrow-variant"}}
 				</a>
-			</li>
-			<li class="m-submenu__sublevel__item">
-				<a href="#" class="m-submenu__item__link m-submenu__sublevel__item__link">
-					<span>Stadgar</span>
-					{{#if sublevel_has_icon}}{{> @icon id="arrow-variant"}}{{/if}}
-				</a>
-			</li>
-		</ul>
-	</dd>
-	{{/if}}
-	<dd class="m-submenu__item">
-		<a href="#" class="m-submenu__item__link">
-			<span>Press</span>
-			{{> @icon id="arrow-variant"}}
-		</a>
-	</dd>
-	<dd class="m-submenu__item">
-		<a href="#" class="m-submenu__item__link">
-			<span>Jobba hos oss</span>
-			{{> @icon id="arrow-variant"}}
-		</a>
-	</dd>
-</dl>
+				<button type="button" class="m-submenu__item__toggle-button" data-a11y-toggle="sublvl007" aria-controls="sublvl007"><span class="u-visuallyhidden">Öppna/stäng</span></button>
+			</div>
+			<ul class="m-submenu__sublevel" aria-hidden="true" id="sublvl007" data-focus-trap="false">
+				<li class="m-submenu__sublevel__item">
+					<a href="#" class="m-submenu__item__link m-submenu__sublevel__item__link">
+						<span>Styrelse</span>
+						{{#if sublevel_has_icon}}{{> @icon id="arrow-variant"}}{{/if}}
+					</a>
+				</li>
+				<li class="m-submenu__sublevel__item">
+					<a href="#" class="m-submenu__item__link m-submenu__sublevel__item__link">
+						<span>Stadgar</span>
+						{{#if sublevel_has_icon}}{{> @icon id="arrow-variant"}}{{/if}}
+					</a>
+				</li>
+			</ul>
+		</dd>
+		{{/if}}
+		<dd class="m-submenu__item">
+			<a href="#" class="m-submenu__item__link">
+				<span>Press</span>
+				{{> @icon id="arrow-variant"}}
+			</a>
+		</dd>
+		<dd class="m-submenu__item">
+			<a href="#" class="m-submenu__item__link">
+				<span>Jobba hos oss</span>
+				{{> @icon id="arrow-variant"}}
+			</a>
+		</dd>
+	</dl>
+</nav>
