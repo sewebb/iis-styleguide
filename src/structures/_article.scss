@@ -46,6 +46,10 @@
 				}
 			}
 
+			> [class*='meta'] {
+				margin-left: $indent;
+			}
+
 			> p.preamble {
 				max-width: rem(612px);
 				margin-left: $indent;
