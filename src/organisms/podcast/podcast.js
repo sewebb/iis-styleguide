@@ -84,7 +84,6 @@ if (rssURL) {
 		});
 }
 
-
 function playEpisode(playBtn) {
 	audio.src = playBtn.dataset.src;
 	durationElement.innerHTML = playBtn.dataset.duration;
