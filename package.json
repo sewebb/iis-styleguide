@@ -70,8 +70,8 @@
 		"postcss-cli": "^7.1.1",
 		"sass-extract": "^2.1.0",
 		"stylelint": "^13.3.3",
-		"stylelint-config-property-sort-order-smacss": "^7.0.0",
-		"stylelint-scss": "^3.19.0",
+		"stylelint-config-property-sort-order-smacss": "^4.0.1",
+		"stylelint-scss": "^3.14.2",
 		"uglify-es": "^3.3.9"
 	},
 	"dependencies": {
