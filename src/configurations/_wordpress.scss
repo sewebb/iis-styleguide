@@ -292,9 +292,15 @@ div.aligncenter {
 }
 
 .wp-block-table {
-	table {
+	td {
+		padding-top: rhythm(2) !important;
+		padding-bottom: rhythm(2) !important;
+	}
+
+	[class*='lines'],
+	&[class*='lines'] {
 		td {
-			border-bottom-width: 0;
+			border-bottom-width: 0 !important;
 		}
 
 		tr {
