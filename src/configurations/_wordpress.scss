@@ -290,3 +290,25 @@ div.aligncenter {
 .wp-block-column.is-vertically-aligned-top {
 	width: 100%;
 }
+
+.wp-block-table {
+	table {
+		td {
+			border-bottom-width: 0;
+		}
+
+		tr {
+			background-image:
+				linear-gradient(
+					to right,
+					$color-cyberspace,
+					$color-cyberspace 2px,
+					transparent 2px,
+					transparent 6px
+				);
+			background-repeat: repeat-x;
+			background-position: bottom left;
+			background-size: 6px 1px;
+		}
+	}
+}
