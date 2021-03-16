@@ -65,5 +65,13 @@ $alert-text: $color-cyberspace;
 
 	@include m(error) {
 		@include alert-variant($alert-error-border, $alert-error-bg, $alert-text);
+
+		::selection {
+			background-color: $color-ruby;
+		}
+
+		::-moz-selection {
+			background-color: $color-ruby;
+		}
 	}
 }

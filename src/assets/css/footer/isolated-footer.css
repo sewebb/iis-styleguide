@@ -4719,6 +4719,10 @@
     border-color: #ff4069;
     background-color: #ff9fb4;
     color: #1f2a36; }
+    .m-alert--error ::selection {
+      background-color: #ff4069; }
+    .m-alert--error ::-moz-selection {
+      background-color: #ff4069; }
 
 .m-cookie-disclaimer {
   display: none;
