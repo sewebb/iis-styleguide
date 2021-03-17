@@ -8,6 +8,15 @@ module.exports = {
 	},
 	variants: [
 		{
+			status: 'prototype',
+			name: 'With icons',
+			context: {
+				has_sublevel: true,
+				has_icons: true,
+				sublevel_has_icon: true
+			}
+		},
+		{
 			name: 'With sublevel',
 			context: {
 				has_sublevel: true,
