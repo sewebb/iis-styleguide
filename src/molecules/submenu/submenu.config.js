@@ -20,7 +20,7 @@ module.exports = {
 			name: 'With sublevel',
 			context: {
 				has_sublevel: true,
-				sublevel_has_icon: true
+				sublevel_has_icon: false
 			}
 		}
 	]
