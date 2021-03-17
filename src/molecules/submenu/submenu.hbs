@@ -16,14 +16,14 @@
 		<dd class="m-submenu__item">
 			<a href="#" class="m-submenu__item__link">
 				<span>Vi är internetstiftelsen</span>
-				{{> @icon id="arrow-variant"}}
+				{{#if has_icons}}{{> @icon id="arrow-variant"}}{{/if}}
 			</a>
 		</dd>
 		{{#unless has_sublevel}}
 		<dd class="m-submenu__item">
 			<a href="#" class="m-submenu__item__link is-current">
 				<span>Kontakt</span>
-				{{> @icon id="arrow-variant"}}
+				{{#if has_icons}}{{> @icon id="arrow-variant"}}{{/if}}
 			</a>
 		</dd>
 		{{/unless}}
@@ -32,7 +32,7 @@
 			<div class="m-submenu__item__sublevel">
 				<a href="#" class="m-submenu__item__link m-submenu__item__link--has-sublevel">
 					<span>Mer om oss</span>
-					{{> @icon id="arrow-variant"}}
+					{{#if has_icons}}{{> @icon id="arrow-variant"}}{{/if}}
 				</a>
 				<button type="button" class="m-submenu__item__toggle-button" data-a11y-toggle="sublvl007" aria-controls="sublvl007"><span class="u-visuallyhidden">Öppna/stäng</span></button>
 			</div>
@@ -53,15 +53,15 @@
 		</dd>
 		{{/if}}
 		<dd class="m-submenu__item">
-			<a href="#" class="m-submenu__item__link">
+			<a href="#" class="m-submenu__item__link is-current">
 				<span>Press</span>
-				{{> @icon id="arrow-variant"}}
+				{{#if has_icons}}{{> @icon id="arrow-variant"}}{{/if}}
 			</a>
 		</dd>
 		<dd class="m-submenu__item">
 			<a href="#" class="m-submenu__item__link">
 				<span>Jobba hos oss</span>
-				{{> @icon id="arrow-variant"}}
+				{{#if has_icons}}{{> @icon id="arrow-variant"}}{{/if}}
 			</a>
 		</dd>
 	</dl>

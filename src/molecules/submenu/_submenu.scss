@@ -110,7 +110,6 @@
 			}
 
 			&.is-current {
-				background-color: lighten($color-ash, 3%);
 				font-family: $font-family-headings;
 				pointer-events: none;
 
@@ -217,7 +216,7 @@
 
 		@include e(item) {
 			margin: 0;
-			padding: 0;
+			padding: 0 rhythm(1.5);
 
 			& + & {
 				border-top: 1px solid darken($color-ash, 4);

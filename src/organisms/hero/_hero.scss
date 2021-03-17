@@ -169,6 +169,10 @@
 			color: $color-cyberspace;
 		}
 
+		@include e(paragraph) {
+			@extend %preamble;
+		}
+
 		@include b(a-tag) {
 			@include tag;
 		}
