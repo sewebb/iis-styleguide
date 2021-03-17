@@ -8,8 +8,7 @@
 	}
 
 	@include e(content) {
-		> div:not(.wp-block-iis-grid),
-		> div:not(.wp-block-iis-hero),
+		> div:not(.wp-block-iis-grid):not(.wp-block-iis-hero),
 		> figure {
 			margin-bottom: rhythm(3);
 		}
