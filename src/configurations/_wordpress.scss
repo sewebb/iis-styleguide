@@ -318,3 +318,10 @@ div.aligncenter {
 		}
 	}
 }
+
+.wp-block-image,
+.wp-block-image:not(.is-style-rounded) {
+	img {
+		border-radius: $border-radius;
+	}
+}
