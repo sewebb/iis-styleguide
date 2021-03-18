@@ -12,6 +12,16 @@
 		max-height: none !important;
 	}
 
+	.supersize {
+		+ [class*='buttons'] {
+			margin-top: rhythm(2);
+
+			@include bp-up(lg) {
+				margin-top: rhythm(3);
+			}
+		}
+	}
+
 	@include bp-up(sm) {
 		overflow: hidden;
 		background-color: transparent;
