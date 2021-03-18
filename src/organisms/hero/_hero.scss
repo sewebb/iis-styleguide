@@ -32,12 +32,10 @@
 		object-fit: cover;
 		object-position: 50% 25%;
 		width: 100%;
-		border-radius: $border-radius;
 
 		@include bp-up(sm) {
 			min-height: rem(500px);
 			max-height: 50vh;
-			border-radius: 0;
 		}
 	}
 
@@ -301,6 +299,10 @@
 	@include m(border-radius) {
 		border-radius: $border-radius;
 
+		@include e(image) {
+			border-radius: $border-radius;
+		}
+
 		@include bp-up(md) {
 			@include e(text) {
 				max-width: 100%;
@@ -318,18 +320,6 @@
 		@include bp-up(lg) {
 			@include e(text) {
 				max-width: 90%;
-			}
-		}
-
-		@include bp-up(xxl) {
-			@include e(text) {
-				.supersize {
-					@include plumber(
-						$font-size: 5.5,
-						$line-height: 7,
-						$leading-bottom: 1
-					);
-				}
 			}
 		}
 
