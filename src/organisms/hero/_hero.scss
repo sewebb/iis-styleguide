@@ -144,6 +144,14 @@
 			);
 		}
 
+		+ [class*='buttons'] {
+			margin-top: rhythm(2);
+
+			@include bp-up(lg) {
+				margin-top: rhythm(3);
+			}
+		}
+
 		@include bp-up(sm) {
 			color: $color-snow;
 		}
@@ -159,6 +167,11 @@
 			position: static;
 			background-image: none;
 			text-shadow: none;
+
+			@include bp-down(md) {
+				padding-right: 0;
+				padding-left: 0;
+			}
 		}
 
 		@include e(link) {
