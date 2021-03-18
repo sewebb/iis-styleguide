@@ -34,6 +34,8 @@ module.exports = {
 				no_image_class: 'o-hero--no-image',
 				has_radius: false,
 				has_image: false,
+				has_buttons: false,
+				has_tags: true,
 				text: 'Nästan alla i Sverige använder internet – men hur meningsfull är tiden vi spenderar där? I rapporten Svenskarna och internet 2019 frågar vi för första gången om meningsfullhet, och det syns stora skillnader mellan olika aktiviteter. Tid på sociala medier tycker bara var fjärde är meningsfull.',
 			}
 		},
