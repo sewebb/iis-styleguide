@@ -20,6 +20,8 @@
 	}
 
 	@include e(link) {
+		@extend %link-styles;
+
 		margin-left: rhythm(-0.5);
 	}
 
@@ -29,5 +31,16 @@
 		height: rem(64px);
 		margin-bottom: rhythm(1);
 		border-radius: 50%;
+		background-color: $color-concrete;
+	}
+
+	@include e(list) {
+		margin: 0 0 rhythm(1) 0;
+		padding: 0;
+		list-style: none;
+
+		@include e(item) {
+			font-size: $size-medium-plus;
+		}
 	}
 }

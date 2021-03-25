@@ -1,10 +1,14 @@
 <div class="m-byline">
 	{{#if author_image}}<img class="m-byline__portrait" src="{{author_image}}" alt="{{author_name}}">{{/if}}
-	<span class="a-meta"><span class="small">{{#if author_image}}Om skribenten{{else}}Skribent{{/if}}</span></span>
-	<p class="gamma"><a href="{{author_archive}}" class="m-byline__link" title="{{archive_text}}">{{author_name}}</a></p>
-	<p class="u-m-b-1">
-		{{author_biography}}
-	</p>
+	<span class="a-meta"><span class="small">{{#if author_image}}Skribent{{else}}Skribent{{/if}}</span></span>
+	<ul class="m-byline__list">
+		<li><a href="{{author_archive}}" class="m-byline__link" title="{{archive_text}}">{{author_name}}</a></li>
+		<li class="m-byline__list__item"><strong>Publicerad:</strong> {{publish_date}}</li>
+		<li class="m-byline__list__item"><strong>Senast uppdaterad:</strong> {{update_date}}</li>
+		{{#if reviewer_name}}
+		<li class="m-byline__list__item"><strong>Granskad av:</strong> {{reviewer_name}}</li>
+		{{/if}}
+	</ul>
 	{{#if author_email}}
 	<figure class="m-byline__figure">
 		<svg class="m-byline__icon" viewbox="0 0 32 32" width="100%" height="100%">

@@ -13,7 +13,7 @@ for (let i = 0; i < sprite.length; i++) {
 
 module.exports = {
 	status: 'ready',
-	title: 'Icon',
+	title: 'Icons',
 
 	collated: true,
 
