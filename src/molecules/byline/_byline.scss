@@ -35,11 +35,13 @@
 	}
 
 	@include e(list) {
-		margin: 0 0 rhythm(1) 0;
+		margin: rhythm(2) 0 rhythm(1) 0;
 		padding: 0;
 		list-style: none;
 
 		@include e(item) {
+			padding-top: 0;
+			padding-bottom: 0;
 			font-size: $size-medium-plus;
 		}
 	}

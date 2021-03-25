@@ -1,8 +1,8 @@
 <div class="m-byline">
 	{{#if author_image}}<img class="m-byline__portrait" src="{{author_image}}" alt="{{author_name}}">{{/if}}
 	<span class="a-meta"><span class="small">{{#if author_image}}Skribent{{else}}Skribent{{/if}}</span></span>
+	<a href="{{author_archive}}" class="m-byline__link" title="{{archive_text}}">{{author_name}}</a>
 	<ul class="m-byline__list">
-		<li><a href="{{author_archive}}" class="m-byline__link" title="{{archive_text}}">{{author_name}}</a></li>
 		<li class="m-byline__list__item"><strong>Publicerad:</strong> {{publish_date}}</li>
 		<li class="m-byline__list__item"><strong>Senast uppdaterad:</strong> {{update_date}}</li>
 		{{#if reviewer_name}}
