@@ -26,6 +26,11 @@ $fill-color: $color-black;
 		height: $icon-size-large;
 	}
 
+	@include m(supersize) {
+		width: $icon-size-large * 1.5;
+		height: $icon-size-large * 1.5;
+	}
+
 	// Specific icons
 	@include m(check) {
 		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 24.42' fill='" + $fill-color + "'%3E%3Cpolygon points='12.04 24.42 0 13.26 2.87 10.16 11.81 18.44 28.9 0 32 2.87 12.04 24.42' data-name='Layer 3'/%3E%3C/svg%3E");
