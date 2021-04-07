@@ -21,6 +21,6 @@ module.exports = {
 		site_heading_5: 'Internetmuseum',
 		site_description_5: 'Internetmuseum är ett digitalt museum som byggts, och kureras av Internetstiftelsen',
 		site_heading_6: 'Digitala lektioner',
-		site_description_6: 'Digitala lektioner är en kostnadsfri lärresurs från Internetstiftelsen med lektioner och material som täcker allt som rör digital kompetens och programmering i grundskolan',
+		site_description_6: 'Digitala lektioner är en öppen digital lärresurs från Internetstiftelsen. Du hittar färdiga lektioner inom olika ämnesområden för alla stadier i grundskolan',
 	}
 }
