@@ -1,5 +1,7 @@
 <div class="wrapper-fluid o-mega-menu" aria-hidden="{{hidden}}" id="{{id}}">
-	{{> @domain-search hidden="true" input_id="search-domain-2" label="sök en .se- eller .nu-domän" addidional_classes="o-domain-search--is-in-mega-menu" id=false}}
+	{{#if domain_search}}
+		{{> @domain-search hidden="true" id="domain-search-2" input_id="search-domain-2" label="sök en .se- eller .nu-domän" addidional_classes="o-domain-search--is-in-mega-menu"}}
+	{{/if}}
 	<div class="wrapper o-mega-menu__wrapper">
 		<div class="row align-items-start">
 			<div class="grid-18 grid-lg">
@@ -68,16 +70,26 @@
 			</div>
 		</div>
 	</div>
-	<div class="row align-items-center u-p-4 background-cyberspace">
-		<div class="grid-auto">
-			{{>@icon id="search" additional_classes="u-icon--supersize u-fill-snow"}}
-		</div>
-		<div class="grid">
-			<label for="search" class="u-visuallyhidden">Sök på Internetstiftelsen.se</label>
-			<input type="search" class="o-search__input" id="search" placeholder="Sök på Internetstiftelsen.se">
-		</div>
-		<div class="grid-auto">
-			{{> @button el="button" modifiers="large" additional_classes="o-search__submit" text="Sök" id=search}}
+	{{#if search}}
+	<div class="row o-mega-menu__search__wrapper background-jade">
+		<div class="wrapper">
+			<div class="row align-items-center">
+				<div class="grid-auto u-p-r-0">
+					<span class="o-search__icon">
+						<svg class="icon">
+							<use xlink:href="#icon-search"></use>
+						</svg>
+					</span>
+				</div>
+				<form role="search" method="get" action="/" class="grid u-p-l-0 display-flex">
+					<label for="" class="u-visuallyhidden">sök internetstiftelsen.se</label>
+					<input type="search" name="s" class="o-search__input" value="" placeholder="sök internetstiftelsen.se" aria-describedby="number-of-hits" id="">
+					<button id="o-search-result-submit" type="submit" class="a-button a-button a-button--large-responsive o-search__submit">
+						<span class="a-button__text">Sök</span>
+					</button>
+				</form>
+			</div>
 		</div>
 	</div>
+	{{/if}}
 </div>

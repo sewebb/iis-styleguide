@@ -3,7 +3,7 @@ module.exports = {
 
 	context: {
 		hidden: 'false',
-		id: true,
+		id: 'domain-search',
 		addidional_classes: 'o-domain-search--narrow',
 		label: 'sök en .se- eller .nu-domän'
 	}

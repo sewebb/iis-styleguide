@@ -32,6 +32,11 @@ $border-color: darken($color-jade, 5%);
 
 	@include e(wrapper) {
 		padding-top: rhythm(3);
+
+		@include bp-down(md) {
+			padding-right: rhythm(1);
+			padding-left: rhythm(1);
+		}
 	}
 
 	@include e(list) {
@@ -115,6 +120,16 @@ $border-color: darken($color-jade, 5%);
 		@include e(link) {
 			@include m(large) {
 				padding: 0;
+			}
+		}
+	}
+
+	@include e(search) {
+		@include e(wrapper) {
+			padding: rhythm(2) rhythm(1);
+
+			@include bp-up(md) {
+				padding: rhythm(3) rhythm(2);
 			}
 		}
 	}

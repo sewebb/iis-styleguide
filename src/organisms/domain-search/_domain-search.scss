@@ -1,7 +1,7 @@
 @charset 'UTF-8';
 
 @include organism(domain-search) {
-	padding: rhythm(3) 0;
+	padding: rhythm(2) 0 rhythm(1) 0;
 	background-color: $color-snow;
 
 	&:not([class*='is-in-mega-menu']) {
@@ -49,6 +49,10 @@
 		}
 	}
 
+	@include bp-up(md) {
+		padding: rhythm(3) rhythm(1);
+	}
+
 	@include e(list-container) {
 		padding: 0 rhythm(1) 0 rhythm(1);
 	}
@@ -57,21 +61,16 @@
 		display: block;
 		width: calc(100% - #{rhythm(2)});
 		margin-right: rhythm(2);
-		padding: rhythm(1);
+		padding: rhythm(1) rhythm(2);
 		transition: padding 0.25s ease-out;
 		border: 0;
 		border-radius: $border-radius;
-		background-color: $color-snow;
+		background-color: lighten($color-ash, 4%);
 		letter-spacing: -0.1px;
 		-webkit-appearance: none;
 
 		@include bp-up(md) {
 			font-size: rem(32px);
-
-			&:focus {
-				padding-left: rhythm(2);
-				background-color: lighten($color-ash, 4%);
-			}
 		}
 
 		@include m(force-focus-look) {
@@ -89,13 +88,27 @@
 		padding: rhythm(1) 0 0 0;
 
 		li {
-			padding: rhythm(1) 0 0;
+			padding: rhythm(1) 0;
 			white-space: nowrap;
 
+			+ li {
+				border-top: 1px solid $color-concrete;
+
+				@include bp-up(md) {
+					padding-bottom: 0;
+					border-top: 0;
+				}
+			}
+
 			a {
+				padding: 0 rhythm(1);
 				border-bottom: 0;
 				font-size: rem($size-medium-plus);
 				text-decoration: underline;
+
+				@include bp-up(md) {
+					padding: 0;
+				}
 			}
 		}
 	}
