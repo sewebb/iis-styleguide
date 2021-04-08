@@ -9,7 +9,7 @@
 		<button class="ql-link"><span class="u-visuallyhidden">Link</span>{{> @icon id="link"}}</button>
 	</div>
 	{{/if}}
-	<textarea class="a-textarea{{#if modifier}} {{modifier}}{{/if}}" id="{{id}}" {{#if is_invalid}}aria-invalid="true"{{/if}} {{#if is_richtext}}data-rich-text {{/if}} {{#if required}}required {{/if}} {{#if is_disabled}}disabled {{/if}} placeholder="{{placeholder}}" autocomplete="{{autocomplete}}"{{#if has_help}} aria-describedby="textarea-help"{{/if}} {{#if required}} aria-describedby="textarea-help"{{/if}}></textarea>
+	<textarea rows="5" class="a-textarea{{#if modifier}} {{modifier}}{{/if}}" id="{{id}}" {{#if is_invalid}}aria-invalid="true"{{/if}} {{#if is_richtext}}data-rich-text {{/if}} {{#if required}}required {{/if}} {{#if is_disabled}}disabled {{/if}} placeholder="{{placeholder}}" autocomplete="{{autocomplete}}"{{#if has_help}} aria-describedby="textarea-help"{{/if}} {{#if required}} aria-describedby="textarea-help"{{/if}}></textarea>
 	{{#if has_help}}
 	<div class="input-help" id="textarea-help">
 		Välj det som passar dig bäst
