@@ -19,3 +19,4 @@ import './atoms/file/file';
 import './atoms/file/filePreview';
 import './organisms/podcast/podcast';
 import './assets/js/responsivePosition';
+import './molecules/glider/glider';

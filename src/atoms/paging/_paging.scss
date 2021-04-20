@@ -20,6 +20,8 @@
 @include atom(paging) {
 	display: inline-flex;
 	position: relative;
+	flex-grow: 0;
+	flex-shrink: 0;
 	align-items: center;
 	justify-content: center;
 	width: rhythm(6);

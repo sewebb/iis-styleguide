@@ -1,0 +1,39 @@
+<div class="wrapper u-p-x-0">
+	<div class="grid-18">
+		<h2 class="alpha">Så tycker våra kunder</h2>
+	</div>
+	<div class="glider-contain">
+		{{> @paging icon="arrow-backwards" additional_classes="glider-nav js-glider-prev" text="Bakåt"}}
+			<div class="glider js-glider">
+				<div class="glider-slide glider-slide--stretch-items">
+					{{> @quote quotee="Paloma Picasso" quote='"I’ve never been to a virtual conference, but Confab online was 100x better than any other conference I’ve been to before—polished and professional, yet completely human."'}}
+				</div>
+				<div class="glider-slide glider-slide--stretch-items">
+					{{> @quote quotee="Alan Wickerman" quote='"All I can say is wow and well done. For this first-timer, you made the Confab online experience memorable, phenomenal, and perspective-enhancing."'}}
+				</div>
+				<div class="glider-slide glider-slide--stretch-items">
+					{{> @quote quotee="Jaqueline Harris" quote='"I’m feeling so rejuvenated after going to virtual Confab! I met so many like-minded content people. Thanks to Brain Traffic for pulling this global group of experts together!"'}}
+				</div>
+				<div class="glider-slide glider-slide--stretch-items">
+					{{> @quote quotee="Rutger Jönåker" quote='"I was really impressed with how well Confab online was organized and executed. A ton of great speakers and valuable large/small group discussions. A+, two thumbs up, and five stars."'}}
+				</div>
+				<div class="glider-slide glider-slide--stretch-items">
+					{{> @quote quotee="Ragnar Tvålfager" quote='"I’ve never been to a virtual conference, but Confab online was 100x better than any other conference I’ve been to before—polished and professional, yet completely human."'}}
+				</div>
+				<div class="glider-slide glider-slide--stretch-items">
+					{{> @quote quotee="Marielle Jonston" quote='"All I can say is wow and well done. For this first-timer, you made the Confab online experience memorable, phenomenal, and perspective-enhancing."'}}
+				</div>
+				<div class="glider-slide glider-slide--stretch-items">
+					{{> @quote quotee="Jaqueline Harris" quote='"I’m feeling so rejuvenated after going to virtual Confab! I met so many like-minded content people. Thanks to Brain Traffic for pulling this global group of experts together!"'}}
+				</div>
+				<div class="glider-slide glider-slide--stretch-items">
+					{{> @quote quotee="Rutger Jönåker" quote='"I was really impressed with how well Confab online was organized and executed. A ton of great speakers and valuable large/small group discussions. A+, two thumbs up, and five stars."'}}
+				</div>
+			</div>
+
+			{{> @paging icon="arrow-forwards" additional_classes="glider-nav glider-next js-glider-next" text="Framåt"}}
+	</div>
+	{{#if dots}}
+	<div class="glider-dots"></div>
+	{{/if}}
+</div>

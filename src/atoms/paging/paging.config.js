@@ -4,7 +4,8 @@ module.exports = {
 	context: {
 		text: 'Paging',
 		modifiers: ['icon'],
-		icon: 'arrow-down'
+		icon: 'arrow-down',
+		additional_classes: false,
 	},
 	variants: [
 		{
