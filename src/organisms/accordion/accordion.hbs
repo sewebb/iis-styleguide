@@ -1,6 +1,7 @@
 <div class="js-o-accordion o-accordion">
 	{{#each accordion_item}}
-	<h3 class="js-accordion__header"{{#if is_expanded}} data-accordion-opened="true"{{/if}}>
+	<h3 class="js-accordion__header{{#if color}} o-accordion__header--background background-{{color}}{{/if}}"{{#if is_expanded}} data-accordion-opened="true"{{/if}}>
+		{{#if time}}<time class="a-meta o-accordion__header__time">{{time}}</time>{{/if}}
 		{{#if heading}}
 		{{heading}}
 		{{/if}}
@@ -12,6 +13,7 @@
 	</div>
 	{{/each}}
 </div>
+{{#unless has_background}}
 <div style="padding: 20px">
 	<button type="button" class="a-button" id="addAccordion"><span class="a-button__text">Lägg till</span></button>
 </div>
@@ -33,3 +35,4 @@
 		wrapper.insertBefore(document.createRange().createContextualFragment(html), wrapper.firstElementChild);
 	});
 </script>
+{{/unless}}

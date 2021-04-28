@@ -39,6 +39,7 @@ $namespace: '';
 @import 'atoms/height-limiter/height-limiter';
 @import 'atoms/file/file';
 @import 'atoms/ribbon/ribbon';
+@import 'atoms/quote/quote';
 
 // Molecules
 @import 'molecules/breadcrumb/breadcrumb';
@@ -60,6 +61,7 @@ $namespace: '';
 @import 'molecules/natural-language-form/natural-language-form';
 @import 'molecules/icon-overlay/icon-overlay';
 @import 'molecules/submenu/submenu';
+@import 'molecules/glider/glider';
 
 // Organisms
 @import 'organisms/header/header';

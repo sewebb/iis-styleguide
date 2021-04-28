@@ -1,0 +1,26 @@
+@charset "UTF-8";
+
+@include atom(quote) {
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	max-width: rem(500px);
+	margin: 0;
+	padding: 0;
+	font-size: $size-medium;
+
+	@include e(footer) {
+		display: flex;
+		align-items: center;
+		padding-top: rhythm(1);
+		font-family: $font-family-headings;
+	}
+
+	@include e(avatar) {
+		width: rhythm(4);
+		height: rhythm(4);
+		margin-right: rhythm(2);
+		border-radius: 50%;
+		background-color: $color-snow;
+	}
+}

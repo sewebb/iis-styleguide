@@ -1,6 +1,6 @@
 {
 	"name": "@internetstiftelsen/styleguide",
-	"version": "2.15.2",
+	"version": "2.16.0",
 	"main": "dist/components.js",
 	"ports": {
 		"fractal": "3000"
@@ -77,6 +77,7 @@
 	"dependencies": {
 		"a11y-toggle": "^2.1.0",
 		"focus-trap": "^4.0.2",
+		"glider-js": "^1.7.7",
 		"lodash.template": "^4.5.0",
 		"lodash.throttle": "^4.1.1",
 		"postcss-class-prefix": "^0.3.0",

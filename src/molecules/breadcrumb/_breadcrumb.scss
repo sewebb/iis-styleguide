@@ -9,6 +9,22 @@
 	padding: rhythm(1) 0;
 	list-style: none;
 
+	&::before {
+		content: '';
+		display: flex;
+		width: $icon-size / 2;
+		height: $icon-size / 2;
+		margin-right: rhythm(1);
+		transform: translateY(rem(1px));
+		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-arrow-backwards' viewBox='0 0 18.1 32'%3E%3Cpolygon points='16,32 0,16 16,0 18.9,2.9 5.9,16 18.9,29.1 '%3E%3C/polygon%3E%3C/svg%3E");
+		background-repeat: no-repeat;
+		background-position: center center;
+
+		@include bp-up(md) {
+			display: none;
+		}
+	}
+
 	@include e(item) {
 		display: none;
 		align-items: center;

@@ -16,6 +16,10 @@ function initRichText(Quill, textarea) {
 		},
 	});
 
+	if (textarea.hasAttribute('rows')) {
+		textarea.editor.root.style['min-height'] = `${parseInt(textarea.rows, 10) * 1.5}rem`;
+	}
+
 	textarea.editor.on('text-change', () => {
 		textarea.value = textarea.editor.root.innerHTML;
 	});

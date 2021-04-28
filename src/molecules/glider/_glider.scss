@@ -1,0 +1,153 @@
+@charset "UTF-8";
+
+@include b(glider-contain) {
+	display: flex;
+	position: relative;
+	align-items: center;
+	margin-top: rhythm(2);
+	margin-bottom: rhythm(2);
+	padding-right: rhythm(8);
+	padding-left: rhythm(8);
+}
+
+@include b(glider) {
+	position: relative;
+	margin: 0 auto;
+	overflow: hidden;
+	transform: translateZ(0);
+	backface-visibility: hidden;
+	-webkit-overflow-scrolling: touch;
+	-ms-overflow-style: none;
+
+	&.draggable {
+		cursor: -webkit-grab;
+		cursor: grab;
+		user-select: none;
+
+		@include b(glider-slide) {
+			img {
+				pointer-events: none;
+				user-select: none;
+			}
+		}
+	}
+
+	&.drag {
+		cursor: -webkit-grabbing;
+		cursor: grabbing;
+	}
+}
+
+@include b(glider-track) {
+	display: flex;
+	z-index: 1;
+	align-items: stretch;
+	width: 100%;
+	margin: 0;
+	padding: 0;
+	transform: translateZ(0);
+}
+
+@include b(glider-slide) {
+	position: relative;
+	width: 100%;
+	min-width: 150px;
+	margin-left: 1px;
+	padding: rhythm(2) 0;
+	user-select: none;
+
+	img {
+		max-width: 100%;
+	}
+
+	@include bp-up(md) {
+		padding-right: rhythm(3);
+		padding-left: rhythm(3);
+	}
+
+	@include m(stretch-items) {
+		display: flex;
+		align-items: stretch;
+	}
+
+	@include bp-up(md) {
+		&:not(.active) {
+			&::after {
+				content: '';
+				position: absolute;
+				top: 0;
+				bottom: 0;
+				left: 0;
+				width: 1px;
+				background-color: $color-concrete;
+			}
+		}
+	}
+}
+
+@include b(glider-nav) {
+	position: absolute;
+	top: 50%;
+	left: rhythm(1);
+	transform: translateY(-50%);
+	transition: background-color 0.25s ease-out;
+	user-select: none;
+
+	&:focus {
+		background-color: $color-snow;
+	}
+
+	svg {
+		transition: opacity 0.25s ease-out;
+		opacity: 1;
+	}
+
+	&.disabled {
+		background-color: $color-ash;
+		box-shadow: 0 2px 5px lighten($color-granit, 25%);
+		pointer-events: none;
+
+		svg {
+			opacity: 0.2;
+			fill: $color-cyberspace;
+		}
+	}
+}
+
+@include b(glider-next) {
+	right: rhythm(1);
+	left: auto;
+}
+
+@include b(glider-hide) {
+	opacity: 0;
+}
+
+@include b(glider-dots) {
+	display: flex;
+	flex-wrap: nowrap;
+	justify-content: center;
+	margin: 0 auto;
+	padding: 0;
+	user-select: none;
+}
+
+@include b(glider-dot) {
+	display: block;
+	width: rem(14px);
+	height: rem(14px);
+	margin: rhythm(0.5);
+	padding: 0;
+	border: 0;
+	border-radius: 50%;
+	outline: none;
+	background: $color-concrete;
+	cursor: pointer;
+	user-select: none;
+
+	&:hover,
+	&:focus,
+	&.active {
+		background: $color-cyberspace;
+	}
+}
