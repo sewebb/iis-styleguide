@@ -65,7 +65,7 @@
 		"eslint-plugin-import": "^2.20.0",
 		"htmlhint": "^0.10.3",
 		"imagemin-cli": "^5.1.0",
-		"node-sass": "^4.13.1",
+		"node-sass": "^5.0.0",
 		"onchange": "^6.1.0",
 		"postcss-cli": "^7.1.1",
 		"sass-extract": "^2.1.0",
