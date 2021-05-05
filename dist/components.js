@@ -42,4 +42,6 @@ require('./organisms/podcast/podcast');
 
 require('./assets/js/responsivePosition');
 
+require('./assets/js/youtube');
+
 require('./molecules/glider/glider');
