@@ -142,12 +142,10 @@
 		height: auto;
 
 		@include bp-up(md) {
-			@include e(link) {
-				h1,
-				h2 {
-					font-size: rem(32px);
-					line-height: 1.2;
-				}
+			h1,
+			h2 {
+				font-size: rem(32px);
+				line-height: 1.2;
 			}
 		}
 

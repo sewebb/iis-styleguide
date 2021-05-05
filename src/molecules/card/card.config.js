@@ -51,11 +51,15 @@ module.exports = {
 			},
 		},
 		{
-			name: "With image overlay icon",
+			name: "With Youtube video",
 			context: {
-				date: true,
+				date: false,
+				youtube: 'n8hPhZwV8a0',
 				read_time: false,
 				has_icon_overlay: true,
+				url: false,
+				img_url: false,
+				top_level: true
 			},
 		},
 		{
