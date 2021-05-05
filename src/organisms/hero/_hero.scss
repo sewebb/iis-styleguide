@@ -6,12 +6,6 @@
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
-	// IE11 Fix
-	*::-ms-backdrop,
-	[class*='image'] {
-		max-height: none !important;
-	}
-
 	.supersize {
 		+ [class*='buttons'] {
 			margin-top: rhythm(2);
