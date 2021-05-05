@@ -4,6 +4,9 @@
     "env": {
         "browser": true
     },
+    "globals": {
+        "YT": true
+    },
     "rules": {
         "no-param-reassign": [2, { "props": false }],
     }

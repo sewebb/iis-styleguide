@@ -13,16 +13,49 @@
 		min-height: 100%;
 	}
 
-	@include e(icon) {
+	img {
+		position: relative;
+		z-index: 2;
+	}
+
+	iframe {
+		position: absolute;
+		z-index: 1;
+		top: 0;
+		left: 0;
+	}
+
+	@include e(button) {
 		position: absolute;
 		z-index: z_index(foregroundMinus);
 		top: 50%;
 		left: 50%;
 		width: rhythm(7);
 		height: rhythm(7);
+		padding: 0;
 		transform: translateX(-50%) translateY(-50%);
+		border: 0;
+		background-color: transparent;
+
+		&:hover,
+		&:focus {
+			> svg {
+				fill: $color-concrete;
+			}
+		}
+
+		@include bp-up(sm) {
+			width: rhythm(10);
+			height: rhythm(10);
+		}
+	}
+
+	@include e(icon) {
+		width: rhythm(7);
+		height: rhythm(7);
 		fill: $color-snow;
 		filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.4));
+		cursor: pointer;
 
 		@include bp-up(sm) {
 			width: rhythm(10);
