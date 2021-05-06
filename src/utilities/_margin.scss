@@ -68,10 +68,14 @@ $class-m-y: u-m-y !default;
 	margin-right: $default-margin !important;
 }
 
+.u-m-offset-0 {
+	margin-left: 0 !important;
+}
+
 .u-m-offset-1 {
-	margin-left: $indent;
+	margin-left: $indent !important;
 }
 
 .u-m-offset-2 {
-	margin-left: $indent * 2;
+	margin-left: $indent * 2 !important;
 }

@@ -41,3 +41,5 @@ require('./atoms/file/filePreview');
 require('./organisms/podcast/podcast');
 
 require('./assets/js/responsivePosition');
+
+require('./molecules/glider/glider');
