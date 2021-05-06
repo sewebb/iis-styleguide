@@ -4117,11 +4117,14 @@
 .u-m-r-default {
   margin-right: 1rem !important; }
 
+.u-m-offset-0 {
+  margin-left: 0 !important; }
+
 .u-m-offset-1 {
-  margin-left: 3.78825%; }
+  margin-left: 3.78825% !important; }
 
 .u-m-offset-2 {
-  margin-left: 7.5765%; }
+  margin-left: 7.5765% !important; }
 
 /* stylelint-disable */
 .u-p-0 {
