@@ -168,9 +168,7 @@ div.aligncenter {
 
 	> .row {
 		> [class*='grid'] {
-			> *:only-child {
-				margin-bottom: 0;
-			}
+			margin-bottom: rhythm(2);
 
 			@include molecule(card) {
 				&:not(:only-child) {
