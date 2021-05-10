@@ -116,6 +116,8 @@
 	}
 
 	@include organism(accordion) {
+		background-color: lighten($color-ash, 4%);
+
 		@include e(panel) {
 			&[aria-hidden='false'],
 			&:not([aria-hidden='true']) {
