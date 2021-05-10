@@ -1,4 +1,7 @@
-<a href="#" class="a-paging{{#if additional_classes}} {{ additional_classes}}{{/if}}">
+<{{getelement el "a"}}
+	{{#if button_type}}type="{{button_type}}"{{/if}}
+	{{#if url}}href="{{ url }}"{{/if}}
+	class="a-paging{{#if additional_classes}} {{ additional_classes}}{{/if}}">
 	<span class="u-visuallyhidden">{{text}}</span>
 	{{> @icon id=icon additional_classes="a-paging__icon"}}
-</a>
+</{{getelement el "a"}}>

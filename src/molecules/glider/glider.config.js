@@ -2,7 +2,7 @@ module.exports = {
 	status: 'wip',
 
 	context: {
-		dots: false
+		dots: false,
 	},
 	variants: [
 		{
