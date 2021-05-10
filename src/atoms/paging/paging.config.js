@@ -6,6 +6,8 @@ module.exports = {
 		modifiers: ['icon'],
 		icon: 'arrow-down',
 		additional_classes: false,
+		button_type: false,
+		url: '#',
 	},
 	variants: [
 		{

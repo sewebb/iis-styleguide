@@ -3,7 +3,7 @@
 		<h2 class="alpha">Så tycker våra kunder</h2>
 	</div>
 	<div class="glider-contain">
-		{{> @paging icon="arrow-backwards" additional_classes="glider-nav js-glider-prev" text="Bakåt"}}
+		{{> @paging el="button" button_type="button" icon="arrow-backwards" additional_classes="glider-nav js-glider-prev" text="Bakåt"}}
 			<div class="glider js-glider">
 				<div class="glider-slide glider-slide--stretch-items">
 					{{> @quote quotee="Paloma Picasso" quote='"I’ve never been to a virtual conference, but Confab online was 100x better than any other conference I’ve been to before—polished and professional, yet completely human."'}}
@@ -31,7 +31,7 @@
 				</div>
 			</div>
 
-			{{> @paging icon="arrow-forwards" additional_classes="glider-nav glider-next js-glider-next" text="Framåt"}}
+			{{> @paging el="button" button_type="button" icon="arrow-forwards" additional_classes="glider-nav glider-next js-glider-next" text="Framåt"}}
 	</div>
 	{{#if dots}}
 	<div class="glider-dots"></div>
