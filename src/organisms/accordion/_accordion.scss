@@ -165,6 +165,7 @@
 		@include m(no-border) {
 			button[role='tab'] {
 				border-bottom: 0;
+				box-shadow: none;
 			}
 
 			+ div {
