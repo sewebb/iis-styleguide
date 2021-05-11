@@ -90,7 +90,7 @@
 .glider-nav {
 	position: absolute;
 	top: 50%;
-	left: rhythm(1);
+	left: 0;
 	transform: translateY(-50%);
 	transition: background-color 0.25s ease-out;
 	user-select: none;
@@ -114,11 +114,19 @@
 			fill: $color-cyberspace;
 		}
 	}
+
+	@include bp-up(sm) {
+		left: rhythm(1);
+	}
 }
 
 .glider-next {
-	right: rhythm(1);
+	right: 0;
 	left: auto;
+
+	@include bp-up(sm) {
+		right: rhythm(1);
+	}
 }
 
 .glider-hide {
