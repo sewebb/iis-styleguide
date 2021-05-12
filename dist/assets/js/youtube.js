@@ -46,7 +46,9 @@ function setupYoutubePlayer(el) {
 		width: '100%',
 		videoId: id,
 		playerVars: {
-			playsinline: 1
+			// https://developers.google.com/youtube/player_parameters#Parameters
+			playsinline: 1,
+			rel: 0
 		},
 		events: {
 			onReady: function onReady(e) {
