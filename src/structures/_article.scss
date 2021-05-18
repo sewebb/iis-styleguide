@@ -79,6 +79,42 @@
 			}
 		}
 
+		@include e(indent) {
+			$grid-indent: 5.6703%;
+			$grid-margin-right: 20.335%;
+
+			> p:not(.preamble),
+			> h2,
+			> h3,
+			> h4,
+			> h5,
+			> h6,
+			> ul,
+			> ol,
+			> div:not(.wp-block-iis-info):not(.wp-block-image):not(.wp-block-iis-hero):not(.wp-block-iis-grid),
+			> figure,
+			> blockquote {
+				&:not(.alignfull):not(.alignleft):not(.alignright):not(.alignwide) {
+					margin-right: $grid-margin-right;
+					margin-left: $grid-indent * 2;
+				}
+			}
+
+			> .wp-block-iis-info {
+				margin-right: $grid-margin-right;
+				margin-left: $grid-indent;
+			}
+
+			> [class*='meta'] {
+				margin-left: $grid-indent;
+			}
+
+			> p.preamble {
+				margin-right: $grid-margin-right;
+				margin-left: $grid-indent;
+			}
+		}
+
 		@include m(no-title) {
 			@include e(content) {
 				margin-left: 0;

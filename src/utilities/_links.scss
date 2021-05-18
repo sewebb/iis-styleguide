@@ -61,3 +61,21 @@
 		text-decoration: underline !important;
 	}
 }
+
+.u-icon-list-link {
+	padding: 0;
+	border-bottom: 0;
+	color: $color-cyberspace;
+	text-decoration: none;
+
+	@include m(current) {
+		color: $color-ruby;
+		text-decoration: underline;
+	}
+
+	&:hover,
+	&:focus {
+		border-radius: $border-radius;
+		background-color: $color-ocean-light;
+	}
+}

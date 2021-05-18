@@ -51,4 +51,8 @@ $fill-color: $color-black;
 			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='" + $fill-color + "'%3E%3Cpath d='M27.5,2L30,4.5L4.5,30L2,27.5L27.5,2z'/%3E%3Cpath d='M30,27.5L27.5,30L2,4.5L4.5,2L30,27.5z'/%3E%3C/svg%3E") !important;
 		}
 	}
+
+	@include m(color) {
+		fill: currentColor;
+	}
 }
