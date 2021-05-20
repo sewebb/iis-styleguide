@@ -492,6 +492,11 @@
 			position: relative;
 			z-index: z_index(middleground);
 			color: $color-snow;
+
+			@include bp-down(sm) {
+				padding-right: 0;
+				padding-left: 0;
+			}
 		}
 
 		@include e(text) {
