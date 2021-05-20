@@ -494,8 +494,8 @@
 			color: $color-snow;
 
 			@include bp-down(sm) {
-				padding-right: 0;
-				padding-left: 0;
+				padding-right: rhythm(1);
+				padding-left: rhythm(1);
 			}
 		}
 
