@@ -22,10 +22,12 @@
 							</svg></a>
 						</span>
 					</p>
-					{{#if has_button}}
-						{{> @button el="a" modifiers="lemon a-button--inline u-m-y-2 u-m-r-2"}}
-					{{/if}}
-					{{> @share modifiers="inline"}}
+					<div class="display-flex">
+						{{#if has_button}}
+							{{> @button el="a" modifiers="lemon a-button--inline u-m-y-2 u-m-r-2"}}
+						{{/if}}
+						{{> @share modifiers="inline"}}
+					</div>
 			</div>
 		</figcaption>
 	</div>
