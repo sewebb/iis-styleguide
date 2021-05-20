@@ -355,7 +355,7 @@
 		width: 100%;
 
 		@include e(content) {
-			padding: rhythm(2) rhythm(3);
+			padding: rhythm(2) rhythm(1);
 
 			@include bp-up(sm) {
 				padding: rhythm(4) rhythm(6);
@@ -492,11 +492,6 @@
 			position: relative;
 			z-index: z_index(middleground);
 			color: $color-snow;
-
-			@include bp-down(sm) {
-				padding-right: rhythm(1);
-				padding-left: rhythm(1);
-			}
 		}
 
 		@include e(text) {
