@@ -57,13 +57,37 @@ module.exports = {
 					organizer: 'Creator Circle',
 					city: 'Stockholm',
 					time: '24 januari 2020 18:20-21:30',
-					no_image_class: 'o-hero--border-radius',
+					event_text: 'Event på Goto 10 i',
+					no_image_class: 'o-hero--no-image',
 					icon_share: 'share',
 					icon_export: 'external-link',
 					limited_width: true,
 					has_image: false,
 					has_video: false,
-					is_event: true
+					is_event: true,
+					background_color: 'background-peacock-light'
+				}
+		},
+		{
+			name: 'Event hero dark',
+			status: 'wip',
+				context: {
+					event_title: 'Framtidsoptimism och problemlösning i en uppkopplad värld',
+					organizer: 'Heja framtiden',
+					city: false,
+					time: '22 november 09:00-17:00',
+					event_text: 'Digitalt spår på Internetdagarna',
+					no_image_class: 'o-hero--no-image',
+					dark_class: 'o-hero--dark',
+					icon_share: 'share',
+					icon_export: 'external-link',
+					limited_width: true,
+					has_image: false,
+					has_video: false,
+					is_event: true,
+					has_button: true,
+					text: 'Köp biljett',
+					background_color: 'background-cyberspace'
 				}
 		},
 		{

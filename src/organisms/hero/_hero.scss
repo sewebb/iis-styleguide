@@ -386,4 +386,128 @@
 			margin-right: rhythm(1);
 		}
 	}
+
+	// Dark
+	@include m(dark) {
+		position: relative;
+		overflow: hidden;
+
+		a:not([class*=button]) {
+			color: $color-snow;
+
+			&:hover,
+			&:focus {
+				color: $color-cyberspace;
+
+				svg {
+					fill: $color-cyberspace;
+				}
+			}
+
+			svg {
+				fill: $color-snow;
+			}
+
+			span {
+				color: $color-snow !important;
+			}
+		}
+
+		@keyframes spin {
+			from {
+				transform: rotate(20deg);
+			}
+
+			to {
+				transform: rotate(379deg);
+			}
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			z-index: z_index(background);
+			top: 25%;
+			left: -25%;
+			width: rem(250px);
+			height: rem(250px);
+			transform: translate(calc(-150% - #{rem(20px)}), -50%) rotate(-20deg);
+			transform-origin: center left;
+			animation: spin 120s linear infinite;
+			animation-direction: alternate;
+			background-color: $color-peacock;
+
+			@include bp-up(sm) {
+				left: -15%;
+			}
+
+			@include bp-up(xl) {
+				left: 0;
+			}
+		}
+
+		&::before {
+			content: '';
+			position: absolute;
+			top: 75%;
+			right: -25%;
+			width: rem(250px);
+			height: rem(80px);
+			transform: translate(calc(120% + #{rem(20px)}), 50%) rotate(20deg);
+			transform-origin: center center;
+			animation: spin 120s linear infinite;
+			animation-direction: alternate-reverse;
+			background-color: $color-jade;
+
+			@include bp-up(sm) {
+				right: -15%;
+			}
+
+			@include bp-up(xl) {
+				right: 0;
+			}
+		}
+
+		[class*='share'] {
+			button {
+				span {
+					color: $color-snow;
+				}
+
+				> svg {
+					fill: $color-snow !important;
+				}
+			}
+
+			a {
+				> svg {
+					&[class*='facebook'],
+					&[class*='linkedin'] {
+						border-radius: $border-radius;
+						background-color: $color-snow;
+					}
+				}
+			}
+		}
+
+		@include bp-up(xl) {
+			h1 {
+				max-width: 60%;
+			}
+		}
+
+		@include e(content) {
+			position: relative;
+			z-index: z_index(middleground);
+			color: $color-snow;
+		}
+
+		@include e(text) {
+			color: $color-snow;
+		}
+
+		@include e(link) {
+			color: $color-snow;
+		}
+	}
 }

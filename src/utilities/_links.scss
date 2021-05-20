@@ -68,14 +68,14 @@
 	color: $color-cyberspace;
 	text-decoration: none;
 
-	@include m(current) {
-		color: $color-ruby;
-		text-decoration: underline;
-	}
-
 	&:hover,
 	&:focus {
 		border-radius: $border-radius;
 		background-color: $color-ocean-light;
+	}
+
+	@include m(current) {
+		color: $color-ruby;
+		text-decoration: underline;
 	}
 }

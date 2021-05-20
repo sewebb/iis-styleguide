@@ -46,4 +46,8 @@
 			}
 		}
 	}
+
+	@include m(inline) {
+		display: inline-flex;
+	}
 }
