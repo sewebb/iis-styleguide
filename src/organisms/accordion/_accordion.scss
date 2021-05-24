@@ -124,6 +124,14 @@
 				@extend %is-visible;
 			}
 		}
+
+		@include m(transparent) {
+			background-color: transparent;
+
+			[class*='header'] {
+				box-shadow: none;
+			}
+		}
 	}
 }
 
