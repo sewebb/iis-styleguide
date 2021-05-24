@@ -69,7 +69,7 @@ module.exports = {
 				}
 		},
 		{
-			name: 'Event hero dark',
+			name: 'Event hero with button',
 			status: 'wip',
 				context: {
 					event_title: 'Framtidsoptimism och problemlösning i en uppkopplad värld',
@@ -78,7 +78,7 @@ module.exports = {
 					time: '22 november 09:00-17:00',
 					event_text: 'Digitalt spår på Internetdagarna',
 					no_image_class: 'o-hero--no-image',
-					dark_class: 'o-hero--dark',
+					geometric_figures: false,
 					icon_share: 'share',
 					icon_export: 'external-link',
 					limited_width: true,
@@ -87,7 +87,7 @@ module.exports = {
 					is_event: true,
 					has_button: true,
 					text: 'Köp biljett',
-					background_color: 'background-cyberspace'
+					background_color: 'background-ocean-light'
 				}
 		},
 		{
