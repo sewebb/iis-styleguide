@@ -416,7 +416,7 @@
 			transform-origin: center left;
 			animation: spin 240s linear infinite;
 			animation-direction: alternate;
-			background-color: $color-peacock;
+			background-color: $color-lemon;
 
 			@include bp-up(sm) {
 				left: -15%;
@@ -439,7 +439,7 @@
 			transform-origin: center center;
 			animation: spin 240s linear infinite;
 			animation-direction: alternate-reverse;
-			background-color: $color-jade;
+			background-color: $color-lemon;
 
 			@include bp-up(sm) {
 				right: -15%;

@@ -1,0 +1,47 @@
+<div>
+	<div class="wrapper">
+		<div class="row">
+			<div class="grid-18 grid-lg-12">
+				<h1>CSS utility classes</h1>
+				<p class="preamble">The styleguide provides a bunch of CSS utility classes designed to allow you to style your markup directly without the need for writing custom CSS.</p>
+				<p>These classes all use <code class="u-display-inline background-concrete u-border-radius u-p-y-0 u-p-x-1">!important</code> to overwrite any custom CSS already applied to an element. <a href="https://github.com/sewebb/iis-styleguide/tree/master/src/utilities" target="_blank">All available classes can be found on Github</a>.</p>
+				<div class="m-alert m-alert--warning">
+					Use utility classes with caution!
+				</div>
+				<p>Most classes are self explanatory but some, like paddings and margins which are the most commonly used classes needs some explanation for how they are contructed.</p>
+
+				<h2>How the classes are contructed</h2>
+				<fieldset>
+					<legend class="u-m-b-0">All classes start with "u" for "utility"</legend>
+					<pre>u = utility</pre>
+				</fieldset>
+				<fieldset>
+					<legend class="u-m-b-0">"m" is for "margin"</legend>
+					<pre>m = margin</pre>
+				</fieldset>
+				<fieldset>
+					<legend class="u-m-b-0">"p" is for "padding"</legend>
+					<pre>p = padding</pre>
+				</fieldset>
+				<fieldset>
+					<legend class="u-m-b-0">Next is directions</legend>
+					<pre>t = top
+r = right
+b = bottom
+l = left
+x = x-axis
+y = y-axis</pre>
+				</fieldset>
+				<fieldset>
+					<legend class="u-m-b-0">And finally numerical value</legend>
+					<pre>0 - 8</pre>
+				</fieldset>
+				<fieldset>
+					<legend class="u-m-b-0">This means a complete utility class would look something like this giving this class a bottom margin with the value 4</legend>
+					<pre>u-m-b-4</pre>
+				</fieldset>
+				<p>The values are typography baselines. 1 baseline = ½ of the document line-height meaning a value of 4 equals twice the document line-height.</p>
+			</div>
+		</div>
+	</div>
+</div>

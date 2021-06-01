@@ -1,5 +1,11 @@
 @charset "UTF-8";
 
+.u-indent-0 {
+	@include bp-up(lg) {
+		margin-left: 0;
+	}
+}
+
 .u-indent-1 {
 	@include bp-up(lg) {
 		margin-left: $indent;

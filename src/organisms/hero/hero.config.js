@@ -87,7 +87,7 @@ module.exports = {
 					is_event: true,
 					has_button: true,
 					text: 'Köp biljett',
-					background_color: 'background-ocean-light'
+					background_color: 'background-jade-light'
 				}
 		},
 		{
