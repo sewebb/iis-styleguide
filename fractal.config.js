@@ -12,7 +12,6 @@ const path = require('path');
  * Require the Fractal module
  */
 const fractal = module.exports = require('@frctl/fractal').create();
-fractal.web.set('server.port', ports.fractal);
 
 /* Theme */
 const myCustomisedTheme = require('@frctl/mandelbrot')({
