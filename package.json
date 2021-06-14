@@ -83,7 +83,6 @@
 		"lodash.throttle": "^4.1.1",
 		"postcss-class-prefix": "^0.3.0",
 		"postcss-remove-unused": "^1.2.0",
-		"quill": "^1.3.7",
 		"van11y-accessible-accordion-aria": "^3.0.1"
 	},
 	"fractal": {
