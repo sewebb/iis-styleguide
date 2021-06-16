@@ -1,3 +1,17 @@
 {
-    "extend": "@internetstiftelsen/stylelint-config"
+    "extend": "@internetstiftelsen/stylelint-config",
+    "rules": {
+        "max-nesting-depth": [
+            5,
+            {
+                "ignoreAtRules": [
+                    "each",
+                    "media",
+                    "supports",
+                    "include",
+                    "mixin"
+                ]
+            }
+        ]
+    }
 }
