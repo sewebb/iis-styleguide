@@ -65,6 +65,7 @@
 		"imagemin-cli": "^3.0.0",
 		"onchange": "^6.1.0",
 		"postcss-cli": "^8.3.1",
+		"sass": "^1.35.1",
 		"sass-extract": "^2.1.0",
 		"stylelint": "^13.13.1",
 		"uglify-es": "^3.3.9"
@@ -78,7 +79,6 @@
 		"lodash.throttle": "^4.1.1",
 		"postcss-class-prefix": "^0.3.0",
 		"postcss-remove-unused": "^1.2.0",
-		"sass": "^1.34.1",
 		"van11y-accessible-accordion-aria": "^3.0.1"
 	},
 	"fractal": {
