@@ -36,5 +36,13 @@ module.exports = {
 				has_icon: false
 			}
 		},
+		{
+			name: 'Rich text',
+			status: 'wip',
+			context: {
+				is_richtext: true,
+				has_help: false
+			}
+		}
 	]
 }
