@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+@use "sass:math";
+
 @include organism(podcast-player) {
 
 	// Player
@@ -85,7 +87,7 @@
 		flex-grow: 1;
 		align-items: center;
 		justify-content: center;
-		transform: translateX($time-left-width / 2);
+		transform: translateX(math.div($time-left-width, 2));
 
 		@include bp-up(sm) {
 			transform: translateX(0);

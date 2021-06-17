@@ -1,3 +1,5 @@
+@use "sass:math";
+
 @mixin indent($text-indent: $indent) {
 
 }
@@ -41,7 +43,7 @@
 			> blockquote {
 				&:not(.alignfull):not(.alignleft):not(.alignright):not(.alignwide) {
 					max-width: calc(#{rem(612px)} + #{($indent * 2)});
-					margin-right: $grid-gutter-width / 2;
+					margin-right: math.div($grid-gutter-width, 2);
 					margin-left: $indent * 2;
 				}
 			}

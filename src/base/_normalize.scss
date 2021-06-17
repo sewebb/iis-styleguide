@@ -1,5 +1,7 @@
 @charset 'UTF-8';
 
+@use "sass:math";
+
 @import '../configurations/colors/colors';
 
 html {
@@ -9,7 +11,7 @@ html {
 	background-color: theme_palette('background');
 	color: $color-cyberspace;
 	font-family: sans-serif;
-	font-size: percentage($size-base / 16px);
+	font-size: percentage(math.div($size-base, 16px));
 	-ms-overflow-style: scrollbar;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;

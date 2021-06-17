@@ -1,5 +1,7 @@
 @charset "UTF-8";
 
+@use "sass:math";
+
 @include molecule(submenu) {
 	margin: 0 0 rhythm(2) 0;
 	padding: 0;
@@ -151,7 +153,7 @@
 				position: absolute;
 				top: rem(22px);
 				right: rem(25px);
-				width: $icon-size-small / 1.5;
+				width: math.div($icon-size-small, 1.5);
 				height: 2px;
 				transform-origin: center center;
 				transition: transform 0.25s ease-out;

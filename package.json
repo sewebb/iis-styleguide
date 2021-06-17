@@ -13,16 +13,13 @@
 		"stylelint": "stylelint 'src/**/*.scss' '!**/vendor/**' '!**/colors/_colors-functions.scss' --fix --cache --cache-location '.stylelintcache'",
 		"autoprefixer": "postcss --use autoprefixer -b 'last 2 versions' public/assets/css/app.css -d public/assets/css/",
 		"cssmin": "postcss --use cssnano -b '' public/assets/css/app.css > public/assets/css/app.min.css",
-		"footerscss": "sass src/isolated-footer.scss src/assets/css/footer/isolated-footer.css",
-		"remove-unused": "postcss postcss-remove-unused src/assets/css/footer/isolated-footer.css > src/assets/css/footer/isolated-footer.min.css",
-		"isolate-footer": "npm run footerscss && npm run remove-unused",
 		"browserify": "browserify public/assets/js/cjs/app.js -o public/assets/js/scripts.js",
 		"babel": "npx babel src --out-dir public/assets/js/cjs --ignore src/**/*.config.js",
 		"eslint": "eslint --fix src",
 		"uglify": "uglifyjs -o public/assets/js/scripts.js public/assets/js/scripts.js",
 		"htmlhint": "htmlhint build/components/preview/**/*.html",
 		"imagemin": "imagemin --out-dir=public/assets/img src/**/*.{png,jpg,gif}",
-		"build:css": "npm run stylelint && npm run scss && npm run autoprefixer && npm run cssmin && npm run isolate-footer",
+		"build:css": "npm run stylelint && npm run scss && npm run autoprefixer && npm run cssmin",
 		"build:js": "npm run eslint && npm run babel && npm run browserify",
 		"build:img": "npm run imagemin",
 		"watch:css": "onchange 'src/**/*.scss' -- npm run build:css",
@@ -68,17 +65,15 @@
 		"sass": "^1.35.1",
 		"sass-extract": "^2.1.0",
 		"stylelint": "^13.13.1",
-		"uglify-es": "^3.3.9"
+		"uglify-es": "^3.3.9",
+		"postcss-class-prefix": "^0.3.0"
 	},
 	"dependencies": {
 		"a11y-toggle": "^2.1.0",
-		"css-what": "^5.0.1",
 		"focus-trap": "^4.0.2",
 		"glider-js": "^1.7.7",
 		"lodash.template": "^4.5.0",
 		"lodash.throttle": "^4.1.1",
-		"postcss-class-prefix": "^0.3.0",
-		"postcss-remove-unused": "^1.2.0",
 		"van11y-accessible-accordion-aria": "^3.0.1"
 	},
 	"fractal": {

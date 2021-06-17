@@ -1,5 +1,7 @@
 @charset 'UTF-8';
 
+@use "sass:math";
+
 @import '../vendor/grid/functions';
 
 // Typography
@@ -26,7 +28,7 @@ $size-medium: 14px !default;
 $size-small: 12px !default;
 
 // Base units
-$base-unit: $size-base / 2 !default;
+$base-unit: math.div($size-base, 2) !default;
 $rem-size: rem($base-unit) !default;
 
 // Small size

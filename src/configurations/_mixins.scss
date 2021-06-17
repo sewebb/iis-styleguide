@@ -2,6 +2,8 @@
 
 /// Create an atom with the given name. Alias for the block mixin that autoprefixes the class with a-.
 ///@group General
+@use "sass:math";
+
 @mixin atom($name) {
 	@include b(a-#{$name}) {
 		@content;
@@ -47,7 +49,7 @@
 
 // Box shadows
 @mixin box-shadow($shadow-color, $color-opacity) {
-	box-shadow: 0 rhythm(1 / 3) rhythm(1 * 0.75) rgba($shadow-color, $color-opacity);
+	box-shadow: 0 rhythm(math.div(1, 3)) rhythm(1 * 0.75) rgba($shadow-color, $color-opacity);
 }
 
 @mixin card-shadow($shadow-color, $color-opacity) {

@@ -1,10 +1,12 @@
 @charset 'UTF-8';
 
+@use "sass:math";
+
 $spacing: rhythm(6);
 
 @include organism(section) {
 	position: relative;
-	padding: $spacing / 1.5 0;
+	padding: math.div($spacing, 1.5) 0;
 
 	@include m(white) {
 		padding: $spacing 0;
@@ -38,7 +40,7 @@ $spacing: rhythm(6);
 	}
 
 	@include bp-up(md) {
-		padding: $spacing * 1.25 / 1.5 0;
+		padding: math.div($spacing * 1.25, 1.5) 0;
 
 		@include m('white') {
 			padding: $spacing * 1.25 0;
@@ -51,7 +53,7 @@ $spacing: rhythm(6);
 	}
 
 	@include bp-up(lg) {
-		padding: $spacing * 1.5 / 1.5 0;
+		padding: math.div($spacing * 1.5, 1.5) 0;
 
 		@include m('white') {
 			padding: $spacing * 1.5 0;
@@ -64,7 +66,7 @@ $spacing: rhythm(6);
 	}
 
 	@include bp-up(xl) {
-		padding: $spacing * 2 / 1.5 0;
+		padding: math.div($spacing * 2, 1.5) 0;
 
 		@include m('white') {
 			padding: $spacing * 2 0;

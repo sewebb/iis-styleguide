@@ -1,5 +1,7 @@
 @charset 'UTF-8';
 
+@use "sass:math";
+
 $footer-font-size: 18px; // To ensure all footers on all sites have the same font size this component used pixel based values
 
 * { /* Because not all of the old sites have this */
@@ -21,8 +23,8 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 		display: flex;
 		flex-wrap: wrap;
 		max-width: none !important;
-		margin-right: ($grid-gutter-width / -2);
-		margin-left: ($grid-gutter-width / -2);
+		margin-right: math.div($grid-gutter-width, -2);
+		margin-left: math.div($grid-gutter-width, -2);
 	}
 
 	@include e(logotype) {
@@ -283,8 +285,8 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 	width: 100%;
 	max-width: 100%;
 	min-height: 1px;
-	padding-right: $grid-gutter-width / 2;
-	padding-left: $grid-gutter-width / 2;
+	padding-right: math.div($grid-gutter-width, 2);
+	padding-left: math.div($grid-gutter-width, 2);
 	-ms-flex-preferred-size: 0;
 	-webkit-box-flex: 1;
 	-ms-flex-positive: 1;
