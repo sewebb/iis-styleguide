@@ -187,6 +187,18 @@
 			}
 		}
 
+		@include m(no-content) {
+			button {
+				cursor: default;
+				pointer-events: none;
+
+				&::before,
+				&::after {
+					display: none !important;
+				}
+			}
+		}
+
 		@include e(time) {
 			margin-top: 0;
 			margin-right: rhythm(2);

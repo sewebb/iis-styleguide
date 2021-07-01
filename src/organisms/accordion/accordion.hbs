@@ -1,16 +1,18 @@
 <div class="js-o-accordion o-accordion">
 	{{#each accordion_item}}
-	<h3 class="js-accordion__header{{#if color}} o-accordion__header--background background-{{color}}{{/if}}"{{#if is_expanded}} data-accordion-opened="true"{{/if}}>
+	<h3 class="js-accordion__header{{#if color}} o-accordion__header--background background-{{color}}{{/if}}{{#unless content}} o-accordion__header--no-content{{/unless}}"{{#if is_expanded}} data-accordion-opened="true"{{/if}}>
 		{{#if time}}<time class="a-meta o-accordion__header__time">{{time}}</time>{{/if}}
 		{{#if heading}}
 		{{heading}}
 		{{/if}}
 	</h3>
+	{{#if content}}
 	<div class="js-accordion__panel">
 		<div class="o-accordion__panel__content">
 			{{{content}}}
 		</div>
 	</div>
+	{{/if}}
 	{{/each}}
 </div>
 {{#unless has_background}}
