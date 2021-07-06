@@ -361,6 +361,41 @@
 		}
 	}
 
+	@include m(peacock) {
+		color: $color-peacock;
+
+		&:hover,
+		&:focus {
+			color: $color-peacock-light;
+		}
+
+		@include e(text) {
+			color: $color-cyberspace;
+		}
+
+		@include e(icon) {
+			fill: $color-cyberspace;
+		}
+	}
+
+	@include m(peacock-light) {
+		box-shadow: 0 0 0 1px inset $color-peacock;
+		color: $color-peacock-light;
+
+		&:hover,
+		&:focus {
+			background-color: $color-peacock;
+		}
+
+		@include e(text) {
+			color: $color-cyberspace;
+		}
+
+		@include e(icon) {
+			fill: $color-cyberspace;
+		}
+	}
+
 	@include m(dashed) {
 		border: 1px dashed;
 		background: transparent;

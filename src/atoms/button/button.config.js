@@ -61,6 +61,20 @@ module.exports = {
 			}
 		},
 		{
+			name: 'Peacock',
+			context: {
+				modifiers: ['peacock'],
+				text: 'Peacock button'
+			}
+		},
+		{
+			name: 'Peacock light',
+			context: {
+				modifiers: ['peacock-light'],
+				text: 'Peacock secondary button'
+			}
+		},
+		{
 			name: 'Cyberspace',
 			context: {
 				modifiers: ['cyberspace'],
