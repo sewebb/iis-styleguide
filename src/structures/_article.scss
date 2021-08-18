@@ -38,6 +38,7 @@
 			> ul,
 			> ol,
 			> div:not(.wp-block-iis-info):not(.wp-block-image):not(.wp-block-iis-hero):not(.wp-block-iis-grid):not([class*='accordion']),
+			> .wp-block-iis-card,
 			> .wp-block-image > figure,
 			> figure,
 			> blockquote {
@@ -74,6 +75,7 @@
 				> ul,
 				> ol,
 				> div:not(.wp-block-iis-info):not(.wp-block-image):not(.wp-block-iis-hero):not(.wp-block-iis-grid):not([class*='accordion']),
+				> .wp-block-iis-card,
 				> figure,
 				> blockquote {
 					&:not(.alignfull):not(.alignleft):not(.alignright):not(.alignwide) {
@@ -101,6 +103,7 @@
 			> ul,
 			> ol,
 			> div:not(.wp-block-iis-info):not(.wp-block-image):not(.wp-block-iis-hero):not(.wp-block-iis-grid):not([class*='accordion']),
+			> .wp-block-iis-card,
 			> figure,
 			> blockquote {
 				&:not(.alignfull):not(.alignleft):not(.alignright):not(.alignwide) {
