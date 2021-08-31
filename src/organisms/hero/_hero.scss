@@ -186,6 +186,15 @@
 			}
 		}
 
+		&.alignfull {
+			@include e(caption) {
+				.wrapper {
+					padding-right: rhythm(2);
+					padding-left: rhythm(2);
+				}
+			}
+		}
+
 		@include e(link) {
 			color: $color-cyberspace;
 		}
