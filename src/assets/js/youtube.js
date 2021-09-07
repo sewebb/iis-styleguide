@@ -16,7 +16,7 @@ function onPlayerReady(el, e) {
 function onPlayerStateChange(el, e) {
 	if (e.data === YT.PlayerState.PLAYING) {
 		el.getElementsByTagName('img')[0].style.zIndex = '-1';
-		el.getElementsByTagName('svg')[0].style.display = 'none';
+		el.getElementsByTagName('button')[0].style.display = 'none';
 	}
 }
 
