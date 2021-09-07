@@ -71,10 +71,16 @@
 					</div>
 					<div class="grid-18 grid-lg-9 offset-lg-1">
 						<div class="wp-block-image">
-							<figure class="size-large">
-								{{>@icon-overlay overlay_icon="play" additional_classes="m-card__image m-card__media"}}
-								<img src="/assets/images/hero.jpg" alt="kursbild" class="u-border-radius">
-								<figcaption>Se filmen om bluffmejl Se filmen om bluffmejl</figcaption>
+							<figure>
+								<div class="m-icon-overlay m-card__image m-card__media" data-youtube="n8hPhZwV8a0">
+									<button type="button" class="m-icon-overlay__button" aria-label="play">
+										<svg class="icon m-icon-overlay__icon">
+										<use xlink:href="#icon-play"></use>
+									</svg>
+									</button>
+									<img src="https://i3.ytimg.com/vi/n8hPhZwV8a0/maxresdefault.jpg"><iframe frameborder="0" allowfullscreen="1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" title="YouTube video player" width="100%" height="100%" src="https://www.youtube.com/embed/n8hPhZwV8a0?playsinline=1&amp;rel=0&amp;widget_referrer=http%3A%2F%2Flocalhost%3A3000%2Fcomponents%2Fdetail%2Fcard--with-youtube-video&amp;enablejsapi=1&amp;origin=http%3A%2F%2Flocalhost%3A3000&amp;widgetid=1" id="widget2"></iframe>
+								</div>
+								<figcaption>Se filmen om bluffmejl</figcaption>
 							</figure>
 						</div>
 					</div>
