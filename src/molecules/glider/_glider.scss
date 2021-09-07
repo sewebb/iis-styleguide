@@ -10,6 +10,11 @@
 	margin-bottom: rhythm(2);
 	padding-right: rhythm(8);
 	padding-left: rhythm(8);
+
+	@include m(single) {
+		padding-left: 0;
+		padding-right: 0;
+	}
 }
 
 .glider {
@@ -91,6 +96,15 @@
 			}
 		}
 	}
+
+	@include m(single) {
+		padding-left: 0;
+		padding-right: 0;
+
+		&::after {
+			display: none;
+		}
+	}
 }
 
 .glider-nav {
@@ -133,6 +147,21 @@
 	@include bp-up(sm) {
 		right: rhythm(1);
 	}
+}
+
+.glider-single-prev,
+.glider-single-next {
+	&.disabled {
+		display: none;
+
+		+ .glider-single-finish {
+			display: inline-flex;
+		}
+	}
+}
+
+.glider-single-finish {
+	display: none;
 }
 
 .glider-hide {

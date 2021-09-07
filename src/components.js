@@ -20,3 +20,4 @@ import './organisms/podcast/podcast';
 import './assets/js/responsivePosition';
 import './assets/js/youtube';
 import './molecules/glider/glider';
+import './molecules/glider/glider-single';

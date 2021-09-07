@@ -364,9 +364,16 @@
 	@include m(peacock) {
 		color: $color-peacock;
 
-		&:hover,
-		&:focus {
+		&:hover {
 			color: $color-peacock-light;
+		}
+
+		&:focus {
+			color: $color-peacock;
+		}
+
+		&:hover:focus {
+			color: $color-peacock;
 		}
 
 		@include e(text) {
@@ -382,9 +389,16 @@
 		box-shadow: 0 0 0 1px inset $color-peacock;
 		color: $color-peacock-light;
 
-		&:hover,
+		&:hover {
+			color: $color-peacock;
+		}
+
 		&:focus {
-			background-color: $color-peacock;
+			color: $color-peacock-light;
+		}
+
+		&:hover:focus {
+			color: $color-peacock-light;
 		}
 
 		@include e(text) {

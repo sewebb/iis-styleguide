@@ -10,6 +10,12 @@ module.exports = {
 			context: {
 				dots: true
 			}
+		},
+		{
+			name: 'Single',
+			context: {
+				single: true
+			}
 		}
 	]
 }

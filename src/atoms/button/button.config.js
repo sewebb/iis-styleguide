@@ -5,6 +5,7 @@ module.exports = {
 	context: {
 		url: '#',
 		text: 'Primary button',
+		alternative_text: false,
 		button_type: false,
 		type: false,
 		id: false,
