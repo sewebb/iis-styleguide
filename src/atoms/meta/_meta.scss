@@ -43,4 +43,8 @@
 	@include m(lowercase) {
 		text-transform: initial;
 	}
+
+	@include m(wrap) {
+		white-space: normal;
+	}
 }

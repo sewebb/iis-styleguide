@@ -6,6 +6,7 @@ module.exports = {
 		icon: false,
 		is_light: false,
 		lowercase: false,
+		additional_classes: false,
 	},
 	variants: [
 		{
