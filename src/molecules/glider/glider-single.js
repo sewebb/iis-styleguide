@@ -12,12 +12,16 @@ if (gliderElementSingle) {
 	const nextBtns = document.querySelectorAll('.js-glider-next');
 	const prevBtns = document.querySelectorAll('.js-glider-prev');
 	let slideIndex = 0;
+	const scrollTop = () => {
+		window.scrollTo(0, 0);
+	};
 
 	if (nextBtns) {
 		[].forEach.call(nextBtns, (nextBtn) => {
 			nextBtn.addEventListener('click', () => {
 				slideIndex += 1;
 				GliderSingle.scrollItem(slideIndex, true);
+				scrollTop();
 			});
 		});
 	}
@@ -27,6 +31,7 @@ if (gliderElementSingle) {
 			prevBtn.addEventListener('click', () => {
 				slideIndex -= 1;
 				GliderSingle.scrollItem(slideIndex, true);
+				scrollTop();
 			});
 		});
 	}
