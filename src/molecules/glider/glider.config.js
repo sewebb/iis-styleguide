@@ -1,5 +1,5 @@
 module.exports = {
-	status: 'wip',
+	status: 'ready',
 
 	context: {
 		dots: false,
@@ -13,6 +13,7 @@ module.exports = {
 		},
 		{
 			name: 'Single',
+			status: 'wip',
 			context: {
 				single: true
 			}
