@@ -13,7 +13,7 @@ if (gliderElementSingle) {
 	const prevBtns = document.querySelectorAll('.js-glider-prev');
 	let slideIndex = 0;
 	const scrollTop = () => {
-		window.scrollTo(gliderElementSingle, 0, 0);
+		gliderElementSingle.scrollIntoView();
 	};
 
 	if (nextBtns) {
