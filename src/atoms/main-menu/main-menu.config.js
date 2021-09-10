@@ -25,11 +25,14 @@ module.exports = {
 				hide_mobile: true
 			},
 			{
-				text: 'Om oss',
-				url: '#',
+				text: 'Ämnen',
+				url: false,
 				is_current: false,
-				icon: false,
-				hide_mobile: true
+				icon: 'icon-arrow-down',
+				hide_mobile: true,
+				has_dropdown: true,
+				has_expandable: true,
+				controls: 'dropdown'
 			},
 			{
 				text: 'Bli medlem',

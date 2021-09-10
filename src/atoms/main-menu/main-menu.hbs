@@ -37,6 +37,38 @@
 				{{/if}}
 				{{#if url}}</a>{{else}}</button>{{/if}}
 			{{/if}}
+
+			{{#if has_dropdown}}
+				<ul id="dropdown" class="a-main-menu__subnav u-box-shadow-card">
+					<li class="a-main-menu__subnav__item">
+						<a href="#">Desinformation</a>
+					</li>
+					<li class="a-main-menu__subnav__item">
+						<a href="#">Föräldraskap</a>
+					</li>
+					<li class="a-main-menu__subnav__item">
+						<a href="#">Integritet</a>
+					</li>
+					<li class="a-main-menu__subnav__item">
+						<a href="#">Källkritik</a>
+					</li>
+					<li class="a-main-menu__subnav__item">
+						<a href="#">Ordlista</a>
+					</li>
+					<li class="a-main-menu__subnav__item">
+						<a href="#">Så funkar internet</a>
+					</li>
+					<li class="a-main-menu__subnav__item">
+						<a href="#">Sökkritik</a>
+					</li>
+					<li class="a-main-menu__subnav__item">
+						<a href="#">Vanliga IT-brott</a>
+					</li>
+					<li class="a-main-menu__subnav__item">
+						<a href="#">Yttrandefrihet</a>
+					</li>
+				</ul>
+			{{/if}}
 		</li>
 		{{/each}}
 </ul>
