@@ -215,7 +215,16 @@
 		}
 
 		@include e(icon) {
+			width: $icon-size;
+			height: $icon-size;
 			fill: $color-cyberspace;
+		}
+
+		@include m(small-icon) {
+			@include e(icon) {
+				width: $icon-size-small;
+				height: $icon-size-small;
+			}
 		}
 	}
 
