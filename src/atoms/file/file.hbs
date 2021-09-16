@@ -1,7 +1,7 @@
 <div class="field-group{{#unless has_preview}} align-items-center{{/unless}}">
 	{{#if has_preview}}
 	<div class="a-file-preview" data-label="Förhandsvisning">
-		<img data-id="filePreview" alt="Förhandsvisning" src="null">
+		<img data-id="filePreview" alt="Förhandsvisning" src="">
 	</div>
 	{{/if}}
 	<input type="{{type}}" id="{{id}}" {{#if is_invalid}}aria-invalid="true"{{/if}} class="a-file {{#if modifier}} {{modifier}}{{/if}}"  data-multiple-caption="{count} filer valda" {{#if is_multiple}} multiple{{/if}} {{#if has_preview}}accept=".jpg, .jpeg, .png, .gif" data-id="fileInput"{{/if}}>

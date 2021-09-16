@@ -25,7 +25,7 @@ Array.prototype.forEach.call(fileInputs, (fileInput) => {
 		};
 
 		removebutton.addEventListener('click', () => {
-			filePreview.src = null;
+			filePreview.src = '';
 		});
 	}
 
