@@ -178,6 +178,16 @@
 			@include e(bottom) {
 				margin-top: 0;
 			}
+
+			@include m(flipped) {
+				flex-direction: row-reverse;
+
+				@include e(media) {
+					border-top-right-radius: $border-radius;
+					border-top-left-radius: 0;
+					border-bottom-right-radius: $border-radius;
+				}
+			}
 		}
 	}
 

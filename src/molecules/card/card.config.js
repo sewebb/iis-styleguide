@@ -25,6 +25,7 @@ module.exports = {
 		icon: false,
 		button_color: false,
 		button_text: 'Button',
+		modifier: false
 	},
 	variants: [
 		{

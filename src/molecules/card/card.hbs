@@ -1,4 +1,4 @@
-<{{#if top_level}}article{{else}}div{{/if}} class="m-card{{#if is_padded}} m-card--padded{{/if}}{{#if is_wide}} m-card--wide{{/if}}{{#if has_shadow}} m-card--shadow{{/if}}{{#if has_border}} m-card--bordered{{/if}}{{#if teaser}} m-card--teaser{{/if}}">
+<{{#if top_level}}article{{else}}div{{/if}} class="m-card{{#if is_padded}} m-card--padded{{/if}}{{#if is_wide}} m-card--wide{{/if}}{{#if has_shadow}} m-card--shadow{{/if}}{{#if has_border}} m-card--bordered{{/if}}{{#if teaser}} m-card--teaser{{/if}}{{#if modifier}} {{modifier}}{{/if}}">
 	{{#if has_icon_overlay}}
 		{{>@icon-overlay overlay_icon="play" additional_classes="m-card__image m-card__media"}}
 	{{/if}}

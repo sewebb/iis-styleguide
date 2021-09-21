@@ -1,0 +1,77 @@
+@charset "UTF-8";
+
+@include atom(timeline) {
+	position: relative;
+	align-items: center;
+	display: flex;
+	flex-direction: column;
+	font-family: $font-family-headings;
+	width: 50px;
+	flex-grow: 0;
+	flex-shrink: 0;
+
+	@include bp-up(lg) {
+		font-size: 170%;
+	}
+
+	&::after {
+		content: '';
+		display: flex;
+		background-color: $color-cyberspace;
+		height: 100%;
+		width: 3px;
+		order: 3;
+	}
+
+	@include m(first) {
+		&::before {
+			content: '';
+			display: flex;
+			border: 3px solid $color-cyberspace;
+			width: 50px;
+			height: 50px;
+			border-radius: 50%;
+			background-color: $color-snow;
+			order: 2;
+			flex-grow: 0;
+			flex-shrink: 0;
+		}
+	}
+}
+
+@include atom(timeline-item) {
+	position: relative !important;
+	overflow: visible !important;
+
+	@include card-shadow($color-cyberspace, 0.2);
+
+	&::before {
+		content: '';
+		display: flex;
+		height: 24px;
+		width: 24px;
+		border-radius: 50%;
+		background-color: $color-snow;
+		border: 3px solid $color-cyberspace;
+		position: absolute;
+		z-index: 1;
+		left: -48px;
+		top: 50%;
+		transform: translateY(-50%);
+	}
+
+	&::after {
+		content: '';
+		display: flex;
+		position: absolute;
+		width: 0;
+		height: 0;
+		border-style: solid;
+		left: -15px;
+		top: 50%;
+		transform: translateY(-50%);
+		border-width: 30px 15px 30px 0;
+		border-color: transparent $color-snow transparent transparent;
+
+	}
+}
