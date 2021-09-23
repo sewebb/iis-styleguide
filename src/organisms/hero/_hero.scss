@@ -224,6 +224,16 @@
 		}
 	}
 
+	@include m(timeline) {
+		@include e(caption) {
+			background-color: $color-snow;
+
+			@include bp-up(sm) {
+				background-color: transparent;
+			}
+		}
+	}
+
 	// Hero with earlier mobile breakpoint
 	@include m(break-early) {
 		@include e(caption) {

@@ -60,6 +60,14 @@
 		&:focus {
 			color: $color-ruby;
 			text-decoration: underline;
+
+			> h1,
+			> h2 {
+				> span[class*='color'] {
+					color: $color-ruby !important;
+					text-decoration: underline !important;
+				}
+			}
 		}
 	}
 
@@ -82,6 +90,7 @@
 	}
 
 	@include e(content) {
+
 		&:first-child {
 			padding: rhythm(3) 0;
 		}

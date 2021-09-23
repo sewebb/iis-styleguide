@@ -8,6 +8,8 @@ module.exports = {
 		limited_width: false,
 		has_buttons: false,
 		has_tags: true,
+		hero_image: '/assets/images/hero.jpg',
+		has_link: true
 	},
 	variants: [
 		{
