@@ -101,8 +101,8 @@
 
 	@include m(single) {
 		margin-left: 0;
-		padding-left: $grid-gutter-width;
-		padding-right: $grid-gutter-width;
+		padding-left: 0;
+		padding-right: 0;
 
 		&::after {
 			display: none;
