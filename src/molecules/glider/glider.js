@@ -5,12 +5,12 @@ const gliderWrappers = document.querySelectorAll('.glider-contain');
 if (gliderWrappers) {
 	[].forEach.call(gliderWrappers, (gliderWrapper) => {
 		const gliderElement = gliderWrapper.querySelector('.js-glider');
-
+		const dots = gliderWrapper.classList.toString();
 		const glider = new Glider(gliderElement, {
 			scrollLock: true,
 			slidesToShow: 1,
 			slidesToScroll: 1,
-			dots: gliderElement.querySelector('.glider-dots'),
+			dots: `.${dots}+.glider-dots`,
 			arrows: {
 				prev: gliderWrapper.querySelector('.js-glider-prev'),
 				next: gliderWrapper.querySelector('.js-glider-next'),
