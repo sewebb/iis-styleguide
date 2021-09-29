@@ -11,7 +11,8 @@ if (gliderElementSingle) {
 
 	const nextBtns = document.querySelectorAll('.js-glider-next');
 	const prevBtns = document.querySelectorAll('.js-glider-prev');
-	let slideIndex = 0;
+	let slideIndex = GliderSingle.getCurrentSlide();
+
 	const scrollTop = () => {
 		gliderElementSingle.scrollIntoView();
 	};
@@ -19,8 +20,7 @@ if (gliderElementSingle) {
 	if (nextBtns) {
 		[].forEach.call(nextBtns, (nextBtn) => {
 			nextBtn.addEventListener('click', () => {
-				slideIndex += 1;
-				GliderSingle.scrollItem(slideIndex, true);
+				GliderSingle.scrollItem(slideIndex += 1, true);
 				scrollTop();
 			});
 		});
@@ -29,8 +29,7 @@ if (gliderElementSingle) {
 	if (prevBtns) {
 		[].forEach.call(prevBtns, (prevBtn) => {
 			prevBtn.addEventListener('click', () => {
-				slideIndex -= 1;
-				GliderSingle.scrollItem(slideIndex, true);
+				GliderSingle.scrollItem(slideIndex -= 1, true);
 				scrollTop();
 			});
 		});

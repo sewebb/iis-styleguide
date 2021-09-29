@@ -18,6 +18,16 @@
 	}
 }
 
+.glider-contain-single {
+	display: flex;
+	position: relative;
+	align-items: center;
+	margin-top: 0;
+	margin-bottom: rhythm(2);
+	padding-left: 0;
+	padding-right: 0;
+}
+
 .glider {
 	position: relative;
 	margin: 0 auto;
