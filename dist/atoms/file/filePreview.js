@@ -23,7 +23,7 @@ Array.prototype.forEach.call(fileInputs, function (fileInput) {
 		};
 
 		removebutton.addEventListener('click', function () {
-			filePreview.src = null;
+			filePreview.src = '';
 		});
 	}
 

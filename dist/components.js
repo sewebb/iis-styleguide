@@ -43,3 +43,5 @@ require('./assets/js/responsivePosition');
 require('./assets/js/youtube');
 
 require('./molecules/glider/glider');
+
+require('./molecules/glider/glider-single');
