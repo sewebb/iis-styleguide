@@ -1,6 +1,8 @@
 import Glider from 'glider-js';
 
 const gliderElementSingle = document.querySelector('.js-glider-single');
+const siteMain = document.querySelector('#siteMain');
+let bounding = 0;
 
 if (gliderElementSingle) {
 	const GliderSingle = new Glider(gliderElementSingle, {
@@ -14,14 +16,17 @@ if (gliderElementSingle) {
 	let slideIndex = GliderSingle.getCurrentSlide();
 
 	const scrollTop = () => {
-		gliderElementSingle.scrollIntoView();
+		siteMain.scrollIntoView();
 	};
 
 	if (nextBtns) {
 		[].forEach.call(nextBtns, (nextBtn) => {
 			nextBtn.addEventListener('click', () => {
 				GliderSingle.scrollItem(slideIndex += 1, true);
-				scrollTop();
+				bounding = siteMain.getBoundingClientRect();
+				if (bounding.top < 0) {
+					scrollTop();
+				}
 			});
 		});
 	}
@@ -30,7 +35,10 @@ if (gliderElementSingle) {
 		[].forEach.call(prevBtns, (prevBtn) => {
 			prevBtn.addEventListener('click', () => {
 				GliderSingle.scrollItem(slideIndex -= 1, true);
-				scrollTop();
+				bounding = siteMain.getBoundingClientRect();
+				if (bounding.top < 0) {
+					scrollTop();
+				}
 			});
 		});
 	}

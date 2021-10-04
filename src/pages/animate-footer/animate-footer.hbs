@@ -63,6 +63,12 @@
 		{{> @mega-menu id="megaMenu" search=true domain_search=true}}
 	</div>
 	<div class="site__main" id="siteMain">
+		<div class="background-snow">
+			<div class="wrapper display-flex justify-content-between">
+				{{render '@breadcrumb'}}
+			</div>
+		</div>
+		{{render '@glider--single'}}
 		{{render '@sections'}}
 		{{render '@mailchimp'}}
 	</div>
