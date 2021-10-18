@@ -67,7 +67,7 @@ module.exports = {
 			name: "Teaser",
 			context: {
 				teaser: true,
-				has_meta: false,
+				has_meta: true,
 				img_url: '/assets/images/KPA_5090-5-4.jpg',
 				is_wide: false,
 				is_padded: false,

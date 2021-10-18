@@ -261,5 +261,15 @@
 		@include e(bottom) {
 			margin-top: 0;
 		}
+
+		@include e(meta) {
+			* {
+				color: $color-snow;
+			}
+
+			svg {
+				fill: $color-snow;
+			}
+		}
 	}
 }
