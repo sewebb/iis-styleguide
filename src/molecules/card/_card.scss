@@ -194,8 +194,13 @@
 				@include e(media) {
 					border-top-right-radius: $border-radius;
 					border-top-left-radius: 0;
+					border-bottom-left-radius: 0;
 					border-bottom-right-radius: $border-radius;
 				}
+			}
+
+			@include m(stretch) {
+				height: 100%;
 			}
 		}
 	}
