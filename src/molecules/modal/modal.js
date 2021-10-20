@@ -199,7 +199,60 @@ function open(content, actions = null, settings = {}) {
 	dispatch();
 }
 
-window.addEventListener('load', createModal);
+function delegate(e) {
+	const openModal = e.target.closest('[data-modal-open]');
+
+	if (openModal) {
+		e.preventDefault();
+		e.stopPropagation();
+
+		const id = openModal.getAttribute('data-modal-open');
+		const modalEl = document.getElementById(id);
+
+		if (modalEl) {
+			open(modalEl);
+
+			[].forEach.call(document.querySelectorAll(`[aria-controls="${id}"]`), (el) => {
+				el.setAttribute('aria-expanded', 'true');
+			});
+		}
+
+		return false;
+	}
+
+	const closeModal = e.target.closest('[data-modal-close]');
+
+	if (closeModal) {
+		e.preventDefault();
+		e.stopPropagation();
+
+		const id = closeModal.getAttribute('data-modal-close') || (active && active.el.id);
+
+		if (active && active.el.id === id) {
+			close();
+
+			[].forEach.call(document.querySelectorAll(`[aria-controls="${id}"]`), (el) => {
+				el.setAttribute('aria-expanded', 'false');
+			});
+		}
+
+		return false;
+	}
+
+	return true;
+}
+
+/**
+ * Attach global listeners
+ */
+function attach() {
+	document.body.addEventListener('click', delegate);
+}
+
+window.addEventListener('load', () => {
+	createModal();
+	attach();
+});
 
 export {
 	clearQueue,

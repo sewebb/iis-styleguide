@@ -26,7 +26,7 @@ if (demoButtons.length) {
 	});
 }
 
-const demoModal = document.querySelector('[data-open-modal]');
+const demoModal = document.querySelector('[data-open-demo-modal]');
 
 if (demoModal) {
 	demoModal.addEventListener('click', () => {
