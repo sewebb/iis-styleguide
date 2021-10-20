@@ -1,13 +1,6 @@
 import className from '../../assets/js/className';
 
 /**
- * Modal content
- * @typedef {Object} ModalContent
- * @property {string} title - Modal title
- * @property {string} content - Modal content
- */
-
-/**
  * Modal action
  * @typedef {Object} ModalAction
  * @property {string} icon - icon name
@@ -15,6 +8,16 @@ import className from '../../assets/js/className';
  * @property {string} text - action content
  * @property {string} url - action link url
  * @property {string} target - action link target
+ * @property {function} onClick - action click handler
+ * @property {object} attrs – action element attributes
+ */
+
+/**
+ * Modal content
+ * @typedef {Object} ModalContent
+ * @property {string} title - Modal title
+ * @property {string} content - Modal content
+ * @property {ModalAction[]} actions - Modal actions
  */
 
 /**
@@ -45,6 +48,13 @@ function getId() {
 	return incrementId;
 }
 
+function objectToAttributes(obj) {
+	return Object.entries(obj)
+		.filter(([, value]) => value !== undefined)
+		.map(([key, value]) => `${key}=${value}`)
+		.join(' ');
+}
+
 /**
  * Create an action DOM node and append to modal actions container.
  *
@@ -63,11 +73,12 @@ function addAction(action) {
 		cls += ` ${className('a-button--icon')}`;
 	}
 
+	const tag = (action.url) ? 'a' : 'button';
 	const button = `
-		<a href="${action.url}" class="${cls}" target="${action.target}">
-			<span class="goto10-a-button__text">${action.text}</span>
+		<${tag} ${objectToAttributes({ ...action.attrs, href: action.url, target: action.target })} class="${cls}">
+			<span class="${className('a-button__text')}">${action.text}</span>
 			${icon}
-		</a>
+		</${tag}>
 	`;
 
 	modalActions.appendChild(document.createRange().createContextualFragment(button));
@@ -87,15 +98,17 @@ function display() {
 			${active.content.content}
 		`;
 
-		if (active.actions) {
+		if (active.content.actions) {
 			modalActions.innerHTML = '';
-			active.actions.forEach(addAction);
+			active.content.actions.forEach(addAction);
 
 			modalActions.classList.remove('u-hide');
 		} else {
 			modalActions.classList.add('u-hide');
 		}
 	}
+
+	console.log('open', active);
 
 	active.el.setAttribute('aria-hidden', 'false');
 
@@ -122,19 +135,19 @@ function dispatch() {
  * and dispatch next in queue.
  */
 function close() {
-	if (!active) {
-		return;
+	if (active) {
+		active.el.setAttribute('aria-hidden', 'true');
+
+		if (active.settings.onClose) {
+			active.settings.onClose(active.id);
+		}
+
+		active = null;
 	}
 
-	active.el.setAttribute('aria-hidden', 'true');
-
-	if (active.settings.onClose) {
-		active.settings.onClose(active.id);
-	}
-
-	active = null;
-
-	dispatch();
+	setTimeout(() => {
+		dispatch();
+	}, 1);
 }
 
 /**
@@ -185,18 +198,24 @@ function clearQueue() {
  * Open a modal.
  *
  * @param {ModalContent|HTMLElement} content
- * @param {ModalAction[]} actions
  * @param {ModalSettings} settings
  */
-function open(content, actions = null, settings = {}) {
+function open(content, settings = {}) {
+	if (active && settings.skipIfCurrent) {
+		return;
+	}
+
 	queue.push({
 		id: getId(),
 		content,
-		actions,
 		settings,
 	});
 
-	dispatch();
+	if (settings.replaceCurrent) {
+		close();
+	} else {
+		dispatch();
+	}
 }
 
 function delegate(e) {
@@ -210,7 +229,10 @@ function delegate(e) {
 		const modalEl = document.getElementById(id);
 
 		if (modalEl) {
-			open(modalEl);
+			open(modalEl, {
+				replaceCurrent: openModal.hasAttribute('data-modal-replace'),
+				skipIfCurrent: openModal.hasAttribute('data-modal-skip'),
+			});
 
 			[].forEach.call(document.querySelectorAll(`[aria-controls="${id}"]`), (el) => {
 				el.setAttribute('aria-expanded', 'true');

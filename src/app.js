@@ -32,8 +32,25 @@ if (demoModal) {
 	demoModal.addEventListener('click', () => {
 		open({
 			title: 'My modal title',
-			content: 'My modal content',
-		}, null, {
+			content: '<p>My modal content.</p>',
+			actions: [
+				{
+					text: 'Open modal',
+					color: 'lemon',
+					attrs: {
+						'data-modal-open': 'modal-container',
+					},
+				},
+				{
+					text: 'Replace modal',
+					color: 'ruby',
+					attrs: {
+						'data-modal-open': 'modal-container',
+						'data-modal-replace': true,
+					},
+				},
+			],
+		}, {
 			onClose: (id) => console.log('close', id),
 			onOpen: (id) => console.log('open', id),
 		});
