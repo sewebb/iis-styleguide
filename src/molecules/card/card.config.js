@@ -2,6 +2,7 @@ module.exports = {
 	status: "ready",
 
 	context: {
+		id: false,
 		alt: "Hands typing on laptop",
 		img_url: "/assets/images/ALX_0876.jpg",
 		title: "Gymnasieskolor med hög bandbredd har bättre skolresultat",
