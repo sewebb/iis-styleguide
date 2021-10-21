@@ -1,5 +1,4 @@
 const timelineNavigation = document.querySelector('#timeline-navigation');
-const timelineNavigationLinks = timelineNavigation.querySelectorAll('a');
 const timeLineButton = document.querySelector('.js-timeline-navigation');
 const timeLineOverlay = document.querySelector('.js-timeline-overlay');
 const body = document.querySelector('body');
@@ -24,6 +23,7 @@ if (timeLineButton) {
 }
 
 if (timelineNavigation) {
+	const timelineNavigationLinks = timelineNavigation.querySelectorAll('a');
 	[].forEach.call(timelineNavigationLinks, (timelineNavigationLink) => {
 		timelineNavigationLink.addEventListener('click', () => {
 			timeLineButton.click();
