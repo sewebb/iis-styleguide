@@ -1,5 +1,5 @@
 module.exports = {
-	status: 'ready',
+	status: 'prototype',
 
 	context: {
 		text: 'Paging',

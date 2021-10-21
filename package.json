@@ -59,15 +59,15 @@
 		"eslint": "^7.28.0",
 		"imagemin-cli": "^6.0.0",
 		"onchange": "^6.1.0",
+		"postcss-class-prefix": "^0.3.0",
 		"postcss-cli": "^8.3.1",
 		"sass": "^1.35.1",
 		"stylelint": "^13.13.1",
-		"uglify-es": "^3.3.9",
-		"postcss-class-prefix": "^0.3.0"
+		"uglify-es": "^3.3.9"
 	},
 	"dependencies": {
 		"a11y-toggle": "^2.1.0",
-		"focus-trap": "^4.0.2",
+		"focus-trap": "^6.7.1",
 		"glider-js": "^1.7.7",
 		"lodash.template": "^4.5.0",
 		"lodash.throttle": "^4.1.1",

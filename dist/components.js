@@ -45,3 +45,7 @@ require('./assets/js/youtube');
 require('./molecules/glider/glider');
 
 require('./molecules/glider/glider-single');
+
+require('./atoms/timeline/anchorScroll');
+
+require('./molecules/timeline-navigation/timeline-navigation');

@@ -10,6 +10,4 @@ var anchorScroll = new _smoothScroll2.default('a[href*="#"]', {
 	easing: 'easeOutCubic'
 });
 
-console.log('foo');
-
 module.exports = anchorScroll;
