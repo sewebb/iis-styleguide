@@ -1,7 +1,6 @@
 'use strict';
 
 var timelineNavigation = document.querySelector('#timeline-navigation');
-var timelineNavigationLinks = timelineNavigation.querySelectorAll('a');
 var timeLineButton = document.querySelector('.js-timeline-navigation');
 var timeLineOverlay = document.querySelector('.js-timeline-overlay');
 var body = document.querySelector('body');
@@ -26,6 +25,7 @@ if (timeLineButton) {
 }
 
 if (timelineNavigation) {
+	var timelineNavigationLinks = timelineNavigation.querySelectorAll('a');
 	[].forEach.call(timelineNavigationLinks, function (timelineNavigationLink) {
 		timelineNavigationLink.addEventListener('click', function () {
 			timeLineButton.click();
