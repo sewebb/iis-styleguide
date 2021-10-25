@@ -108,8 +108,6 @@ function display() {
 		}
 	}
 
-	console.log('open', active);
-
 	active.el.setAttribute('aria-hidden', 'false');
 
 	if (active.settings.onOpen) {
