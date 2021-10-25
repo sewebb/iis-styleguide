@@ -29,9 +29,12 @@ if (gliderElementSingle) {
 		[].forEach.call(nextBtns, function (nextBtn) {
 			nextBtn.addEventListener('click', function () {
 				GliderSingle.scrollItem(slideIndex += 1, true);
-				bounding = siteMain.getBoundingClientRect();
-				if (bounding.top < 0) {
-					scrollTop();
+
+				if (siteMain) {
+					bounding = siteMain.getBoundingClientRect();
+					if (bounding.top < 0) {
+						scrollTop();
+					}
 				}
 			});
 		});
@@ -41,9 +44,12 @@ if (gliderElementSingle) {
 		[].forEach.call(prevBtns, function (prevBtn) {
 			prevBtn.addEventListener('click', function () {
 				GliderSingle.scrollItem(slideIndex -= 1, true);
-				bounding = siteMain.getBoundingClientRect();
-				if (bounding.top < 0) {
-					scrollTop();
+
+				if (siteMain) {
+					bounding = siteMain.getBoundingClientRect();
+					if (bounding.top < 0) {
+						scrollTop();
+					}
 				}
 			});
 		});
