@@ -74,7 +74,7 @@ function objectToAttributes(obj) {
 		    key = _ref4[0],
 		    value = _ref4[1];
 
-		return key + '=' + value;
+		return value !== null ? key + '=' + value : key;
 	}).join(' ');
 }
 

@@ -38,7 +38,7 @@ if (demoModal) {
 					text: 'Open modal',
 					color: 'lemon',
 					attrs: {
-						'data-modal-open': 'modal-container',
+						'data-modal-close': null,
 					},
 				},
 				{

@@ -51,7 +51,7 @@ function getId() {
 function objectToAttributes(obj) {
 	return Object.entries(obj)
 		.filter(([, value]) => value !== undefined)
-		.map(([key, value]) => `${key}=${value}`)
+		.map(([key, value]) => ((value !== null) ? `${key}=${value}` : key))
 		.join(' ');
 }
 
