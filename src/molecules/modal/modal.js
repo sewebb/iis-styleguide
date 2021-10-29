@@ -67,7 +67,7 @@ function addAction(action) {
 		</svg>
 	` : '';
 
-	let cls = `${className(`a-button a-button--${action.color}`)} u-m-l-2`;
+	let cls = `${className(`a-button a-button--${action.color}`)} ${className('m-modal__button-primary')} u-m-l-2`;
 
 	if (action.icon) {
 		cls += ` ${className('a-button--icon')}`;
