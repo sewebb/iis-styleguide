@@ -36,14 +36,14 @@ if (demoModal) {
 			actions: [
 				{
 					text: 'Open modal',
-					color: 'lemon',
+					color: 'peacock-light',
 					attrs: {
 						'data-modal-close': null,
 					},
 				},
 				{
 					text: 'Replace modal',
-					color: 'ruby',
+					color: 'ruby-light',
 					attrs: {
 						'data-modal-open': 'modal-container',
 						'data-modal-replace': true,
