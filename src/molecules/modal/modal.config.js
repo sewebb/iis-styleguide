@@ -7,6 +7,14 @@ module.exports = {
 		button_text: 'Stäng',
 		aria_controls: '',
 		is_hidden: false,
+		button_primary_color: '#e0bff5',
+		button_primary_hover_color: '#c27fec',
+		button_primary_border_color: '#c27fec',
+		button_primary_text_color: '#1f2a36',
+		button_secondary_color: '#ff9fb4',
+		button_secondary_hover_color: '#ff4069',
+		button_secondary_border_color: '#ff4069',
+		button_secondary_text_color: '#1f2a36',
 	},
 
 	variants: [

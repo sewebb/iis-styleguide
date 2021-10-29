@@ -112,6 +112,34 @@
 		justify-content: flex-end;
 	}
 
+	@include e(button-primary) {
+		color: var(--m-modal-button-primary-color) !important;
+		box-shadow: 0 0 0 1px inset var(--m-modal-button-primary-border-color) !important;
+
+		> [class*='text'] {
+			color: var(--m-modal-button-primary-text-color) !important;
+		}
+
+		&:hover,
+		&:focus {
+			color: var(--m-modal-button-primary-hover-color) !important;
+		}
+	}
+
+	@include e(button-secondary) {
+		color: var(--m-modal-button-secondary-color) !important;
+		box-shadow: 0 0 0 1px inset var(--m-modal-button-secondary-border-color) !important;
+
+		> [class*='text'] {
+			color: var(--m-modal-button-secondary-text-color) !important;
+		}
+
+		&:hover,
+		&:focus {
+			color: var(--m-modal-button-secondary-hover-color) !important;
+		}
+	}
+
 	@include b(field-group) {
 		margin-bottom: rhythm(1);
 	}

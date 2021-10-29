@@ -1,3 +1,15 @@
+<style media="screen">
+:root {
+	--m-modal-button-primary-color: {{button_primary_color}};
+	--m-modal-button-primary-hover-color: {{button_primary_hover_color}};
+	--m-modal-button-primary-border-color: {{button_primary_border_color}};
+	--m-modal-button-primary-text-color: {{button_primary_text_color}};
+	--m-modal-button-secondary-color: {{button_secondary_color}};
+	--m-modal-button-secondary-hover-color: {{button_secondary_hover_color}};
+	--m-modal-button-secondary-border-color: {{button_secondary_border_color}};
+	--m-modal-button-secondary-text-color: {{button_secondary_text_color}};
+}
+</style>
 <div id="modal-container" class="m-modal m-modal--has-overlay" {{#if is_hidden}}aria-hidden="true"{{/if}}>
 	<div class="m-modal__container {{#if is_form}}m-modal__container--form{{/if}}">
 		<button type="button" class="a-button a-button--standalone-icon a-button--transparent js-toggle-modal" aria-expanded="false" data-a11y-toggle="{{aria_controls}}" aria-controls="{{aria_controls}}" data-modal-close>
@@ -69,7 +81,7 @@
 			</form>
 		{{/if}}
 		<div class="m-modal__buttons u-m-t-2">
-			<button type="button" class="a-button a-button--lemon js-toggle-modal" aria-expanded="false" data-a11y-toggle="{{aria_controls}}" aria-controls="{{aria_controls}}" data-modal-close>
+			<button type="button" class="a-button m-modal__button-primary js-toggle-modal" aria-expanded="false" data-a11y-toggle="{{aria_controls}}" aria-controls="{{aria_controls}}" data-modal-close>
 				<span class="a-button__text">{{button_text}}</span>
 			</button>
 		</div>
