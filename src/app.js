@@ -37,6 +37,7 @@ if (demoModal) {
 				{
 					text: 'Open modal',
 					color: 'peacock-light',
+					modifier: 'primary',
 					attrs: {
 						'data-modal-close': null,
 					},
@@ -44,6 +45,7 @@ if (demoModal) {
 				{
 					text: 'Replace modal',
 					color: 'ruby-light',
+					modifier: 'secondary',
 					attrs: {
 						'data-modal-open': 'modal-container',
 						'data-modal-replace': true,

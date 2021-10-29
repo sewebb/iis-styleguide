@@ -5,6 +5,7 @@ import className from '../../assets/js/className';
  * @typedef {Object} ModalAction
  * @property {string} icon - icon name
  * @property {string} color - styleguide color
+ * @property {string} modifier - styleguide modifier
  * @property {string} text - action content
  * @property {string} url - action link url
  * @property {string} target - action link target
@@ -67,7 +68,7 @@ function addAction(action) {
 		</svg>
 	` : '';
 
-	let cls = `${className(`a-button a-button--${action.color}`)} ${className('m-modal__button-primary')} u-m-l-2`;
+	let cls = `${className(`a-button a-button--${action.color}`)} ${className(`m-modal__button-${action.modifier}`)} u-m-l-2`;
 
 	if (action.icon) {
 		cls += ` ${className('a-button--icon')}`;

@@ -20,6 +20,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @typedef {Object} ModalAction
  * @property {string} icon - icon name
  * @property {string} color - styleguide color
+ * @property {string} modifier - styleguide modifier
  * @property {string} text - action content
  * @property {string} url - action link url
  * @property {string} target - action link target
@@ -86,7 +87,7 @@ function objectToAttributes(obj) {
 function addAction(action) {
 	var icon = action.icon ? '\n\t\t<svg class="icon ' + (0, _className2.default)('a-button__icon') + '">\n\t\t\t<use xlink:href="#icon-' + action.icon + '"></use>\n\t\t</svg>\n\t' : '';
 
-	var cls = (0, _className2.default)('a-button a-button--' + action.color) + ' u-m-l-2';
+	var cls = (0, _className2.default)('a-button a-button--' + action.color) + ' ' + (0, _className2.default)('m-modal__button-' + action.modifier) + ' u-m-l-2';
 
 	if (action.icon) {
 		cls += ' ' + (0, _className2.default)('a-button--icon');
