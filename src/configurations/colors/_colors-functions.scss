@@ -92,3 +92,21 @@ $colors: (
 		}
 	}
 }
+
+/// Generate wordpress color classes with attribute and value
+/// Generates this: .has-color-name{$suffix}
+/// @group Colors
+@mixin wordpress_color_classes($map, $attribute,  $separator: '-', $suffix: '', $base: 'base') {
+	@each $key, $value in $map {
+		@if type-of($value) == 'map' {
+			&#{if($key != $base, #{$separator}#{$key}, '')} {
+				@include wordpress_color_classes($value, $attribute, $separator, '-color');
+			}
+		}
+		@else {
+			&#{if($key != $base, #{$separator}#{$key}, '')}#{$suffix} {
+				#{$attribute}: $value;
+			}
+		}
+	}
+}
