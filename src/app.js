@@ -1,4 +1,5 @@
 import './molecules/form';
+import './atoms/textarea/rich-text';
 
 require('./atoms/grid-toggle/grid-toggle');
 require('./components');

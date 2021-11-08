@@ -18,50 +18,30 @@
 	@include m(discreet) {
 		@extend %discreet;
 	}
-}
 
-.ql-editor {
-	@extend %input;
+	@include m(rich-text) {
+		min-height: auto;
 
-	min-width: 100%;
-	max-width: 100%;
-	min-height: 100px;
+		> div {
+			min-height: rhythm(12);
 
-	&:focus {
-		@extend %input-focus;
+			p,
+			ul,
+			ol {
+				@include plumber(
+					$font-size: 1.75,
+					$leading-bottom: 2
+				);
+			}
+		}
 	}
 
-	&[disabled] {
-		@extend %disabled;
+	@include e(toolbar) {
+		button {
+			@extend %button-toolbar;
+
+			margin-right: rhythm(0.5);
+			margin-bottom: rhythm(1);
+		}
 	}
-
-	p {
-		font-size: rem(16px);
-	}
-}
-
-.ql-toolbar {
-	button {
-		@extend %button-toolbar;
-
-		margin-right: rhythm(0.5);
-		margin-bottom: rhythm(1);
-	}
-}
-
-.ql-clipboard {
-	position: absolute;
-	top: 50%;
-	left: -100000px;
-	height: 1px;
-	overflow-y: hidden;
-}
-
-.ql-editor p,
-.ql-editor ul,
-.ql-editor ol {
-	@include plumber(
-		$font-size: 1.75,
-		$leading-bottom: 2
-	);
 }
