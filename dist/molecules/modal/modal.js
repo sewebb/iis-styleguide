@@ -28,6 +28,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @property {string} text - action content
  * @property {string} url - action link url
  * @property {string} target - action link target
+ * @property {string} key - action click handler key shortcut
  * @property {function} onClick - action click handler
  * @property {object} attrs – action element attributes
  */
@@ -56,6 +57,7 @@ var modal = null;
 var modalContent = null;
 var modalActions = null;
 var modalClose = null;
+var keyHandlers = {};
 
 /**
  * Increase increment ID and return the latest
@@ -91,7 +93,15 @@ function objectToAttributes(obj) {
 function addAction(action) {
 	var icon = action.icon ? '\n\t\t<svg class="icon ' + (0, _className2.default)('a-button__icon') + '">\n\t\t\t<use xlink:href="#icon-' + action.icon + '"></use>\n\t\t</svg>\n\t' : '';
 
-	var cls = (0, _className2.default)('a-button a-button--' + action.color) + ' ' + (0, _className2.default)('m-modal__button-' + action.modifier) + ' u-m-l-2';
+	var cls = (0, _className2.default)('a-button') + ' u-m-l-2';
+
+	if (action.color) {
+		cls += ' ' + (0, _className2.default)('a-button--' + action.color);
+	}
+
+	if (action.modifier) {
+		cls += ' ' + (0, _className2.default)('m-modal__button-' + action.modifier);
+	}
 
 	if (action.icon) {
 		cls += ' ' + (0, _className2.default)('a-button--icon');
@@ -100,7 +110,32 @@ function addAction(action) {
 	var tag = action.url ? 'a' : 'button';
 	var button = '\n\t\t<' + tag + ' ' + objectToAttributes(_extends({}, action.attrs, { href: action.url, target: action.target })) + ' class="' + cls + '">\n\t\t\t<span class="' + (0, _className2.default)('a-button__text') + '">' + action.text + '</span>\n\t\t\t' + icon + '\n\t\t</' + tag + '>\n\t';
 
-	modalActions.appendChild(document.createRange().createContextualFragment(button));
+	var dummy = document.createElement('div');
+
+	dummy.innerHTML = button;
+
+	var el = dummy.firstElementChild;
+	modalActions.appendChild(el);
+
+	if (action.onClick) {
+		el.addEventListener('click', function (e) {
+			// eslint-disable-next-line no-use-before-define
+			action.onClick(e, modal, close);
+		});
+	}
+}
+
+function handleKeyUp(e) {
+	Object.entries(keyHandlers).forEach(function (_ref5) {
+		var _ref6 = _slicedToArray(_ref5, 2),
+		    key = _ref6[0],
+		    handler = _ref6[1];
+
+		if (e.key.toLowerCase() === key) {
+			// eslint-disable-next-line no-use-before-define
+			handler(e, modal, close);
+		}
+	});
 }
 
 /**
@@ -129,7 +164,7 @@ function display() {
 	active.el.setAttribute('aria-hidden', 'false');
 
 	if (active.settings.onOpen) {
-		active.settings.onOpen(active.id);
+		active.settings.onOpen(active.id, active.el);
 	}
 
 	setTimeout(function () {
@@ -137,6 +172,17 @@ function display() {
 			active.el.focusTrap.activate();
 		}
 	}, 1);
+
+	// Just to make sure
+	keyHandlers = {};
+
+	active.content.actions.forEach(function (action) {
+		if (action.key && action.onClick) {
+			keyHandlers[action.key] = action.onClick;
+		}
+	});
+
+	document.addEventListener('keyup', handleKeyUp);
 }
 
 /**
@@ -164,14 +210,28 @@ function close() {
 			active.settings.onClose(active.id);
 		}
 
-		active = null;
-	}
+		active.content.actions.forEach(function (action) {
+			if (action.key && action.onClick) {
+				document.addEventListener('keyup', function (e) {
+					if (e.key.toLowerCase() === action.key) {
+						// eslint-disable-next-line no-use-before-define
+						action.onClick(e, modal, close);
+					}
+				});
+			}
+		});
 
-	setTimeout(function () {
+		document.removeEventListener('keyup', handleKeyUp);
+
 		if (active.el.focusTrap) {
 			active.el.focusTrap.deactivate();
 		}
 
+		keyHandlers = {};
+		active = null;
+	}
+
+	setTimeout(function () {
 		dispatch();
 	}, 1);
 }
