@@ -9,6 +9,10 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
+var _focusTrap = require('../../focusTrap');
+
+var _focusTrap2 = _interopRequireDefault(_focusTrap);
+
 var _className = require('../../assets/js/className');
 
 var _className2 = _interopRequireDefault(_className);
@@ -120,11 +124,19 @@ function display() {
 		}
 	}
 
+	(0, _focusTrap2.default)(active.el);
+
 	active.el.setAttribute('aria-hidden', 'false');
 
 	if (active.settings.onOpen) {
 		active.settings.onOpen(active.id);
 	}
+
+	setTimeout(function () {
+		if (active.el.focusTrap) {
+			active.el.focusTrap.activate();
+		}
+	}, 1);
 }
 
 /**
@@ -156,6 +168,10 @@ function close() {
 	}
 
 	setTimeout(function () {
+		if (active.el.focusTrap) {
+			active.el.focusTrap.deactivate();
+		}
+
 		dispatch();
 	}, 1);
 }

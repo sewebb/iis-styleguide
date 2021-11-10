@@ -4,7 +4,7 @@ function getContainer(element) {
 	return document.getElementById(element.getAttribute('data-a11y-toggle'));
 }
 
-function focusTrap(container) {
+export default function focusTrap(container) {
 	if (container && container.getAttribute('data-focus-trap') !== 'false' && !container.focusTrap) {
 		container.focusTrap = createFocusTrap(`#${container.id}`, { clickOutsideDeactivates: true });
 		container.setAttribute('data-focus-trap', 'true');

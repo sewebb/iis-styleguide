@@ -1,3 +1,4 @@
+import focusTrap from '../../focusTrap';
 import className from '../../assets/js/className';
 
 /**
@@ -109,11 +110,19 @@ function display() {
 		}
 	}
 
+	focusTrap(active.el);
+
 	active.el.setAttribute('aria-hidden', 'false');
 
 	if (active.settings.onOpen) {
 		active.settings.onOpen(active.id);
 	}
+
+	setTimeout(() => {
+		if (active.el.focusTrap) {
+			active.el.focusTrap.activate();
+		}
+	}, 1);
 }
 
 /**
@@ -145,6 +154,10 @@ function close() {
 	}
 
 	setTimeout(() => {
+		if (active.el.focusTrap) {
+			active.el.focusTrap.deactivate();
+		}
+
 		dispatch();
 	}, 1);
 }

@@ -1,5 +1,10 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.default = focusTrap;
+
 var _focusTrap = require('focus-trap');
 
 var _focusTrap2 = _interopRequireDefault(_focusTrap);
