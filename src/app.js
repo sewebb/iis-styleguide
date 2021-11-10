@@ -40,7 +40,7 @@ if (demoModal) {
 					color: 'peacock-light',
 					modifier: 'primary',
 					attrs: {
-						'data-modal-open': 'modal-container',
+						'data-modal-close': null,
 					},
 				},
 				{
