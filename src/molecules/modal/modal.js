@@ -205,15 +205,15 @@ function close() {
 
 		document.removeEventListener('keyup', handleKeyUp);
 
+		if (active.el.focusTrap) {
+			active.el.focusTrap.deactivate();
+		}
+
 		keyHandlers = {};
 		active = null;
 	}
 
 	setTimeout(() => {
-		if (active.el.focusTrap) {
-			active.el.focusTrap.deactivate();
-		}
-
 		dispatch();
 	}, 1);
 }
