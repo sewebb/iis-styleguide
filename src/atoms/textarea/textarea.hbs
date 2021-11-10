@@ -1,3 +1,15 @@
+<style media="screen">
+	:root {
+		--m-modal-button-primary-color: {{button_primary_color}};
+		--m-modal-button-primary-hover-color: {{button_primary_hover_color}};
+		--m-modal-button-primary-border-color: {{button_primary_border_color}};
+		--m-modal-button-primary-text-color: {{button_primary_text_color}};
+		--m-modal-button-secondary-color: {{button_secondary_color}};
+		--m-modal-button-secondary-hover-color: {{button_secondary_hover_color}};
+		--m-modal-button-secondary-border-color: {{button_secondary_border_color}};
+		--m-modal-button-secondary-text-color: {{button_secondary_text_color}};
+	}
+</style>
 <div class="field-group{{#if is_invalid}} is-invalid{{/if}}">
 	{{> @label for="message" label="Meddelande" }}
 	<textarea rows="5" class="a-textarea{{#if modifier}} {{modifier}}{{/if}}" id="{{id}}" {{#if is_invalid}}aria-invalid="true"{{/if}} {{#if is_richtext}}data-rich-text{{/if}} {{#if required}}required {{/if}} {{#if is_disabled}}disabled {{/if}} placeholder="{{placeholder}}" autocomplete="{{autocomplete}}"{{#if has_help}} aria-describedby="textarea-help"{{/if}} {{#if required}} aria-describedby="textarea-help"{{/if}}></textarea>
