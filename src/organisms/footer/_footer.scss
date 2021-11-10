@@ -19,14 +19,6 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 		z-index: z_index(foreground);
 	}
 
-	@include m(row) {
-		display: flex;
-		flex-wrap: wrap;
-		max-width: none !important;
-		margin-right: math.div($grid-gutter-width, -2);
-		margin-left: math.div($grid-gutter-width, -2);
-	}
-
 	@include e(logotype) {
 		width: 100%;
 		max-width: 250px;
@@ -53,17 +45,98 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 	}
 
 	@include e(info) {
-		min-height: 445px;
 		background-color: $color-cyberspace;
 		color: $color-snow;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 
-		@include e(inner) {
+		@include e(freetext) {
+			padding: rhythm(4) rhythm(3);
+			border-bottom: 1px solid $color-black;
+
+			@include bp-up(xl) {
+				padding: rhythm(4) rhythm(6);
+				border-bottom: 0;
+			}
+		}
+
+		@include e(contact) {
+			border-left: 1px solid $color-black;
+			font-size: 80%;
+
+			@include e(address) {
+				font-size: inherit;
+
+				@include e(li) {
+					font-size: #{($footer-font-size) - 3px};
+					line-height: 1.3;
+				}
+			}
+
+			@include bp-up(xxl) {
+				padding-right: rhythm(1);
+
+				& + & {
+					padding-right: 0;
+					padding-left: rhythm(1);
+				}
+			}
+
+			@include e(row-first) {
+				border-bottom: 1px solid $color-black;
+			}
+
+			@include e(row-second) {
+			}
+		}
+
+		@include e(address1) {
 			padding: rhythm(3);
+			border-bottom: 1px solid $color-black;
+
+			@include bp-only(md) {
+				border-bottom: 0;
+				border-right: 1px solid $color-black;
+			}
+
+			@include bp-up(xl) {
+				border-right: 1px solid $color-black;
+				border-bottom: 0;
+				padding: rhythm(3) rhythm(3) rhythm(3) rhythm(6);
+			}
+		}
+
+		@include e(address2) {
+			padding: rhythm(3) 0 rhythm(3) rhythm(3);
+
+			@include bp-up(xl) {
+				padding-left: rhythm(6);
+			}
+		}
+
+		@include e(ISO) {
+			border-right: 1px solid $color-black;
+			border-bottom: 1px solid $color-black;
+			padding: rhythm(3);
+			display: flex;
+			align-items: center;
 
 			@include bp-up(md) {
-				padding: rhythm(4) rhythm(5);
+				border-bottom: 0;
+			}
+
+			@include bp-up(xl) {
+				padding: rhythm(3) rhythm(3) rhythm(3) rhythm(6);
+			}
+		}
+
+		@include e(CC) {
+			padding: rhythm(3);
+			display: flex;
+			align-items: center;
+
+			@include bp-up(xl) {
+				padding-left: rhythm(6);
 			}
 		}
 	}
@@ -76,6 +149,8 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 		font-size: $footer-font-size;
 
 		a {
+			@extend %normalize-links;
+
 			color: $color-jade;
 			text-decoration: none;
 
@@ -85,17 +160,10 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 				text-decoration: underline;
 			}
 		}
-	}
 
-	@include bp-down(md) {
-		@include e(paragraph) {
-			max-width: 70%;
-		}
-	}
-
-	@include bp-down(sm) {
-		@include e(paragraph) {
-			max-width: none;
+		@include bp-up(xxl) {
+			@include make-col(14);
+			max-width: rem(612px);
 		}
 	}
 
@@ -103,11 +171,6 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 		max-width: 100%;
 		height: auto;
 		background-color: $color-snow;
-	}
-
-	@include e(grid-row) {
-		height: 100%;
-		overflow: hidden;
 
 		@include e(item) {
 			display: flex;
@@ -127,15 +190,15 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 			}
 
 			@include bp-up(md) {
-				flex-basis: 33.333333%;
-			}
-
-			@include bp-up(lg) {
 				flex-basis: 50%;
 			}
 
-			@include bp-up(xl) {
+			@include bp-up(lg) {
 				flex-basis: 33.333333%;
+			}
+
+			@include bp-up(xl) {
+				flex-basis: 16.666666%;
 			}
 
 			@include e(link) {
@@ -200,36 +263,11 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 					display: inline-block;
 					max-width: 300px;
 
-					@include bp-down(lg) {
-						@include plumber(
-							$font-size: 1.7,
-							$line-height: 2
-						);
-					}
+					@include plumber(
+						$font-size: 1.7,
+						$line-height: 2
+					);
 				}
-			}
-		}
-	}
-
-	@include e(contact) {
-		font-size: 80%;
-
-		@include e(address) {
-			margin-bottom: rhythm(2);
-			font-size: inherit;
-
-			@include e(li) {
-				font-size: #{($footer-font-size) - 3px};
-				line-height: 1.3;
-			}
-		}
-
-		@include bp-up(xxl) {
-			padding-right: rhythm(1);
-
-			& + & {
-				padding-right: 0;
-				padding-left: rhythm(1);
 			}
 		}
 	}
