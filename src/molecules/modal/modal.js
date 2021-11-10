@@ -146,7 +146,7 @@ function display() {
 	active.el.setAttribute('aria-hidden', 'false');
 
 	if (active.settings.onOpen) {
-		active.settings.onOpen(active.id);
+		active.settings.onOpen(active.id, active.el);
 	}
 
 	setTimeout(() => {
