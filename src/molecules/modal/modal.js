@@ -10,6 +10,7 @@ import className from '../../assets/js/className';
  * @property {string} text - action content
  * @property {string} url - action link url
  * @property {string} target - action link target
+ * @property {string} key - action click handler key shortcut
  * @property {function} onClick - action click handler
  * @property {object} attrs – action element attributes
  */
@@ -38,6 +39,7 @@ let modal = null;
 let modalContent = null;
 let modalActions = null;
 let modalClose = null;
+let keyHandlers = {};
 
 /**
  * Increase increment ID and return the latest
@@ -69,7 +71,15 @@ function addAction(action) {
 		</svg>
 	` : '';
 
-	let cls = `${className(`a-button a-button--${action.color}`)} ${className(`m-modal__button-${action.modifier}`)} u-m-l-2`;
+	let cls = `${className('a-button')} u-m-l-2`;
+
+	if (action.color) {
+		cls += ` ${className(`a-button--${action.color}`)}`;
+	}
+
+	if (action.modifier) {
+		cls += ` ${className(`m-modal__button-${action.modifier}`)}`;
+	}
 
 	if (action.icon) {
 		cls += ` ${className('a-button--icon')}`;
@@ -83,7 +93,28 @@ function addAction(action) {
 		</${tag}>
 	`;
 
-	modalActions.appendChild(document.createRange().createContextualFragment(button));
+	const dummy = document.createElement('div');
+
+	dummy.innerHTML = button;
+
+	const el = dummy.firstElementChild;
+	modalActions.appendChild(el);
+
+	if (action.onClick) {
+		el.addEventListener('click', (e) => {
+			// eslint-disable-next-line no-use-before-define
+			action.onClick(e, modal, close);
+		});
+	}
+}
+
+function handleKeyUp(e) {
+	Object.entries(keyHandlers).forEach(([key, handler]) => {
+		if (e.key.toLowerCase() === key) {
+			// eslint-disable-next-line no-use-before-define
+			handler(e, modal, close);
+		}
+	});
 }
 
 /**
@@ -123,6 +154,17 @@ function display() {
 			active.el.focusTrap.activate();
 		}
 	}, 1);
+
+	// Just to make sure
+	keyHandlers = {};
+
+	active.content.actions.forEach((action) => {
+		if (action.key && action.onClick) {
+			keyHandlers[action.key] = action.onClick;
+		}
+	});
+
+	document.addEventListener('keyup', handleKeyUp);
 }
 
 /**
@@ -150,6 +192,20 @@ function close() {
 			active.settings.onClose(active.id);
 		}
 
+		active.content.actions.forEach((action) => {
+			if (action.key && action.onClick) {
+				document.addEventListener('keyup', (e) => {
+					if (e.key.toLowerCase() === action.key) {
+						// eslint-disable-next-line no-use-before-define
+						action.onClick(e, modal, close);
+					}
+				});
+			}
+		});
+
+		document.removeEventListener('keyup', handleKeyUp);
+
+		keyHandlers = {};
 		active = null;
 	}
 
