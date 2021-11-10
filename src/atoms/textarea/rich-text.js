@@ -20,7 +20,20 @@ function insertLink(el, editor) {
 	const addLink = (e, modal, close) => {
 		e.preventDefault();
 
-		editor.commands.toggleLink({ href: modal.querySelector('input').value });
+		let value = modal.querySelector('input').value.trim();
+
+		if (!value.length) {
+			editor.commands.unsetLink();
+		} else {
+			const isAbsolute = new RegExp('(?:^[a-z][a-z0-9+.-]*:|//)', 'i');
+
+			if (!isAbsolute.test(value)) {
+				value = `https://${value}`;
+			}
+
+			editor.commands.toggleLink({ href: value });
+		}
+
 		close();
 	};
 
@@ -50,6 +63,10 @@ function insertLink(el, editor) {
 				onClick: addLink,
 			},
 		],
+	}, {
+		onOpen(id, modal) {
+			modal.querySelector('input').focus();
+		},
 	});
 }
 
