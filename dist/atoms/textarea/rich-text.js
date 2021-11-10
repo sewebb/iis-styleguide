@@ -141,6 +141,9 @@ function setupTextArea(el) {
 		content: el.value,
 		onTransaction: function onTransaction(props) {
 			toogleButtonState(props.editor, editorEl);
+		},
+		onUpdate: function onUpdate(props) {
+			el.value = props.editor.getHTML();
 		}
 	});
 
