@@ -32,6 +32,7 @@
 		position: relative;
 		z-index: z_index(foreground);
 		flex-direction: column;
+		width: 100%;
 		max-height: calc(100vh - #{rhythm(2)});
 		margin: rhythm(1);
 		padding: rhythm(4) rhythm(2) rhythm(4) rhythm(2);
@@ -48,10 +49,20 @@
 
 		@include bp-up(sm) {
 			padding: rhythm(4) rhythm(4) rhythm(6) rhythm(4);
+			width: auto;
+			min-width: rem(576px);
 		}
 
 		@include bp-up(md) {
 			padding: rhythm(8) rhythm(8) rhythm(6) rhythm(8);
+		}
+
+		@include bp-up(lg) {
+			max-width: rem(961px);
+		}
+
+		@include m(no-max-width) {
+			max-width: none;
 		}
 	}
 
