@@ -12,7 +12,16 @@
 </style>
 <div class="field-group{{#if is_invalid}} is-invalid{{/if}}">
 	{{> @label for="message" label="Meddelande" }}
-	<textarea rows="5" class="a-textarea{{#if modifier}} {{modifier}}{{/if}}" id="{{id}}" {{#if is_invalid}}aria-invalid="true"{{/if}} {{#if is_richtext}}data-rich-text{{/if}} {{#if required}}required {{/if}} {{#if is_disabled}}disabled {{/if}} placeholder="{{placeholder}}" autocomplete="{{autocomplete}}"{{#if has_help}} aria-describedby="textarea-help"{{/if}} {{#if required}} aria-describedby="textarea-help"{{/if}}></textarea>
+	<textarea rows="5" class="a-textarea{{#if modifier}} {{modifier}}{{/if}}" id="{{id}}" {{#if is_invalid}}aria-invalid="true"{{/if}} {{#if is_richtext}}data-rich-text{{/if}} {{#if required}}required {{/if}} {{#if is_disabled}}disabled {{/if}} placeholder="{{placeholder}}" autocomplete="{{autocomplete}}"{{#if has_help}} aria-describedby="textarea-help"{{/if}} {{#if required}} aria-describedby="textarea-help"{{/if}}>
+		{{#if is_richtext}}
+			<p>Lorem <a href="https://internetstiftelsen.se" target="_blank">ipsum</a> <strong>dolor</strong> sit amet, consectetur adipiscing elit. Praesent mollis suscipit felis, eu ullamcorper quam. Nunc eleifend sapien velit, vitae <em>tincidunt</em> urna mollis ac.</p>
+			<ul>
+				<li>aliquet</li>
+				<li>vehicula</li>
+				<li>turpis</li>
+			</ul>
+		{{/if}}
+	</textarea>
 	{{#if has_help}}
 	<div class="input-help" id="textarea-help">
 		Välj det som passar dig bäst

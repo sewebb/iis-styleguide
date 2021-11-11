@@ -128,6 +128,12 @@ function createToolbar(el, editor) {
 	});
 }
 
+function getHTML(editor) {
+	var html = editor.getHTML();
+
+	return html.replace(/<li><p>/g, '<li>').replace(/<\/p><\/li>/g, '</li>');
+}
+
 function setupTextArea(el) {
 	var editorEl = document.createElement('div');
 	var editor = new _core.Editor({
@@ -143,7 +149,7 @@ function setupTextArea(el) {
 			toogleButtonState(props.editor, editorEl);
 		},
 		onUpdate: function onUpdate(props) {
-			el.value = props.editor.getHTML();
+			el.value = getHTML(props.editor);
 		}
 	});
 
