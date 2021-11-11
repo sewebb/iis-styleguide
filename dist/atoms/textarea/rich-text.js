@@ -141,6 +141,8 @@ function getHTML(editor) {
 }
 
 function setupTextArea(el) {
+	var onChange = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : function () {};
+
 	var editorEl = document.createElement('div');
 	var editor = new _core.Editor({
 		element: editorEl,
@@ -155,7 +157,9 @@ function setupTextArea(el) {
 			toogleButtonState(props.editor, editorEl);
 		},
 		onUpdate: function onUpdate(props) {
-			el.value = getHTML(props.editor);
+			var html = getHTML(props.editor);
+			el.value = html;
+			onChange(html);
 		}
 	});
 

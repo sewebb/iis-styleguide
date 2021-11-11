@@ -136,7 +136,7 @@ function getHTML(editor) {
 		.replace(/<\/p><\/li>/g, '</li>');
 }
 
-export function setupTextArea(el) {
+export function setupTextArea(el, onChange = () => {}) {
 	const editorEl = document.createElement('div');
 	const editor = new Editor({
 		element: editorEl,
@@ -154,7 +154,9 @@ export function setupTextArea(el) {
 			toogleButtonState(props.editor, editorEl);
 		},
 		onUpdate(props) {
-			el.value = getHTML(props.editor);
+			const html = getHTML(props.editor);
+			el.value = html;
+			onChange(html);
 		},
 	});
 
