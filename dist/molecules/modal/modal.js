@@ -176,11 +176,13 @@ function display() {
 	// Just to make sure
 	keyHandlers = {};
 
-	active.content.actions.forEach(function (action) {
-		if (action.key && action.onClick) {
-			keyHandlers[action.key] = action.onClick;
-		}
-	});
+	if (active.content.actions) {
+		active.content.actions.forEach(function (action) {
+			if (action.key && action.onClick) {
+				keyHandlers[action.key] = action.onClick;
+			}
+		});
+	}
 
 	document.addEventListener('keyup', handleKeyUp);
 }
@@ -209,17 +211,6 @@ function close() {
 		if (active.settings.onClose) {
 			active.settings.onClose(active.id);
 		}
-
-		active.content.actions.forEach(function (action) {
-			if (action.key && action.onClick) {
-				document.addEventListener('keyup', function (e) {
-					if (e.key.toLowerCase() === action.key) {
-						// eslint-disable-next-line no-use-before-define
-						action.onClick(e, modal, close);
-					}
-				});
-			}
-		});
 
 		document.removeEventListener('keyup', handleKeyUp);
 
