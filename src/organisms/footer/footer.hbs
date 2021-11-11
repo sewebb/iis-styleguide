@@ -1,131 +1,121 @@
 <div class="wrapper-fluid">
-	<div class="o-footer" id="siteFooter">
-		<div class="row">
-			<div class="grid-18 o-footer__info">
-				<div class="row">
-					<div class="grid-18 grid-lg-9 o-footer__info__freetext">
-						{{{footer_text}}}
+	<div class="o-footer--row o-footer" id="siteFooter">
+		<div class="grid-xl-7 grid-lg-9 grid-18 o-footer__info">
+			<div class="o-footer__info__inner">
+				{{{footer_text}}}
+				<div class="o-footer--row">
+					<div class="grid-xxl-9 grid-18 o-footer__contact">
+						{{{contact_1}}}
 					</div>
-					<div class="grid-18 grid-lg-9 o-footer__info__contact">
-						<div class="row o-footer__info__contact__row-first">
-							<div class="grid-md-9 grid-lg-18 grid-xl-9 grid-18 o-footer__info__address1">
-								{{{contact_1}}}
-							</div>
-							<div class="grid-md-9 grid-lg-18 grid-xl-9 grid-18 o-footer__info__address2">
-								{{{contact_2}}}
-							</div>
-						</div>
-						<div class="row o-footer__info__contact__row-second">
-							<div class="grid-19 grid-md-9 o-footer__info__ISO">
-								<a href="{{ISO_link}}" class="o-footer__link o-footer__external-link">
-									<img src="{{ISO_image}}" class="o-footer__external-logo" alt="Certifierade enligt ISO/IEC 27001:2013">
-									<span>{{{ISO_text}}}</span>
-								</a>
-							</div>
-							<div class="grid-19 grid-md-9 o-footer__info__CC">
-								<a href="https://creativecommons.org/licenses/by/4.0/legalcode.sv" class="o-footer__link o-footer__external-link">
-									<img class="o-footer__external-logo" src="https://svenskarnaochinternet.se/app/uploads/2019/10/ccby.png" alt="{{CC_license}}">
-									<span>{{{CC_license}}}</span>
-								</a>
-							</div>
-						</div>
+					<div class="grid-xxl-9 grid-18 o-footer__contact">
+						{{{contact_2}}}
 					</div>
 				</div>
-			</div>
-		</div>
-		<div class="row">
-			<div class="grid-18 o-footer__logotypes">
-				<div class="row">
-					<div class="o-footer__logotypes__item">
-						<a href="https://svenskarnaochinternet.se" class="o-footer__logotypes__item__link">
-							<div class="o-footer__logotypes__item__inner">
-								<div class="o-footer__logotypes__item__front">
-									<img class="o-footer__logotype" alt="Svenskarna och internet" src="https://static.iis.se/images/logotypes/svenskarna-och-internet.svg">
-								</div>
-								<div class="o-footer__logotypes__item__back">
-									<h2>{{site_heading_1}}</h2>
-									<span>{{site_description_1}}</span>
-								</div>
-							</div>
+				<div class="o-footer--row u-m-t-2 align-items-center">
+					<div class="o-footer-grid">
+						<a href="{{ISO_link}}" class="o-footer__link o-footer__external-link">
+							<img src="{{ISO_image}}" class="o-footer__external-logo" alt="Certifierade enligt ISO/IEC 27001:2013">
+							<span>{{{ISO_text}}}</span>
 						</a>
 					</div>
-					<div class="o-footer__logotypes__item">
-						<a href="https://internetdagarna.se" class="o-footer__logotypes__item__link">
-							<div class="o-footer__logotypes__item__inner">
-								<div class="o-footer__logotypes__item__front">
-									<img class="o-footer__logotype" alt="Internetdagarna" src="https://static.iis.se/images/logotypes/internetdagarna.svg">
-								</div>
-								<div class="o-footer__logotypes__item__back">
-									<h2>{{site_heading_2}}</h2>
-									<span>{{site_description_2}}</span>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="o-footer__logotypes__item">
-						<a href="https://goto10.se" class="o-footer__logotypes__item__link">
-							<div class="o-footer__logotypes__item__inner">
-								<div class="o-footer__logotypes__item__front">
-									<img class="o-footer__logotype"  alt="Goto10" src="https://static.iis.se/images/logotypes/goto-10.svg">
-								</div>
-								<div class="o-footer__logotypes__item__back">
-									<h2>{{site_heading_3}}</h2>
-									<span>{{site_description_3}}</span>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="o-footer__logotypes__item">
-						<a href="https://bredbandskollen.se" class="o-footer__logotypes__item__link">
-							<div class="o-footer__logotypes__item__inner">
-								<div class="o-footer__logotypes__item__front">
-									<img class="o-footer__logotype"  alt="Bredbandskollen" src="https://static.iis.se/images/logotypes/bredbandskollen.svg">
-								</div>
-								<div class="o-footer__logotypes__item__back">
-									<h2>{{site_heading_4}}</h2>
-									<span>{{site_description_4}}</span>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="o-footer__logotypes__item">
-						<a href="https://internetmuseum.se" class="o-footer__logotypes__item__link">
-							<div class="o-footer__logotypes__item__inner">
-								<div class="o-footer__logotypes__item__front">
-									<img class="o-footer__logotype"  alt="Internetmuseum" src="https://static.iis.se/images/logotypes/internetmuseum.svg">
-								</div>
-								<div class="o-footer__logotypes__item__back">
-									<h2>{{site_heading_5}}</h2>
-									<span>{{site_description_5}}</span>
-								</div>
-							</div>
-						</a>
-					</div>
-					<div class="o-footer__logotypes__item">
-						<a href="https://digitalalektioner.se" class="o-footer__logotypes__item__link">
-							<div class="o-footer__logotypes__item__inner">
-								<div class="o-footer__logotypes__item__front">
-									<img class="o-footer__logotype"  alt="Digitala lektioner" src="https://static.iis.se/images/logotypes/digitala-lektioner.svg">
-								</div>
-								<div class="o-footer__logotypes__item__back">
-									<h2>{{site_heading_6}}</h2>
-									<span>{{site_description_6}}</span>
-								</div>
-							</div>
+					<div class="o-footer-grid">
+						<a href="https://creativecommons.org/licenses/by/4.0/legalcode.sv" class="o-footer__link o-footer__external-link">
+							<img class="o-footer__external-logo" src="https://svenskarnaochinternet.se/app/uploads/2019/10/ccby.png" alt="{{CC_license}}">
+							<span>{{{CC_license}}}</span>
 						</a>
 					</div>
 				</div>
 			</div>
 		</div>
-		<div class="row">
-			<div class="u-p-y-1 o-footer__bottom-links">
-				<nav>
-					<ul class="u-list-clean display-flex">
-						<li class="u-p-x-1"><a href="https://internetstiftelsen.se/om-webbplatsen/" class="o-footer__link o-footer__about-link">Om webbplatsen</a></li>
-						<li class="u-p-x-1"><a href="https://internetstiftelsen.se/om-webbplatsen/cookies/" class="o-footer__link o-footer__about-link">Om cookies</a></li>
-					</ul>
-				</nav>
+		<div class="grid-xl-11 grid-lg-9 grid-18 o-footer__logotypes">
+			<div class="o-footer--row o-footer__grid-row">
+				<div class="o-footer__grid-row__item">
+					<a href="https://svenskarnaochinternet.se" class="o-footer__grid-row__item__link">
+						<div class="o-footer__grid-row__item__inner">
+							<div class="o-footer__grid-row__item__front">
+								<img class="o-footer__logotype" alt="Svenskarna och internet" src="https://static.iis.se/images/logotypes/svenskarna-och-internet.svg">
+							</div>
+							<div class="o-footer__grid-row__item__back">
+								<h2>{{site_heading_1}}</h2>
+								<span>{{site_description_1}}</span>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="o-footer__grid-row__item">
+					<a href="https://internetdagarna.se" class="o-footer__grid-row__item__link">
+						<div class="o-footer__grid-row__item__inner">
+							<div class="o-footer__grid-row__item__front">
+								<img class="o-footer__logotype" alt="Internetdagarna" src="https://static.iis.se/images/logotypes/internetdagarna.svg">
+							</div>
+							<div class="o-footer__grid-row__item__back">
+								<h2>{{site_heading_2}}</h2>
+								<span>{{site_description_2}}</span>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="o-footer__grid-row__item">
+					<a href="https://goto10.se" class="o-footer__grid-row__item__link">
+						<div class="o-footer__grid-row__item__inner">
+							<div class="o-footer__grid-row__item__front">
+								<img class="o-footer__logotype"  alt="Goto10" src="https://static.iis.se/images/logotypes/goto-10.svg">
+							</div>
+							<div class="o-footer__grid-row__item__back">
+								<h2>{{site_heading_3}}</h2>
+								<span>{{site_description_3}}</span>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="o-footer__grid-row__item">
+					<a href="https://bredbandskollen.se" class="o-footer__grid-row__item__link">
+						<div class="o-footer__grid-row__item__inner">
+							<div class="o-footer__grid-row__item__front">
+								<img class="o-footer__logotype"  alt="Bredbandskollen" src="https://static.iis.se/images/logotypes/bredbandskollen.svg">
+							</div>
+							<div class="o-footer__grid-row__item__back">
+								<h2>{{site_heading_4}}</h2>
+								<span>{{site_description_4}}</span>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="o-footer__grid-row__item">
+					<a href="https://internetmuseum.se" class="o-footer__grid-row__item__link">
+						<div class="o-footer__grid-row__item__inner">
+							<div class="o-footer__grid-row__item__front">
+								<img class="o-footer__logotype"  alt="Internetmuseum" src="https://static.iis.se/images/logotypes/internetmuseum.svg">
+							</div>
+							<div class="o-footer__grid-row__item__back">
+								<h2>{{site_heading_5}}</h2>
+								<span>{{site_description_5}}</span>
+							</div>
+						</div>
+					</a>
+				</div>
+				<div class="o-footer__grid-row__item">
+					<a href="https://digitalalektioner.se" class="o-footer__grid-row__item__link">
+						<div class="o-footer__grid-row__item__inner">
+							<div class="o-footer__grid-row__item__front">
+								<img class="o-footer__logotype"  alt="Digitala lektioner" src="https://static.iis.se/images/logotypes/digitala-lektioner.svg">
+							</div>
+							<div class="o-footer__grid-row__item__back">
+								<h2>{{site_heading_6}}</h2>
+								<span>{{site_description_6}}</span>
+							</div>
+						</div>
+					</a>
+				</div>
 			</div>
+		</div>
+		<div class="u-p-y-1 o-footer__bottom-links">
+			<nav>
+				<ul class="u-list-clean display-flex">
+					<li class="u-p-x-1"><a href="https://internetstiftelsen.se/om-webbplatsen/" class="o-footer__link o-footer__about-link">Om webbplatsen</a></li>
+					<li class="u-p-x-1"><a href="https://internetstiftelsen.se/om-webbplatsen/cookies/" class="o-footer__link o-footer__about-link">Om cookies</a></li>
+				</ul>
+			</nav>
 		</div>
 	</div>
 </div>
