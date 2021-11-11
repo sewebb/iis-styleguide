@@ -1,5 +1,11 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.setupTextArea = setupTextArea;
+exports.init = init;
+
 var _core = require('@tiptap/core');
 
 var _starterKit = require('@tiptap/starter-kit');
@@ -164,10 +170,14 @@ function setupTextArea(el) {
 	createToolbar(editorEl, editor);
 }
 
-var els = document.querySelectorAll('textarea[data-rich-text]');
+function init() {
+	var els = document.querySelectorAll('textarea[data-rich-text]');
 
-if (els.length) {
-	[].forEach.call(els, function (el) {
-		return setupTextArea(el, _core.Editor, _starterKit2.default);
-	});
+	if (els.length) {
+		[].forEach.call(els, function (el) {
+			return setupTextArea(el);
+		});
+	}
 }
+
+init();

@@ -136,7 +136,7 @@ function getHTML(editor) {
 		.replace(/<\/p><\/li>/g, '</li>');
 }
 
-function setupTextArea(el) {
+export function setupTextArea(el) {
 	const editorEl = document.createElement('div');
 	const editor = new Editor({
 		element: editorEl,
@@ -169,8 +169,12 @@ function setupTextArea(el) {
 	createToolbar(editorEl, editor);
 }
 
-const els = document.querySelectorAll('textarea[data-rich-text]');
+export function init() {
+	const els = document.querySelectorAll('textarea[data-rich-text]');
 
-if (els.length) {
-	[].forEach.call(els, (el) => setupTextArea(el, Editor, StarterKit));
+	if (els.length) {
+		[].forEach.call(els, (el) => setupTextArea(el));
+	}
 }
+
+init();
