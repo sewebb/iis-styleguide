@@ -33,6 +33,8 @@ import className from '../../assets/js/className';
  */
 
 const queue = [];
+const globalOnCloseCallbacks = [];
+const globalOnOpenCallbacks = [];
 let active = null;
 let incrementId = 0;
 let modal = null;
@@ -118,6 +120,24 @@ function handleKeyUp(e) {
 }
 
 /**
+ * Global onOpen handler
+ *
+ * @param {Function} cb
+ * @returns {number}
+ */
+export function onOpen(cb) {
+	const index = globalOnOpenCallbacks.push(cb) - 1;
+
+	return () => {
+		globalOnOpenCallbacks.splice(index, 1);
+	};
+}
+
+function dispatchOnOpenHandlers(el, id) {
+	globalOnOpenCallbacks.forEach((cb) => cb(el, id));
+}
+
+/**
  * Display the active modal.
  */
 function display() {
@@ -148,6 +168,8 @@ function display() {
 	if (active.settings.onOpen) {
 		active.settings.onOpen(active.id, active.el);
 	}
+
+	dispatchOnOpenHandlers(active.el, active.id);
 
 	setTimeout(() => {
 		if (active.el.focusTrap) {
@@ -183,6 +205,24 @@ function dispatch() {
 }
 
 /**
+ * Global onClose handler
+ *
+ * @param {Function} cb
+ * @returns {number}
+ */
+export function onClose(cb) {
+	const index = globalOnCloseCallbacks.push(cb) - 1;
+
+	return () => {
+		globalOnCloseCallbacks.splice(index, 1);
+	};
+}
+
+function dispatchOnCloseHandlers(el, id) {
+	globalOnCloseCallbacks.forEach((cb) => cb(el, id));
+}
+
+/**
  * Close currently active modal
  * and dispatch next in queue.
  */
@@ -193,6 +233,8 @@ function close() {
 		if (active.settings.onClose) {
 			active.settings.onClose(active.id);
 		}
+
+		dispatchOnCloseHandlers(active.el, active.id);
 
 		document.removeEventListener('keyup', handleKeyUp);
 

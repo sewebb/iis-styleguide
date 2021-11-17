@@ -9,6 +9,9 @@ var _extends = Object.assign || function (target) { for (var i = 1; i < argument
 
 var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = []; var _n = true; var _d = false; var _e = undefined; try { for (var _i = arr[Symbol.iterator](), _s; !(_n = (_s = _i.next()).done); _n = true) { _arr.push(_s.value); if (i && _arr.length === i) break; } } catch (err) { _d = true; _e = err; } finally { try { if (!_n && _i["return"]) _i["return"](); } finally { if (_d) throw _e; } } return _arr; } return function (arr, i) { if (Array.isArray(arr)) { return arr; } else if (Symbol.iterator in Object(arr)) { return sliceIterator(arr, i); } else { throw new TypeError("Invalid attempt to destructure non-iterable instance"); } }; }();
 
+exports.onOpen = onOpen;
+exports.onClose = onClose;
+
 var _focusTrap = require('../../focusTrap');
 
 var _focusTrap2 = _interopRequireDefault(_focusTrap);
@@ -51,6 +54,8 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  */
 
 var queue = [];
+var globalOnCloseCallbacks = [];
+var globalOnOpenCallbacks = [];
 var active = null;
 var incrementId = 0;
 var modal = null;
@@ -139,6 +144,26 @@ function handleKeyUp(e) {
 }
 
 /**
+ * Global onOpen handler
+ *
+ * @param {Function} cb
+ * @returns {number}
+ */
+function onOpen(cb) {
+	var index = globalOnOpenCallbacks.push(cb) - 1;
+
+	return function () {
+		globalOnOpenCallbacks.splice(index, 1);
+	};
+}
+
+function dispatchOnOpenHandlers(el, id) {
+	globalOnOpenCallbacks.forEach(function (cb) {
+		return cb(el, id);
+	});
+}
+
+/**
  * Display the active modal.
  */
 function display() {
@@ -166,6 +191,8 @@ function display() {
 	if (active.settings.onOpen) {
 		active.settings.onOpen(active.id, active.el);
 	}
+
+	dispatchOnOpenHandlers(active.el, active.id);
 
 	setTimeout(function () {
 		if (active.el.focusTrap) {
@@ -201,6 +228,26 @@ function dispatch() {
 }
 
 /**
+ * Global onClose handler
+ *
+ * @param {Function} cb
+ * @returns {number}
+ */
+function onClose(cb) {
+	var index = globalOnCloseCallbacks.push(cb) - 1;
+
+	return function () {
+		globalOnCloseCallbacks.splice(index, 1);
+	};
+}
+
+function dispatchOnCloseHandlers(el, id) {
+	globalOnCloseCallbacks.forEach(function (cb) {
+		return cb(el, id);
+	});
+}
+
+/**
  * Close currently active modal
  * and dispatch next in queue.
  */
@@ -211,6 +258,8 @@ function close() {
 		if (active.settings.onClose) {
 			active.settings.onClose(active.id);
 		}
+
+		dispatchOnCloseHandlers(active.el, active.id);
 
 		document.removeEventListener('keyup', handleKeyUp);
 
