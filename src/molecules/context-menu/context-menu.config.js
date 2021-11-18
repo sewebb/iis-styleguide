@@ -20,7 +20,7 @@ module.exports = {
 		name: 'Close on outside click',
 		context: {
 			controls: 'contextMenu3',
-			focusTrap: true,
+			focusTrap: false,
 			outsideClick: true
 			}
 		}
