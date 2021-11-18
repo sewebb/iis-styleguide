@@ -1,5 +1,5 @@
 <nav class="m-context-menu js-context-menu">
-	<button type="button" class="a-button a-button--icon a-button--transparent a-button--icon js-context-menu-btn" aria-expanded="false" data-a11y-toggle="{{controls}}" aria-controls="{{controls}}">
+	<button type="button" class="a-button a-button--icon a-button--transparent a-button--icon js-context-menu-btn" aria-expanded="false" data-a11y-toggle="{{controls}}" aria-controls="{{controls}}" {{#if outsideClick}}data-close-on-outside-click="true"{{/if}}>
 		<span class="a-button__text">Exportera</span>
 		<svg class="icon a-button__icon">
 			<use xlink:href="#icon-download"></use>
