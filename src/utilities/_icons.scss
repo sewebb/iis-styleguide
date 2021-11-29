@@ -11,6 +11,11 @@ $fill-color: $color-black;
 	background-position: center center !important;
 
 	// Sizes
+	@include m(smallest) {
+		width: $icon-size-smallest !important;
+		height: $icon-size-smallest !important;
+	}
+	
 	@include m(small) {
 		width: $icon-size-small !important;
 		height: $icon-size-small !important;
