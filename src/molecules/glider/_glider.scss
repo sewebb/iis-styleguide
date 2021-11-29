@@ -67,7 +67,7 @@
 	padding: rhythm(2) 0;
 	overflow: hidden;
 
-	img {
+	img:not([class]) {
 		display: block;
 		border-radius: $border-radius;
 		width: 100%;
