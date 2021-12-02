@@ -299,6 +299,10 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 		max-width: 100%;
 		height: auto;
 		margin-right: rhythm(2);
+
+		@include m(cc) {
+			width: auto;
+		}
 	}
 
 	@include e(bottom-links) {
