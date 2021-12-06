@@ -1,5 +1,5 @@
 {{#if limited_width}}
-{{#unless is_event}}<div class="wrapper">{{/unless}}
+<div class="wrapper">
 	<div class="row">
 		<div class="grid">
 {{/if}}
@@ -8,28 +8,25 @@
 	{{#if has_video}}
 		<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/3RVcnx-hOk8?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 	{{else if is_event}}
-		<div class="wrapper">
-			<figcaption>
-				<div class="o-hero__content">
-					<p class="o-hero__text">{{event_text}} {{#if city}}<strong>{{city}}</strong>{{/if}}</p>
-					<h1 class="supersize">{{event_title}}</h1>
-					<p class="o-hero__text display-flex flex-wrap">
-						<span class="meta u-m-y-0 u-p-y-0 u-p-r-1">{{time}}</span>
-						<span class="o-hero__spacer">|</span>
-						<span>Arrangör: <a href="#">{{organizer}}
-							<svg class="icon o-mega-menu__link__icon">
-								<use xlink:href="#icon-external-link"></use>
-							</svg></a>
-						</span>
-					</p>
-						{{#if has_button}}
-							{{> @button el="a" modifiers="lemon a-button--inline u-m-y-2 u-m-r-2"}}
-						{{/if}}
-						{{> @share modifiers="inline"}}
-
+		<figcaption class="o-hero__content">
+			<div class="wrapper">
+				<p class="o-hero__text">{{event_text}} {{#if city}}<strong>{{city}}</strong>{{/if}}</p>
+				<h1 class="supersize">{{event_title}}</h1>
+				<p class="o-hero__text display-flex flex-wrap">
+					<span class="meta u-m-y-0 u-p-y-0 u-p-r-1">{{time}}</span>
+					<span class="o-hero__spacer">|</span>
+					<span>Arrangör: <a href="#">{{organizer}}
+						<svg class="icon o-mega-menu__link__icon">
+							<use xlink:href="#icon-external-link"></use>
+						</svg></a>
+					</span>
+				</p>
+					{{#if has_button}}
+						{{> @button el="a" modifiers="lemon a-button--inline u-m-y-2 u-m-r-2"}}
+					{{/if}}
+					{{> @share modifiers="inline"}}
 			</div>
-		</figcaption>
-	</div>
+	</figcaption>
 	{{else}}
 	<figcaption class="o-hero__caption">
 		<div class="wrapper">
@@ -56,5 +53,5 @@
 {{#if limited_width}}
 		</div>
 	</div>
-{{#unless is_event}}</div>{{/unless}}
+</div>
 {{/if}}

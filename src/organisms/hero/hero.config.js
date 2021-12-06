@@ -19,6 +19,7 @@ module.exports = {
 				has_radius: true,
 				limited_width: true,
 				has_radius: true,
+				has_buttons: false,
 				text: 'Nästan alla i Sverige använder internet – men hur meningsfull är tiden vi spenderar där? I rapporten Svenskarna och internet 2019 frågar vi för första gången om meningsfullhet, och det syns stora skillnader mellan olika aktiviteter. Tid på sociala medier tycker bara var fjärde är meningsfull.',
 			}
 		},
@@ -27,6 +28,7 @@ module.exports = {
 			context: {
 				has_tags: false,
 				has_buttons: true,
+				limited_width: false,
 				text: 'Så gott som alla svenskar använder internet och digitala tjänster idag',
 			},
 		},
@@ -38,6 +40,7 @@ module.exports = {
 				has_image: false,
 				has_buttons: false,
 				has_tags: true,
+				limited_width: false,
 				text: 'Nästan alla i Sverige använder internet – men hur meningsfull är tiden vi spenderar där? I rapporten Svenskarna och internet 2019 frågar vi för första gången om meningsfullhet, och det syns stora skillnader mellan olika aktiviteter. Tid på sociala medier tycker bara var fjärde är meningsfull.',
 			}
 		},
@@ -49,7 +52,8 @@ module.exports = {
 				video_class: 'o-hero--video',
 				limited_width: true,
 				has_video: true,
-				has_image: false
+				has_image: false,
+				has_buttons: false,
 			}
 		},
 		{
@@ -63,10 +67,11 @@ module.exports = {
 					no_image_class: 'o-hero--no-image',
 					icon_share: 'share',
 					icon_export: 'external-link',
-					limited_width: true,
+					limited_width: false,
 					has_image: false,
 					has_video: false,
 					is_event: true,
+					has_buttons: false,
 					background_color: 'background-peacock-light'
 				}
 		},
@@ -83,7 +88,7 @@ module.exports = {
 					geometric_figures: false,
 					icon_share: 'share',
 					icon_export: 'external-link',
-					limited_width: true,
+					limited_width: false,
 					has_image: false,
 					has_video: false,
 					is_event: true,
@@ -96,12 +101,16 @@ module.exports = {
 			name: 'Clean',
 			context: {
 				no_image_class: 'o-hero--clean',
+				limited_width: false,
+				has_buttons: false,
 			}
 		},
 		{
 			name: 'Early breakpoint',
 			context: {
 				no_image_class: 'o-hero--break-early o-hero--clean',
+				limited_width: false,
+				has_buttons: false,
 			}
 		},
 	]

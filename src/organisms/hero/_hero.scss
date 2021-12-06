@@ -349,6 +349,13 @@
 				}
 			}
 		}
+
+		@include bp-only(xs) {
+			.wrapper {
+				padding-left: 0;
+				padding-right: 0;
+			}
+		}
 	}
 
 	// Hero with video
@@ -386,10 +393,10 @@
 		}
 
 		@include e(content) {
-			padding: rhythm(2) rhythm(1);
+			padding: rhythm(2) 0;
 
 			@include bp-up(sm) {
-				padding: rhythm(4) rhythm(6);
+				padding: rhythm(4);
 			}
 
 			@include e(icon) {
