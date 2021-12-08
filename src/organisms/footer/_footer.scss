@@ -58,6 +58,23 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 				padding: rhythm(4) rhythm(6);
 				border-bottom: 0;
 			}
+
+			a {
+				@extend %normalize-links;
+
+				color: $color-jade;
+				text-decoration: none;
+
+				&:hover,
+				&:focus {
+					color: $color-jade;
+					text-decoration: underline;
+				}
+
+				svg {
+					display: none;
+				}
+			}
 		}
 
 		@include e(contact) {
@@ -147,23 +164,6 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 		max-width: none;
 		margin-bottom: 27px;
 		font-size: $footer-font-size;
-
-		a {
-			@extend %normalize-links;
-
-			color: $color-jade;
-			text-decoration: none;
-
-			&:hover,
-			&:focus {
-				color: $color-jade;
-				text-decoration: underline;
-			}
-
-			svg {
-				display: none;
-			}
-		}
 
 		@include bp-up(xxl) {
 			@include make-col(14);
