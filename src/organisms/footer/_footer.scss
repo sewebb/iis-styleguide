@@ -159,6 +159,10 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 				color: $color-jade;
 				text-decoration: underline;
 			}
+
+			svg {
+				display: none;
+			}
 		}
 
 		@include bp-up(xxl) {
