@@ -178,8 +178,8 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 			flex-grow: 1;
 			flex-shrink: 1;
 			justify-content: center;
-			min-height: 200px;
-			padding: 0 rhythm(4);
+			min-height: 130px;
+			padding: 0 rhythm(6);
 			overflow: hidden;
 			border-bottom: 1px solid $color-ash;
 			border-left: 1px solid $color-ash;
@@ -187,6 +187,11 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 			@include bp-up(sm) {
 				flex-basis: 50%;
 				padding: 0;
+				min-height: 200px;
+			}
+
+			@include bp-only(sm) {
+				padding: 0 rhythm(2);
 			}
 
 			@include bp-up(md) {
@@ -209,10 +214,12 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 				overflow: hidden;
 				perspective: 1000px;
 
-				&:hover,
-				&:focus {
-					[class*='inner'] {
-						transform: rotateY(180deg);
+				@include bp-up(sm) {
+					&:hover,
+					&:focus {
+						[class*='inner'] {
+							transform: rotateY(180deg);
+						}
 					}
 				}
 
