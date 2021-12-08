@@ -76,6 +76,8 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 		font-size: $footer-font-size;
 
 		a {
+			@extend %normalize-links;
+
 			color: $color-jade;
 			text-decoration: none;
 
