@@ -19,8 +19,12 @@ module.exports = {
 		site_heading_4: 'Bredbandskollen',
 		site_description_4: 'Bredbandskollen är ett oberoende konsumentverktyg som drivs av Internetstiftelsen',
 		site_heading_5: 'Internetmuseum',
-		site_description_5: 'Internetmuseum är ett digitalt museum som byggts, och kureras av Internetstiftelsen',
+		site_description_5: 'Ett digitalt museum som byggts, och kureras av Internetstiftelsen',
 		site_heading_6: 'Digitala lektioner',
-		site_description_6: 'Digitala lektioner är en öppen digital lärresurs från Internetstiftelsen. Du hittar färdiga lektioner inom olika ämnesområden för alla stadier i grundskolan',
+		site_description_6: 'Öppen digital lärresurs med färdiga lektioner för alla stadier i grundskolan',
+		site_heading_7: 'Internetkunskap',
+		site_description_7: 'Samlad kunskap som hjälper dig att bli en säker och medveten internetanvändare',
+		site_heading_8: 'Internetstiftelsen',
+		site_description_8: 'Internetstiftelsen verkar för ett internet som bidrar positivt till människan och samhället'
 	}
 }
