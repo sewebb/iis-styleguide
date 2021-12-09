@@ -24,7 +24,8 @@
 		background-color: $color-snow;
 		white-space: nowrap;
 
-		&[aria-hidden='true'] {
+		&[aria-hidden='true'],
+		&:not([aria-hidden]) {
 			display: none;
 		}
 	}
@@ -46,6 +47,14 @@
 			&:focus {
 				background-color: $color-ash;
 			}
+		}
+	}
+}
+
+.no-js {
+	@include molecule(context-menu) {
+		@include e(list) {
+			display: initial;
 		}
 	}
 }
