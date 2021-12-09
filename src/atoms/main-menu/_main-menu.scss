@@ -231,7 +231,8 @@
 			margin-left: -16px;
 		}
 
-		&[aria-hidden='true'] {
+		&[aria-hidden='true'],
+		&:not([aria-hidden]) {
 			display: none;
 		}
 
@@ -254,6 +255,14 @@
 					text-decoration: underline;
 				}
 			}
+		}
+	}
+}
+
+.no-js {
+	@include atom(main-menu) {
+		@include e(subnav) {
+			display: block;
 		}
 	}
 }
