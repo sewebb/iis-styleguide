@@ -89,8 +89,11 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 		}
 
 		@include e(contact) {
-			border-left: 1px solid $color-black;
 			font-size: 80%;
+
+			@include bp-up(lg) {
+				border-left: 1px solid $color-black;
+			}
 
 			@include e(address) {
 				font-size: inherit;
@@ -143,7 +146,6 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 		}
 
 		@include e(ISO) {
-			border-right: 1px solid $color-black;
 			border-bottom: 1px solid $color-black;
 			padding: rhythm(3);
 			display: flex;
@@ -151,6 +153,7 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 
 			@include bp-up(md) {
 				border-bottom: 0;
+				border-right: 1px solid $color-black;
 			}
 
 			@include bp-up(xl) {
