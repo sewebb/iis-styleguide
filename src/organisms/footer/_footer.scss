@@ -115,6 +115,7 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 
 			@include e(row-first) {
 				border-bottom: 1px solid $color-black;
+				overflow: hidden;
 
 				@include bp-up(lg) {
 					height: 70%;
@@ -169,7 +170,6 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 
 			@include bp-up(md) {
 				border-bottom: 0;
-				border-right: 1px solid $color-black;
 			}
 
 			@include bp-up(xl) {
@@ -181,6 +181,10 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 			padding: rhythm(3);
 			display: flex;
 			align-items: center;
+
+			@include bp-up(md) {
+				border-left: 1px solid $color-black;
+			}
 
 			@include bp-up(xl) {
 				padding-left: rhythm(6);
