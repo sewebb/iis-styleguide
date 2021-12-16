@@ -137,7 +137,7 @@ function createToolbar(el, editor) {
 function getHTML(editor) {
 	var html = editor.getHTML();
 
-	return html.replace(/<li><p>/g, '<li>').replace(/<\/p><\/li>/g, '</li>');
+	return html;
 }
 
 function setupTextArea(el) {
@@ -158,6 +158,7 @@ function setupTextArea(el) {
 		},
 		onUpdate: function onUpdate(props) {
 			var html = getHTML(props.editor);
+			console.log(html);
 			el.value = html;
 			onChange(html);
 		}

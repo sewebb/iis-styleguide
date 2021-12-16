@@ -218,7 +218,7 @@ function display() {
  * Dispatch the next modal in queue.
  */
 function dispatch() {
-	if (active || !queue.length) {
+	if (!modal || active || !queue.length) {
 		return;
 	}
 
@@ -298,6 +298,10 @@ function createModal() {
 	document.body.appendChild(modal);
 
 	modalClose.addEventListener('click', close);
+
+	setTimeout(function () {
+		dispatch();
+	}, 1);
 }
 
 /**
