@@ -51,7 +51,7 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 		-moz-osx-font-smoothing: grayscale;
 
 		@include e(freetext) {
-			padding: rhythm(4) rhythm(3);
+			padding: rhythm(3) rhythm(3) rhythm(4) rhythm(3);
 			border-bottom: 1px solid $color-black;
 
 			@include bp-up(xl) {
@@ -115,9 +115,24 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 
 			@include e(row-first) {
 				border-bottom: 1px solid $color-black;
+
+				@include bp-up(lg) {
+					height: 70%;
+				}
+
+				@include bp-up(xl) {
+					height: 50%;
+				}
 			}
 
 			@include e(row-second) {
+				@include bp-up(lg) {
+					height: 30%;
+				}
+
+				@include bp-up(xl) {
+					height: 50%;
+				}
 			}
 		}
 
@@ -133,15 +148,16 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 			@include bp-up(xl) {
 				border-right: 1px solid $color-black;
 				border-bottom: 0;
-				padding: rhythm(3) rhythm(3) rhythm(3) rhythm(6);
+				padding: rhythm(4) rhythm(3) rhythm(3) rhythm(6);
 			}
 		}
 
 		@include e(address2) {
-			padding: rhythm(3) 0 rhythm(3) rhythm(3);
+			padding: rhythm(3);
 
 			@include bp-up(xl) {
 				padding-left: rhythm(6);
+				padding-top: rhythm(4);
 			}
 		}
 
@@ -157,7 +173,7 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 			}
 
 			@include bp-up(xl) {
-				padding: rhythm(3) rhythm(3) rhythm(3) rhythm(6);
+				padding: rhythm(3) rhythm(3) rhythm(4) rhythm(6);
 			}
 		}
 
@@ -168,6 +184,7 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 
 			@include bp-up(xl) {
 				padding-left: rhythm(6);
+				padding-bottom: rhythm(4);
 			}
 		}
 	}
