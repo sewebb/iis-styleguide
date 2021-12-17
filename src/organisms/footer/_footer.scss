@@ -143,11 +143,9 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 
 			@include bp-only(md) {
 				border-bottom: 0;
-				border-right: 1px solid $color-black;
 			}
 
 			@include bp-up(xl) {
-				border-right: 1px solid $color-black;
 				border-bottom: 0;
 				padding: rhythm(4) rhythm(3) rhythm(3) rhythm(6);
 			}
@@ -156,7 +154,12 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 		@include e(address2) {
 			padding: rhythm(3);
 
+			@include bp-only(md) {
+				border-left: 1px solid $color-black;
+			}
+
 			@include bp-up(xl) {
+				border-left: 1px solid $color-black;
 				padding-left: rhythm(6);
 				padding-top: rhythm(4);
 			}
