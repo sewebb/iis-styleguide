@@ -63,7 +63,7 @@ function getItems(el) {
 			type="button"><svg class="icon ${namespace}o-podcast-player__play-icon u-m-r-2"><use xlink:href="#icon-play"></use></svg></div><div class="u-visuallyhidden">Spela avsnittet ${el.querySelector('title').innerHTML}</div></button>
 		<div class="${namespace}o-podcast-player__show-info">
 			<div class="${namespace}o-podcast-player__title">${el.querySelector('title').innerHTML}</div>
-			<div class="${namespace}o-podcast-player__description">${el.querySelector('description').innerHTML}</div>
+			<div class="${namespace}o-podcast-player__description js-description">${el.querySelector('description').innerHTML}</div>
 		</div>
 	</li>
 `;
@@ -161,15 +161,14 @@ if (stepBackward) {
 	});
 }
 
-const { src } = audio;
-
 // Handle continous play when user leaves the page
 window.addEventListener('unload', () => {
 	const podcastData = {
 		podCastTitle: title.innerHTML,
 		episodeDescription: description.innerHTML,
-		episodeSrc: src,
+		episodeSrc: audio.src,
 		episodeCurrentTime: audio.currentTime,
+		episodeDuration: durationElement.innerHTML,
 		episodeImage: image.src,
 	};
 	localStorage.setItem('episodeData', JSON.stringify(podcastData));
@@ -188,6 +187,7 @@ window.addEventListener('unload', () => {
 });
 
 if (localStorage.getItem('episodeData')) {
+	podCast.classList.remove(`${namespace}o-podcast-player--hidden`);
 	const arr = JSON.parse(localStorage.getItem('episodeData'));
 
 	console.log(arr);
@@ -201,6 +201,10 @@ if (localStorage.getItem('episodeData')) {
 	if (arr.episodeCurrentTime) {
 		audio.src = arr.episodeSrc;
 		audio.currentTime = arr.episodeCurrentTime;
+		image.src = arr.episodeImage;
+		title.innerHTML = arr.podCastTitle;
+		description.innerHTML = arr.episodeDescription;
+		durationElement.innerHTML = arr.episodeDuration;
 		timeupdate();
 		// playButton.click();
 
