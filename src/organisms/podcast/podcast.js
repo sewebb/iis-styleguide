@@ -160,3 +160,68 @@ if (stepBackward) {
 		timeupdate();
 	});
 }
+
+const { src } = audio;
+
+// Handle continous play when user leaves the page
+window.addEventListener('unload', () => {
+	const podcastData = {
+		podCastTitle: title.innerHTML,
+		episodeDescription: description.innerHTML,
+		episodeSrc: src,
+		episodeCurrentTime: audio.currentTime,
+		episodeImage: image.src,
+	};
+	localStorage.setItem('episodeData', JSON.stringify(podcastData));
+
+	if (!audio.paused) {
+		let existing = localStorage.getItem('episodeData');
+		existing = existing ? JSON.parse(existing) : {};
+		existing.podcastWasPlaying = true;
+		localStorage.setItem('episodeData', JSON.stringify(existing));
+	} else {
+		let existing = localStorage.getItem('episodeData');
+		existing = existing ? JSON.parse(existing) : {};
+		existing.podcastWasPlaying = false;
+		localStorage.setItem('episodeData', JSON.stringify(existing));
+	}
+});
+
+if (localStorage.getItem('episodeData')) {
+	const arr = JSON.parse(localStorage.getItem('episodeData'));
+
+	console.log(arr);
+	console.log(arr.podCastTitle);
+	console.log(arr.episodeDescription);
+	console.log(arr.episodeSrc);
+	console.log(arr.episodeCurrentTime);
+	console.log(arr.episodeImage);
+	console.log('episode was playing when page reloaded', arr.podcastWasPlaying);
+
+	if (arr.episodeCurrentTime) {
+		audio.src = arr.episodeSrc;
+		audio.currentTime = arr.episodeCurrentTime;
+		timeupdate();
+		// playButton.click();
+
+		// console.log('podcastWasPlaying', arr.podcastWasPlaying);
+		if (arr.podcastWasPlaying === true) {
+			// console.log('yes its true');
+			const playPromise = audio.play();
+
+			if (playPromise !== undefined) {
+				playPromise.then(() => {
+					console.log('User interaction detected, continue playing audio on reload');
+					audio.play();
+					pauseIcon.classList.remove('is-hidden');
+					playIcon.classList.add('is-hidden');
+				}).catch((error) => {
+					console.log('User reloaded page manually. Cannot play audio', error);
+					audio.pause();
+					pauseIcon.classList.add('is-hidden');
+					playIcon.classList.remove('is-hidden');
+				});
+			}
+		}
+	}
+}
