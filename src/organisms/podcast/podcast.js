@@ -190,14 +190,6 @@ if (localStorage.getItem('episodeData')) {
 	podCast.classList.remove(`${namespace}o-podcast-player--hidden`);
 	const arr = JSON.parse(localStorage.getItem('episodeData'));
 
-	console.log(arr);
-	console.log(arr.podCastTitle);
-	console.log(arr.episodeDescription);
-	console.log(arr.episodeSrc);
-	console.log(arr.episodeCurrentTime);
-	console.log(arr.episodeImage);
-	console.log('episode was playing when page reloaded', arr.podcastWasPlaying);
-
 	if (arr.episodeCurrentTime) {
 		audio.src = arr.episodeSrc;
 		audio.currentTime = arr.episodeCurrentTime;
@@ -206,21 +198,18 @@ if (localStorage.getItem('episodeData')) {
 		description.innerHTML = arr.episodeDescription;
 		durationElement.innerHTML = arr.episodeDuration;
 		timeupdate();
-		// playButton.click();
 
-		// console.log('podcastWasPlaying', arr.podcastWasPlaying);
 		if (arr.podcastWasPlaying === true) {
-			// console.log('yes its true');
 			const playPromise = audio.play();
 
 			if (playPromise !== undefined) {
 				playPromise.then(() => {
-					console.log('User interaction detected, continue playing audio on reload');
+					// User interaction detected, continue playing audio on reload
 					audio.play();
 					pauseIcon.classList.remove('is-hidden');
 					playIcon.classList.add('is-hidden');
-				}).catch((error) => {
-					console.log('User reloaded page manually. Cannot play audio', error);
+				}).catch(() => {
+					// User reloaded page manually. Cannot play audio
 					audio.pause();
 					pauseIcon.classList.add('is-hidden');
 					playIcon.classList.remove('is-hidden');
