@@ -14,6 +14,7 @@ const stepBackward = document.querySelector('.js-step-backward');
 const playButton = document.querySelector('.js-play-button');
 const playIcon = document.querySelector('.js-play-icon');
 const pauseIcon = document.querySelector('.js-pause-icon');
+const closeButton = document.querySelector('.js-close-player');
 let rssURL = '';
 
 if (podCast) {
@@ -187,10 +188,10 @@ window.addEventListener('unload', () => {
 });
 
 if (localStorage.getItem('episodeData')) {
-	podCast.classList.remove(`${namespace}o-podcast-player--hidden`);
 	const arr = JSON.parse(localStorage.getItem('episodeData'));
 
 	if (arr.episodeCurrentTime) {
+		podCast.classList.remove(`${namespace}o-podcast-player--hidden`);
 		audio.src = arr.episodeSrc;
 		audio.currentTime = arr.episodeCurrentTime;
 		image.src = arr.episodeImage;
@@ -218,3 +219,11 @@ if (localStorage.getItem('episodeData')) {
 		}
 	}
 }
+
+closeButton.addEventListener('click', () => {
+	audio.currentTime = 0;
+	timeupdate();
+	audio.pause();
+	localStorage.removeItem('episodeData');
+	podCast.classList.add(`${namespace}o-podcast-player--hidden`);
+});

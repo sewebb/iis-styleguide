@@ -60,6 +60,18 @@
 		margin-bottom: 0;
 		color: $color-ruby;
 		font-family: $font-family-headings;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		white-space: nowrap;
+		max-width: rem(200px);
+
+		@include bp-up(sm) {
+			max-width: rem(250px);
+		}
+
+		@include bp-up(lg) {
+			max-width: rem(500px);
+		}
 	}
 
 	@include e(description) {
@@ -74,11 +86,23 @@
 		}
 
 		@include bp-up(sm) {
-			max-width: rem(280px);
+			max-width: rem(250px);
 		}
 
 		@include bp-up(lg) {
 			max-width: rem(500px);
+		}
+	}
+
+	@include e(playtime) {
+		@include bp-between(sm, md) {
+			display: none;
+		}
+	}
+
+	@include e(spacer) {
+		@include bp-between(sm, md) {
+			display: none;
 		}
 	}
 
@@ -87,11 +111,6 @@
 		flex-grow: 1;
 		align-items: center;
 		justify-content: center;
-		transform: translateX(math.div($time-left-width, 2));
-
-		@include bp-up(sm) {
-			transform: translateX(0);
-		}
 	}
 
 	@include e(spacer) {
@@ -144,6 +163,17 @@
 		@include e(progress) {
 			width: 0;
 			height: rhythm(1);
+		}
+	}
+
+	@include e(close) {
+		position: absolute;
+		right: rhythm(0.5);
+		top: 50%;
+		transform: translateY(-50%);
+
+		@include bp-up(xxl) {
+			right: rhythm(2);
 		}
 	}
 }
