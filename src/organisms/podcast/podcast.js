@@ -29,7 +29,6 @@ if (!namespaceElement) {
 
 function timeupdate() {
 	audio.addEventListener('timeupdate', () => {
-		const timeleft = timeleftElement;
 		const duration = parseInt(audio.duration, 10);
 		const currentTime = parseInt(audio.currentTime, 10);
 		const timeLeft = duration - currentTime;
@@ -44,7 +43,7 @@ function timeupdate() {
 
 		if (timeLeft > 0) {
 			timeleftElement.classList.remove('u-visibility-hidden');
-			timeleft.innerHTML = `${m}:${s}`;
+			timeleftElement.innerHTML = `${m}:${s}`;
 		}
 	}, false);
 }
@@ -121,6 +120,7 @@ document.body.addEventListener('click', (e) => {
 if (playButton) {
 	playButton.addEventListener('click', () => {
 		if (audio.paused) {
+			audio.muted = false;
 			audio.play();
 			pauseIcon.classList.remove('is-hidden');
 			playIcon.classList.add('is-hidden');
@@ -193,29 +193,42 @@ if (localStorage.getItem('episodeData')) {
 	if (arr.episodeCurrentTime) {
 		podCast.classList.remove(`${namespace}o-podcast-player--hidden`);
 		audio.src = arr.episodeSrc;
-		audio.currentTime = arr.episodeCurrentTime;
 		image.src = arr.episodeImage;
 		title.innerHTML = arr.podCastTitle;
 		description.innerHTML = arr.episodeDescription;
 		durationElement.innerHTML = arr.episodeDuration;
-		timeupdate();
 
 		if (arr.podcastWasPlaying === true) {
 			const playPromise = audio.play();
 
 			if (playPromise !== undefined) {
 				playPromise.then(() => {
-					// User interaction detected, continue playing audio on reload
+					// Continue playing audio on reload
+					audio.currentTime = arr.episodeCurrentTime;
+					timeupdate();
 					audio.play();
 					pauseIcon.classList.remove('is-hidden');
 					playIcon.classList.add('is-hidden');
 				}).catch(() => {
 					// User reloaded page manually. Cannot play audio
-					audio.pause();
+					audio.addEventListener('loadedmetadata', () => {
+						audio.currentTime = arr.episodeCurrentTime;
+						timeupdate();
+					});
+
 					pauseIcon.classList.add('is-hidden');
 					playIcon.classList.remove('is-hidden');
+					audio.pause();
 				});
 			}
+		} else {
+			audio.addEventListener('loadedmetadata', () => {
+				audio.currentTime = arr.episodeCurrentTime;
+				timeupdate();
+			});
+			pauseIcon.classList.add('is-hidden');
+			playIcon.classList.remove('is-hidden');
+			audio.pause();
 		}
 	}
 }
