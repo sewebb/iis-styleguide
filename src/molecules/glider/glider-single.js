@@ -12,6 +12,7 @@ if (gliderElementSingle) {
 	const nextBtns = document.querySelectorAll('.js-glider-next');
 	const prevBtns = document.querySelectorAll('.js-glider-prev');
 	const siteMain = document.querySelector('#siteMain');
+	const zoomImages = document.querySelectorAll('.js-zoom');
 	let slideIndex = GliderSingle.getCurrentSlide();
 	let bounding = 0;
 
@@ -45,6 +46,14 @@ if (gliderElementSingle) {
 						scrollTop();
 					}
 				}
+			});
+		});
+	}
+
+	if (zoomImages) {
+		[].forEach.call(zoomImages, (zoomImage) => {
+			zoomImage.addEventListener('click', () => {
+				zoomImage.classList.toggle('is-zoomed');
 			});
 		});
 	}

@@ -26,7 +26,7 @@
 	position: relative;
 	margin: 0 auto;
 	overflow: hidden;
-	transform: translateZ(0);
+	//transform: translateZ(0);
 	backface-visibility: hidden;
 	-webkit-overflow-scrolling: touch;
 	-ms-overflow-style: none;
@@ -56,7 +56,7 @@
 	width: 100%;
 	margin: 0;
 	padding: 0;
-	transform: translateZ(0);
+	//transform: translateZ(0);
 }
 
 .glider-slide {
@@ -121,6 +121,45 @@
 		}
 
 		@include e(media) {
+
+			&:not([class*='overlay']) {
+				cursor: zoom-in;
+				transition: all 0.15s ease-out;
+
+				img {
+					transition: all 0.25s ease-out;
+				}
+
+				// Image zooming
+				&.is-zoomed {
+					cursor: zoom-out !important;
+					position: fixed;
+					left: 0;
+					right: 0;
+					top: 0;
+					bottom: 0;
+					z-index: z_index(foreground);
+					display: flex;
+					align-items: center;
+					justify-content: center;
+					background-color: rgba($color-cyberspace, 0.8);
+					flex-direction: column;
+
+					img {
+						cursor: zoom-out;
+						max-width: 100%;
+						max-height: 100vh;
+						padding: rhythm(1);
+						height: auto;
+					}
+
+					figcaption {
+						color: $color-snow;
+						padding-left: rhythm(1);
+						padding-right: rhythm(1);
+					}
+				}
+			}
 
 			figcaption {
 				margin-top: rhythm(1);
