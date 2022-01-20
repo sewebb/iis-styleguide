@@ -168,6 +168,10 @@
 						background-color: rgba($color-cyberspace, 0.8);
 						flex-direction: column;
 
+						&::after {
+							display: none;
+						}
+
 						img {
 							cursor: zoom-out;
 							max-width: 100%;
