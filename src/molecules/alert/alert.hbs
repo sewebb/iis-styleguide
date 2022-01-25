@@ -10,15 +10,3 @@
 	<h2 class="u-m-b-1">{{name}}</h2>
 	<p>{{{text}}}</p>
 </div>
-<div{{#if role}} id="alert-2" role="{{role}}"{{/if}} class="m-alert m-alert--error{{#if is_dismissable}} m-alert--dismissable{{/if}}{{#if js_class}} {{js_class}}{{/if}}" {{#if is_dismissable}} aria-hidden="true"{{/if}}>
-	{{#if is_dismissable}}
-	<button class="a-button a-button--icon a-button--standalone-icon a-button--icon" data-a11y-toggle="alert-2">
-		<span class="a-button__text">Stäng</span>
-		<svg class="icon a-button__icon">
-			<use xlink:href="#icon-close"></use>
-		</svg>
-	</button>
-	{{/if}}
-	<h2 class="u-m-b-1">{{name}}</h2>
-	<p>{{{text}}}</p>
-</div>
