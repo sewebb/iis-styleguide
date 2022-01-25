@@ -18,7 +18,7 @@ if (gliderElementSingle) {
 	var nextBtns = document.querySelectorAll('.js-glider-next');
 	var prevBtns = document.querySelectorAll('.js-glider-prev');
 	var siteMain = document.querySelector('#siteMain');
-	var zoomImages = document.querySelectorAll('.js-zoom');
+	var zoomImages = document.querySelectorAll('.js-zoom.zoom');
 	var slideIndex = GliderSingle.getCurrentSlide();
 	var bounding = 0;
 

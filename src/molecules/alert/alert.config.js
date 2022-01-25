@@ -38,7 +38,7 @@ module.exports = {
 			name: 'dismissable',
 			context: {
 				name: 'Avfärda',
-				type: 'success',
+				type: 'warning',
 				role: 'alert',
 				text: 'Meddelanderuta med som användaren kan välja att klicka bort.',
 				js_class: 'js-dismiss-alert',

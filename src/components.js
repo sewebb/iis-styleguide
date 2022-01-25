@@ -24,3 +24,4 @@ import './molecules/glider/glider-single';
 import './atoms/timeline/anchorScroll';
 import './molecules/timeline-navigation/timeline-navigation';
 import './molecules/context-menu/context-menu';
+import './molecules/alert/alert';

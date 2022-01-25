@@ -45,6 +45,10 @@ $alert-text: $color-cyberspace;
 			top: rhythm(1);
 			right: rhythm(1);
 		}
+
+		&[aria-hidden="true"] {
+			display: none;
+		}
 	}
 
 	// Alternate styles
