@@ -132,18 +132,21 @@
 					position: relative;
 
 					&::after {
-						content: '';
-						padding: rhythm(1);
+						content: 'Förstora bilden';
+						color: $color-snow;
+						padding: rhythm(1) rhythm(2) rhythm(1) rhythm(4);
 						display: block;
 						position: absolute;
 						top: 0;
 						left: 0;
-						border-radius: $border-radius;
-						width: $icon-size-large * 1.4;
+						border-top-left-radius: $border-radius;
+						border-bottom-right-radius: $border-radius;
+						width: auto;
+						line-height: 1;
 						height: $icon-size-large * 1.4;
 						background-color: rgba($color-cyberspace, 0.8);
 						background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-search' viewbox='0 0 32 32' width='32' height='32' fill='%23ffffff'%3E%3Cpath d='M24,21.8l8,8L29.9,32l-8-8c-5.9,4.6-14.3,3.6-19-2.2S-0.7,7.6,5.1,2.9S19.3-0.7,24,5.1C27.9,10,27.9,16.9,24,21.8L24,21.8z M13.4,23.9c5.8,0,10.5-4.7,10.5-10.5S19.2,3,13.4,3S3,7.7,3,13.4S7.7,23.9,13.4,23.9z'/%3E%3C/svg%3E");
-						background-position: center center;
+						background-position: rhythm(1) center;
 						background-size: $icon-size-medium $icon-size-medium;
 						background-repeat: no-repeat;
 
@@ -181,9 +184,13 @@
 						}
 
 						figcaption {
+							max-width: rem(612px);
+							text-align: center;
 							color: $color-snow;
-							padding-left: rhythm(1);
-							padding-right: rhythm(1);
+							padding-left: rhythm(2);
+							padding-right: rhythm(2);
+							margin-bottom: 0 !important;
+							padding-bottom: 0 !important;
 						}
 					}
 				}
