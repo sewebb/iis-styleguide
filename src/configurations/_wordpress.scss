@@ -334,3 +334,8 @@ div.aligncenter {
 		border-radius: $border-radius;
 	}
 }
+
+.wp-block-embed-youtube {
+	border-radius: $border-radius;
+	overflow: hidden;
+}
