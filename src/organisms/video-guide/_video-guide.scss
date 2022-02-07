@@ -1,0 +1,93 @@
+@charset "UTF-8";
+
+@include molecule(video-guide) {
+	flex-direction: column;
+	background-color: $color-snow;
+
+	@include e(video-container) {
+		position: relative;
+		padding-top: 56.25%;
+		width: 100%;
+	}
+
+	@include e(timeline-item) {
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		z-index: 1;
+
+		img {
+			border-radius: 0;
+		}
+	}
+
+	@include e(video) {
+		display: block;
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+		width: 100%;
+		z-index: 2;
+	}
+
+	@include e(controls) {
+		background-color: $color-snow;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding-top: rhythm(2);
+		padding-bottom: rhythm(2);
+
+		@include bp-up(sm) {
+			transform: translateX(0);
+		}
+	}
+
+	@include e(button) {
+		display: flex;
+		align-items: center;
+		margin: 0 rhythm(1);
+		padding: 0;
+		border: 0;
+		background-color: transparent;
+
+		&:hover {
+			> svg {
+				fill: $color-ruby;
+			}
+		}
+	}
+
+	@include e(play-icon) {
+		display: block;
+		width: $icon-size-large * 1.5;
+		height: $icon-size-large * 1.5;
+	}
+
+	@include e(rewind-icon) {
+		width: $icon-size-large;
+		height: $icon-size-large;
+	}
+
+	@include e(forward-icon) {
+		width: $icon-size-large;
+		height: $icon-size-large;
+	}
+}
+
+.event-log {
+	display: flex;
+	flex-direction: column;
+}
+
+.event-log-contents {
+	padding: 0.5rem;
+}
+
+.clear {
+	margin-top: 1rem;
+}

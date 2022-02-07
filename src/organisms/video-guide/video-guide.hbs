@@ -1,0 +1,37 @@
+<div class="m-video-guide">
+	<figure>
+		<div class="m-video-guide__video-container">
+			<video class="m-video-guide__video" disablePictureInPicture  data-src="{{videoSrc}}">
+				<track kind="subtitles" src="/assets/video/videoplayer.vtt" srclang="sv" default>
+				<track id="video-chapters" kind="chapters" label="Kapitel" src="/assets/video/chapters.vtt" srclang="sv">
+			</video>
+			<div class="m-video-guide__timeline-item">
+				<img src="/assets/images/ALX_0876.jpg" class="m-card__image m-card__media" alt="Man using his phone">
+			</div>
+		</div>
+		<div class="m-video-guide__controls">
+			<figcaption class="m-video-guide__captions">
+				<ol class="m-video-guide__chapters js-chapters"></ol>
+			</figcaption>
+			<button type="button" class="m-video-guide__button js-step-backward" title="Föregående kapitel">
+				<span class="u-visuallyhidden" >Föregående kapitel</span>
+				{{>@ icon id="step-backwards" additional_classes="m-video-guide__rewind-icon"}}
+			</button>
+			<button type="button" class="m-video-guide__button m-video-guide__button--play js-play-btn" title="Play/Pause">
+				<span class="u-visuallyhidden">Play/Pause</span>
+				{{>@ icon id="play" additional_classes="m-video-guide__play-icon js-play-icon"}}
+				{{>@ icon id="pause" additional_classes="m-video-guide__play-icon js-pause-icon is-hidden"}}
+			</button>
+			<button type="button" class="m-video-guide__button js-step-forward" title="Nästa kapitel">
+				<span class="u-visuallyhidden" >Nästa kapitel</span>
+				{{>@ icon id="step-forwards" additional_classes="m-video-guide__forward-icon"}}
+			</button>
+		</div>
+	</figure>
+</div>
+
+<div class="event-log">
+	<label>Event log:</label>
+	<textarea readonly class="event-log-contents" rows="10"></textarea>
+	<button type="button" class="clear">Clear progress and restart video</button>
+</div>
