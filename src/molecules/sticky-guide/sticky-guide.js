@@ -58,7 +58,7 @@ if (sessionStorage.getItem('InmsCurrentTime')) {
 	const videoCurrentTime = sessionStorage.getItem('InmsCurrentTime');
 
 	if (videoCurrentTime) {
-		video.currentTime = videoCurrentTime;
+		// video.currentTime = videoCurrentTime;
 	}
 }
 // emulate progress attribute change

@@ -25,3 +25,4 @@ import './atoms/timeline/anchorScroll';
 import './molecules/context-menu/context-menu';
 import './molecules/alert/alert';
 import './molecules/sticky-guide/sticky-guide';
+import './organisms/video-guide/video-guide';

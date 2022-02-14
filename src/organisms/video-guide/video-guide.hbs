@@ -1,0 +1,109 @@
+<div class="m-video-guide">
+	<figure>
+		<div class="m-video-guide__video-container">
+			<div class="m-video-guide__subtitles js-subtitles-container"></div>
+			<video class="m-video-guide__video" disablePictureInPicture preload="auto"  data-src="{{videoSrc}}">
+				<track id="video-subtitles" kind="subtitles" src="/assets/video/videoplayer.vtt" srclang="sv" default>
+				<track id="video-chapters" kind="chapters" label="Kapitel" src="/assets/video/chapters.vtt" srclang="sv">
+				<track id="video-metadata" kind="metadata" label="timeLineItems" src="/assets/video/metadata.vtt" srclang="sv">
+			</video>
+			<ul class="u-list-clean">
+				<li class="m-video-guide__timeline-item js-timeline-post" data-id="6513">
+					<div class="m-video-guide__timeline-item__text">
+						<h2 class="supersize">Ada Lovelace skapar den första algoritmen</h2>
+						<a href="#">Läs mer</a>
+					</div>
+					<img src="/assets/images/adalovelace.jpg" class="" alt="Man using his phone">
+				</li>
+				<li class="m-video-guide__timeline-item js-timeline-post" data-id="1376">
+					<div class="m-video-guide__timeline-item__text">
+						<h2 class="supersize">Björn spelar Candy Crush och vinner för det mesta</h2>
+						<a href="#">Läs mer</a>
+					</div>
+					<img src="/assets/images/ALX_0876.jpg" class="" alt="Man using his phone">
+				</li>
+				<li class="m-video-guide__timeline-item js-timeline-post" data-id="666">
+					<div class="m-video-guide__timeline-item__text">
+						<h2 class="supersize">Seniorsurfare i soffan, lär sig mer om säkerhet</h2>
+						<a href="#">Läs mer</a>
+					</div>
+					<img src="/assets/images/ALX_2024.jpg" class="" alt="Seniorsurfare">
+				</li>
+				<li class="m-video-guide__timeline-item js-timeline-post" data-id="777">
+					<div class="m-video-guide__timeline-item__text">
+						<h2 class="supersize">Juniorsurfare på golvet, kikar på Babblarna</h2>
+						<a href="#">Läs mer</a>
+					</div>
+					<img src="/assets/images/ALX_2242.jpg" class="" alt="Man using his phone">
+				</li>
+				<li class="m-video-guide__timeline-item js-timeline-post" data-id="888">
+					<div class="m-video-guide__timeline-item__text">
+						<h2 class="supersize">AW på Goto 10, med trippel session-IPA</h2>
+						<a href="#">Läs mer</a>
+					</div>
+					<img src="/assets/images/ALX_7251.jpg" class="" alt="Man using his phone">
+				</li>
+				<li class="m-video-guide__timeline-item js-timeline-post" data-id="242">
+					<div class="m-video-guide__timeline-item__text">
+						<h2 class="supersize">Internetmuseum goodie bag</h2>
+						<a href="#">Läs mer</a>
+					</div>
+					<img src="/assets/images/ALX_7427_1.jpg" class="" alt="Man using his phone">
+				</li>
+				<li class="m-video-guide__timeline-item js-timeline-post" data-id="1337">
+					<div class="m-video-guide__timeline-item__text">
+						<h2 class="supersize">Fikajobbare på Goto 10 Stockholm</h2>
+						<a href="#">Läs mer</a>
+					</div>
+					<img src="/assets/images/KPA_0996.jpg" class="" alt="Man using his phone">
+				</li>
+				<li class="m-video-guide__timeline-item js-timeline-post" data-id="1177">
+					<div class="m-video-guide__timeline-item__text">
+						<h2 class="supersize">Interntpost på Internetstiftelsen</h2>
+						<a href="#">Läs mer</a>
+					</div>
+					<img src="/assets/images/KPA_3810.jpg" class="" alt="Man using his phone">
+				</li>
+				<li class="m-video-guide__timeline-item js-timeline-post" data-id="3456">
+					<div class="m-video-guide__timeline-item__text">
+						<h2 class="supersize">Drönare flyger över Hammarby kanal</h2>
+						<a href="#">Läs mer</a>
+					</div>
+					<img src="/assets/images/KPA_4156.jpg" class="" alt="Man using his phone">
+				</li>
+				<li class="m-video-guide__timeline-item js-timeline-post" data-id="4005">
+					<div class="m-video-guide__timeline-item__text">
+						<h2 class="supersize">Att skriva på tangentbord blir på modet så sent som 1996</h2>
+						<a href="#">Läs mer</a>
+					</div>
+					<img src="/assets/images/KPA_4516.jpg" class="" alt="Man using his phone">
+				</li>
+			</ul>
+		</div>
+		<div class="m-video-guide__controls">
+			<figcaption class="m-video-guide__chapters">
+				<h2 class="m-video-guide__title delta">Sammanfattningen: Den stora berättelsen om internet</h2>
+				<ol class="m-video-guide__chapters__list js-chapters"></ol>
+			</figcaption>
+			<div class="m-video-guide__buttons">
+				<button type="button" class="m-video-guide__button js-previous-chapter" title="Föregående kapitel">
+					<span class="u-visuallyhidden">Föregående kapitel</span>
+					{{>@ icon id="step-backwards" additional_classes="m-video-guide__rewind-icon"}}
+				</button>
+				<button type="button" class="m-video-guide__button m-video-guide__button--play js-play-btn" title="Play/Pause">
+					<span class="u-visuallyhidden">Play/Pause</span>
+					{{>@ icon id="play" additional_classes="m-video-guide__play-icon js-play-icon"}}
+					{{>@ icon id="pause" additional_classes="m-video-guide__play-icon js-pause-icon is-hidden"}}
+				</button>
+				<button type="button" class="m-video-guide__button m-video-guide__button--next js-next-chapter" title="Nästa kapitel">
+					<span class="u-visuallyhidden">Nästa kapitel</span>
+					{{>@ icon id="step-forwards" additional_classes="m-video-guide__forward-icon"}}
+				</button>
+				<button type="button" class="m-video-guide__button m-video-guide__button--subtitles js-subtitles-btn" title="Undertexter">
+					<span class="u-visuallyhidden">Undertexter</span>
+					{{>@ icon id="subtitles" additional_classes="m-video-guide__subtitles-icon"}}
+				</button>
+			</div>
+		</div>
+	</figure>
+</div>
