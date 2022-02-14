@@ -1,5 +1,10 @@
 @charset "UTF-8";
 
+// Remove chromecast button from video
+video::-internal-media-controls-overlay-cast-button {
+	display: none;
+}
+
 @include molecule(video-guide) {
 	flex-direction: column;
 	background-color: $color-snow;
