@@ -6,8 +6,18 @@
 
 	@include e(video-container) {
 		position: relative;
-		padding-top: 56.25%;
+		padding-top: 70vh;
 		width: 100%;
+		display: flex;
+		justify-content: center;
+
+		@include bp-up(sm) {
+			padding-top: 76.25%;
+		}
+
+		@include bp-up(md) {
+			padding-top: 56.25%;
+		}
 	}
 
 	@include e(timeline-item) {
@@ -17,34 +27,151 @@
 		right: 0;
 		bottom: 0;
 		z-index: 1;
+		justify-content: center;
+		display: none;
+
+		&:first-child,
+		&.is-current {
+			display: flex;
+		}
 
 		img {
 			border-radius: 0;
+			object-fit: cover;
+			object-position: 50% 25%;
+			height: 100%;
+			width: 100%;
+		}
+
+		@include e(text) {
+			position: absolute;
+			top: 50%;
+			left: auto;
+			right: auto;
+			text-align: center;
+			padding-left: rhythm(2);
+			padding-right: rhythm(2);
+
+			transform: translateY(-50%);
+
+			@include bp-up(lg) {
+				left: rhythm(8);
+				width: calc(100% - rhythm(16));
+				max-width: 60%;
+				text-align: left;
+			}
+
+			> h2 {
+				font-family: $font-family-bold;
+				color: $color-snow;
+				text-shadow: 0 0 20px rgba($color-black, 0.8);
+			}
+
+			> a {
+				font-size: $size-base * 1.3;
+				font-family: $font-family-headings;
+				background-color: rgba($color-black, 0.5);
+				padding: rhythm(0.5) rhythm(2);
+				color: $color-peacock;
+				text-decoration: none;
+				line-height: 1;
+			}
 		}
 	}
 
 	@include e(video) {
 		display: block;
 		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
+		left: auto;
+		right: auto;
 		bottom: 0;
-		width: 100%;
+		width: 60%;
 		z-index: 2;
+
+		@include bp-up(sm) {
+			width: 50%;
+		}
+
+		@include bp-up(md) {
+			width: 40%;
+		}
+
+		@include bp-up(lg) {
+			left: 0;
+			width: 30%;
+		}
 	}
 
 	@include e(controls) {
 		background-color: $color-snow;
 		display: flex;
 		align-items: center;
-		justify-content: center;
+		justify-content: space-between;
 		padding-top: rhythm(2);
 		padding-bottom: rhythm(2);
+		padding-left: rhythm(1);
+		padding-right: rhythm(1);
+		flex-direction: column-reverse;
+		overflow: hidden;
 
 		@include bp-up(sm) {
 			transform: translateX(0);
 		}
+
+		@include bp-up(md) {
+			align-items: stretch;
+			flex-direction: row;
+			padding-left: rhythm(2);
+			padding-right: rhythm(2);
+		}
+	}
+
+	@include e(title) {
+		line-height: 1;
+		margin-top: rhythm(1);
+	}
+
+	@include e(chapters) {
+		width: 100%;
+		display: flex;
+		flex-direction: column;
+
+		@include e(list) {
+			width: 100%;
+			height: 100%;
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+
+			> li {
+				display: flex;
+				align-items: center;
+				background-color: $color-snow;
+				font-size: $size-medium;
+				display: none;
+				line-height: 1;
+
+				@include bp-up(md) {
+					font-size: $size-medium-plus;
+				}
+
+				// &:first-child:not([class]) {
+				// 	display: block;
+				// }
+
+				&.is-current-item {
+					display: block;
+				}
+			}
+		}
+
+		@include bp-up(md) {
+			align-items: stretch;
+		}
+	}
+
+	@include e(buttons) {
+		display: flex;
 	}
 
 	@include e(button) {
@@ -55,15 +182,35 @@
 		border: 0;
 		background-color: transparent;
 
+		&:disabled,
+		&:disabled:focus,
+		&:not([class*="play"]):not([class*="subtitles"]):not([data-id]),
+		&[data-id="0"],
+		&:disabled:focus-visible {
+			pointer-events: none;
+			cursor: not-allowed;
+
+			> svg {
+				fill: $color-concrete;
+			}
+		}
+
 		&:hover {
 			> svg {
-				fill: $color-ruby;
+				fill: $color-peacock;
+			}
+		}
+
+		@include m(subtitles) {
+			&.is-active {
+				svg {
+					fill: $color-peacock;
+				}
 			}
 		}
 	}
 
 	@include e(play-icon) {
-		display: block;
 		width: $icon-size-large * 1.5;
 		height: $icon-size-large * 1.5;
 	}
@@ -77,15 +224,72 @@
 		width: $icon-size-large;
 		height: $icon-size-large;
 	}
+
+	@include e(subtitles-icon) {
+		width: $icon-size-large * 1.2;
+		height: $icon-size-large * 1.2;
+	}
+
+	@include e(subtitles) {
+		text-align: center;
+		width: auto;
+		position: absolute;
+		bottom: rhythm(1);
+		z-index: 3;
+		font-family: $font-family-headings;
+		min-width: 200px;
+		max-width: 300px;
+		display: none;
+		padding: rhythm(0.5) rhythm(1);
+		line-height: 1.7;
+
+		@include bp-up(sm) {
+			font-size: $size-base;
+			padding: rhythm(1) rhythm(2);
+			min-width: 300px;
+			max-width: 400px;
+		}
+
+		@include bp-up(md) {
+			font-size: $size-base * 1.5;
+			padding: rhythm(2) rhythm(4);
+			min-width: 400px;
+			max-width: 600px;
+		}
+
+		@include bp-up(lg) {
+			font-size: $size-base * 1.7;
+			min-width: 500px;
+			max-width: 800px;
+			bottom: rhythm(2);
+			align-self: flex-end;
+			right: rhythm(2);
+		}
+
+		&.is-visible {
+			display: inline-block;
+
+			&:empty {
+				display: none;
+			}
+		}
+
+		> span {
+			background-color: rgba($color-black, 0.8);
+			color: $color-snow;
+		}
+	}
 }
 
 .event-log {
 	display: flex;
 	flex-direction: column;
+	display: none;
 }
 
 .event-log-contents {
 	padding: 0.5rem;
+	max-height: 150px;
 }
 
 .clear {

@@ -172,6 +172,17 @@
 		<symbol id="icon-pause" viewbox="0 0 32 32">
 			<path d="M6 3h8v26H6zM18 3h8v26h-8z"/>
 		</symbol>
+		<symbol id="icon-subtitles" viewbox="0 0 32 32">
+			<path d="M27 10v12H5V10h22m3-3H2v18h28V7z"/>
+			<path d="M25 19h-4"/>
+			<path d="M21 18h4v2h-4z"/>
+			<path d="M19 19H7"/>
+			<path d="M7 18h12v2H7z"/>
+			<path d="M7 15h4"/>
+			<path d="M7 14h4v2H7z"/>
+			<path d="M13 15h12"/>
+			<path d="M13 14h12v2H13z"/>
+		</symbol>
 		<symbol id="icon-author" viewbox="0 0 32 32">
 			<path d="M4 29h24v2H4zM10.3 26H4v-6.3L22.1 1.6l6.3 6.3L10.3 26zM6 24h3.5L25.6 7.9l-3.5-3.5L6 20.5V24z"/>
 			<path d="M17.07 6.69l1.414-1.414 6.293 6.293-1.414 1.415z"/>
