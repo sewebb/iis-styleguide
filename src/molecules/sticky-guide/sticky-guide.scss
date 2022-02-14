@@ -1,0 +1,17 @@
+@charset "UTF-8";
+
+@include molecule(sticky-guide) {
+	position: relative;
+
+	@include e(progressbar) {
+		position: absolute;
+		z-index: 2;
+	}
+
+	@include e(image) {
+		position: absolute;
+		z-index: 1;
+		width: 120px;
+		height: 120px;
+	}
+}
