@@ -56,17 +56,14 @@ window.customElements.define('progress-ring', ProgressRing);
 // Get value from sessionStorage if present
 if (sessionStorage.getItem('InmsCurrentTime')) {
 	const videoCurrentTime = sessionStorage.getItem('InmsCurrentTime');
+	const videoDuration = sessionStorage.getItem('InmsDuration');
+	const continueElement = document.querySelector('.js-guide-continue');
+	const progressRing = document.querySelector('progress-ring');
 
-	if (videoCurrentTime) {
-		// video.currentTime = videoCurrentTime;
+	if (videoCurrentTime && progressRing && continueElement) {
+		// Calculate percentage played
+		continueElement.classList.add('is-visible');
+		const currentProgress = videoCurrentTime / videoDuration;
+		progressRing.setAttribute('progress', Math.floor(currentProgress * 100));
 	}
 }
-// emulate progress attribute change
-// let progress = 0;
-// const el = document.querySelector('progress-ring');
-//
-// const interval = setInterval(() => {
-// 	progress += 10;
-// 	el.setAttribute('progress', progress);
-// 	if (progress === 100) clearInterval(interval);
-// }, 1000);

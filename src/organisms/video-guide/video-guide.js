@@ -4,13 +4,10 @@ const playIcon = document.querySelector('.js-play-icon');
 const pauseIcon = document.querySelector('.js-pause-icon');
 const subtitlesBtn = document.querySelector('.js-subtitles-btn');
 const subtitlesElement = document.getElementById('video-subtitles');
-const subtitlesTrack = subtitlesElement.track;
 const subtitlesContainer = document.querySelector('.js-subtitles-container');
 const locationList = document.querySelector('.js-chapters');
 const chapterTrackElement = document.getElementById('video-chapters');
 const trackMetadataElement = document.getElementById('video-metadata');
-const chapterTrack = chapterTrackElement.track;
-const metadataTrack = trackMetadataElement.track;
 const forwardsButton = document.querySelector('.js-next-chapter');
 const backwardsButton = document.querySelector('.js-previous-chapter');
 const timelinePosts = document.querySelectorAll('.js-timeline-post');
@@ -21,7 +18,7 @@ let sourceElement = null;
 // Has src attributes been set already?
 if (sourceElement) {
 	document.location.reload();
-} else {
+} else if (video) {
 	const dataSrc = video.dataset.src;
 
 	sourceElement = document.createElement('source');
@@ -30,14 +27,10 @@ if (sourceElement) {
 
 	video.appendChild(sourceElement);
 
-	// Set all track elements to hidden mode to allow scripting
-	[].forEach.call(video.textTracks, (txtTrack) => {
-		txtTrack.mode = 'hidden';
-	});
-
 	// Store current time in on page reload
 	window.addEventListener('unload', () => {
 		sessionStorage.setItem('InmsCurrentTime', video.currentTime -= 1); // Minus 1 to make sure cuechange doesn't end up in next chapter
+		sessionStorage.setItem('InmsDuration', video.duration); // Get totalt duration of video
 	});
 
 	// Get value from sessionStorage in present
@@ -92,6 +85,14 @@ if (sourceElement) {
 
 function displayChapters() {
 	if (chapterTrackElement && trackMetadataElement) {
+		const subtitlesTrack = subtitlesElement.track;
+		const chapterTrack = chapterTrackElement.track;
+		const metadataTrack = trackMetadataElement.track;
+		// Set all track elements to hidden mode to allow scripting
+		[].forEach.call(video.textTracks, (txtTrack) => {
+			txtTrack.mode = 'hidden';
+		});
+
 		if (chapterTrack.kind === 'chapters') {
 			video.addEventListener('loadedmetadata', () => {
 				// Start by triggering a cue change
