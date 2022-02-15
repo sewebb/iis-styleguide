@@ -30,8 +30,10 @@ if (sourceElement) {
 
 	// Store current time in on page reload
 	window.addEventListener('unload', () => {
-		sessionStorage.setItem('InmsCurrentTime', video.currentTime -= 1); // Minus 1 to make sure cuechange doesn't end up in next chapter
+		const currentGuideURL = window.location.href;
+		sessionStorage.setItem('InmsCurrentTime', video.currentTime); // Minus 1 to make sure cuechange doesn't end up in next chapter
 		sessionStorage.setItem('InmsDuration', video.duration); // Get totalt duration of video
+		sessionStorage.setItem('InmsCurrentGuideURL', currentGuideURL);
 	});
 
 	// Get value from sessionStorage in present
@@ -84,12 +86,17 @@ if (sourceElement) {
 	}
 
 	if (abortButton) {
-		abortButton.addEventListener('click', () => {
-			sessionStorage.removeItem('InmsCurrentTime');
+		abortButton.addEventListener('click', (e) => {
+			e.preventDefault();
+			const urlTarget = abortButton.getAttribute('href');
+			video.pause();
 			video.currentTime = 0;
 			forwardsButton.removeAttribute('disabled');
 			currentChapter = 1;
 			manualStep = false;
+			sessionStorage.removeItem('InmsCurrentTime');
+			sessionStorage.removeItem('InmsDuration');
+			window.location.href = urlTarget;
 		});
 	}
 }
@@ -106,9 +113,6 @@ function displayChapters() {
 
 		if (chapterTrack.kind === 'chapters') {
 			video.addEventListener('loadedmetadata', () => {
-				// Start by triggering a cue change
-				video.currentTime += 1;
-
 				// Loop through chapters and create chapter list
 				[].forEach.call(chapterTrack.cues, (cues) => {
 					const chapterName = cues.text;

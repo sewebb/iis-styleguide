@@ -160,9 +160,9 @@ video::-internal-media-controls-overlay-cast-button {
 					font-size: $size-medium-plus;
 				}
 
-				// &:first-child:not([class]) {
-				// 	display: block;
-				// }
+				&:first-child:not([class]) {
+					display: block;
+				}
 
 				&.is-current-item {
 					display: block;
@@ -177,6 +177,7 @@ video::-internal-media-controls-overlay-cast-button {
 
 	@include e(buttons) {
 		display: flex;
+		width: 100%;
 	}
 
 	@include e(button) {
@@ -287,6 +288,7 @@ video::-internal-media-controls-overlay-cast-button {
 
 	@include e(button-abort) {
 		align-self: center;
+		margin-left: auto;
 		flex-grow: 0;
 	}
 }

@@ -59,11 +59,14 @@ if (sessionStorage.getItem('InmsCurrentTime')) {
 	const videoDuration = sessionStorage.getItem('InmsDuration');
 	const continueElement = document.querySelector('.js-guide-continue');
 	const progressRing = document.querySelector('progress-ring');
+	const continueLink = document.querySelector('.js-guide-continue-link');
+	const guideURL = sessionStorage.getItem('InmsCurrentGuideURL');
 
-	if (videoCurrentTime && progressRing && continueElement) {
-		// Calculate percentage played
+	if ((videoCurrentTime > 0) && progressRing && continueElement) {
 		continueElement.classList.add('is-visible');
 		const currentProgress = videoCurrentTime / videoDuration;
+		continueLink.setAttribute('href', guideURL);
+		// Calculate percentage played
 		progressRing.setAttribute('progress', Math.floor(currentProgress * 100));
 	}
 }
