@@ -284,19 +284,9 @@ video::-internal-media-controls-overlay-cast-button {
 			color: $color-snow;
 		}
 	}
-}
 
-.event-log {
-	display: flex;
-	flex-direction: column;
-	display: none;
-}
-
-.event-log-contents {
-	padding: 0.5rem;
-	max-height: 150px;
-}
-
-.clear {
-	margin-top: 1rem;
+	@include e(button-abort) {
+		align-self: center;
+		flex-grow: 0;
+	}
 }

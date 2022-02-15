@@ -3,6 +3,7 @@ const playBtn = document.querySelector('.js-play-btn');
 const playIcon = document.querySelector('.js-play-icon');
 const pauseIcon = document.querySelector('.js-pause-icon');
 const subtitlesBtn = document.querySelector('.js-subtitles-btn');
+const abortButton = document.querySelector('.js-abort-guide');
 const subtitlesElement = document.getElementById('video-subtitles');
 const subtitlesTrack = subtitlesElement.track;
 const subtitlesContainer = document.querySelector('.js-subtitles-container');
@@ -86,6 +87,16 @@ if (sourceElement) {
 			manualStep = false;
 			forwardsButton.removeAttribute('disabled');
 			subtitlesContainer.innerHTML = '';
+		});
+	}
+
+	if (abortButton) {
+		abortButton.addEventListener('click', () => {
+			sessionStorage.removeItem('InmsCurrentTime');
+			video.currentTime = 0;
+			forwardsButton.removeAttribute('disabled');
+			currentChapter = 1;
+			manualStep = false;
 		});
 	}
 }
