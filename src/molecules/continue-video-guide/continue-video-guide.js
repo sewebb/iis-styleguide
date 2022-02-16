@@ -1,3 +1,5 @@
+import className from '../../assets/js/className';
+
 class ProgressRing extends HTMLElement {
 	constructor() {
 		super();
@@ -63,9 +65,12 @@ if (sessionStorage.getItem('InmsCurrentTime')) {
 	const guideURL = sessionStorage.getItem('InmsCurrentGuideURL');
 
 	if ((videoCurrentTime > 0) && progressRing && continueElement) {
-		continueElement.classList.add('is-visible');
+		const alternativeText = continueLink.dataset.altText;
 		const currentProgress = videoCurrentTime / videoDuration;
+
+		continueElement.classList.add(className('m-continue-video-guide--has-progress'));
 		continueLink.setAttribute('href', guideURL);
+		continueLink.querySelector('span').innerText = alternativeText;
 		// Calculate percentage played
 		progressRing.setAttribute('progress', Math.floor(currentProgress * 100));
 	}
