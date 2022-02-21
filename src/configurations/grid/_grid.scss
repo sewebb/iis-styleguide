@@ -57,6 +57,12 @@
 		> [class*='grid-']:nth-child(#{$i}) {
 			transform: translateY(rhythm($col-gap));
 		}
+
+		@include bp-only(sm) {
+			> [class*='grid-']:last-child {
+				transform: translateY(rhythm($gap));
+			}
+		}
 	}
 }
 
@@ -75,7 +81,7 @@
 		@include make-asymmetric-cols($bp-gap, true);
 	}
 
-	@include bp-up(md) {
+	@include bp-up(sm) {
 		$bp-gap: $gap * 1.25;
 
 		margin: rhythm($margin * 1.25) 0 0;
