@@ -95,6 +95,12 @@
 		}
 	}
 
+	@include bp-up(md) {
+		&.asymmetric-reversed {
+			margin-bottom: calc(100px);
+		}
+	}
+
 	@include bp-up(lg) {
 		$bp-gap: $gap * 1.5;
 
@@ -106,6 +112,7 @@
 
 		&.asymmetric-reversed {
 			@include make-asymmetric-cols($bp-gap, true);
+			margin-bottom: calc(180px);
 		}
 	}
 
@@ -120,6 +127,7 @@
 
 		&.asymmetric-reversed {
 			@include make-asymmetric-cols($bp-gap, true);
+			margin-bottom: calc(216px);
 		}
 	}
 }

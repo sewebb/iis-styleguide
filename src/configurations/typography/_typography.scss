@@ -168,6 +168,53 @@ small {
 	}
 }
 
+.godzilla {
+	margin-top: 0;
+	margin-bottom: 0;
+	padding-top: 0;
+	padding-bottom: 0;
+	line-height: 98px;
+	font-size: 120px;
+	font-family: $font-family-bold;
+	letter-spacing: -#{rem(10px)};
+
+	@include bp-up(sm) {
+		line-height: 123px;
+		font-size: 150px;
+	}
+
+	@include bp-up(md) {
+		line-height: 164px;
+		font-size: 200px;
+	}
+
+	@include bp-up(lg) {
+		line-height: 242px;
+		font-size: 295px;
+		letter-spacing: -#{rem(20px)};
+	}
+
+	@include bp-up(xl) {
+		line-height: 295px;
+		font-size: 360px;
+	}
+
+	// Special rule for decade starting with 1
+	@include m(19) {
+		&::first-letter {
+			letter-spacing: -#{rem(20px)};
+
+			@include bp-up(lg) {
+				letter-spacing: -#{rem(40px)};
+			}
+
+			@include bp-up(xl) {
+				letter-spacing: -#{rem(45px)};
+			}
+		}
+	}
+}
+
 .preamble,
 %preamble {
 
