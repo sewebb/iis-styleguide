@@ -46,6 +46,8 @@ function animateProgressBar() {
 	// Check if we are above the first section
 	if (currentPosition < offsetTop(firstDecade)) {
 		currentSection = 0;
+		progressBarWidth = 0;
+		progressBar.style.width = '0';
 
 		[].forEach.call(decadeLinks, (decadeLink) => {
 			decadeLink.classList.remove('is-reading');
