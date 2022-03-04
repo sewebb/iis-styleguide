@@ -18,7 +18,7 @@ let triggerPoint = 0;
 /* Set trigger point (vertical position in viewport)
 for when a new decade should start being "active" */
 function setTriggerPoint() {
-	triggerPoint = window.innerHeight * 0.3;
+	triggerPoint = window.innerHeight * 0.5;
 }
 
 // Get top of element relative to window
