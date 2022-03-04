@@ -8,11 +8,13 @@
 	z-index: z_index(middlegroundImportant);
 	background: $color-ash;
 
+	@include card-shadow($color-cyberspace, 0.2);
+
 	&::after {
 		background-color: $color-concrete;
 		content: '';
 		display: block;
-		height: 8px;
+		height: rhythm(1);
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -23,7 +25,7 @@
 
 	@include e(progress-bar) {
 		display:flex;
-		height: 8px;
+		height: rhythm(1);
 		background-image: linear-gradient(90deg, #55c7b4 0vw, #55c7b4 14.285vw, #c27fec 14.285vw, #c27fec 28.57vw, #ffa94d 28.57vw, #ffa94d 42.855vw, #ffce2e 42.855vw, #ffce2e 57.14vw, #50b2fc 57.14vw, #50b2fc 71.425vw, #ff4069 71.425vw, #ff4069 85.71vw, #8E9297 85.71vw, #8E9297 100%);
 		width: 0;
 	}
@@ -42,8 +44,40 @@
 			padding-top: rhythm(1);
 			padding-bottom: rhythm(1);
 			font-family: $font-family-headings;
+			font-size: $size-medium;
+
+			&.is-reading {
+				&:nth-child(1) {
+					color: $color-jade;
+				}
+
+				&:nth-child(2) {
+					color: $color-peacock;
+				}
+
+				&:nth-child(3) {
+					color: $color-sandstone;
+				}
+
+				&:nth-child(4) {
+					color: $color-lemon;
+				}
+
+				&:nth-child(5) {
+					color: $color-ocean;
+				}
+
+				&:nth-child(6) {
+					color: $color-ruby;
+				}
+
+				&:nth-child(7) {
+					color: $color-granit;
+				}
+			}
 
 			@include bp-up(md) {
+				font-size: $size-base;
 				padding-top: rhythm(2);
 				padding-bottom: rhythm(2);
 			}

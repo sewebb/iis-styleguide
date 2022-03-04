@@ -1,10 +1,10 @@
-import './parallax';
+import '../../assets/js/parallax';
 
 const progressBar = document.querySelector('.js-progress-bar');
 const decadeContainer = document.querySelector('.js-decade-container');
 const firstDecade = document.querySelector('h2.godzilla');
-console.log(firstDecade);
 const decades = document.querySelectorAll('h2.godzilla');
+let triggerPoint = 0;
 
 // Create decade links in timeline
 [].forEach.call(decades, (decade) => {
@@ -17,194 +17,92 @@ const decades = document.querySelectorAll('h2.godzilla');
 
 /* Set trigger point (vertical position in viewport)
 for when a new decade should start being "active" */
-let triggerPoint = 0;
 function setTriggerPoint() {
 	triggerPoint = window.innerHeight * 0.3;
 }
-setTriggerPoint();
-window.addEventListener('resize', () => {
-	setTriggerPoint();
-});
 
+// Get top of element relative to window
 function offsetTop(el) {
 	const rect = el.getBoundingClientRect();
 	const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 	return rect.top + scrollTop;
 }
 
+// Get left of element relative to window
 function offsetLeft(el) {
 	const rect = el.getBoundingClientRect();
 	const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
 	return rect.left + scrollLeft;
 }
 
+// Animate progress bar when user is scolling within the timeline
 function animateProgressBar() {
-	if (progressBar) {
-		let section = false;
-		let sectionIndex = 0;
-		const currentPosition = document.documentElement.scrollTop + triggerPoint;
+	let currentSection = 0;
+	let sectionIndex = 0;
+	const currentPosition = document.documentElement.scrollTop + triggerPoint;
+	const decadeLinks = document.querySelectorAll('.js-decade-container a');
+	let progressBarWidth = 0;
 
-		const decadeLinks = document.querySelectorAll('.js-decade-container a');
-		console.log('decadeLinks', decadeLinks);
-		console.log('currentPosition', currentPosition);
-		let progressBarWidth = 0;
-		console.log('progressBarWidth', progressBarWidth);
+	// Check if we are above the first section
+	if (currentPosition < offsetTop(firstDecade)) {
+		currentSection = 0;
 
-		console.log('firstDecade.offsetTop', offsetTop(firstDecade));
+		[].forEach.call(decadeLinks, (decadeLink) => {
+			decadeLink.classList.remove('is-reading');
+		});
+	} else {
+		// Otherwise add 1 to sectionIndex while scrolling;
+		[].forEach.call(decades, (decade) => {
+			const sectionTop = offsetTop(decade);
 
-		if (currentPosition < offsetTop(firstDecade)) {
-			section = 0;
-		} else {
-			[].forEach.call(decades, (decade) => {
-				console.log('decade', decade);
-				const sectionTop = offsetTop(decade);
-				console.log('sectionTop', sectionTop);
-				if (currentPosition >= sectionTop) {
-					section = sectionIndex;
-					console.log('section', section);
-				}
-				sectionIndex += 1;
-			});
-		}
+			if (currentPosition >= sectionTop) {
+				currentSection = sectionIndex;
 
-		// Convert Element objects to Arrays
-		const sectionsArray = Array.from(decades);
-		const decadeLinksArray = Array.from(decadeLinks);
-		console.log('decadeLinksArray', decadeLinksArray, sectionsArray);
+				[].forEach.call(decadeLinks, (decadeLink) => {
+					decadeLink.classList.remove('is-reading');
+				});
 
-		// If on last decade
-		if (section >= (decades.length - 1)) {
-			progressBar.style.width = '100vw';
-			console.log('LAST DECADE!', progressBarWidth);
-		} else {
-			// Calculate speed of progressBar width while scrolling based on section height
-			console.log('section', section);
-			const startPoint = decadeLinks[section];
-			console.log('startPoint', startPoint);
-			const startPointX = offsetLeft(startPoint);
-			console.log('startPointX', startPointX);
-			const startPointWidth = startPoint.offsetWidth;
-			console.log('startPointWidth', startPointWidth);
-			const startSection = decades[section];
-			console.log('startSection', startSection);
-			const endSection = decades[section + 1];
-			console.log('endSection', endSection);
-			const startSectionY = offsetTop(startSection);
-			console.log('startSectionY', startSectionY);
-			const endSectionY = offsetTop(endSection);
-			console.log('endSectionY', endSectionY);
-			const sectionLength = endSectionY - startSectionY;
-			console.log('sectionLength', sectionLength);
-			const scrollY = currentPosition - startSectionY;
-			console.log('scrollY', scrollY);
-			const sectionProgress = scrollY / sectionLength;
-			console.log('sectionProgress', sectionProgress);
-			progressBarWidth = startPointX + (startPointWidth * sectionProgress);
+				decadeLinks[sectionIndex].classList.add('is-reading');
+			}
 
-			console.log('progressBarWidth', progressBarWidth);
-			progressBar.style.width = `${progressBarWidth}px`;
-		}
+			sectionIndex += 1;
+		});
+	}
+
+	/* If on last decade, prevent progressbar from continue growing
+		and always keep it 100% of window width */
+	if (currentSection >= (decades.length - 1)) {
+		progressBar.style.width = '100vw';
+	} else {
+		// Calculate speed of the progressBar width while scrolling based on section height
+		const startPoint = decadeLinks[currentSection];
+		const startPointX = offsetLeft(startPoint);
+		const startPointWidth = startPoint.offsetWidth;
+		const startSection = decades[currentSection];
+		const endSection = decades[currentSection + 1];
+		const startSectionY = offsetTop(startSection);
+		const endSectionY = offsetTop(endSection);
+		const sectionLength = endSectionY - startSectionY;
+		const scrollY = currentPosition - startSectionY;
+		const sectionProgress = scrollY / sectionLength;
+		progressBarWidth = startPointX + (startPointWidth * sectionProgress);
+
+		// Use result to animate progressbar
+		progressBar.style.width = `${progressBarWidth}px`;
 	}
 }
 
-animateProgressBar();
-window.addEventListener('resize', () => {
+// Run functions on page load
+if (progressBar) {
+	setTriggerPoint();
 	animateProgressBar();
-});
-window.addEventListener('scroll', () => {
-	animateProgressBar();
-});
 
-//
-// // Check if bottom of element is visisble
-// function bottomScrolledIntoView(el) {
-// 	const rect = el.getBoundingClientRect();
-// 	// const elemTop = rect.top;
-// 	const elemBottom = rect.bottom;
-//
-// 	console.log('elemBottom', elemBottom);
-//
-// 	// Bottom of element visible return true:
-// 	const isVisible = elemBottom < window.innerHeight;
-// 	console.log('isVisible', isVisible);
-// 	return isVisible;
-// }
-//
-// const contentElements = document.querySelectorAll('.js-timeline-decade');
-// const progressBars = document.querySelector('.js-progress-bars');
-//
-// function scrollSpy(element) {
-// 	const progressContainer = document.createElement('div');
-// 	progressContainer.classList.add('o-timeline__progress-container');
-//
-// 	const progressBar = document.createElement('div');
-// 	const decadeContainer = document.createElement('a');
-//
-// 	progressBar.classList.add('o-timeline__progress-bar');
-// 	decadeContainer.classList.add('o-timeline__decade-container');
-//
-// 	progressBars.appendChild(progressContainer);
-// 	progressContainer.appendChild(progressBar);
-// 	progressContainer.appendChild(decadeContainer);
-//
-// 	const decade = element.querySelector('h2.godzilla').textContent;
-// 	console.log(decade);
-// 	console.log(element);
-// 	decadeContainer.innerText = decade;
-// 	decadeContainer.setAttribute('href', `#${decade}`);
-// 	console.log('progressContainer', progressContainer);
-//
-// 	const contentHeight = element.offsetHeight;
-// 	// const height = document.documentElement
-// 	// .scrollHeight - document.documentElement.clientHeight;
-//
-// 	window.addEventListener('scroll', () => {
-// 		const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
-// 		const scrolled = (winScroll / contentHeight) * 100;
-// 		console.log('scrolled', scrolled);
-//
-// 		const observer = new IntersectionObserver(function obs(entries) {
-// 			console.log('entries', entries);
-//
-// 			if (bottomScrolledIntoView(element)) {
-// 				console.log('Bottom of element is visible');
-// 			}
-//
-// 			console.log('progressBar', progressBar);
-//
-// 			[].forEach.call(entries, () => {
-// 				if (entries[0].intersectionRatio > 0) {
-// 					if (progressBar.style.width !== '100%') {
-// 						progressBar.style.width = `${scrolled}%`;
-// 					} else {
-// 						progressBar.style.width = '100%';
-// 					}
-// 				}
-// 			});
-//
-// 			if (entries[0].isIntersecting === true) {
-// 				if (entries[0].intersectionRatio === 1) {
-// 					console.log(element, 'Target is fully visible in screen');
-// 					// progressBar.style.width = `${scrolled}%`;
-// 				} else if (entries[0].intersectionRatio > 0.5) {
-// 					console.log(element, 'More than 50% of target is visible in screen');
-// 					// progressBar.style.width = `${scrolled}%`;
-// 				} else if (entries[0].intersectionRatio > 0) {
-// 					console.log(element, 'Top of element is visible on screen');
-// 					// progressBar.style.width = `${scrolled}%`;
-// 				} else {
-// 					console.log(element, 'Less than 50% of target is visible in screen');
-// 					// progressBar.style.width = `${scrolled}%`;
-// 				}
-// 			} else {
-// 				console.log(this, 'Target is not visible in screen');
-// 			}
-// 		}, { threshold: [0, 0.5, 1] });
-//
-// 		observer.observe(document.querySelector('.js-timeline'));
-// 	});
-// }
-//
-// if (contentElements) {
-// 	[].forEach.call(contentElements, scrollSpy);
-// }
+	// Re-run functions on window events
+	window.addEventListener('resize', () => {
+		setTriggerPoint();
+		animateProgressBar();
+	});
+	window.addEventListener('scroll', () => {
+		animateProgressBar();
+	});
+}
