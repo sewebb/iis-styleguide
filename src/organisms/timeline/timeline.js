@@ -2,6 +2,7 @@ import '../../assets/js/parallax';
 
 const progressBar = document.querySelector('.js-progress-bar');
 const decadeContainer = document.querySelector('.js-decade-container');
+const decadeSections = document.querySelectorAll('.js-timeline-decade');
 const firstDecade = document.querySelector('h2.godzilla');
 const decades = document.querySelectorAll('h2.godzilla');
 let triggerPoint = 0;
@@ -26,6 +27,13 @@ function offsetTop(el) {
 	const rect = el.getBoundingClientRect();
 	const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
 	return rect.top + scrollTop;
+}
+
+// Get bottom of element relative to window
+function offsetBottom(el) {
+	const rect = el.getBoundingClientRect();
+	const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+	return rect.bottom + scrollTop;
 }
 
 // Get left of element relative to window
@@ -73,17 +81,16 @@ function animateProgressBar() {
 
 	/* If on last decade, prevent progressbar from continue growing
 		and always keep it 100% of window width */
-	if (currentSection >= (decades.length - 1)) {
+	if (currentSection > (decades.length - 1)) {
 		progressBar.style.width = '100vw';
 	} else {
 		// Calculate speed of the progressBar width while scrolling based on section height
 		const startPoint = decadeLinks[currentSection];
 		const startPointX = offsetLeft(startPoint);
 		const startPointWidth = startPoint.offsetWidth;
-		const startSection = decades[currentSection];
-		const endSection = decades[currentSection + 1];
+		const startSection = decadeSections[currentSection];
 		const startSectionY = offsetTop(startSection);
-		const endSectionY = offsetTop(endSection);
+		const endSectionY = offsetBottom(startSection);
 		const sectionLength = endSectionY - startSectionY;
 		const scrollY = currentPosition - startSectionY;
 		const sectionProgress = scrollY / sectionLength;

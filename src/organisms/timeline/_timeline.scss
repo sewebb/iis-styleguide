@@ -76,10 +76,6 @@
 				}
 			}
 
-			&:last-child {
-				display: none;
-			}
-
 			@include bp-up(md) {
 				font-size: $size-base;
 				padding-top: rhythm(2);
