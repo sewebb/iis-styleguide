@@ -2,10 +2,6 @@
 
 var _focusTrap = require('focus-trap');
 
-var _focusTrap2 = _interopRequireDefault(_focusTrap);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 /**
  * Collect the needed elements.
  */
@@ -19,7 +15,7 @@ var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 var focusTrap = null;
 
 if (megaMenu) {
-	focusTrap = (0, _focusTrap2.default)(megaMenu);
+	focusTrap = (0, _focusTrap.createFocusTrap)(megaMenu);
 }
 
 /**

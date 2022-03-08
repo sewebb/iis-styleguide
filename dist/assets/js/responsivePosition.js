@@ -10,6 +10,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 var breakpoints = {
 	xs: 0,
+	smxs: 469,
 	sm: 576,
 	md: 769,
 	lg: 961,

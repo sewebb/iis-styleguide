@@ -7,17 +7,13 @@ exports.default = focusTrap;
 
 var _focusTrap = require('focus-trap');
 
-var _focusTrap2 = _interopRequireDefault(_focusTrap);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
 function getContainer(element) {
 	return document.getElementById(element.getAttribute('data-a11y-toggle'));
 }
 
 function focusTrap(container) {
 	if (container && container.getAttribute('data-focus-trap') !== 'false' && !container.focusTrap) {
-		container.focusTrap = (0, _focusTrap2.default)('#' + container.id, { clickOutsideDeactivates: true });
+		container.focusTrap = (0, _focusTrap.createFocusTrap)('#' + container.id, { clickOutsideDeactivates: true });
 		container.setAttribute('data-focus-trap', 'true');
 	}
 }
