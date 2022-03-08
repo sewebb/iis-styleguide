@@ -12,7 +12,7 @@ module.exports = {
 			}
 		},
 		{
-			name: 'Single',
+			name: 'Course',
 			status: 'wip',
 			context: {
 				single: true
