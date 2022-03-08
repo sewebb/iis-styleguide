@@ -1,6 +1,6 @@
 {
 	"name": "@internetstiftelsen/styleguide",
-	"version": "2.21.16",
+	"version": "2.21.18",
 	"main": "dist/components.js",
 	"ports": {
 		"fractal": "3000"
@@ -70,7 +70,7 @@
 		"@tiptap/extension-link": "^2.0.0-beta.25",
 		"@tiptap/starter-kit": "^2.0.0-beta.133",
 		"a11y-toggle": "^2.1.0",
-		"focus-trap": "^4.0.2",
+		"focus-trap": "^6.7.3",
 		"glider-js": "^1.7.7",
 		"lodash.template": "^4.5.0",
 		"lodash.throttle": "^4.1.1",
