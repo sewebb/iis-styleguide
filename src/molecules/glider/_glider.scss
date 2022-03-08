@@ -12,7 +12,7 @@
 	padding-left: rhythm(8);
 }
 
-.glider-contain-single {
+.glider-contain-course {
 	display: flex;
 	position: relative;
 	align-items: center;
@@ -250,18 +250,18 @@
 	}
 }
 
-.glider-single-prev,
-.glider-single-next {
+.glider-course-prev,
+.glider-course-next {
 	&.disabled {
 		display: none;
 
-		+ .glider-single-finish {
+		+ .glider-course-finish {
 			display: inline-flex;
 		}
 	}
 }
 
-.glider-single-finish {
+.glider-course-finish {
 	display: none;
 }
 

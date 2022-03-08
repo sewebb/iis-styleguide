@@ -1,6 +1,6 @@
 import Glider from 'glider-js';
 
-const gliderElementSingle = document.querySelector('.js-glider-single');
+const gliderElementSingle = document.querySelector('.js-glider-course');
 
 if (gliderElementSingle) {
 	const GliderSingle = new Glider(gliderElementSingle, {
