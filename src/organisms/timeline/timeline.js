@@ -1,5 +1,7 @@
 import '../../assets/js/parallax';
 
+const { offsetTop, offsetBottom, offsetLeft } = require('../../assets/js/offset');
+
 const progressBar = document.querySelector('.js-progress-bar');
 const decadeContainer = document.querySelector('.js-decade-container');
 const decadeSections = document.querySelectorAll('.js-timeline-decade');
@@ -8,39 +10,20 @@ const decades = document.querySelectorAll('h2.godzilla');
 let triggerPoint = 0;
 
 // Create decade links in timeline
-[].forEach.call(decades, (decade) => {
-	const decadeLink = document.createElement('a');
-	const { textContent } = decade;
-	decadeLink.setAttribute('href', `#${textContent}`);
-	decadeLink.innerText = textContent;
-	decadeContainer.appendChild(decadeLink);
-});
+function buildTimelineNavigation() {
+	[].forEach.call(decades, (decade) => {
+		const decadeLink = document.createElement('a');
+		const { textContent } = decade;
+		decadeLink.setAttribute('href', `#${textContent}`);
+		decadeLink.innerText = textContent;
+		decadeContainer.appendChild(decadeLink);
+	});
+}
 
 /* Set trigger point (vertical position in viewport)
 for when a new decade should start being "active" */
 function setTriggerPoint() {
 	triggerPoint = window.innerHeight * 0.5;
-}
-
-// Get top of element relative to window
-function offsetTop(el) {
-	const rect = el.getBoundingClientRect();
-	const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-	return rect.top + scrollTop;
-}
-
-// Get bottom of element relative to window
-function offsetBottom(el) {
-	const rect = el.getBoundingClientRect();
-	const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
-	return rect.bottom + scrollTop;
-}
-
-// Get left of element relative to window
-function offsetLeft(el) {
-	const rect = el.getBoundingClientRect();
-	const scrollLeft = window.pageXOffset || document.documentElement.scrollLeft;
-	return rect.left + scrollLeft;
 }
 
 // Animate progress bar when user is scolling within the timeline
@@ -79,30 +62,25 @@ function animateProgressBar() {
 		});
 	}
 
-	/* If on last decade, prevent progressbar from continue growing
-		and always keep it 100% of window width */
-	if (currentSection > (decades.length - 1)) {
-		progressBar.style.width = '100vw';
-	} else {
-		// Calculate speed of the progressBar width while scrolling based on section height
-		const startPoint = decadeLinks[currentSection];
-		const startPointX = offsetLeft(startPoint);
-		const startPointWidth = startPoint.offsetWidth;
-		const startSection = decadeSections[currentSection];
-		const startSectionY = offsetTop(startSection);
-		const endSectionY = offsetBottom(startSection);
-		const sectionLength = endSectionY - startSectionY;
-		const scrollY = currentPosition - startSectionY;
-		const sectionProgress = scrollY / sectionLength;
-		progressBarWidth = startPointX + (startPointWidth * sectionProgress);
+	// Calculate speed of the progressBar width while scrolling based on section height
+	const startPoint = decadeLinks[currentSection];
+	const startPointX = offsetLeft(startPoint);
+	const startPointWidth = startPoint.offsetWidth;
+	const startSection = decadeSections[currentSection];
+	const startSectionY = offsetTop(startSection);
+	const endSectionY = offsetBottom(startSection);
+	const sectionLength = endSectionY - startSectionY;
+	const scrollY = currentPosition - startSectionY;
+	const sectionProgress = scrollY / sectionLength;
+	progressBarWidth = startPointX + (startPointWidth * sectionProgress);
 
-		// Use result to animate progressbar
-		progressBar.style.width = `${progressBarWidth}px`;
-	}
+	// Use result to animate progressbar
+	progressBar.style.width = `${progressBarWidth}px`;
 }
 
 // Run functions on page load
 if (progressBar) {
+	buildTimelineNavigation();
 	setTriggerPoint();
 	animateProgressBar();
 
