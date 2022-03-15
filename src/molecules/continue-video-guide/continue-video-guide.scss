@@ -2,11 +2,18 @@
 
 @include molecule(continue-video-guide) {
 	position: fixed;
-	bottom: rhythm(2);
-	right: rhythm(2);
+	bottom: 0;
+	right: 0;
 	z-index: z_index(middlegroundImportant);
 	width: 100px;
 	height: calc(100px + 23px + rhythm(1));
+	transform: scale(0.7);
+
+	@include bp-up(md) {
+		transform: scale(1);
+		bottom: rhythm(2);
+		right: rhythm(2);
+	}
 
 	@include e(inner) {
 		position: relative;

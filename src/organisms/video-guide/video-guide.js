@@ -1,4 +1,4 @@
-const video = document.querySelector('video');
+const video = document.querySelector('.js-video-guide');
 const playBtn = document.querySelector('.js-play-btn');
 const playIcon = document.querySelector('.js-play-icon');
 const pauseIcon = document.querySelector('.js-pause-icon');

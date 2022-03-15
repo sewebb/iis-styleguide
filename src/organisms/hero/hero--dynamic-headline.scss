@@ -1,0 +1,141 @@
+@charset "UTF-8";
+
+@include organism(hero) {
+	@include m(dynamic-headline) {
+
+		@include e(image) {
+			max-height: 100vh;
+		}
+
+		@include e(caption) {
+			--minFontSize: 32px;
+			--maxFontSize: 300px;
+			--scaler: 10vw;
+
+			font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+			z-index: z_index(background);
+			color: $color-snow;
+			font-family: $font-family-bold;
+			display: flex;
+			flex-direction: column;
+			align-items: flex-start;
+			padding: rhythm(3) rhythm(4);
+			background-image: none;
+
+			@include bp-up(sm) {
+				padding: rhythm(5);
+			}
+
+			@include bp-up(md) {
+				padding: rhythm(7);
+			}
+
+			@include bp-up(lg) {
+				padding: rhythm(8);
+			}
+
+			@include bp-up(xl) {
+				padding: rhythm(10);
+			}
+
+			&::before {
+				display: block;
+				content: attr(data-meta);
+				font-family: $font-family-mono;
+				font-size: 14px !important;
+				text-transform: uppercase;
+
+				@include bp-up(sm-xs) {
+					margin-left: rhythm(0.5);
+				}
+
+				@include bp-up(md) {
+					font-size: 18px !important;
+					margin-left: rhythm(1);
+				}
+
+				@include bp-up(lg) {
+					font-size: 20px !important;
+				}
+
+				@include bp-up(xl) {
+					font-size: 22px !important;
+				}
+
+				@include bp-up(xxl) {
+					font-size: 24px !important;
+					margin-left: rhythm(2);
+				}
+			}
+		}
+
+		@include e(button-continue) {
+			position: absolute;
+			z-index: z_index(middleground);
+			bottom: rhythm(2);
+			left: 50%;
+			transform: scale(1);
+			animation: pulse infinite 1.5s ease;
+			will-change: transform;
+
+			@include bp-up(sm) {
+				animation: pulse2 infinite 1.5s ease;
+				bottom: rhythm(4);
+			}
+
+			@include bp-up(xl) {
+				animation: pulse3 infinite 1.5s ease;
+				bottom: rhythm(6);
+			}
+		}
+
+		@keyframes pulse {
+			0% {
+				transform: translateY(0);
+			}
+
+			50% {
+				transform: translateY(10px);
+			}
+
+			100% {
+				transform: translateY(0);
+			}
+		}
+
+		@keyframes pulse2 {
+			0% {
+				transform: translateY(0) scale(2);
+			}
+
+			50% {
+				transform: translateY(10px) scale(2);
+			}
+
+			100% {
+				transform: translateY(0) scale(2);
+			}
+		}
+
+		@keyframes pulse3 {
+			0% {
+				transform: translateY(0) scale(3);
+			}
+
+			50% {
+				transform: translateY(10px) scale(3);
+			}
+
+			100% {
+				transform: translateY(0) scale(3);
+			}
+		}
+
+
+	}
+}
