@@ -16,7 +16,7 @@ const fractal = module.exports = require('@frctl/fractal').create();
 /* Theme */
 const myCustomisedTheme = require('@frctl/mandelbrot')({
     'skin': 'default',
-	'favicon': 'https://static.iis.se/favicons/favicon.ico',
+	'favicon': 'https://static.internetstiftelsen.se/favicons/favicon.ico',
 	'styles': ['default','/theme-overrides/css/default.css']
 });
 

@@ -2,7 +2,7 @@
 
 ## Note
 All fonts has been converted to allow enbedding (for IE support) using [ttembed-js](https://www.npmjs.com/package/ttembed-js)
-Font files are located here: https://static.iis.se/internetstiftelsen/fonts/
+Font files are located here: https://static.internetstiftelsen.se/internetstiftelsen/fonts/
 
 ## List of all available font weights
 * hkgrotesk-light-webfont.woff
