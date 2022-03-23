@@ -31,9 +31,12 @@ if (sourceElement) {
 	// Store current time in on page reload
 	window.addEventListener('unload', () => {
 		const currentGuideURL = window.location.href;
+		const currentGuideImage = document.querySelector('.js-guide-continue-image').src;
+		console.log(currentGuideImage);
 		sessionStorage.setItem('InmsCurrentTime', video.currentTime); // Minus 1 to make sure cuechange doesn't end up in next chapter
 		sessionStorage.setItem('InmsDuration', video.duration); // Get totalt duration of video
 		sessionStorage.setItem('InmsCurrentGuideURL', currentGuideURL);
+		sessionStorage.setItem('InmsCurrentGuideImage', currentGuideImage);
 	});
 
 	// Get value from sessionStorage in present
@@ -82,6 +85,10 @@ if (sourceElement) {
 			manualStep = false;
 			forwardsButton.removeAttribute('disabled');
 			subtitlesContainer.innerHTML = '';
+			sessionStorage.removeItem('InmsCurrentTime');
+			sessionStorage.removeItem('InmsDuration');
+			sessionStorage.removeItem('InmsCurrentGuideURL');
+			sessionStorage.removeItem('InmsCurrentGuideImage');
 		});
 	}
 
@@ -96,6 +103,8 @@ if (sourceElement) {
 			manualStep = false;
 			sessionStorage.removeItem('InmsCurrentTime');
 			sessionStorage.removeItem('InmsDuration');
+			sessionStorage.removeItem('InmsCurrentGuideURL');
+			sessionStorage.removeItem('InmsCurrentGuideImage');
 			window.location.href = urlTarget;
 		});
 	}

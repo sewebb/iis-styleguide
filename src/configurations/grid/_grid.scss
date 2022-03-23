@@ -18,7 +18,8 @@
 // Set the container width, and override it for fixed navbars in media queries.
 
 @if $enable-grid-classes {
-	.wrapper {
+	.wrapper,
+	%wrapper {
 		@include make-container();
 		@include make-container-max-widths();
 

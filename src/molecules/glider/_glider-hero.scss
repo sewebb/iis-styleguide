@@ -140,7 +140,14 @@
 		position: relative;
 
 		&::after {
-			display: none;
+			content: '';
+			display: block;
+			position: absolute;
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba($color-black, 0) 35%, rgba($color-black, 1) 100%);
 		}
 
 		@include e(image) {
@@ -149,7 +156,6 @@
 			object-position: 50% 50%;
 			width: 100%;
 			height: 100%;
-			min-height: rem(400px);
 
 			@include bp-up(sm) {
 				min-height: rem(500px);
@@ -159,6 +165,7 @@
 
 		@include e(text) {
 			position: absolute;
+			z-index: 1;
 			bottom: rhythm(2);
 			left: rhythm(2);
 			padding-right: rhythm(2);
@@ -167,8 +174,7 @@
 			max-width: 95%;
 
 			> span {
-				//background-color: rgba(0,0,0,0.6);
-				text-shadow: 0 0 20px rgba(0,0,0,0.8);
+				//text-shadow: 0 0 20px rgba(0,0,0,0.8);
 
 				> a {
 					position: relative;
@@ -177,6 +183,7 @@
 					&:hover {
 						text-decoration: none;
 						color: $color-cyberspace !important;
+						text-shadow: none;
 					}
 
 					&::before {
@@ -263,6 +270,7 @@
 			@include bp-up(xl) {
 				bottom: rhythm(8);
 				left: rhythm(8);
+				max-width: 50%;
 
 				@include plumber(
 					$font-size: 7,
@@ -270,15 +278,19 @@
 					$leading-bottom: 0
 				);
 			}
+
+			@include bp-up(xxl) {
+				max-width: 45%;
+			}
 		}
 	}
 }
 
 .glider-nav {
-	transform: scale(0.7);
+	transform: scale(0.7) translateY(-100%);
 
 	@include bp-up(md) {
-		transform: scale(1);
+		transform: scale(1) translateY(0);
 	}
 
 	@include m(hero) {
@@ -287,7 +299,11 @@
 		}
 
 		&.glider-prev {
-			left: rhythm(1);
+			left: 0;
+
+			@include bp-up(md) {
+				left: rhythm(1);
+			}
 
 			@include bp-up(lg) {
 				left: rhythm(2);
@@ -295,7 +311,11 @@
 		}
 
 		&.glider-next {
-			right: rhythm(1);
+			right: 0;
+
+			@include bp-up(md) {
+				right: rhythm(1);
+			}
 
 			@include bp-up(lg) {
 				right: rhythm(2);

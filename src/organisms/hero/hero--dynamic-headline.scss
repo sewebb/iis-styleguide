@@ -2,30 +2,48 @@
 
 @include organism(hero) {
 	@include m(dynamic-headline) {
+		display: flex;
+		flex-direction: column;
+		justify-content: space-around;
+		overflow: visible;
 
 		@include e(image) {
-			max-height: 100vh;
-		}
-
-		@include e(caption) {
-			--minFontSize: 32px;
-			--maxFontSize: 300px;
-			--scaler: 10vw;
-
-			font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
+			max-height: none;
+			min-height: 0;
+			height: 100%;
 			position: absolute;
 			top: 0;
 			left: 0;
 			right: 0;
 			bottom: 0;
-			z-index: z_index(background);
-			color: $color-snow;
-			font-family: $font-family-bold;
+			z-index: -1;
+		}
+
+		@include e(caption) {
 			display: flex;
 			flex-direction: column;
 			align-items: flex-start;
-			padding: rhythm(3) rhythm(4);
+			padding: rhythm(3);
 			background-image: none;
+			position: static;
+			z-index: auto;
+			color: $color-snow;
+
+			> h1 {
+				--minFontSize: 22px;
+				--maxFontSize: 300px;
+				--scaler: 10vw;
+
+				font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
+				font-family: $font-family-bold;
+				margin: 0;
+				padding: 0;
+				line-height: 1.2;
+			}
+
+			@include bp-up(sm-xs) {
+				padding: rhythm(4);
+			}
 
 			@include bp-up(sm) {
 				padding: rhythm(5);
@@ -75,22 +93,19 @@
 		}
 
 		@include e(button-continue) {
-			position: absolute;
+			position: relative;
 			z-index: z_index(middleground);
-			bottom: rhythm(2);
-			left: 50%;
-			transform: scale(1);
+			align-self: center;
+			transform: scale(1) translateY(0);
 			animation: pulse infinite 1.5s ease;
 			will-change: transform;
 
 			@include bp-up(sm) {
 				animation: pulse2 infinite 1.5s ease;
-				bottom: rhythm(4);
 			}
 
 			@include bp-up(xl) {
 				animation: pulse3 infinite 1.5s ease;
-				bottom: rhythm(6);
 			}
 		}
 
@@ -100,7 +115,7 @@
 			}
 
 			50% {
-				transform: translateY(10px);
+				transform: translateY(-25%);
 			}
 
 			100% {
@@ -110,29 +125,29 @@
 
 		@keyframes pulse2 {
 			0% {
-				transform: translateY(0) scale(2);
+				transform: translateY(-25%) scale(2);
 			}
 
 			50% {
-				transform: translateY(10px) scale(2);
+				transform: translateY(-50%) scale(2);
 			}
 
 			100% {
-				transform: translateY(0) scale(2);
+				transform: translateY(-25%) scale(2);
 			}
 		}
 
 		@keyframes pulse3 {
 			0% {
-				transform: translateY(0) scale(3);
+				transform: translateY(-50%) scale(3);
 			}
 
 			50% {
-				transform: translateY(10px) scale(3);
+				transform: translateY(-75%) scale(3);
 			}
 
 			100% {
-				transform: translateY(0) scale(3);
+				transform: translateY(-50%) scale(3);
 			}
 		}
 

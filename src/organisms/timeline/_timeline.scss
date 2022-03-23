@@ -76,10 +76,33 @@
 				}
 			}
 
-			@include bp-up(md) {
+			@include bp-up(lg) {
 				font-size: $size-base;
 				padding-top: rhythm(2);
 				padding-bottom: rhythm(2);
+			}
+		}
+	}
+
+	@include e(decade) {
+		@include e(intro) {
+			padding-top: rhythm(4);
+			margin-bottom: rhythm(8);
+
+			@include bp-up(sm) {
+				margin-bottom: rhythm(10);
+			}
+
+			@include bp-up(md) {
+				margin-bottom: rhythm(12);
+			}
+
+			@include bp-up(lg) {
+				margin-bottom: rhythm(14);
+			}
+
+			@include bp-up(xl) {
+				margin-bottom: rhythm(18);
 			}
 		}
 	}
@@ -98,6 +121,80 @@
 			transform: translateY(0);
 			opacity: 1;
 			z-index: z_index(middleGround);
+
+
 		}
 	}
+
+	@include e(item) {
+		&.is-open {
+			flex: 0 0 100%;
+			background-color: $color-cyberspace;
+			width: 100vw;
+			max-width: 100vw;
+			min-width: 100vw;
+			margin-left: calc(50% - 50vw);
+			margin-right: calc(50% - 50vw);
+			transform: translateY(0) !important;
+			z-index: z_index(middlegroundImportant);
+			padding-top: rhythm(6);
+			padding-bottom: rhythm(6);
+
+			@include bp-up(md) {
+				padding-top: rhythm(8);
+				padding-bottom: rhythm(8);
+			}
+
+			h2,
+			p,
+			a {
+				color: $color-snow;
+			}
+
+			.wp-block-iis-card {
+				margin-left: auto;
+				margin-right: auto;
+
+				@include bp-up(sm) {
+					width: make_col(16);
+				}
+
+				@include bp-up(md) {
+					width: make_col(12);
+				}
+
+				@include bp-up(lg) {
+					width: make_col(12);
+				}
+
+				@include bp-up(xl) {
+					width: make_col(9);
+				}
+			}
+
+			& + .grid-18 {
+				transform: translateY(0) !important;
+			}
+
+			button {
+				display: inline-block;
+				position: absolute;
+				top: rhythm(1);
+				right: rhythm(2);
+
+				@include bp-up(md) {
+					top: rhythm(2);
+					right: rhythm(3);
+				}
+			}
+		}
+	}
+
+	@include e(item-close) {
+		display: none;
+	}
+}
+
+.row-has-open-child {
+	margin-bottom: 0 !important;
 }
