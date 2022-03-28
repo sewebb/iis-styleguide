@@ -133,7 +133,6 @@ let timeLineItemScrollPosition = 0;
 		const top = sessionStorage.getItem('scroll-position');
 		if (top !== null) {
 			window.scrollTo(0, parseInt(top, 10));
-			console.log('window.pageYOffset', window.pageYOffset);
 		}
 		sessionStorage.removeItem('scroll-position');
 
