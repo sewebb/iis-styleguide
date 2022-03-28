@@ -1,7 +1,8 @@
 @charset 'UTF-8';
 
 h1,
-.alpha {
+.alpha,
+%alpha {
 	@include plumber(
 		$font-size: 3,
 		$line-height: 4,
@@ -22,7 +23,8 @@ h1,
 }
 
 h2,
-.beta {
+.beta,
+%beta {
 	@include plumber(
 		$font-size: 2.2,
 		$line-height: 3,
@@ -43,7 +45,8 @@ h2,
 }
 
 h3,
-.gamma {
+.gamma,
+%gamma {
 	@include plumber(
 		$font-size: 2.2,
 		$line-height: 3,
@@ -53,7 +56,8 @@ h3,
 }
 
 h4,
-.delta {
+.delta,
+%delta {
 	@include plumber(
 		$font-size: 2,
 		$line-height: 3,

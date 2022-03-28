@@ -107,6 +107,7 @@ let timeLineItemScrollPosition = 0;
 [].forEach.call(timeLineItems, (timeLineItem) => {
 	const timeLineItemLink = timeLineItem.querySelector('a');
 	const timeLineItemClose = timeLineItem.querySelector('.js-timeline-item-close');
+	const timeLineItemBottomClose = timeLineItem.querySelector('.js-timeline-item-bottom-close');
 
 	timeLineItemLink.addEventListener('click', () => {
 		timeLineItemScrollPosition = window.pageYOffset;
@@ -125,13 +126,22 @@ let timeLineItemScrollPosition = 0;
 		timeLineItem.classList.remove('is-open');
 		timeLineItem.closest('.row').classList.remove('row-has-open-child');
 
+		// Destroy generated wrapper
+		const wrapper = timeLineItemClose.nextElementSibling;
+		wrapper.replaceWith(...wrapper.childNodes);
+
 		const top = sessionStorage.getItem('scroll-position');
 		if (top !== null) {
 			window.scrollTo(0, parseInt(top, 10));
 			console.log('window.pageYOffset', window.pageYOffset);
 		}
+		sessionStorage.removeItem('scroll-position');
 
 		// Trigger scroll event to reveal timeline items not yet parallaxed into view
 		window.dispatchEvent(new CustomEvent('scroll'));
+	});
+
+	timeLineItemBottomClose.addEventListener('click', () => {
+		timeLineItemClose.click();
 	});
 });
