@@ -8,6 +8,14 @@
 		display: flex;
 		position: relative;
 		flex-direction: column;
+
+		&[style] {
+			z-index: z_index(foreground);
+
+			[class*="o-header"] {
+				z-index: z_index(foreground);
+			}
+		}
 	}
 
 	@include e(main) {
