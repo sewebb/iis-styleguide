@@ -1,4 +1,4 @@
-<div{{#if role}} id="alert-1" role="{{role}}"{{/if}} class="m-alert m-alert--{{type}}{{#if is_dismissable}} m-alert--dismissable{{/if}}{{#if js_class}} {{js_class}}{{/if}}" {{#if is_dismissable}} aria-hidden="true"{{/if}}>
+<div{{#if role}} id="alert-1" role="{{role}}"{{/if}} class="m-alert m-alert--{{type}}{{#if additional_classes}} {{additional_classes}}{{/if}}{{#if is_dismissable}} m-alert--dismissable{{/if}}{{#if js_class}} {{js_class}}{{/if}}" {{#if is_dismissable}} aria-hidden="true"{{/if}}>
 	{{#if is_dismissable}}
 	<button class="a-button a-button--icon a-button--standalone-icon a-button--icon" data-a11y-toggle="alert-1">
 		<span class="a-button__text">Stäng</span>

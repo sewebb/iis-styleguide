@@ -11,6 +11,7 @@ var megaMenu = document.getElementById('megaMenu');
 var content = document.getElementById('siteMain');
 var header = document.getElementById('siteHeader');
 var footer = document.getElementById('siteFooter');
+var alert = document.querySelector('.js-dismiss-alert');
 var isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 var focusTrap = null;
 
@@ -92,7 +93,16 @@ function prepareOutAnimation() {
 	var headerRect = megaMenu.getBoundingClientRect();
 	var initialFooterTop = footer.getBoundingClientRect().top;
 
-	megaMenu.style.cssText = '\n        position: absolute;\n        top: ' + headerRect.top + 'px;\n        left: 0;\n        right: 0;\n        display: block;\n\t';
+	/* Take into account it the site has an alert message at the top */
+	var alertHeight = void 0;
+
+	if (alert) {
+		alertHeight = alert.offsetHeight;
+	} else {
+		alertHeight = 0;
+	}
+
+	megaMenu.style.cssText = '\n        position: absolute;\n        top: ' + (headerRect.top - alertHeight) + 'px;\n        left: 0;\n        right: 0;\n        display: block;\n\t';
 
 	content.removeAttribute('style');
 	header.removeAttribute('style');

@@ -8,6 +8,7 @@ const megaMenu = document.getElementById('megaMenu');
 const content = document.getElementById('siteMain');
 const header = document.getElementById('siteHeader');
 const footer = document.getElementById('siteFooter');
+const alert = document.querySelector('.js-dismiss-alert');
 const isIE11 = !!window.MSInputMethodContext && !!document.documentMode;
 let focusTrap = null;
 
@@ -98,9 +99,18 @@ function prepareOutAnimation() {
 	const headerRect = megaMenu.getBoundingClientRect();
 	const initialFooterTop = footer.getBoundingClientRect().top;
 
+	/* Take into account it the site has an alert message at the top */
+	let alertHeight;
+
+	if (alert) {
+		alertHeight = alert.offsetHeight;
+	} else {
+		alertHeight = 0;
+	}
+
 	megaMenu.style.cssText = `
         position: absolute;
-        top: ${headerRect.top}px;
+        top: ${headerRect.top - alertHeight}px;
         left: 0;
         right: 0;
         display: block;
