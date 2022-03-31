@@ -63,7 +63,7 @@
 
 	@include m(sliding) {
 		position: fixed;
-		z-index: z_index(middleground);
+		z-index: z_index(foregroundMinus);
 		top: rhythm(1);
 		right: -500px;
 		bottom: rhythm(1);
