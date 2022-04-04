@@ -6,10 +6,10 @@ var _gliderJs2 = _interopRequireDefault(_gliderJs);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var gliderElementSingle = document.querySelector('.js-glider-course');
+var gliderElementCourse = document.querySelector('.js-glider-course');
 
-if (gliderElementSingle) {
-	var GliderSingle = new _gliderJs2.default(gliderElementSingle, {
+if (gliderElementCourse) {
+	var GliderCourse = new _gliderJs2.default(gliderElementCourse, {
 		scrollLock: true,
 		slidesToShow: 1,
 		slidesToScroll: 1
@@ -19,7 +19,7 @@ if (gliderElementSingle) {
 	var prevBtns = document.querySelectorAll('.js-glider-prev');
 	var siteMain = document.querySelector('#siteMain');
 	var zoomImages = document.querySelectorAll('.js-zoom.zoom');
-	var slideIndex = GliderSingle.getCurrentSlide();
+	var slideIndex = GliderCourse.getCurrentSlide();
 	var bounding = 0;
 
 	var scrollTop = function scrollTop() {
@@ -29,7 +29,7 @@ if (gliderElementSingle) {
 	if (nextBtns) {
 		[].forEach.call(nextBtns, function (nextBtn) {
 			nextBtn.addEventListener('click', function () {
-				GliderSingle.scrollItem(slideIndex += 1, true);
+				GliderCourse.scrollItem(slideIndex += 1, true);
 
 				if (siteMain) {
 					bounding = siteMain.getBoundingClientRect();
@@ -44,7 +44,7 @@ if (gliderElementSingle) {
 	if (prevBtns) {
 		[].forEach.call(prevBtns, function (prevBtn) {
 			prevBtn.addEventListener('click', function () {
-				GliderSingle.scrollItem(slideIndex -= 1, true);
+				GliderCourse.scrollItem(slideIndex -= 1, true);
 
 				if (siteMain) {
 					bounding = siteMain.getBoundingClientRect();
@@ -64,5 +64,5 @@ if (gliderElementSingle) {
 		});
 	}
 
-	module.exports = GliderSingle;
+	module.exports = GliderCourse;
 }

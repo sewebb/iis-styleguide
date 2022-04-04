@@ -1,0 +1,257 @@
+'use strict';
+
+var video = document.querySelector('.js-video-guide');
+var playBtn = document.querySelector('.js-play-btn');
+var playIcon = document.querySelector('.js-play-icon');
+var pauseIcon = document.querySelector('.js-pause-icon');
+var subtitlesBtn = document.querySelector('.js-subtitles-btn');
+var abortButton = document.querySelector('.js-abort-guide');
+var subtitlesElement = document.getElementById('video-subtitles');
+var subtitlesContainer = document.querySelector('.js-subtitles-container');
+var locationList = document.querySelector('.js-chapters');
+var chapterTrackElement = document.getElementById('video-chapters');
+var trackMetadataElement = document.getElementById('video-metadata');
+var forwardsButton = document.querySelector('.js-next-chapter');
+var backwardsButton = document.querySelector('.js-previous-chapter');
+var timelinePosts = document.querySelectorAll('.js-timeline-post');
+var currentChapter = 1;
+var manualStep = false;
+var sourceElement = null;
+
+// Has src attributes been set already?
+if (sourceElement) {
+	document.location.reload();
+} else if (video) {
+	var dataSrc = video.dataset.src;
+
+	sourceElement = document.createElement('source');
+	sourceElement.setAttribute('src', dataSrc);
+	sourceElement.setAttribute('type', 'video/mp4');
+
+	video.appendChild(sourceElement);
+
+	// Store current time in on page reload
+	window.addEventListener('unload', function () {
+		var currentGuideURL = window.location.href;
+		var currentGuideImage = document.querySelector('.js-guide-continue-image').src;
+		console.log(currentGuideImage);
+		sessionStorage.setItem('InmsCurrentTime', video.currentTime); // Minus 1 to make sure cuechange doesn't end up in next chapter
+		sessionStorage.setItem('InmsDuration', video.duration); // Get totalt duration of video
+		sessionStorage.setItem('InmsCurrentGuideURL', currentGuideURL);
+		sessionStorage.setItem('InmsCurrentGuideImage', currentGuideImage);
+	});
+
+	// Get value from sessionStorage in present
+	if (sessionStorage.getItem('InmsCurrentTime')) {
+		var videoCurrentTime = sessionStorage.getItem('InmsCurrentTime');
+
+		if (videoCurrentTime) {
+			video.currentTime = videoCurrentTime;
+		}
+	}
+
+	// Toggle subtitles
+	if (subtitlesBtn) {
+		subtitlesBtn.addEventListener('click', function () {
+			subtitlesBtn.classList.toggle('is-active');
+			subtitlesContainer.classList.toggle('is-visible');
+		});
+	}
+
+	// Play / pause
+	if (playBtn) {
+		playBtn.addEventListener('click', function () {
+			if (video.paused) {
+				video.play();
+				pauseIcon.classList.remove('is-hidden');
+				playIcon.classList.add('is-hidden');
+				manualStep = false;
+			} else {
+				video.pause();
+				pauseIcon.classList.add('is-hidden');
+				playIcon.classList.remove('is-hidden');
+				manualStep = true;
+			}
+		});
+
+		video.addEventListener('playing', function () {
+			pauseIcon.classList.remove('is-hidden');
+			playIcon.classList.add('is-hidden');
+		});
+
+		video.addEventListener('ended', function () {
+			pauseIcon.classList.add('is-hidden');
+			playIcon.classList.remove('is-hidden');
+			video.currentTime = 0;
+			currentChapter = 1;
+			manualStep = false;
+			forwardsButton.removeAttribute('disabled');
+			subtitlesContainer.innerHTML = '';
+			sessionStorage.removeItem('InmsCurrentTime');
+			sessionStorage.removeItem('InmsDuration');
+			sessionStorage.removeItem('InmsCurrentGuideURL');
+			sessionStorage.removeItem('InmsCurrentGuideImage');
+		});
+	}
+
+	if (abortButton) {
+		abortButton.addEventListener('click', function (e) {
+			e.preventDefault();
+			var urlTarget = abortButton.getAttribute('href');
+			video.pause();
+			video.currentTime = 0;
+			forwardsButton.removeAttribute('disabled');
+			currentChapter = 1;
+			manualStep = false;
+			sessionStorage.removeItem('InmsCurrentTime');
+			sessionStorage.removeItem('InmsDuration');
+			sessionStorage.removeItem('InmsCurrentGuideURL');
+			sessionStorage.removeItem('InmsCurrentGuideImage');
+			window.location.href = urlTarget;
+		});
+	}
+}
+
+function displayChapters() {
+	if (chapterTrackElement && trackMetadataElement) {
+		var subtitlesTrack = subtitlesElement.track;
+		var chapterTrack = chapterTrackElement.track;
+		var metadataTrack = trackMetadataElement.track;
+		// Set all track elements to hidden mode to allow scripting
+		[].forEach.call(video.textTracks, function (txtTrack) {
+			txtTrack.mode = 'hidden';
+		});
+
+		if (chapterTrack.kind === 'chapters') {
+			video.addEventListener('loadedmetadata', function () {
+				// Loop through chapters and create chapter list
+				[].forEach.call(chapterTrack.cues, function (cues) {
+					var chapterName = cues.text;
+					var start = cues.startTime;
+					var newLocale = document.createElement('li');
+					var location = document.createElement('a');
+
+					location.setAttribute('rel', start);
+					location.setAttribute('id', start);
+					location.setAttribute('tabindex', '0');
+
+					// Plain text from the chapter file into HTML text
+					var localeDescription = chapterName;
+					location.innerHTML = localeDescription;
+					newLocale.appendChild(location);
+					locationList.appendChild(newLocale);
+
+					location.addEventListener('click', function () {
+						video.currentTime = location.id;
+					}, false);
+				});
+
+				forwardsButton.setAttribute('data-id', chapterTrack.cues[0].endTime);
+
+				forwardsButton.addEventListener('click', function () {
+					var dataId = forwardsButton.dataset.id;
+					document.getElementById(dataId).click();
+					manualStep = true;
+					currentChapter += 1;
+					video.currentTime += 1;
+				});
+
+				backwardsButton.addEventListener('click', function () {
+					var dataId = backwardsButton.dataset.id;
+					video.currentTime = dataId;
+					forwardsButton.removeAttribute('disabled');
+					manualStep = true;
+					currentChapter -= 1;
+					video.pause();
+				});
+			});
+
+			chapterTrack.addEventListener('cuechange', function () {
+				// Fire this whenever the chapters changes
+				var myCues = chapterTrack.activeCues;
+				if (myCues.length > 0) {
+					var currentLocation = chapterTrack.activeCues[0].startTime;
+					var nextLocation = chapterTrack.activeCues[0].endTime;
+					var cueMatch = chapterTrack.activeCues[0].text;
+					var matchingCueArray = document.querySelectorAll('[rel="' + currentLocation + '"]');
+
+					// Set Forward and backwards buttons timestamps
+					forwardsButton.setAttribute('data-id', nextLocation);
+					backwardsButton.setAttribute('data-id', currentLocation);
+
+					// Add chapter stepping even when video is played
+					if (manualStep === false) {
+						currentChapter += 1;
+					}
+
+					// Disable forwardsbutton when on last chapter
+					if (currentChapter > chapterTrack.cues.length) {
+						forwardsButton.setAttribute('disabled', 'disabled');
+					}
+
+					// Handle current and watched items
+					[].forEach.call(matchingCueArray, function (matchingCue) {
+						var thisChapter = matchingCue;
+						if (thisChapter.innerHTML === cueMatch) {
+							var chapter = thisChapter;
+
+							if (chapter === thisChapter) {
+								// get the chapter <li> elements based on the currentLocation
+								var locations = [].slice.call(chapter.closest('figure').querySelectorAll('.js-chapters li'));
+
+								var counter = 0;
+
+								[].forEach.call(locations, function (location) {
+									// remove current classes from all items on page refresh
+									location.classList.remove('is-current-item');
+									location.querySelector('a').classList.remove('is-current');
+
+									if (location.classList.contains('is-current-item')) {
+										counter += 1; // iterate counter when active chapter is reached
+									}
+									if (counter < 1) {
+										// add watched class to everything before the current chapter to show progress
+										location.classList.add('is-watched');
+									} else {
+										// remove watched on all other items
+										location.classList.remove('is-watched');
+									}
+								});
+
+								chapter.parentNode.classList.add('is-current-item');
+								chapter.classList.add('is-current');
+							}
+						}
+					});
+				}
+			}, false);
+
+			// Get timeline post IDs from metadata.vtt
+			metadataTrack.addEventListener('cuechange', function () {
+				var metadataCues = metadataTrack.activeCues;
+
+				if (metadataCues.length > 0) {
+					var metadataCueMatch = metadataTrack.activeCues[0].text;
+
+					[].forEach.call(timelinePosts, function (timelinePost) {
+						timelinePost.classList.remove('is-current');
+					});
+
+					document.querySelector('[data-id="' + metadataCueMatch + '"]').classList.add('is-current');
+				}
+			}, false);
+
+			// Get subtitles cues from subtitles.vtt
+			subtitlesTrack.addEventListener('cuechange', function () {
+				var subtitlesCues = subtitlesTrack.activeCues;
+
+				if (subtitlesCues.length > 0) {
+					var subtitlesCuesMatch = subtitlesTrack.activeCues[0].text;
+					subtitlesContainer.innerHTML = '<span>' + subtitlesCuesMatch + '</span>';
+				}
+			}, false);
+		}
+	}
+}
+
+displayChapters(chapterTrackElement);
