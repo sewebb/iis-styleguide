@@ -177,29 +177,30 @@ small {
 	margin-bottom: 0;
 	padding-top: 0;
 	padding-bottom: 0;
-	line-height: 98px;
+	line-height: 84px;
 	font-size: 120px;
 	font-family: $font-family-bold;
-	letter-spacing: -#{rem(10px)};
+	letter-spacing: -#{rem(5px)};
 
 	@include bp-up(sm) {
-		line-height: 123px;
+		line-height: 105px;
 		font-size: 150px;
 	}
 
 	@include bp-up(md) {
-		line-height: 164px;
+		line-height: 139px;
 		font-size: 200px;
+		letter-spacing: -#{rem(10px)};
 	}
 
 	@include bp-up(lg) {
-		line-height: 242px;
+		line-height: 207px;
 		font-size: 295px;
 		letter-spacing: -#{rem(20px)};
 	}
 
 	@include bp-up(xl) {
-		line-height: 295px;
+		line-height: 251px;
 		font-size: 360px;
 	}
 
