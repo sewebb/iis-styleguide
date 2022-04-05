@@ -171,8 +171,8 @@
 
 		@include e(icon) {
 			position: static;
-			width: $icon-size-medium;
-			height: $icon-size-medium;
+			width: $icon-size;
+			height: $icon-size;
 			transform: none;
 			fill: $color-cyberspace;
 		}
@@ -234,6 +234,23 @@
 		&:hover,
 		&:focus {
 			color: $color-granit;
+		}
+
+		@include e(text) {
+			color: $color-snow;
+		}
+
+		@include e(icon) {
+			fill: $color-snow;
+		}
+	}
+
+	@include m(snow) {
+		color: transparent;
+
+		&:hover,
+		&:focus {
+			color: $color-snow;
 		}
 
 		@include e(text) {

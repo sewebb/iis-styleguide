@@ -29,7 +29,7 @@
 		"copy:videos": "copyfiles -f src/assets/video/* public/assets/video",
 		"copy:fonts": "copyfiles -f src/base/fonts/* public/assets/fonts",
 		"copy:zip": "copyfiles -f src/assets/zip/* public/assets/zip",
-		"copy:local-assets": "npm run copy:images && npm run copy:fonts && npm run copy videos && npm run copy:zip",
+		"copy:local-assets": "npm run copy:images && npm run copy:fonts && npm run copy:videos && npm run copy:zip",
 		"copy:images:build": "copyfiles -f src/assets/images/* build/assets/images",
 		"copy:videos:build": "copyfiles -f src/assets/video/* build/assets/video",
 		"copy:zip:build": "copyfiles -f src/assets/zip/* build/assets/zip",
