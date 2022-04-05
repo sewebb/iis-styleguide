@@ -173,10 +173,11 @@ small {
 }
 
 .godzilla {
-	margin-top: 0;
-	margin-bottom: 0;
-	padding-top: 0;
-	padding-bottom: 0;
+	@include plumber(
+		$leading-top: 0,
+		$leading-bottom: 0
+	);
+
 	line-height: 84px;
 	font-size: 120px;
 	font-family: $font-family-bold;
