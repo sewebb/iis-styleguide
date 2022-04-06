@@ -30,20 +30,22 @@ if (sourceElement) {
 
 	// Store current time in on page reload
 	window.addEventListener('unload', () => {
-		const currentGuideURL = window.location.href;
-		const currentGuideImage = document.querySelector('.js-guide-continue-image').src;
-		console.log(currentGuideImage);
-		sessionStorage.setItem('InmsCurrentTime', video.currentTime); // Minus 1 to make sure cuechange doesn't end up in next chapter
-		sessionStorage.setItem('InmsDuration', video.duration); // Get totalt duration of video
-		sessionStorage.setItem('InmsCurrentGuideURL', currentGuideURL);
-		sessionStorage.setItem('InmsCurrentGuideImage', currentGuideImage);
+		// Set sessionStorage if video has started playing
+		if (video.currentTime > 0) {
+			const currentGuideURL = window.location.href;
+			const currentGuideImage = document.querySelector('.js-guide-continue-image').src;
+			sessionStorage.setItem('InmsCurrentTime', video.currentTime);
+			sessionStorage.setItem('InmsDuration', video.duration); // Get totalt duration of video
+			sessionStorage.setItem('InmsCurrentGuideURL', currentGuideURL);
+			sessionStorage.setItem('InmsCurrentGuideImage', currentGuideImage);
+		}
 	});
 
 	// Get value from sessionStorage in present
 	if (sessionStorage.getItem('InmsCurrentTime')) {
 		const videoCurrentTime = sessionStorage.getItem('InmsCurrentTime');
 
-		if (videoCurrentTime) {
+		if (videoCurrentTime > 0) {
 			video.currentTime = videoCurrentTime;
 		}
 	}
@@ -121,8 +123,11 @@ function displayChapters() {
 		});
 
 		if (chapterTrack.kind === 'chapters') {
-			video.addEventListener('loadedmetadata', () => {
+			video.addEventListener('canplaythrough', () => {
 				// Loop through chapters and create chapter list
+				// Let data load
+
+				// setTimeout(() => {
 				[].forEach.call(chapterTrack.cues, (cues) => {
 					const chapterName = cues.text;
 					const start = cues.startTime;
@@ -130,7 +135,7 @@ function displayChapters() {
 					const location = document.createElement('a');
 
 					location.setAttribute('rel', start);
-					location.setAttribute('id', start);
+					newLocale.setAttribute('id', start);
 					location.setAttribute('tabindex', '0');
 
 					// Plain text from the chapter file into HTML text
@@ -162,6 +167,7 @@ function displayChapters() {
 					currentChapter -= 1;
 					video.pause();
 				});
+				// }, 100);
 			});
 
 			chapterTrack.addEventListener('cuechange', () => {
@@ -216,7 +222,6 @@ function displayChapters() {
 										location.classList.remove('is-watched');
 									}
 								});
-
 								chapter.parentNode.classList.add('is-current-item');
 								chapter.classList.add('is-current');
 							}
@@ -228,6 +233,7 @@ function displayChapters() {
 			// Get timeline post IDs from metadata.vtt
 			metadataTrack.addEventListener('cuechange', () => {
 				const metadataCues = metadataTrack.activeCues;
+				const chapterCues = chapterTrack.activeCues[0];
 
 				if (metadataCues.length > 0) {
 					const metadataCueMatch = metadataTrack.activeCues[0].text;
@@ -237,6 +243,27 @@ function displayChapters() {
 					});
 
 					document.querySelector(`[data-id="${metadataCueMatch}"]`).classList.add('is-current');
+
+					if (chapterCues) {
+						const chapterStartTime = chapterCues.startTime;
+
+						// Let stuff load
+						let listElement;
+						let timeOut = null;
+
+						setTimeout(() => { listElement = document.getElementById(chapterStartTime); }, 100);
+
+						timeOut = function wait(condition, callback) {
+							if (typeof condition() !== 'undefined') {
+								listElement.classList.add('is-current-item');
+							} else {
+								setTimeout(() => {
+									wait(condition, callback);
+								}, 0);
+							}
+						};
+						timeOut(() => listElement, () => { });
+					}
 				}
 			}, false);
 

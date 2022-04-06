@@ -1,10 +1,5 @@
 @charset "UTF-8";
 
-// Remove chromecast button from video
-video::-internal-media-controls-overlay-cast-button {
-	display: none;
-}
-
 @include molecule(video-guide) {
 	flex-direction: column;
 	background-color: $color-snow;
@@ -190,9 +185,9 @@ video::-internal-media-controls-overlay-cast-button {
 					font-size: $size-medium-plus;
 				}
 
-				&:first-child:not([class]) {
-					display: block;
-				}
+				// &:first-child:not([class]) {
+				// 	display: block;
+				// }
 
 				&.is-current-item {
 					display: block;
