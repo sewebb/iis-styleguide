@@ -123,51 +123,50 @@ function displayChapters() {
 		});
 
 		if (chapterTrack.kind === 'chapters') {
-			video.addEventListener('canplaythrough', () => {
+			video.addEventListener('loadedmetadata', () => {
 				// Loop through chapters and create chapter list
 				// Let data load
+				setTimeout(() => {
+					[].forEach.call(chapterTrack.cues, (cues) => {
+						const chapterName = cues.text;
+						const start = cues.startTime;
+						const newLocale = document.createElement('li');
+						const location = document.createElement('a');
 
-				// setTimeout(() => {
-				[].forEach.call(chapterTrack.cues, (cues) => {
-					const chapterName = cues.text;
-					const start = cues.startTime;
-					const newLocale = document.createElement('li');
-					const location = document.createElement('a');
+						location.setAttribute('rel', start);
+						newLocale.setAttribute('id', start);
+						location.setAttribute('tabindex', '0');
 
-					location.setAttribute('rel', start);
-					newLocale.setAttribute('id', start);
-					location.setAttribute('tabindex', '0');
+						// Plain text from the chapter file into HTML text
+						const localeDescription = chapterName;
+						location.innerHTML = localeDescription;
+						newLocale.appendChild(location);
+						locationList.appendChild(newLocale);
 
-					// Plain text from the chapter file into HTML text
-					const localeDescription = chapterName;
-					location.innerHTML = localeDescription;
-					newLocale.appendChild(location);
-					locationList.appendChild(newLocale);
+						location.addEventListener('click', () => {
+							video.currentTime = location.id;
+						}, false);
+					});
 
-					location.addEventListener('click', () => {
-						video.currentTime = location.id;
-					}, false);
-				});
+					forwardsButton.setAttribute('data-id', chapterTrack.cues[0].endTime);
 
-				forwardsButton.setAttribute('data-id', chapterTrack.cues[0].endTime);
+					forwardsButton.addEventListener('click', () => {
+						const dataId = forwardsButton.dataset.id;
+						document.getElementById(dataId).click();
+						manualStep = true;
+						currentChapter += 1;
+						video.currentTime += 1;
+					});
 
-				forwardsButton.addEventListener('click', () => {
-					const dataId = forwardsButton.dataset.id;
-					document.getElementById(dataId).click();
-					manualStep = true;
-					currentChapter += 1;
-					video.currentTime += 1;
-				});
-
-				backwardsButton.addEventListener('click', () => {
-					const dataId = backwardsButton.dataset.id;
-					video.currentTime = dataId;
-					forwardsButton.removeAttribute('disabled');
-					manualStep = true;
-					currentChapter -= 1;
-					video.pause();
-				});
-				// }, 100);
+					backwardsButton.addEventListener('click', () => {
+						const dataId = backwardsButton.dataset.id;
+						video.currentTime = dataId;
+						forwardsButton.removeAttribute('disabled');
+						manualStep = true;
+						currentChapter -= 1;
+						video.pause();
+					});
+				}, 100);
 			});
 
 			chapterTrack.addEventListener('cuechange', () => {
@@ -254,7 +253,7 @@ function displayChapters() {
 						setTimeout(() => { listElement = document.getElementById(chapterStartTime); }, 100);
 
 						timeOut = function wait(condition, callback) {
-							if (typeof condition() !== 'undefined') {
+							if (typeof condition() !== 'undefined' && listElement) {
 								listElement.classList.add('is-current-item');
 							} else {
 								setTimeout(() => {

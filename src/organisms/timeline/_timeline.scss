@@ -254,6 +254,33 @@
 	@include e(item-close) {
 		display: none;
 	}
+
+	@include e(heading) {
+		@include plumber(
+			$font-size: 2,
+			$line-height: 3,
+			$leading-top: 0,
+			$leading-bottom: 0,
+			$baseline: $body-baseline
+		);
+
+		@include bp-up(sm) {
+			@include plumber(
+				$font-size: 2.2,
+				$line-height: 3,
+				$leading-top: 0,
+				$leading-bottom: 0,
+			);
+		}
+	}
+
+	@include e(card-text) {
+		display: none;
+
+		@include bp-up(lg) {
+			display: block;
+		}
+	}
 }
 
 .row-has-open-child {
