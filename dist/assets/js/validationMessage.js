@@ -24,5 +24,5 @@ function validationMessage(message) {
 		return validation[rule].replace(new RegExp(':' + rule, 'g'), data);
 	}
 
-	return rule;
+	return message;
 }

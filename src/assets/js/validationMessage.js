@@ -2,7 +2,7 @@ export default function validationMessage(message) {
 	const [rule, data] = message.split(':');
 
 	if (!('Iis_Lang' in window)) {
-		return rule;
+		return message;
 	}
 
 	const { validation } = window.Iis_Lang;
@@ -11,5 +11,5 @@ export default function validationMessage(message) {
 		return validation[rule].replace(new RegExp(`:${rule}`, 'g'), data);
 	}
 
-	return rule;
+	return message;
 }
