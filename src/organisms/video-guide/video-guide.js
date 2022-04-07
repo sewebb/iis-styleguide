@@ -9,6 +9,9 @@ const subtitlesContainer = document.querySelector('.js-subtitles-container');
 const locationList = document.querySelector('.js-chapters');
 const chapterTrackElement = document.getElementById('video-chapters');
 const trackMetadataElement = document.getElementById('video-metadata');
+const subtitlesTrack = subtitlesElement.track;
+const chapterTrack = chapterTrackElement.track;
+const metadataTrack = trackMetadataElement.track;
 const forwardsButton = document.querySelector('.js-next-chapter');
 const backwardsButton = document.querySelector('.js-previous-chapter');
 const timelinePosts = document.querySelectorAll('.js-timeline-post');
@@ -114,9 +117,6 @@ if (sourceElement) {
 
 function displayChapters() {
 	if (chapterTrackElement && trackMetadataElement) {
-		const subtitlesTrack = subtitlesElement.track;
-		const chapterTrack = chapterTrackElement.track;
-		const metadataTrack = trackMetadataElement.track;
 		// Set all track elements to hidden mode to allow scripting
 		[].forEach.call(video.textTracks, (txtTrack) => {
 			txtTrack.mode = 'hidden';
