@@ -251,12 +251,13 @@
 
 		&:hover,
 		&:focus {
-			color: $color-sandstone-light;
+			color: darken($color-sandstone, 12%);
+			text-shadow: none;
 		}
 
 		@include e(text) {
-			color: $color-cyberspace;
-			text-shadow: 0 0 rhythm(0.5) $color-sandstone-light;
+			color: $color-snow;
+			text-shadow: 0 0 rhythm(2) $color-sandstone-dark;
 		}
 
 		@include e(icon) {
@@ -322,11 +323,13 @@
 
 		&:hover,
 		&:focus {
-			color: $color-jade-light;
+			color: darken($color-jade, 10%);
+			text-shadow: none;
 		}
 
 		@include e(text) {
-			color: $color-cyberspace;
+			color: $color-snow;
+			text-shadow: 0 0 rhythm(2) $color-jade-dark;
 		}
 
 		@include e(icon) {
@@ -408,7 +411,8 @@
 		color: $color-peacock;
 
 		&:hover {
-			color: $color-peacock-light;
+			color: darken($color-peacock, 10%);
+			text-shadow: none;
 		}
 
 		&:focus {
@@ -420,7 +424,8 @@
 		}
 
 		@include e(text) {
-			color: $color-cyberspace;
+			color: $color-snow;
+			text-shadow: 0 0 rhythm(2) $color-peacock-dark;
 		}
 
 		@include e(icon) {
