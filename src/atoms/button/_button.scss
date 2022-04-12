@@ -246,6 +246,24 @@
 		}
 	}
 
+	@include m(sandstone) {
+		color: $color-sandstone;
+
+		&:hover,
+		&:focus {
+			color: $color-sandstone-light;
+		}
+
+		@include e(text) {
+			color: $color-cyberspace;
+			text-shadow: 0 0 rhythm(0.5) $color-sandstone-light;
+		}
+
+		@include e(icon) {
+			fill: $color-cyberspace;
+		}
+	}
+
 	@include m(ruby) {
 		color: $color-ruby;
 
@@ -296,6 +314,23 @@
 
 		@include e(icon) {
 			fill: $color-snow;
+		}
+	}
+
+	@include m(jade) {
+		color: $color-jade;
+
+		&:hover,
+		&:focus {
+			color: $color-jade-light;
+		}
+
+		@include e(text) {
+			color: $color-cyberspace;
+		}
+
+		@include e(icon) {
+			fill: $color-cyberspace;
 		}
 	}
 
