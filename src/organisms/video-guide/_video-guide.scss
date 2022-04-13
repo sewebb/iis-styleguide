@@ -29,6 +29,8 @@
 		z-index: 1;
 		justify-content: center;
 		display: none;
+		margin: 0;
+		padding: 0;
 
 		&:first-child,
 		&.is-current {
