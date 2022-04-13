@@ -117,18 +117,24 @@
 		bottom: 0;
 		width: 60%;
 		z-index: 2;
+		max-width: 150px;
+		max-height: 150px;
 
 		@include bp-up(sm) {
-			width: 50%;
+			max-width: 200px;
+			max-height: 200px;
 		}
 
 		@include bp-up(md) {
-			width: 40%;
+			max-width: 250px;
+			max-height: 250px;
 		}
 
 		@include bp-up(lg) {
 			left: 0;
 			width: 30%;
+			max-width: 300px;
+			max-height: 300px;
 		}
 	}
 

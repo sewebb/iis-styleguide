@@ -2,7 +2,7 @@ module.exports = {
 	status: 'prototype',
 
 	context: {
-		videoSrc: '/assets/video/movie-webm.webm',
-		videoSrc2: 'https://rotato.netlify.app/alpha-demo/movie-hevc.mov'
+		videoSrc: '/assets/video/Internets-Historia-HEVC h265-vp9-chrome.webm',
+		videoSrc2: '/assets/video/Greenscreentest1 1-HEVC h265-hevc-safari.mp4'
 	}
 }

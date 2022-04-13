@@ -120,6 +120,7 @@ function displayChapters() {
 		// Set all track elements to hidden mode to allow scripting
 		[].forEach.call(video.textTracks, (txtTrack) => {
 			txtTrack.mode = 'hidden';
+			console.log('txtTrack.mode', txtTrack.mode);
 		});
 
 		if (chapterTrack.kind === 'chapters') {
