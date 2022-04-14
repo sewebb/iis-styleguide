@@ -3,6 +3,5 @@
 !package.json
 !src/**/*
 *.hbs
-*.config.js
 src/assets/zip
 src/assets/images
