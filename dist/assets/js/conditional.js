@@ -87,9 +87,11 @@ function update(element, value) {
 		return v;
 	});
 	var matches = values.some(function (match) {
-		return match === value;
+		return match === value || match.indexOf('!') === 0 && match.substring(1) !== value;
 	});
 	var conditionMet = !values.length && !!value || matches;
+
+	console.log(values, value, matches);
 
 	if (effect === 'disable') {
 		effectDisable(element, !conditionMet, value);
