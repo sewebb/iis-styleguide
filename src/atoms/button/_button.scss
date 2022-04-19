@@ -315,6 +315,25 @@
 		}
 	}
 
+	@include m(jade) {
+		color: $color-jade;
+
+		&:hover,
+		&:focus {
+			color: darken($color-jade, 10%);
+			text-shadow: none;
+		}
+
+		@include e(text) {
+			color: $color-snow;
+			text-shadow: 0 0 rhythm(2) $color-jade-dark;
+		}
+
+		@include e(icon) {
+			fill: $color-cyberspace;
+		}
+	}
+
 	@include m(jade-light) {
 		box-shadow: 0 0 0 1px inset $color-jade;
 		color: $color-jade-light;
@@ -389,7 +408,8 @@
 		color: $color-peacock;
 
 		&:hover {
-			color: $color-peacock-light;
+			color: darken($color-peacock, 10%);
+			text-shadow: none;
 		}
 
 		&:focus {
@@ -401,7 +421,8 @@
 		}
 
 		@include e(text) {
-			color: $color-cyberspace;
+			color: $color-snow;
+			text-shadow: 0 0 rhythm(2) $color-peacock-dark;
 		}
 
 		@include e(icon) {

@@ -34,6 +34,13 @@ module.exports = {
 			}
 		},
 		{
+			name: 'Jade',
+			context: {
+				modifiers: ['jade'],
+				text: 'Jade button'
+			}
+		},
+		{
 			name: 'Jade light',
 			context: {
 				modifiers: ['jade-light'],
@@ -80,6 +87,13 @@ module.exports = {
 			context: {
 				modifiers: ['cyberspace'],
 				text: 'Cyberspace button'
+			}
+		},
+		{
+			name: 'Sandstone',
+			context: {
+				modifiers: ['sandstone'],
+				text: 'Sandstone button'
 			}
 		},
 		{

@@ -2,3 +2,6 @@
 !dist/**/*
 !package.json
 !src/**/*
+*.hbs
+src/assets/zip
+src/assets/images

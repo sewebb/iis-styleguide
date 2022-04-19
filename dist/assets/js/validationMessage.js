@@ -14,7 +14,7 @@ function validationMessage(message) {
 	    data = _message$split2[1];
 
 	if (!('Iis_Lang' in window)) {
-		return rule;
+		return message;
 	}
 
 	var validation = window.Iis_Lang.validation;
@@ -24,5 +24,5 @@ function validationMessage(message) {
 		return validation[rule].replace(new RegExp(':' + rule, 'g'), data);
 	}
 
-	return rule;
+	return message;
 }
