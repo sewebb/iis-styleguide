@@ -3,6 +3,6 @@ module.exports = {
 
 	context: {
 		videoSrc: '/assets/video/Internets-Historia-HEVC-h265-vp9-chrome.webm',
-		videoSrc2: '/assets/video/Greenscreentest1 1-HEVC-h265-hevc-safari.mp4'
+		videoSrc2: '/assets/video/Internets-Historia-HEVC-h265-hevc-safari.mp4'
 	}
 }

@@ -54,12 +54,20 @@
 			padding-left: rhythm(2);
 			padding-right: rhythm(2);
 
-			transform: translateY(-50%);
+			transform: translateY(-75%);
+
+			@include bp-up(md) {
+				transform: translateY(-50%);
+			}
 
 			@include bp-up(lg) {
+				transform: translateY(-50%);
+			}
+
+			@include bp-up(xl) {
 				left: rhythm(8);
 				width: calc(100% - rhythm(16));
-				max-width: 60%;
+				max-width: 70%;
 				text-align: left;
 			}
 
@@ -117,26 +125,29 @@
 		left: auto;
 		right: auto;
 		bottom: 0;
-		width: 60%;
 		z-index: 2;
-		max-width: 150px;
-		max-height: 150px;
+		width: 150px;
+		height: 150px;
 
-		@include bp-up(sm) {
-			max-width: 200px;
-			max-height: 200px;
+		&.is-loading {
+			background-image: url("data:image/svg+xml,%3Csvg width='100%25' height='100%25' xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100' preserveAspectRatio='xMidYMid' class='lds-ring' style='background: none;'%3E%3Ccircle cx='50' cy='50' ng-attr-r='%7B%7Bconfig.radius%7D%7D' ng-attr-stroke='%7B%7Bconfig.base%7D%7D' ng-attr-stroke-width='%7B%7Bconfig.width%7D%7D' fill='none' r='43' stroke='%23a7d8fd' stroke-width='7'%3E%3C/circle%3E%3Ccircle cx='50' cy='50' ng-attr-r='%7B%7Bconfig.radius%7D%7D' ng-attr-stroke='%7B%7Bconfig.stroke%7D%7D' ng-attr-stroke-width='%7B%7Bconfig.innerWidth%7D%7D' ng-attr-stroke-linecap='%7B%7Bconfig.linecap%7D%7D' fill='none' r='43' stroke='%2350b2fc' stroke-width='7' stroke-linecap='square' transform='rotate(27.6965 50 50)'%3E%3CanimateTransform attributeName='transform' type='rotate' calcMode='linear' values='0 50 50;180 50 50;720 50 50' keyTimes='0;0.5;1' dur='2.5s' begin='0s' repeatCount='indefinite'%3E%3C/animateTransform%3E%3Canimate attributeName='stroke-dasharray' calcMode='linear' values='9.42477796076938 179.0707812546182;188.4955592153876 -2.842170943040401e-14;9.42477796076938 179.0707812546182' keyTimes='0;0.5;1' dur='2.5' begin='0s' repeatCount='indefinite'%3E%3C/animate%3E%3C/circle%3E%3C/svg%3E%0A");
+			background-repeat: no-repeat;
+			background-position: center center;
+			background-size: 30% 30%;
 		}
 
-		@include bp-up(md) {
-			max-width: 250px;
-			max-height: 250px;
+		@include bp-up(sm) {
+			left: 0;
 		}
 
 		@include bp-up(lg) {
-			left: 0;
-			width: 30%;
-			max-width: 300px;
-			max-height: 300px;
+			width: 200px;
+			height: 200px;
+		}
+
+		@include bp-up(xxl) {
+			width: 250px;
+			height: 250px;
 		}
 	}
 
@@ -193,10 +204,6 @@
 					font-size: $size-medium-plus;
 				}
 
-				// &:first-child:not([class]) {
-				// 	display: block;
-				// }
-
 				&.is-current-item {
 					display: block;
 				}
@@ -224,7 +231,6 @@
 		&:disabled,
 		&:disabled:focus,
 		&:not([class*="play"]):not([class*="subtitles"]):not([data-id]),
-		&[data-id="0"],
 		&:disabled:focus-visible {
 			pointer-events: none;
 			cursor: not-allowed;
