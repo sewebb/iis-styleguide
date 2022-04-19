@@ -21,7 +21,5 @@ import './assets/js/responsivePosition';
 import './assets/js/youtube';
 import './molecules/glider/glider';
 import './molecules/glider/glider-course';
-import './atoms/timeline/anchorScroll';
-import './molecules/timeline-navigation/timeline-navigation';
 import './molecules/context-menu/context-menu';
 import './molecules/alert/alert';

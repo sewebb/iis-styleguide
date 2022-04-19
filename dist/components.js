@@ -46,10 +46,6 @@ require('./molecules/glider/glider');
 
 require('./molecules/glider/glider-course');
 
-require('./atoms/timeline/anchorScroll');
-
-require('./molecules/timeline-navigation/timeline-navigation');
-
 require('./molecules/context-menu/context-menu');
 
 require('./molecules/alert/alert');
