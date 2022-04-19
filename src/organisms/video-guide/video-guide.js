@@ -150,38 +150,37 @@ function displayChapters() {
 						}, false);
 					});
 
+					// If not set in sessionStorgare, set first cue on forward button on page load
 					if (!sessionStorage.getItem('InmsCurrentTime')) {
 						forwardsButton.setAttribute('data-id', chapterTrack.cues[0].endTime);
 					}
-
-					forwardsButton.addEventListener('click', () => {
-						const dataId = forwardsButton.dataset.id;
-						// document.querySelector(`[rel="${dataId}"]`).click();
-						let currentTime = parseInt(dataId, 10);
-						manualStep = true;
-						currentTime += 1;
-						video.currentTime = currentTime;
-						currentChapter += 1;
-					});
-
-					backwardsButton.addEventListener('click', () => {
-						const dataId = backwardsButton.dataset.id;
-						let lastTime = parseInt(dataId, 10);
-						lastTime -= 1;
-						video.currentTime = lastTime;
-						forwardsButton.removeAttribute('disabled');
-						manualStep = true;
-						currentChapter -= 1;
-
-						if (video.currentTime <= 0) {
-							backwardsButton.removeAttribute('data-id');
-						}
-					});
 				}, 100);
 			});
 
+			forwardsButton.addEventListener('click', () => {
+				const dataId = forwardsButton.dataset.id;
+				let currentTime = parseInt(dataId, 10);
+				manualStep = true;
+				currentTime += 1;
+				video.currentTime = currentTime;
+				currentChapter += 1;
+			});
+
+			backwardsButton.addEventListener('click', () => {
+				const dataId = backwardsButton.dataset.id;
+				let lastTime = parseInt(dataId, 10);
+				lastTime -= 1;
+				video.currentTime = lastTime;
+				forwardsButton.removeAttribute('disabled');
+				manualStep = true;
+				currentChapter -= 1;
+
+				if (video.currentTime <= 0) {
+					backwardsButton.removeAttribute('data-id');
+				}
+			});
+
 			chapterTrack.addEventListener('cuechange', () => {
-				console.log('cuechange');
 				// Fire this whenever the chapters changes
 				const myCues = chapterTrack.activeCues;
 				if (myCues.length > 0) {
