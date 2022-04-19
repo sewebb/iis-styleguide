@@ -1,5 +1,9 @@
 @charset "UTF-8";
 
+html {
+	scroll-behavior: smooth;
+}
+
 @include organism(timeline) {
 	position: sticky;
 	top: -1px;
