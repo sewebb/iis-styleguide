@@ -58,6 +58,8 @@
 
 			@include bp-up(md) {
 				transform: translateY(-50%);
+				padding-left: rhythm(4);
+				padding-right: rhythm(4);
 			}
 
 			@include bp-up(lg) {
@@ -74,7 +76,9 @@
 			> h2 {
 				font-family: $font-family-bold;
 				color: $color-snow;
-				text-shadow: 0 0 10px rgba($color-black, 0.8);
+				text-shadow: 0 0 rem(50px) rgba($color-black, 1),
+					0 0 rem(10px) rgba($color-black, 1),
+					rem(1px) rem(1px) rem(2px) rgba($color-black, 0.6);
 			}
 
 			> a {
