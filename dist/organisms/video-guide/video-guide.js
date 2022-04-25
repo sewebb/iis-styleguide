@@ -11,9 +11,9 @@ var subtitlesContainer = document.querySelector('.js-subtitles-container');
 var locationList = document.querySelector('.js-chapters');
 var chapterTrackElement = document.getElementById('video-chapters');
 var trackMetadataElement = document.getElementById('video-metadata');
-var subtitlesTrack = subtitlesElement.track;
-var chapterTrack = chapterTrackElement.track;
-var metadataTrack = trackMetadataElement.track;
+var subtitlesTrack = subtitlesElement === null ? '' : subtitlesElement.track;
+var chapterTrack = chapterTrackElement === null ? '' : chapterTrackElement.track;
+var metadataTrack = trackMetadataElement === null ? '' : trackMetadataElement.track;
 var forwardsButton = document.querySelector('.js-next-chapter');
 var backwardsButton = document.querySelector('.js-previous-chapter');
 var timelinePosts = document.querySelectorAll('.js-timeline-post');
@@ -82,6 +82,7 @@ if (sourceElement) {
 		video.addEventListener('playing', function () {
 			pauseIcon.classList.remove('is-hidden');
 			playIcon.classList.add('is-hidden');
+			manualStep = false;
 		});
 
 		video.addEventListener('ended', function () {
@@ -122,7 +123,6 @@ function displayChapters() {
 		// Set all track elements to hidden mode to allow scripting
 		[].forEach.call(video.textTracks, function (txtTrack) {
 			txtTrack.mode = 'hidden';
-			console.log('txtTrack.mode', txtTrack.mode);
 		});
 
 		if (chapterTrack.kind === 'chapters') {
@@ -130,6 +130,7 @@ function displayChapters() {
 				// Loop through chapters and create chapter list
 				// Let data load
 				setTimeout(function () {
+					video.classList.remove('is-loading');
 					[].forEach.call(chapterTrack.cues, function (cues) {
 						var chapterName = cues.text;
 						var start = cues.startTime;
@@ -151,25 +152,34 @@ function displayChapters() {
 						}, false);
 					});
 
-					forwardsButton.setAttribute('data-id', chapterTrack.cues[0].endTime);
-
-					forwardsButton.addEventListener('click', function () {
-						var dataId = forwardsButton.dataset.id;
-						document.getElementById(dataId).click();
-						manualStep = true;
-						currentChapter += 1;
-						video.currentTime += 1;
-					});
-
-					backwardsButton.addEventListener('click', function () {
-						var dataId = backwardsButton.dataset.id;
-						video.currentTime = dataId;
-						forwardsButton.removeAttribute('disabled');
-						manualStep = true;
-						currentChapter -= 1;
-						video.pause();
-					});
+					// If not set in sessionStorgare, set first cue on forward button on page load
+					if (!sessionStorage.getItem('InmsCurrentTime')) {
+						forwardsButton.setAttribute('data-id', chapterTrack.cues[0].endTime);
+					}
 				}, 100);
+			});
+
+			forwardsButton.addEventListener('click', function () {
+				var dataId = forwardsButton.dataset.id;
+				var currentTime = parseInt(dataId, 10);
+				manualStep = true;
+				currentTime += 1;
+				video.currentTime = currentTime;
+				currentChapter += 1;
+			});
+
+			backwardsButton.addEventListener('click', function () {
+				var dataId = backwardsButton.dataset.id;
+				var lastTime = parseInt(dataId, 10);
+				lastTime -= 1;
+				video.currentTime = lastTime;
+				forwardsButton.removeAttribute('disabled');
+				manualStep = true;
+				currentChapter -= 1;
+
+				if (video.currentTime <= 0) {
+					backwardsButton.removeAttribute('data-id');
+				}
 			});
 
 			chapterTrack.addEventListener('cuechange', function () {
@@ -191,7 +201,7 @@ function displayChapters() {
 					}
 
 					// Disable forwardsbutton when on last chapter
-					if (currentChapter > chapterTrack.cues.length) {
+					if (currentChapter >= chapterTrack.cues.length) {
 						forwardsButton.setAttribute('disabled', 'disabled');
 					}
 

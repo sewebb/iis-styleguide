@@ -57,5 +57,3 @@ require('./molecules/continue-video-guide/continue-video-guide');
 require('./organisms/video-guide/video-guide');
 
 require('./organisms/timeline/timeline');
-
-require('./assets/js/anchorScroll');
