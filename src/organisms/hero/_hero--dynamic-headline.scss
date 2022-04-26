@@ -6,6 +6,7 @@
 		flex-direction: column;
 		justify-content: space-around;
 		overflow: visible;
+		border-radius: 0;
 
 		@include e(image) {
 			max-height: none;
