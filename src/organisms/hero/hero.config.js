@@ -119,7 +119,7 @@ module.exports = {
 			context: {
 				has_image: true,
 				hero_image: '/assets/images/Reprogramming_ENIAC2.png',
-				heading: 'Kvinnorna som digitaliserade världen',
+				heading: 'Datadamer - Kvinnorna som digitaliserade världen',
 			}
 		},
 	]

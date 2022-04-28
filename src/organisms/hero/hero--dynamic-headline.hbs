@@ -2,6 +2,6 @@
 	{{#if has_image}}<img src="{{hero_image}}" alt="hero" class="o-hero__image">{{/if}}
 	<figcaption class="o-hero__caption" data-meta="Utställning">
 		<h1>{{heading}}</h1>
+		{{> @button el="a" url="#exhibition" text="Fortsätt" modifiers="a-button--icon a-button--standalone-icon a-button--standalone-icon--white" additional_classes="o-hero__button-continue" icon="arrow-down"}}
 	</figcaption>
-	{{> @button el="a" url="#exhibition" text="Fortsätt" modifiers="a-button--icon a-button--standalone-icon a-button--standalone-icon--white" additional_classes="o-hero__button-continue" icon="arrow-down"}}
 </figure>

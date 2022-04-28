@@ -18,6 +18,10 @@
 			right: 0;
 			bottom: 0;
 			z-index: -1;
+
+			@include bp-up(xxl) {
+				object-position: 50% 50%;
+			}
 		}
 
 		@include e(caption) {
@@ -32,7 +36,7 @@
 
 			> h1 {
 				--minFontSize: 22px;
-				--maxFontSize: 300px;
+				--maxFontSize: 200px;
 				--scaler: 10vw;
 
 				font-size: clamp( var(--minFontSize), var(--scaler), var(--maxFontSize) );
@@ -126,29 +130,29 @@
 
 		@keyframes pulse2 {
 			0% {
-				transform: translateY(-25%) scale(2);
+				transform: translateY(0) scale(2);
 			}
 
 			50% {
-				transform: translateY(-50%) scale(2);
+				transform: translateY(-25%) scale(2);
 			}
 
 			100% {
-				transform: translateY(-25%) scale(2);
+				transform: translateY(0) scale(2);
 			}
 		}
 
 		@keyframes pulse3 {
 			0% {
-				transform: translateY(-50%) scale(3);
+				transform: translateY(0) scale(3);
 			}
 
 			50% {
-				transform: translateY(-75%) scale(3);
+				transform: translateY(-25%) scale(3);
 			}
 
 			100% {
-				transform: translateY(-50%) scale(3);
+				transform: translateY(0) scale(3);
 			}
 		}
 
