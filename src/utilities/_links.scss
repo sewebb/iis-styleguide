@@ -79,3 +79,14 @@
 		text-decoration: underline;
 	}
 }
+
+// Generate parent element link color classes e.g. .u-color-ruby a
+/// @group Colors
+.u-link-color {
+	@include color_classes (
+		$map: $colors,
+		$separator: '-',
+		$attribute: 'color',
+		$element: 'a'
+	);
+}

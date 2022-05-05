@@ -55,15 +55,15 @@ class ProgressRing extends HTMLElement {
 
 window.customElements.define('progress-ring', ProgressRing);
 
-// Get value from sessionStorage if present
-if (sessionStorage.getItem('InmsCurrentTime')) {
-	const videoCurrentTime = sessionStorage.getItem('InmsCurrentTime');
-	const videoDuration = sessionStorage.getItem('InmsDuration');
+// Get value from localStorage if present
+if (localStorage.getItem('InmsCurrentTime')) {
+	const videoCurrentTime = localStorage.getItem('InmsCurrentTime');
+	const videoDuration = localStorage.getItem('InmsDuration');
 	const continueElement = document.querySelector('.js-guide-continue');
 	const progressRing = document.querySelector('progress-ring');
 	const continueLink = document.querySelector('.js-guide-continue-link');
-	const guideURL = sessionStorage.getItem('InmsCurrentGuideURL');
-	const guideImage = sessionStorage.getItem('InmsCurrentGuideImage');
+	const guideURL = localStorage.getItem('InmsCurrentGuideURL');
+	const guideImage = localStorage.getItem('InmsCurrentGuideImage');
 
 	if ((videoCurrentTime > 0)
 		&& progressRing

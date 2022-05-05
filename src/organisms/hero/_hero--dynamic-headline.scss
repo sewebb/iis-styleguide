@@ -44,6 +44,14 @@
 				margin: 0;
 				padding: 0;
 				line-height: 1.2;
+
+				@include bp-up(md) {
+					line-height: 1.1;
+				}
+
+				@include bp-up(lg) {
+					line-height: 1;
+				}
 			}
 
 			@include bp-up(sm-xs) {
