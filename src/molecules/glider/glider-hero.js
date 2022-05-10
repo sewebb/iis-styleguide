@@ -13,5 +13,28 @@ if (gliderElementHero) {
 		},
 	});
 
+	const autoplayDelay = gliderElementHero.dataset.timeout;
+
+	if (autoplayDelay) {
+		let autoplay = setInterval(() => {
+			GliderHero.scrollItem('next');
+		}, autoplayDelay);
+
+		gliderElementHero.addEventListener('mouseover', () => {
+			if (autoplay != null) {
+				clearInterval(autoplay);
+				autoplay = null;
+			}
+		}, 300);
+
+		gliderElementHero.addEventListener('mouseout', () => {
+			if (autoplay == null) {
+				autoplay = setInterval(() => {
+					GliderHero.scrollItem('next');
+				}, autoplayDelay);
+			}
+		}, 300);
+	}
+
 	module.exports = GliderHero;
 }
