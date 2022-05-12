@@ -1,14 +1,23 @@
 @charset "UTF-8";
 
-@include molecule(video-guide) {
+@include organism(video-guide) {
 	flex-direction: column;
 	background-color: $color-snow;
+
+	@include e(inner-wrapper) {
+		width: 100%;
+	}
+
+	> figure {
+		display: flex;
+	}
 
 	@include e(video-container) {
 		position: relative;
 		padding-top: 70vh;
 		width: 100%;
 		display: flex;
+		flex-direction: column;
 		justify-content: center;
 
 		@include bp-up(sm) {
@@ -216,6 +225,67 @@
 
 		@include bp-up(md) {
 			align-items: stretch;
+		}
+	}
+
+	@include e(timelineposts) {
+		z-index: 2;
+		width: 200px;
+		min-width: 200px;
+		background-color: $color-cyberspace;
+		position: relative;
+		overflow-y: auto;
+
+		@include bp-up(lg) {
+			width: 300px;
+		}
+
+		@include e(list) {
+			position: absolute;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+
+			li {
+				padding: 0;
+				display: block;
+
+				& + li {
+					border-top: 1px solid lighten($color-cyberspace, 10%);
+				}
+			}
+		}
+
+		@include e(link) {
+			display: block;
+			padding: rhythm(1) rhythm(2);
+			color: $color-snow;
+			text-decoration: none;
+			font-size: $size-medium;
+			position: relative;
+
+			&:hover,
+			&:focus,
+			&.is-current {
+				background-color: lighten($color-cyberspace, 10%);
+
+				&::after {
+					content: attr(data-label);
+					display: block;
+					position: absolute;
+					bottom: 0;
+					right: 0;
+					background-color: $color-peacock;
+					font-family: $font-family-headings;
+					padding-left: rhythm(1);
+					padding-right: rhythm(1);
+				}
+			}
+
+			&.is-current {
+				font-family: $font-family-headings;
+			}
 		}
 	}
 

@@ -19,5 +19,28 @@ if (gliderElementHero) {
 		}
 	});
 
+	var autoplayDelay = gliderElementHero.dataset.timeout;
+
+	if (autoplayDelay) {
+		var autoplay = setInterval(function () {
+			GliderHero.scrollItem('next');
+		}, autoplayDelay);
+
+		gliderElementHero.addEventListener('mouseover', function () {
+			if (autoplay !== null) {
+				clearInterval(autoplay);
+				autoplay = null;
+			}
+		}, 0);
+
+		gliderElementHero.addEventListener('mouseout', function () {
+			if (autoplay === null) {
+				autoplay = setInterval(function () {
+					GliderHero.scrollItem('next');
+				}, autoplayDelay);
+			}
+		}, 0);
+	}
+
 	module.exports = GliderHero;
 }

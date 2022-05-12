@@ -21,19 +21,19 @@ if (gliderElementHero) {
 		}, autoplayDelay);
 
 		gliderElementHero.addEventListener('mouseover', () => {
-			if (autoplay != null) {
+			if (autoplay !== null) {
 				clearInterval(autoplay);
 				autoplay = null;
 			}
-		}, 300);
+		}, 0);
 
 		gliderElementHero.addEventListener('mouseout', () => {
-			if (autoplay == null) {
+			if (autoplay === null) {
 				autoplay = setInterval(() => {
 					GliderHero.scrollItem('next');
 				}, autoplayDelay);
 			}
-		}, 300);
+		}, 0);
 	}
 
 	module.exports = GliderHero;

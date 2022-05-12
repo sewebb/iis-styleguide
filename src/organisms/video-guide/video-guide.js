@@ -252,7 +252,12 @@ function displayChapters() {
 						timelinePost.classList.remove('is-current');
 					});
 
-					document.querySelector(`[data-id="${metadataCueMatch}"]`).classList.add('is-current');
+					const idSelectors = document.querySelectorAll(`[data-id="${metadataCueMatch}"]`);
+
+					[].forEach.call(idSelectors, (idSelector) => {
+						idSelector.classList.add('is-current');
+						idSelector.focus();
+					});
 
 					if (chapterCues) {
 						const chapterStartTime = chapterCues.startTime;

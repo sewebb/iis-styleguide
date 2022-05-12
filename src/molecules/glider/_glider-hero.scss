@@ -134,6 +134,8 @@
 }
 
 .glider-slide {
+	width: 100vw;
+
 	@include m(hero) {
 		margin: 0;
 		padding: 0;
