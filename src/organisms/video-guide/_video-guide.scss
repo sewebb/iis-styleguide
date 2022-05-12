@@ -6,6 +6,7 @@
 
 	@include e(inner-wrapper) {
 		width: 100%;
+		position: relative;
 	}
 
 	> figure {
@@ -231,14 +232,14 @@
 
 	@include e(timelineposts) {
 		z-index: 2;
-		width: 200px;
-		min-width: 200px;
+		width: 250px;
+		min-width: 250px;
 		background-color: $color-cyberspace;
 		position: relative;
 		overflow-y: auto;
 
 		@include bp-up(lg) {
-			width: 300px;
+			width: 350px;
 		}
 
 		@include e(list) {
@@ -259,12 +260,13 @@
 		}
 
 		@include e(link) {
-			display: block;
+			display: flex;
 			padding: rhythm(1) rhythm(2);
 			color: $color-snow;
 			text-decoration: none;
 			font-size: $size-medium;
 			position: relative;
+			line-height: 1.5;
 
 			&:hover,
 			&:focus,
@@ -274,13 +276,15 @@
 				&::after {
 					content: attr(data-label);
 					display: block;
-					position: absolute;
-					bottom: 0;
-					right: 0;
 					background-color: $color-peacock;
 					font-family: $font-family-headings;
-					padding-left: rhythm(1);
-					padding-right: rhythm(1);
+					padding: rhythm(1);
+					line-height: 1;
+					align-self: flex-end;
+					white-space: nowrap;
+					border-radius: $border-radius;
+					transform: translateX(rhythm(0.5));
+					margin-left: rhythm(1);
 				}
 			}
 
@@ -292,7 +296,6 @@
 
 	@include e(buttons) {
 		display: flex;
-		width: 100%;
 	}
 
 	@include e(button) {
@@ -401,8 +404,10 @@
 	}
 
 	@include e(button-abort) {
-		align-self: center;
-		margin-left: auto;
+		position: absolute;
+		top: rhythm(1);
+		left: rhythm(1);
 		flex-grow: 0;
+		z-index: 2;
 	}
 }
