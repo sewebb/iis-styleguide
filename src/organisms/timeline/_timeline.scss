@@ -181,6 +181,18 @@ html {
 				color: $color-snow;
 			}
 
+			p a,
+			li a,
+			h1 a,
+			h2 a,
+			h3 a,
+			h4 a {
+				&:hover,
+				&:focus {
+					color: $color-cyberspace;
+				}
+			}
+
 			a[data-scroll-ignore] {
 				pointer-events: none;
 
@@ -203,7 +215,7 @@ html {
 				@extend %preamble;
 			}
 
-			.wp-block-iis-card {
+			.wp-block-iis-timeline-post {
 				margin-left: auto;
 				margin-right: auto;
 

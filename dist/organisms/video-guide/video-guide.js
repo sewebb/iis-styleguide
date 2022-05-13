@@ -17,6 +17,8 @@ var metadataTrack = trackMetadataElement === null ? '' : trackMetadataElement.tr
 var forwardsButton = document.querySelector('.js-next-chapter');
 var backwardsButton = document.querySelector('.js-previous-chapter');
 var timelinePosts = document.querySelectorAll('.js-timeline-post');
+var navigationButton = document.querySelector('.js-show-timelineposts');
+var timeLinePosts = document.querySelector('.js-timeline-posts');
 var currentChapter = 1;
 var manualStep = false;
 var sourceElement = null;
@@ -114,6 +116,13 @@ if (sourceElement) {
 			localStorage.removeItem('InmsCurrentGuideURL');
 			localStorage.removeItem('InmsCurrentGuideImage');
 			window.location.href = urlTarget;
+		});
+	}
+
+	if (navigationButton) {
+		navigationButton.addEventListener('click', function () {
+			navigationButton.classList.toggle('is-toggeled');
+			timeLinePosts.classList.toggle('is-visible');
 		});
 	}
 }
@@ -253,7 +262,12 @@ function displayChapters() {
 						timelinePost.classList.remove('is-current');
 					});
 
-					document.querySelector('[data-id="' + metadataCueMatch + '"]').classList.add('is-current');
+					var idSelectors = document.querySelectorAll('[data-id="' + metadataCueMatch + '"]');
+
+					[].forEach.call(idSelectors, function (idSelector) {
+						idSelector.classList.add('is-current');
+						idSelector.focus();
+					});
 
 					if (chapterCues) {
 						var chapterStartTime = chapterCues.startTime;

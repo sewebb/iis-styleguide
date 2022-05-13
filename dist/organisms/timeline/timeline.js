@@ -126,7 +126,7 @@ var timeLineItemScrollPosition = 0;
 			timeLineItem.closest('.row').classList.add('row-has-open-child');
 
 			// Wrap open timeline item
-			wrap(timeLineItem.querySelector('.wp-block-iis-card'), document.createElement('div'));
+			wrap(timeLineItem.querySelector('.wp-block-iis-timeline-post'), document.createElement('div'));
 		}
 	});
 
