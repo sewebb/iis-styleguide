@@ -15,6 +15,8 @@ const metadataTrack = (trackMetadataElement === null) ? '' : trackMetadataElemen
 const forwardsButton = document.querySelector('.js-next-chapter');
 const backwardsButton = document.querySelector('.js-previous-chapter');
 const timelinePosts = document.querySelectorAll('.js-timeline-post');
+const navigationButton = document.querySelector('.js-show-timelineposts');
+const timeLinePosts = document.querySelector('.js-timeline-posts');
 let currentChapter = 1;
 let manualStep = false;
 let sourceElement = null;
@@ -112,6 +114,13 @@ if (sourceElement) {
 			localStorage.removeItem('InmsCurrentGuideURL');
 			localStorage.removeItem('InmsCurrentGuideImage');
 			window.location.href = urlTarget;
+		});
+	}
+
+	if (navigationButton) {
+		navigationButton.addEventListener('click', () => {
+			navigationButton.classList.toggle('is-toggeled');
+			timeLinePosts.classList.toggle('is-visible');
 		});
 	}
 }

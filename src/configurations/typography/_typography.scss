@@ -145,7 +145,8 @@ small {
 	);
 }
 
-.supersize {
+.supersize,
+%supersize {
 	@include plumber(
 		$font-size: 3,
 		$line-height: 4,

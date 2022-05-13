@@ -11,6 +11,8 @@
 
 	> figure {
 		display: flex;
+		overflow: hidden;
+		position: relative;
 	}
 
 	@include e(video-container) {
@@ -59,8 +61,8 @@
 		@include e(text) {
 			position: absolute;
 			top: 50%;
-			left: auto;
-			right: auto;
+			left: 0;
+			right: 0;
 			text-align: center;
 			padding-left: rhythm(2);
 			padding-right: rhythm(2);
@@ -80,16 +82,38 @@
 			@include bp-up(xl) {
 				left: rhythm(8);
 				width: calc(100% - rhythm(16));
-				max-width: 70%;
 				text-align: left;
 			}
 
-			> h2 {
+			@include e(headline) {
 				font-family: $font-family-bold;
 				color: $color-snow;
 				text-shadow: 0 0 rem(50px) rgba($color-black, 1),
 					0 0 rem(10px) rgba($color-black, 1),
 					rem(1px) rem(1px) rem(2px) rgba($color-black, 0.6);
+
+				@include plumber(
+					$font-size: 3,
+					$line-height: 4,
+					$leading-bottom: 1,
+					$baseline: $headings-baseline
+				);
+
+				@include bp-up(sm) {
+					@include plumber(
+						$font-size: 4.5,
+						$line-height: 5,
+						$leading-bottom: 1
+					);
+				}
+
+				@include bp-up(lg) {
+					@include plumber(
+						$font-size: 7,
+						$line-height: 8,
+						$leading-bottom: 2
+					);
+				}
 			}
 
 			> a {
@@ -171,10 +195,7 @@
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
-		padding-top: rhythm(2);
-		padding-bottom: rhythm(2);
-		padding-left: rhythm(1);
-		padding-right: rhythm(1);
+		padding: rhythm(2);
 		flex-direction: column-reverse;
 		overflow: hidden;
 
@@ -185,8 +206,6 @@
 		@include bp-up(md) {
 			align-items: stretch;
 			flex-direction: row;
-			padding-left: rhythm(2);
-			padding-right: rhythm(2);
 		}
 	}
 
@@ -236,10 +255,28 @@
 		min-width: 250px;
 		background-color: $color-cyberspace;
 		position: relative;
-		overflow-y: auto;
+		transform: translateX(100%);
+		transition: transform 0.25s ease-out;
+		flex-shrink: 0;
+		position: absolute;
+		top: 0;
+		right: 0;
+		bottom: 0;
 
-		@include bp-up(lg) {
+		@include bp-up(md) {
+			transform: translateX(0);
+			position: relative;
+			top: auto;
+			right: auto;
+			bottom: auto;
+		}
+
+		@include bp-up(xl) {
 			width: 350px;
+		}
+
+		&.is-visible {
+			transform: translateX(0);
 		}
 
 		@include e(list) {
@@ -248,14 +285,24 @@
 			left: 0;
 			right: 0;
 			bottom: 0;
+			overflow-y: auto;
 
-			li {
-				padding: 0;
-				display: block;
+			dt {
+				color: $color-snow;
+				font-family: $font-family-headings;
+				padding: rhythm(1) rhythm(2);
 
-				& + li {
-					border-top: 1px solid lighten($color-cyberspace, 10%);
+				@include bp-up(md) {
+					padding-top: rhythm(2);
+					padding-bottom: rhythm(2);
 				}
+			}
+
+			dd {
+				padding: 0;
+				margin: 0;
+				display: block;
+				border-top: 1px solid lighten($color-cyberspace, 10%);
 			}
 		}
 
@@ -290,6 +337,21 @@
 
 			&.is-current {
 				font-family: $font-family-headings;
+			}
+		}
+
+		@include e(button-navigation) {
+			transform: translateX(-100%);
+
+			@include bp-up(md) {
+				display: none;
+			}
+
+			&.is-toggeled {
+				transform: translateX(0) scaleX(-1);
+				position: absolute;
+				right: rhythm(1);
+				z-index: 2;
 			}
 		}
 	}
@@ -409,5 +471,10 @@
 		left: rhythm(1);
 		flex-grow: 0;
 		z-index: 2;
+		font-size: $size-small;
+
+		@include bp-up(md) {
+			font-size: initial;
+		}
 	}
 }
