@@ -118,7 +118,7 @@ html {
 		transition: opacity 1s ease-out, transform 5s cubic-bezier(0, 1, 0, 1);
 		transform: translateY(200px);
 		will-change: opacity, transform;
-		transition-delay: 0.5s;
+		//transition-delay: 0.25s;
 		flex: 100%;
 
 		&.animate {
