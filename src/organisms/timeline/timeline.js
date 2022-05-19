@@ -95,6 +95,7 @@ if (progressBar) {
 }
 
 // DUMMY TIMELINE ITEM OPEN/CLOSE
+/*
 function wrap(el, wrapper) {
 	el.parentNode.insertBefore(wrapper, el);
 	wrapper.classList.add('wrapper');
@@ -118,7 +119,8 @@ let timeLineItemScrollPosition = 0;
 			timeLineItem.closest('.row').classList.add('row-has-open-child');
 
 			// Wrap open timeline item
-			wrap(timeLineItem.querySelector('.wp-block-iis-timeline-post'), document.createElement('div'));
+			wrap(timeLineItem.querySelector('.wp-block-iis-timeline-post'),
+				document.createElement('div'));
 		}
 	});
 
@@ -144,3 +146,4 @@ let timeLineItemScrollPosition = 0;
 		timeLineItemClose.click();
 	});
 });
+*/
