@@ -1,5 +1,7 @@
 @charset 'UTF-8';
 
+@use "sass:math";
+
 // Grid only
 //
 // Includes relevant variables and mixins for the flexbox grid
@@ -75,44 +77,46 @@
 		@include make-asymmetric-cols($bp-gap, true);
 	}
 
-	@include bp-up(md) {
-		$bp-gap: $gap * 1.25;
-
+	@include bp-up(sm) {
 		margin: rhythm($margin * 1.25) 0 0;
 
 		&:not(.asymmetric-reversed) {
+			$bp-gap: $gap * 1.25;
 			@include make-asymmetric-cols($bp-gap);
 		}
 
 		&.asymmetric-reversed {
+			$bp-gap: math.div($gap, 2);
 			@include make-asymmetric-cols($bp-gap, true);
 		}
 	}
 
 	@include bp-up(lg) {
-		$bp-gap: $gap * 1.5;
+
 
 		margin: rhythm($margin * 1.5) 0 0;
 
 		&:not(.asymmetric-reversed) {
+			$bp-gap: $gap * 1.5;
 			@include make-asymmetric-cols($bp-gap);
 		}
 
 		&.asymmetric-reversed {
+			$bp-gap: $gap;
 			@include make-asymmetric-cols($bp-gap, true);
 		}
 	}
 
 	@include bp-up(xl) {
-		$bp-gap: $gap * 2;
-
 		margin: rhythm($margin * 2) 0 0;
 
 		&:not(.asymmetric-reversed) {
+			$bp-gap: $gap * 2;
 			@include make-asymmetric-cols($bp-gap);
 		}
 
 		&.asymmetric-reversed {
+			$bp-gap: $gap;
 			@include make-asymmetric-cols($bp-gap, true);
 		}
 	}
