@@ -5,6 +5,8 @@
     "plugins": [
         "babel-plugin-syntax-dynamic-import",
         "transform-class-properties",
-        "babel-plugin-transform-object-rest-spread"
+        "babel-plugin-transform-object-rest-spread",
+        "transform-custom-element-classes",
+        "transform-es2015-classes"
     ]
 }

@@ -46,6 +46,8 @@ require('./molecules/glider/glider');
 
 require('./molecules/glider/glider-course');
 
+require('./molecules/glider/glider-hero');
+
 require('./molecules/context-menu/context-menu');
 
 require('./molecules/alert/alert');

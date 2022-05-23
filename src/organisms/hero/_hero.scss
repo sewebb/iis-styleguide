@@ -376,6 +376,22 @@
 		}
 	}
 
+	@include m(video-wide) {
+		width: 100%;
+
+		@include e(video) {
+			width: 100%;
+			object-fit: cover;
+			object-position: 50% center;
+
+			@include bp-up(sm) {
+				min-height: rem(500px);
+				max-height: 50vh;
+			}
+
+		}
+	}
+
 	// Event
 	@include m(event) {
 		width: 100%;

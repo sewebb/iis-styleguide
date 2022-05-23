@@ -1,9 +1,9 @@
 import Glider from 'glider-js';
 
-const gliderElementSingle = document.querySelector('.js-glider-course');
+const gliderElementCourse = document.querySelector('.js-glider-course');
 
-if (gliderElementSingle) {
-	const GliderSingle = new Glider(gliderElementSingle, {
+if (gliderElementCourse) {
+	const GliderCourse = new Glider(gliderElementCourse, {
 		scrollLock: true,
 		slidesToShow: 1,
 		slidesToScroll: 1,
@@ -13,7 +13,7 @@ if (gliderElementSingle) {
 	const prevBtns = document.querySelectorAll('.js-glider-prev');
 	const siteMain = document.querySelector('#siteMain');
 	const zoomImages = document.querySelectorAll('.js-zoom.zoom');
-	let slideIndex = GliderSingle.getCurrentSlide();
+	let slideIndex = GliderCourse.getCurrentSlide();
 	let bounding = 0;
 
 	const scrollTop = () => {
@@ -23,7 +23,7 @@ if (gliderElementSingle) {
 	if (nextBtns) {
 		[].forEach.call(nextBtns, (nextBtn) => {
 			nextBtn.addEventListener('click', () => {
-				GliderSingle.scrollItem(slideIndex += 1, true);
+				GliderCourse.scrollItem(slideIndex += 1, true);
 
 				if (siteMain) {
 					bounding = siteMain.getBoundingClientRect();
@@ -38,7 +38,7 @@ if (gliderElementSingle) {
 	if (prevBtns) {
 		[].forEach.call(prevBtns, (prevBtn) => {
 			prevBtn.addEventListener('click', () => {
-				GliderSingle.scrollItem(slideIndex -= 1, true);
+				GliderCourse.scrollItem(slideIndex -= 1, true);
 
 				if (siteMain) {
 					bounding = siteMain.getBoundingClientRect();
@@ -58,5 +58,5 @@ if (gliderElementSingle) {
 		});
 	}
 
-	module.exports = GliderSingle;
+	module.exports = GliderCourse;
 }

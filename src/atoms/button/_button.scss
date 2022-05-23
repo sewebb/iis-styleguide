@@ -171,8 +171,8 @@
 
 		@include e(icon) {
 			position: static;
-			width: $icon-size-medium;
-			height: $icon-size-medium;
+			width: $icon-size;
+			height: $icon-size;
 			transform: none;
 			fill: $color-cyberspace;
 		}
@@ -245,22 +245,20 @@
 		}
 	}
 
-	@include m(sandstone) {
-		color: $color-sandstone;
+	@include m(snow) {
+		color: transparent;
 
 		&:hover,
 		&:focus {
-			color: darken($color-sandstone, 12%);
-			text-shadow: none;
+			color: $color-snow;
 		}
 
 		@include e(text) {
 			color: $color-snow;
-			text-shadow: 0 0 rhythm(2) $color-sandstone-dark;
 		}
 
 		@include e(icon) {
-			fill: $color-cyberspace;
+			fill: $color-snow;
 		}
 	}
 

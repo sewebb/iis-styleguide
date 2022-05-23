@@ -20,7 +20,8 @@
 // Set the container width, and override it for fixed navbars in media queries.
 
 @if $enable-grid-classes {
-	.wrapper {
+	.wrapper,
+	%wrapper {
 		@include make-container();
 		@include make-container-max-widths();
 
@@ -59,6 +60,12 @@
 		> [class*='grid-']:nth-child(#{$i}) {
 			transform: translateY(rhythm($col-gap));
 		}
+
+		@include bp-only(sm) {
+			> [class*='grid-']:last-child {
+				transform: translateY(rhythm($gap));
+			}
+		}
 	}
 }
 
@@ -91,6 +98,12 @@
 		}
 	}
 
+	@include bp-up(md) {
+		&.asymmetric-reversed {
+			margin-bottom: calc(100px);
+		}
+	}
+
 	@include bp-up(lg) {
 
 
@@ -104,6 +117,7 @@
 		&.asymmetric-reversed {
 			$bp-gap: $gap;
 			@include make-asymmetric-cols($bp-gap, true);
+			margin-bottom: calc(180px);
 		}
 	}
 
@@ -118,6 +132,7 @@
 		&.asymmetric-reversed {
 			$bp-gap: $gap;
 			@include make-asymmetric-cols($bp-gap, true);
+			margin-bottom: calc(216px);
 		}
 	}
 }

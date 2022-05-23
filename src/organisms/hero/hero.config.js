@@ -77,7 +77,7 @@ module.exports = {
 		},
 		{
 			name: 'Event hero with button',
-			status: 'wip',
+			status: 'ready',
 				context: {
 					event_title: 'Framtidsoptimism och problemlösning i en uppkopplad värld',
 					organizer: 'Heja framtiden',
@@ -111,6 +111,15 @@ module.exports = {
 				no_image_class: 'o-hero--break-early o-hero--clean',
 				limited_width: false,
 				has_buttons: false,
+			}
+		},
+		{
+			name: 'Dynamic headline',
+			status: 'wip',
+			context: {
+				has_image: true,
+				hero_image: '/assets/images/Reprogramming_ENIAC2.png',
+				heading: 'Datadamer - Kvinnorna som digitaliserade världen',
 			}
 		},
 	]

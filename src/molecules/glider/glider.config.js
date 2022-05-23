@@ -17,6 +17,13 @@ module.exports = {
 			context: {
 				single: true
 			}
+		},
+		{
+			name: 'Hero',
+			status: 'wip',
+			context: {
+				single: true
+			}
 		}
 	]
 }
