@@ -27,12 +27,12 @@ var objToQuery = function objToQuery(obj) {
 
 		if (Array.isArray(value)) {
 			value.forEach(function (subValue) {
-				return query.push(queryKey + '[]=' + subValue);
+				return query.push(queryKey + '[]=' + encodeURIComponent(subValue));
 			});
 		} else if ((typeof value === 'undefined' ? 'undefined' : _typeof(value)) === 'object') {
 			query.push(objToQuery(value, exclude, queryKey));
 		} else {
-			query.push(queryKey + '=' + value);
+			query.push(queryKey + '=' + encodeURIComponent(value));
 		}
 	});
 
