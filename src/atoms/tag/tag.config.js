@@ -31,6 +31,16 @@ module.exports = {
 				is_light: true,
 				background_color: 'ruby'
 			}
+		},
+		{
+			name: 'Border variation',
+			context: {
+				text: 'border',
+				href: '#',
+				is_light: false,
+				border: true,
+				background_color: false
+			}
 		}
 	]
 }
