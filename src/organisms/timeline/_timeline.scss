@@ -167,6 +167,11 @@ html {
 			}
 		}
 
+		[data-youtube],
+		[data-youtube] * {
+			pointer-events: none;
+		}
+
 		&.is-open {
 			flex: 0 0 100%;
 			background-color: $color-cyberspace;
@@ -254,7 +259,12 @@ html {
 				transform: translateY(0) !important;
 			}
 
-			button {
+			[data-youtube],
+			[data-youtube] * {
+				pointer-events: initial;
+			}
+
+			button[class*="close"] {
 				display: inline-block;
 				position: absolute;
 				right: rhythm(1);
