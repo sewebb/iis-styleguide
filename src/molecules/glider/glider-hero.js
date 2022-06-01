@@ -7,6 +7,7 @@ if (gliderElementHero) {
 		scrollLock: true,
 		slidesToShow: 1,
 		slidesToScroll: 1,
+		rewind: true,
 		arrows: {
 			prev: '.js-glider-prev',
 			next: '.js-glider-next',
