@@ -7,6 +7,7 @@ var _require = require('../../assets/js/offset'),
     offsetBottom = _require.offsetBottom,
     offsetLeft = _require.offsetLeft;
 
+var dataLayer = window.dataLayer || [];
 var progressBar = document.querySelector('.js-progress-bar');
 var decadeContainer = document.querySelector('.js-decade-container');
 var decadeSections = document.querySelectorAll('.js-timeline-decade');
@@ -84,6 +85,39 @@ function animateProgressBar() {
 	progressBar.style.width = progressBarWidth + 'px';
 }
 
+function isInViewport(element) {
+	var top = element.offsetTop;
+	var height = element.offsetHeight;
+
+	while (element.offsetParent) {
+		element = element.offsetParent; // eslint-disable-line
+		top += element.offsetTop;
+	}
+
+	return top < window.pageYOffset + window.innerHeight && top + height > window.pageYOffset;
+}
+
+function decadeIsVisible() {
+	[].forEach.call(decadeSections, function (decadeSection) {
+		if (isInViewport(decadeSection) && !decadeSection.classList.contains('is-in-view')) {
+			decadeSection.classList.add('is-in-view');
+
+			var decade = decadeSection.id;
+
+			dataLayer.push({
+				event: 'timeline',
+				eventInfo: {
+					category: 'timeline',
+					action: 'active_year',
+					label: decade
+				}
+			});
+		} else if (!isInViewport(decadeSection)) {
+			decadeSection.classList.remove('is-in-view');
+		}
+	});
+}
+
 // Run functions on page load
 if (progressBar) {
 	buildTimelineNavigation();
@@ -97,6 +131,7 @@ if (progressBar) {
 	});
 	window.addEventListener('scroll', function () {
 		animateProgressBar();
+		decadeIsVisible();
 	});
 }
 
