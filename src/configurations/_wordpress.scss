@@ -339,3 +339,12 @@ div.aligncenter {
 	border-radius: $border-radius;
 	overflow: hidden;
 }
+
+.wp-block-graph {
+	padding-top: rhythm(4);
+	margin-top: rhythm(4);
+
+	& + & {
+		margin-top: -#{rhythm(3)};
+	}
+}
