@@ -1,6 +1,6 @@
 {
 	"name": "@internetstiftelsen/styleguide",
-	"version": "2.22.3-beta.0.52",
+	"version": "2.22.3-beta.0.55",
 	"main": "dist/components.js",
 	"ports": {
 		"fractal": "3000"
@@ -11,14 +11,13 @@
 		"build:fractal": "fractal build",
 		"scss": "sass src/app.scss public/assets/css/app.css",
 		"stylelint": "stylelint 'src/**/*.scss' '!**/vendor/**' '!**/colors/_colors-functions.scss' --fix --cache --cache-location '.stylelintcache'",
-		"autoprefixer": "postcss --use autoprefixer -b 'last 2 versions' public/assets/css/app.css -d public/assets/css/",
 		"cssmin": "postcss --use cssnano -b '' public/assets/css/app.css > public/assets/css/app.min.css",
 		"browserify": "browserify public/assets/js/cjs/app.js -o public/assets/js/scripts.js",
 		"babel": "npx babel src --out-dir public/assets/js/cjs --ignore src/**/*.config.js",
 		"eslint": "eslint --fix src",
 		"uglify": "uglifyjs -o public/assets/js/scripts.js public/assets/js/scripts.js",
 		"imagemin": "imagemin --out-dir=public/assets/img src/**/*.{png,jpg,gif}",
-		"build:css": "npm run stylelint && npm run scss && npm run autoprefixer && npm run cssmin",
+		"build:css": "npm run stylelint && npm run scss && npm run cssmin",
 		"build:js": "npm run eslint && npm run babel && npm run browserify",
 		"build:img": "npm run imagemin",
 		"watch:css": "onchange 'src/**/*.scss' -- npm run build:css",
@@ -45,7 +44,6 @@
 		"@frctl/mandelbrot": "^1.9.2",
 		"@internetstiftelsen/eslint-config": "^0.0.5",
 		"@internetstiftelsen/stylelint-config": "^1.0.0",
-		"autoprefixer": "^10.2.6",
 		"babel-cli": "^6.26.0",
 		"babel-eslint": "^10.0.3",
 		"babel-plugin-syntax-dynamic-import": "^6.18.0",

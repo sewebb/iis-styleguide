@@ -40,7 +40,7 @@ if (sourceElement) {
 		// Set localStorage if video has started playing
 		if (video.currentTime > 0) {
 			var currentGuideURL = window.location.href;
-			var currentGuideImage = document.querySelector('.js-guide-continue-image').src;
+			var currentGuideImage = video.dataset.featuredImage;
 			localStorage.setItem('InmsCurrentTime', video.currentTime);
 			localStorage.setItem('InmsDuration', video.duration); // Get totalt duration of video
 			localStorage.setItem('InmsCurrentGuideURL', currentGuideURL);
