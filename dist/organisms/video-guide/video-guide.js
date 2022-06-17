@@ -8,7 +8,6 @@ var subtitlesBtn = document.querySelector('.js-subtitles-btn');
 var abortButton = document.querySelector('.js-abort-guide');
 var subtitlesElement = document.getElementById('video-subtitles');
 var subtitlesContainer = document.querySelector('.js-subtitles-container');
-var locationList = document.querySelector('.js-chapters');
 var chapterTrackElement = document.getElementById('video-chapters');
 var trackMetadataElement = document.getElementById('video-metadata');
 var subtitlesTrack = subtitlesElement === null ? '' : subtitlesElement.track;
@@ -19,22 +18,11 @@ var backwardsButton = document.querySelector('.js-previous-chapter');
 var timelinePosts = document.querySelectorAll('.js-timeline-post');
 var navigationButton = document.querySelector('.js-show-timelineposts');
 var timeLinePosts = document.querySelector('.js-timeline-posts');
-var currentChapter = 1;
+var currentChapter = 0;
 var manualStep = false;
-var sourceElement = null;
 
 // Has src attributes been set already?
-if (sourceElement) {
-	document.location.reload();
-} else if (video) {
-	var dataSrc = video.dataset.src;
-
-	sourceElement = document.createElement('source');
-	sourceElement.setAttribute('src', dataSrc);
-	sourceElement.setAttribute('type', 'video/mp4');
-
-	video.appendChild(sourceElement);
-
+if (video) {
 	// Store current time in on page reload
 	window.addEventListener('unload', function () {
 		// Set localStorage if video has started playing
@@ -140,26 +128,6 @@ function displayChapters() {
 				// Let data load
 				setTimeout(function () {
 					video.classList.remove('is-loading');
-					[].forEach.call(chapterTrack.cues, function (cues) {
-						var chapterName = cues.text;
-						var start = cues.startTime;
-						var newLocale = document.createElement('li');
-						var location = document.createElement('a');
-
-						location.setAttribute('rel', start);
-						newLocale.setAttribute('id', start);
-						location.setAttribute('tabindex', '0');
-
-						// Plain text from the chapter file into HTML text
-						var localeDescription = chapterName;
-						location.innerHTML = localeDescription;
-						newLocale.appendChild(location);
-						locationList.appendChild(newLocale);
-
-						location.addEventListener('click', function () {
-							video.currentTime = location.id;
-						}, false);
-					});
 
 					// If not set in sessionStorgare, set first cue on forward button on page load
 					if (!localStorage.getItem('InmsCurrentTime')) {
@@ -224,23 +192,10 @@ function displayChapters() {
 								// get the chapter <li> elements based on the currentLocation
 								var locations = [].slice.call(chapter.closest('figure').querySelectorAll('.js-chapters li'));
 
-								var counter = 0;
-
 								[].forEach.call(locations, function (location) {
 									// remove current classes from all items on page refresh
 									location.classList.remove('is-current-item');
 									location.querySelector('a').classList.remove('is-current');
-
-									if (location.classList.contains('is-current-item')) {
-										counter += 1; // iterate counter when active chapter is reached
-									}
-									if (counter < 1) {
-										// add watched class to everything before the current chapter to show progress
-										location.classList.add('is-watched');
-									} else {
-										// remove watched on all other items
-										location.classList.remove('is-watched');
-									}
 								});
 								chapter.parentNode.classList.add('is-current-item');
 								chapter.classList.add('is-current');
@@ -266,7 +221,6 @@ function displayChapters() {
 
 					[].forEach.call(idSelectors, function (idSelector) {
 						idSelector.classList.add('is-current');
-						idSelector.focus();
 					});
 
 					if (chapterCues) {
