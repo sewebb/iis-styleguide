@@ -3,6 +3,8 @@
 @include organism(video-guide) {
 	flex-direction: column;
 	background-color: $color-snow;
+	border-radius: $border-radius;
+	overflow: hidden;
 
 	@include e(inner-wrapper) {
 		width: 100%;
