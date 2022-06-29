@@ -6,6 +6,7 @@ var selectStore = {};
 
 function effectChain(element, value) {
 	var options = element.querySelectorAll('option[data-if-chain]');
+	var oldValue = element.value;
 
 	if (!(element.name in selectStore)) {
 		// First time, cache options
@@ -46,6 +47,10 @@ function effectChain(element, value) {
 
 	if (newOptions.length === 1) {
 		element.value = newOptions[0].value;
+	}
+
+	if (oldValue !== element.value) {
+		element.dispatchEvent(new Event('change', { bubbles: true }));
 	}
 }
 
@@ -91,8 +96,6 @@ function update(element, value) {
 	});
 	var conditionMet = !values.length && !!value || matches;
 
-	console.log(values, value, matches);
-
 	if (effect === 'disable') {
 		effectDisable(element, !conditionMet, value);
 	} else if (effect === 'toggle') {
@@ -100,33 +103,6 @@ function update(element, value) {
 	} else if (effect === 'text') {
 		effectText(element, value);
 	}
-}
-
-function delegate(_ref3) {
-	var target = _ref3.target;
-	var name = target.name;
-
-
-	if (!name) {
-		return;
-	}
-
-	var elements = document.querySelectorAll('[data-if^="' + name + '"]');
-
-	if (!elements.length) {
-		return;
-	}
-
-	var value = target.value;
-
-
-	if (['checkbox', 'radio'].includes(target.getAttribute('type'))) {
-		value = target.checked ? target.value : null;
-	}
-
-	[].forEach.call(elements, function (element) {
-		return update(element, value);
-	});
 }
 
 function init() {
@@ -156,6 +132,33 @@ function init() {
 
 			update(element, value);
 		}
+	});
+}
+
+function delegate(_ref3) {
+	var target = _ref3.target;
+	var name = target.name;
+
+
+	if (!name) {
+		return;
+	}
+
+	var elements = document.querySelectorAll('[data-if^="' + name + '"]');
+
+	if (!elements.length) {
+		return;
+	}
+
+	var value = target.value;
+
+
+	if (['checkbox', 'radio'].includes(target.getAttribute('type'))) {
+		value = target.checked ? target.value : null;
+	}
+
+	[].forEach.call(elements, function (element) {
+		return update(element, value);
 	});
 }
 

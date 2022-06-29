@@ -25,7 +25,7 @@
 	</div>
 	<div class="field-group">
 		<label for="select3">Lokal</label>
-		<select id="select3" class="a-select" data-if="city" data-if-effect="disable">
+		<select id="select3" class="a-select" data-if="city" data-if-effect="disable" name="venue">
 			<option value="" selected disabled>Välj</option>
 			<option data-if-chain="stockholm" value="1">Gradängen</option>
 			<option data-if-chain="stockholm" value="2">Annexet</option>
@@ -33,5 +33,7 @@
 			<option data-if-chain="malmo" value="4">Hörsalen</option>
 			<option data-if-chain="online" value="5">Online</option>
 		</select>
+		<p data-if="venue:1">Du har valt Gradängen</p>
+		<p data-if="venue:2">Du har valt Annexet</p>
 	</div>
 </form>
