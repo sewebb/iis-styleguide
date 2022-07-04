@@ -49,7 +49,7 @@
 // Rows contain and clear the floats of your columns.
 
 @mixin make-asymmetric-cols($gap, $reversed: false) {
-	@for $i from 1 through $grid-columns {
+	@for $i from 1 through 3 {
 		$col-gap: $gap * ($i - 1);
 
 		@if $reversed == false {
