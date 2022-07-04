@@ -37,11 +37,12 @@
 			> h6,
 			> ul,
 			> ol,
-			> :not(.wp-block-iis-info):not(.wp-block-image):not(.wp-block-iis-hero):not(.wp-block-iis-grid):not([class*='accordion']),
-			> figure,
+			> div:not(.wp-block-iis-info):not(.wp-block-image):not(.wp-block-iis-hero):not(.wp-block-iis-grid):not([class*='accordion']),
 			> .wp-block-iis-card,
+			> .wp-block-image > figure,
+			> figure,
 			> blockquote {
-				&:not(.alignfull):not(.alignleft):not(.alignright):not(.alignwide):not(.wp-block-iis-hero) {
+				&:not(.alignfull):not(.alignleft):not(.alignright):not(.alignwide):not(.wp-block-iis-hero)  {
 					max-width: calc(#{rem(612px)} + #{($indent * 2)});
 					margin-right: math.div($grid-gutter-width, 2);
 					margin-left: $indent * 2;
@@ -74,10 +75,10 @@
 				> ul,
 				> ol,
 				> div:not(.wp-block-iis-info):not(.wp-block-image):not(.wp-block-iis-hero):not(.wp-block-iis-grid):not([class*='accordion']),
-				> figure,
 				> .wp-block-iis-card,
+				> figure,
 				> blockquote {
-					&:not(.alignfull):not(.alignleft):not(.alignright):not(.alignwide):not(.wp-block-iis-hero) {
+					&:not(.alignfull):not(.alignleft):not(.alignright):not(.alignwide):not(.wp-block-iis-hero)  {
 						max-width: 46.364%;
 					}
 				}
@@ -102,10 +103,10 @@
 			> ul,
 			> ol,
 			> div:not(.wp-block-iis-info):not(.wp-block-image):not(.wp-block-iis-hero):not(.wp-block-iis-grid):not([class*='accordion']),
-			> figure:not(.wp-block-iis-info):not(.wp-block-image):not(.wp-block-iis-hero):not(.wp-block-iis-grid):not([class*='accordion']),
 			> .wp-block-iis-card,
+			> figure,
 			> blockquote {
-				&:not(.alignfull):not(.alignleft):not(.alignright):not(.alignwide) {
+				&:not(.alignfull):not(.alignleft):not(.alignright):not(.alignwide):not(.wp-block-iis-hero) {
 					margin-right: $grid-margin-right;
 					margin-left: $grid-indent * 2;
 				}
