@@ -75,6 +75,10 @@
 		border-radius: rem(17.5px);
 		background-color: $color-granit;
 		color: $color-snow;
+
+		[class*=text] {
+			color: $color-snow;
+		}
 	}
 }
 
@@ -86,5 +90,9 @@
 	&:focus {
 		border: 1px solid transparent;
 		background-color: rgba($color-snow, 0.5);
+
+		[class*=text] {
+			color: $color-cyberspace;
+		}
 	}
 }

@@ -6,7 +6,8 @@
 
 	@extend %tag;
 
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
 	position: relative;
 	z-index: z_index(middleground);
 	margin-right: rhythm(1);
@@ -22,7 +23,42 @@
 		@include color_values($colors, 'border-color', $separator: '-');
 	}
 
+	@include e(text) {
+		color: $color-cyberspace;
+	}
+
 	@include m(light) {
 		@extend %tag-light;
+
+		@include e(text) {
+			color: $color-snow;
+		}
+	}
+
+	> svg {
+		width: $icon-size-small;
+		height: $icon-size-small;
+	}
+
+	@include m(hover-light) {
+		&:hover,
+		&:focus {
+			background-color: currentColor !important;
+
+			[class*=text] {
+				color: $color-snow;
+			}
+		}
+	}
+
+	@include m(hover-dark) {
+		&:hover,
+		&:focus {
+			background-color: currentColor !important;
+
+			[class*=text] {
+				color: $color-cyberspace;
+			}
+		}
 	}
 }
