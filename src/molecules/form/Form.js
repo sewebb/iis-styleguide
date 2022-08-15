@@ -237,7 +237,7 @@ export default class Form {
 				help.innerHTML = '';
 			}
 
-			const fieldGroup = input.closest('.field-group');
+			const fieldGroup = input.closest('[class*="field-group"]');
 
 			if (fieldGroup) {
 				fieldGroup.classList.remove('is-invalid');

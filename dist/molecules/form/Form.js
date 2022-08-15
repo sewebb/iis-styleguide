@@ -338,7 +338,7 @@ var Form = function () {
 					help.innerHTML = '';
 				}
 
-				var fieldGroup = input.closest('.field-group');
+				var fieldGroup = input.closest('[class*="field-group"]');
 
 				if (fieldGroup) {
 					fieldGroup.classList.remove('is-invalid');
