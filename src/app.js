@@ -1,5 +1,6 @@
-import './molecules/form';
-import './atoms/textarea/rich-text';
+import 'a11y-toggle';
+import './focusTrap';
+import './assets/js/conditional';
 
 require('./atoms/grid-toggle/grid-toggle');
 require('./components');

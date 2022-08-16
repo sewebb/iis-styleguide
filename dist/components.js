@@ -1,12 +1,14 @@
 'use strict';
 
+require('./molecules/form');
+
+require('./atoms/textarea/rich-text');
+
 require('./atoms/password-toggle/password-toggle');
 
 require('./utilities/tab-highlighting/tab-highlighting');
 
 require('./molecules/system-error/system-error');
-
-require('a11y-toggle');
 
 require('./molecules/cookie-disclaimer/cookie-disclaimer');
 
@@ -26,11 +28,7 @@ require('./atoms/tooltip/tooltip');
 
 require('./atoms/toggle-high-contrast/toggle-high-contrast');
 
-require('./focusTrap');
-
 require('./atoms/height-limiter/height-limiter');
-
-require('./assets/js/conditional');
 
 require('./atoms/file/file');
 
