@@ -25,6 +25,7 @@
 
 	@include e(text) {
 		color: $color-cyberspace;
+		letter-spacing: 0.025rem;
 	}
 
 	@include m(light) {
