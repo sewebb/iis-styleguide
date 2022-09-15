@@ -9,7 +9,8 @@ module.exports = {
 		has_buttons: false,
 		has_tags: true,
 		hero_image: '/assets/images/hero.jpg',
-		has_link: true
+		has_link: true,
+		has_pre_heading: false,
 	},
 	variants: [
 		{
@@ -54,6 +55,19 @@ module.exports = {
 				has_video: true,
 				has_image: false,
 				has_buttons: false,
+			}
+		},
+		{
+			name: 'Pre heading',
+			context: {
+				has_pre_heading: true,
+				pre_heading: 'Publicerad 11 oktober 2022',
+				no_image_class: true,
+				has_radius: false,
+				limited_width: false,
+				has_video: false,
+				has_image: true,
+				has_buttons: true,
 			}
 		},
 		{

@@ -217,6 +217,10 @@
 
 		@include b(a-tag) {
 			@include tag;
+
+			[class*=text] {
+				color: $color-cyberspace;
+			}
 		}
 
 		@include bp-up(md) {
