@@ -21,6 +21,9 @@ function onPlayerStateChange(el, e) {
 	if (e.data === YT.PlayerState.PLAYING) {
 		el.getElementsByTagName('img')[0].style.zIndex = '-1';
 		el.getElementsByTagName('button')[0].style.display = 'none';
+	} else if (e.data === YT.PlayerState.UNSTARTED) {
+		el.getElementsByTagName('img')[0].style.zIndex = null;
+		el.getElementsByTagName('button')[0].style.display = null;
 	}
 }
 
@@ -44,6 +47,11 @@ function setupYoutubePlayer(el) {
 		el.youtube.destroy();
 		el.youtube = null;
 		el.removeAttribute('data-youtube-ready');
+<<<<<<< HEAD
+=======
+		el.getElementsByTagName('img')[0].style.zIndex = null;
+		el.getElementsByTagName('button')[0].style.display = null;
+>>>>>>> feature/open-timelineitem
 	}
 
 	playerEl = document.createElement('div');

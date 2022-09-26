@@ -1,0 +1,107 @@
+<div class="wrapper">
+	<div class="o-video-guide">
+		<figure>
+			<div class="o-video-guide__inner-wrapper">
+				<div class="o-video-guide__video-container">
+					<div class="o-video-guide__subtitles js-subtitles-container"></div>
+					<video class="o-video-guide__video js-video-guide is-loading" disablePictureInPicture disableRemotePlayback preload="metadata" data-featured-image="/assets/images/sticky-guide.png">
+						<source src="{{videoSrc2}}" type='video/mp4; codecs="hvc1"'>
+						<source src="{{videoSrc}}" type="video/webm">
+						<track id="video-subtitles" kind="metadata" src="/assets/video/videoplayer.vtt" srclang="sv" default>
+						<track id="video-chapters" kind="chapters" label="Kapitel" src="/assets/video/chapters.vtt" srclang="sv">
+						<track id="video-metadata" kind="metadata" label="timeLineItems" src="/assets/video/metadata.vtt" srclang="sv">
+					</video>
+					<ul class="u-list-clean">
+						<li class="o-video-guide__timeline-item js-timeline-post" data-id="89108">
+							<div class="o-video-guide__timeline-item__text">
+								<h1 class="o-video-guide__timeline-item__text__headline">Den stora berättelsen om internet</h1>
+							</div>
+							<img src="/assets/images/adalovelace.jpg" class="" alt="Man using his phone">
+						</li>
+						<li class="o-video-guide__timeline-item js-timeline-post" data-id="91027">
+							<img src="/assets/images/US-Robotics-56k-modem.jpg" class="" alt="Man using his phone">
+						</li>
+						<li class="o-video-guide__timeline-item js-timeline-post" data-id="81345">
+							<img src="/assets/images/8-interesting-facts-about-the-internet-1875674595-jul-12-2012-600x400.jpeg" class="" alt="JCR Licklider">
+						</li>
+						<li class="o-video-guide__timeline-item js-timeline-post" data-id="76810">
+							<img src="/assets/images/arpanet2.png" class="" alt="Arpanet">
+						</li>
+						<li class="o-video-guide__timeline-item js-timeline-post" data-id="86454">
+							<img src="/assets/images/tcpiptecknad.png" class="" alt="TCP/IP">
+						</li>
+						<li class="o-video-guide__timeline-item js-timeline-post" data-id="80127">
+							<img src="/assets/images/ulf-bilting.jpeg" class="" alt="Ulf Bilting">
+						</li>
+						<li class="o-video-guide__timeline-item js-timeline-post" data-id="76325">
+							<img src="/assets/images/bjorneriksen-260x390.jpeg" class="" alt="Björn Eriksen">
+						</li>
+						<li class="o-video-guide__timeline-item js-timeline-post" data-id="76280">
+							<img src="/assets/images/wwwtimbernerslee.png" class="" alt="Tim Berners-Lee">
+						</li>
+						<li class="o-video-guide__timeline-item js-timeline-post" data-id="80725">
+							<img src="/assets/images/mos-10-e1504100510732.jpeg" class="" alt="Mosaic">
+						</li>
+					</ul>
+				</div>
+				<div class="o-video-guide__controls">
+					<figcaption class="o-video-guide__chapters">
+						<span class="o-video-guide__title delta">Den stora berättelsen om internet</span>
+						<ol class="o-video-guide__chapters__list js-chapters">
+							<li id="0" class="is-current-item"><a rel="0" tabindex="0">Kapitel 1 / 8: Introduktion</a></li>
+							<li id="39"><a rel="39" tabindex="0">Kapitel 2 / 8: Idén om internet</a></li>
+							<li id="111.5"><a rel="111.5" tabindex="0">Kapitel 3 / 8: Arpanet blir till</a></li>
+							<li id="173"><a rel="173" tabindex="0">Kapitel 4 / 8: TCP/IP uppfinns</a></li>
+							<li id="207"><a rel="207" tabindex="0">Kapitel 5 / 8: Sveriges första internetnod</a></li>
+							<li id="236.5"><a rel="236.5" tabindex="0">Kapitel 6 / 8: Toppdomänen .se registreras</a></li>
+							<li id="274"><a rel="274" tabindex="0">Kapitel 7 / 8: World Wide Web</a></li>
+							<li id="317"><a rel="317" tabindex="0">Kapitel 8 / 8: Mosaic - den grafiska webbläsaren</a></li>
+						</ol>
+					</figcaption>
+					<div class="o-video-guide__buttons">
+						<button type="button" class="o-video-guide__button js-previous-chapter" title="Föregående kapitel">
+							<span class="u-visuallyhidden">Föregående kapitel</span>
+							{{>@ icon id="step-backwards" additional_classes="o-video-guide__rewind-icon"}}
+						</button>
+						<button type="button" class="o-video-guide__button o-video-guide__button--play js-play-btn" title="Play/Pause">
+							<span class="u-visuallyhidden">Play/Pause</span>
+							{{>@ icon id="play" additional_classes="o-video-guide__play-icon js-play-icon"}}
+							{{>@ icon id="pause" additional_classes="o-video-guide__play-icon js-pause-icon is-hidden"}}
+						</button>
+						<button type="button" class="o-video-guide__button o-video-guide__button--next js-next-chapter" title="Nästa kapitel">
+							<span class="u-visuallyhidden">Nästa kapitel</span>
+							{{>@ icon id="step-forwards" additional_classes="o-video-guide__forward-icon"}}
+						</button>
+						<button type="button" class="o-video-guide__button o-video-guide__button--subtitles js-subtitles-btn" title="Undertexter">
+							<span class="u-visuallyhidden">Undertexter</span>
+							{{>@ icon id="subtitles" additional_classes="o-video-guide__subtitles-icon"}}
+						</button>
+					</div>
+				</div>
+				<a href="https://stage.styleguide.internetstiftelsen.se/components/preview/video-guide--list.html" class="o-video-guide__button-abort a-button a-button--small a-button--peacock js-abort-guide">
+					<span class="a-button__text color-snow u-nowrap">Avsluta</span>
+				</a>
+			</div>
+			<nav class="o-video-guide__timelineposts js-timeline-posts">
+				<button type="button" class="a-button a-button--standalone-icon a-button--icon a-button--standalone-icon--white o-video-guide__timelineposts__button-navigation js-show-timelineposts">
+					<span class="a-button__text">Visa navigering</span>
+					<svg class="icon a-button__icon">
+						<use xlink:href="#icon-arrow-backwards"></use>
+					</svg>
+				</button>
+				<dl class="u-list-clean o-video-guide__timelineposts__list">
+					<dt>Fördjupa dig</dt>
+					<dd><a href="#" class="o-video-guide__timelineposts__link js-timeline-post" data-id="81345" data-label="Läs mer">1963 - JCR Licklider formulerar idén om internet – ett ”intergalaktiskt nätverk”</a></dd>
+					<dd><a href="#" class="o-video-guide__timelineposts__link js-timeline-post" data-id="76810" data-label="Läs mer">1969 - Starten på internet heter Arpanet</a></dd>
+					<dd><a href="#" class="o-video-guide__timelineposts__link js-timeline-post" data-id="86454" data-label="Läs mer">1974 - Det här är TCP/IP – nu uppfinns tekniken bakom internet</a></dd>
+					<dd><a href="#" class="o-video-guide__timelineposts__link js-timeline-post" data-id="80127" data-label="Läs mer">1984 - Nu kommer internet till Sverige – Ulf Bilting skapar första uppkopplingen</a></dd>
+					<dd><a href="#" class="o-video-guide__timelineposts__link js-timeline-post" data-id="76325" data-label="Läs mer">1986 - Björn Eriksen kniper toppdomänen – så blir Sverige .se på internet</a></dd>
+					<dd><a href="#" class="o-video-guide__timelineposts__link js-timeline-post" data-id="76280" data-label="Läs mer">1989 - World Wide Web skapas – nu kan internet bli en publiksuccé</a></dd>
+					<dd><a href="#" class="o-video-guide__timelineposts__link js-timeline-post" data-id="80725" data-label="Läs mer">1993 - Webbläsaren Mosaic blir en dundersuccé – nu blir surfandet njutbart</a></dd>
+				</dl>
+			</nav>
+		</figure>
+	</div>
+	{{> @continue-video-guide additional_classes="u-visuallyhidden"}}
+
+</div>

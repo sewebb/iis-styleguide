@@ -7,6 +7,8 @@ var _gliderJs2 = _interopRequireDefault(_gliderJs);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 var gliderElementHero = document.querySelector('.js-glider-hero');
+var dataLayer = window.dataLayer || [];
+var gliderLinks = document.querySelectorAll('.glider-slide a');
 
 if (gliderElementHero) {
 	var GliderHero = new _gliderJs2.default(gliderElementHero, {
@@ -41,6 +43,43 @@ if (gliderElementHero) {
 				}, autoplayDelay);
 			}
 		}, 0);
+	} else {
+		document.querySelector('.js-glider-prev').addEventListener('click', function () {
+			dataLayer.push({
+				event: 'carousel',
+				eventInfo: {
+					category: 'carousel',
+					action: 'click',
+					label: 'arrow_left'
+				}
+			});
+		});
+
+		document.querySelector('.js-glider-next').addEventListener('click', function () {
+			dataLayer.push({
+				event: 'carousel',
+				eventInfo: {
+					category: 'carousel',
+					action: 'click',
+					label: 'arrow_right'
+				}
+			});
+		});
+
+		[].forEach.call(gliderLinks, function (gliderLink) {
+			gliderLink.addEventListener('click', function () {
+				var linkTarget = gliderLink.href;
+				console.log(linkTarget);
+				dataLayer.push({
+					event: 'carousel',
+					eventInfo: {
+						category: 'carousel',
+						action: 'click',
+						label: linkTarget
+					}
+				});
+			});
+		});
 	}
 
 	module.exports = GliderHero;

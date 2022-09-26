@@ -7,6 +7,7 @@ var _require = require('../../assets/js/offset'),
     offsetBottom = _require.offsetBottom,
     offsetLeft = _require.offsetLeft;
 
+var dataLayer = window.dataLayer || [];
 var progressBar = document.querySelector('.js-progress-bar');
 var decadeContainer = document.querySelector('.js-decade-container');
 var decadeSections = document.querySelectorAll('.js-timeline-decade');
@@ -84,6 +85,39 @@ function animateProgressBar() {
 	progressBar.style.width = progressBarWidth + 'px';
 }
 
+function isInViewport(element) {
+	var top = element.offsetTop;
+	var height = element.offsetHeight;
+
+	while (element.offsetParent) {
+		element = element.offsetParent; // eslint-disable-line
+		top += element.offsetTop;
+	}
+
+	return top < window.pageYOffset + window.innerHeight && top + height > window.pageYOffset;
+}
+
+function decadeIsVisible() {
+	[].forEach.call(decadeSections, function (decadeSection) {
+		if (isInViewport(decadeSection) && !decadeSection.classList.contains('is-in-view')) {
+			decadeSection.classList.add('is-in-view');
+
+			var decade = decadeSection.id;
+
+			dataLayer.push({
+				event: 'timeline',
+				eventInfo: {
+					category: 'timeline',
+					action: 'active_year',
+					label: decade
+				}
+			});
+		} else if (!isInViewport(decadeSection)) {
+			decadeSection.classList.remove('is-in-view');
+		}
+	});
+}
+
 // Run functions on page load
 if (progressBar) {
 	buildTimelineNavigation();
@@ -97,10 +131,12 @@ if (progressBar) {
 	});
 	window.addEventListener('scroll', function () {
 		animateProgressBar();
+		decadeIsVisible();
 	});
 }
 
 // DUMMY TIMELINE ITEM OPEN/CLOSE
+<<<<<<< HEAD
 /*
 function wrap(el, wrapper) {
 	el.parentNode.insertBefore(wrapper, el);
@@ -153,3 +189,55 @@ let timeLineItemScrollPosition = 0;
 	});
 });
 */
+=======
+// function wrap(el, wrapper) {
+// 	el.parentNode.insertBefore(wrapper, el);
+// 	wrapper.classList.add('wrapper');
+// 	wrapper.appendChild(el);
+// }
+//
+// const timeLineItems = document.querySelectorAll('.js-timeline-item');
+// let timeLineItemScrollPosition = 0;
+//
+// [].forEach.call(timeLineItems, (timeLineItem) => {
+// 	const timeLineItemLink = timeLineItem.querySelector('a');
+// 	const timeLineItemClose = timeLineItem.querySelector('.js-timeline-item-close');
+// 	const timeLineItemBottomClose = timeLineItem.querySelector('.js-timeline-item-bottom-close');
+//
+// 	timeLineItemLink.addEventListener('click', () => {
+// 		timeLineItemScrollPosition = window.pageYOffset;
+// 		sessionStorage.setItem('scroll-position', timeLineItemScrollPosition);
+//
+// 		if (!timeLineItem.classList.contains('is-open')) {
+// 			timeLineItem.classList.add('is-open');
+// 			timeLineItem.closest('.row').classList.add('row-has-open-child');
+//
+// 			// Wrap open timeline item
+// 			wrap(timeLineItem.querySelector('.wp-block-iis-timeline-post'),
+//			document.createElement('div'));
+// 		}
+// 	});
+//
+// 	timeLineItemClose.addEventListener('click', () => {
+// 		timeLineItem.classList.remove('is-open');
+// 		timeLineItem.closest('.row').classList.remove('row-has-open-child');
+//
+// 		// Destroy generated wrapper
+// 		const wrapper = timeLineItemClose.nextElementSibling;
+// 		wrapper.replaceWith(...wrapper.childNodes);
+//
+// 		const top = sessionStorage.getItem('scroll-position');
+// 		if (top !== null) {
+// 			window.scrollTo(0, parseInt(top, 10));
+// 		}
+// 		sessionStorage.removeItem('scroll-position');
+//
+// 		// Trigger scroll event to reveal timeline items not yet parallaxed into view
+// 		window.dispatchEvent(new CustomEvent('scroll'));
+// 	});
+//
+// 	timeLineItemBottomClose.addEventListener('click', () => {
+// 		timeLineItemClose.click();
+// 	});
+// });
+>>>>>>> feature/open-timelineitem

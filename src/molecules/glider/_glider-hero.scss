@@ -272,17 +272,12 @@
 			@include bp-up(xl) {
 				bottom: rhythm(8);
 				left: rhythm(8);
-				max-width: 50%;
 
 				@include plumber(
 					$font-size: 7,
 					$line-height: 9,
 					$leading-bottom: 0
 				);
-			}
-
-			@include bp-up(xxl) {
-				max-width: 45%;
 			}
 		}
 	}
@@ -292,7 +287,7 @@
 	transform: scale(0.7) translateY(-100%);
 
 	@include bp-up(md) {
-		transform: scale(1) translateY(0);
+		transform: scale(1) translateY(-50%);
 	}
 
 	@include m(hero) {
