@@ -1,10 +1,6 @@
 {
 	"name": "@internetstiftelsen/styleguide",
-<<<<<<< HEAD
-	"version": "2.23.17",
-=======
-	"version": "2.22.3-beta.0.62",
->>>>>>> feature/open-timelineitem
+	"version": "2.24.0",
 	"main": "dist/components.js",
 	"ports": {
 		"fractal": "3000"
