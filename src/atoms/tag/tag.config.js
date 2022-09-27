@@ -69,6 +69,16 @@ module.exports = {
 				hover_color: 'dark',
 				color: 'jade'
 			}
+		},
+		{
+			name: 'Border variation',
+			context: {
+				text: 'border',
+				href: '#',
+				is_light: false,
+				border: true,
+				background_color: false
+			}
 		}
 	]
 }

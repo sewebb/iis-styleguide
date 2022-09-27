@@ -66,6 +66,7 @@ $namespace: '';
 @import 'molecules/glider/glider';
 @import 'molecules/glider/glider-course';
 @import 'molecules/glider/glider-hero';
+@import 'molecules/continue-video-guide/continue-video-guide';
 
 // Organisms
 @import 'organisms/header/header';
@@ -85,6 +86,8 @@ $namespace: '';
 @import 'organisms/event-listing-item/event-listing-item';
 @import 'organisms/podcast/podcast-episodes';
 @import 'organisms/podcast/podcast-player';
+@import 'organisms/video-guide/video-guide';
+@import 'organisms/timeline/timeline';
 
 // Structures
 @import 'structures/manifest';

@@ -24,3 +24,6 @@ import './molecules/glider/glider-course';
 import './molecules/glider/glider-hero';
 import './molecules/context-menu/context-menu';
 import './molecules/alert/alert';
+import './molecules/continue-video-guide/continue-video-guide';
+import './organisms/video-guide/video-guide';
+import './organisms/timeline/timeline';
