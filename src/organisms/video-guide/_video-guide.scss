@@ -316,6 +316,27 @@
 			font-size: $size-medium;
 			position: relative;
 			line-height: 1.5;
+			border-left: 0 solid $color-peacock;
+			transition: all 0.25s ease-out;
+
+			&::after {
+				content: attr(data-label);
+				display: block;
+				background-color: $color-lemon;
+				color: $color-cyberspace;
+				font-family: $font-family-headings;
+				padding: rhythm(1);
+				line-height: 1;
+				align-self: flex-end;
+				white-space: nowrap;
+				border-radius: $border-radius;
+				transform: translateX(rhythm(0.5));
+				margin-left: rhythm(1);
+				overflow: hidden;
+				transition: transform 0.25s ease-out;
+				transform: scale(0);
+				opacity: 0;
+			}
 
 			&:hover,
 			&:focus,
@@ -323,27 +344,27 @@
 				background-color: lighten($color-cyberspace, 10%);
 
 				&::after {
-					content: attr(data-label);
-					display: block;
-					background-color: $color-peacock;
-					font-family: $font-family-headings;
-					padding: rhythm(1);
-					line-height: 1;
-					align-self: flex-end;
-					white-space: nowrap;
-					border-radius: $border-radius;
-					transform: translateX(rhythm(0.5));
-					margin-left: rhythm(1);
+					overflow: visible;
+					transform: scale(100%);
+					opacity: 1;
 				}
 			}
 
 			&.is-current {
 				font-family: $font-family-headings;
+				border-left: rhythm(1) solid $color-peacock;
+
+				&::after {
+					background-color: $color-peacock;
+					color: $color-snow;
+				}
 			}
 		}
 
 		@include e(button-navigation) {
 			transform: translateX(-100%);
+			background-color: $color-cyberspace;
+			border-bottom-left-radius: $border-radius;
 
 			@include bp-up(md) {
 				display: none;
@@ -352,7 +373,7 @@
 			&.is-toggeled {
 				transform: translateX(0) scaleX(-1);
 				position: absolute;
-				right: rhythm(1);
+				right: rhythm(2);
 				z-index: 2;
 			}
 		}
