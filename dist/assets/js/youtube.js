@@ -47,11 +47,8 @@ function setupYoutubePlayer(el) {
 		el.youtube.destroy();
 		el.youtube = null;
 		el.removeAttribute('data-youtube-ready');
-<<<<<<< HEAD
-=======
 		el.getElementsByTagName('img')[0].style.zIndex = null;
 		el.getElementsByTagName('button')[0].style.display = null;
->>>>>>> feature/open-timelineitem
 	}
 
 	playerEl = document.createElement('div');
