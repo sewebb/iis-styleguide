@@ -232,6 +232,8 @@ html {
 
 			p[class*='card__text'] {
 				@extend %preamble;
+				
+				display: block;
 			}
 
 			.wp-block-iis-timeline-post {
