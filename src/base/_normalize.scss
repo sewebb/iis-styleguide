@@ -9,7 +9,7 @@ html {
 	height: 100%;
 	min-height: 100%;
 	background-color: theme_palette('background');
-	color: $color-cyberspace;
+	color: var(--cyberspace-color);
 	font-family: sans-serif;
 	font-size: percentage(math.div($size-base, 16px));
 	-ms-overflow-style: scrollbar;
