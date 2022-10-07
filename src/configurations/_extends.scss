@@ -17,7 +17,7 @@
 %link-styles {
 	padding: rhythm(0) rhythm(0.5);
 	border-bottom: rem(2px) solid $color-peacock;
-	color: $color-black;
+	color: var(---cyberspace-color);
 	text-decoration: none;
 
 	&:hover,

@@ -79,6 +79,8 @@
 		height: math.div($icon-size, 2);
 		margin: 0 rhythm(1);
 		transform: translateY(rem(1px));
+		color: var(--cyberspace-color);
+		fill: currentColor;
 
 		&:first-child {
 			margin: 0 rhythm(1) 0 0;
@@ -94,7 +96,7 @@
 
 		max-width: rhythm(30);
 		overflow: hidden;
-		color: $color-cyberspace;
+		color: var(--cyberspace-color);
 		text-decoration: none;
 		text-overflow: ellipsis;
 		white-space: nowrap;

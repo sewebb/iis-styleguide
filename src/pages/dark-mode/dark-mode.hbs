@@ -1,106 +1,185 @@
-<style>
-	@media (prefers-color-scheme: dark) {
-		:root {
-			--cyberspace-color: #ffffff;
-		}
-	}
-</style>
-
-<div class="site__main" id="siteMain">
-	<div class="site__main__content">
-		<div class="section section--tight">
-			<div class="wrapper">
-				<div class="row">
-					<div class="grid-18 grid-lg-12">
-						<main role="main" class="article">
-							<h1 class="supersize">Kom igång med CC och<br>GNU-GPL!</h1>
-
-							<div class="article__content">
-								<p class="wp-block-preamble preamble">I den här guiden lär du dig…</p>
-
-								{{> @info-box text="<ul><li>Nyttan med öppna licenser</li><li>Att skilja på olika sorters licenser</li><li>Om företagande och öppen källkod</li><li>Hur du använder licenserna i praktiken</li><li>Klargör vilka marknader du riktar dig till och registrera relevanta domäner.</li></ul>"}}
-
-								<ul>
-									<li><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/inledning/">Inledning</a> </li>
-									<li><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/upphovsratt-och-licenser/">Upphovsrätt och licenser </a>
-										<ul>
-											<li><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/upphovsratt-och-licenser/#borjade">Så började det</a> </li>
-											<li><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/upphovsratt-och-licenser/#nyttan">Vad är nyttan med öppna licenser?</a> </li>
-											<li><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/upphovsratt-och-licenser/#darfor">Därför ska du licensiera ditt material</a> </li>
-										</ul>
-									</li>
-									<li><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/sa-fungerar-en-cc-licens/">Så fungerar en CC-licens</a> 
-										<ul>
-											<li><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/sa-fungerar-en-cc-licens/">Så här skaffar du en CC-licens</a> </li>
-											<li><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/sa-fungerar-en-cc-licens/#sju">Sju olika licenser</a> </li>
-										</ul>
-									</li>
-									<li><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/sa-fungerar-oppen-kallkod/">Så fungerar öppen källkod</a></li>
-									<li><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/detta-ar-gnu-gpl/">Detta är GNU-GPL </a></li>
-									<li><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/gnu-glp-sa-har-licensierar-du/">GNU-GLP – så här licensierar du</a>
-										<ul>
-											<li><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/gnu-glp-sa-har-licensierar-du/#borja">Börja här</a> </li>
-											<li><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/gnu-glp-sa-har-licensierar-du/#frivilligt">Frivilligt: Free Software Directory och logotyp</a></li>
-											<li><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/gnu-glp-sa-har-licensierar-du/#bidra">Bidra till ett befintligt projekt</a> </li>
-										</ul>
-									</li>
-									<li><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/ordlista/">Ordlista </a></li>
-									<li><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/kallor-och-mer-lasning/">Källor och mer läsning</a> </li>
-								</ul>
-							</div>
-							<div class="row">
-								<div class="grid">
-									<hr>
+<div class="o-section background-jade-light alignfull u-m-b-8">
+	<div class="wrapper iis-o-section__content">
+		<div class="grid-18">
+			<div class="article">
+				<div class="article__content">
+					<div class="alignfull">
+						<div class="wrapper">
+							<div class="grid-18 grid-lg-12 u-m-offset-1">
+								<strong class="a-meta">hjärtefråga</strong>
+									<h1 class="supersize">Testsida för wordpress gutenberg blocks</h1>
+									<p>Visste du att internet är skitstort?</p>
+									</div>
 								</div>
 							</div>
-							<div class="row justify-content-between u-m-b-4 u-m-t-2">
-								<div class="grid-auto">
-									{{> @button url="#" text="Föregående kapitel" modifiers="lemon a-button--icon-left" icon="arrow-backwards"}}
-								</div>
-								<div class="grid-auto">
-									{{> @button url="#" text="Nästa kapitel" modifiers="lemon" icon="arrow-forwards"}}
-								</div>
-							</div>
-						</main>
-					</div>
-					<div class="grid-18 grid-lg-6">
-						<aside class="sidebar u-position-sticky-top-4">
-							<div class="row">
-								<div class="grid-18 grid-md-9 grid-lg-18 u-m-b-2">
-									<section class="m-card m-card--padded">
-										<div class="m-card__content">
-											<h1 class="beta">Kapitel</h1>
-											<div class="textwidget">
-												<ol>
-													<li class="page_item current_page_item"><a class="is-active" href="/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl">Innehållsförteckning</a></li>
-													<li class="page_item page-item-92709"><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/inledning/">Inledning</a></li>
-													<li class="page_item page-item-92718"><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/sa-fungerar-en-cc-licens/">Så fungerar en CC-licens</a></li>
-													<li class="page_item page-item-92712"><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/upphovsratt-och-licenser/">Upphovsrätt och licenser</a></li>
-													<li class="page_item page-item-92748"><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/sa-fungerar-oppen-kallkod/">Så fungerar öppen källkod</a></li>
-													<li class="page_item page-item-92753"><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/detta-ar-gnu-gpl/">Detta är GNU-GPL</a></li>
-													<li class="page_item page-item-92756"><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/gnu-glp-sa-har-licensierar-du/">GNU-GLP – så här licensierar du</a></li>
-													<li class="page_item page-item-92759"><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/ordlista/">Ordlista</a></li>
-													<li class="page_item page-item-92762"><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/kallor-och-mer-lasning/">Källor och mer läsning</a></li>
-													<li class="page_item page-item-92767"><a href="https://old.iis.se/lar-dig-mer/guider/kom-igang-med-cc-och-gnu-gpl/johanna-lundeberg/">Johanna Lundeberg</a></li>
-												</ol>
-											</div>
-										</div>
-									</section>
-								</div>
-								<div class="grid-18 grid-md-9 grid-lg-18 u-m-b-2">
-									<section class="m-card m-card--padded">
-										<div class="m-card__content">
-											<img style="width: 100%;" class="u-border-radius" src="https://internetstiftelsen.se/app/uploads/2017/05/Screen-Shot-2017-05-09-at-12.28.08.png" alt="Guide: Kom igång med CC och GNU-GPL!">
-										</div>
-									</section>
-								</div>
-							</div>
-						</aside>
+						</div>
 					</div>
 				</div>
-
-				{{render '@share'}}
 			</div>
+		</div>
+	</div>
+</div>
+<div class="wrapper">
+	<div class="article__content article__content--full-width">
+		<h1>Testsida för wordpress gutenberg blocks</h1>
+		<p class="wp-block-iis-preamble preamble">Så gott som alla svenskar använder internet och digitala tjänster idag. Både unga och äldre, de som gillar teknik och de som inte alls gör det. Alla behöver kunna hantera digitala tjänster, förstå hur de fungerar och hur de påverkar samhället.</p>
+	</div>
+</div>
+<div class="row justify-content-center">
+	<div class="grid-9">
+		<div class="wp-block-image">
+			<figure>
+				<img alt="lemon" src="/assets/images/ALX_0876.jpg">
+			</figure>
+		</div>
+	</div>
+</div>
+<div class="wrapper">
+	<div class="article__content article__content--full-width">
+		<div class="m-card m-card--padded m-card--wide alignwide">
+			<img src="/assets/images/ALX_0876.jpg" class="m-card__image m-card__media" alt="Hands typing on laptop">
+
+			<div class="m-card__content">
+				<a href="http://www.google.se" class="m-card__link"><h2 class="m-card__heading-link__heading">Gymnasieskolor med hög bandbredd har bättre skolresultat</h2></a>
+				<p class="m-card__text">Eget nulla <strong>facilisi etiam</strong> dignissim diam quis enim lobortis scelerisque. Faucibus a pellentesque sit amet porttitor.</p>
+
+				<div class="m-card__bottom">
+				</div>
+			</div>
+		</div>
+
+		<div class="wp-block-image">
+			<figure class="alignright size-medium">
+				<img alt="lemon" src="/assets/images/ALX_0876.jpg">
+			</figure>
+		</div>
+		<p>Internetstiftelsen har som ett av sina mål att bidra till kunniga och medvetna internetanvändare. Alla som köper ett domännamn som slutar på .se eller .nu är med och bidrar till det.</p>
+
+		<p>Internetstiftelsen är en oberoende, affärsdriven och allmännyttig organisation. Vi verkar för ett internet som bidrar positivt till människan och samhället. Vi ansvarar för internets svenska toppdomän .se och sköter drift och administration av toppdomänen .nu. Intäkterna från affärsverksamheten finansierar en rad satsningar i syfte att möjliggöra att människor kan nyttja internet på bästa sätt, och stimulera kunskapsdelning och innovation med inriktning på internet. Läs mer om vår verksamhet här.</p>
+
+		<div class="wp-block-iis-grid">
+			<div class="row">
+				<div class="grid-18 grid-md-12 u-m-b-4">
+					{{> @card}}
+				</div>
+				<div class="grid-18 grid-md-6 u-m-b-4">
+					{{> @card excerpt="Internetstiftelsen är en oberoende, affärsdriven och allmännyttig organisation."}}
+				</div>
+			</div>
+		</div>
+	</div>
+	</div>
+	<div class="o-section">
+	<div class="wrapper">
+		<div class="alignfull">
+			<div class="wrapper">
+				<div class="row">
+					<div class="grid-18 grid-md-12 grid-lg-8 offset-md-1">
+						<h1 class="supersize">Asymmetric grid</h1>
+						<p>
+							Ett domännamn är som en gatuadress på internet och gör att alla nätsurfare enkelt hittar till din sida. Internetstiftelsen ser till så att alla .se- och .nu-domäner fungerar som de ska. Innan du skaffar en egen adress på nätet är det ett par saker som kan vara bra att tänka på.
+						</p>
+					</div>
+				</div>
+			</div>
+		</div>
+
+		<div class="wp-block-iis-grid ">
+			<div class="row asymmetric-md">
+
+
+				<div class="grid-18 grid-lg-6 ">
+
+					<article class="wp-block-iis-card m-card m-card--padded m-card--shadow ">
+						<img width="700" height="406" src="https://internetstiftelsen.se/app/uploads/2020/03/kvinna-dator-2-700x406.jpg" class="optanon-category-C0004 m-card__image m-card__media ls-is-cached lazyloaded" alt="Kvinna arbetar framför dator på Internetstiftelsens kontor." loading="lazy" data-srcset="https://internetstiftelsen.se/app/uploads/2020/03/kvinna-dator-2-700x406.jpg 700w, https://internetstiftelsen.se/app/uploads/2020/03/kvinna-dator-2-726x420.jpg 726w, https://internetstiftelsen.se/app/uploads/2020/03/kvinna-dator-2-500x290.jpg 500w, https://internetstiftelsen.se/app/uploads/2020/03/kvinna-dator-2-8x5.jpg 8w" sizes="(max-width: 700px) 100vw, 700px" srcset="https://internetstiftelsen.se/app/uploads/2020/03/kvinna-dator-2-700x406.jpg 700w, https://internetstiftelsen.se/app/uploads/2020/03/kvinna-dator-2-726x420.jpg 726w, https://internetstiftelsen.se/app/uploads/2020/03/kvinna-dator-2-500x290.jpg 500w, https://internetstiftelsen.se/app/uploads/2020/03/kvinna-dator-2-8x5.jpg 8w">
+						<noscript><img width="700" height="406" src="https://internetstiftelsen.se/app/uploads/2020/03/kvinna-dator-2-700x406.jpg" class="m-card__image m-card__media" alt="Kvinna arbetar framför dator på Internetstiftelsens kontor." loading="lazy" srcset="https://internetstiftelsen.se/app/uploads/2020/03/kvinna-dator-2-700x406.jpg 700w, https://internetstiftelsen.se/app/uploads/2020/03/kvinna-dator-2-726x420.jpg 726w, https://internetstiftelsen.se/app/uploads/2020/03/kvinna-dator-2-500x290.jpg 500w, https://internetstiftelsen.se/app/uploads/2020/03/kvinna-dator-2-8x5.jpg 8w" sizes="(max-width: 700px) 100vw, 700px" /></noscript>
+						<div class="m-card__content">
+							<a href="/sok-doman/" class="m-card__link" target="_self">
+								<h1 class="beta">Är domännamnet ledigt?</h1>
+							</a>
+
+							<p>Kolla här om domännamnet du vill registrera är upptaget.</p>
+
+						</div>
+					</article>
+
+				</div>
+
+
+
+
+				<div class="grid-18 grid-lg-6 ">
+
+					<article class="wp-block-iis-card m-card m-card--padded m-card--shadow ">
+						<img width="700" height="406" src="https://internetstiftelsen.se/app/uploads/2019/01/KPA_0790-700x406.jpg" class="optanon-category-C0004 m-card__image m-card__media lazyloaded" alt="Adresskylt för Hammarby Kaj." loading="lazy" data-srcset="https://internetstiftelsen.se/app/uploads/2019/01/KPA_0790-700x406.jpg 700w, https://internetstiftelsen.se/app/uploads/2019/01/KPA_0790-726x420.jpg 726w, https://internetstiftelsen.se/app/uploads/2019/01/KPA_0790-500x290.jpg 500w, https://internetstiftelsen.se/app/uploads/2019/01/KPA_0790-8x5.jpg 8w" sizes="(max-width: 700px) 100vw, 700px" srcset="https://internetstiftelsen.se/app/uploads/2019/01/KPA_0790-700x406.jpg 700w, https://internetstiftelsen.se/app/uploads/2019/01/KPA_0790-726x420.jpg 726w, https://internetstiftelsen.se/app/uploads/2019/01/KPA_0790-500x290.jpg 500w, https://internetstiftelsen.se/app/uploads/2019/01/KPA_0790-8x5.jpg 8w">
+						<noscript><img width="700" height="406" src="https://internetstiftelsen.se/app/uploads/2019/01/KPA_0790-700x406.jpg" class="m-card__image m-card__media" alt="Adresskylt för Hammarby Kaj." loading="lazy" srcset="https://internetstiftelsen.se/app/uploads/2019/01/KPA_0790-700x406.jpg 700w, https://internetstiftelsen.se/app/uploads/2019/01/KPA_0790-726x420.jpg 726w, https://internetstiftelsen.se/app/uploads/2019/01/KPA_0790-500x290.jpg 500w, https://internetstiftelsen.se/app/uploads/2019/01/KPA_0790-8x5.jpg 8w" sizes="(max-width: 700px) 100vw, 700px" /></noscript>
+						<div class="m-card__content">
+							<a href="/domaner/registrera-ett-domannamn/tips-innan-du-registrerar-ett-domannamn/" class="m-card__link" target="_self">
+								<h1 class="beta">Tips innan du registrerar ett domännamn</h1>
+							</a>
+
+							<p>Innan du skaffar en egen adress på nätet är det ett par saker som kan vara bra att tänka på. Därför ha vi samlat några handfasta råd för dig som vill registrera ett domännamn.</p>
+
+						</div>
+					</article>
+
+				</div>
+
+
+				<div class="grid-18 grid-lg-6 ">
+
+					<article class="wp-block-iis-card m-card m-card--padded m-card--shadow ">
+						<img width="700" height="406" src="https://internetstiftelsen.se/app/uploads/2020/02/man-vid-laptop-700x406.jpg" class="optanon-category-C0004 m-card__image m-card__media ls-is-cached lazyloaded" alt="Ryggtavla av man syns stående framför en laptop." loading="lazy" data-srcset="https://internetstiftelsen.se/app/uploads/2020/02/man-vid-laptop-700x406.jpg 700w, https://internetstiftelsen.se/app/uploads/2020/02/man-vid-laptop-726x420.jpg 726w, https://internetstiftelsen.se/app/uploads/2020/02/man-vid-laptop-500x290.jpg 500w, https://internetstiftelsen.se/app/uploads/2020/02/man-vid-laptop-8x5.jpg 8w" sizes="(max-width: 700px) 100vw, 700px" srcset="https://internetstiftelsen.se/app/uploads/2020/02/man-vid-laptop-700x406.jpg 700w, https://internetstiftelsen.se/app/uploads/2020/02/man-vid-laptop-726x420.jpg 726w, https://internetstiftelsen.se/app/uploads/2020/02/man-vid-laptop-500x290.jpg 500w, https://internetstiftelsen.se/app/uploads/2020/02/man-vid-laptop-8x5.jpg 8w"><noscript><img width="700" height="406" src="https://internetstiftelsen.se/app/uploads/2020/02/man-vid-laptop-700x406.jpg" class="m-card__image m-card__media" alt="Ryggtavla av man syns stående framför en laptop." loading="lazy" srcset="https://internetstiftelsen.se/app/uploads/2020/02/man-vid-laptop-700x406.jpg 700w, https://internetstiftelsen.se/app/uploads/2020/02/man-vid-laptop-726x420.jpg 726w, https://internetstiftelsen.se/app/uploads/2020/02/man-vid-laptop-500x290.jpg 500w, https://internetstiftelsen.se/app/uploads/2020/02/man-vid-laptop-8x5.jpg 8w" sizes="(max-width: 700px) 100vw, 700px" /></noscript>
+						<div class="m-card__content">
+							<a href="/domaner/domannamn-vad-ar-det/" class="m-card__link" target="_self">
+								<h1 class="beta">Så fungerar domännamn	</h1>
+							</a>
+
+							<p>Ett domännamn är en blandning av en adress och en identitet på internet. Domännamnet är det du skriver in i din webbläsare för att komma till webbplatsen du vill besöka.</p>
+
+						</div>
+					</article>
+
+				</div>
+
+
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="wrapper">
+		<div class="article__content article__content--full-width">
+		<p>Internetstiftelsen är en oberoende, affärsdriven och allmännyttig organisation. Vi verkar för ett internet som bidrar positivt till människan och samhället. Vi ansvarar för internets svenska toppdomän .se och sköter drift och administration av toppdomänen .nu. Intäkterna från affärsverksamheten finansierar en rad satsningar i syfte att möjliggöra att människor kan nyttja internet på bästa sätt, och stimulera kunskapsdelning och innovation med inriktning på internet. Läs mer om vår verksamhet här.</p>
+		{{>@info-box text="Sit sunt id cillum consequat sint ut voluptate eu consequat occaecat est eiusmod anim anim." additional_classes="wp-block-iis-info"}}
+		<section class="alignfull o-section background-ocean-light u-m-b-4">
+		<div class="wrapper">
+			<div class="grid-18 wp-blocks">
+			<p class="wp-block-paragraph">Artiklarna och filmerna på den här sajten är framtagna av oss på Internetstiftelsen tillsammans med produktionsbyrån KIT Creative Studio. Syftet är att dela med oss av den kunskap vi har om internet, och sprida den på sociala medier, en bit i taget.</p>
+			</div>
+		</div>
+
+		</section>
+
+		<div class="m-card m-card--padded alignright">
+			<img src="/assets/images/ALX_0876.jpg" class="m-card__image m-card__media" alt="Hands typing on laptop">
+			<div class="m-card__content">
+			<a href="http://www.google.se" class="m-card__link">
+				<h2 class="">
+					Gymnasieskolor med hög bandbredd har bättre skolresultat
+				</h2>
+			</a>
+			</div>
+		</div>
+
+		<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum mattis hendrerit ante tincidunt vestibulum. Nullam nec enim congue mauris accumsan pellentesque. Praesent ut tincidunt lacus. Proin tincidunt nunc et ligula mollis, at auctor quam consectetur. Vivamus interdum est in felis rhoncus, in sodales metus dapibus. Suspendisse faucibus et arcu a gravida. Aliquam vehicula sem est, quis accumsan leo ultricies sed. Quisque aliquet pharetra sapien nec fermentum.</p>
+
+		<p>Nullam et sem id est feugiat dignissim scelerisque in leo. Pellentesque dapibus sem quis pellentesque consectetur. Donec nec quam venenatis, congue sapien non, mattis metus. Nunc auctor lectus turpis. Morbi vitae mi mollis, vestibulum dolor id, molestie nunc. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Nunc condimentum, tortor ut interdum pulvinar, lacus orci tincidunt nibh, id venenatis nisi lorem quis odio. Integer purus lorem, imperdiet id pretium vel, mattis vel turpis. Fusce pharetra bibendum magna. Duis pellentesque risus et lectus condimentum faucibus. Sed luctus ac mauris consequat ullamcorper.</p>
+
+		<p>Mauris felis risus, tempus eget ornare at, scelerisque non ipsum. Nulla eu interdum ligula. Maecenas volutpat efficitur accumsan. Mauris tincidunt eleifend molestie. Nam metus dolor, semper vitae massa posuere, faucibus pulvinar dui. Sed maximus nisi convallis orci rhoncus, id tempus diam egestas. Donec libero leo, bibendum nec faucibus et, feugiat at eros. Proin porttitor purus ac volutpat imperdiet. Ut suscipit metus ornare dolor consectetur tincidunt. Morbi vestibulum, orci in cursus aliquam, velit nunc tincidunt enim, vitae semper nibh leo nec sem.</p>
+
+		<div class="wp-block-image">
+			<img src="/assets/images/ALX_0876.jpg" alt="">
 		</div>
 	</div>
 </div>

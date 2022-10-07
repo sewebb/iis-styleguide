@@ -64,7 +64,7 @@
 			padding: rhythm(2) rhythm(1);
 			border: 0;
 			background-color: transparent;
-			color: $color-cyberspace;
+			color: var(--cyberspace-color);
 			font-family: $font-family-medium;
 			font-size: rem($size-small);
 			text-decoration: none;
@@ -125,7 +125,7 @@
 				border: 0;
 				border-radius: 0;
 				background-color: currentColor;
-				color: $color-cyberspace;
+				color: var(--cyberspace-color);
 
 				&::before,
 				&::after {
@@ -159,7 +159,7 @@
 				transition: all 0.3s ease-out;
 				border: 0;
 				border-radius: 0;
-				color: $color-cyberspace;
+				color: var(--cyberspace-color);
 
 				&::before,
 				&::after {

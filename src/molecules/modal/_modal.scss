@@ -38,7 +38,7 @@
 		padding: rhythm(4) rhythm(2) rhythm(4) rhythm(2);
 		overflow-y: auto;
 		border-radius: $border-radius;
-		background: $color-snow;
+		background: var(--snow-color);
 
 		> button {
 			position: absolute;

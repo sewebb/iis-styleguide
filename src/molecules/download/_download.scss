@@ -5,7 +5,7 @@
 	padding: rhythm(2.5);
 	border: 1px solid $color-peacock;
 	border-radius: $border-radius;
-	background-color: $color-snow;
+	background-color: var(--snow-color);
 
 	@include e(link) {
 		display: block;
@@ -59,6 +59,8 @@
 	@include b(icon) {
 		width: rem(57px);
 		height: rem(78px);
+		color: var(--cyberspace-color);
+		fill: currentColor;
 	}
 
 	@include e(trigger) {
@@ -68,6 +70,8 @@
 		@include b(icon) {
 			width: $icon-size-medium;
 			height: $icon-size-medium;
+			color: var(--dark-color);
+			fill: currentColor;
 		}
 
 		@include bp-up(sm) {

@@ -7,10 +7,11 @@ $spacing: rhythm(6);
 @include organism(section) {
 	position: relative;
 	padding: math.div($spacing, 1.5) 0;
+	background-color: var(--ash-color);
 
 	@include m(white) {
 		padding: $spacing 0;
-		background-color: $color-snow;
+		background-color: var(--snow-color);
 
 		&::before,
 		&::after {
@@ -24,12 +25,12 @@ $spacing: rhythm(6);
 
 		&::before {
 			top: 0;
-			background-image: linear-gradient(to right top, #fff 0, #fff 50%, #ededed 50.1%);
+			background-image: linear-gradient(to right top, var(--snow-color) 0, var(--snow-color) 50%, var(--ash-color) 50.1%);
 		}
 
 		&::after {
 			bottom: 0;
-			background-image: linear-gradient(to left top, #ededed 0, #ededed 50%, #fff 50.1%);
+			background-image: linear-gradient(to left top, var(--ash-color) 0, var(--ash-color) 50%, var(--snow-color) 50.1%);
 		}
 
 		&:last-child {

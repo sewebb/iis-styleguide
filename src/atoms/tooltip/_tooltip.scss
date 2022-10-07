@@ -9,6 +9,7 @@
 	padding: rhythm(1);
 	border-radius: 50%;
 	box-shadow: 0 0 0 rem(5px) transparent;
+	overflow: visible;
 
 	&:focus,
 	&:hover {
@@ -31,7 +32,8 @@
 		overflow: visible;
 		transform: translateX(-50%) translateY(-50%);
 		transition: box-shadow 0.3s cubic-bezier(0.3, 0, 0, 1);
-		fill: $color-cyberspace;
+		color: var(--cyberspace-color);
+		fill: currentColor;
 	}
 
 	@include e(text) {

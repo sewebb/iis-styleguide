@@ -42,7 +42,7 @@
 	}
 
 	@include e(link) {
-		color: $color-cyberspace;
+		color: var(---cyberspace-color);
 		text-decoration: none;
 
 		&::after {
@@ -114,7 +114,7 @@
 	}
 
 	@include m(padded) {
-		background-color: $color-snow;
+		background-color: var(--snow-color);
 
 		@include e(media) {
 			flex: 0 0 auto;
@@ -250,17 +250,17 @@
 			align-content: stretch;
 			justify-content: flex-end;
 			padding: rhythm(4);
-			color: $color-snow;
+			color: var(--snow-color);
 			text-shadow: $text-shadow;
 		}
 
 		@include e(link) {
-			color: $color-snow;
+			color: var(--snow-color);
 		}
 
 		@include e(text) {
 			margin-top: 0;
-			color: $color-snow;
+			color: var(--snow-color);
 		}
 
 		@include e(bottom) {
@@ -269,11 +269,11 @@
 
 		@include e(meta) {
 			* {
-				color: $color-snow;
+				color: var(--snow-color);
 			}
 
 			svg {
-				fill: $color-snow;
+				fill: var(--snow-color);
 			}
 		}
 	}

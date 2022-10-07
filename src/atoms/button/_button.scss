@@ -174,7 +174,8 @@
 			width: $icon-size;
 			height: $icon-size;
 			transform: none;
-			fill: $color-cyberspace;
+			color: var(--cyberspace-color);
+			fill: currentColor;
 		}
 
 		@include m(white) {
@@ -202,7 +203,7 @@
 		border-color: transparent;
 		background-color: transparent;
 		box-shadow: none;
-		color: $color-cyberspace;
+		color: var(--cyberspace-color);
 
 		&:hover,
 		&:focus {
@@ -211,13 +212,14 @@
 		}
 
 		@include e(text) {
-			color: $color-cyberspace;
+			color: var(--cyberspace-color);
 		}
 
 		@include e(icon) {
 			width: $icon-size;
 			height: $icon-size;
-			fill: $color-cyberspace;
+			fill: var(--cyberspace-cyberspace);
+			fill: currentColor;
 		}
 
 		@include m(small-icon) {

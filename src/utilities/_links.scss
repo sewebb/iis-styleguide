@@ -24,7 +24,7 @@
 .u-link {
 	padding: rhythm(0) rhythm(0.5) !important;
 	border-bottom: rem(2px) solid $color-peacock !important;
-	color: $color-black !important;
+	color: var(--cyberspace-color) !important;
 	text-decoration: none !important;
 
 	&:hover,

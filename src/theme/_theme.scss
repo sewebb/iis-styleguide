@@ -6,7 +6,7 @@ $namespace: '';
 
 // Theme palette
 $theme-palette: (
-	background: $color-ash
+	background: var(--ash-color)
 ) !default;
 
 @function theme_palette($key: 'background') {
@@ -53,4 +53,15 @@ $theme-palette: (
 	--snow-color: #{$color-snow};
 	--cyberspace-color: #{$color-cyberspace};
 	--black-color: #{$color-black};
+	--ash-color: #{$color-ash};
+	--dark-color: #{$color-cyberspace};
+	--white-color: #{$color-snow};
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--cyberspace-color: #{$color-snow};
+		--snow-color: #{$color-cyberspace};
+		--ash-color: #{$color-black};
+	}
 }

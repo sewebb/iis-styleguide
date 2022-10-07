@@ -4,7 +4,7 @@
 	position: relative;
 	z-index: z_index(foregroundMinus);
 	border-bottom: 1px solid $color-ash;
-	background-color: $color-snow;
+	background-color: var(--snow-color);
 
 	@include e(logo-link) {
 		display: flex;

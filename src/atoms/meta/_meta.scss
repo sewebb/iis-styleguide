@@ -12,7 +12,7 @@
 	display: flex;
 	position: relative;
 	align-items: center;
-	color: $color-cyberspace;
+	color: var(--cyberspace-color);
 	font-family: $font-family-mono;
 	text-decoration: none;
 	text-transform: uppercase;
@@ -30,6 +30,8 @@
 		height: $icon-size;
 		margin-right: rhythm(1);
 		fill: inherit;
+		color: var(--color-cyberspace);
+		fill: currentColor;
 	}
 
 	@include m(light) {
