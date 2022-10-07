@@ -190,22 +190,26 @@ html {
 				padding-bottom: rhythm(8);
 			}
 
-			h1,
-			h2,
-			h3,
-			h4,
-			p,
-			a,
-			li {
+			> h1,
+			> h2,
+			> h3,
+			> h4,
+			> p,
+			> a,
+			> ul li,
+			> ol li,
+			> ul li a,
+			> ol li a {
 				color: $color-snow;
 			}
 
-			p a,
-			li a,
-			h1 a,
-			h2 a,
-			h3 a,
-			h4 a {
+			> p a,
+			> h1 a,
+			> h2 a,
+			> h3 a,
+			> h4 a,
+			> ul li a,
+			> ol li a {
 				&:hover,
 				&:focus {
 					color: $color-cyberspace;
