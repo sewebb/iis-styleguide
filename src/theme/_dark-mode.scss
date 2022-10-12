@@ -1,0 +1,23 @@
+@charset 'UTF-8';
+
+$cyberspace-color: $color-cyberspace !default;
+$ash-color: $color-ash !default;
+
+:root {
+	--snow-color: #{$color-snow};
+	--cyberspace-color: #{$color-cyberspace};
+	--black-color: #{$color-black};
+	--ash-color: #{$color-ash};
+	--dark-color: #{$color-cyberspace};
+	--white-color: #{$color-snow};
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		$cyberspace-color: $color-snow;	
+		$ash-color: $color-black;
+		--cyberspace-color: #{$color-snow};
+		--snow-color: #{$color-cyberspace};
+		--ash-color: #{$color-black};
+	}
+}

@@ -53,7 +53,7 @@
 		padding-bottom: rhythm(1);
 		padding-left: rhythm(2);
 		border-bottom: 2px solid $color-granit;
-		color: $color-cyberspace;
+		color: var(--cyberspace-color);
 		font-size: 90%;
 		text-align: left;
 
@@ -128,7 +128,7 @@
 		th,
 		td {
 			&:nth-child(even) {
-				background-color: $color-snow;
+				background-color: var(--snow-color);
 			}
 		}
 	}
@@ -136,7 +136,7 @@
 	@include m(rows) {
 		thead {
 			th {
-				background-color: $color-ash;
+				background-color: var(--ash-color);
 			}
 		}
 
@@ -144,14 +144,14 @@
 			tr:nth-child(odd) {
 				th,
 				td {
-					background-color: $color-snow;
+					background-color: var(--snow-color);
 				}
 			}
 
 			tr:nth-child(even) {
 				th,
 				td {
-					background-color: $color-ash;
+					background-color: var(--ash-color);
 				}
 			}
 		}
@@ -173,14 +173,14 @@
 			tr:nth-child(odd) {
 				th,
 				td {
-					background-color: $color-ash;
+					background-color: var(--ash-color);
 				}
 			}
 
 			tr:nth-child(even) {
 				th,
 				td {
-					background-color: $color-snow;
+					background-color: var(--snow-color);
 				}
 			}
 		}

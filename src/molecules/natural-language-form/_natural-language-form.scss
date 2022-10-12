@@ -6,15 +6,19 @@
 
 	@include m(arrow) {
 		@include e(label) {
-			color: var(--cyberspace-color);
-			fill: currentColor;
 			padding-right: rhythm(4);
 			border-bottom: 2px solid currentColor;
-			background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-arrow-down' style='fill:inherit;' viewBox='0 0 32 18.9' width='100%25' height='100%25'%3E%3Cpolygon points='32,2.9 16,18.9 0,2.9 2.9,0 16,13.1 29.1,0 '%3E%3C/polygon%3E%3C/svg%3E%0A");
+			background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-arrow-down' viewBox='0 0 32 18.9' width='100%25' height='100%25'%3E%3Cpolygon points='32,2.9 16,18.9 0,2.9 2.9,0 16,13.1 29.1,0 '%3E%3C/polygon%3E%3C/svg%3E%0A");
 			background-repeat: no-repeat;
 			background-position: calc(95%) 60%;
 			background-size: $icon-size-medium $icon-size-medium;
 			text-decoration: none;
+
+			@if variable-exists(cyberspace-color) {
+				@media (prefers-color-scheme: dark) {
+					background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-arrow-down' fill='%23ffffff' viewBox='0 0 32 18.9' width='100%25' height='100%25'%3E%3Cpolygon points='32,2.9 16,18.9 0,2.9 2.9,0 16,13.1 29.1,0 '%3E%3C/polygon%3E%3C/svg%3E%0A");
+				}
+			}
 
 			&[data-color='ocean'] {
 				background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-arrow-down' fill='%2350b2fc' viewBox='0 0 32 18.9' width='100%25' height='100%25'%3E%3Cpolygon points='32,2.9 16,18.9 0,2.9 2.9,0 16,13.1 29.1,0 '%3E%3C/polygon%3E%3C/svg%3E%0A");

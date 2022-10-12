@@ -27,7 +27,7 @@
 		transform: translateY(-50%);
 		transform-origin: center center;
 		transition: transform 0.25s ease-out;
-		background-color: $color-cyberspace;
+		background-color: var(--cyberspace-color);
 	}
 
 	&::before {
@@ -61,7 +61,7 @@
 	padding: 0;
 	transition: visibility 0s ease, max-height 0.25s ease, opacity 0.25s ease;
 	transition-delay: 0s;
-	background-color: $color-snow;
+	background-color: var(--snow-color);
 }
 
 %is-visible {
@@ -102,7 +102,7 @@
 .js {
 	.js-accordion {
 		@include e(header) {
-			border-bottom: 1px solid $color-snow;
+			border-bottom: 1px solid var(--snow-color);
 
 			&[aria-expanded='true'] {
 				border-color: transparent;
@@ -116,7 +116,7 @@
 	}
 
 	@include organism(accordion) {
-		background-color: lighten($color-ash, 4%);
+		background-color: lighten($ash-color, 4%);
 
 		@include e(panel) {
 			&[aria-hidden='false'],
@@ -230,7 +230,7 @@
 
 		@include m(ash) {
 			border-radius: 0;
-			background-color: lighten($color-ash, 4%);
+			background-color: lighten($ash-color, 4%);
 		}
 	}
 
@@ -258,7 +258,7 @@
 
 			@extend %word-break;
 
-			color: $color-cyberspace;
+			color: var(--cyberspace-color);
 			text-decoration: none;
 
 			&:focus,
