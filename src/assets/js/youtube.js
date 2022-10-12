@@ -1,7 +1,14 @@
 function loadYoutubeAPI() {
+	const id = 'iisYoutubeAPI';
+
+	if (document.getElementById(id)) {
+		return;
+	}
+
 	const tag = document.createElement('script');
 	const firstScript = document.getElementsByTagName('script')[0];
 
+	tag.id = id;
 	tag.src = 'https://www.youtube.com/iframe_api';
 
 	firstScript.parentNode.insertBefore(tag, firstScript);
@@ -21,12 +28,18 @@ function onPlayerStateChange(el, e) {
 	}
 }
 
-function createCover(el, id) {
+function createCover(el) {
+	if (el.getElementsByTagName('img').length) {
+		return;
+	}
+
+	const id = el.getAttribute('data-youtube');
 	const url = `https://i3.ytimg.com/vi/${id}/maxresdefault.jpg`;
 	const img = document.createElement('img');
 
 	el.appendChild(img);
 
+	img.loading = 'lazy';
 	img.src = url;
 }
 
@@ -47,10 +60,6 @@ function setupYoutubePlayer(el) {
 
 	playerEl = document.createElement('div');
 
-	if (!el.getElementsByTagName('img').length) {
-		createCover(el, id);
-	}
-
 	playerEl.setAttribute('data-youtube-container', true);
 	el.appendChild(playerEl);
 
@@ -61,6 +70,7 @@ function setupYoutubePlayer(el) {
 		playerVars: {
 			// https://developers.google.com/youtube/player_parameters#Parameters
 			playsinline: 1,
+			autoplay: true,
 			rel: 0,
 		},
 		events: {
@@ -68,12 +78,21 @@ function setupYoutubePlayer(el) {
 			onStateChange: (e) => onPlayerStateChange(el, e),
 		},
 	});
+
+	el.getElementsByTagName('img')[0].style.zIndex = '-1';
+	el.getElementsByTagName('button')[0].style.display = 'none';
 }
 
 function delegateClick(e) {
 	const el = e.target.closest('[data-youtube]');
 
-	if (!el || !el.youtube) {
+	if (!el) {
+		return;
+	}
+
+	if (!el.youtube) {
+		setupYoutubePlayer(el);
+
 		return;
 	}
 
@@ -88,12 +107,11 @@ export function setupPlayers(container) {
 		return;
 	}
 
-	[].forEach.call(players, setupYoutubePlayer);
+	[].forEach.call(players, createCover);
 }
 
 window.onYouTubeIframeAPIReady = () => {
 	setupPlayers(document);
-
 	document.body.addEventListener('click', delegateClick);
 };
 
