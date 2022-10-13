@@ -3,6 +3,7 @@
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
+exports.destroyPlayer = destroyPlayer;
 exports.setupPlayers = setupPlayers;
 function loadYoutubeAPI() {
 	var id = 'iisYoutubeAPI';
@@ -18,10 +19,6 @@ function loadYoutubeAPI() {
 	tag.src = 'https://www.youtube.com/iframe_api';
 
 	firstScript.parentNode.insertBefore(tag, firstScript);
-}
-
-function onPlayerReady(el) {
-	el.setAttribute('data-youtube-ready', 'true');
 }
 
 function onPlayerStateChange(el, e) {
@@ -79,9 +76,6 @@ function setupYoutubePlayer(el) {
 			rel: 0
 		},
 		events: {
-			onReady: function onReady(e) {
-				return onPlayerReady(el, e);
-			},
 			onStateChange: function onStateChange(e) {
 				return onPlayerStateChange(el, e);
 			}
@@ -108,7 +102,19 @@ function delegateClick(e) {
 	el.youtube.playVideo();
 }
 
-// eslint-disable-next-line import/prefer-default-export
+function destroyPlayer(el) {
+	if (el.youtube) {
+		var playerEl = el.querySelector('[data-youtube-container]');
+
+		playerEl.parentNode.removeChild(playerEl);
+		el.youtube.destroy();
+		el.youtube = null;
+	}
+
+	el.getElementsByTagName('img')[0].style.zIndex = null;
+	el.getElementsByTagName('button')[0].style.display = null;
+}
+
 function setupPlayers(container) {
 	var players = container.querySelectorAll('[data-youtube]');
 
