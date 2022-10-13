@@ -117,7 +117,7 @@
 		&.asymmetric-reversed {
 			$bp-gap: $gap;
 			@include make-asymmetric-cols($bp-gap, true);
-			margin-bottom: calc(180px);
+			margin-bottom: calc(125px);
 		}
 	}
 
@@ -132,7 +132,7 @@
 		&.asymmetric-reversed {
 			$bp-gap: $gap;
 			@include make-asymmetric-cols($bp-gap, true);
-			margin-bottom: calc(216px);
+			margin-bottom: calc(150px);
 		}
 	}
 }
