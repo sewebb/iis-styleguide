@@ -187,7 +187,7 @@ window.addEventListener('unload', () => {
 	}
 });
 
-if (localStorage.getItem('episodeData')) {
+if (localStorage.getItem('episodeData') && podCast) {
 	const arr = JSON.parse(localStorage.getItem('episodeData'));
 
 	if (arr.episodeCurrentTime) {
@@ -233,10 +233,12 @@ if (localStorage.getItem('episodeData')) {
 	}
 }
 
-closeButton.addEventListener('click', () => {
-	audio.currentTime = 0;
-	timeupdate();
-	audio.pause();
-	localStorage.removeItem('episodeData');
-	podCast.classList.add(`${namespace}o-podcast-player--hidden`);
-});
+if (closeButton) {
+	closeButton.addEventListener('click', () => {
+		audio.currentTime = 0;
+		timeupdate();
+		audio.pause();
+		localStorage.removeItem('episodeData');
+		podCast.classList.add(`${namespace}o-podcast-player--hidden`);
+	});
+}

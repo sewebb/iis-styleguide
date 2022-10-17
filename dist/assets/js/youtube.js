@@ -28,14 +28,6 @@ function onPlayerStateChange(el, e) {
 	} else if (e.data === YT.PlayerState.UNSTARTED) {
 		el.getElementsByTagName('img')[0].style.zIndex = null;
 		el.getElementsByTagName('button')[0].style.display = null;
-
-		if (el.youtube) {
-			var playerEl = el.querySelector('[data-youtube-container]');
-
-			playerEl.parentNode.removeChild(playerEl);
-			el.youtube.destroy();
-			el.youtube = null;
-		}
 	}
 }
 
