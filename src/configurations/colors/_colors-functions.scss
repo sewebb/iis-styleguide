@@ -76,7 +76,7 @@ $colors: (
 	@each $key, $value in $map {
 		&#{if($key != $base, #{$separator}#{$key}, '')} {
 			@if type-of($value) == 'map' {
-				@include color_classes($value, $attribute, $prefix, $separator: '-', $element:  $element);
+				@include color_classes($value, $attribute, $prefix: '.', $separator: '-', $element:  $element);
 			}
 			@else {
 				@if ($element != '') {
@@ -94,13 +94,12 @@ $colors: (
 }
 
 /// Generate wordpress color classes with attribute and value
-/// Generates this: .has-color-name{$suffix}
+/// Generates this: .has-colorname-color
 /// @group Colors
 @mixin wordpress_color_classes($map, $attribute,  $separator: '-', $suffix: '', $base: 'base') {
 	@each $key, $value in $map {
 		@if type-of($value) == 'map' {
 			&#{if($key != $base, #{$separator}#{$key}, '')} {
-				content: str-replace($key, 'color-', '');
 				@include wordpress_color_classes($value, $attribute, $separator, '-color');
 			}
 		}

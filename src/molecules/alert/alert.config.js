@@ -4,7 +4,8 @@ module.exports = {
 	context: {
 		name: 'Information',
 		type: 'info',
-		text: 'Meddelanderuta med vanlig information, t.ex information om öppettider. <a href="https://internetstiftelsen.se">Dessa meddelanden</a> är fasta dv.s inget dom dyker upp tillfälligt när användaren interagerar med tjänsten.'
+		text: 'Meddelanderuta med vanlig information, t.ex information om öppettider. <a href="https://internetstiftelsen.se">Dessa meddelanden</a> är fasta dv.s inget dom dyker upp tillfälligt när användaren interagerar med tjänsten.',
+		additional_classes: false,
 	},
 	variants: [
 		{
@@ -38,7 +39,7 @@ module.exports = {
 			name: 'dismissable',
 			context: {
 				name: 'Avfärda',
-				type: 'success',
+				type: 'warning',
 				role: 'alert',
 				text: 'Meddelanderuta med som användaren kan välja att klicka bort.',
 				js_class: 'js-dismiss-alert',

@@ -6,14 +6,15 @@
 
 	@extend %tag;
 
-	display: inline-block;
+	display: inline-flex;
+	align-items: center;
 	position: relative;
 	z-index: z_index(middleground);
 	margin-right: rhythm(1);
 	margin-bottom: rhythm(1);
-	padding: rhythm(0.5) rhythm(2);
+	padding: rhythm(1) rhythm(2);
 	font-size: $small-text;
-	line-height: 1.8;
+	line-height: 1;
 	text-decoration: none;
 	text-transform: uppercase;
 
@@ -22,7 +23,43 @@
 		@include color_values($colors, 'border-color', $separator: '-');
 	}
 
+	@include e(text) {
+		color: $color-cyberspace;
+		letter-spacing: 0.025rem;
+	}
+
 	@include m(light) {
 		@extend %tag-light;
+
+		@include e(text) {
+			color: $color-snow;
+		}
+	}
+
+	> svg {
+		width: $icon-size-small;
+		height: $icon-size-small;
+	}
+
+	@include m(hover-light) {
+		&:hover,
+		&:focus {
+			background-color: currentColor !important;
+
+			[class*=text] {
+				color: $color-snow;
+			}
+		}
+	}
+
+	@include m(hover-dark) {
+		&:hover,
+		&:focus {
+			background-color: currentColor !important;
+
+			[class*=text] {
+				color: $color-cyberspace;
+			}
+		}
 	}
 }

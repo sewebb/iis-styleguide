@@ -42,7 +42,6 @@ $namespace: '';
 @import 'atoms/ribbon/ribbon';
 @import 'atoms/quote/quote';
 @import 'atoms/rating/rating';
-@import 'atoms/timeline/timeline';
 
 // Molecules
 @import 'molecules/breadcrumb/breadcrumb';
@@ -65,13 +64,16 @@ $namespace: '';
 @import 'molecules/icon-overlay/icon-overlay';
 @import 'molecules/submenu/submenu';
 @import 'molecules/glider/glider';
-@import 'molecules/timeline-navigation/timeline-navigation';
+@import 'molecules/glider/glider-course';
+@import 'molecules/glider/glider-hero';
+@import 'molecules/continue-video-guide/continue-video-guide';
 
 // Organisms
 @import 'organisms/header/header';
 @import 'organisms/footer/footer';
 @import 'organisms/mega-menu/mega-menu';
 @import 'organisms/hero/hero';
+@import 'organisms/hero/hero--dynamic-headline';
 @import 'organisms/sections/sections';
 @import 'organisms/accordion/accordion';
 @import 'organisms/domain-search/domain-search';
@@ -84,6 +86,8 @@ $namespace: '';
 @import 'organisms/event-listing-item/event-listing-item';
 @import 'organisms/podcast/podcast-episodes';
 @import 'organisms/podcast/podcast-player';
+@import 'organisms/video-guide/video-guide';
+@import 'organisms/timeline/timeline';
 
 // Structures
 @import 'structures/manifest';

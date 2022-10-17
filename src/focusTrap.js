@@ -1,4 +1,4 @@
-import createFocusTrap from 'focus-trap';
+import { createFocusTrap } from 'focus-trap';
 
 function getContainer(element) {
 	return document.getElementById(element.getAttribute('data-a11y-toggle'));

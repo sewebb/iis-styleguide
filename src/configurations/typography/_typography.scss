@@ -1,7 +1,8 @@
 @charset 'UTF-8';
 
 h1,
-.alpha {
+.alpha,
+%alpha {
 	@include plumber(
 		$font-size: 3,
 		$line-height: 4,
@@ -22,7 +23,8 @@ h1,
 }
 
 h2,
-.beta {
+.beta,
+%beta {
 	@include plumber(
 		$font-size: 2.2,
 		$line-height: 3,
@@ -43,7 +45,8 @@ h2,
 }
 
 h3,
-.gamma {
+.gamma,
+%gamma {
 	@include plumber(
 		$font-size: 2.2,
 		$line-height: 3,
@@ -53,7 +56,8 @@ h3,
 }
 
 h4,
-.delta {
+.delta,
+%delta {
 	@include plumber(
 		$font-size: 2,
 		$line-height: 3,
@@ -141,7 +145,8 @@ small {
 	);
 }
 
-.supersize {
+.supersize,
+%supersize {
 	@include plumber(
 		$font-size: 3,
 		$line-height: 4,
@@ -168,12 +173,61 @@ small {
 	}
 }
 
+.godzilla {
+	@include plumber(
+		$leading-top: 0,
+		$leading-bottom: 0
+	);
+
+	line-height: 79px;
+	font-size: 120px;
+	font-family: $font-family-bold;
+	letter-spacing: -#{rem(5px)};
+
+	@include bp-up(sm) {
+		line-height: 100px;
+		font-size: 150px;
+	}
+
+	@include bp-up(md) {
+		line-height: 135px;
+		font-size: 200px;
+		letter-spacing: -#{rem(10px)};
+	}
+
+	@include bp-up(lg) {
+		line-height: 201px;
+		font-size: 295px;
+		letter-spacing: -#{rem(20px)};
+	}
+
+	@include bp-up(xl) {
+		line-height: 247px;
+		font-size: 360px;
+	}
+
+	// Special rule for decade starting with 1
+	@include m(19) {
+		&::first-letter {
+			letter-spacing: -#{rem(20px)};
+
+			@include bp-up(lg) {
+				letter-spacing: -#{rem(40px)};
+			}
+
+			@include bp-up(xl) {
+				letter-spacing: -#{rem(45px)};
+			}
+		}
+	}
+}
+
 .preamble,
 %preamble {
 
 	@include plumber(
-		$font-size: 2.5,
-		$line-height: 3,
+		$font-size: 2.55555,
+		$line-height: 4,
 		$leading-bottom: 4
 	);
 

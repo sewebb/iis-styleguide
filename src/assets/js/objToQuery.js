@@ -9,11 +9,11 @@ const objToQuery = (obj, exclude = [], parent = null) => {
 		const queryKey = (parent) ? `${parent}[${key}]` : key;
 
 		if (Array.isArray(value)) {
-			value.forEach((subValue) => query.push(`${queryKey}[]=${subValue}`));
+			value.forEach((subValue) => query.push(`${queryKey}[]=${encodeURIComponent(subValue)}`));
 		} else if (typeof value === 'object') {
 			query.push(objToQuery(value, exclude, queryKey));
 		} else {
-			query.push(`${queryKey}=${value}`);
+			query.push(`${queryKey}=${encodeURIComponent(value)}`);
 		}
 	});
 

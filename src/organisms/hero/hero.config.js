@@ -9,7 +9,8 @@ module.exports = {
 		has_buttons: false,
 		has_tags: true,
 		hero_image: '/assets/images/hero.jpg',
-		has_link: true
+		has_link: true,
+		has_pre_heading: false,
 	},
 	variants: [
 		{
@@ -57,6 +58,19 @@ module.exports = {
 			}
 		},
 		{
+			name: 'Pre heading',
+			context: {
+				has_pre_heading: true,
+				pre_heading: 'Publicerad 11 oktober 2022',
+				no_image_class: true,
+				has_radius: false,
+				limited_width: false,
+				has_video: false,
+				has_image: true,
+				has_buttons: true,
+			}
+		},
+		{
 			name: 'Event hero',
 				context: {
 					event_title: 'Creator Circle Meetup',
@@ -77,7 +91,7 @@ module.exports = {
 		},
 		{
 			name: 'Event hero with button',
-			status: 'wip',
+			status: 'ready',
 				context: {
 					event_title: 'Framtidsoptimism och problemlösning i en uppkopplad värld',
 					organizer: 'Heja framtiden',
@@ -111,6 +125,15 @@ module.exports = {
 				no_image_class: 'o-hero--break-early o-hero--clean',
 				limited_width: false,
 				has_buttons: false,
+			}
+		},
+		{
+			name: 'Dynamic headline',
+			status: 'wip',
+			context: {
+				has_image: true,
+				hero_image: '/assets/images/Reprogramming_ENIAC2.png',
+				heading: 'Datadamer - Kvinnorna som digitaliserade världen',
 			}
 		},
 	]

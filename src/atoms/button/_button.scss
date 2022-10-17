@@ -64,7 +64,6 @@
 
 	@include e(text) {
 		position: relative;
-		top: -#{rhythm(0.2)};
 		transform: translateY(0);
 		transition: 0.3s opacity, 0.3s transform;
 		transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -172,8 +171,8 @@
 
 		@include e(icon) {
 			position: static;
-			width: $icon-size-medium;
-			height: $icon-size-medium;
+			width: $icon-size;
+			height: $icon-size;
 			transform: none;
 			fill: $color-cyberspace;
 		}
@@ -246,6 +245,23 @@
 		}
 	}
 
+	@include m(snow) {
+		color: transparent;
+
+		&:hover,
+		&:focus {
+			color: $color-snow;
+		}
+
+		@include e(text) {
+			color: $color-snow;
+		}
+
+		@include e(icon) {
+			fill: $color-snow;
+		}
+	}
+
 	@include m(ruby) {
 		color: $color-ruby;
 
@@ -296,6 +312,25 @@
 
 		@include e(icon) {
 			fill: $color-snow;
+		}
+	}
+
+	@include m(jade) {
+		color: $color-jade;
+
+		&:hover,
+		&:focus {
+			color: darken($color-jade, 10%);
+			text-shadow: none;
+		}
+
+		@include e(text) {
+			color: $color-snow;
+			text-shadow: 0 0 rhythm(2) $color-jade-dark;
+		}
+
+		@include e(icon) {
+			fill: $color-cyberspace;
 		}
 	}
 
@@ -373,7 +408,8 @@
 		color: $color-peacock;
 
 		&:hover {
-			color: $color-peacock-light;
+			color: darken($color-peacock, 10%);
+			text-shadow: none;
 		}
 
 		&:focus {
@@ -385,7 +421,8 @@
 		}
 
 		@include e(text) {
-			color: $color-cyberspace;
+			color: $color-snow;
+			text-shadow: 0 0 rhythm(2) $color-peacock-dark;
 		}
 
 		@include e(icon) {

@@ -34,7 +34,7 @@ module.exports = {
 			name: 'Lower case',
 			context: {
 				text: '20 min <span class="u-hide-sm">läsning</span>',
-				icon: 'read',
+				icon: 'time',
 				lowercase: true,
 			}
 		},

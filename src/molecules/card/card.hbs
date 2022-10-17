@@ -51,5 +51,58 @@
 				</a>
 			</div>
 		{{/if}}
+		{{#if youtube}}
+			<div class="m-card__bottom">
+				<a href="#" class="a-button" data-youtube-play>
+					<span class="a-button__text">Play video</span>
+				</a>
+				<a href="#" class="a-button" data-youtube-stop>
+					<span class="a-button__text">Stop video</span>
+				</a>
+			</div>
+			<script>
+				function playVideo(el) {
+					const parent = el.closest('.m-card');
+
+					if (!parent) {
+						return;
+					}
+
+					const youtubeEl = parent.querySelector('[data-youtube]');
+
+					youtubeEl.click();
+				}
+
+				function stopVideo(el) {
+					const parent = el.closest('.m-card');
+
+					if (!parent) {
+						return;
+					}
+
+					const youtubeEl = parent.querySelector('[data-youtube]');
+
+					if (youtubeEl.youtube) {
+						youtubeEl.youtube.stopVideo();
+					}
+				}
+
+				document.addEventListener('click', (e) => {
+					const play = e.target.closest('[data-youtube-play]');
+
+					if (play) {
+						e.preventDefault();
+						playVideo(play);
+					}
+
+					const stop = e.target.closest('[data-youtube-stop]');
+
+					if (stop) {
+						e.preventDefault();
+						stopVideo(stop);
+					}
+				})
+			</script>
+		{{/if}}
 	</div>
 </{{#if top_level}}article{{else}}div{{/if}}>

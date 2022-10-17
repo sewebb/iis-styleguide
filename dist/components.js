@@ -44,10 +44,16 @@ require('./assets/js/youtube');
 
 require('./molecules/glider/glider');
 
-require('./molecules/glider/glider-single');
+require('./molecules/glider/glider-course');
 
-require('./atoms/timeline/anchorScroll');
-
-require('./molecules/timeline-navigation/timeline-navigation');
+require('./molecules/glider/glider-hero');
 
 require('./molecules/context-menu/context-menu');
+
+require('./molecules/alert/alert');
+
+require('./molecules/continue-video-guide/continue-video-guide');
+
+require('./organisms/video-guide/video-guide');
+
+require('./organisms/timeline/timeline');

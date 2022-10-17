@@ -1,5 +1,7 @@
 @charset 'UTF-8';
 
+@use "sass:math";
+
 // Grid only
 //
 // Includes relevant variables and mixins for the flexbox grid
@@ -18,7 +20,8 @@
 // Set the container width, and override it for fixed navbars in media queries.
 
 @if $enable-grid-classes {
-	.wrapper {
+	.wrapper,
+	%wrapper {
 		@include make-container();
 		@include make-container-max-widths();
 
@@ -46,7 +49,7 @@
 // Rows contain and clear the floats of your columns.
 
 @mixin make-asymmetric-cols($gap, $reversed: false) {
-	@for $i from 1 through $grid-columns {
+	@for $i from 1 through 3 {
 		$col-gap: $gap * ($i - 1);
 
 		@if $reversed == false {
@@ -56,6 +59,12 @@
 		> .grid,
 		> [class*='grid-']:nth-child(#{$i}) {
 			transform: translateY(rhythm($col-gap));
+		}
+
+		@include bp-only(sm) {
+			> [class*='grid-']:last-child {
+				transform: translateY(rhythm($gap));
+			}
 		}
 	}
 }
@@ -75,45 +84,55 @@
 		@include make-asymmetric-cols($bp-gap, true);
 	}
 
-	@include bp-up(md) {
-		$bp-gap: $gap * 1.25;
-
+	@include bp-up(sm) {
 		margin: rhythm($margin * 1.25) 0 0;
 
 		&:not(.asymmetric-reversed) {
+			$bp-gap: $gap * 1.25;
 			@include make-asymmetric-cols($bp-gap);
 		}
 
 		&.asymmetric-reversed {
+			$bp-gap: math.div($gap, 2);
 			@include make-asymmetric-cols($bp-gap, true);
+		}
+	}
+
+	@include bp-up(md) {
+		&.asymmetric-reversed {
+			margin-bottom: calc(100px);
 		}
 	}
 
 	@include bp-up(lg) {
-		$bp-gap: $gap * 1.5;
+
 
 		margin: rhythm($margin * 1.5) 0 0;
 
 		&:not(.asymmetric-reversed) {
+			$bp-gap: $gap * 1.5;
 			@include make-asymmetric-cols($bp-gap);
 		}
 
 		&.asymmetric-reversed {
+			$bp-gap: $gap;
 			@include make-asymmetric-cols($bp-gap, true);
+			margin-bottom: calc(125px);
 		}
 	}
 
 	@include bp-up(xl) {
-		$bp-gap: $gap * 2;
-
 		margin: rhythm($margin * 2) 0 0;
 
 		&:not(.asymmetric-reversed) {
+			$bp-gap: $gap * 2;
 			@include make-asymmetric-cols($bp-gap);
 		}
 
 		&.asymmetric-reversed {
+			$bp-gap: $gap;
 			@include make-asymmetric-cols($bp-gap, true);
+			margin-bottom: calc(150px);
 		}
 	}
 }

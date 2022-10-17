@@ -1,1 +1,13 @@
-<a href="{{href}}" class="a-tag{{#if is_light}} a-tag--light{{/if}}{{#if background_color}} a-tag--background-{{background_color}}{{/if}}">{{text}}</a>
+<a href="{{href}}" class="a-tag{{#if is_light}} a-tag--light{{/if}}{{#if background_color}}{{/if}}{{#if border}} u-b-solid u-b-{{border_color}} background-{{background_color}}{{/if}}{{#if hover_color}} a-tag--hover-{{hover_color}}{{/if}}{{#if color}} color-{{color}}{{/if}}">
+	{{#if icon}}
+	{{#if icon_align_left}}
+ 			{{> @icon id=icon additional_classes="u-m-r-1"}}
+		{{/if}}
+  	{{/if}}
+	<span class="a-tag__text">{{text}}</span>
+	{{#if icon}}
+		{{#if icon_align_right}}
+ 			{{> @icon id=icon additional_classes="u-m-l-1"}}
+		{{/if}}
+  	{{/if}}
+</a>

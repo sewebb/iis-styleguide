@@ -2,6 +2,7 @@ const selectStore = {};
 
 function effectChain(element, value) {
 	const options = element.querySelectorAll('option[data-if-chain]');
+	const oldValue = element.value;
 
 	if (!(element.name in selectStore)) {
 		// First time, cache options
@@ -39,6 +40,10 @@ function effectChain(element, value) {
 	if (newOptions.length === 1) {
 		element.value = newOptions[0].value;
 	}
+
+	if (oldValue !== element.value) {
+		element.dispatchEvent(new Event('change', { bubbles: true }));
+	}
 }
 
 function effectDisable(element, disable, value) {
@@ -69,7 +74,7 @@ function effectText(element, value) {
 function update(element, value) {
 	const effect = element.getAttribute('data-if-effect') || 'toggle';
 	const values = element.getAttribute('data-if').split('|').map((match) => match.split(':')[1]).filter((v) => v);
-	const matches = values.some((match) => match === value);
+	const matches = values.some((match) => match === value || (match.indexOf('!') === 0 && match.substring(1) !== value));
 	const conditionMet = (!values.length && !!value) || matches;
 
 	if (effect === 'disable') {
@@ -79,28 +84,6 @@ function update(element, value) {
 	} else if (effect === 'text') {
 		effectText(element, value);
 	}
-}
-
-function delegate({ target }) {
-	const { name } = target;
-
-	if (!name) {
-		return;
-	}
-
-	const elements = document.querySelectorAll(`[data-if^="${name}"]`);
-
-	if (!elements.length) {
-		return;
-	}
-
-	let { value } = target;
-
-	if (['checkbox', 'radio'].includes(target.getAttribute('type'))) {
-		value = (target.checked) ? target.value : null;
-	}
-
-	[].forEach.call(elements, (element) => update(element, value));
 }
 
 function init() {
@@ -127,6 +110,28 @@ function init() {
 			update(element, value);
 		}
 	});
+}
+
+function delegate({ target }) {
+	const { name } = target;
+
+	if (!name) {
+		return;
+	}
+
+	const elements = document.querySelectorAll(`[data-if^="${name}"]`);
+
+	if (!elements.length) {
+		return;
+	}
+
+	let { value } = target;
+
+	if (['checkbox', 'radio'].includes(target.getAttribute('type'))) {
+		value = (target.checked) ? target.value : null;
+	}
+
+	[].forEach.call(elements, (element) => update(element, value));
 }
 
 init();

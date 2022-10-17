@@ -146,12 +146,16 @@
 	}
 
 	&:disabled {
-		background-color: $color-granit !important;
+		background-color: $color-concrete !important;
 		box-shadow: none;
 		cursor: not-allowed;
 
 		[class*='text'] {
 			color: $color-snow !important;
+		}
+
+		svg {
+			fill: $color-granit;
 		}
 	}
 

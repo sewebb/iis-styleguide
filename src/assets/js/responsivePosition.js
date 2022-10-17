@@ -2,6 +2,7 @@ import throttle from 'lodash.throttle';
 
 const breakpoints = {
 	xs: 0,
+	smxs: 469,
 	sm: 576,
 	md: 769,
 	lg: 961,
