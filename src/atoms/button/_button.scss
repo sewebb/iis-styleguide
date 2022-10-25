@@ -455,6 +455,48 @@
 		}
 	}
 
+	@include m(sandstone) {
+		color: $color-sandstone;
+
+		&:hover,
+		&:focus {
+			color: $color-sandstone-light;
+		}
+
+		@include e(text) {
+			color: $color-cyberspace;
+		}
+
+		@include e(icon) {
+			fill: $color-cyberspace;
+		}
+	}
+
+	@include m(sandstone-light) {
+		box-shadow: 0 0 0 1px inset $color-sandstone;
+		color: $color-sandstone-light;
+
+		&:hover {
+			color: $color-sandstone;
+		}
+		
+		&:focus {
+			color: $color-sandstone-light;
+		}
+
+		&:hover:focus {
+			color: $color-sandstone-light;
+		}
+
+		@include e(text) {
+			color: $color-cyberspace;
+		}
+
+		@include e(icon) {
+			fill: $color-cyberspace;
+		}
+	}
+
 	@include m(dashed) {
 		border: 1px dashed;
 		background: transparent;

@@ -14,6 +14,7 @@ const stepBackward = document.querySelector('.js-step-backward');
 const playButton = document.querySelector('.js-play-button');
 const playIcon = document.querySelector('.js-play-icon');
 const pauseIcon = document.querySelector('.js-pause-icon');
+const closeButton = document.querySelector('.js-close-player');
 let rssURL = '';
 
 if (podCast) {
@@ -28,7 +29,6 @@ if (!namespaceElement) {
 
 function timeupdate() {
 	audio.addEventListener('timeupdate', () => {
-		const timeleft = timeleftElement;
 		const duration = parseInt(audio.duration, 10);
 		const currentTime = parseInt(audio.currentTime, 10);
 		const timeLeft = duration - currentTime;
@@ -43,7 +43,7 @@ function timeupdate() {
 
 		if (timeLeft > 0) {
 			timeleftElement.classList.remove('u-visibility-hidden');
-			timeleft.innerHTML = `${m}:${s}`;
+			timeleftElement.innerHTML = `${m}:${s}`;
 		}
 	}, false);
 }
@@ -63,7 +63,7 @@ function getItems(el) {
 			type="button"><svg class="icon ${namespace}o-podcast-player__play-icon u-m-r-2"><use xlink:href="#icon-play"></use></svg></div><div class="u-visuallyhidden">Spela avsnittet ${el.querySelector('title').innerHTML}</div></button>
 		<div class="${namespace}o-podcast-player__show-info">
 			<div class="${namespace}o-podcast-player__title">${el.querySelector('title').innerHTML}</div>
-			<div class="${namespace}o-podcast-player__description">${el.querySelector('description').innerHTML}</div>
+			<div class="${namespace}o-podcast-player__description js-description">${el.querySelector('description').innerHTML}</div>
 		</div>
 	</li>
 `;
@@ -120,6 +120,7 @@ document.body.addEventListener('click', (e) => {
 if (playButton) {
 	playButton.addEventListener('click', () => {
 		if (audio.paused) {
+			audio.muted = false;
 			audio.play();
 			pauseIcon.classList.remove('is-hidden');
 			playIcon.classList.add('is-hidden');
@@ -158,5 +159,86 @@ if (stepBackward) {
 	stepBackward.addEventListener('click', () => {
 		audio.currentTime -= 15;
 		timeupdate();
+	});
+}
+
+// Handle continous play when user leaves the page
+window.addEventListener('unload', () => {
+	const podcastData = {
+		podCastTitle: title.innerHTML,
+		episodeDescription: description.innerHTML,
+		episodeSrc: audio.src,
+		episodeCurrentTime: audio.currentTime,
+		episodeDuration: durationElement.innerHTML,
+		episodeImage: image.src,
+	};
+	localStorage.setItem('episodeData', JSON.stringify(podcastData));
+
+	if (!audio.paused) {
+		let existing = localStorage.getItem('episodeData');
+		existing = existing ? JSON.parse(existing) : {};
+		existing.podcastWasPlaying = true;
+		localStorage.setItem('episodeData', JSON.stringify(existing));
+	} else {
+		let existing = localStorage.getItem('episodeData');
+		existing = existing ? JSON.parse(existing) : {};
+		existing.podcastWasPlaying = false;
+		localStorage.setItem('episodeData', JSON.stringify(existing));
+	}
+});
+
+if (localStorage.getItem('episodeData') && podCast) {
+	const arr = JSON.parse(localStorage.getItem('episodeData'));
+
+	if (arr.episodeCurrentTime) {
+		podCast.classList.remove(`${namespace}o-podcast-player--hidden`);
+		audio.src = arr.episodeSrc;
+		image.src = arr.episodeImage;
+		title.innerHTML = arr.podCastTitle;
+		description.innerHTML = arr.episodeDescription;
+		durationElement.innerHTML = arr.episodeDuration;
+
+		if (arr.podcastWasPlaying === true) {
+			const playPromise = audio.play();
+
+			if (playPromise !== undefined) {
+				playPromise.then(() => {
+					// Continue playing audio on reload
+					audio.currentTime = arr.episodeCurrentTime;
+					timeupdate();
+					audio.play();
+					pauseIcon.classList.remove('is-hidden');
+					playIcon.classList.add('is-hidden');
+				}).catch(() => {
+					// User reloaded page manually. Cannot play audio
+					audio.addEventListener('loadedmetadata', () => {
+						audio.currentTime = arr.episodeCurrentTime;
+						timeupdate();
+					});
+
+					pauseIcon.classList.add('is-hidden');
+					playIcon.classList.remove('is-hidden');
+					audio.pause();
+				});
+			}
+		} else {
+			audio.addEventListener('loadedmetadata', () => {
+				audio.currentTime = arr.episodeCurrentTime;
+				timeupdate();
+			});
+			pauseIcon.classList.add('is-hidden');
+			playIcon.classList.remove('is-hidden');
+			audio.pause();
+		}
+	}
+}
+
+if (closeButton) {
+	closeButton.addEventListener('click', () => {
+		audio.currentTime = 0;
+		timeupdate();
+		audio.pause();
+		localStorage.removeItem('episodeData');
+		podCast.classList.add(`${namespace}o-podcast-player--hidden`);
 	});
 }

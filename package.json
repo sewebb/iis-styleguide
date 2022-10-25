@@ -1,6 +1,6 @@
 {
 	"name": "@internetstiftelsen/styleguide",
-	"version": "2.24.11",
+	"version": "2.24.12",
 	"main": "dist/components.js",
 	"ports": {
 		"fractal": "3000"
@@ -59,7 +59,7 @@
 		"css-loader": "^5.2.6",
 		"cssnano": "^5.0.6",
 		"eslint": "^7.28.0",
-		"imagemin-cli": "^6.0.0",
+		"imagemin-cli": "^7.0.0",
 		"onchange": "^6.1.0",
 		"postcss-class-prefix": "^0.3.0",
 		"postcss-cli": "^8.3.1",

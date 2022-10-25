@@ -97,6 +97,13 @@ module.exports = {
 			}
 		},
 		{
+			name: 'Sandstone light',
+			context: {
+				modifiers: ['sandstone-light'],
+				text: 'Sandstone light button'
+			}
+		},
+		{
 			name: 'Transparent',
 			context: {
 				modifiers: ['transparent'],
