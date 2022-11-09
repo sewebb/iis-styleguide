@@ -6,91 +6,33 @@
 		<div class="js-accordion__panel o-accordion__panel--ash u-border-radius">
 			<div class="o-accordion__panel__content">
 				<div class="row">
-					<div class="grid-lg-auto grid-md-9 grid-18 o-filter__column">
-						<fieldset class="field-group">
-							<legend class="label-legend">Innehållstyp</legend>
-							{{#each checkboxes1}}
-								<div class="checkbox{{#if is_inline}} checkbox--inline row no-gutters{{/if}}">
-									{{#if is_inline}}
-										<div class="grid-auto">
-									{{/if}}
-										<input type="checkbox" id="{{id}}" name="{{name}}" value="{{value}}" class="a-checkbox u-visuallyhidden" {{#if is_disabled}}disabled{{/if}}>
-										<label for="{{id}}">{{label}}</label>
-									{{#if is_inline}}
+					{{#each columns}}
+						{{#unless textSearch}}
+						<div class="grid-lg-auto grid-md-9 grid-18 o-filter__column">
+							<fieldset class="field-group">
+								<legend class="label-legend">{{title}}</legend>
+								{{#each checkboxes}}
+									
+									<div class="checkbox{{#if is_inline}} checkbox--inline row no-gutters{{/if}}">
+										{{#if is_inline}}
+											<div class="grid-auto">
+										{{/if}}
+											<input type="checkbox" id="{{id}}" name="{{name}}" value="{{value}}" class="a-checkbox u-visuallyhidden" {{#if is_disabled}}disabled{{/if}}>
+											<label for="{{id}}">{{checkboxLabel}}</label>
+										{{#if is_inline}}
+										</div>
+										{{/if}}
 									</div>
-									{{/if}}
-								</div>
-							{{/each}}
-						</fieldset>
-					</div>
-					<div class="grid-lg-auto grid-md-9 grid-18 o-filter__column">
-						<fieldset class="field-group">
-							<legend class="label-legend">Ämne</legend>
-							{{#each checkboxes2}}
-								<div class="checkbox{{#if is_inline}} checkbox--inline row no-gutters{{/if}}">
-									{{#if is_inline}}
-										<div class="grid-auto">
-									{{/if}}
-										<input type="checkbox" id="{{id}}" name="{{name}}" value="{{value}}" class="a-checkbox u-visuallyhidden" {{#if is_disabled}}disabled{{/if}}>
-										<label for="{{id}}">{{label}}</label>
-									{{#if is_inline}}
-									</div>
-									{{/if}}
-								</div>
-							{{/each}}
-						</fieldset>
-					</div>
-					<div class="grid-lg-auto grid-md-9 grid-18 o-filter__column">
-						<fieldset class="field-group">
-							<legend class="label-legend">För vem?</legend>
-							{{#each checkboxes3}}
-								<div class="checkbox{{#if is_inline}} checkbox--inline row no-gutters{{/if}}">
-									{{#if is_inline}}
-										<div class="grid-auto">
-									{{/if}}
-										<input type="checkbox" id="{{id}}" name="{{name}}" value="{{value}}" class="a-checkbox u-visuallyhidden" {{#if is_disabled}}disabled{{/if}}>
-										<label for="{{id}}">{{label}}</label>
-									{{#if is_inline}}
-									</div>
-									{{/if}}
-								</div>
-							{{/each}}
-						</fieldset>
-					</div>
-					<div class="grid-lg-auto grid-md-9 grid-18 o-filter__column">
-						<fieldset class="field-group">
-							<legend class="label-legend">Avsändare</legend>
-							{{#each checkboxes4}}
-								<div class="checkbox{{#if is_inline}} checkbox--inline row no-gutters{{/if}}">
-									{{#if is_inline}}
-										<div class="grid-auto">
-									{{/if}}
-										<input type="checkbox" id="{{id}}" name="{{name}}" value="{{value}}" class="a-checkbox u-visuallyhidden" {{#if is_disabled}}disabled{{/if}}>
-										<label for="{{id}}">{{label}}</label>
-									{{#if is_inline}}
-									</div>
-									{{/if}}
-								</div>
-							{{/each}}
-						</fieldset>
-					</div>
-					<div class="grid-lg-auto grid-md-9 grid-18 o-filter__column">
-						<fieldset class="field-group">
-							<legend class="label-legend">Arkiv</legend>
-							{{#each checkboxes5}}
-								<div class="checkbox{{#if is_inline}} checkbox--inline row no-gutters{{/if}}">
-									{{#if is_inline}}
-										<div class="grid-auto">
-									{{/if}}
-										<input type="checkbox" id="{{id}}" name="{{name}}" value="{{value}}" class="a-checkbox u-visuallyhidden" {{#if is_disabled}}disabled{{/if}}>
-										<label for="{{id}}">{{label}}</label>
-									{{#if is_inline}}
-									</div>
-									{{/if}}
-								</div>
-							{{/each}}
-						</fieldset>
-					</div>
+								{{/each}}
+							</fieldset>
+						</div>
+						{{/unless}}
+						{{#if textSearch}}
+						<div class="grid-lg-auto grid-md-9 grid-18 o-filter__column">
+							{{> '@input' placeholder="Söktext" name="search" label="Fritextsök"}}
+						</div>
+						{{/if}}
+					{{/each}}
 				</div>
 				{{> @button el="button" button_type="button" modifiers="ruby-light small" text="Rensa" additional_classes="o-filter__clear"}}
 			</div>
