@@ -99,7 +99,9 @@
 		padding: rhythm(1.6) rhythm(4);
 
 		@include e(text) {
-			font-size: rem(24px);
+			@include bp-up(sm) {
+				font-size: rem(24px);
+			}
 		}
 
 		@include e(icon) {
