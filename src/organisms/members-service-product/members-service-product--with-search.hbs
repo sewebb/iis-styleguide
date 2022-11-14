@@ -1,0 +1,40 @@
+<div class="o-search">
+	<div class="o-search__padded">
+		<div class="row display-flex align-items-center">
+			<div class="grid-auto u-p-r-0">
+				<span class="o-search__icon">
+					<svg class="icon">
+						<use xlink:href="#icon-search"></use>
+					</svg>
+				</span>
+			</div>
+			<div class="grid u-p-l-0 display-flex">
+				<label for="" class="u-visuallyhidden">Sök Tjänster &amp; produkter</label>
+				<input type="search" class="o-search__input js-search-domain-input" placeholder="Sök Tjänster &amp; produkter" id="" aria-describedby="number-of-hits" value="">
+				<button id="o-search-result-submit" type="submit" class="a-button a-button--sandstone a-button--large o-search__submit">
+					<span class="a-button__text">Sök</span>
+				</button>
+			</div>
+		</div>
+	</div>
+
+	<div class="o-search__status o-search__padded background-sandstone-light">
+		Antal Tjänster & produkter i listan: <span data-total-registrars="true">127</span>
+	</div>
+	{{render '@members-service-product--list' member="false"}}
+</div>
+<div class="a-paging-wrapper">
+	<a href="#" class="a-paging">
+		<span class="u-visuallyhidden">Föregående sida</span>
+		<svg class="icon a-paging__icon">
+			<use xlink:href="#icon-arrow-backwards"></use>
+		</svg>
+	</a>
+	<span class="a-paging-wrapper__text">sida 2 av 11</span>
+	<a href="#" class="a-paging">
+		<span class="u-visuallyhidden">Nästa sida</span>
+		<svg class="icon a-paging__icon">
+			<use xlink:href="#icon-arrow-forwards"></use>
+		</svg>
+	</a>
+</div>

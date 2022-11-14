@@ -10,8 +10,8 @@
 		flex-direction: column;
 		padding: rhythm(3) rhythm(2);
 
-		&:nth-child(even) {
-			background-color: $color-snow;
+		& + & {
+			border-top: 1px solid $color-concrete;
 		}
 
 		@include bp-up(sm) {
@@ -49,11 +49,11 @@
 			}
 
 			dt {
-				font-family: $font-family-headings;
+				@extend %beta;
 			}
 
-			a {
-				color: $color-cyberspace;
+			dd {
+				max-width: calc(#{rem(612px)} + #{($indent * 2)});
 			}
 		}
 	}

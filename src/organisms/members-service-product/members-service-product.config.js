@@ -1,3 +1,5 @@
+const { filter } = require("lodash");
+
 module.exports = {
 	status: 'wip',
 	default: 'Single item',
@@ -8,25 +10,32 @@ module.exports = {
 		description: 'Ett IT-stöd anpassat för alla former av vuxenutbildning. Alvis stödjer vuxenutbildning i egenregi, upphandlad utbildning eller en blandning av dessa.',
 		serviceName: 'Alvis',
 		heading: 'Filtrera',
+		filter: true,
 		columns: [
 			{
 				title: 'Kategori',
 				textSearch: false,
 				checkboxes: [
 					{
-						id: 'produkttyp-1',
-						checkboxLabel: 'Produkttyp 1',
+						id: 'tjansteleverantor',
+						checkboxLabel: 'Tjänsteleverantör',
 						value: '0',
 						is_inline: false,
 						is_disabled: false
 					},
 					{
-						id: 'produkttyp-2',
-						checkboxLabel: 'Produkttyp 1',
+						id: 'anvandarorganisation',
+						checkboxLabel: 'Användarorganisation',
 						value: '1',
 						is_inline: false,
 						is_disabled: false
-					},
+					}
+				]
+			},
+			/*{
+				title: 'Annan kategori',
+				textSearch: false,
+				checkboxes: [
 					{
 						id: 'produkttyp 3',
 						checkboxLabel: 'Produkttyp 1',
@@ -35,11 +44,7 @@ module.exports = {
 						is_disabled: false
 					}
 				]
-			},
-			{
-				title: 'Fritextsök',
-				textSearch: true,
-			}
+			}*/
 		]
 	},
 
