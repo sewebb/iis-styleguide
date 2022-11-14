@@ -6,6 +6,7 @@
 	display: flex;
 	position: relative;
 	width: 100%;
+	align-items: center;
 
 	@include e(text) {
 		flex: 1;
