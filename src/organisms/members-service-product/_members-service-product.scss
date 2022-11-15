@@ -2,7 +2,7 @@
 
 @include organism(service-product-list) {
 	list-style: none;
-	margin: 0 0 rhythm(4) 0;
+	margin: 0 0 rhythm(2) 0;
 	padding: 0;
 
 	@include e(item) {
