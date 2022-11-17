@@ -1,6 +1,6 @@
 {
 	"name": "@internetstiftelsen/styleguide",
-	"version": "2.24.15",
+	"version": "2.24.16",
 	"main": "dist/components.js",
 	"ports": {
 		"fractal": "3000"
@@ -40,8 +40,8 @@
 		"create-icons-config": "node ./createIconsJson"
 	},
 	"devDependencies": {
-		"@frctl/fractal": "^1.5.8",
-		"@frctl/mandelbrot": "^1.9.2",
+		"@frctl/fractal": "^1.5.14",
+		"@frctl/mandelbrot": "^1.10.2",
 		"@internetstiftelsen/eslint-config": "^0.0.5",
 		"@internetstiftelsen/stylelint-config": "^1.0.0",
 		"babel-cli": "^6.26.0",
