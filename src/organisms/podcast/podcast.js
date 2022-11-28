@@ -163,29 +163,31 @@ if (stepBackward) {
 }
 
 // Handle continous play when user leaves the page
-window.addEventListener('unload', () => {
-	const podcastData = {
-		podCastTitle: title.innerHTML,
-		episodeDescription: description.innerHTML,
-		episodeSrc: audio.src,
-		episodeCurrentTime: audio.currentTime,
-		episodeDuration: durationElement.innerHTML,
-		episodeImage: image.src,
-	};
-	localStorage.setItem('episodeData', JSON.stringify(podcastData));
+if (podCast) {
+	window.addEventListener('unload', () => {
+		const podcastData = {
+			podCastTitle: title.innerHTML,
+			episodeDescription: description.innerHTML,
+			episodeSrc: audio.src,
+			episodeCurrentTime: audio.currentTime,
+			episodeDuration: durationElement.innerHTML,
+			episodeImage: image.src,
+		};
+		localStorage.setItem('episodeData', JSON.stringify(podcastData));
 
-	if (!audio.paused) {
-		let existing = localStorage.getItem('episodeData');
-		existing = existing ? JSON.parse(existing) : {};
-		existing.podcastWasPlaying = true;
-		localStorage.setItem('episodeData', JSON.stringify(existing));
-	} else {
-		let existing = localStorage.getItem('episodeData');
-		existing = existing ? JSON.parse(existing) : {};
-		existing.podcastWasPlaying = false;
-		localStorage.setItem('episodeData', JSON.stringify(existing));
-	}
-});
+		if (!audio.paused) {
+			let existing = localStorage.getItem('episodeData');
+			existing = existing ? JSON.parse(existing) : {};
+			existing.podcastWasPlaying = true;
+			localStorage.setItem('episodeData', JSON.stringify(existing));
+		} else {
+			let existing = localStorage.getItem('episodeData');
+			existing = existing ? JSON.parse(existing) : {};
+			existing.podcastWasPlaying = false;
+			localStorage.setItem('episodeData', JSON.stringify(existing));
+		}
+	});
+}
 
 if (localStorage.getItem('episodeData') && podCast) {
 	const arr = JSON.parse(localStorage.getItem('episodeData'));
