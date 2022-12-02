@@ -66,15 +66,15 @@ var ProgressRing = function (_CustomElement2) {
 
 window.customElements.define('progress-ring', ProgressRing);
 
-// Get value from localStorage if present
-if (localStorage.getItem('InmsCurrentTime')) {
-	var videoCurrentTime = localStorage.getItem('InmsCurrentTime');
-	var videoDuration = localStorage.getItem('InmsDuration');
+// Get value from sessionStorage if present
+if (sessionStorage.getItem('InmsCurrentTime')) {
+	var videoCurrentTime = sessionStorage.getItem('InmsCurrentTime');
+	var videoDuration = sessionStorage.getItem('InmsDuration');
 	var continueElement = document.querySelector('.js-guide-continue');
 	var progressRing = document.querySelector('progress-ring');
 	var continueLink = document.querySelector('.js-guide-continue-link');
-	var guideURL = localStorage.getItem('InmsCurrentGuideURL');
-	var guideImage = localStorage.getItem('InmsCurrentGuideImage');
+	var guideURL = sessionStorage.getItem('InmsCurrentGuideURL');
+	var guideImage = sessionStorage.getItem('InmsCurrentGuideImage');
 
 	if (videoCurrentTime > 0 && progressRing && continueElement && guideImage && continueLink) {
 		var alternativeText = continueLink.dataset.altText;
