@@ -25,20 +25,20 @@ var manualStep = false;
 if (video) {
 	// Store current time in on page reload
 	window.addEventListener('unload', function () {
-		// Set localStorage if video has started playing
+		// Set sessionStorage if video has started playing
 		if (video.currentTime > 0) {
 			var currentGuideURL = window.location.href;
 			var currentGuideImage = video.dataset.featuredImage;
-			localStorage.setItem('InmsCurrentTime', video.currentTime);
-			localStorage.setItem('InmsDuration', video.duration); // Get totalt duration of video
-			localStorage.setItem('InmsCurrentGuideURL', currentGuideURL);
-			localStorage.setItem('InmsCurrentGuideImage', currentGuideImage);
+			sessionStorage.setItem('InmsCurrentTime', video.currentTime);
+			sessionStorage.setItem('InmsDuration', video.duration); // Get totalt duration of video
+			sessionStorage.setItem('InmsCurrentGuideURL', currentGuideURL);
+			sessionStorage.setItem('InmsCurrentGuideImage', currentGuideImage);
 		}
 	});
 
-	// Get value from localStorage in present
-	if (localStorage.getItem('InmsCurrentTime')) {
-		var videoCurrentTime = localStorage.getItem('InmsCurrentTime');
+	// Get value from sessionStorage in present
+	if (sessionStorage.getItem('InmsCurrentTime')) {
+		var videoCurrentTime = sessionStorage.getItem('InmsCurrentTime');
 
 		if (videoCurrentTime > 0) {
 			video.currentTime = videoCurrentTime;
@@ -83,10 +83,10 @@ if (video) {
 			manualStep = false;
 			forwardsButton.removeAttribute('disabled');
 			subtitlesContainer.innerHTML = '';
-			localStorage.removeItem('InmsCurrentTime');
-			localStorage.removeItem('InmsDuration');
-			localStorage.removeItem('InmsCurrentGuideURL');
-			localStorage.removeItem('InmsCurrentGuideImage');
+			sessionStorage.removeItem('InmsCurrentTime');
+			sessionStorage.removeItem('InmsDuration');
+			sessionStorage.removeItem('InmsCurrentGuideURL');
+			sessionStorage.removeItem('InmsCurrentGuideImage');
 		});
 	}
 
@@ -99,10 +99,10 @@ if (video) {
 			forwardsButton.removeAttribute('disabled');
 			currentChapter = 1;
 			manualStep = false;
-			localStorage.removeItem('InmsCurrentTime');
-			localStorage.removeItem('InmsDuration');
-			localStorage.removeItem('InmsCurrentGuideURL');
-			localStorage.removeItem('InmsCurrentGuideImage');
+			sessionStorage.removeItem('InmsCurrentTime');
+			sessionStorage.removeItem('InmsDuration');
+			sessionStorage.removeItem('InmsCurrentGuideURL');
+			sessionStorage.removeItem('InmsCurrentGuideImage');
 			window.location.href = urlTarget;
 		});
 	}
@@ -130,7 +130,7 @@ function displayChapters() {
 					video.classList.remove('is-loading');
 
 					// If not set in sessionStorgare, set first cue on forward button on page load
-					if (!localStorage.getItem('InmsCurrentTime')) {
+					if (!sessionStorage.getItem('InmsCurrentTime')) {
 						forwardsButton.setAttribute('data-id', chapterTrack.cues[0].endTime);
 					}
 				}, 100);
