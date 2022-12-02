@@ -160,24 +160,24 @@ if (podCast) {
 			episodeDuration: durationElement.innerHTML,
 			episodeImage: image.src
 		};
-		localStorage.setItem('episodeData', JSON.stringify(podcastData));
+		sessionStorage.setItem('episodeData', JSON.stringify(podcastData));
 
 		if (!audio.paused) {
-			var existing = localStorage.getItem('episodeData');
+			var existing = sessionStorage.getItem('episodeData');
 			existing = existing ? JSON.parse(existing) : {};
 			existing.podcastWasPlaying = true;
-			localStorage.setItem('episodeData', JSON.stringify(existing));
+			sessionStorage.setItem('episodeData', JSON.stringify(existing));
 		} else {
-			var _existing = localStorage.getItem('episodeData');
+			var _existing = sessionStorage.getItem('episodeData');
 			_existing = _existing ? JSON.parse(_existing) : {};
 			_existing.podcastWasPlaying = false;
-			localStorage.setItem('episodeData', JSON.stringify(_existing));
+			sessionStorage.setItem('episodeData', JSON.stringify(_existing));
 		}
 	});
 }
 
-if (localStorage.getItem('episodeData') && podCast) {
-	var arr = JSON.parse(localStorage.getItem('episodeData'));
+if (sessionStorage.getItem('episodeData') && podCast) {
+	var arr = JSON.parse(sessionStorage.getItem('episodeData'));
 
 	if (arr.episodeCurrentTime) {
 		podCast.classList.remove(namespace + 'o-podcast-player--hidden');
@@ -227,7 +227,7 @@ if (closeButton) {
 		audio.currentTime = 0;
 		timeupdate();
 		audio.pause();
-		localStorage.removeItem('episodeData');
+		sessionStorage.removeItem('episodeData');
 		podCast.classList.add(namespace + 'o-podcast-player--hidden');
 	});
 }
