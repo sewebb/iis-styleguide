@@ -173,24 +173,24 @@ if (podCast) {
 			episodeDuration: durationElement.innerHTML,
 			episodeImage: image.src,
 		};
-		localStorage.setItem('episodeData', JSON.stringify(podcastData));
+		sessionStorage.setItem('episodeData', JSON.stringify(podcastData));
 
 		if (!audio.paused) {
-			let existing = localStorage.getItem('episodeData');
+			let existing = sessionStorage.getItem('episodeData');
 			existing = existing ? JSON.parse(existing) : {};
 			existing.podcastWasPlaying = true;
-			localStorage.setItem('episodeData', JSON.stringify(existing));
+			sessionStorage.setItem('episodeData', JSON.stringify(existing));
 		} else {
-			let existing = localStorage.getItem('episodeData');
+			let existing = sessionStorage.getItem('episodeData');
 			existing = existing ? JSON.parse(existing) : {};
 			existing.podcastWasPlaying = false;
-			localStorage.setItem('episodeData', JSON.stringify(existing));
+			sessionStorage.setItem('episodeData', JSON.stringify(existing));
 		}
 	});
 }
 
-if (localStorage.getItem('episodeData') && podCast) {
-	const arr = JSON.parse(localStorage.getItem('episodeData'));
+if (sessionStorage.getItem('episodeData') && podCast) {
+	const arr = JSON.parse(sessionStorage.getItem('episodeData'));
 
 	if (arr.episodeCurrentTime) {
 		podCast.classList.remove(`${namespace}o-podcast-player--hidden`);
@@ -240,7 +240,7 @@ if (closeButton) {
 		audio.currentTime = 0;
 		timeupdate();
 		audio.pause();
-		localStorage.removeItem('episodeData');
+		sessionStorage.removeItem('episodeData');
 		podCast.classList.add(`${namespace}o-podcast-player--hidden`);
 	});
 }
