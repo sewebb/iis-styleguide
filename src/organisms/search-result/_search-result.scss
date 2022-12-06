@@ -15,7 +15,7 @@
 			border-top: 1px solid $color-concrete;
 		}
 
-		div > a {
+		div > a:not([class*=tag]) {
 			@extend %reset-link-style;
 		}
 
