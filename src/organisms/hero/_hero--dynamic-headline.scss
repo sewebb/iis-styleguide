@@ -80,6 +80,7 @@
 				font-family: $font-family-mono;
 				font-size: 14px !important;
 				text-transform: uppercase;
+				text-shadow: 0 0 rem(5px) $color-black;
 
 				@include bp-up(sm-xs) {
 					margin-left: rhythm(0.5);

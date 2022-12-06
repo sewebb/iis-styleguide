@@ -37,6 +37,15 @@
 	&[href^='mailto'] {
 		hyphens: none !important;
 	}
+
+	@include m(light) {
+		color: $color-snow !important;
+
+		&:hover,
+		&:focus {
+			color: $color-cyberspace !important;
+		}
+	}
 }
 
 /* Create linked box (requires parent box to have position:relative) */
