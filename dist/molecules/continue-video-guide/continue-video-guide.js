@@ -65,12 +65,12 @@ var ProgressRing = function (_CustomElement2) {
 }(_CustomElement);
 
 window.customElements.define('progress-ring', ProgressRing);
+var continueElement = document.querySelector('.js-guide-continue');
 
 // Get value from sessionStorage if present
 if (sessionStorage.getItem('InmsCurrentTime')) {
 	var videoCurrentTime = sessionStorage.getItem('InmsCurrentTime');
 	var videoDuration = sessionStorage.getItem('InmsDuration');
-	var continueElement = document.querySelector('.js-guide-continue');
 	var progressRing = document.querySelector('progress-ring');
 	var continueLink = document.querySelector('.js-guide-continue-link');
 	var guideURL = sessionStorage.getItem('InmsCurrentGuideURL');
@@ -88,4 +88,16 @@ if (sessionStorage.getItem('InmsCurrentTime')) {
 		// Calculate percentage played
 		progressRing.setAttribute('progress', Math.floor(currentProgress * 100));
 	}
+}
+
+// Close Continue Component
+var closeButton = document.querySelector('.js-guide-close');
+
+closeButton.addEventListener('click', function () {
+	sessionStorage.setItem('InmsGuideClosed', true);
+	continueElement.classList.remove('is-visible');
+});
+
+if (!sessionStorage.getItem('InmsGuideClosed')) {
+	continueElement.classList.add('is-visible');
 }
