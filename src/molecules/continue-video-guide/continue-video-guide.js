@@ -94,3 +94,7 @@ closeButton.addEventListener('click', () => {
 if (!sessionStorage.getItem('InmsGuideClosed')) {
 	continueElement.classList.add('is-visible');
 }
+
+if (document.querySelector('.js-video-guide')) {
+	continueElement.classList.remove('is-visible');
+}
