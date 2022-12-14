@@ -22,7 +22,7 @@ let manualStep = false;
 // Has src attributes been set already?
 if (video) {
 	// Store current time in on page reload
-	window.addEventListener('unload', () => {
+	window.addEventListener('beforeunload', () => {
 		// Set sessionStorage if video has started playing
 		if (video.currentTime > 0) {
 			const currentGuideURL = window.location.href;
