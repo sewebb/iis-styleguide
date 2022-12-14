@@ -376,10 +376,8 @@ function attach() {
 	document.body.addEventListener('click', delegate);
 }
 
-window.addEventListener('load', () => {
-	createModal();
-	attach();
-});
+createModal();
+attach();
 
 export {
 	clearQueue,
