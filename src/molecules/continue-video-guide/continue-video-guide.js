@@ -86,15 +86,17 @@ if (sessionStorage.getItem('InmsCurrentTime')) {
 // Close Continue Component
 const closeButton = document.querySelector('.js-guide-close');
 
-closeButton.addEventListener('click', () => {
-	sessionStorage.setItem('InmsGuideClosed', true);
-	continueElement.classList.remove('is-visible');
-});
+if (closeButton) {
+	closeButton.addEventListener('click', () => {
+		sessionStorage.setItem('InmsGuideClosed', true);
+		continueElement.classList.remove('is-visible');
+	});
 
-if (!sessionStorage.getItem('InmsGuideClosed')) {
-	continueElement.classList.add('is-visible');
-}
+	if (!sessionStorage.getItem('InmsGuideClosed')) {
+		continueElement.classList.add('is-visible');
+	}
 
-if (document.querySelector('.js-video-guide')) {
-	continueElement.classList.remove('is-visible');
+	if (document.querySelector('.js-video-guide')) {
+		continueElement.classList.remove('is-visible');
+	}
 }
