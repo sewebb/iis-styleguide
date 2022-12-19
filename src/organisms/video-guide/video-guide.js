@@ -19,22 +19,25 @@ const timeLinePosts = document.querySelector('.js-timeline-posts');
 let currentChapter = 0;
 let manualStep = false;
 
+// Set sessionStorage if video has started playing
+function saveState() {
+	if (video.currentTime > 0) {
+		const currentGuideURL = window.location.href;
+		const currentGuideImage = video.dataset.featuredImage;
+		sessionStorage.setItem('InmsCurrentTime', video.currentTime);
+		sessionStorage.setItem('InmsDuration', video.duration); // Get totalt duration of video
+		sessionStorage.setItem('InmsCurrentGuideURL', currentGuideURL);
+		sessionStorage.setItem('InmsCurrentGuideImage', currentGuideImage);
+	}
+}
+
 // Has src attributes been set already?
 if (video) {
 	// Store current time in on page reload
-	window.addEventListener('beforeunload', () => {
-		// Set sessionStorage if video has started playing
-		if (video.currentTime > 0) {
-			const currentGuideURL = window.location.href;
-			const currentGuideImage = video.dataset.featuredImage;
-			sessionStorage.setItem('InmsCurrentTime', video.currentTime);
-			sessionStorage.setItem('InmsDuration', video.duration); // Get totalt duration of video
-			sessionStorage.setItem('InmsCurrentGuideURL', currentGuideURL);
-			sessionStorage.setItem('InmsCurrentGuideImage', currentGuideImage);
-		}
-	});
+	window.addEventListener('visibilitychange', saveState);
+	window.addEventListener('beforeunload', saveState);
 
-	// Get value from sessionStorage in present
+	// Get value from sessionStorage if present
 	if (sessionStorage.getItem('InmsCurrentTime')) {
 		const videoCurrentTime = sessionStorage.getItem('InmsCurrentTime');
 

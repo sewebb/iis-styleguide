@@ -162,31 +162,35 @@ if (stepBackward) {
 	});
 }
 
+function saveState() {
+	const podcastData = {
+		podCastTitle: title.innerHTML,
+		episodeDescription: description.innerHTML,
+		episodeSrc: audio.src,
+		episodeCurrentTime: audio.currentTime,
+		episodeDuration: durationElement.innerHTML,
+		episodeImage: image.src,
+	};
+
+	sessionStorage.setItem('episodeData', JSON.stringify(podcastData));
+
+	if (!audio.paused) {
+		let existing = sessionStorage.getItem('episodeData');
+		existing = existing ? JSON.parse(existing) : {};
+		existing.podcastWasPlaying = true;
+		sessionStorage.setItem('episodeData', JSON.stringify(existing));
+	} else {
+		let existing = sessionStorage.getItem('episodeData');
+		existing = existing ? JSON.parse(existing) : {};
+		existing.podcastWasPlaying = false;
+		sessionStorage.setItem('episodeData', JSON.stringify(existing));
+	}
+}
+
 // Handle continous play when user leaves the page
 if (podCast) {
-	window.addEventListener('unload', () => {
-		const podcastData = {
-			podCastTitle: title.innerHTML,
-			episodeDescription: description.innerHTML,
-			episodeSrc: audio.src,
-			episodeCurrentTime: audio.currentTime,
-			episodeDuration: durationElement.innerHTML,
-			episodeImage: image.src,
-		};
-		sessionStorage.setItem('episodeData', JSON.stringify(podcastData));
-
-		if (!audio.paused) {
-			let existing = sessionStorage.getItem('episodeData');
-			existing = existing ? JSON.parse(existing) : {};
-			existing.podcastWasPlaying = true;
-			sessionStorage.setItem('episodeData', JSON.stringify(existing));
-		} else {
-			let existing = sessionStorage.getItem('episodeData');
-			existing = existing ? JSON.parse(existing) : {};
-			existing.podcastWasPlaying = false;
-			sessionStorage.setItem('episodeData', JSON.stringify(existing));
-		}
-	});
+	window.addEventListener('visibilitychange', saveState);
+	window.addEventListener('beforeunload', saveState);
 }
 
 if (sessionStorage.getItem('episodeData') && podCast) {
