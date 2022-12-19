@@ -1,11 +1,16 @@
 import Glider from 'glider-js';
+import nodeAdded from '../../assets/js/nodeAdded';
 
-const gliderElementHero = document.querySelector('.js-glider-hero');
-const dataLayer = window.dataLayer || [];
-const gliderLinks = document.querySelectorAll('.glider-slide a');
+// eslint-disable-next-line import/prefer-default-export
+export function initHeroGlider(node) {
+	if (node.hasAttribute('data-glider-initialized')) {
+		return;
+	}
 
-if (gliderElementHero) {
-	const GliderHero = new Glider(gliderElementHero, {
+	const dataLayer = window.dataLayer || [];
+	const gliderLinks = document.querySelectorAll('.glider-slide a');
+
+	const GliderHero = new Glider(node, {
 		scrollLock: true,
 		slidesToShow: 1,
 		slidesToScroll: 1,
@@ -16,25 +21,27 @@ if (gliderElementHero) {
 		},
 	});
 
-	const autoplayDelay = gliderElementHero.dataset.timeout;
+	node.setAttribute('data-glider-initialized', 'true');
+
+	const autoplayDelay = node.dataset.timeout;
 
 	if (autoplayDelay) {
 		let autoplay = setInterval(() => {
 			GliderHero.scrollItem('next');
-		}, autoplayDelay);
+		}, parseInt(autoplayDelay, 10));
 
-		gliderElementHero.addEventListener('mouseover', () => {
+		node.addEventListener('mouseover', () => {
 			if (autoplay !== null) {
 				clearInterval(autoplay);
 				autoplay = null;
 			}
 		}, 0);
 
-		gliderElementHero.addEventListener('mouseout', () => {
+		node.addEventListener('mouseout', () => {
 			if (autoplay === null) {
 				autoplay = setInterval(() => {
 					GliderHero.scrollItem('next');
-				}, autoplayDelay);
+				}, parseInt(autoplayDelay, 10));
 			}
 		}, 0);
 	} else {
@@ -75,6 +82,12 @@ if (gliderElementHero) {
 			});
 		});
 	}
+}
 
-	module.exports = GliderHero;
+nodeAdded('.js-glider-hero', initHeroGlider);
+
+const gliderElementHero = document.querySelector('.js-glider-hero');
+
+if (gliderElementHero) {
+	initHeroGlider(gliderElementHero);
 }

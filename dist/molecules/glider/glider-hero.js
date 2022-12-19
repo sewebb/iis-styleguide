@@ -1,17 +1,30 @@
 'use strict';
 
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+exports.initHeroGlider = initHeroGlider;
+
 var _gliderJs = require('glider-js');
 
 var _gliderJs2 = _interopRequireDefault(_gliderJs);
 
+var _nodeAdded = require('../../assets/js/nodeAdded');
+
+var _nodeAdded2 = _interopRequireDefault(_nodeAdded);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-var gliderElementHero = document.querySelector('.js-glider-hero');
-var dataLayer = window.dataLayer || [];
-var gliderLinks = document.querySelectorAll('.glider-slide a');
+// eslint-disable-next-line import/prefer-default-export
+function initHeroGlider(node) {
+	if (node.hasAttribute('data-glider-initialized')) {
+		return;
+	}
 
-if (gliderElementHero) {
-	var GliderHero = new _gliderJs2.default(gliderElementHero, {
+	var dataLayer = window.dataLayer || [];
+	var gliderLinks = document.querySelectorAll('.glider-slide a');
+
+	var GliderHero = new _gliderJs2.default(node, {
 		scrollLock: true,
 		slidesToShow: 1,
 		slidesToScroll: 1,
@@ -22,25 +35,27 @@ if (gliderElementHero) {
 		}
 	});
 
-	var autoplayDelay = gliderElementHero.dataset.timeout;
+	node.setAttribute('data-glider-initialized', 'true');
+
+	var autoplayDelay = node.dataset.timeout;
 
 	if (autoplayDelay) {
 		var autoplay = setInterval(function () {
 			GliderHero.scrollItem('next');
-		}, autoplayDelay);
+		}, parseInt(autoplayDelay, 10));
 
-		gliderElementHero.addEventListener('mouseover', function () {
+		node.addEventListener('mouseover', function () {
 			if (autoplay !== null) {
 				clearInterval(autoplay);
 				autoplay = null;
 			}
 		}, 0);
 
-		gliderElementHero.addEventListener('mouseout', function () {
+		node.addEventListener('mouseout', function () {
 			if (autoplay === null) {
 				autoplay = setInterval(function () {
 					GliderHero.scrollItem('next');
-				}, autoplayDelay);
+				}, parseInt(autoplayDelay, 10));
 			}
 		}, 0);
 	} else {
@@ -81,6 +96,12 @@ if (gliderElementHero) {
 			});
 		});
 	}
+}
 
-	module.exports = GliderHero;
+(0, _nodeAdded2.default)('.js-glider-hero', initHeroGlider);
+
+var gliderElementHero = document.querySelector('.js-glider-hero');
+
+if (gliderElementHero) {
+	initHeroGlider(gliderElementHero);
 }
