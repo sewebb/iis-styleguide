@@ -1,0 +1,835 @@
+<button type="button" class="a-button a-button--transparent m-modal__graph-button" data-modal-open="modal-container" data-zoom="Klicka på grafen för att zooma">
+	<span class="a-button__text u-visuallyhidden">Open graph modal</span>
+	<img src="/assets/images/graph.png" alt="Graf" class="u-border-radius" style="max-width:100%;width:612px;">
+</button>
+<div id="modal-container" class="m-modal m-modal--has-overlay" aria-hidden="true">
+	<div class="m-modal__container m-modal__container--dynamic-width js-modal-graph">
+		<button type="button" class="m-modal__overlay-button js-modal-graph-button">
+			<span>Scrolla för att se hela grafen</span>
+		</button>
+		<button type="button" class="a-button a-button--ocean-light m-modal__button-fixed js-toggle-modal" aria-expanded="false" data-a11y-toggle="modal-container" aria-controls="modal-container" data-modal-close>
+			<span class="a-button__text">Stäng</span>
+		</button>
+		<div id="graph-2185" class="background-snow wp-block-graph ">
+			<div class="wrapper">
+				<div data-iis-graph-parent="" class="iis-graph alignwide u-p-b-4" style="position: relative; z-index:2;">
+					<div class="row align-items-start justify-content-between article__content article__content--full-width">
+						<div class="grid-18 grid-md-auto">
+							<div class="display-flex align-items-center justify-content-md-end">
+								<span class="a-button a-button--transparent a-button--icon m-share__button u-p-r-1" style="overflow: visible">
+									<span class="a-button__text">Hjälp</span>
+									<span tabindex="0" class="a-tooltip" id="tooltip-2185" role="tooltip">
+										<span class="a-tooltip__text" data-tooltip="">Grafen är interaktiv vilket gör att du kan markera ytor med musen för att zooma (gäller enbart desktop) samt själv välja vilka delar du vill ska synas genom att klicka på diagramförklaringarna.</span>
+										<svg class="icon a-button__icon">
+										<use xlink:href="#icon-questionmark"></use>
+										</svg>
+									</span>
+								</span>
+								<div class="m-context-menu js-context-menu">
+									<button type="button" class="a-button a-button--transparent a-button--icon js-context-menu-btn" data-a11y-toggle="graph-export-218570df" id="a11y-toggle-0" aria-controls="graph-export-218570df" aria-expanded="false">
+										<span class="a-button__text">Exportera</span>
+										<svg class="icon a-button__icon">
+										<use xlink:href="#icon-download"></use>
+										</svg>
+									</button>
+									<ul class="m-context-menu__list u-list-clean u-z-index-middleground-important" id="graph-export-218570df" data-container="true" data-focus-trap="true" aria-hidden="true" aria-labelledby="a11y-toggle-0">
+										<li class="m-context-menu__item"><a data-export-graph="2185" data-export-type="pdf" href="#">PDF</a></li>
+										<li class="m-context-menu__item"><a data-export-graph="2185" data-export-type="png" href="#">PNG</a></li>
+										<li class="m-context-menu__item"><a data-export-graph="2185" data-export-type="jpg" href="#">JPG</a></li>
+										<li class="m-context-menu__item"><a data-export-graph="2185" data-export-type="svg" href="#">SVG</a></li>
+										<li class="m-context-menu__item"><a data-export-graph="2185" data-export-type="csv" href="#">CSV</a></li>
+										<li class="m-context-menu__item"><a data-export-graph="2185" data-export-type="xlsx" href="#">XLSX</a></li>
+										<li class="m-context-menu__item"><a data-export-graph="2185" data-export-type="json" href="#">JSON</a></li>
+									</ul>
+								</div>
+								<a href="#" data-export-type="print" data-export-graph="2185" class="a-button a-button--transparent a-button--icon m-share__button">
+									<span class="a-button__text">Skriv ut</span>
+									<svg class="icon a-button__icon">
+										<use xlink:href="#icon-print"></use>
+									</svg>
+								</a>
+							</div>
+						</div>
+					</div>
+					<div>
+						<div data-iis-graph-idle-icon="2185" id="idle-icon" style="position: absolute;top: 50%;margin-top: -40px;margin-left: -40px;width: 80px;display: none;z-index: 99;pointer-events: none">
+							<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32" width="100%" height="100%">
+								<g>
+									<path class="arrow" d="M11.854 5.146a.5.5 0 01-.708.708l-2-2a.5.5 0 010-.708l2-2a.5.5 0 01.708.708L10.707 3H20.5a.5.5 0 110 1h-9.796l1.15 1.146z"></path>
+								</g>
+								<g>
+									<path class="hand" d="M22.093 13.708l-1.47-2.024a1.495 1.495 0 00-2.45.033l1.418 1.95a.507.507 0 01-.109.702.507.507 0 01-.7-.114l-1.763-2.425a1.495 1.495 0 00-2.448.032l2.005 2.76a.507.507 0 01-.109.701.507.507 0 01-.7-.113l-1.762-2.426a1.495 1.495 0 00-2.449.033l2.593 3.568a.507.507 0 01-.109.701.507.507 0 01-.7-.113l-4.701-6.47a1.495 1.495 0 00-2.095-.331 1.502 1.502 0 00-.332 2.094l5.43 7.475-2.41-1.073a1.495 1.495 0 00-1.979.76 1.502 1.502 0 00.759 1.98l2.65 1.18c.95.53 1.805 1.505 3.651 2.68 2.032 1.292 3.935 1.863 4.17 2.187a.51.51 0 00-.11.698c.162.224.478.271.706.105l7.266-5.278a.51.51 0 00.118-.704.504.504 0 00-.699-.11c-.864-1.191-1.314-5.213-3.671-8.458z"></path>
+								</g>
+								<style>.arrow { animation: arrow 3s infinite; animation-delay: 3s; opacity: 0; } .hand { animation: hand 3s ease infinite; transform: translateX(0.2rem); } @keyframes hand { 0% { opacity: 1; } 50% { transform: translateX(-0.2rem); opacity: 1; } 100% { transform: translateX(0.2rem); opacity: 1; } } @keyframes arrow { 0% { opacity: 0 } 50% { opacity: 1 } 100% { opacity: 0 } }</style>
+							</svg>
+						</div>
+						<div data-iis-graph="2185" data-iis-graph-export="[data-iis-graph-parent]" style="height: 600px; width: 100%; min-width: 1360px;" data-ll-status="entered" class="entered" data-iis-graph-rendered="true" data-iis-graph-mounted="true">
+							<div style="width: 100%; height: 100%; position: relative; left: -0.5px; top: -0.460938px;">
+								<svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" role="group" style="width: 100%; height: 100%; overflow: visible;">
+								<defs>
+									<clipPath id="id-45">
+										<rect width="1320" height="600"></rect>
+									</clipPath>
+									<filter id="filter-id-72" filterUnits="objectBoundingBox" width="200%" height="200%" x="-50%" y="-50%"></filter>
+									<filter id="filter-id-93" filterUnits="objectBoundingBox" width="200%" height="200%" x="-50%" y="-50%"></filter>
+									<clipPath id="id-115">
+										<rect width="1206" height="486"></rect>
+									</clipPath>
+									<clipPath id="id-131">
+										<path d="M0,0 L1206,0 L1206,486 L0,486 L0,0"></path>
+									</clipPath>
+									<clipPath id="id-149">
+										<path d="M0,0 L1206,0 L1206,486 L0,486 L0,0"></path>
+									</clipPath>
+									<clipPath id="id-167">
+										<path d="M0,0 L1206,0 L1206,486 L0,486 L0,0"></path>
+									</clipPath>
+									<clipPath id="id-185">
+										<path d="M0,0 L1206,0 L1206,486 L0,486 L0,0"></path>
+									</clipPath>
+									<filter id="filter-id-50" filterUnits="objectBoundingBox" width="200%" height="200%" x="-50%" y="-50%">
+										<feGaussianBlur result="blurOut" in="SourceGraphic" stdDeviation="1.5"></feGaussianBlur>
+										<feOffset result="offsetBlur" dx="1" dy="1"></feOffset>
+										<feFlood flood-color="#000000" flood-opacity="0.5"></feFlood>
+										<feComposite in2="offsetBlur" operator="in"></feComposite>
+										<feMerge>
+											<feMergeNode></feMergeNode>
+											<feMergeNode in="SourceGraphic"></feMergeNode>
+										</feMerge>
+									</filter>
+									<filter id="filter-id-190" filterUnits="objectBoundingBox" width="200%" height="200%" x="-50%" y="-50%">
+										<feGaussianBlur result="blurOut" in="SourceGraphic" stdDeviation="1.5"></feGaussianBlur>
+										<feOffset result="offsetBlur" dx="1" dy="1"></feOffset>
+										<feFlood flood-color="#000000" flood-opacity="0.5"></feFlood>
+										<feComposite in2="offsetBlur" operator="in"></feComposite>
+										<feMerge>
+											<feMergeNode></feMergeNode>
+											<feMergeNode in="SourceGraphic"></feMergeNode>
+										</feMerge>
+									</filter>
+									<filter id="filter-id-172" filterUnits="objectBoundingBox" width="200%" height="200%" x="-50%" y="-50%">
+										<feGaussianBlur result="blurOut" in="SourceGraphic" stdDeviation="1.5"></feGaussianBlur>
+										<feOffset result="offsetBlur" dx="1" dy="1"></feOffset>
+										<feFlood flood-color="#000000" flood-opacity="0.5"></feFlood>
+										<feComposite in2="offsetBlur" operator="in"></feComposite>
+										<feMerge>
+											<feMergeNode></feMergeNode>
+											<feMergeNode in="SourceGraphic"></feMergeNode>
+										</feMerge>
+									</filter>
+									<filter id="filter-id-154" filterUnits="objectBoundingBox" width="200%" height="200%" x="-50%" y="-50%">
+										<feGaussianBlur result="blurOut" in="SourceGraphic" stdDeviation="1.5"></feGaussianBlur>
+										<feOffset result="offsetBlur" dx="1" dy="1"></feOffset>
+										<feFlood flood-color="#000000" flood-opacity="0.5"></feFlood>
+										<feComposite in2="offsetBlur" operator="in"></feComposite>
+										<feMerge>
+											<feMergeNode></feMergeNode>
+											<feMergeNode in="SourceGraphic"></feMergeNode>
+										</feMerge>
+									</filter>
+									<filter id="filter-id-136" filterUnits="objectBoundingBox" width="200%" height="200%" x="-50%" y="-50%">
+										<feGaussianBlur result="blurOut" in="SourceGraphic" stdDeviation="1.5"></feGaussianBlur>
+										<feOffset result="offsetBlur" dx="1" dy="1"></feOffset>
+										<feFlood flood-color="#000000" flood-opacity="0.5"></feFlood>
+										<feComposite in2="offsetBlur" operator="in"></feComposite>
+										<feMerge>
+											<feMergeNode></feMergeNode>
+											<feMergeNode in="SourceGraphic"></feMergeNode>
+										</feMerge>
+									</filter>
+									<clipPath id="id-432">
+										<rect width="1206" height="486"></rect>
+									</clipPath>
+								</defs>
+								<g>
+									<g fill="#ffffff" fill-opacity="0">
+										<rect width="1320" height="600"></rect>
+									</g>
+									<g>
+										<g role="region" clip-path="url(&quot;#id-45&quot;)" opacity="1" aria-label="Diagram">
+											<g transform="translate(15,15)">
+											<g fill="#000000" id="id-66" font-size="16" font-weight="regular" display="none">
+												<g transform="translate(20,0)" style="user-select: none;">
+													<foreignObject width="1281" height="81">
+														<div style="text-align: center; overflow-wrap: break-word; color: rgb(0, 0, 0); display: block;">
+														<p>Fråga: Hur ofta använder du internet? Med internetanvändning avser vi all användning oavsett om det är på dator, surfplatta, smartmobil (smartphone), spelkonsol etc., År 2021–2022 (Studie 1)</p>
+														</div>
+													</foreignObject>
+												</g>
+											</g>
+											<g>
+												<g>
+													<g>
+														<g>
+														<g>
+															<g>
+																<g style="touch-action: none; user-select: none; -webkit-user-drag: none;" transform="translate(84,0)">
+																	<g fill="#ffffff" fill-opacity="0">
+																	<rect width="1206" height="486"></rect>
+																	</g>
+																	<g>
+																	<g>
+																		<g></g>
+																	</g>
+																	<g>
+																		<g>
+																			<g stroke="#8e9297" stroke-opacity="1" fill="none" display="none" transform="translate(0,-49)">
+																				<path d=" M0,0  L1206,0 " transform="translate(-0.5,-0.5)"></path>
+																			</g>
+																			<g stroke="#8e9297" stroke-opacity="1" fill="none" transform="translate(0,0)">
+																				<path d=" M0,0  L1206,0 " transform="translate(-0.5,-0.5)"></path>
+																			</g>
+																			<g stroke="#8e9297" stroke-opacity="1" fill="none" transform="translate(0,49)">
+																				<path d=" M0,0  L1206,0 " transform="translate(-0.5,-0.5)"></path>
+																			</g>
+																			<g stroke="#8e9297" stroke-opacity="1" fill="none" transform="translate(0,97)">
+																				<path d=" M0,0  L1206,0 " transform="translate(-0.5,-0.5)"></path>
+																			</g>
+																			<g stroke="#8e9297" stroke-opacity="1" fill="none" transform="translate(0,146)">
+																				<path d=" M0,0  L1206,0 " transform="translate(-0.5,-0.5)"></path>
+																			</g>
+																			<g stroke="#8e9297" stroke-opacity="1" fill="none" transform="translate(0,194)">
+																				<path d=" M0,0  L1206,0 " transform="translate(-0.5,-0.5)"></path>
+																			</g>
+																			<g stroke="#8e9297" stroke-opacity="1" fill="none" transform="translate(0,243)">
+																				<path d=" M0,0  L1206,0 " transform="translate(-0.5,-0.5)"></path>
+																			</g>
+																			<g stroke="#8e9297" stroke-opacity="1" fill="none" transform="translate(0,292)">
+																				<path d=" M0,0  L1206,0 " transform="translate(-0.5,-0.5)"></path>
+																			</g>
+																			<g stroke="#8e9297" stroke-opacity="1" fill="none" transform="translate(0,340)">
+																				<path d=" M0,0  L1206,0 " transform="translate(-0.5,-0.5)"></path>
+																			</g>
+																			<g stroke="#8e9297" stroke-opacity="1" fill="none" transform="translate(0,389)">
+																				<path d=" M0,0  L1206,0 " transform="translate(-0.5,-0.5)"></path>
+																			</g>
+																			<g stroke="#8e9297" stroke-opacity="1" fill="none" transform="translate(0,437)">
+																				<path d=" M0,0  L1206,0 " transform="translate(-0.5,-0.5)"></path>
+																			</g>
+																			<g stroke="#8e9297" stroke-opacity="1" fill="none" transform="translate(0,486)">
+																				<path d=" M0,0  L1206,0 " transform="translate(-0.5,-0.5)"></path>
+																			</g>
+																			<g stroke="#8e9297" stroke-opacity="1" fill="none" display="none" transform="translate(0,535)">
+																				<path d=" M0,0  L1206,0 " transform="translate(-0.5,-0.5)"></path>
+																			</g>
+																			<g stroke="#8e9297" stroke-opacity="1" fill="none" display="none" transform="translate(0,583)">
+																				<path d=" M0,0  L1206,0 " transform="translate(-0.5,-0.5)"></path>
+																			</g>
+																		</g>
+																	</g>
+																	<g>
+																		<g>
+																			<g role="group" stroke-opacity="0" fill-opacity="1" stroke="#ff4069" aria-label="Icke-användare" stroke-width="0" id="id-182">
+																				<g>
+																				<g clip-path="url(&quot;#id-185&quot;)">
+																					<g>
+																						<g>
+																							<g>
+																							<g stroke-opacity="1" fill="#ff4069" fill-opacity="1" stroke="#ff4069" stroke-width="0" role="menuitem" focusable="true" tabindex="0" transform="translate(434.16,456.84)">
+																								<g>
+																									<g>
+																										<path d="M0,0 L96.48,0 a0,0 0 0 1 0,0 L96.48,29.16 a0,0 0 0 1 -0,0 L0,29.16 a0,0 0 0 1 -0,-0 L0,0 a0,0 0 0 1 0,-0 Z"></path>
+																									</g>
+																								</g>
+																							</g>
+																							<g stroke-opacity="1" fill="#ff4069" fill-opacity="1" stroke="#ff4069" stroke-width="0" role="menuitem" focusable="true" tabindex="0" transform="translate(1037.16,456.84)">
+																								<g>
+																									<g>
+																										<path d="M0,0 L96.48,0 a0,0 0 0 1 0,0 L96.48,29.16 a0,0 0 0 1 -0,0 L0,29.16 a0,0 0 0 1 -0,-0 L0,0 a0,0 0 0 1 0,-0 Z"></path>
+																									</g>
+																								</g>
+																							</g>
+																							</g>
+																						</g>
+																					</g>
+																				</g>
+																				<g></g>
+																				</g>
+																			</g>
+																			<g role="group" stroke-opacity="0" fill-opacity="1" stroke="#ffce2e" aria-label="Sällananvändare" stroke-width="0" id="id-164">
+																				<g>
+																				<g clip-path="url(&quot;#id-167&quot;)">
+																					<g>
+																						<g>
+																							<g>
+																							<g stroke-opacity="1" fill="#ffce2e" fill-opacity="1" stroke="#ffce2e" stroke-width="0" role="menuitem" focusable="true" tabindex="0" transform="translate(313.56,466.56)">
+																								<g>
+																									<g>
+																										<path d="M0,0 L96.48,0 a0,0 0 0 1 0,0 L96.48,19.44 a0,0 0 0 1 -0,0 L0,19.44 a0,0 0 0 1 -0,-0 L0,0 a0,0 0 0 1 0,-0 Z"></path>
+																									</g>
+																								</g>
+																							</g>
+																							<g stroke-opacity="1" fill="#ffce2e" fill-opacity="1" stroke="#ffce2e" stroke-width="0" role="menuitem" focusable="true" tabindex="0" transform="translate(916.56,466.56)">
+																								<g>
+																									<g>
+																										<path d="M0,0 L96.48,0 a0,0 0 0 1 0,0 L96.48,19.44 a0,0 0 0 1 -0,0 L0,19.44 a0,0 0 0 1 -0,-0 L0,0 a0,0 0 0 1 0,-0 Z"></path>
+																									</g>
+																								</g>
+																							</g>
+																							</g>
+																						</g>
+																					</g>
+																				</g>
+																				<g></g>
+																				</g>
+																			</g>
+																			<g role="group" stroke-opacity="0" fill-opacity="1" stroke="#55c7b4" aria-label="Dagliga användare" stroke-width="0" id="id-146">
+																				<g>
+																				<g clip-path="url(&quot;#id-149&quot;)">
+																					<g>
+																						<g>
+																							<g>
+																							<g stroke-opacity="1" fill="#55c7b4" fill-opacity="1" stroke="#55c7b4" stroke-width="0" role="menuitem" focusable="true" tabindex="0" transform="translate(192.96,48.6)">
+																								<g>
+																									<g>
+																										<path d="M0,0 L96.48,0 a0,0 0 0 1 0,0 L96.48,437.4 a0,0 0 0 1 -0,0 L0,437.4 a0,0 0 0 1 -0,-0 L0,0 a0,0 0 0 1 0,-0 Z"></path>
+																									</g>
+																								</g>
+																							</g>
+																							<g stroke-opacity="1" fill="#55c7b4" fill-opacity="1" stroke="#55c7b4" stroke-width="0" role="menuitem" focusable="true" tabindex="0" transform="translate(795.96,48.6)">
+																								<g>
+																									<g>
+																										<path d="M0,0 L96.48,0 a0,0 0 0 1 0,0 L96.48,437.4 a0,0 0 0 1 -0,0 L0,437.4 a0,0 0 0 1 -0,-0 L0,0 a0,0 0 0 1 0,-0 Z"></path>
+																									</g>
+																								</g>
+																							</g>
+																							</g>
+																						</g>
+																					</g>
+																				</g>
+																				<g></g>
+																				</g>
+																			</g>
+																			<g role="group" stroke-opacity="0" fill-opacity="1" stroke="#50b2fc" aria-label="Internetanvändare 16+ år" stroke-width="0" id="id-128">
+																				<g>
+																				<g clip-path="url(&quot;#id-131&quot;)">
+																					<g>
+																						<g>
+																							<g>
+																							<g stroke-opacity="1" fill="#50b2fc" fill-opacity="1" stroke="#50b2fc" stroke-width="0" role="menuitem" focusable="true" tabindex="0" transform="translate(72.36,29.16)">
+																								<g>
+																									<g>
+																										<path d="M0,0 L96.48,0 a0,0 0 0 1 0,0 L96.48,456.84 a0,0 0 0 1 -0,0 L0,456.84 a0,0 0 0 1 -0,-0 L0,0 a0,0 0 0 1 0,-0 Z"></path>
+																									</g>
+																								</g>
+																							</g>
+																							<g stroke-opacity="1" fill="#50b2fc" fill-opacity="1" stroke="#50b2fc" stroke-width="0" role="menuitem" focusable="true" tabindex="0" transform="translate(675.36,29.16)">
+																								<g>
+																									<g>
+																										<path d="M0,0 L96.48,0 a0,0 0 0 1 0,0 L96.48,456.84 a0,0 0 0 1 -0,0 L0,456.84 a0,0 0 0 1 -0,-0 L0,0 a0,0 0 0 1 0,-0 Z"></path>
+																									</g>
+																								</g>
+																							</g>
+																							</g>
+																						</g>
+																					</g>
+																				</g>
+																				<g></g>
+																				</g>
+																			</g>
+																		</g>
+																	</g>
+																	<g clip-path="url(&quot;#id-432&quot;)">
+																		<g>
+																			<g fill="#50b2fc" stroke="#50b2fc">
+																				<g></g>
+																			</g>
+																			<g fill="#55c7b4" stroke="#55c7b4">
+																				<g></g>
+																			</g>
+																			<g fill="#ffce2e" stroke="#ffce2e">
+																				<g></g>
+																			</g>
+																			<g fill="#ff4069" stroke="#ff4069">
+																				<g></g>
+																			</g>
+																		</g>
+																	</g>
+																	<g>
+																		<g>
+																			<g>
+																				<g></g>
+																			</g>
+																			<g>
+																				<g></g>
+																			</g>
+																		</g>
+																	</g>
+																	<g>
+																		<g></g>
+																	</g>
+																	<g>
+																		<g></g>
+																	</g>
+																	<g opacity="0" clip-path="url(&quot;#id-115&quot;)" style="touch-action: none; user-select: none; -webkit-user-drag: none;" visibility="hidden" aria-hidden="true">
+																		<g>
+																			<g fill-opacity="0.2" fill="#000000" visibility="hidden" style="pointer-events: none;">
+																				<path></path>
+																			</g>
+																			<g stroke="#000000" fill="none" stroke-dasharray="3,3" stroke-opacity="0.4" style="pointer-events: none;" transform="translate(1206,0)">
+																				<path d=" M0,0  L0,486 "></path>
+																			</g>
+																			<g stroke="#000000" fill="none" stroke-dasharray="3,3" stroke-opacity="0.4" style="pointer-events: none;" transform="translate(0,178.4)">
+																				<path d=" M0,0  L1206,0 "></path>
+																			</g>
+																		</g>
+																	</g>
+																	<g role="button" focusable="true" tabindex="0" opacity="0" visibility="hidden" aria-hidden="true" transform="translate(1166,-3)" aria-labelledby="id-36-title">
+																		<g fill="#6794dc" stroke="#ffffff" fill-opacity="1" stroke-opacity="0" transform="translate(0,8)">
+																			<path d="M17,0 L18,0 a17,17 0 0 1 17,17 L35,17 a17,17 0 0 1 -17,17 L17,34 a17,17 0 0 1 -17,-17 L0,17 a17,17 0 0 1 17,-17 Z"></path>
+																		</g>
+																		<g transform="translate(9,9)">
+																			<g stroke="#ffffff" style="pointer-events: none;" transform="translate(0,8)">
+																				<path d=" M0,0  L11,0 " transform="translate(2.5,7.5)"></path>
+																			</g>
+																			<g fill="#000000" style="pointer-events: none;" transform="translate(17,8)">
+																				<g display="none"></g>
+																			</g>
+																		</g>
+																		<title id="id-36-title">Zooma ut</title>
+																	</g>
+																	</g>
+																</g>
+																<g>
+																	<g>
+																	<g aria-hidden="true">
+																		<g>
+																			<g fill="#000000" transform="translate(0,263) rotate(-90)">
+																				<g display="none"></g>
+																			</g>
+																			<g stroke="#000000" stroke-opacity="0.15" fill="none" transform="translate(84,486)" opacity="1">
+																				<path transform="translate(-0.5,-0.5)" d=" M0,0  L1206,0 "></path>
+																			</g>
+																			<g>
+																				<g>
+																				<g fill="#000000" aria-label="L" fill-opacity="0" opacity="0" stroke-opacity="0" style="pointer-events: none;" transform="translate(64,243)">
+																					<g transform="translate(-54,-12)" style="user-select: none;">
+																						<text x="0" y="23.5" dy="-6.345">
+																							<tspan>100%</tspan>
+																						</text>
+																					</g>
+																				</g>
+																				<g fill="#000000" transform="translate(64,-48.6)" display="none">
+																					<g transform="translate(-54,-12)" style="user-select: none;">
+																						<text x="0" y="23.5" dy="-6.345">
+																							<tspan>110%</tspan>
+																						</text>
+																					</g>
+																				</g>
+																				<g fill="#000000" transform="translate(64,0)">
+																					<g transform="translate(-54,-12)" style="user-select: none;">
+																						<text x="0" y="23.5" dy="-6.345">
+																							<tspan>100%</tspan>
+																						</text>
+																					</g>
+																				</g>
+																				<g fill="#000000" transform="translate(64,48.6)">
+																					<g transform="translate(-44,-12)" style="user-select: none;">
+																						<text x="0" y="23.5" dy="-6.345">
+																							<tspan>90%</tspan>
+																						</text>
+																					</g>
+																				</g>
+																				<g fill="#000000" transform="translate(64,97.2)">
+																					<g transform="translate(-44,-12)" style="user-select: none;">
+																						<text x="0" y="23.5" dy="-6.345">
+																							<tspan>80%</tspan>
+																						</text>
+																					</g>
+																				</g>
+																				<g fill="#000000" transform="translate(64,145.8)">
+																					<g transform="translate(-44,-12)" style="user-select: none;">
+																						<text x="0" y="23.5" dy="-6.345">
+																							<tspan>70%</tspan>
+																						</text>
+																					</g>
+																				</g>
+																				<g fill="#000000" transform="translate(64,194.4)">
+																					<g transform="translate(-44,-12)" style="user-select: none;">
+																						<text x="0" y="23.5" dy="-6.345">
+																							<tspan>60%</tspan>
+																						</text>
+																					</g>
+																				</g>
+																				<g fill="#000000" transform="translate(64,243)">
+																					<g transform="translate(-44,-12)" style="user-select: none;">
+																						<text x="0" y="23.5" dy="-6.345">
+																							<tspan>50%</tspan>
+																						</text>
+																					</g>
+																				</g>
+																				<g fill="#000000" transform="translate(64,291.6)">
+																					<g transform="translate(-44,-12)" style="user-select: none;">
+																						<text x="0" y="23.5" dy="-6.345">
+																							<tspan>40%</tspan>
+																						</text>
+																					</g>
+																				</g>
+																				<g fill="#000000" transform="translate(64,340.2)">
+																					<g transform="translate(-44,-12)" style="user-select: none;">
+																						<text x="0" y="23.5" dy="-6.345">
+																							<tspan>30%</tspan>
+																						</text>
+																					</g>
+																				</g>
+																				<g fill="#000000" transform="translate(64,388.8)">
+																					<g transform="translate(-44,-12)" style="user-select: none;">
+																						<text x="0" y="23.5" dy="-6.345">
+																							<tspan>20%</tspan>
+																						</text>
+																					</g>
+																				</g>
+																				<g fill="#000000" transform="translate(64,437.4)">
+																					<g transform="translate(-44,-12)" style="user-select: none;">
+																						<text x="0" y="23.5" dy="-6.345">
+																							<tspan>10%</tspan>
+																						</text>
+																					</g>
+																				</g>
+																				<g fill="#000000" transform="translate(64,486)">
+																					<g transform="translate(-34,-12)" style="user-select: none;">
+																						<text x="0" y="23.5" dy="-6.345">
+																							<tspan>0%</tspan>
+																						</text>
+																					</g>
+																				</g>
+																				<g fill="#000000" transform="translate(64,534.6)" display="none">
+																					<g transform="translate(-49,-12)" style="user-select: none;">
+																						<text x="0" y="23.5" dy="-6.345">
+																							<tspan>-10%</tspan>
+																						</text>
+																					</g>
+																				</g>
+																				<g fill="#000000" transform="translate(64,583.2)" display="none">
+																					<g transform="translate(-49,-12)" style="user-select: none;">
+																						<text x="0" y="23.5" dy="-6.345">
+																							<tspan>-20%</tspan>
+																						</text>
+																					</g>
+																				</g>
+																				</g>
+																			</g>
+																			<g stroke="#000000" stroke-opacity="0" fill="none" style="pointer-events: none;" transform="translate(64,0)">
+																				<path d=" M0,0  L0,486 " transform="translate(-0.5,-0.5)"></path>
+																			</g>
+																		</g>
+																	</g>
+																	</g>
+																</g>
+																<g transform="translate(1290,0)">
+																	<g></g>
+																</g>
+															</g>
+														</g>
+														<g>
+															<g transform="translate(84,0)"></g>
+														</g>
+														<g transform="translate(0,486)">
+															<g transform="translate(84,0)">
+																<g aria-hidden="true">
+																	<g>
+																	<g stroke="#000000" stroke-opacity="0" fill="none" style="pointer-events: none;">
+																		<path d=" M0,0  L1206,0 " transform="translate(-0.5,-0.5)"></path>
+																	</g>
+																	<g>
+																		<g>
+																			<g fill="#000000" aria-label="L" fill-opacity="0" opacity="0" stroke-opacity="0" style="pointer-events: none;" transform="translate(603,0)">
+																				<g transform="translate(-4.5,10)" style="user-select: none;">
+																				<text x="0" y="23.5" dy="-6.345">
+																					<tspan>L</tspan>
+																				</text>
+																				</g>
+																			</g>
+																			<g fill="#000000" display="none" transform="translate(1507.5,0)">
+																				<g transform="translate(0,10)" display="none"></g>
+																			</g>
+																			<g fill="#000000" transform="translate(301.5,0)">
+																				<g transform="translate(-20.5,10)" style="user-select: none;">
+																				<text x="0" y="23.5" overflow="hidden" dy="-6.345">
+																					<tspan>2021</tspan>
+																				</text>
+																				</g>
+																			</g>
+																			<g fill="#000000" transform="translate(904.5,0)">
+																				<g transform="translate(-20.5,10)" style="user-select: none;">
+																				<text x="0" y="23.5" overflow="hidden" dy="-6.345">
+																					<tspan>2022</tspan>
+																				</text>
+																				</g>
+																			</g>
+																		</g>
+																	</g>
+																	<g stroke="#000000" stroke-opacity="0.15" fill="none" display="none" transform="translate(1206,-486)" opacity="0" visibility="hidden" aria-hidden="true">
+																		<path transform="translate(-0.5,-0.5)" d=" M0,0  L0,486 "></path>
+																	</g>
+																	<g fill="#000000" transform="translate(603,44)">
+																		<g display="none"></g>
+																	</g>
+																	</g>
+																</g>
+															</g>
+														</g>
+														</g>
+													</g>
+													<g role="group" aria-label="Teckenförklaring" transform="translate(0,530)">
+														<g>
+														<g focusable="true" tabindex="0" role="switch" aria-controls="id-128" aria-labelledby="id-128" aria-checked="true" style="cursor: pointer;" transform="translate(247,0)">
+															<g fill="#ffffff" fill-opacity="0">
+																<rect width="236" height="40"></rect>
+															</g>
+															<g transform="translate(0,8)">
+																<g fill="#50b2fc" style="pointer-events: none;" transform="translate(0,0.5)">
+																	<g fill="#ffffff" fill-opacity="0" stroke-opacity="0">
+																	<rect width="23" height="23"></rect>
+																	</g>
+																	<g>
+																	<g fill="#50b2fc" fill-opacity="1" stroke="#50b2fc" stroke-opacity="1" stroke-width="0">
+																		<path d="M3,0 L20,0 a3,3 0 0 1 3,3 L23,20 a3,3 0 0 1 -3,3 L3,23 a3,3 0 0 1 -3,-3 L0,3 a3,3 0 0 1 3,-3 Z"></path>
+																	</g>
+																	</g>
+																</g>
+																<g fill="#000000" aria-label="Internetanvändare 16+ år" style="pointer-events: none;" transform="translate(28,0)">
+																	<g style="user-select: none;">
+																	<text x="0" y="23.5" overflow="hidden" dy="-6.345">
+																		<tspan>Internetanvändare 16+ år</tspan>
+																	</text>
+																	</g>
+																</g>
+																<g fill="#000000" style="pointer-events: none;" display="none">
+																	<g display="none"></g>
+																</g>
+															</g>
+														</g>
+														<g focusable="true" tabindex="0" role="switch" aria-controls="id-146" aria-labelledby="id-146" aria-checked="true" style="cursor: pointer;" transform="translate(503,0)">
+															<g fill="#ffffff" fill-opacity="0">
+																<rect width="180" height="40"></rect>
+															</g>
+															<g transform="translate(0,8)">
+																<g fill="#55c7b4" style="pointer-events: none;" transform="translate(0,0.5)">
+																	<g fill="#ffffff" fill-opacity="0" stroke-opacity="0">
+																	<rect width="23" height="23"></rect>
+																	</g>
+																	<g>
+																	<g fill="#55c7b4" fill-opacity="1" stroke="#55c7b4" stroke-opacity="1" stroke-width="0">
+																		<path d="M3,0 L20,0 a3,3 0 0 1 3,3 L23,20 a3,3 0 0 1 -3,3 L3,23 a3,3 0 0 1 -3,-3 L0,3 a3,3 0 0 1 3,-3 Z"></path>
+																	</g>
+																	</g>
+																</g>
+																<g fill="#000000" aria-label="Dagliga användare" style="pointer-events: none;" transform="translate(28,0)">
+																	<g style="user-select: none;">
+																	<text x="0" y="23.5" overflow="hidden" dy="-6.345">
+																		<tspan>Dagliga användare</tspan>
+																	</text>
+																	</g>
+																</g>
+																<g fill="#000000" style="pointer-events: none;" display="none">
+																	<g display="none"></g>
+																</g>
+															</g>
+														</g>
+														<g focusable="true" tabindex="0" role="switch" aria-controls="id-164" aria-labelledby="id-164" aria-checked="true" style="cursor: pointer;" transform="translate(703,0)">
+															<g fill="#ffffff" fill-opacity="0">
+																<rect width="166" height="40"></rect>
+															</g>
+															<g transform="translate(0,8)">
+																<g fill="#ffce2e" style="pointer-events: none;" transform="translate(0,0.5)">
+																	<g fill="#ffffff" fill-opacity="0" stroke-opacity="0">
+																	<rect width="23" height="23"></rect>
+																	</g>
+																	<g>
+																	<g fill="#ffce2e" fill-opacity="1" stroke="#ffce2e" stroke-opacity="1" stroke-width="0">
+																		<path d="M3,0 L20,0 a3,3 0 0 1 3,3 L23,20 a3,3 0 0 1 -3,3 L3,23 a3,3 0 0 1 -3,-3 L0,3 a3,3 0 0 1 3,-3 Z"></path>
+																	</g>
+																	</g>
+																</g>
+																<g fill="#000000" aria-label="Sällananvändare" style="pointer-events: none;" transform="translate(28,0)">
+																	<g style="user-select: none;">
+																	<text x="0" y="23.5" overflow="hidden" dy="-6.345">
+																		<tspan>Sällananvändare</tspan>
+																	</text>
+																	</g>
+																</g>
+																<g fill="#000000" style="pointer-events: none;" display="none">
+																	<g display="none"></g>
+																</g>
+															</g>
+														</g>
+														<g focusable="true" tabindex="0" role="switch" aria-controls="id-182" aria-labelledby="id-182" aria-checked="true" style="cursor: pointer;" transform="translate(889,0)">
+															<g fill="#ffffff" fill-opacity="0">
+																<rect width="154" height="40"></rect>
+															</g>
+															<g transform="translate(0,8)">
+																<g fill="#ff4069" style="pointer-events: none;" transform="translate(0,0.5)">
+																	<g fill="#ffffff" fill-opacity="0" stroke-opacity="0">
+																	<rect width="23" height="23"></rect>
+																	</g>
+																	<g>
+																	<g fill="#ff4069" fill-opacity="1" stroke="#ff4069" stroke-opacity="1" stroke-width="0">
+																		<path d="M3,0 L20,0 a3,3 0 0 1 3,3 L23,20 a3,3 0 0 1 -3,3 L3,23 a3,3 0 0 1 -3,-3 L0,3 a3,3 0 0 1 3,-3 Z"></path>
+																	</g>
+																	</g>
+																</g>
+																<g fill="#000000" aria-label="Icke-användare" style="pointer-events: none;" transform="translate(28,0)">
+																	<g style="user-select: none;">
+																	<text x="0" y="23.5" overflow="hidden" dy="-6.345">
+																		<tspan>Icke-användare</tspan>
+																	</text>
+																	</g>
+																</g>
+																<g fill="#000000" style="pointer-events: none;" display="none">
+																	<g display="none"></g>
+																</g>
+															</g>
+														</g>
+														</g>
+													</g>
+												</g>
+											</g>
+											</g>
+										</g>
+										<g>
+											<g>
+											<g role="tooltip" opacity="0" aria-describedby="id-128" transform="translate(822.6,44.16)" visibility="hidden" aria-hidden="true">
+												<g fill="#50b2fc" fill-opacity="0.9" stroke-width="1" stroke-opacity="1" stroke="#ffffff" filter="url(&quot;#filter-id-136&quot;)" style="pointer-events: none;" transform="translate(-275,-38.1)">
+													<path d="M3,0 L266,0 a3,3 0 0 1 3,3 L269,32 a3,3 0 0 1 -3,3 L266,35 L266,35 L275,38.1 L256,35 L3,35 a3,3 0 0 1 -3,-3 L0,3 a3,3 0 0 1 3,-3"></path>
+												</g>
+												<g>
+													<g fill="#000000" style="pointer-events: none;" transform="translate(-140.5,-38.1)">
+														<g transform="translate(-122.5,7)" style="user-select: none;">
+														<text x="0" y="23.5" dy="-6.345">
+															<tspan>Internetanvändare 16+ år: 94%</tspan>
+														</text>
+														</g>
+													</g>
+												</g>
+											</g>
+											<g role="tooltip" opacity="0" aria-describedby="id-146" transform="translate(943.2,63.6)" visibility="hidden" aria-hidden="true">
+												<g fill="#55c7b4" fill-opacity="0.9" stroke-width="1" stroke-opacity="1" stroke="#ffffff" filter="url(&quot;#filter-id-154&quot;)" style="pointer-events: none;" transform="translate(-219,-17.5)">
+													<path d="M3,0 L210,0 a3,3 0 0 1 3,3 L213,3 L213,12.5 L219,17.5 L213,22.5 L213,32 a3,3 0 0 1 -3,3 L3,35 a3,3 0 0 1 -3,-3 L0,3 a3,3 0 0 1 3,-3"></path>
+												</g>
+												<g>
+													<g fill="#000000" style="pointer-events: none;" transform="translate(-112.5,-17.5)">
+														<g transform="translate(-94.5,7)" style="user-select: none;">
+														<text x="0" y="23.5" dy="-6.345">
+															<tspan>Dagliga användare: 90%</tspan>
+														</text>
+														</g>
+													</g>
+												</g>
+											</g>
+											<g role="tooltip" opacity="0" aria-describedby="id-182" transform="translate(1184.4,471.84)" visibility="hidden" aria-hidden="true">
+												<g fill="#ff4069" fill-opacity="0.9" stroke-width="1" stroke-opacity="1" stroke="#ffffff" filter="url(&quot;#filter-id-190&quot;)" style="pointer-events: none;" transform="translate(-184,-47.8)">
+													<path d="M3,0 L175,0 a3,3 0 0 1 3,3 L178,32 a3,3 0 0 1 -3,3 L175,35 L175,35 L184,47.8 L165,35 L3,35 a3,3 0 0 1 -3,-3 L0,3 a3,3 0 0 1 3,-3"></path>
+												</g>
+												<g>
+													<g fill="#ffffff" style="pointer-events: none;" transform="translate(-95,-47.8)">
+														<g transform="translate(-77,7)" style="user-select: none;">
+														<text x="0" y="23.5" dy="-6.345">
+															<tspan>Icke-användare: 6%</tspan>
+														</text>
+														</g>
+													</g>
+												</g>
+											</g>
+											<g role="tooltip" opacity="0" aria-describedby="id-164" transform="translate(1063.8,481.56)" visibility="hidden" aria-hidden="true">
+												<g fill="#ffce2e" fill-opacity="0.9" stroke-width="1" stroke-opacity="1" stroke="#ffffff" filter="url(&quot;#filter-id-172&quot;)" style="pointer-events: none;" transform="translate(-195,-17.5)">
+													<path d="M3,0 L186,0 a3,3 0 0 1 3,3 L189,3 L189,12.5 L195,17.5 L189,22.5 L189,32 a3,3 0 0 1 -3,3 L3,35 a3,3 0 0 1 -3,-3 L0,3 a3,3 0 0 1 3,-3"></path>
+												</g>
+												<g>
+													<g fill="#000000" style="pointer-events: none;" transform="translate(-100.5,-17.5)">
+														<g transform="translate(-82.5,7)" style="user-select: none;">
+														<text x="0" y="23.5" dy="-6.345">
+															<tspan>Sällananvändare: 4%</tspan>
+														</text>
+														</g>
+													</g>
+												</g>
+											</g>
+											<g role="tooltip" visibility="hidden" opacity="0">
+												<g fill="#ffffff" fill-opacity="0.9" stroke-width="1" stroke-opacity="1" stroke="#ffffff" filter="url(&quot;#filter-id-50&quot;)" style="pointer-events: none;" transform="translate(0,6)">
+													<path d="M3,0 L3,0 L0,-6 L13,0 L21,0 a3,3 0 0 1 3,3 L24,8 a3,3 0 0 1 -3,3 L3,11 a3,3 0 0 1 -3,-3 L0,3 a3,3 0 0 1 3,-3"></path>
+												</g>
+												<g>
+													<g fill="#ffffff" style="pointer-events: none;" transform="translate(12,6)">
+														<g transform="translate(0,7)" display="none"></g>
+													</g>
+												</g>
+											</g>
+											<g visibility="hidden" style="pointer-events: none;" display="none">
+												<g fill="#ffffff" opacity="1">
+													<rect width="1320" height="600"></rect>
+												</g>
+												<g>
+													<g transform="translate(660,300)">
+														<g>
+														<g stroke-opacity="1" fill="#f3f3f3" fill-opacity="0.8">
+															<g>
+																<g>
+																	<path d=" M53,0  a53,53,0,0,1,-106,0 a53,53,0,0,1,106,0 M42,0  a42,42,0,0,0,-84,0 a42,42,0,0,0,84,0 L42,0 "></path>
+																</g>
+															</g>
+														</g>
+														<g stroke-opacity="1" fill="#000000" fill-opacity="0.2">
+															<g>
+																<g>
+																	<path d=" M50,0  a50,50,0,0,1,-100,0 a50,50,0,0,1,100,0 M45,0  a45,45,0,0,0,-90,0 a45,45,0,0,0,90,0 L45,0 "></path>
+																</g>
+															</g>
+														</g>
+														<g fill="#000000" fill-opacity="0.4">
+															<g transform="translate(-22,-12)" style="user-select: none;">
+																<text x="22px" y="23.5" dy="-6.345" text-anchor="middle">
+																	<tspan>100%</tspan>
+																</text>
+															</g>
+														</g>
+														</g>
+													</g>
+												</g>
+											</g>
+											<g role="tooltip" opacity="0" transform="translate(79,200.3)" visibility="hidden" aria-hidden="true">
+												<g fill="#000000" fill-opacity="1" stroke-width="1" stroke-opacity="1" stroke="#000000" style="pointer-events: none;" transform="translate(-59,-17)">
+													<path d="M0,0 L54,0 a0,0 0 0 1 0,0 L54,0 L54,12 L59,17 L54,22 L54,34 a0,0 0 0 1 -0,0 L0,34 a0,0 0 0 1 -0,-0 L0,0 a0,0 0 0 1 0,-0"></path>
+												</g>
+												<g>
+													<g fill="#ffffff" style="pointer-events: none;" transform="translate(-32,-17)">
+														<g transform="translate(-17,5)" style="user-select: none;">
+														<text x="0" y="23.5" dy="-6.345">
+															<tspan>62%</tspan>
+														</text>
+														</g>
+													</g>
+												</g>
+											</g>
+											<g role="tooltip" opacity="0" transform="translate(1003.5,501)" visibility="hidden" aria-hidden="true">
+												<g fill="#000000" fill-opacity="1" stroke-width="1" stroke-opacity="1" stroke="#000000" style="pointer-events: none;" transform="translate(-30.5,5)">
+													<path d="M0,0 L25.5,0 L30.5,-5 L35.5,0 L61,0 a0,0 0 0 1 0,0 L61,34 a0,0 0 0 1 -0,0 L0,34 a0,0 0 0 1 -0,-0 L0,0 a0,0 0 0 1 0,-0"></path>
+												</g>
+												<g>
+													<g fill="#ffffff" style="pointer-events: none;" transform="translate(0,5)">
+														<g transform="translate(-20.5,5)" style="user-select: none;">
+														<text x="0" y="23.5" dy="-6.345">
+															<tspan>2022</tspan>
+														</text>
+														</g>
+													</g>
+												</g>
+											</g>
+											</g>
+										</g>
+									</g>
+								</g>
+								</svg>
+							</div>
+						</div>
+					</div>
+					<div class="grid-18 grid-md-9 u-m-b-0 u-p-r-0 u-m-r-0">
+						<span class="a-meta u-m-b-1">Diagram 1.1a</span>
+						<p class="u-font-size-medium-plus u-m-b-1"><strong>Bas:</strong> Samtliga 16+ år <strong>Fråga:</strong> Hur ofta använder du internet? Med internetanvändning avser vi all användning oavsett om det är på dator, surfplatta, smartmobil (smartphone), spelkonsol etc., År 2021–2022 (Studie 1)</p>
+					</div>
+				</div>
+				<script>if (!('graphs' in window)) {window.graphs = {};}window.graphs['2185'] = {"id":2185,"name":"Hur ofta anv\u00e4nder du internet? Samtliga 16+ \u00e5r","number":"1.1a","publication_id":19,"publication":{"id":19,"name":"SOI2022","slug":"soi2022","color":"#c27fec","textColor":"#fff"},"created":"2022-03-04T09:31:11.000000Z","updated":"2022-07-04T08:20:54.000000Z","data":[{"key":"creditstitle","value":"www.svenskarnaochinternet.se CC0"},{"key":"graph_base","value":"Samtliga 16+ \u00e5r"},{"key":"maxvalue","value":100},{"key":"subtitle","value":"<p>Fr\u00e5ga: Hur ofta anv\u00e4nder du internet? Med internetanv\u00e4ndning avser vi all anv\u00e4ndning oavsett om det \u00e4r p\u00e5 dator, surfplatta, smartmobil (smartphone), spelkonsol etc., \u00c5r 2021\u20132022 (Studie 1)<\/p>"},{"key":"title","value":""},{"key":"type","value":"column"},{"key":"xlsdata","value":"\tInternetanv\u00e4ndare 16+ \u00e5r\tDagliga anv\u00e4ndare\tS\u00e4llananv\u00e4ndare\tIcke-anv\u00e4ndare\n2021 \t94%\t90%\t4%\t6%\n2022 \t94%\t90%\t4%\t6%\n"}],"colors":{"color0":"50b2fc","color1":"ff4069","color2":"55c7b4","color3":"ffce2e","color4":"c27fec","color5":"f99963","color6":"ff9fb4","color7":"1f2a36","color8":"8e9297","color9":"a7d8fd"},"legends":[["Dagligen","f99963"],["N\u00e5gon g\u00e5ng","c27fec"],["Befolkningen","ffce2e"],["Internetanv\u00e4ndarna","50b2fc"],["Smartmobilanv\u00e4ndarna","50b2fc"],["Inte meningsfullt (1+2)","f99963"],["Meningsfullt (4+5)","55c7b4"],["Totalt","8e9297"],["Minst n\u00e5gon g\u00e5ng","ff4069"],["Minst varje vecka","50b2fc"],["Minst varje dag","ffce2e"],["2020 Q1","ffce2e"],["2020 Q3","c27fec"],["Studerar","55c7b4"],["Arbetar","ffce2e"],["Pension\u00e4r","ff4069"],["Internetanv\u00e4ndare","50b2fc"],["Dagliga anv\u00e4ndare","55c7b4"],["S\u00e4llananv\u00e4ndare","ffce2e"],["Icke-anv\u00e4ndare","ff4069"],["Man","ffce2e"],["Kvinna","c27fec"],["2021","50b2fc"],["2022","0477ce"]],"combined":[]};</script>
+			</div>
+		</div>
+	</div>
+</div>

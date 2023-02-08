@@ -317,6 +317,24 @@
 		}
 	}
 
+	@include m(ocean-light) {
+		box-shadow: 0 0 0 1px inset $color-ocean;
+		color: $color-ocean-light;
+
+		&:hover,
+		&:focus {
+			color: $color-ocean;
+		}
+
+		@include e(text) {
+			color: $color-cyberspace;
+		}
+
+		@include e(icon) {
+			fill: $color-cyberspace;
+		}
+	}
+
 	@include m(jade) {
 		color: $color-jade;
 
