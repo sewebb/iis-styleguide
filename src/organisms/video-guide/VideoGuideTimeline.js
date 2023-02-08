@@ -2,7 +2,9 @@ export default class VideoGuideTimeline {
 	constructor(element, video) {
 		this.element = element;
 		this.video = video;
+		this.container = element.querySelector('.js-timeline-posts');
 		this.posts = Array.from(element.querySelectorAll('.js-timeline-post'));
+		this.toggleBtn = element.querySelector('.js-show-timelineposts');
 
 		this.init();
 		this.attach();
@@ -14,7 +16,16 @@ export default class VideoGuideTimeline {
 
 	attach() {
 		this.meta.addEventListener('cuechange', this.onCueChange);
+
+		if (this.toggleBtn) {
+			this.toggleBtn.addEventListener('click', this.togglePosts);
+		}
 	}
+
+	togglePosts = () => {
+		this.toggleBtn.classList.toggle('is-toggeled');
+		this.container.classList.toggle('is-visible');
+	};
 
 	onCueChange = () => {
 		const { activeCues } = this.meta;
