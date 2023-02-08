@@ -6,6 +6,7 @@ class VideoGuide {
 	constructor(element) {
 		this.element = element;
 		this.video = element.querySelector('.js-video-guide');
+		this.abortBtn = element.querySelector('.js-abort-guide');
 		this.playback = null;
 		this.subtitles = null;
 		this.timeline = null;
@@ -28,6 +29,7 @@ class VideoGuide {
 		this.video.addEventListener('play', this.onPlay);
 		this.video.addEventListener('pause', this.onPause);
 		this.video.addEventListener('timeupdate', this.onTimeUpdate);
+		this.abortBtn.addEventListener('click', this.onAbort);
 	}
 
 	onLoadedMetadata = () => {
@@ -46,16 +48,15 @@ class VideoGuide {
 		});
 	}
 
-	onPlay = () => {
-		this.dispatchEvent('onPlay');
-	};
+	onPlay = () => this.dispatchEvent('onPlay');
 
-	onPause = () => {
-		this.dispatchEvent('onPause');
-	};
+	onPause = () => this.dispatchEvent('onPause');
 
-	onTimeUpdate = () => {
-		this.dispatchEvent('onTimeUpdate');
+	onTimeUpdate = () => this.dispatchEvent('onTimeUpdate');
+
+	onAbort = () => {
+		this.dispatchEvent('onAbort');
+		window.location.href = this.abortBtn.href;
 	};
 }
 

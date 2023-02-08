@@ -162,6 +162,11 @@ export default class VideoGuidePlayback {
 		this.video.currentTime = 0;
 	};
 
+	onAbort = () => {
+		this.video.pause();
+		this.onEnded();
+	};
+
 	onTimeUpdate = () => {
 		const timeLeft = Math.floor(this.duration - this.video.currentTime);
 
