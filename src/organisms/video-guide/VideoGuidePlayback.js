@@ -8,6 +8,8 @@ export default class VideoGuidePlayback {
 		this.pauseIcon = element.querySelector('.js-pause-icon');
 		this.forwardsButton = element.querySelector('.js-next-chapter');
 		this.backwardsButton = element.querySelector('.js-previous-chapter');
+		this.totaltimeElement = element.querySelector('.js-totaltime');
+		this.countDownElement = element.querySelector('.js-countdown');
 		this.chapterElements = Array.from(element.querySelectorAll('.js-chapters li'));
 		this.sessionKeys = {
 			currentTime: 'InmsCurrentTime',
@@ -42,8 +44,7 @@ export default class VideoGuidePlayback {
 		const seconds = Math.floor(this.duration % 60);
 		const formattedDuration = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 
-		// TODO: Add duration to the DOM
-		console.log(formattedDuration);
+		this.totaltimeElement.innerText = `${formattedDuration} – `;
 	}
 
 	sync() {
@@ -181,8 +182,7 @@ export default class VideoGuidePlayback {
 		const seconds = Math.floor(timeLeft % 60);
 		const formattedTimeLeft = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 
-		// TODO: Add time left to the DOM
-		console.log(formattedTimeLeft);
+		this.countDownElement.innerText = formattedTimeLeft;
 	};
 
 	onCueChange = () => {

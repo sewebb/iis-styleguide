@@ -384,6 +384,7 @@
 
 	@include e(buttons) {
 		display: flex;
+		align-items: center;
 	}
 
 	@include e(button) {
@@ -419,6 +420,12 @@
 				}
 			}
 		}
+	}
+
+	@include e(countdown) {
+		font-size: $size-medium-plus;
+		padding-left: rhythm(1);
+		padding-right: rhythm(1);
 	}
 
 	@include e(play-icon) {

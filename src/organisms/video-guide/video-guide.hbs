@@ -46,7 +46,7 @@
 				</div>
 				<div class="o-video-guide__controls">
 					<figcaption class="o-video-guide__chapters">
-						<span class="o-video-guide__title delta">Den stora berättelsen om internet</span>
+						<span class="o-video-guide__title delta"><span class="o-video-guide__totaltime js-totaltime"></span>Den stora berättelsen om internet</span>
 						<ol class="o-video-guide__chapters__list js-chapters">
 							<li id="0" class="is-current-item"><a rel="0" tabindex="0">Kapitel 1 / 8: Introduktion</a></li>
 							<li id="39"><a rel="39" tabindex="0">Kapitel 2 / 8: Idén om internet</a></li>
@@ -72,6 +72,7 @@
 							<span class="u-visuallyhidden">Nästa kapitel</span>
 							{{>@ icon id="step-forwards" additional_classes="o-video-guide__forward-icon"}}
 						</button>
+						<div class="o-video-guide__countdown js-countdown"></div>
 						<button type="button" class="o-video-guide__button o-video-guide__button--subtitles js-subtitles-btn" title="Undertexter">
 							<span class="u-visuallyhidden">Undertexter</span>
 							{{>@ icon id="subtitles" additional_classes="o-video-guide__subtitles-icon"}}
