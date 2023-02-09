@@ -28,6 +28,7 @@ class VideoGuide {
 		this.video.addEventListener('loadedmetadata', this.onLoadedMetadata);
 		this.video.addEventListener('play', this.onPlay);
 		this.video.addEventListener('pause', this.onPause);
+		this.video.addEventListener('ended', this.onEnded);
 		this.video.addEventListener('timeupdate', this.onTimeUpdate);
 		this.abortBtn.addEventListener('click', this.onAbort);
 	}
@@ -51,6 +52,8 @@ class VideoGuide {
 	onPlay = () => this.dispatchEvent('onPlay');
 
 	onPause = () => this.dispatchEvent('onPause');
+
+	onEnded = () => this.dispatchEvent('onEnded');
 
 	onTimeUpdate = () => this.dispatchEvent('onTimeUpdate');
 
