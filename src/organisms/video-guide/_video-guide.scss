@@ -397,7 +397,7 @@
 
 		&:disabled,
 		&:disabled:focus,
-		&:not([class*="play"]):not([class*="subtitles"]):not([data-id]),
+		&:not([class*="play"]):not([class*="subtitles"]):not([class*="chapter"]),
 		&:disabled:focus-visible {
 			pointer-events: none;
 			cursor: not-allowed;

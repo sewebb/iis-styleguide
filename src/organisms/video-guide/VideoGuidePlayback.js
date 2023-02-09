@@ -86,22 +86,16 @@ export default class VideoGuidePlayback {
 
 	setForwardState(active) {
 		if (active) {
-			// TODO: data-id not needed anymore but controls css
-			this.forwardsButton.setAttribute('data-id', 'foo');
 			this.forwardsButton.disabled = false;
 		} else {
-			this.forwardsButton.removeAttribute('data-id');
 			this.forwardsButton.disabled = true;
 		}
 	}
 
 	setBackwardState(active) {
 		if (active) {
-			// TODO: data-id not needed anymore but controls css
-			this.backwardsButton.setAttribute('data-id', 'foo');
 			this.backwardsButton.disabled = false;
 		} else {
-			this.backwardsButton.removeAttribute('data-id');
 			this.backwardsButton.disabled = true;
 		}
 	}
