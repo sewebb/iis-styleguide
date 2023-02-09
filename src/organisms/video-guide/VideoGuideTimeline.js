@@ -5,6 +5,8 @@ export default class VideoGuideTimeline {
 		this.container = element.querySelector('.js-timeline-posts');
 		this.posts = Array.from(element.querySelectorAll('.js-timeline-post'));
 		this.toggleBtn = element.querySelector('.js-show-timelineposts');
+		this.headlineTpl = element.querySelector('[data-video-headline-tpl]');
+		this.headlineCache = {};
 
 		this.init();
 		this.attach();
@@ -27,6 +29,31 @@ export default class VideoGuideTimeline {
 		this.container.classList.toggle('is-visible');
 	};
 
+	createImageHeadline(activeCue, post) {
+		if (activeCue.text in this.headlineCache) {
+			return;
+		}
+
+		let element = post.querySelector('[data-video-headline-tpl]');
+
+		if (post.querySelector('[data-video-headline-tpl]')) {
+			this.headlineCache[activeCue.text] = element;
+			return;
+		}
+
+		element = this.headlineTpl.cloneNode(true);
+		const prevHeadline = element.querySelector('h1');
+		const headline = document.createElement('h2');
+
+		headline.className = prevHeadline.className;
+		headline.innerHTML = activeCue.id;
+
+		prevHeadline.parentNode.replaceChild(headline, prevHeadline);
+		post.appendChild(element);
+
+		this.headlineCache[activeCue.text] = element;
+	}
+
 	onCueChange = () => {
 		const { activeCues } = this.meta;
 
@@ -36,6 +63,10 @@ export default class VideoGuideTimeline {
 			this.posts.forEach((post) => {
 				if (post.dataset.id === activeCue.text) {
 					post.classList.add('is-current');
+
+					if (post.classList.contains('js-timeline-image') && activeCue.id) {
+						this.createImageHeadline(activeCue, post);
+					}
 				} else {
 					post.classList.remove('is-current');
 				}
