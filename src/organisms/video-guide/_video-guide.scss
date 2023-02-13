@@ -42,7 +42,6 @@
 		bottom: 0;
 		z-index: 1;
 		justify-content: center;
-		opacity: 0;
 		transition: opacity 0.25s ease-out;
 		margin: 0;
 		padding: 0;
@@ -50,6 +49,10 @@
 		&:first-child,
 		&.is-current {
 			opacity: 1;
+		}
+
+		&.is-current ~ & {
+			opacity: 0;
 		}
 
 		img {
@@ -381,6 +384,7 @@
 
 	@include e(buttons) {
 		display: flex;
+		align-items: center;
 	}
 
 	@include e(button) {
@@ -393,7 +397,7 @@
 
 		&:disabled,
 		&:disabled:focus,
-		&:not([class*="play"]):not([class*="subtitles"]):not([data-id]),
+		&:not([class*="play"]):not([class*="subtitles"]):not([class*="chapter"]),
 		&:disabled:focus-visible {
 			pointer-events: none;
 			cursor: not-allowed;
@@ -416,6 +420,12 @@
 				}
 			}
 		}
+	}
+
+	@include e(countdown) {
+		font-size: $size-medium-plus;
+		padding-left: rhythm(1);
+		padding-right: rhythm(1);
 	}
 
 	@include e(play-icon) {
