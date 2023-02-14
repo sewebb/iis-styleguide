@@ -17,6 +17,8 @@
 		margin: 0;
 		padding: 0;
 		width: 100%;
+		max-height: calc(100vh - rem(130px));
+		overflow-y: auto;
 	}
 
 	@include e(title) {
@@ -99,6 +101,10 @@
 			font-family: $font-family-mono;
 			text-shadow: 0 1px 0 $color-snow;
 			color: $color-cyberspace;
+			background-color: $color-snow;
+			border-radius: $border-radius;
+			padding-left: rhythm(0.5);
+			padding-right: rhythm(0.5);
 		}
 
 		&.is-fixed {
@@ -126,7 +132,7 @@
 		position: fixed;
 		right: rhythm(2);
 		bottom: rhythm(13);
-		z-index: z_index(foreground);
+		z-index: 3;
 		margin-top: 0;
 		margin-bottom: 0;
 	}
