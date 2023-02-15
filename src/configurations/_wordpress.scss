@@ -348,3 +348,40 @@ div.aligncenter {
 		margin-top: -#{rhythm(3)};
 	}
 }
+
+.wp-block-separator {
+	display: flex;
+	border-color: currentColor;
+
+	&[class*=align] {
+		height: 22px;
+		background-color: currentColor;
+		--mask:
+			radial-gradient(9.18px at 50% calc(100% + 3.15px),#0000 calc(99% - 3px),#000 calc(101% - 3px) 99%,#0000 101%) calc(50% - 14px) calc(50% - 5px + .5px)/28px 10px repeat-x,
+			radial-gradient(9.18px at 50% -3.15px,#0000 calc(99% - 3px),#000 calc(101% - 3px) 99%,#0000 101%) 50% calc(50% + 5px)/28px 10px repeat-x;
+		-webkit-mask: var(--mask);
+		mask: var(--mask);
+	}
+
+	&.aligncenter {
+		width: 50vw;
+		max-width: rem(469px);
+	}
+
+	&.alignleft {
+		margin-left: $indent * 2;
+		float: none;
+		max-width: rem(90px);
+	}
+
+	&.alignwide {
+		max-width: none;
+		width: 100%;
+		max-width: 1360px;
+	}
+
+	&.alignfull {
+		max-width: none;
+		width: 100vw;
+	}
+}
