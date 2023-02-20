@@ -44,7 +44,7 @@ export default class VideoGuidePlayback {
 		const seconds = Math.floor(this.duration % 60);
 		const formattedDuration = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 
-		this.totaltimeElement.innerText = `${formattedDuration} – `;
+		this.totaltimeElement.innerText = formattedDuration;
 	}
 
 	sync() {

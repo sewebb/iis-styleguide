@@ -163,7 +163,7 @@ var VideoGuidePlayback = function () {
 			var seconds = Math.floor(this.duration % 60);
 			var formattedDuration = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 
-			this.totaltimeElement.innerText = formattedDuration + ' \u2013 ';
+			this.totaltimeElement.innerText = formattedDuration;
 		}
 	}, {
 		key: 'sync',
