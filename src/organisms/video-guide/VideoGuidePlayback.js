@@ -2,6 +2,7 @@ import getCurrentCueIndex from './getCurrentCueIndex';
 
 export default class VideoGuidePlayback {
 	constructor(element, video) {
+		this.dataLayer = window.dataLayer || [];
 		this.video = video;
 		this.playBtn = element.querySelector('.js-play-btn');
 		this.playIcon = element.querySelector('.js-play-icon');
@@ -77,11 +78,29 @@ export default class VideoGuidePlayback {
 	setPlayActive() {
 		this.pauseIcon.classList.remove('is-hidden');
 		this.playIcon.classList.add('is-hidden');
+
+		this.dataLayer.push({
+			event: 'guided_tour',
+			eventInfo: {
+				category: 'guided_tour',
+				action: 'player_click',
+				label: 'Play',
+			},
+		});
 	}
 
 	setPauseActive() {
 		this.pauseIcon.classList.add('is-hidden');
 		this.playIcon.classList.remove('is-hidden');
+
+		this.dataLayer.push({
+			event: 'guided_tour',
+			eventInfo: {
+				category: 'guided_tour',
+				action: 'player_click',
+				label: 'Pause',
+			},
+		});
 	}
 
 	setForwardState(active) {
@@ -155,6 +174,15 @@ export default class VideoGuidePlayback {
 		this.setForwardState(false);
 
 		this.video.currentTime = 0;
+
+		this.dataLayer.push({
+			event: 'guided_tour',
+			eventInfo: {
+				category: 'guided_tour',
+				action: 'guide_completed',
+				label: window.location.href,
+			},
+		});
 	};
 
 	onAbort = () => {
@@ -198,6 +226,15 @@ export default class VideoGuidePlayback {
 		if (activeCueIndex < cues.length - 1) {
 			this.video.currentTime = cues[activeCueIndex + 1].startTime + 0.01;
 			this.updateChapterState();
+
+			this.dataLayer.push({
+				event: 'guided_tour',
+				eventInfo: {
+					category: 'guided_tour',
+					action: 'player_click',
+					label: 'Forward',
+				},
+			});
 		}
 	};
 
@@ -208,6 +245,15 @@ export default class VideoGuidePlayback {
 		if (activeCueIndex > 0) {
 			this.video.currentTime = Math.max(0, cues[activeCueIndex - 1].startTime + 0.01);
 			this.updateChapterState();
+
+			this.dataLayer.push({
+				event: 'guided_tour',
+				eventInfo: {
+					category: 'guided_tour',
+					action: 'player_click',
+					label: 'Backward',
+				},
+			});
 		}
 	}
 }

@@ -1,5 +1,6 @@
 export default class VideoGuideSubtitles {
 	constructor(element, video) {
+		this.dataLayer = window.dataLayer || [];
 		this.element = element;
 		this.video = video;
 		this.subtitlesBtn = element.querySelector('.js-subtitles-btn');
@@ -39,5 +40,16 @@ export default class VideoGuideSubtitles {
 	toggleSubtitles = () => {
 		this.subtitlesBtn.classList.toggle('is-active');
 		this.subtitlesContainer.classList.toggle('is-visible');
+
+		this.dataLayer.push({
+			event: 'guided_tour',
+			eventInfo: {
+				category: 'guided_tour',
+				action: 'player_click',
+				label: 'Subtitles',
+			},
+		});
+
+		console.log(this.dataLayer);
 	};
 }
