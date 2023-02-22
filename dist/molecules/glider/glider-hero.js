@@ -58,44 +58,44 @@ function initHeroGlider(node) {
 				}, parseInt(autoplayDelay, 10));
 			}
 		}, 0);
-	} else {
-		document.querySelector('.js-glider-prev').addEventListener('click', function () {
-			dataLayer.push({
-				event: 'carousel',
-				eventInfo: {
-					category: 'carousel',
-					action: 'click',
-					label: 'arrow_left'
-				}
-			});
-		});
-
-		document.querySelector('.js-glider-next').addEventListener('click', function () {
-			dataLayer.push({
-				event: 'carousel',
-				eventInfo: {
-					category: 'carousel',
-					action: 'click',
-					label: 'arrow_right'
-				}
-			});
-		});
-
-		[].forEach.call(gliderLinks, function (gliderLink) {
-			gliderLink.addEventListener('click', function () {
-				var linkTarget = gliderLink.href;
-				console.log(linkTarget);
-				dataLayer.push({
-					event: 'carousel',
-					eventInfo: {
-						category: 'carousel',
-						action: 'click',
-						label: linkTarget
-					}
-				});
-			});
-		});
 	}
+
+	document.querySelector('.js-glider-prev').addEventListener('click', function () {
+		dataLayer.push({
+			event: 'carousel',
+			eventInfo: {
+				category: 'carousel',
+				action: 'click',
+				label: 'arrow_left'
+			}
+		});
+	});
+
+	document.querySelector('.js-glider-next').addEventListener('click', function () {
+		dataLayer.push({
+			event: 'carousel',
+			eventInfo: {
+				category: 'carousel',
+				action: 'click',
+				label: 'arrow_right'
+			}
+		});
+	});
+
+	[].forEach.call(gliderLinks, function (gliderLink) {
+		gliderLink.addEventListener('click', function () {
+			var linkTarget = gliderLink.href;
+			console.log(linkTarget);
+			dataLayer.push({
+				event: 'carousel',
+				eventInfo: {
+					category: 'carousel',
+					action: 'click',
+					label: linkTarget
+				}
+			});
+		});
+	});
 }
 
 (0, _nodeAdded2.default)('.js-glider-hero', initHeroGlider);

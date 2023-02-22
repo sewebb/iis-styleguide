@@ -32,8 +32,20 @@ var VideoGuideSubtitles = function () {
 		this.toggleSubtitles = function () {
 			_this.subtitlesBtn.classList.toggle('is-active');
 			_this.subtitlesContainer.classList.toggle('is-visible');
+
+			_this.dataLayer.push({
+				event: 'guided_tour',
+				eventInfo: {
+					category: 'guided_tour',
+					action: 'player_click',
+					label: 'Subtitles'
+				}
+			});
+
+			console.log(_this.dataLayer);
 		};
 
+		this.dataLayer = window.dataLayer || [];
 		this.element = element;
 		this.video = video;
 		this.subtitlesBtn = element.querySelector('.js-subtitles-btn');
