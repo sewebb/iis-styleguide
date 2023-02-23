@@ -81,7 +81,7 @@ function animateProgressBar() {
 
 function isInViewport(element) {
 	let top = element.offsetTop;
-	// const height = element.offsetHeight;
+	const height = element.offsetHeight;
 
 	while (element.offsetParent) {
 		element = element.offsetParent; // eslint-disable-line
@@ -90,7 +90,7 @@ function isInViewport(element) {
 
 	return (
 		top < (window.scrollY + window.innerHeight)
-		&& top > window.scrollY
+		&& (top + height / 4) > window.scrollY
 	);
 }
 
