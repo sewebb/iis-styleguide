@@ -87,14 +87,14 @@ function animateProgressBar() {
 
 function isInViewport(element) {
 	var top = element.offsetTop;
-	// const height = element.offsetHeight;
+	var height = element.offsetHeight;
 
 	while (element.offsetParent) {
 		element = element.offsetParent; // eslint-disable-line
 		top += element.offsetTop;
 	}
 
-	return top < window.scrollY + window.innerHeight && top > window.scrollY;
+	return top < window.scrollY + window.innerHeight && top + height / 4 > window.scrollY;
 }
 
 function decadeIsVisible() {
