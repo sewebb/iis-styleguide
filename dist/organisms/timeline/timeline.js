@@ -131,7 +131,12 @@ if (progressBar) {
 	});
 	window.addEventListener('scroll', function () {
 		animateProgressBar();
-		decadeIsVisible();
+
+		// Don't trigger Decade Visible too fast to prevent dataLayer.push
+		// to trigger while user is scrolled past a decade.
+		setTimeout(function () {
+			decadeIsVisible();
+		}, 1500);
 	});
 }
 

@@ -109,6 +109,7 @@ function decadeIsVisible() {
 					label: decade,
 				},
 			});
+			
 		} else if (!isInViewport(decadeSection)) {
 			decadeSection.classList.remove('is-in-view');
 		}
@@ -128,7 +129,12 @@ if (progressBar) {
 	});
 	window.addEventListener('scroll', () => {
 		animateProgressBar();
-		decadeIsVisible();
+
+		// Don't trigger Decade Visible too fast to prevent dataLayer.push
+		// to trigger while user is scrolled past a decade.
+		setTimeout(() => {
+			decadeIsVisible();
+		}, 1500);
 	});
 }
 
