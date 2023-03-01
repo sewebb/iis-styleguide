@@ -133,6 +133,14 @@
 	}
 }
 
+.glider {
+	visibility: hidden;
+
+	&[data-glider-initialized="true"] {
+		visibility: visible;
+	}
+}
+
 .glider-slide {
 	width: 100vw;
 
