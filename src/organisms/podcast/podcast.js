@@ -113,6 +113,14 @@ document.body.addEventListener('click', (e) => {
 	const playBtn = e.target.closest('.js-play-episode');
 	if (playBtn) {
 		e.preventDefault();
+
+		// Clear old episodedata
+		audio.currentTime = 0;
+		timeupdate();
+		audio.pause();
+		sessionStorage.removeItem('episodeData');
+
+		// Play new episode
 		playEpisode(playBtn);
 	}
 });
