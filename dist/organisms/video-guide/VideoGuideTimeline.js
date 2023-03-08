@@ -25,14 +25,23 @@ var VideoGuideTimeline = function () {
 
 			if (activeCues.length > 0) {
 				var activeCue = activeCues[0];
+				var activePost = _this.posts.find(function (post) {
+					return post.dataset.id === activeCue.text;
+				});
 
-				_this.posts.forEach(function (post) {
+				if (activePost) {
+					_this.posts.forEach(function (post) {
+						post.classList.remove('is-current');
+					});
+
+					activePost.classList.add('is-current');
+				}
+
+				_this.images.forEach(function (post) {
 					if (post.dataset.id === activeCue.text) {
 						post.classList.add('is-current');
 
-						if (post.classList.contains('js-timeline-image') && activeCue.id) {
-							_this.createImageHeadline(activeCue, post);
-						}
+						_this.createImageHeadline(activeCue, post);
 					} else {
 						post.classList.remove('is-current');
 					}
@@ -43,7 +52,8 @@ var VideoGuideTimeline = function () {
 		this.element = element;
 		this.video = video;
 		this.container = element.querySelector('.js-timeline-posts');
-		this.posts = Array.from(element.querySelectorAll('.js-timeline-post'));
+		this.posts = Array.from(element.querySelectorAll('.js-timeline-post:not(.js-timeline-image)'));
+		this.images = Array.from(element.querySelectorAll('.js-timeline-image'));
 		this.toggleBtn = element.querySelector('.js-show-timelineposts');
 		this.headlineTpl = element.querySelector('[data-video-headline-tpl]');
 		this.headlineCache = {};
