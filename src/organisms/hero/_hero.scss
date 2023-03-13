@@ -3,6 +3,7 @@
 @include organism(hero) {
 	position: relative;
 	z-index: z_index(background);
+	margin-bottom: rhythm(4);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
