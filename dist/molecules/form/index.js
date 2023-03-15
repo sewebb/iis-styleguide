@@ -10,6 +10,6 @@ var elements = document.querySelectorAll('[data-form]');
 
 if (elements.length) {
 	elements.forEach(function (element) {
-		return new _Form2.default(element);
+		element.form = new _Form2.default(element);
 	});
 }

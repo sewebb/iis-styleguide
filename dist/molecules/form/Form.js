@@ -14,6 +14,10 @@ var _lodash = require('lodash.template');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
+var _Events = require('../../assets/js/Events');
+
+var _Events2 = _interopRequireDefault(_Events);
+
 var _Button = require('../../atoms/button/Button');
 
 var _Button2 = _interopRequireDefault(_Button);
@@ -60,6 +64,7 @@ var Form = function () {
 		};
 
 		this.displayError = function (error) {
+			_this.events.emit('error', error);
 			_this.setLoading(false);
 
 			if ('response' in error) {
@@ -131,6 +136,8 @@ var Form = function () {
 
 			_this.success.classList.remove('is-hidden');
 			_this.success.innerHTML = tmpl(json);
+
+			_this.events.emit('success', json);
 		};
 
 		this.captchaCallback = function () {
@@ -154,6 +161,7 @@ var Form = function () {
 		this.submit = new _Button2.default(this.element.querySelector('button[type="submit"]'));
 		this.error = this.element.querySelector('[data-form-error]');
 		this.success = this.element.querySelector('[data-form-success]');
+		this.events = new _Events2.default();
 
 		if (this.success) {
 			var tpl = document.getElementById(this.success.getAttribute('data-form-success'));
