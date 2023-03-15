@@ -168,7 +168,7 @@ module.exports = {
 		{
 			name: 'Transparent with icon',
 			context: {
-				modifiers: ['transparent'],
+				modifiers: ['transparent a-button--icon'],
 				text: 'Going home',
 				icon: 'arrow-forwards',
 				el: 'button'

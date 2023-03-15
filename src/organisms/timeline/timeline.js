@@ -89,29 +89,34 @@ function isInViewport(element) {
 	}
 
 	return (
-		top < (window.pageYOffset + window.innerHeight)
-		&& (top + height) > window.pageYOffset
+		top < (window.scrollY + window.innerHeight)
+		&& (top + height / 4) > window.scrollY
 	);
 }
 
 function decadeIsVisible() {
 	[].forEach.call(decadeSections, (decadeSection) => {
-		if (isInViewport(decadeSection) && !decadeSection.classList.contains('is-in-view')) {
-			decadeSection.classList.add('is-in-view');
+		// Don't trigger Decade Visible too fast to prevent dataLayer.push
+		// to trigger while user is scrolled past a decade.
+		const timeOut = 1000;
+		const viewTimeout = setTimeout(() => {
+			if (isInViewport(decadeSection) && !decadeSection.classList.contains('is-in-view')) {
+				decadeSection.classList.add('is-in-view');
+				const decadeId = decadeSection.id;
 
-			const decade = decadeSection.id;
-
-			dataLayer.push({
-				event: 'timeline',
-				eventInfo: {
-					category: 'timeline',
-					action: 'active_year',
-					label: decade,
-				},
-			});
-		} else if (!isInViewport(decadeSection)) {
-			decadeSection.classList.remove('is-in-view');
-		}
+				dataLayer.push({
+					event: 'timeline',
+					eventInfo: {
+						category: 'timeline',
+						action: 'active_year',
+						label: decadeId,
+					},
+				});
+			} else if (!isInViewport(decadeSection)) {
+				decadeSection.classList.remove('is-in-view');
+				clearTimeout(viewTimeout);
+			}
+		}, timeOut);
 	});
 }
 

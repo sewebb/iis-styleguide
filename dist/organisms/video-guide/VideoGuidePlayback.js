@@ -59,6 +59,15 @@ var VideoGuidePlayback = function () {
 			_this.setForwardState(false);
 
 			_this.video.currentTime = 0;
+
+			_this.dataLayer.push({
+				event: 'guided_tour',
+				eventInfo: {
+					category: 'guided_tour',
+					action: 'guide_completed',
+					label: window.location.href
+				}
+			});
 		};
 
 		this.onAbort = function () {
@@ -103,6 +112,15 @@ var VideoGuidePlayback = function () {
 			if (activeCueIndex < cues.length - 1) {
 				_this.video.currentTime = cues[activeCueIndex + 1].startTime + 0.01;
 				_this.updateChapterState();
+
+				_this.dataLayer.push({
+					event: 'guided_tour',
+					eventInfo: {
+						category: 'guided_tour',
+						action: 'player_click',
+						label: 'Forward'
+					}
+				});
 			}
 		};
 
@@ -114,9 +132,19 @@ var VideoGuidePlayback = function () {
 			if (activeCueIndex > 0) {
 				_this.video.currentTime = Math.max(0, cues[activeCueIndex - 1].startTime + 0.01);
 				_this.updateChapterState();
+
+				_this.dataLayer.push({
+					event: 'guided_tour',
+					eventInfo: {
+						category: 'guided_tour',
+						action: 'player_click',
+						label: 'Backward'
+					}
+				});
 			}
 		};
 
+		this.dataLayer = window.dataLayer || [];
 		this.video = video;
 		this.playBtn = element.querySelector('.js-play-btn');
 		this.playIcon = element.querySelector('.js-play-icon');
@@ -163,7 +191,7 @@ var VideoGuidePlayback = function () {
 			var seconds = Math.floor(this.duration % 60);
 			var formattedDuration = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 
-			this.totaltimeElement.innerText = formattedDuration + ' \u2013 ';
+			this.totaltimeElement.innerText = formattedDuration;
 		}
 	}, {
 		key: 'sync',
@@ -199,12 +227,30 @@ var VideoGuidePlayback = function () {
 		value: function setPlayActive() {
 			this.pauseIcon.classList.remove('is-hidden');
 			this.playIcon.classList.add('is-hidden');
+
+			this.dataLayer.push({
+				event: 'guided_tour',
+				eventInfo: {
+					category: 'guided_tour',
+					action: 'player_click',
+					label: 'Play'
+				}
+			});
 		}
 	}, {
 		key: 'setPauseActive',
 		value: function setPauseActive() {
 			this.pauseIcon.classList.add('is-hidden');
 			this.playIcon.classList.remove('is-hidden');
+
+			this.dataLayer.push({
+				event: 'guided_tour',
+				eventInfo: {
+					category: 'guided_tour',
+					action: 'player_click',
+					label: 'Pause'
+				}
+			});
 		}
 	}, {
 		key: 'setForwardState',

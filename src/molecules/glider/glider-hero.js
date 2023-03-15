@@ -44,44 +44,44 @@ export function initHeroGlider(node) {
 				}, parseInt(autoplayDelay, 10));
 			}
 		}, 0);
-	} else {
-		document.querySelector('.js-glider-prev').addEventListener('click', () => {
-			dataLayer.push({
-				event: 'carousel',
-				eventInfo: {
-					category: 'carousel',
-					action: 'click',
-					label: 'arrow_left',
-				},
-			});
-		});
-
-		document.querySelector('.js-glider-next').addEventListener('click', () => {
-			dataLayer.push({
-				event: 'carousel',
-				eventInfo: {
-					category: 'carousel',
-					action: 'click',
-					label: 'arrow_right',
-				},
-			});
-		});
-
-		[].forEach.call(gliderLinks, (gliderLink) => {
-			gliderLink.addEventListener('click', () => {
-				const linkTarget = gliderLink.href;
-				console.log(linkTarget);
-				dataLayer.push({
-					event: 'carousel',
-					eventInfo: {
-						category: 'carousel',
-						action: 'click',
-						label: linkTarget,
-					},
-				});
-			});
-		});
 	}
+
+	document.querySelector('.js-glider-prev').addEventListener('click', () => {
+		dataLayer.push({
+			event: 'carousel',
+			eventInfo: {
+				category: 'carousel',
+				action: 'click',
+				label: 'arrow_left',
+			},
+		});
+	});
+
+	document.querySelector('.js-glider-next').addEventListener('click', () => {
+		dataLayer.push({
+			event: 'carousel',
+			eventInfo: {
+				category: 'carousel',
+				action: 'click',
+				label: 'arrow_right',
+			},
+		});
+	});
+
+	[].forEach.call(gliderLinks, (gliderLink) => {
+		gliderLink.addEventListener('click', () => {
+			const linkTarget = gliderLink.href;
+			console.log(linkTarget);
+			dataLayer.push({
+				event: 'carousel',
+				eventInfo: {
+					category: 'carousel',
+					action: 'click',
+					label: linkTarget,
+				},
+			});
+		});
+	});
 }
 
 nodeAdded('.js-glider-hero', initHeroGlider);

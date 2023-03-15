@@ -137,6 +137,14 @@
 				padding-left: rhythm(4);
 			}
 		}
+
+		&.wp-block-iis-visualization {
+			@include e(content) {
+				p {
+					margin-top: 0;
+				}
+			}
+		}
 	}
 
 	@include m(bordered) {

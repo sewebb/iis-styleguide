@@ -3,7 +3,8 @@ export default class VideoGuideTimeline {
 		this.element = element;
 		this.video = video;
 		this.container = element.querySelector('.js-timeline-posts');
-		this.posts = Array.from(element.querySelectorAll('.js-timeline-post'));
+		this.posts = Array.from(element.querySelectorAll('.js-timeline-post:not(.js-timeline-image)'));
+		this.images = Array.from(element.querySelectorAll('.js-timeline-image'));
 		this.toggleBtn = element.querySelector('.js-show-timelineposts');
 		this.headlineTpl = element.querySelector('[data-video-headline-tpl]');
 		this.headlineCache = {};
@@ -59,14 +60,21 @@ export default class VideoGuideTimeline {
 
 		if (activeCues.length > 0) {
 			const activeCue = activeCues[0];
+			const activePost = this.posts.find((post) => post.dataset.id === activeCue.text);
 
-			this.posts.forEach((post) => {
+			if (activePost) {
+				this.posts.forEach((post) => {
+					post.classList.remove('is-current');
+				});
+
+				activePost.classList.add('is-current');
+			}
+
+			this.images.forEach((post) => {
 				if (post.dataset.id === activeCue.text) {
 					post.classList.add('is-current');
 
-					if (post.classList.contains('js-timeline-image') && activeCue.id) {
-						this.createImageHeadline(activeCue, post);
-					}
+					this.createImageHeadline(activeCue, post);
 				} else {
 					post.classList.remove('is-current');
 				}

@@ -1,4 +1,5 @@
 import template from 'lodash.template';
+import Events from '../../assets/js/Events';
 import Button from '../../atoms/button/Button';
 import className from '../../assets/js/className';
 import validationMessage from '../../assets/js/validationMessage';
@@ -10,6 +11,7 @@ export default class Form {
 		this.submit = new Button(this.element.querySelector('button[type="submit"]'));
 		this.error = this.element.querySelector('[data-form-error]');
 		this.success = this.element.querySelector('[data-form-success]');
+		this.events = new Events();
 
 		if (this.success) {
 			const tpl = document.getElementById(this.success.getAttribute('data-form-success'));
@@ -163,6 +165,7 @@ export default class Form {
 	}
 
 	displayError = (error) => {
+		this.events.emit('error', error);
 		this.setLoading(false);
 
 		if ('response' in error) {
@@ -274,6 +277,8 @@ export default class Form {
 
 		this.success.classList.remove('is-hidden');
 		this.success.innerHTML = tmpl(json);
+
+		this.events.emit('success', json);
 	};
 
 	captchaCallback = () => {

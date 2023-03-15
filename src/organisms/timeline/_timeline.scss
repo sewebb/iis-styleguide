@@ -115,7 +115,7 @@ html {
 	// "Parallax" scroll items
 	@include e(parallax) {
 		opacity: 0;
-		transition: opacity 1s ease-out, transform 5s cubic-bezier(0, 1, 0, 1);
+		transition: opacity 1s ease-out, transform 3s cubic-bezier(0, 1, 0, 1);
 		transform: translateY(200px);
 		will-change: opacity, transform;
 		flex: 100%;
@@ -258,7 +258,7 @@ html {
 
 			p[class*='card__text'] {
 				@extend %preamble;
-				
+
 				display: block;
 			}
 
