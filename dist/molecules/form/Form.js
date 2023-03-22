@@ -141,9 +141,9 @@ var Form = function () {
 		};
 
 		this.captchaCallback = function () {
-			if (typeof window.grecaptcha !== 'undefined' && 'CAPTCHA_KEY' in process.env) {
+			if (typeof window.grecaptcha !== 'undefined' && process.env.RECAPTCHA_KEY !== undefined) {
 				/* global grecaptcha */
-				grecaptcha.execute(process.env.CAPTCHA_KEY, { action: _this.recaptcha }).then(function (token) {
+				grecaptcha.execute(process.env.RECAPTCHA_KEY, { action: _this.recaptcha }).then(function (token) {
 					_this.token = token;
 				});
 			}
