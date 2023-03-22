@@ -282,9 +282,9 @@ export default class Form {
 	};
 
 	captchaCallback = () => {
-		if (typeof window.grecaptcha !== 'undefined' && 'CAPTCHA_KEY' in process.env) {
+		if (typeof window.grecaptcha !== 'undefined' && process.env.RECAPTCHA_KEY !== undefined) {
 			/* global grecaptcha */
-			grecaptcha.execute(process.env.CAPTCHA_KEY, { action: this.recaptcha })
+			grecaptcha.execute(process.env.RECAPTCHA_KEY, { action: this.recaptcha })
 				.then((token) => {
 					this.token = token;
 				});
