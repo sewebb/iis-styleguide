@@ -139,9 +139,17 @@
 		}
 
 		&.wp-block-iis-visualization {
+			background-color: transparent;
+
 			@include e(content) {
 				p {
 					margin-top: 0;
+				}
+			}
+
+			&--no-padding {
+				@include e(content) {
+					padding: 0;
 				}
 			}
 		}
