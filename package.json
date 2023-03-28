@@ -1,14 +1,6 @@
 {
 	"name": "@internetstiftelsen/styleguide",
-<<<<<<< HEAD
-<<<<<<< HEAD
-	"version": "2.25.1-beta.0.669",
-=======
-	"version": "2.25.1",
->>>>>>> 4d9eab0 (2.25.1)
-=======
 	"version": "2.25.2-beta.0.2",
->>>>>>> 568d177 (visualization changes)
 	"main": "dist/components.js",
 	"ports": {
 		"fractal": "3000"
