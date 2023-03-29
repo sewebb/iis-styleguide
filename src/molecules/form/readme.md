@@ -9,7 +9,7 @@ error/success states and set validation rules.
 
 ## Success
 
-The success response is handled via an EJS template a `data-form-success` element.
+The success response is handled via an EJS template and a `data-form-success` element.
 
 Like this:
 
