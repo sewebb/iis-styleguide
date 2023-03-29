@@ -9,15 +9,16 @@ error/success states and set validation rules.
 
 ## Success
 
-The success message is defined with the attribute `data-form-success`. How the message looks is completely up to you.
-You can use template tags that will be replaced with the data received from the API.
+The success response is handled via an EJS template a `data-form-success` element.
 
 Like this:
 
-```
-<div data-form-success>
-	The result was: {result}
-</div>
+```html
+<div role="alert" data-form-success="locations" class="m-alert m-alert--success is-hidden"></div>
+
+<script type="iis/template" id="locations">
+	<% locations.forEach(function (location) { %><li><%- location.city %> (<%- location.country %>)</li><% }); %>
+</script>
 ```
 
 ## Error
@@ -41,3 +42,28 @@ __Available rules__:
 | ---- | ---- | ----------- |
 | required | - | The field must exist |
 | min | numeric | Checks if the value of the field is at least N characters |
+
+## Events
+
+All form elements (`data-form`) has the actual form component attached to it. You can access it like this:
+
+```javascript
+const form = document.querySelector('[data-form]').form;
+```
+
+The form component has a few events you can listen to:
+
+| Name | Description |
+| ---- | ----------- |
+| success | The form was successfully submitted |
+| error | The form failed to submit |
+
+You can listen to these events like this:
+
+```javascript
+form.events.on('success', (data) => {
+	console.log('Form was successfully submitted', data);
+});
+```
+
+This can be used for tracking and other things.
