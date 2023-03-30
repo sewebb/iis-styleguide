@@ -147,7 +147,7 @@
 				}
 			}
 
-			&--no-padding {
+			&--no-padding > {
 				@include e(content) {
 					padding: 0;
 				}
