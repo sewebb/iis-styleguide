@@ -346,6 +346,7 @@ function delegate(e) {
 
 		var id = openModal.getAttribute('data-modal-open');
 		var modalEl = document.getElementById(id);
+		document.querySelector('body').classList.add('prevent-scroll');
 
 		if (modalEl) {
 			open(modalEl, {
@@ -368,6 +369,7 @@ function delegate(e) {
 		e.stopPropagation();
 
 		var _id = closeModal.getAttribute('data-modal-close') || active && active.el.id;
+		document.querySelector('body').classList.remove('prevent-scroll');
 
 		if (active && active.el.id === _id) {
 			close();

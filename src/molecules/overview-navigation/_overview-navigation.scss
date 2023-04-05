@@ -109,8 +109,8 @@
 
 		&.is-fixed {
 			display: flex;
-			top: calc(100vh -#{rhythm(11)}) !important;
-			left: calc(100% -#{rhythm(8)}) !important;
+			top: calc(100vh - rhythm(11)) !important;
+			left: calc(100% - rhythm(8)) !important;
 		}
 	}
 
@@ -132,7 +132,7 @@
 		position: fixed;
 		right: rhythm(2);
 		bottom: rhythm(13);
-		z-index: 3;
+		z-index: z_index(middlegroundImportant);
 		margin-top: 0;
 		margin-bottom: 0;
 	}
