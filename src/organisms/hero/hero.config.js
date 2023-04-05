@@ -11,6 +11,7 @@ module.exports = {
 		hero_image: '/assets/images/hero.jpg',
 		has_link: true,
 		has_pre_heading: false,
+		has_text: true,
 	},
 	variants: [
 		{
@@ -125,6 +126,19 @@ module.exports = {
 				no_image_class: 'o-hero--break-early o-hero--clean',
 				limited_width: false,
 				has_buttons: false,
+			}
+		},
+		{
+			name: 'No breakpoint',
+			context: {
+				no_image_class: 'o-hero--no-break',
+				limited_width: false,
+				has_button: true,
+				has_tags: false,
+				has_link: false,
+				has_text: false,
+				text: 'Konferens online 2023'
+
 			}
 		},
 		{
