@@ -35,7 +35,7 @@
 				{{#if has_link}}<a href="#" class="o-hero__link">{{/if}}
 					<h1 class="supersize">{{heading}}</h1>
 				{{#if has_link}}</a>{{/if}}
-				<p class="o-hero__paragraph">{{text}}</p>
+				{{#if has_text}}<p class="o-hero__paragraph">{{text}}</p>{{/if}}
 				{{#if has_tags}}
 					<div class="o-hero__tags">
 						{{> @tag is_light=true text="internet"}}
@@ -45,6 +45,9 @@
 						{{render '@button'}}
 						{{render '@button'}}
 					</div>
+				{{/if}}
+				{{#if has_button}}
+					{{> @button el="a" text="Anmäl intresse" modifiers="lemon a-button--inline"}}
 				{{/if}}
 			</div>
 		</div>
