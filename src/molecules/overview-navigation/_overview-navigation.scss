@@ -62,7 +62,10 @@
 	}
 
 	@include e(button) {
-		display: none;
+		position: fixed;
+		display: flex;
+		opacity: 0;
+		pointer-events: none;
 		padding: 0;
 		border: 0;
 		transition: left 0.25s ease-out, top 0.25s ease-out;
@@ -108,9 +111,10 @@
 		}
 
 		&.is-fixed {
-			display: flex;
 			top: calc(100vh - rhythm(11)) !important;
 			left: calc(100% - rhythm(8)) !important;
+			opacity: 1;
+			pointer-events: auto;
 		}
 	}
 

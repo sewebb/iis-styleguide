@@ -1,68 +1,90 @@
-const overviewNavigations = document.querySelectorAll('.js-overview-navigation');
-const overviewNavigationButton = document.querySelector('.js-overview-navigation-button');
+class OverviewNavigation {
+	constructor(element) {
+		this.element = element;
+		this.button = this.element.querySelector('.js-overview-navigation-button');
+		this.isSmallScreen = false;
+		this.isOutOfView = false;
+		this.minimized = false;
 
-function overViewNav(overviewNavigation) {
-	overviewNavigationButton.classList.remove('is-fixed');
-	overviewNavigation.classList.remove('is-minimized');
-	overviewNavigationButton.setAttribute('aria-expanded', 'true');
+		// a11y-toggle doesn't have a callback for when it's done initializing
+		// so we have to wait for the next tick
+		document.addEventListener('DOMContentLoaded', () => {
+			setTimeout(() => {
+				this.attach();
+				this.onResize();
+			}, 0);
+		});
+	}
 
-	// Timeout until a11y-toggle is initiated
-	setTimeout(() => {
-		overviewNavigation.setAttribute('aria-hidden', 'false');
-	}, '50');
+	attach() {
+		window.addEventListener('resize', this.onResize.bind(this));
+		window.addEventListener('scroll', this.onScroll.bind(this));
+	}
 
-	const viewportOffset = overviewNavigation.getBoundingClientRect();
-	const topBtnPos = overviewNavigationButton.offsetTop;
-	const leftPos = viewportOffset.left;
-	const topNavPos = viewportOffset.top;
-
-	window.addEventListener('scroll', () => {
-		if (window.innerWidth > 960) {
-			if (overviewNavigation.getBoundingClientRect().top < 0) { // Element is at top of screen
-				overviewNavigation.setAttribute('aria-hidden', 'true');
-				overviewNavigation.classList.add('is-minimized');
-
-				overviewNavigationButton.style.left = `${leftPos}px`;
-				overviewNavigationButton.style.top = `${topBtnPos}px`;
-				overviewNavigationButton.style.display = 'flex';
-				overviewNavigationButton.style.position = 'fixed';
-
-				// Timeout to let styles above apply first
-				setTimeout(() => {
-					overviewNavigationButton.classList.add('is-fixed');
-				}, '10');
-			} else if (window.scrollY === 0) { // User has scrolled back to top
-				overviewNavigationButton.classList.remove('is-fixed');
-				overviewNavigationButton.style.left = `${leftPos}px`;
-				overviewNavigationButton.style.top = `${topNavPos}px`;
-
-				// Timeout same length as CSS-transition
-				setTimeout(() => {
-					overviewNavigationButton.style.display = 'none';
-					overviewNavigation.setAttribute('aria-hidden', 'false');
-					overviewNavigation.classList.remove('is-minimized');
-				}, '250');
-			}
-		}
-	});
-
-	window.addEventListener('resize', () => {
-		if (window.innerWidth < 960) {
-			overviewNavigationButton.classList.add('is-fixed');
-			overviewNavigation.classList.add('is-minimized');
-			overviewNavigationButton.setAttribute('aria-expanded', 'false');
-			overviewNavigation.setAttribute('aria-hidden', 'true');
+	update() {
+		if (this.isSmallScreen || this.isOutOfView) {
+			this.minimize();
 		} else {
-			overviewNavigationButton.classList.remove('is-fixed');
-			overviewNavigation.classList.remove('is-minimized');
-			overviewNavigationButton.setAttribute('aria-expanded', 'true');
-			overviewNavigation.setAttribute('aria-hidden', 'false');
+			this.maximize();
 		}
-	});
+	}
+
+	onResize() {
+		this.updateButtonPosition();
+
+		this.isSmallScreen = window.innerWidth < 960;
+		this.update();
+	}
+
+	onScroll() {
+		this.updateButtonPosition();
+
+		const viewportOffset = this.element.getBoundingClientRect();
+
+		if (viewportOffset.top < 0) {
+			this.isOutOfView = true;
+		} else if (window.scrollY === 0) {
+			this.isOutOfView = false;
+		}
+
+		this.update();
+	}
+
+	updateButtonPosition() {
+		const viewportOffset = this.element.getBoundingClientRect();
+
+		this.button.style.left = `${viewportOffset.left}px`;
+		this.button.style.top = `${viewportOffset.top}px`;
+	}
+
+	minimize() {
+		if (this.minimized) {
+			return;
+		}
+
+		this.element.setAttribute('aria-hidden', 'true');
+		this.element.classList.add('is-minimized');
+		this.button.setAttribute('aria-expanded', 'false');
+		this.button.classList.add('is-fixed');
+
+		this.minimized = true;
+	}
+
+	maximize() {
+		this.element.setAttribute('aria-hidden', 'false');
+		this.element.classList.remove('is-minimized');
+		this.button.setAttribute('aria-expanded', 'true');
+		this.button.classList.remove('is-fixed');
+
+		this.minimized = false;
+	}
 }
 
+const overviewNavigations = document.querySelectorAll('.js-overview-navigation');
+
 if (overviewNavigations) {
-	if (window.innerWidth > 960) {
-		[].forEach.call(overviewNavigations, overViewNav);
-	}
+	[].forEach.call(
+		overviewNavigations,
+		(overviewNavigation) => new OverviewNavigation(overviewNavigation),
+	);
 }
