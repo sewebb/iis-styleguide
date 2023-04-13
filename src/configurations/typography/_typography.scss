@@ -171,6 +171,29 @@ small {
 			$leading-bottom: 2
 		);
 	}
+
+	&--large-mobile {
+		hyphens: auto;
+		hyphenate-limit-chars: 13 3 4;
+		overflow-wrap: break-word;
+
+		@include plumber(
+			$font-size: 4.5,
+			$line-height: 5,
+			$leading-bottom: 1
+		);
+
+		@include bp-up(md) {
+			hyphens: initial;
+			overflow-wrap: normal;
+
+			@include plumber(
+				$font-size: 7,
+				$line-height: 8,
+				$leading-bottom: 2
+			);
+		}
+	}
 }
 
 .godzilla {
