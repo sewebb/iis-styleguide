@@ -69,7 +69,7 @@
 		pointer-events: none;
 		padding: 0;
 		border: 0;
-		transition: left 0.25s ease-out, top 0.25s ease-out;
+		transition: left 0.25s ease-out, top 0.25s ease-out, opacity 0.01s ease 0.26s;
 		background-color: transparent;
 		width: rem(60px);
 		height: rem(60px);
@@ -116,6 +116,7 @@
 			left: calc(100% - rhythm(8)) !important;
 			opacity: 1;
 			pointer-events: auto;
+			transition: left 0.25s ease-out, top 0.25s ease-out;
 		}
 	}
 
