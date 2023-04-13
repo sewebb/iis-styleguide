@@ -24,6 +24,7 @@
 	@include e(title) {
 		margin-bottom: rhythm(2);
 	}
+
 	@include e(item) {
 		display: flex;
 		align-items: center;
