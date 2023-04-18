@@ -37,13 +37,12 @@ class OverviewNavigation {
 	}
 
 	onScroll() {
-		this.updateButtonPosition();
-
 		const viewportOffset = this.element.getBoundingClientRect();
 
 		if (viewportOffset.top < 0) {
 			this.isOutOfView = true;
 		} else if (window.scrollY === 0) {
+			this.updateButtonPosition();
 			this.isOutOfView = false;
 		}
 
@@ -52,15 +51,23 @@ class OverviewNavigation {
 
 	updateButtonPosition() {
 		const viewportOffset = this.element.getBoundingClientRect();
+		console.log(viewportOffset);
 
-		this.button.style.left = `${viewportOffset.left}px`;
-		this.button.style.top = `${viewportOffset.top}px`;
+		// this.button.style.left = `${viewportOffset.left}px`;
+		// this.button.style.top = `${viewportOffset.top}px`;
 	}
 
 	minimize() {
 		if (this.minimized) {
 			return;
 		}
+
+		const viewportOffset = this.button.getBoundingClientRect();
+		console.log('right', viewportOffset.right);
+		console.log('bottom', viewportOffset.bottom);
+		console.log('element', this.element);
+		this.button.style.right = `${viewportOffset.right}px`;
+		this.button.style.bottom = `${viewportOffset.bottom}px`;
 
 		this.element.setAttribute('aria-hidden', 'true');
 		this.element.classList.add('is-minimized');

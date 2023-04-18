@@ -64,12 +64,14 @@
 
 	@include e(button) {
 		position: fixed;
+		bottom: auto;
+		right: auto;
 		display: flex;
 		opacity: 0;
 		pointer-events: none;
 		padding: 0;
 		border: 0;
-		transition: left 0.25s ease-out, top 0.25s ease-out, opacity 0.01s ease 0.26s;
+		transition: right 0.25s ease-out, bottom 0.25s ease-out, opacity 0.25s ease-out;
 		background-color: transparent;
 		width: rem(60px);
 		height: rem(60px);
@@ -112,11 +114,18 @@
 		}
 
 		&.is-fixed {
-			top: calc(100vh - rhythm(11)) !important;
-			left: calc(100% - rhythm(8)) !important;
+			//top: calc(100vh - rhythm(11)) !important;
+			//top: auto !important;
+			bottom: calc(env(safe-area-inset-bottom) + rhythm(5)) !important;
+			//left: auto !important;
+			right: rhythm(2) !important;
 			opacity: 1;
 			pointer-events: auto;
-			transition: left 0.25s ease-out, top 0.25s ease-out;
+
+			@include bp-up(xxl) {
+				//left: auto !important;
+				right: calc(50vw - 680px)  !important;
+			}
 		}
 	}
 
@@ -141,5 +150,9 @@
 		z-index: z_index(middlegroundImportant);
 		margin-top: 0;
 		margin-bottom: 0;
+
+		@include bp-up(xxl) {
+			right: calc(50vw - 680px)  !important;
+		}
 	}
 }

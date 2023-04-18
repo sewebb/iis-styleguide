@@ -1,72 +1,110 @@
 'use strict';
 
-var overviewNavigations = document.querySelectorAll('.js-overview-navigation');
-var overviewNavigationButton = document.querySelector('.js-overview-navigation-button');
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-function overViewNav(overviewNavigation) {
-	overviewNavigationButton.classList.remove('is-fixed');
-	overviewNavigation.classList.remove('is-minimized');
-	overviewNavigationButton.setAttribute('aria-expanded', 'true');
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-	// Timeout until a11y-toggle is initiated
-	setTimeout(function () {
-		overviewNavigation.setAttribute('aria-hidden', 'false');
-	}, '50');
+var OverviewNavigation = function () {
+	function OverviewNavigation(element) {
+		var _this = this;
 
-	var viewportOffset = overviewNavigation.getBoundingClientRect();
-	var topBtnPos = overviewNavigationButton.offsetTop;
-	var leftPos = viewportOffset.left;
-	var topNavPos = viewportOffset.top;
+		_classCallCheck(this, OverviewNavigation);
 
-	window.addEventListener('scroll', function () {
-		if (window.innerWidth > 960) {
-			if (overviewNavigation.getBoundingClientRect().top < 0) {
-				// Element is at top of screen
-				overviewNavigation.setAttribute('aria-hidden', 'true');
-				overviewNavigation.classList.add('is-minimized');
+		this.element = element;
+		this.button = this.element.querySelector('.js-overview-navigation-button');
+		this.isSmallScreen = false;
+		this.isOutOfView = false;
+		this.minimized = false;
 
-				overviewNavigationButton.style.left = leftPos + 'px';
-				overviewNavigationButton.style.top = topBtnPos + 'px';
-				overviewNavigationButton.style.display = 'flex';
-				overviewNavigationButton.style.position = 'fixed';
+		// a11y-toggle doesn't have a callback for when it's done initializing
+		// so we have to wait for the next tick
+		document.addEventListener('DOMContentLoaded', function () {
+			setTimeout(function () {
+				_this.attach();
+				_this.onResize();
+			}, 0);
+		});
+	}
 
-				// Timeout to let styles above apply first
-				setTimeout(function () {
-					overviewNavigationButton.classList.add('is-fixed');
-				}, '10');
-			} else if (window.scrollY === 0) {
-				// User has scrolled back to top
-				overviewNavigationButton.classList.remove('is-fixed');
-				overviewNavigationButton.style.left = leftPos + 'px';
-				overviewNavigationButton.style.top = topNavPos + 'px';
-
-				// Timeout same length as CSS-transition
-				setTimeout(function () {
-					overviewNavigationButton.style.display = 'none';
-					overviewNavigation.setAttribute('aria-hidden', 'false');
-					overviewNavigation.classList.remove('is-minimized');
-				}, '250');
+	_createClass(OverviewNavigation, [{
+		key: 'attach',
+		value: function attach() {
+			window.addEventListener('resize', this.onResize.bind(this));
+			window.addEventListener('scroll', this.onScroll.bind(this));
+		}
+	}, {
+		key: 'update',
+		value: function update() {
+			if (this.isSmallScreen || this.isOutOfView) {
+				this.minimize();
+			} else {
+				this.maximize();
 			}
 		}
-	});
+	}, {
+		key: 'onResize',
+		value: function onResize() {
+			this.updateButtonPosition();
 
-	window.addEventListener('resize', function () {
-		if (window.innerWidth < 960) {
-			overviewNavigationButton.classList.add('is-fixed');
-			overviewNavigation.classList.add('is-minimized');
-			overviewNavigationButton.setAttribute('aria-expanded', 'false');
-			overviewNavigation.setAttribute('aria-hidden', 'true');
-		} else {
-			overviewNavigationButton.classList.remove('is-fixed');
-			overviewNavigation.classList.remove('is-minimized');
-			overviewNavigationButton.setAttribute('aria-expanded', 'true');
-			overviewNavigation.setAttribute('aria-hidden', 'false');
+			this.isSmallScreen = window.innerWidth < 960;
+			this.update();
 		}
-	});
-}
+	}, {
+		key: 'onScroll',
+		value: function onScroll() {
+			this.updateButtonPosition();
+
+			var viewportOffset = this.element.getBoundingClientRect();
+
+			if (viewportOffset.top < 0) {
+				this.isOutOfView = true;
+			} else if (window.scrollY === 0) {
+				this.isOutOfView = false;
+			}
+
+			this.update();
+		}
+	}, {
+		key: 'updateButtonPosition',
+		value: function updateButtonPosition() {
+			var viewportOffset = this.element.getBoundingClientRect();
+
+			this.button.style.left = viewportOffset.left + 'px';
+			this.button.style.top = viewportOffset.top + 'px';
+		}
+	}, {
+		key: 'minimize',
+		value: function minimize() {
+			if (this.minimized) {
+				return;
+			}
+
+			this.element.setAttribute('aria-hidden', 'true');
+			this.element.classList.add('is-minimized');
+			this.button.setAttribute('aria-expanded', 'false');
+			this.button.classList.add('is-fixed');
+
+			this.minimized = true;
+		}
+	}, {
+		key: 'maximize',
+		value: function maximize() {
+			this.element.setAttribute('aria-hidden', 'false');
+			this.element.classList.remove('is-minimized');
+			this.button.setAttribute('aria-expanded', 'true');
+			this.button.classList.remove('is-fixed');
+
+			this.minimized = false;
+		}
+	}]);
+
+	return OverviewNavigation;
+}();
+
+var overviewNavigations = document.querySelectorAll('.js-overview-navigation');
 
 if (overviewNavigations) {
-	if (window.innerWidth > 960) {
-		[].forEach.call(overviewNavigations, overViewNav);
-	}
+	[].forEach.call(overviewNavigations, function (overviewNavigation) {
+		return new OverviewNavigation(overviewNavigation);
+	});
 }
