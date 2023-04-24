@@ -71,7 +71,6 @@
 		pointer-events: none;
 		padding: 0;
 		border: 0;
-		transition: right 0.25s ease-out, bottom 0.25s ease-out, opacity 0.25s ease-out;
 		width: rem(60px);
 		height: rem(60px);
 		flex-shrink: 0;
@@ -118,7 +117,6 @@
 			bottom: calc(env(safe-area-inset-bottom) + rhythm(5)) !important;
 			//left: auto !important;
 			right: rhythm(2) !important;
-			opacity: 1;
 			pointer-events: auto;
 
 			@include bp-up(xxl) {

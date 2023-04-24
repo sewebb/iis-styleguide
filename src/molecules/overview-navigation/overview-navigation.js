@@ -4,7 +4,7 @@ class OverviewNavigation {
 		this.button = this.element.querySelector('.js-overview-navigation-button');
 		this.isSmallScreen = false;
 		this.isOutOfView = false;
-		this.minimized = false;
+		this.minimized = null;
 
 		// a11y-toggle doesn't have a callback for when it's done initializing
 		// so we have to wait for the next tick
@@ -12,7 +12,6 @@ class OverviewNavigation {
 			setTimeout(() => {
 				this.attach();
 				this.onResize();
-				this.updateButtonPosition();
 			}, 0);
 		});
 	}
@@ -31,14 +30,11 @@ class OverviewNavigation {
 	}
 
 	onResize() {
-		this.updateButtonPosition();
-
 		this.isSmallScreen = window.innerWidth <= 961;
 		this.update();
 	}
 
 	onScroll() {
-		this.updateButtonPosition();
 		const viewportOffset = this.element.getBoundingClientRect();
 
 		if (viewportOffset.top < 0) {
@@ -60,23 +56,41 @@ class OverviewNavigation {
 	}
 
 	minimize() {
-		if (this.minimized) {
+		if (this.minimized === true) {
 			return;
 		}
 
+		this.button.style.transition = 'none';
+		this.updateButtonPosition();
+		// eslint-disable-next-line no-unused-expressions
+		this.element.offsetHeight; // force reflow
+		this.button.style.transition = 'right 0.25s ease-out, bottom 0.25s ease-out, opacity 0.25s ease-out';
+
 		this.element.setAttribute('aria-hidden', 'true');
 		this.element.classList.add('is-minimized');
+
 		this.button.setAttribute('aria-expanded', 'false');
 		this.button.classList.add('is-fixed');
+		this.button.style.opacity = 1;
 
 		this.minimized = true;
 	}
 
 	maximize() {
+		if (this.minimized === false) {
+			return;
+		}
+
 		this.element.setAttribute('aria-hidden', 'false');
 		this.element.classList.remove('is-minimized');
+
+		// eslint-disable-next-line no-unused-expressions
+		this.element.offsetHeight; // force reflow
+
+		this.updateButtonPosition();
 		this.button.setAttribute('aria-expanded', 'true');
 		this.button.classList.remove('is-fixed');
+		this.button.style.opacity = 0;
 
 		this.minimized = false;
 	}
