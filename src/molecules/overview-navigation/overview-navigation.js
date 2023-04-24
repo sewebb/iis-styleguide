@@ -12,6 +12,7 @@ class OverviewNavigation {
 			setTimeout(() => {
 				this.attach();
 				this.onResize();
+				this.updateButtonPosition();
 			}, 0);
 		});
 	}
@@ -50,10 +51,12 @@ class OverviewNavigation {
 	}
 
 	updateButtonPosition() {
-		const viewportOffset = this.element.getBoundingClientRect();
+		const elementOffset = this.element.getBoundingClientRect();
+		const buttonRect = this.button.getBoundingClientRect();
 
-		this.button.style.right = `${viewportOffset.width}px`;
-		this.button.style.bottom = `${viewportOffset.height}px`;
+		// Use right and bottom to place this.button at the top left corner of the element
+		this.button.style.right = `${window.innerWidth - elementOffset.right + elementOffset.width - buttonRect.width}px`;
+		this.button.style.bottom = `${window.innerHeight - elementOffset.top - buttonRect.height}px`;
 	}
 
 	minimize() {
