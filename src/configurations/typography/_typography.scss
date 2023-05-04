@@ -346,6 +346,9 @@ blockquote {
 
 	@include bp-up(sm) {
 		padding-right: rhythm(3);
+		max-width: rem(613px);
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	@include bp-up(md) {
@@ -354,17 +357,24 @@ blockquote {
 
 		p {
 			@include plumber(
-				$font-size: 3,
+				$font-size: 2.7,
 				$line-height: 4,
 				$leading-bottom: 0,
 				$leading-top: 1
 			);
+
+			line-height: 32px;
 		}
 
 		.meta {
 			margin-top: rhythm(0.5);
 			line-height: rhythm(3.5);
 		}
+	}
+
+	@include bp-up(lg) {
+		margin-left: initial;
+		margin-right: initial;
 	}
 }
 
