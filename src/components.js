@@ -29,3 +29,4 @@ import './molecules/continue-video-guide/continue-video-guide';
 import './organisms/video-guide/video-guide';
 import './organisms/timeline/timeline';
 import './molecules/overview-navigation/overview-navigation';
+import './organisms/schedule/schedule-filter';

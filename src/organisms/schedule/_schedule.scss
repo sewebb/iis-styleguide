@@ -1,52 +1,65 @@
 @charset "UTF-8";
 
-@include organism(schedule)  {
-	@include e(filter) {
-		margin-bottom: rhythm(2);
+@include organism(schedule-filter)  {
+	margin-bottom: rhythm(2);
+	padding-bottom: rhythm(1);
+	position: sticky;
+	top: -1px;
+	padding-top: 1px;
+	background-color: $color-ash;
+	z-index: z_index(foregroundMinus);
 
-		@include e(button) {
-			font-size: $size-base;
+	&.is-sticky {
+		border-bottom: 1px solid $color-snow;
+		@extend %box-shadow;
+	}
 
-			@include bp-up(md) {
-				pointer-events: none;
+	@include e(button) {
+		font-size: $size-base;
 
-				&:hover,
-				&:focus {
-					text-decoration: none;
-				}
+		@include bp-up(md) {
+			pointer-events: none;
 
-				svg {
-					display: none;
-				}
+			&:hover,
+			&:focus {
+				text-decoration: none;
 			}
-		}
-		@include e(list) {
-			padding: 0;
-			margin: 0;
-			display: flex;
-			flex-wrap: wrap;
 
-			&[aria-hidden='true'] {
+			svg {
 				display: none;
-
-				@include bp-up(md) {
-					display: flex;
-				}
-			}
-
-			dt {
-				width: 100%;
-				flex-basis: 100%;
-				font-family: $font-family-headings;
-			}
-
-			dt,
-			dd {
-				margin: 0;
-				padding: 0;
 			}
 		}
 	}
+	@include e(list) {
+		padding: 0 0 rhythm(1) 0;
+		margin: 0;
+		display: flex;
+		flex-wrap: wrap;
+
+		&[aria-hidden='true'] {
+			display: none;
+
+			@include bp-up(md) {
+				display: flex;
+			}
+		}
+
+		dt {
+			width: 100%;
+			flex-basis: 100%;
+			font-family: $font-family-headings;
+		}
+
+		dt,
+		dd {
+			margin: 0;
+			padding: 0;
+		}
+	}
+}
+
+@include organism(schedule) {
+	margin-bottom: rhythm(8);
 
 	@include e(item) {
 		background-color: $color-snow;
