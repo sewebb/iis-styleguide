@@ -8,7 +8,7 @@
 	padding-top: 1px;
 	background-color: $color-ash;
 	z-index: z_index(foregroundMinus);
-	transition: box-shadow 0.25s ease, border-width 0.25s ease;
+	transition: box-shadow 0.25s ease, border-width 0.25s ease, background-color 0.25s ease;
 
 	&.is-sticky {
 		border-bottom: 1px solid $color-concrete;
@@ -16,6 +16,7 @@
 		margin-right: -#{$grid-gutter-width};
 		padding-left: $grid-gutter-width;
 		padding-right: $grid-gutter-width;
+		background-color: $color-snow;
 		@extend %box-shadow;
 	}
 
