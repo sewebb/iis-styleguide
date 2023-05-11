@@ -2,7 +2,6 @@
 
 @include organism(schedule-filter)  {
 	margin-bottom: rhythm(2);
-	padding-bottom: rhythm(1);
 	position: sticky;
 	top: -1px;
 	padding-top: 1px;
@@ -18,6 +17,11 @@
 		padding-right: $grid-gutter-width;
 		background-color: $color-snow;
 		@extend %box-shadow;
+
+		@include bp-up(xxl) {
+			border-bottom-left-radius: $border-radius;
+			border-bottom-right-radius: $border-radius;
+		}
 	}
 
 	@include e(button) {
