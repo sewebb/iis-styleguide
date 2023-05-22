@@ -1,23 +1,23 @@
 import getCookieByName from './getCookieByName';
 import queryToObj from './queryToObj';
 
-export default function hasCookieConsent(category) {
+export default function hasCookieConsent(category, defaultIfNoCookie = true) {
 	const cookie = getCookieByName('OptanonConsent');
 
 	if (!cookie) {
-		return false;
+		return defaultIfNoCookie;
 	}
 
 	const cookieObj = queryToObj(cookie);
 
 	if (!('groups' in cookieObj)) {
-		return false;
+		return defaultIfNoCookie;
 	}
 
 	const groups = Object.fromEntries(cookieObj.groups.split(',').map((group) => group.trim().split(':')));
 
 	if (!(category in groups)) {
-		return false;
+		return defaultIfNoCookie;
 	}
 
 	return groups[category] === '1';
