@@ -67,6 +67,10 @@ function createConsentWarning(el) {
 }
 
 function createCover(el) {
+	if (!(0, _hasCookieConsent2.default)('C0004')) {
+		createConsentWarning(el);
+	}
+
 	if (el.getElementsByTagName('img').length) {
 		return;
 	}
@@ -79,10 +83,6 @@ function createCover(el) {
 
 	img.loading = 'lazy';
 	img.src = url;
-
-	if (!(0, _hasCookieConsent2.default)('C0004')) {
-		createConsentWarning(el);
-	}
 }
 
 function setupYoutubePlayer(el) {
