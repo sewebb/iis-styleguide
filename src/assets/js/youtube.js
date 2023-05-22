@@ -101,6 +101,10 @@ function setupYoutubePlayer(el) {
 }
 
 function delegateClick(e) {
+	if (e.target.closest('[data-youtube-consent-warning]')) {
+		return;
+	}
+
 	const el = e.target.closest('[data-youtube]');
 
 	if (!el) {
