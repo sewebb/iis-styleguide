@@ -1,7 +1,5 @@
 import './molecules/form';
 import './atoms/textarea/rich-text';
-import hasCookieConsent from './assets/js/hasCookieConsent';
-import getCookieByName from './assets/js/getCookieByName';
 
 require('./atoms/grid-toggle/grid-toggle');
 require('./components');

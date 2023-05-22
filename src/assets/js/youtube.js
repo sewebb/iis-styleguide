@@ -1,3 +1,9 @@
+// TODO: Should probably implement a way to localize texts in the styleguide
+import className from './className';
+import hasCookieConsent from './hasCookieConsent';
+
+const missingConsentMessage = 'För att spela Youtubefilmer krävs att "Riktade kakor" tillåts. Tryck för att "Anpassa kakor"';
+
 function loadYoutubeAPI() {
 	const id = 'iisYoutubeAPI';
 
@@ -24,6 +30,27 @@ function onPlayerStateChange(el, e) {
 	}
 }
 
+function createConsentWarning(el) {
+	if (el.querySelector('[data-youtube-consent-warning]')) {
+		return;
+	}
+
+	const div = document.createElement('div');
+	const button = document.createElement('button');
+	const message = document.createElement('p');
+
+	div.setAttribute('data-youtube-consent-warning', true);
+	div.className = className('m-icon-overlay__message');
+	button.className = className('a-button');
+	button.innerHTML = `<span class="${className('a-button__text')} ot-sdk-show-settings">Anpassa kakor</span>`;
+	message.innerHTML = missingConsentMessage;
+
+	div.appendChild(message);
+	div.appendChild(button);
+
+	el.appendChild(div);
+}
+
 function createCover(el) {
 	if (el.getElementsByTagName('img').length) {
 		return;
@@ -37,6 +64,10 @@ function createCover(el) {
 
 	img.loading = 'lazy';
 	img.src = url;
+
+	if (!hasCookieConsent('C0004')) {
+		createConsentWarning(el);
+	}
 }
 
 function setupYoutubePlayer(el) {

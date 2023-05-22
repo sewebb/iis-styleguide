@@ -28,7 +28,7 @@
 
 	@include e(button) {
 		position: absolute;
-		z-index: z_index(foregroundMinus);
+		z-index: 3;
 		top: 50%;
 		left: 50%;
 		width: rhythm(7);
@@ -62,5 +62,20 @@
 			width: rhythm(10);
 			height: rhythm(10);
 		}
+	}
+
+	@include e(message) {
+		display: flex;
+		flex-direction: column;
+		position: absolute;
+		z-index: 4;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		left: 0;
+		align-items: center;
+		justify-content: center;
+		text-align: center;
+		background: $color-concrete;
 	}
 }
