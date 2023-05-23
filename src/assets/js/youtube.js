@@ -38,6 +38,7 @@ function createConsentWarning(el) {
 	const div = document.createElement('div');
 	const button = document.createElement('button');
 	const message = document.createElement('p');
+	message.classList.add('color-cyberspace');
 
 	div.setAttribute('data-youtube-consent-warning', true);
 	div.className = className('m-icon-overlay__message');
