@@ -161,8 +161,8 @@ function setupPlayers(container) {
 }
 
 window.onYouTubeIframeAPIReady = function () {
-	setupPlayers(document);
 	document.body.addEventListener('click', delegateClick);
 };
 
+setupPlayers(document);
 loadYoutubeAPI();
