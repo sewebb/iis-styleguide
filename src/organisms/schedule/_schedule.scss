@@ -69,8 +69,6 @@
 }
 
 @include organism(schedule) {
-	margin-bottom: rhythm(8);
-
 	@include e(item) {
 		background-color: $color-snow;
 		border-right: $border-radius;
