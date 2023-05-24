@@ -2,6 +2,7 @@
 import className from './className';
 import hasCookieConsent from './hasCookieConsent';
 
+let consent = hasCookieConsent('C0004');
 const missingConsentMessage = 'För att spela Youtubefilmer krävs att "Riktade kakor" tillåts. Tryck för att "Anpassa kakor"';
 
 function loadYoutubeAPI() {
@@ -52,9 +53,19 @@ function createConsentWarning(el) {
 	el.appendChild(div);
 }
 
+function destroyConsentWarning(el) {
+	const div = el.querySelector('[data-youtube-consent-warning]');
+
+	if (div) {
+		div.parentNode.removeChild(div);
+	}
+}
+
 function createCover(el) {
-	if (!hasCookieConsent('C0004')) {
+	if (!consent) {
 		createConsentWarning(el);
+	} else {
+		destroyConsentWarning(el);
 	}
 
 	if (el.getElementsByTagName('img').length) {
@@ -150,3 +161,12 @@ window.onYouTubeIframeAPIReady = () => {
 
 setupPlayers(document);
 loadYoutubeAPI();
+
+window.addEventListener('consent.onetrust', (e) => {
+	if (e.detail.includes('C0004')) {
+		consent = true;
+
+		setupPlayers(document);
+		loadYoutubeAPI();
+	}
+});

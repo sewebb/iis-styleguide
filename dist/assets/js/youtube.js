@@ -17,6 +17,7 @@ var _hasCookieConsent2 = _interopRequireDefault(_hasCookieConsent);
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 // TODO: Should probably implement a way to localize texts in the styleguide
+var consent = (0, _hasCookieConsent2.default)('C0004');
 var missingConsentMessage = 'För att spela Youtubefilmer krävs att "Riktade kakor" tillåts. Tryck för att "Anpassa kakor"';
 
 function loadYoutubeAPI() {
@@ -53,6 +54,7 @@ function createConsentWarning(el) {
 	var div = document.createElement('div');
 	var button = document.createElement('button');
 	var message = document.createElement('p');
+	message.classList.add('color-cyberspace');
 
 	div.setAttribute('data-youtube-consent-warning', true);
 	div.className = (0, _className2.default)('m-icon-overlay__message');
@@ -66,9 +68,19 @@ function createConsentWarning(el) {
 	el.appendChild(div);
 }
 
+function destroyConsentWarning(el) {
+	var div = el.querySelector('[data-youtube-consent-warning]');
+
+	if (div) {
+		div.parentNode.removeChild(div);
+	}
+}
+
 function createCover(el) {
-	if (!(0, _hasCookieConsent2.default)('C0004')) {
+	if (!consent) {
 		createConsentWarning(el);
+	} else {
+		destroyConsentWarning(el);
 	}
 
 	if (el.getElementsByTagName('img').length) {
@@ -166,3 +178,12 @@ window.onYouTubeIframeAPIReady = function () {
 
 setupPlayers(document);
 loadYoutubeAPI();
+
+window.addEventListener('consent.onetrust', function (e) {
+	if (e.detail.includes('C0004')) {
+		consent = true;
+
+		setupPlayers(document);
+		loadYoutubeAPI();
+	}
+});
