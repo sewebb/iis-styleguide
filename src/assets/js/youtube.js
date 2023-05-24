@@ -163,10 +163,8 @@ setupPlayers(document);
 loadYoutubeAPI();
 
 window.addEventListener('consent.onetrust', (e) => {
-	if (e.detail.includes('C0004')) {
-		consent = true;
+	consent = e.detail.includes('C0004');
 
-		setupPlayers(document);
-		loadYoutubeAPI();
-	}
+	setupPlayers(document);
+	loadYoutubeAPI();
 });
