@@ -140,10 +140,16 @@
 			border-radius: 50%;
 			width: rem(50px);
 			height: rem(50px);
+			margin-right: rhythm(2);
+
+			@include bp-up(lg) {
+				margin-right: 0;
+			}
 
 			@include m(medium) {
 				width: rem(75px);
 				height: rem(75px);
+
 			}
 
 			@include m(large) {
@@ -162,6 +168,26 @@
 			top: 0;
 			right: 0;
 			z-index: z_index(middleGround);
+		}
+
+		@include e(owner) {
+			display: flex;
+			margin-bottom: rhythm(1);
+
+			@include bp-up(lg) {
+				margin-bottom: 0;
+			}
+
+			@include bp-up(md) {
+				flex-wrap: wrap;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+
+				> span {
+					text-align: center;
+				}
+			}
 		}
 	}
 }
