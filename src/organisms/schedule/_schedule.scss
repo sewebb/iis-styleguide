@@ -236,6 +236,10 @@
 			margin-bottom: rhythm(1);
 			align-items: center;
 
+			> span {
+				line-height: 1.2;
+			}
+
 			@include bp-up(lg) {
 				margin-bottom: 0;
 			}
@@ -248,6 +252,7 @@
 
 				> span {
 					text-align: center;
+					margin-top: rhythm(0.5);
 				}
 			}
 		}
