@@ -59,7 +59,9 @@ function createConsentWarning(el) {
 	div.setAttribute('data-youtube-consent-warning', true);
 	div.className = (0, _className2.default)('m-icon-overlay__message');
 	button.className = (0, _className2.default)('a-button');
-	button.innerHTML = '<span class="' + (0, _className2.default)('a-button__text') + ' ot-sdk-show-settings">Anpassa kakor</span>';
+	button.classList.add('ot-sdk-show-settings');
+	button.setAttribute('id', 'ot-sdk-btn');
+	button.innerHTML = '<span class="' + (0, _className2.default)('a-button__text') + '">Anpassa kakor</span>';
 	message.innerHTML = missingConsentMessage;
 
 	div.appendChild(message);
