@@ -134,13 +134,13 @@
 			border-color: transparent;
 		}
 
-		@include e(image) {
-			border-radius: 50%;
+		@include e(image-wrapper) {
 			width: rem(50px);
 			height: rem(50px);
 			margin-right: rhythm(2);
+			position: relative;
 
-			@include bp-up(lg) {
+			@include bp-up(md) {
 				margin-right: 0;
 			}
 
@@ -159,7 +159,70 @@
 					margin-bottom: 0;
 				}
 			}
+
+			@include m(multiple) {
+				margin-right: rhythm(3);
+				flex-grow: 0;
+				flex-shrink: 0;
+
+				@include bp-up(md) {
+					margin-right: 0;
+				}
+
+				&::before,
+				&::after {
+					content: '';
+					display: block;
+					border-radius: 50%;
+					width: 100%;
+					height: 100%;
+					top: 0;
+					left: rhythm(1.25);
+					background-color: $color-ash;
+					position: absolute;
+					z-index: 2;
+					transform: scale(0.95);
+					box-shadow: 0 0 0 3px $color-snow;
+				}
+
+				&::after {
+					left: rhythm(2.5);
+					z-index: 1;
+					transform: scale(0.9);
+				}
+			}
 		}
+
+		@include e(image) {
+			border-radius: 50%;
+			width: rem(50px);
+			height: rem(50px);
+			position: relative;
+			z-index: 3;
+			box-shadow: 0 0 0 3px $color-snow;
+
+			@include bp-up(lg) {
+				margin-right: 0;
+			}
+
+			@include m(medium) {
+				width: rem(75px);
+				height: rem(75px);
+
+			}
+
+			@include m(large) {
+				width: rem(125px);
+				height: rem(125px);
+				margin-bottom: rhythm(2);
+				box-shadow: none;
+
+				@include bp-up(md) {
+					margin-bottom: 0;
+				}
+			}
+		}
+
 
 		@include e(close-btn) {
 			position: absolute;
@@ -171,6 +234,7 @@
 		@include e(owner) {
 			display: flex;
 			margin-bottom: rhythm(1);
+			align-items: center;
 
 			@include bp-up(lg) {
 				margin-bottom: 0;
