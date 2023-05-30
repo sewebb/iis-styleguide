@@ -42,8 +42,8 @@
 					</div>
 				{{else if has_buttons}}
 					<div class="o-hero__buttons">
-						{{render '@button'}}
-						{{render '@button'}}
+						{{> @button el="a" modifiers="lemon a-button--inline" text="Button #1"}}
+						{{> @button el="a" modifiers="lemon a-button--inline" text="Button #2"}}
 					</div>
 				{{/if}}
 				{{#if has_button}}

@@ -133,7 +133,7 @@ module.exports = {
 			context: {
 				no_image_class: 'o-hero--no-break',
 				limited_width: false,
-				has_button: true,
+				has_buttons: true,
 				has_tags: false,
 				has_link: false,
 				has_text: false,
