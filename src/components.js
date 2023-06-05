@@ -30,3 +30,4 @@ import './organisms/video-guide/video-guide';
 import './organisms/timeline/timeline';
 import './molecules/overview-navigation/overview-navigation';
 import './organisms/schedule/schedule-filter';
+import './assets/js/ot';
