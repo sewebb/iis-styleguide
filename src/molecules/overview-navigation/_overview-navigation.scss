@@ -92,6 +92,10 @@
 			height: $icon-size-large;
 			flex-shrink: 0;
 			opacity: 1;
+
+			& + svg {
+				display: none;
+			}
 		}
 
 		&::after {
@@ -137,6 +141,14 @@
 	&[aria-hidden="false"] {
 		> dl {
 			display: block;
+		}
+
+		button svg {
+			display: none;
+
+			& + svg {
+				display: block;
+			}
 		}
 	}
 

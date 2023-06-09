@@ -103,6 +103,14 @@
 			color: $color-snow;
 			border-color: $color-cyberspace;
 			padding: rhythm(2) rhythm(3) rhythm(2) rhythm(2);
+
+			svg  {
+				fill: $color-snow !important;
+			}
+
+			span {
+				color: $color-snow;
+			}
 		}
 
 		@include m(granit) {
