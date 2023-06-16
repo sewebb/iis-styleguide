@@ -137,6 +137,10 @@
 			border-color: $color-ocean;
 		}
 
+		@include m(sandstone) {
+			border-color: $color-sandstone;
+		}
+
 		@include m(transparent) {
 			background-color: transparent;
 			border-color: transparent;
