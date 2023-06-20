@@ -78,6 +78,15 @@
 		border-radius: $border-radius;
 		margin-bottom: rhythm(2);
 
+		a {
+			&:hover,
+			&:focus {
+				span {
+					color: $color-ruby;
+				}
+			}
+		}
+
 		&__full {
 			display: none;
 
