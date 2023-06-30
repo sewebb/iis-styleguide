@@ -39,6 +39,14 @@
 				display: none;
 			}
 		}
+
+		&[aria-expanded='true'] {
+			> svg {
+				transform: rotate(-180deg);
+				transform-origin: 50%;
+				top: 21%;
+			}
+		}
 	}
 	@include e(list) {
 		padding: 0 0 rhythm(1) 0;
