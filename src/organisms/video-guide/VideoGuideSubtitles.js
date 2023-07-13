@@ -1,6 +1,7 @@
 export default class VideoGuideSubtitles {
 	constructor(element, video) {
-		this.dataLayer = window.dataLayer || [];
+		// eslint-disable-next-line no-underscore-dangle
+		this.dataLayer = window._mtm || [];
 		this.element = element;
 		this.video = video;
 		this.subtitlesBtn = element.querySelector('.js-subtitles-btn');

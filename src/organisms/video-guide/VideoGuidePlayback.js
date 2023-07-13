@@ -2,7 +2,8 @@ import getCurrentCueIndex from './getCurrentCueIndex';
 
 export default class VideoGuidePlayback {
 	constructor(element, video) {
-		this.dataLayer = window.dataLayer || [];
+		// eslint-disable-next-line no-underscore-dangle
+		this.dataLayer = window._mtm || [];
 		this.video = video;
 		this.playBtn = element.querySelector('.js-play-btn');
 		this.playIcon = element.querySelector('.js-play-icon');

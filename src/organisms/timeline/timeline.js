@@ -2,7 +2,8 @@ import '../../assets/js/parallax';
 
 const { offsetTop, offsetBottom, offsetLeft } = require('../../assets/js/offset');
 
-const dataLayer = window.dataLayer || [];
+// eslint-disable-next-line no-underscore-dangle
+const dataLayer = window._mtm || [];
 const progressBar = document.querySelector('.js-progress-bar');
 const decadeContainer = document.querySelector('.js-decade-container');
 const decadeSections = document.querySelectorAll('.js-timeline-decade');
