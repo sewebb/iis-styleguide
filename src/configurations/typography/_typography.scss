@@ -26,7 +26,7 @@ h2,
 .beta,
 %beta {
 	@include plumber(
-		$font-size: 2.2,
+		$font-size: 2.44444,
 		$line-height: 3,
 		$leading-bottom: 1,
 		$baseline: $headings-baseline
@@ -36,7 +36,7 @@ h2,
 
 	@include bp-up(sm) {
 		@include plumber(
-			$font-size: 2.6,
+			$font-size: 2.666666,
 			$leading-bottom: 1
 		);
 
@@ -48,18 +48,20 @@ h3,
 .gamma,
 %gamma {
 	@include plumber(
-		$font-size: 2.2,
+		$font-size: 2.22222,
 		$line-height: 3,
 		$leading-top: 0,
 		$leading-bottom: 1
 	);
+
+	font-family: $font-family-headings;
 }
 
 h4,
 .delta,
 %delta {
 	@include plumber(
-		$font-size: 2,
+		$font-size: 1.888888,
 		$line-height: 3,
 		$leading-top: 0,
 		$leading-bottom: 1
