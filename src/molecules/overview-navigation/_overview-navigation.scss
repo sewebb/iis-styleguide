@@ -59,6 +59,7 @@
 			height: $icon-size-small;
 			width: $icon-size-small;
 			margin-right: rhythm(1);
+			flex-shrink: 0;
 		}
 	}
 
