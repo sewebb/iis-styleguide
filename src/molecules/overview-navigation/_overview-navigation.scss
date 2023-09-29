@@ -165,6 +165,7 @@
 		z-index: z_index(middlegroundImportant);
 		margin-top: 0;
 		margin-bottom: 0;
+		margin-left: rhythm(2);
 
 		@include bp-up(xxl) {
 			right: calc(50vw - 680px)  !important;
