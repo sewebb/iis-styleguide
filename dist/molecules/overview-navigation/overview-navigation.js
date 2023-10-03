@@ -22,6 +22,7 @@ var OverviewNavigation = function () {
 			setTimeout(function () {
 				_this.attach();
 				_this.onResize();
+				_this.closeMenu();
 			}, 0);
 		});
 	}
@@ -59,6 +60,22 @@ var OverviewNavigation = function () {
 			}
 
 			this.update();
+		}
+
+		// Close the overview menu when clicking any link inside it
+
+	}, {
+		key: 'closeMenu',
+		value: function closeMenu() {
+			var _this2 = this;
+
+			var links = this.element.querySelectorAll('a');
+
+			[].forEach.call(links, function (link) {
+				link.addEventListener('click', function () {
+					_this2.button.click();
+				});
+			});
 		}
 	}, {
 		key: 'updateButtonPosition',

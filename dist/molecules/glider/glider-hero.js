@@ -20,8 +20,8 @@ function initHeroGlider(node) {
 	if (node.hasAttribute('data-glider-initialized')) {
 		return;
 	}
-
-	var dataLayer = window.dataLayer || [];
+	// eslint-disable-next-line no-underscore-dangle
+	var dataLayer = window._mtm || [];
 	var gliderLinks = document.querySelectorAll('.glider-slide a');
 
 	var GliderHero = new _gliderJs2.default(node, {

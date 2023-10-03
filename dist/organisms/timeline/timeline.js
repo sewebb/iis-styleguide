@@ -7,7 +7,10 @@ var _require = require('../../assets/js/offset'),
     offsetBottom = _require.offsetBottom,
     offsetLeft = _require.offsetLeft;
 
-var dataLayer = window.dataLayer || [];
+// eslint-disable-next-line no-underscore-dangle
+
+
+var dataLayer = window._mtm || [];
 var progressBar = document.querySelector('.js-progress-bar');
 var decadeContainer = document.querySelector('.js-decade-container');
 var decadeSections = document.querySelectorAll('.js-timeline-decade');

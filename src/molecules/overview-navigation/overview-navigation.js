@@ -12,6 +12,7 @@ class OverviewNavigation {
 			setTimeout(() => {
 				this.attach();
 				this.onResize();
+				this.closeMenu();
 			}, 0);
 		});
 	}
@@ -44,6 +45,17 @@ class OverviewNavigation {
 		}
 
 		this.update();
+	}
+
+	// Close the overview menu when clicking any link inside it
+	closeMenu() {
+		const links = this.element.querySelectorAll('a');
+
+		[].forEach.call(links, (link) => {
+			link.addEventListener('click', () => {
+				this.button.click();
+			});
+		});
 	}
 
 	updateButtonPosition() {

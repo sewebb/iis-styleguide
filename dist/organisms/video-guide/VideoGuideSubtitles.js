@@ -45,7 +45,8 @@ var VideoGuideSubtitles = function () {
 			console.log(_this.dataLayer);
 		};
 
-		this.dataLayer = window.dataLayer || [];
+		// eslint-disable-next-line no-underscore-dangle
+		this.dataLayer = window._mtm || [];
 		this.element = element;
 		this.video = video;
 		this.subtitlesBtn = element.querySelector('.js-subtitles-btn');
