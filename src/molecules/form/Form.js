@@ -29,13 +29,6 @@ export default class Form {
 		this.errors = {};
 		this.validationRules = null;
 
-		this.recaptcha = this.element.getAttribute('data-recaptcha');
-
-		if (this.recaptcha) {
-			window.captchaCallback = this.captchaCallback;
-			this.renderCaptchaForm();
-		}
-
 		if (this.validation) {
 			this.parseValidationRules();
 		}
@@ -46,14 +39,6 @@ export default class Form {
 
 	collectInputs() {
 		this.inputs = this.element.querySelectorAll('input');
-	}
-
-	renderCaptchaForm() {
-		const s = document.createElement('script');
-		s.defer = true;
-		s.setAttribute('data-origin', this.recaptcha);
-		s.setAttribute('src', 'https://www.google.com/recaptcha/api.js?onload=captchaCallback&render=6LdtNnkUAAAAACYo0vISI-z9tOyr3djjZore-6wY&hl=sv');
-		document.body.appendChild(s);
 	}
 
 	parseValidationRules() {
@@ -142,10 +127,6 @@ export default class Form {
 		this.clearFieldErrors();
 
 		if (this.validate()) {
-			if (this.recaptcha) {
-				this.captchaCallback();
-			}
-
 			this.send();
 		} else {
 			this.displayError({ message: this.i18n('Alla fält måste vara ifyllda') });
@@ -279,16 +260,6 @@ export default class Form {
 		this.success.innerHTML = tmpl(json);
 
 		this.events.emit('success', json);
-	};
-
-	captchaCallback = () => {
-		if (typeof window.grecaptcha !== 'undefined' && process.env.RECAPTCHA_KEY !== undefined) {
-			/* global grecaptcha */
-			grecaptcha.execute(process.env.RECAPTCHA_KEY, { action: this.recaptcha })
-				.then((token) => {
-					this.token = token;
-				});
-		}
 	};
 
 	reset = () => {
