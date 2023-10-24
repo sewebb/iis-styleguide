@@ -1,0 +1,128 @@
+@charset 'UTF-8';
+
+@include organism(hero) {
+	@include m(bbk) {
+		background-color: $color-ocean-dark;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		flex-direction: column;
+		position: relative;
+		overflow: visible;
+
+		@include e(top) {
+			display: flex;
+			flex-direction: row;
+			justify-content: center;
+			align-items: center;
+			position: relative;
+			padding-top: rhythm(2);
+			padding-bottom: rhythm(2);
+			max-width: 100%;
+
+			@include bp-up(md) {
+				padding-top: rhythm(4);
+				padding-bottom: rhythm(4);
+			}
+
+			@include bp-up(lg) {
+				max-width: 900px;
+			}
+
+			@include bp-up(xl) {
+				padding-top: rhythm(8);
+				padding-bottom: rhythm(8);
+			}
+
+			@include bp-up(xxl) {
+				padding-top: rhythm(10);
+				padding-bottom: rhythm(10);
+			}
+		}
+	}
+
+	@include e(gauge) {
+		width: rem(162px);
+		height: rem(162px);
+		flex-shrink: 0;
+		transform: scale(.7) translate3d(0,0,0);
+		position: relative;
+
+		@include bp-up(xl) {
+			position: absolute;
+			left: 0;
+			top: 50%;
+			transition: left 0.25s ease;
+			transform: scale(1) translate3d(0,-50%,0);
+		}
+
+		&.is-testing {
+			left: 50%;
+			transition: scale 0.25s ease, transform 0.25s, left 0.25s ease;
+			transform: translate3d(-50%,-50%,0);
+		}
+	}
+
+	@include e(icon-gauge) {
+		fill: $color-snow;
+		width: 100%;
+		height: 100%;
+	}
+
+	@include e(icon-pointer) {
+		position: absolute;
+		top: 50%;
+		left: 50%;
+		width: rhythm(2);
+		height: rhythm(2);
+		margin-top: -#{rhythm(1)};
+		margin-left: -#{rhythm(1)};
+		transform: rotate(0deg);
+		transition: transform .8s;
+
+		&.is-testing {
+			transform: rotate(188deg);
+		}
+
+		&::before {
+			content: '';
+			display: block;
+			width: 46px;
+			height: 43px;
+			background-image: url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMzIiIGhlaWdodD0iMzAiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PGcgZmlsbC1ydWxlPSJub256ZXJvIiBmaWxsPSJub25lIj48cGF0aCBkPSJNMjcuNyAxOC4zQzIzLjQgMjIuMiAwIDI5LjUgMCAyOS41UzkuNCA2LjggMTMuNiAzYzQuMi0zLjkgMTAuOC0zLjYgMTQuNy43IDMuOSA0LjIgMy42IDEwLjctLjYgMTQuNiIgZmlsbD0iIzMyODRCRiIvPjxwYXRoIGQ9Ik0yNS40IDExLjRjLS4xIDIuOC0yLjUgNC45LTUuMyA0LjgtMi44LS4xLTQuOS0yLjUtNC44LTUuMy4xLTIuOCAyLjUtNC45IDUuMy00LjggMi43LjIgNC45IDIuNSA0LjggNS4zIiBmaWxsPSIjRkZGIi8+PHBhdGggZD0iTTI1LjQgMTEuNGMtLjEgMi44LTIuNSA0LjktNS4zIDQuOC0yLjgtLjEtNC45LTIuNS00LjgtNS4zLjEtMi44IDIuNS00LjkgNS4zLTQuOCAyLjcuMiA0LjkgMi41IDQuOCA1LjMiIGZpbGw9IiNGRkYiLz48L2c+PC9zdmc+Cg==');
+			background-repeat: no-repeat;
+			background-size: 46px 43px;
+			position: absolute;
+			top: -#{rem(7px)};
+			left: -#{rem(20px)};
+		}
+	}
+
+	@include e(button) {
+		position: absolute;
+		bottom: 0;
+		transform: translateY(50%);
+
+		@extend %box-shadow;
+	}
+
+	@include e(text) {
+		color: $color-snow;
+		margin-left: rhythm(4);
+		transition: opacity 0.25s ease;
+		overflow: hidden;
+		opacity: 1;
+
+		&.is-minimized {
+			opacity: 0;
+		}
+
+		@include bp-up(md) {
+			max-width: 60%;
+		}
+
+		@include bp-up(lg) {
+			max-width: 60%;
+		}
+	}
+}

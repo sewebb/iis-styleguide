@@ -1,0 +1,36 @@
+@charset "UTF-8";
+
+@include atom(progress) {
+	&[value] {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		display: block;
+		color: $color-ocean;
+		background: $color-concrete;
+		border: none;
+		width: 100%;
+		border-radius: 0;
+	}
+	&[value]::-webkit-progress-bar {
+		border-radius: 0;
+		background: $color-concrete;
+	}
+	&[value]::-webkit-progress-value {
+		border-radius: 0;
+		background: $color-ocean;
+	}
+	&[value]::-moz-progress-bar {
+		border-radius: 0;
+		background: $color-ocean;
+	}
+}
+
+@include atom(progress-label) {
+	display: flex;
+	align-items: center;
+
+	> progress {
+		margin-left: rhythm(1);
+	}
+}

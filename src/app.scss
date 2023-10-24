@@ -42,6 +42,7 @@ $namespace: '';
 @import 'atoms/ribbon/ribbon';
 @import 'atoms/quote/quote';
 @import 'atoms/rating/rating';
+@import 'atoms/progress/progress';
 
 // Molecules
 @import 'molecules/breadcrumb/breadcrumb';
@@ -75,6 +76,7 @@ $namespace: '';
 @import 'organisms/mega-menu/mega-menu';
 @import 'organisms/hero/hero';
 @import 'organisms/hero/hero--dynamic-headline';
+@import 'organisms/hero/hero--bbk';
 @import 'organisms/sections/sections';
 @import 'organisms/accordion/accordion';
 @import 'organisms/domain-search/domain-search';
