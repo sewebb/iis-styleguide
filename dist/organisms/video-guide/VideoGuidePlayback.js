@@ -10,6 +10,10 @@ var _getCurrentCueIndex = require('./getCurrentCueIndex');
 
 var _getCurrentCueIndex2 = _interopRequireDefault(_getCurrentCueIndex);
 
+var _track = require('../../assets/js/track');
+
+var _track2 = _interopRequireDefault(_track);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
@@ -52,15 +56,19 @@ var VideoGuidePlayback = function () {
 			_this.setPauseActive();
 		};
 
-		this.onEnded = function () {
+		this.resetState = function () {
 			_this.setPlayActive();
 			_this.clearState();
 			_this.setBackwardState(false);
 			_this.setForwardState(false);
 
 			_this.video.currentTime = 0;
+		};
 
-			_this.dataLayer.push({
+		this.onEnded = function () {
+			_this.resetState();
+
+			(0, _track2.default)({
 				event: 'guided_tour',
 				eventInfo: {
 					category: 'guided_tour',
@@ -72,7 +80,7 @@ var VideoGuidePlayback = function () {
 
 		this.onAbort = function () {
 			_this.video.pause();
-			_this.onEnded();
+			_this.resetState();
 		};
 
 		this.onTimeUpdate = function () {
@@ -87,9 +95,8 @@ var VideoGuidePlayback = function () {
 
 			var minutes = Math.floor(timeLeft / 60);
 			var seconds = Math.floor(timeLeft % 60);
-			var formattedTimeLeft = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 
-			_this.countDownElement.innerText = formattedTimeLeft;
+			_this.countDownElement.innerText = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 		};
 
 		this.onCueChange = function () {
@@ -97,11 +104,24 @@ var VideoGuidePlayback = function () {
 		};
 
 		this.togglePlay = function () {
+			var label = void 0;
+
 			if (_this.video.paused) {
+				label = 'Play';
 				_this.video.play();
 			} else {
+				label = 'Pause';
 				_this.video.pause();
 			}
+
+			(0, _track2.default)({
+				event: 'guided_tour',
+				eventInfo: {
+					category: 'guided_tour',
+					action: 'player_click',
+					label: label
+				}
+			});
 		};
 
 		this.nextChapter = function () {
@@ -113,7 +133,7 @@ var VideoGuidePlayback = function () {
 				_this.video.currentTime = cues[activeCueIndex + 1].startTime + 0.01;
 				_this.updateChapterState();
 
-				_this.dataLayer.push({
+				(0, _track2.default)({
 					event: 'guided_tour',
 					eventInfo: {
 						category: 'guided_tour',
@@ -133,7 +153,7 @@ var VideoGuidePlayback = function () {
 				_this.video.currentTime = Math.max(0, cues[activeCueIndex - 1].startTime + 0.01);
 				_this.updateChapterState();
 
-				_this.dataLayer.push({
+				(0, _track2.default)({
 					event: 'guided_tour',
 					eventInfo: {
 						category: 'guided_tour',
@@ -144,8 +164,6 @@ var VideoGuidePlayback = function () {
 			}
 		};
 
-		// eslint-disable-next-line no-underscore-dangle
-		this.dataLayer = window._mtm || [];
 		this.video = video;
 		this.playBtn = element.querySelector('.js-play-btn');
 		this.playIcon = element.querySelector('.js-play-icon');
@@ -190,9 +208,8 @@ var VideoGuidePlayback = function () {
 			// Format duration to minutes and seconds
 			var minutes = Math.floor(this.duration / 60);
 			var seconds = Math.floor(this.duration % 60);
-			var formattedDuration = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 
-			this.totaltimeElement.innerText = formattedDuration;
+			this.totaltimeElement.innerText = minutes + ':' + (seconds < 10 ? '0' : '') + seconds;
 		}
 	}, {
 		key: 'sync',
@@ -228,48 +245,22 @@ var VideoGuidePlayback = function () {
 		value: function setPlayActive() {
 			this.pauseIcon.classList.remove('is-hidden');
 			this.playIcon.classList.add('is-hidden');
-
-			this.dataLayer.push({
-				event: 'guided_tour',
-				eventInfo: {
-					category: 'guided_tour',
-					action: 'player_click',
-					label: 'Play'
-				}
-			});
 		}
 	}, {
 		key: 'setPauseActive',
 		value: function setPauseActive() {
 			this.pauseIcon.classList.add('is-hidden');
 			this.playIcon.classList.remove('is-hidden');
-
-			this.dataLayer.push({
-				event: 'guided_tour',
-				eventInfo: {
-					category: 'guided_tour',
-					action: 'player_click',
-					label: 'Pause'
-				}
-			});
 		}
 	}, {
 		key: 'setForwardState',
 		value: function setForwardState(active) {
-			if (active) {
-				this.forwardsButton.disabled = false;
-			} else {
-				this.forwardsButton.disabled = true;
-			}
+			this.forwardsButton.disabled = !active;
 		}
 	}, {
 		key: 'setBackwardState',
 		value: function setBackwardState(active) {
-			if (active) {
-				this.backwardsButton.disabled = false;
-			} else {
-				this.backwardsButton.disabled = true;
-			}
+			this.backwardsButton.disabled = !active;
 		}
 	}, {
 		key: 'updateChapterState',

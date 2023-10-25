@@ -1,9 +1,8 @@
 import getCurrentCueIndex from './getCurrentCueIndex';
+import track from '../../assets/js/track';
 
 export default class VideoGuidePlayback {
 	constructor(element, video) {
-		// eslint-disable-next-line no-underscore-dangle
-		this.dataLayer = window._mtm || [];
 		this.video = video;
 		this.playBtn = element.querySelector('.js-play-btn');
 		this.playIcon = element.querySelector('.js-play-icon');
@@ -44,9 +43,8 @@ export default class VideoGuidePlayback {
 		// Format duration to minutes and seconds
 		const minutes = Math.floor(this.duration / 60);
 		const seconds = Math.floor(this.duration % 60);
-		const formattedDuration = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 
-		this.totaltimeElement.innerText = formattedDuration;
+		this.totaltimeElement.innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 	}
 
 	sync() {
@@ -79,45 +77,19 @@ export default class VideoGuidePlayback {
 	setPlayActive() {
 		this.pauseIcon.classList.remove('is-hidden');
 		this.playIcon.classList.add('is-hidden');
-
-		this.dataLayer.push({
-			event: 'guided_tour',
-			eventInfo: {
-				category: 'guided_tour',
-				action: 'player_click',
-				label: 'Play',
-			},
-		});
 	}
 
 	setPauseActive() {
 		this.pauseIcon.classList.add('is-hidden');
 		this.playIcon.classList.remove('is-hidden');
-
-		this.dataLayer.push({
-			event: 'guided_tour',
-			eventInfo: {
-				category: 'guided_tour',
-				action: 'player_click',
-				label: 'Pause',
-			},
-		});
 	}
 
 	setForwardState(active) {
-		if (active) {
-			this.forwardsButton.disabled = false;
-		} else {
-			this.forwardsButton.disabled = true;
-		}
+		this.forwardsButton.disabled = !active;
 	}
 
 	setBackwardState(active) {
-		if (active) {
-			this.backwardsButton.disabled = false;
-		} else {
-			this.backwardsButton.disabled = true;
-		}
+		this.backwardsButton.disabled = !active;
 	}
 
 	updateChapterState() {
@@ -168,15 +140,19 @@ export default class VideoGuidePlayback {
 		this.setPauseActive();
 	};
 
-	onEnded = () => {
+	resetState = () => {
 		this.setPlayActive();
 		this.clearState();
 		this.setBackwardState(false);
 		this.setForwardState(false);
 
 		this.video.currentTime = 0;
+	};
 
-		this.dataLayer.push({
+	onEnded = () => {
+		this.resetState();
+
+		track({
 			event: 'guided_tour',
 			eventInfo: {
 				category: 'guided_tour',
@@ -188,7 +164,7 @@ export default class VideoGuidePlayback {
 
 	onAbort = () => {
 		this.video.pause();
-		this.onEnded();
+		this.resetState();
 	};
 
 	onTimeUpdate = () => {
@@ -203,9 +179,8 @@ export default class VideoGuidePlayback {
 
 		const minutes = Math.floor(timeLeft / 60);
 		const seconds = Math.floor(timeLeft % 60);
-		const formattedTimeLeft = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 
-		this.countDownElement.innerText = formattedTimeLeft;
+		this.countDownElement.innerText = `${minutes}:${seconds < 10 ? '0' : ''}${seconds}`;
 	};
 
 	onCueChange = () => {
@@ -213,11 +188,24 @@ export default class VideoGuidePlayback {
 	};
 
 	togglePlay = () => {
+		let label;
+
 		if (this.video.paused) {
+			label = 'Play';
 			this.video.play();
 		} else {
+			label = 'Pause';
 			this.video.pause();
 		}
+
+		track({
+			event: 'guided_tour',
+			eventInfo: {
+				category: 'guided_tour',
+				action: 'player_click',
+				label,
+			},
+		});
 	};
 
 	nextChapter = () => {
@@ -228,7 +216,7 @@ export default class VideoGuidePlayback {
 			this.video.currentTime = cues[activeCueIndex + 1].startTime + 0.01;
 			this.updateChapterState();
 
-			this.dataLayer.push({
+			track({
 				event: 'guided_tour',
 				eventInfo: {
 					category: 'guided_tour',
@@ -247,7 +235,7 @@ export default class VideoGuidePlayback {
 			this.video.currentTime = Math.max(0, cues[activeCueIndex - 1].startTime + 0.01);
 			this.updateChapterState();
 
-			this.dataLayer.push({
+			track({
 				event: 'guided_tour',
 				eventInfo: {
 					category: 'guided_tour',

@@ -1,7 +1,7 @@
+import track from '../../assets/js/track';
+
 export default class VideoGuideSubtitles {
 	constructor(element, video) {
-		// eslint-disable-next-line no-underscore-dangle
-		this.dataLayer = window._mtm || [];
 		this.element = element;
 		this.video = video;
 		this.subtitlesBtn = element.querySelector('.js-subtitles-btn');
@@ -42,7 +42,7 @@ export default class VideoGuideSubtitles {
 		this.subtitlesBtn.classList.toggle('is-active');
 		this.subtitlesContainer.classList.toggle('is-visible');
 
-		this.dataLayer.push({
+		track({
 			event: 'guided_tour',
 			eventInfo: {
 				category: 'guided_tour',
@@ -50,7 +50,5 @@ export default class VideoGuideSubtitles {
 				label: 'Subtitles',
 			},
 		});
-
-		console.log(this.dataLayer);
 	};
 }

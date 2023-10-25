@@ -53,10 +53,6 @@ var Form = function () {
 			_this.clearFieldErrors();
 
 			if (_this.validate()) {
-				if (_this.recaptcha) {
-					_this.captchaCallback();
-				}
-
 				_this.send();
 			} else {
 				_this.displayError({ message: _this.i18n('Alla fält måste vara ifyllda') });
@@ -140,15 +136,6 @@ var Form = function () {
 			_this.events.emit('success', json);
 		};
 
-		this.captchaCallback = function () {
-			if (typeof window.grecaptcha !== 'undefined' && process.env.RECAPTCHA_KEY !== undefined) {
-				/* global grecaptcha */
-				grecaptcha.execute(process.env.RECAPTCHA_KEY, { action: _this.recaptcha }).then(function (token) {
-					_this.token = token;
-				});
-			}
-		};
-
 		this.reset = function () {
 			_this.element.reset();
 			_this.hideMessages();
@@ -181,13 +168,6 @@ var Form = function () {
 		this.errors = {};
 		this.validationRules = null;
 
-		this.recaptcha = this.element.getAttribute('data-recaptcha');
-
-		if (this.recaptcha) {
-			window.captchaCallback = this.captchaCallback;
-			this.renderCaptchaForm();
-		}
-
 		if (this.validation) {
 			this.parseValidationRules();
 		}
@@ -200,15 +180,6 @@ var Form = function () {
 		key: 'collectInputs',
 		value: function collectInputs() {
 			this.inputs = this.element.querySelectorAll('input');
-		}
-	}, {
-		key: 'renderCaptchaForm',
-		value: function renderCaptchaForm() {
-			var s = document.createElement('script');
-			s.defer = true;
-			s.setAttribute('data-origin', this.recaptcha);
-			s.setAttribute('src', 'https://www.google.com/recaptcha/api.js?onload=captchaCallback&render=6LdtNnkUAAAAACYo0vISI-z9tOyr3djjZore-6wY&hl=sv');
-			document.body.appendChild(s);
 		}
 	}, {
 		key: 'parseValidationRules',
