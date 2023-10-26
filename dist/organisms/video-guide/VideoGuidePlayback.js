@@ -57,7 +57,7 @@ var VideoGuidePlayback = function () {
 		};
 
 		this.resetState = function () {
-			_this.setPlayActive();
+			_this.setPauseActive();
 			_this.clearState();
 			_this.setBackwardState(false);
 			_this.setForwardState(false);

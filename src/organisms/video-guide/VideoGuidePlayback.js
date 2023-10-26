@@ -141,7 +141,7 @@ export default class VideoGuidePlayback {
 	};
 
 	resetState = () => {
-		this.setPlayActive();
+		this.setPauseActive();
 		this.clearState();
 		this.setBackwardState(false);
 		this.setForwardState(false);
