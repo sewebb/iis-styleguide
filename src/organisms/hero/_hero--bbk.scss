@@ -48,19 +48,32 @@
 		transform: scale(.7) translate3d(0,0,0);
 		position: relative;
 
-		@include bp-up(xl) {
+
+		@include bp-up(md) {
 			position: absolute;
 			left: 0;
-			top: 50%;
+			top:37%;
 			transition: left 0.25s ease;
-			transform: scale(1) translate3d(0,-50%,0);
+			transform: scale(.7) translate3d(0,-50%,0);
+
+			&.is-testing {
+				left: 50%;
+				transition: scale 0.25s ease, transform 0.25s, left 0.25s ease;
+				transform: scale(.7) translate3d(-70%,-50%,0);
+			}
 		}
 
-		&.is-testing {
-			left: 50%;
-			transition: scale 0.25s ease, transform 0.25s, left 0.25s ease;
-			transform: translate3d(-50%,-50%,0);
+		@include bp-up(xl) {
+			top: 50%;
+			transform: scale(1) translate3d(0,-50%,0);
+
+			&.is-testing {
+				left: 50%;
+				transition: scale 0.25s ease, transform 0.25s, left 0.25s ease;
+				transform: translate3d(-50%,-50%,0);
+			}
 		}
+
 	}
 
 	@include e(icon-gauge) {

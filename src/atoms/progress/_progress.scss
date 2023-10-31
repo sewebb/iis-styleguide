@@ -19,10 +19,17 @@
 	&[value]::-webkit-progress-value {
 		border-radius: 0;
 		background: $color-ocean;
+		transition: width 5s ease;
 	}
 	&[value]::-moz-progress-bar {
 		border-radius: 0;
 		background: $color-ocean;
+		transition: padding-bottom 5s ease;
+		padding-left: 60px;
+		padding-bottom: var(--value);
+		height: 0;
+		transform-origin: 0 0;
+		transform: rotate(-90deg) translateX(-60px) ;
 	}
 }
 
