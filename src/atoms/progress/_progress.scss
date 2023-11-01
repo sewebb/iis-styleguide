@@ -11,6 +11,11 @@
 		border: none;
 		width: 100%;
 		border-radius: 0;
+		height: rhythm(1);
+
+		@include bp-up(md) {
+			height: rhythm(2);
+		}
 	}
 	&[value]::-webkit-progress-bar {
 		border-radius: 0;

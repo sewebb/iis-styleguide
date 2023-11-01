@@ -47,4 +47,28 @@
 	@include m(wrap) {
 		white-space: normal;
 	}
+
+	@include m(responsive) {
+		@include plumber(
+			$font-size: 1.4,
+			$baseline: $mono-baseline,
+			$leading-bottom: 0
+		);
+
+		@include bp-up(md) {
+			@include plumber(
+				$font-size: 1.6,
+				$baseline: $mono-baseline,
+				$leading-bottom: 0
+			);
+		}
+
+		@include bp-up(lg) {
+			@include plumber(
+				$font-size: 1.7,
+				$baseline: $mono-baseline,
+				$leading-bottom: 0
+			);
+		}
+	}
 }
