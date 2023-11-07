@@ -169,7 +169,7 @@
 			<div class="u-p-y-2">
 				<div class="grid-auto display-flex flex-column align-items-center u-p-x-0">
 					<p class="js-terms">Genom att starta mätningen godkänner du <a href="#" target="_blank">avtalsvillkoren</a> och att du har tagit del av <a href="#" target="_blank">integritetspolicyn</a>.</p>
-					{{> @progress has_label=false max="100" value="0" max_width="400px" additional_classes="u-m-b-2 js-measure-progress"}}
+					{{> @progress has_label=false max="100" value="0" max_width="400px" additional_classes="u-m-b-2 js-measure-progress is-hidden"}}
 				</div>
 			</div>
 			<script>
@@ -184,7 +184,8 @@
 					document.querySelector('.o-hero__text').classList.toggle('is-minimized');
 					document.querySelector('.o-hero__gauge').classList.toggle('is-testing');
 					document.querySelector('.o-hero__icon-pointer').classList.toggle('is-testing');
-					document.querySelector('.js-terms').classList.add('is-hidden');
+					progressBar.classList.toggle('is-hidden');
+					document.querySelector('.js-terms').classList.toggle('is-hidden');
 					button.classList.toggle('a-button--lemon');
 					button.classList.toggle('a-button--ruby-dark');
 					buttonTextElement.innerText = (
