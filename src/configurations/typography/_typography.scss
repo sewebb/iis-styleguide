@@ -42,6 +42,15 @@ h2,
 
 		line-height: 1.75rem;
 	}
+
+	@include m(responsive) {
+		@include plumber(
+			$font-size: 2,
+			$line-height: 3,
+			$leading-bottom: 1,
+			$baseline: $headings-baseline
+		);
+	}
 }
 
 h3,

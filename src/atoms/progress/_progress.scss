@@ -1,0 +1,48 @@
+@charset "UTF-8";
+
+@include atom(progress) {
+	&[value] {
+		-webkit-appearance: none;
+		-moz-appearance: none;
+		appearance: none;
+		display: block;
+		color: $color-ocean;
+		background: $color-concrete;
+		border: none;
+		width: 100%;
+		border-radius: 0;
+		height: rhythm(1);
+
+		@include bp-up(md) {
+			height: rhythm(2);
+		}
+	}
+	&[value]::-webkit-progress-bar {
+		border-radius: 0;
+		background: $color-concrete;
+	}
+	&[value]::-webkit-progress-value {
+		border-radius: 0;
+		background: $color-ocean;
+		transition: width 5s ease;
+	}
+	&[value]::-moz-progress-bar {
+		border-radius: 0;
+		background: $color-ocean;
+		transition: padding-bottom 5s ease;
+		padding-left: 60px;
+		padding-bottom: var(--value);
+		height: 0;
+		transform-origin: 0 0;
+		transform: rotate(-90deg) translateX(-60px) ;
+	}
+}
+
+@include atom(progress-label) {
+	display: flex;
+	align-items: center;
+
+	> progress {
+		margin-left: rhythm(1);
+	}
+}
