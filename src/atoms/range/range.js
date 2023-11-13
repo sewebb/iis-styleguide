@@ -16,6 +16,7 @@ ranges.forEach((wrap) => {
 
 	range.addEventListener('input', () => {
 		setValue(range, rangeValue);
+		range.focus();
 	});
 
 	setValue(range, rangeValue);
