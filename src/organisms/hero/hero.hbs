@@ -6,7 +6,16 @@
 <figure class="o-hero{{#if no_image_class}} {{no_image_class}}{{/if}}{{#if has_radius}} o-hero--border-radius{{/if}}{{#if has_video}} {{video_class}}{{/if}} {{#if is_event}}o-hero--event {{/if}}{{#if geometric_figures}} o-hero--geometric {{/if}}{{#if background_color}} {{background_color}} {{/if}}">
 	{{#if has_image}}<img src="{{hero_image}}" alt="hero" class="o-hero__image">{{/if}}
 	{{#if has_video}}
-		<iframe width="100%" height="100%" src="https://www.youtube-nocookie.com/embed/3RVcnx-hOk8?rel=0" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		{{> @icon-overlay overlay_icon="play" youtube="3RVcnx-hOk8"}}
+
+		<div class="u-visuallyhidden">
+			<a href="#" class="a-button" data-youtube-play>
+				<span class="a-button__text">Play video</span>
+			</a>
+			<a href="#" class="a-button" data-youtube-stop>
+				<span class="a-button__text">Stop video</span>
+			</a>
+		</div>
 	{{else if is_event}}
 		<figcaption class="o-hero__content">
 			<div class="wrapper">
