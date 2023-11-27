@@ -1,4 +1,4 @@
-const inputs = document.querySelectorAll('[type="file"]');
+const inputs = document.querySelectorAll('[type="file"]:not(.wpcf7-file)');
 
 Array.prototype.forEach.call(inputs, (input) => {
 	const label	 = input.nextElementSibling;

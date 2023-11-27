@@ -1,6 +1,6 @@
 {
 	"name": "@internetstiftelsen/styleguide",
-	"version": "2.24.0-beta.0.2",
+	"version": "2.26.23",
 	"main": "dist/components.js",
 	"ports": {
 		"fractal": "3000"
@@ -41,8 +41,8 @@
 		"create-icons-config": "node ./createIconsJson"
 	},
 	"devDependencies": {
-		"@frctl/fractal": "^1.5.8",
-		"@frctl/mandelbrot": "^1.9.2",
+		"@frctl/fractal": "^1.5.14",
+		"@frctl/mandelbrot": "^1.10.2",
 		"@internetstiftelsen/eslint-config": "^0.0.5",
 		"@internetstiftelsen/stylelint-config": "^1.0.0",
 		"babel-cli": "^6.26.0",
@@ -60,7 +60,7 @@
 		"css-loader": "^5.2.6",
 		"cssnano": "^5.0.6",
 		"eslint": "^7.28.0",
-		"imagemin-cli": "^6.0.0",
+		"imagemin-cli": "^7.0.0",
 		"onchange": "^6.1.0",
 		"postcss-class-prefix": "^0.3.0",
 		"postcss-cli": "^8.3.1",
@@ -71,8 +71,16 @@
 	},
 	"dependencies": {
 		"@tiptap/core": "^2.0.0-beta.131",
+		"@tiptap/extension-bold": "^2.0.0-beta.199",
+		"@tiptap/extension-bullet-list": "^2.0.0-beta.199",
+		"@tiptap/extension-document": "^2.0.0-beta.199",
+		"@tiptap/extension-dropcursor": "^2.0.0-beta.199",
+		"@tiptap/extension-history": "^2.0.0-beta.199",
+		"@tiptap/extension-italic": "^2.0.0-beta.199",
 		"@tiptap/extension-link": "^2.0.0-beta.25",
-		"@tiptap/starter-kit": "^2.0.0-beta.133",
+		"@tiptap/extension-list-item": "^2.0.0-beta.199",
+		"@tiptap/extension-paragraph": "^2.0.0-beta.199",
+		"@tiptap/extension-text": "^2.0.0-beta.199",
 		"a11y-toggle": "^2.1.0",
 		"focus-trap": "^6.7.3",
 		"glider-js": "^1.7.7",

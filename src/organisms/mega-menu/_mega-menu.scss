@@ -84,7 +84,7 @@ $border-color: darken($color-jade, 5%);
 
 	@include e(link) {
 		display: inline-flex;
-		align-items: center;
+		align-items: baseline;
 		color: $color-cyberspace;
 		text-decoration: none;
 
@@ -109,7 +109,7 @@ $border-color: darken($color-jade, 5%);
 		@include e(icon) {
 			width: $icon-size-smallest;
 			height: $icon-size-smallest;
-			margin-top: rem(2px);
+			flex-shrink: 0;
 			margin-left: rhythm(0.5);
 		}
 	}

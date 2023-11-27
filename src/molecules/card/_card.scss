@@ -137,6 +137,22 @@
 				padding-left: rhythm(4);
 			}
 		}
+
+		&.wp-block-iis-visualization {
+			background-color: transparent;
+
+			@include e(content) {
+				p {
+					margin-top: 0;
+				}
+			}
+
+			&--no-padding > {
+				@include e(content) {
+					padding: 0;
+				}
+			}
+		}
 	}
 
 	@include m(bordered) {
@@ -171,7 +187,6 @@
 
 			@include e(image) {
 				display: block;
-				min-height: 100%;
 				object-fit: cover;
 				object-position: 50% center;
 			}
@@ -275,6 +290,15 @@
 			svg {
 				fill: $color-snow;
 			}
+		}
+	}
+
+	@include m(mini) {
+		padding: rhythm(1) rhythm(2);
+		background-color: $color-snow;
+
+		@include bp-up(md) {
+			padding: rhythm(2) rhythm(3);
 		}
 	}
 }

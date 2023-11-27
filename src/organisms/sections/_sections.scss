@@ -16,7 +16,6 @@ $spacing: rhythm(6);
 		&::after {
 			content: '';
 			position: absolute;
-			z-index: z_index(background);
 			right: 0;
 			left: 0;
 			height: $spacing;
@@ -24,12 +23,12 @@ $spacing: rhythm(6);
 
 		&::before {
 			top: 0;
-			background-image: linear-gradient(to right top, #fff 0, #fff 50%, #ededed 50.1%);
+			background-image: linear-gradient(to right top, #fff 0, #fff 50%, rgba(237, 237, 237, 01) 50.1%);
 		}
 
 		&::after {
 			bottom: 0;
-			background-image: linear-gradient(to left top, #ededed 0, #ededed 50%, #fff 50.1%);
+			background-image: linear-gradient(to left top, #ededed 0, #ededed 50%, rgba(255,255,255,0) 50.1%);
 		}
 
 		&:last-child {
@@ -80,7 +79,7 @@ $spacing: rhythm(6);
 
 	@include e(content) {
 		position: relative;
-		z-index: z_index(middleground);
+		z-index: z_index(background);
 
 		@include m(peacock) {
 			::selection {
@@ -108,6 +107,7 @@ $spacing: rhythm(6);
 				position: absolute;
 				top: 0;
 				left: 0;
+				z-index: 2;
 				width: rem(575px);
 				height: rem(575px);
 				transform: translate(calc(-100% - #{rem(20px)}), -50%) rotate(-20deg);
@@ -128,6 +128,7 @@ $spacing: rhythm(6);
 				position: absolute;
 				top: 0;
 				right: 0;
+				z-index: 2;
 				width: rem(450px);
 				height: rem(166px);
 				transform: translate(calc(100% + #{rem(20px)}), 50%) rotate(20deg);

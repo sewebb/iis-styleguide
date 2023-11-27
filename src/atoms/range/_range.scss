@@ -1,0 +1,104 @@
+@charset 'UTF-8';
+
+@include atom(range) {
+	-webkit-appearance: none;
+	appearance: none;
+	background: transparent;
+	cursor: pointer;
+	width: 100%;
+
+	&::-webkit-slider-runnable-track {
+		background-color: $color-concrete;
+		height: rhythm(1);
+		border-radius: $border-radius;
+		border-top: 1px solid lighten($color-granit, 15%);
+	}
+
+	&::-moz-range-track {
+		background-color: $color-concrete;
+		height: rhythm(1);
+		border-radius: $border-radius;
+		border-top: 1px solid $color-granit;
+	}
+
+	&::-webkit-slider-thumb {
+		-webkit-appearance: none;
+		appearance: none;
+		margin-top: -#{rhythm(1.125)};
+		background-color: $color-ash;
+		height: rhythm(3);
+		width: rhythm(1.5);
+		border: 1px solid $color-granit;
+		border-radius: $border-radius;
+	}
+
+	&::-moz-range-thumb {
+		background-color: $color-ash;
+		height: rhythm(3);
+		width: rhythm(1.5);
+		border-radius: 0;
+		border: 0;
+		border: 1px solid $color-granit;
+		border-radius: $border-radius;
+	}
+
+	&:focus {
+		outline: none;
+
+		& + output {
+			background-color: $color-ocean-light;
+
+			&::after {
+				border-bottom-color: $color-ocean-light;
+			}
+		}
+	}
+
+	&:disabled {
+		cursor: not-allowed;
+		opacity: 0.45;
+
+		& + output {
+			cursor: not-allowed;
+			opacity: 0.45;
+		}
+	}
+
+	&:focus::-webkit-slider-thumb {
+		background-color: $color-snow;
+		border-color: $color-ocean;
+		box-shadow: 0 0 0 inset rgba($color-cyberspace, 0.2), 0 1px 2px rgba($color-cyberspace, 0.2), 0 0 0 3px $color-ocean-light;
+	}
+
+	&:focus::-moz-range-thumb {
+		background-color: $color-snow;
+		border-color: $color-ocean;
+		box-shadow: 0 0 0 inset rgba($color-cyberspace, 0.2), 0 1px 2px rgba($color-cyberspace, 0.2), 0 0 0 3px $color-ocean-light;
+	}
+
+	@include e(value){
+		background-color: $color-concrete;
+		padding: rhythm(0.5) rhythm(1);
+		position: absolute;
+		border-radius: $border-radius;
+		left: 50%;
+		transform: translateX(-50%) translateY(calc(100% + 8px));
+		font-size: $size-medium;
+
+		&::after {
+			bottom: 100%;
+			left: 50%;
+			border: solid transparent;
+			content: "";
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+			border-color: rgba($color-concrete, 0);
+			border-bottom-color: $color-concrete;
+			border-width: 4px;
+			margin-left: -4px;
+		}
+	}
+}
+

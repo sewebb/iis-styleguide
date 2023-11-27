@@ -74,3 +74,13 @@ const unsubscribeOpen = onOpen((el, id) => {
 });
 
 // Call unsubscribe to remove callback
+
+const demoForms = document.querySelectorAll('[data-form]');
+
+[].forEach.call(demoForms, (el) => {
+	if ('form' in el) {
+		el.form.events.on('success', (data) => {
+			console.log('Form success', data);
+		});
+	}
+});

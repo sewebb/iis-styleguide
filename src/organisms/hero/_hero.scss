@@ -3,6 +3,7 @@
 @include organism(hero) {
 	position: relative;
 	z-index: z_index(background);
+	margin-bottom: rhythm(4);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
@@ -73,11 +74,20 @@
 		@include bp-up(lg) {
 			margin-top: rhythm(3);
 		}
+
+		@include bp-down(sm-xs) {
+			[class*="tag--light"] {
+				[class*="tag__text"] {
+					color: $color-cyberspace;
+				}
+			}
+		}
 	}
 
 	@include e(buttons) {
 		display: flex;
-		flex-direction: column;
+		flex-direction: row;
+		flex-wrap: wrap;
 		margin: -#{rhythm(1)} 0 0 -#{rhythm(3)};
 
 		@include atom(button) {
@@ -209,6 +219,10 @@
 
 		@include b(a-tag) {
 			@include tag;
+
+			[class*=text] {
+				color: $color-cyberspace;
+			}
 		}
 
 		@include bp-up(md) {
@@ -258,6 +272,14 @@
 				background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba($color-black, 0) 55%, rgba($color-black, 1) 100%);
 				text-shadow: 0 0 rhythm(2) rgba($color-black, 0.5);
 			}
+
+			@include bp-down(md) {
+				[class*="tag--light"] {
+					[class*="tag__text"] {
+						color: $color-cyberspace;
+					}
+				}
+			}
 		}
 
 		@include e(text) {
@@ -298,6 +320,53 @@
 			@include bp-up(lg) {
 				@include tag-light;
 			}
+		}
+	}
+
+	@include m(no-break) {
+		@include e(image) {
+			aspect-ratio: 1 / 1;
+			object-position: 100% 25%;
+
+			@include bp-up(sm-xs) {
+				aspect-ratio: 4 / 3;
+			}
+
+			@include bp-up(sm) {
+				aspect-ratio: 16 / 9;
+			}
+
+			@include bp-up(md) {
+				object-position: 50% 25%;
+			}
+		}
+
+		@include e(caption) {
+			position: absolute;
+			z-index: z_index(middlegroundImportant);
+			top: 0;
+			right: 0;
+			bottom: 0;
+			left: 0;
+			padding: rhythm(1) rhythm(1) rhythm(4) rhythm(1);
+			background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba($color-black, 0) 35%, rgba($color-black, 1) 100%);
+			text-shadow: $text-shadow;
+
+			@include bp-up(sm) {
+				padding: rhythm(2) rhythm(2) rhythm(4) rhythm(2);
+			}
+
+			@include bp-up(md) {
+				padding: rhythm(4);
+			}
+		}
+
+		@include e(text) {
+			color: $color-snow;
+		}
+
+		@include e(link) {
+			color: $color-snow;
 		}
 	}
 
@@ -361,7 +430,7 @@
 	// Hero with video
 	@include m(video) {
 		margin-top: rem(20px);
-		padding-top: 56.25%;
+		//padding-top: 56.25%;
 
 		iframe {
 			position: absolute;

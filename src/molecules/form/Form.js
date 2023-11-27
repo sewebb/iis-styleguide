@@ -1,4 +1,5 @@
 import template from 'lodash.template';
+import Events from '../../assets/js/Events';
 import Button from '../../atoms/button/Button';
 import className from '../../assets/js/className';
 import validationMessage from '../../assets/js/validationMessage';
@@ -10,6 +11,7 @@ export default class Form {
 		this.submit = new Button(this.element.querySelector('button[type="submit"]'));
 		this.error = this.element.querySelector('[data-form-error]');
 		this.success = this.element.querySelector('[data-form-success]');
+		this.events = new Events();
 
 		if (this.success) {
 			const tpl = document.getElementById(this.success.getAttribute('data-form-success'));
@@ -27,13 +29,6 @@ export default class Form {
 		this.errors = {};
 		this.validationRules = null;
 
-		this.recaptcha = this.element.getAttribute('data-recaptcha');
-
-		if (this.recaptcha) {
-			window.captchaCallback = this.captchaCallback;
-			this.renderCaptchaForm();
-		}
-
 		if (this.validation) {
 			this.parseValidationRules();
 		}
@@ -44,14 +39,6 @@ export default class Form {
 
 	collectInputs() {
 		this.inputs = this.element.querySelectorAll('input');
-	}
-
-	renderCaptchaForm() {
-		const s = document.createElement('script');
-		s.defer = true;
-		s.setAttribute('data-origin', this.recaptcha);
-		s.setAttribute('src', 'https://www.google.com/recaptcha/api.js?onload=captchaCallback&render=6LdtNnkUAAAAACYo0vISI-z9tOyr3djjZore-6wY&hl=sv');
-		document.body.appendChild(s);
 	}
 
 	parseValidationRules() {
@@ -140,10 +127,6 @@ export default class Form {
 		this.clearFieldErrors();
 
 		if (this.validate()) {
-			if (this.recaptcha) {
-				this.captchaCallback();
-			}
-
 			this.send();
 		} else {
 			this.displayError({ message: this.i18n('Alla fält måste vara ifyllda') });
@@ -163,6 +146,7 @@ export default class Form {
 	}
 
 	displayError = (error) => {
+		this.events.emit('error', error);
 		this.setLoading(false);
 
 		if ('response' in error) {
@@ -274,16 +258,8 @@ export default class Form {
 
 		this.success.classList.remove('is-hidden');
 		this.success.innerHTML = tmpl(json);
-	};
 
-	captchaCallback = () => {
-		if (typeof window.grecaptcha !== 'undefined' && 'CAPTCHA_KEY' in process.env) {
-			/* global grecaptcha */
-			grecaptcha.execute(process.env.CAPTCHA_KEY, { action: this.recaptcha })
-				.then((token) => {
-					this.token = token;
-				});
-		}
+		this.events.emit('success', json);
 	};
 
 	reset = () => {

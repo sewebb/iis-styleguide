@@ -101,3 +101,9 @@
 .u-overflow-visible {
 	overflow: visible !important;
 }
+
+.u-hide-empty {
+	&:empty {
+		display: none !important;
+	}
+}

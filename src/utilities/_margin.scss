@@ -41,7 +41,7 @@ $class-m-y: u-m-y !default;
 		margin-left: rhythm($i) !important;
 	}
 
-	// Margin x (left and right)
+	// Margin y (top and bottom)
 	.#{$class-m-y}-#{$i} {
 		margin-top: rhythm($i) !important;
 		margin-bottom: rhythm($i) !important;
@@ -78,4 +78,12 @@ $class-m-y: u-m-y !default;
 
 .u-m-offset-2 {
 	margin-left: $indent * 2 !important;
+}
+
+.u-m-l-auto {
+	margin-left: auto !important;
+}
+
+.u-m-r-auto {
+	margin-right: auto !important;
 }

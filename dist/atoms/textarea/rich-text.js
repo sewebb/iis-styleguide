@@ -8,11 +8,39 @@ exports.init = init;
 
 var _core = require('@tiptap/core');
 
-var _starterKit = require('@tiptap/starter-kit');
+var _extensionDocument = require('@tiptap/extension-document');
 
-var _starterKit2 = _interopRequireDefault(_starterKit);
+var _extensionDocument2 = _interopRequireDefault(_extensionDocument);
+
+var _extensionParagraph = require('@tiptap/extension-paragraph');
+
+var _extensionParagraph2 = _interopRequireDefault(_extensionParagraph);
+
+var _extensionText = require('@tiptap/extension-text');
+
+var _extensionText2 = _interopRequireDefault(_extensionText);
+
+var _extensionBulletList = require('@tiptap/extension-bullet-list');
+
+var _extensionBulletList2 = _interopRequireDefault(_extensionBulletList);
+
+var _extensionListItem = require('@tiptap/extension-list-item');
+
+var _extensionListItem2 = _interopRequireDefault(_extensionListItem);
+
+var _extensionBold = require('@tiptap/extension-bold');
+
+var _extensionBold2 = _interopRequireDefault(_extensionBold);
+
+var _extensionItalic = require('@tiptap/extension-italic');
+
+var _extensionItalic2 = _interopRequireDefault(_extensionItalic);
 
 var _extensionLink = require('@tiptap/extension-link');
+
+var _extensionHistory = require('@tiptap/extension-history');
+
+var _extensionHistory2 = _interopRequireDefault(_extensionHistory);
 
 var _className = require('../../assets/js/className');
 
@@ -146,11 +174,13 @@ function setupTextArea(el) {
 	var editorEl = document.createElement('div');
 	var editor = new _core.Editor({
 		element: editorEl,
-		extensions: [_starterKit2.default, _extensionLink.Link.configure({
+		extensions: [_extensionDocument2.default, _extensionParagraph2.default, _extensionText2.default, _extensionListItem2.default, _extensionBulletList2.default, _extensionBold2.default, _extensionItalic2.default, _extensionLink.Link.configure({
 			openOnClick: false,
 			HTMLAttributes: {
 				class: 'u-link'
 			}
+		}), _extensionHistory2.default.configure({
+			depth: 10
 		})],
 		content: el.value,
 		onTransaction: function onTransaction(props) {

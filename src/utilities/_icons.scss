@@ -15,7 +15,7 @@ $fill-color: $color-black;
 		width: $icon-size-smallest !important;
 		height: $icon-size-smallest !important;
 	}
-	
+
 	@include m(small) {
 		width: $icon-size-small !important;
 		height: $icon-size-small !important;
@@ -34,6 +34,16 @@ $fill-color: $color-black;
 	@include m(supersize) {
 		width: $icon-size-large * 1.5 !important;
 		height: $icon-size-large * 1.5 !important;
+	}
+
+	@include m(responsive) {
+		width: $icon-size !important;
+		height: $icon-size !important;
+
+		@include bp-up(md) {
+			width: $icon-size-large !important;
+			height: $icon-size-large !important;
+		}
 	}
 
 	// Specific icons

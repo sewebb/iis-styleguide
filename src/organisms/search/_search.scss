@@ -38,6 +38,8 @@
 		-webkit-appearance: none;
 
 		&:focus {
+			@extend %input-focus;
+			
 			background-color: $color-snow;
 		}
 

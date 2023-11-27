@@ -1,7 +1,7 @@
 <div class="wrapper">
 	<div class="row justify-content-center u-p-t-4 u-p-b-1">
 		<div class="grid-18 grid-lg-16">
-			<div class="o-search o-search--tight">
+			<div class="o-search">
 				<div class="o-search__padded">
 					<div class="row display-flex align-items-center">
 						<div class="grid-auto u-p-r-0">
@@ -11,7 +11,7 @@
 						</div>
 						<div class="grid u-p-l-0 display-flex">
 							<label for="{{input_id}}" class="u-visuallyhidden">{{label}}</label>
-							<input type="search" class="o-search__input js-search-domain-input" placeholder="{{label}}" id="{{input_id}}" aria-describedby="number-of-hits" value="internet">
+							<input type="search" class="o-search__input js-search-domain-input" placeholder="{{label}}" id="{{input_id}}" aria-describedby="number-of-hits" value="">
 							{{> @button el="button" button_type="submit" text="Sök" modifiers="secondary o-search__submit" id="o-search-result-submit"}}
 						</div>
 					</div>

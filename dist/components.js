@@ -49,3 +49,17 @@ require('./molecules/glider/glider-hero');
 require('./molecules/context-menu/context-menu');
 
 require('./molecules/alert/alert');
+
+require('./molecules/modal/modal-graph');
+
+require('./molecules/continue-video-guide/continue-video-guide');
+
+require('./organisms/video-guide/video-guide');
+
+require('./organisms/timeline/timeline');
+
+require('./molecules/overview-navigation/overview-navigation');
+
+require('./organisms/schedule/schedule-filter');
+
+require('./assets/js/ot');

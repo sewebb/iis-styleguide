@@ -5,8 +5,8 @@
 @include atom(paging-wrapper) {
 	display: flex;
 	position: relative;
-	align-items: center;
 	width: 100%;
+	align-items: center;
 
 	@include e(text) {
 		flex: 1;
@@ -24,12 +24,17 @@
 	flex-shrink: 0;
 	align-items: center;
 	justify-content: center;
-	width: rhythm(6);
-	height: rhythm(6);
+	width: rhythm(4);
+	height: rhythm(4);
 	border: 1px solid $color-ash;
 	border-radius: 50%;
 	background-color: $color-snow;
 	box-shadow: 0 3px 5px lighten($color-granit, 15%);
+
+	@include bp-up(sm) {
+		width: rhythm(6);
+		height: rhythm(6);
+	}
 
 	&:focus,
 	&:hover {
@@ -40,7 +45,12 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: $icon-size-medium;
-		height: $icon-size-medium;
+		width: $icon-size-small;
+		height: $icon-size-small;
+
+		@include bp-up(sm) {
+			width: $icon-size-medium;
+			height: $icon-size-medium;
+		}
 	}
 }

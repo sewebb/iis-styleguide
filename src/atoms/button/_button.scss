@@ -99,7 +99,9 @@
 		padding: rhythm(1.6) rhythm(4);
 
 		@include e(text) {
-			font-size: rem(24px);
+			@include bp-up(sm) {
+				font-size: rem(24px);
+			}
 		}
 
 		@include e(icon) {
@@ -315,6 +317,24 @@
 		}
 	}
 
+	@include m(ocean-light) {
+		box-shadow: 0 0 0 1px inset $color-ocean;
+		color: $color-ocean-light;
+
+		&:hover,
+		&:focus {
+			color: $color-ocean;
+		}
+
+		@include e(text) {
+			color: $color-cyberspace;
+		}
+
+		@include e(icon) {
+			fill: $color-cyberspace;
+		}
+	}
+
 	@include m(jade) {
 		color: $color-jade;
 
@@ -444,6 +464,48 @@
 
 		&:hover:focus {
 			color: $color-peacock-light;
+		}
+
+		@include e(text) {
+			color: $color-cyberspace;
+		}
+
+		@include e(icon) {
+			fill: $color-cyberspace;
+		}
+	}
+
+	@include m(sandstone) {
+		color: $color-sandstone;
+
+		&:hover,
+		&:focus {
+			color: $color-sandstone-light;
+		}
+
+		@include e(text) {
+			color: $color-cyberspace;
+		}
+
+		@include e(icon) {
+			fill: $color-cyberspace;
+		}
+	}
+
+	@include m(sandstone-light) {
+		box-shadow: 0 0 0 1px inset $color-sandstone;
+		color: $color-sandstone-light;
+
+		&:hover {
+			color: $color-sandstone;
+		}
+		
+		&:focus {
+			color: $color-sandstone-light;
+		}
+
+		&:hover:focus {
+			color: $color-sandstone-light;
 		}
 
 		@include e(text) {
