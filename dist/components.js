@@ -63,3 +63,5 @@ require('./molecules/overview-navigation/overview-navigation');
 require('./organisms/schedule/schedule-filter');
 
 require('./assets/js/ot');
+
+require('./atoms/range/range');
