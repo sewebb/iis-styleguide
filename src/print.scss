@@ -1,1 +1,13 @@
 @charset 'UTF-8';
+
+/* Hide elements for print */
+@media print {
+  	[class*='o-footer'],
+  	[class*='o-header'],
+	[class*='o-mailchimp']
+  	[class*='m-submenu'],
+  	[class*='m-share'],
+  	[class*='m-overview-navigation'] {
+		display: none !important;
+  	}
+}
