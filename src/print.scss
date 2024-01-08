@@ -2,9 +2,10 @@
 
 /* Hide elements for print */
 @media print {
+	.icon-sprite,
   	[class*='o-footer'],
   	[class*='o-header'],
-	[class*='o-mailchimp']
+	[class*='o-mailchimp'],
   	[class*='m-submenu'],
   	[class*='m-share'],
   	[class*='m-overview-navigation'] {
