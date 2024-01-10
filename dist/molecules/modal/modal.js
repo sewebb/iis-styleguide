@@ -187,6 +187,7 @@ function display() {
 	(0, _focusTrap2.default)(active.el);
 
 	active.el.setAttribute('aria-hidden', 'false');
+	active.el.setAttribute('data-a11y-toggle-open', 'true');
 
 	if (active.settings.onOpen) {
 		active.settings.onOpen(active.id, active.el);
@@ -254,6 +255,7 @@ function dispatchOnCloseHandlers(el, id) {
 function close() {
 	if (active) {
 		active.el.setAttribute('aria-hidden', 'true');
+		active.el.removeAttribute('data-a11y-toggle-open');
 
 		if (active.settings.onClose) {
 			active.settings.onClose(active.id);

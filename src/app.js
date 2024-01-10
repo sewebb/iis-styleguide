@@ -37,7 +37,7 @@ if (demoModal) {
 			content: '<p>My modal content.</p>',
 			actions: [
 				{
-					text: 'Open modal',
+					text: 'Close modal',
 					color: 'peacock-light',
 					modifier: 'primary',
 					attrs: {
