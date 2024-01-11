@@ -13,6 +13,7 @@ if (gliderElementCourse) {
 	const prevBtns = document.querySelectorAll('.js-glider-prev');
 	const siteMain = document.querySelector('#siteMain');
 	const zoomImages = document.querySelectorAll('.js-zoom.zoom');
+	const youtubeVideos = document.querySelectorAll('[data-youtube]');
 	let slideIndex = GliderCourse.getCurrentSlide();
 	let bounding = 0;
 
@@ -24,6 +25,8 @@ if (gliderElementCourse) {
 		[].forEach.call(nextBtns, (nextBtn) => {
 			nextBtn.addEventListener('click', () => {
 				GliderCourse.scrollItem(slideIndex += 1, true);
+
+				[].forEach.call(youtubeVideos, (el) => el.youtube && el.youtube.pauseVideo());
 
 				if (siteMain) {
 					bounding = siteMain.getBoundingClientRect();
@@ -39,6 +42,7 @@ if (gliderElementCourse) {
 		[].forEach.call(prevBtns, (prevBtn) => {
 			prevBtn.addEventListener('click', () => {
 				GliderCourse.scrollItem(slideIndex -= 1, true);
+				[].forEach.call(youtubeVideos, (el) => el.youtube && el.youtube.pauseVideo());
 
 				if (siteMain) {
 					bounding = siteMain.getBoundingClientRect();
