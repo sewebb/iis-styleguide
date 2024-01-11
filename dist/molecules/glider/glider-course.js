@@ -19,6 +19,7 @@ if (gliderElementCourse) {
 	var prevBtns = document.querySelectorAll('.js-glider-prev');
 	var siteMain = document.querySelector('#siteMain');
 	var zoomImages = document.querySelectorAll('.js-zoom.zoom');
+	var youtubeVideos = document.querySelectorAll('[data-youtube]');
 	var slideIndex = GliderCourse.getCurrentSlide();
 	var bounding = 0;
 
@@ -30,6 +31,10 @@ if (gliderElementCourse) {
 		[].forEach.call(nextBtns, function (nextBtn) {
 			nextBtn.addEventListener('click', function () {
 				GliderCourse.scrollItem(slideIndex += 1, true);
+
+				[].forEach.call(youtubeVideos, function (el) {
+					return el.youtube && el.youtube.pauseVideo();
+				});
 
 				if (siteMain) {
 					bounding = siteMain.getBoundingClientRect();
@@ -45,6 +50,9 @@ if (gliderElementCourse) {
 		[].forEach.call(prevBtns, function (prevBtn) {
 			prevBtn.addEventListener('click', function () {
 				GliderCourse.scrollItem(slideIndex -= 1, true);
+				[].forEach.call(youtubeVideos, function (el) {
+					return el.youtube && el.youtube.pauseVideo();
+				});
 
 				if (siteMain) {
 					bounding = siteMain.getBoundingClientRect();
