@@ -42,7 +42,7 @@
 	},
 	"devDependencies": {
 		"@frctl/fractal": "^1.5.14",
-		"@frctl/mandelbrot": "^1.10.2",
+		"@frctl/mandelbrot": "^1.10.3",
 		"@internetstiftelsen/eslint-config": "^0.0.5",
 		"@internetstiftelsen/stylelint-config": "^1.0.0",
 		"babel-cli": "^6.26.0",
