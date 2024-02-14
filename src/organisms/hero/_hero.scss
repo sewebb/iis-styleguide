@@ -62,10 +62,16 @@
 	}
 
 	@include e(paragraph) {
+		color: $color-cyberspace;
+
 		@include plumber(
 			$font-size: 2.5,
 			$line-height: 3
 		);
+
+		@include bp-up(sm) {
+			color: $color-snow;
+		}
 	}
 
 	@include e(tags) {
@@ -194,6 +200,10 @@
 				padding-right: 0;
 				padding-left: 0;
 			}
+		}
+
+		@include e(paragraph) {
+			color: $color-cyberspace;
 		}
 
 		&.alignfull {

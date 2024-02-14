@@ -39,6 +39,34 @@
 				padding-bottom: rhythm(10);
 			}
 		}
+
+		@include e(button) {
+			position: absolute;
+			bottom: 0;
+			transform: translateY(50%);
+
+			@extend %box-shadow;
+		}
+
+		@include e(text) {
+			color: $color-snow;
+			margin-left: rhythm(4);
+			transition: opacity 0.25s ease;
+			overflow: hidden;
+			opacity: 1;
+
+			&.is-minimized {
+				opacity: 0;
+			}
+
+			@include bp-up(md) {
+				max-width: 60%;
+			}
+
+			@include bp-up(lg) {
+				max-width: 60%;
+			}
+		}
 	}
 
 	@include e(gauge) {
@@ -108,34 +136,6 @@
 			position: absolute;
 			top: -#{rem(7px)};
 			left: -#{rem(20px)};
-		}
-	}
-
-	@include e(button) {
-		position: absolute;
-		bottom: 0;
-		transform: translateY(50%);
-
-		@extend %box-shadow;
-	}
-
-	@include e(text) {
-		color: $color-snow;
-		margin-left: rhythm(4);
-		transition: opacity 0.25s ease;
-		overflow: hidden;
-		opacity: 1;
-
-		&.is-minimized {
-			opacity: 0;
-		}
-
-		@include bp-up(md) {
-			max-width: 60%;
-		}
-
-		@include bp-up(lg) {
-			max-width: 60%;
 		}
 	}
 }
