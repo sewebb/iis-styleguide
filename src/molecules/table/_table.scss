@@ -96,7 +96,7 @@
 	}
 }
 
-@keyframes pulse {
+@keyframes xPulse {
 	0% {
 		right: 0;
 		opacity: 1;
@@ -245,7 +245,7 @@
 		right: rhythm(3);
 		width: rhythm(7);
 		height: 0;
-		animation: pulse 2s infinite;
+		animation: xPulse 2s infinite;
 		font-family: $font-family-mono;
 		font-size: 80%;
 		text-transform: uppercase;
@@ -257,7 +257,7 @@
 		z-index: z_index(background);
 		top: -#{rem(4px)};
 		right: 0;
-		animation: pulse 2s infinite;
+		animation: xPulse 2s infinite;
 		font-family: $font-family-mono;
 	}
 }
