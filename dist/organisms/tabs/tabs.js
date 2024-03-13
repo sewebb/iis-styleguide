@@ -46,7 +46,7 @@ window.a11yTabs = function tabsComponentIIFE(global, document) {
 
 		this.tabLinks.forEach(function (item, index) {
 			item.setAttribute('role', 'tab');
-			item.setAttribute('id', 'tab' + index);
+			// item.setAttribute('id', `tab${index}`);
 
 			if (index > 0) {
 				item.setAttribute('tabindex', '-1');
@@ -70,6 +70,15 @@ window.a11yTabs = function tabsComponentIIFE(global, document) {
 		this.tabList.addEventListener('keydown', this.eventCallback, false);
 
 		tabInstances.set(this.element, this);
+
+		this.eventCallback = handleEvents.bind(this); // eslint-disable-line
+		this.tabList.addEventListener('click', this.eventCallback, false);
+		this.tabList.addEventListener('keydown', this.eventCallback, false);
+
+		tabInstances.set(this.element, this);
+
+		// New line to select the correct tab based on URL hash
+		this.selectTabFromHash(); // Call the new method after setup
 	};
 
 	TabComponent.prototype = {
@@ -113,6 +122,11 @@ window.a11yTabs = function tabsComponentIIFE(global, document) {
 			this.tabPanels[currentIndex].setAttribute('hidden', '');
 			this.tabPanels[newIndex].removeAttribute('hidden');
 
+			// After updating tabs and tab panels, add the URL update feature
+			// Update the browser's URL hash to reflect the current tab's ID
+			var selectedTabId = this.tabLinks[newIndex].id;
+			global.history.pushState(null, '', '#' + selectedTabId);
+
 			this.currentIndex = newIndex;
 
 			return this;
@@ -126,6 +140,22 @@ window.a11yTabs = function tabsComponentIIFE(global, document) {
 			this.tabPanels[index].focus();
 
 			return this;
+		},
+		/**
+   * Selects a tab based on the URL hash
+   */
+		selectTabFromHash: function selectTabFromHash() {
+			var hash = global.location.hash;
+
+			if (hash) {
+				var targetId = hash.substring(1); // Remove the '#' character
+				var targetIndex = this.tabLinks.findIndex(function (link) {
+					return link.id === targetId;
+				});
+				if (targetIndex !== -1) {
+					this.handleTabInteraction(targetIndex);
+				}
+			}
 		}
 	};
 
