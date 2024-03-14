@@ -197,25 +197,27 @@
 	}
 
 	@include m(lines) {
-		tr {
-			background-image:
-				linear-gradient(
-					to right,
-					$color-cyberspace,
-					$color-cyberspace 2px,
-					transparent 2px,
-					transparent 6px
-				);
-			background-repeat: repeat-x;
-			background-position: bottom left;
-			background-size: 6px 1px;
-		}
+		tbody {
+			tr {
+				background-image:
+					linear-gradient(
+							to right,
+							$color-cyberspace,
+							$color-cyberspace 2px,
+							transparent 2px,
+							transparent 6px
+					);
+				background-repeat: repeat-x;
+				background-position: bottom left;
+				background-size: 6px 1px;
+			}
 
-		td,
-		th {
-			padding-top: rhythm(2);
-			padding-bottom: rhythm(2);
-			border: 0;
+			td,
+			th {
+				padding-top: rhythm(2);
+				padding-bottom: rhythm(2);
+				border: 0;
+			}
 		}
 
 		tfoot {
