@@ -1,5 +1,5 @@
 <div data-tab-component>
-	<ul class="o-tab-list js-o-tab-list">
+	<ul class="o-tab-list js-o-tab-list"{{#if updateURL}} data-update-url{{/if}}>
 		{{#each tab_item}}
 		<li class="o-tab-list__item">
 			<a class="o-tab-list__link" href="#{{id}}" id="tab-{{name}}">{{{heading}}}</a>

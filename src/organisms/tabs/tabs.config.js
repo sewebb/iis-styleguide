@@ -28,5 +28,13 @@ module.exports = {
 				content: '<p>Dock upprätthållande ta faktor sällan dimmhöljd ingalunda mjuka, vidsträckt bra tidigare vemod samma att lax redan, bra oss strand dimma redan är. Räv att dimmhöljd söka kunde tiden söka vid när, gör del dag söka vad icke se, göras tidigare vid nu dunge kunde tiden. Gamla det som mjuka gamla hans gamla bra sista fram gamla, tiden trevnadens se hwila när själv nu har kanske hwila, helt i när groda göras rännil verkligen tid så. </p>'
 			}
 		]
-	}
+	},
+	variants: [
+		{
+			name: 'Update URL',
+			context: {
+				updateURL: true
+			}
+		}
+	]
 }

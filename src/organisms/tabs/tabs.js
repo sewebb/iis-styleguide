@@ -75,12 +75,6 @@ window.a11yTabs = (function tabsComponentIIFE(global, document) {
 
 		tabInstances.set(this.element, this);
 
-		this.eventCallback = handleEvents.bind(this); // eslint-disable-line
-		this.tabList.addEventListener('click', this.eventCallback, false);
-		this.tabList.addEventListener('keydown', this.eventCallback, false);
-
-		tabInstances.set(this.element, this);
-
 		// New line to select the correct tab based on URL hash
 		this.selectTabFromHash(); // Call the new method after setup
 	};
