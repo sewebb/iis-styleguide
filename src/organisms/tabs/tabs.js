@@ -1,5 +1,8 @@
 window.a11yTabs = (function tabsComponentIIFE(global, document) {
 	const tabInstances = new WeakMap();
+	const className = 'o-tab-list';
+	const tablistElement = document.querySelector(`.js-${className}`);
+	const updateURLFromHash = tablistElement.getAttribute('data-update-url');
 
 	/**
 	* Instantiates the component
@@ -11,8 +14,6 @@ window.a11yTabs = (function tabsComponentIIFE(global, document) {
 			return;
 		}
 
-		const className = 'o-tab-list';
-		const tablistElement = document.querySelector(`.js-${className}`);
 		const namespace = getComputedStyle(tablistElement, ':before').content.replace(/["']/g, '');
 
 		const defaults = {
@@ -50,7 +51,6 @@ window.a11yTabs = (function tabsComponentIIFE(global, document) {
 
 		this.tabLinks.forEach((item, index) => {
 			item.setAttribute('role', 'tab');
-			item.setAttribute('id', `tab${index}`);
 
 			if (index > 0) {
 				item.setAttribute('tabindex', '-1');
@@ -74,6 +74,11 @@ window.a11yTabs = (function tabsComponentIIFE(global, document) {
 		this.tabList.addEventListener('keydown', this.eventCallback, false);
 
 		tabInstances.set(this.element, this);
+
+		// Select the correct tab based on URL hash
+		if (updateURLFromHash) {
+			this.selectTabFromHash();
+		}
 	};
 
 	TabComponent.prototype = {
@@ -110,11 +115,18 @@ window.a11yTabs = (function tabsComponentIIFE(global, document) {
 			this.tabLinks[newIndex].setAttribute('aria-selected', 'true');
 			this.tabItems[newIndex].setAttribute('data-tab-active', '');
 			this.tabLinks[newIndex].removeAttribute('tabindex');
-			this.tabLinks[newIndex].focus();
+			this.tabLinks[newIndex].focus(); // Focus the newly selected tab
 
 			// update tab panels
 			this.tabPanels[currentIndex].setAttribute('hidden', '');
 			this.tabPanels[newIndex].removeAttribute('hidden');
+
+			// Update the browser's URL hash to reflect the current tab's ID
+			const selectedTabId = this.tabLinks[newIndex].id;
+
+			if (updateURLFromHash) {
+				window.history.pushState(null, '', `#${selectedTabId}`);
+			}
 
 			this.currentIndex = newIndex;
 
@@ -129,6 +141,19 @@ window.a11yTabs = (function tabsComponentIIFE(global, document) {
 			this.tabPanels[index].focus();
 
 			return this;
+		},
+		/**
+		 * Selects a tab based on the URL hash
+		 */
+		selectTabFromHash() {
+			const { hash } = global.location;
+			if (hash) {
+				const targetId = hash.substring(1); // Remove the '#' character
+				const targetIndex = this.tabLinks.findIndex((link) => link.id === targetId);
+				if (targetIndex !== -1) {
+					this.handleTabInteraction(targetIndex);
+				}
+			}
 		},
 	};
 
