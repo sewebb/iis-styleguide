@@ -2,6 +2,7 @@ module.exports = {
 	status: 'ready',
 
 	context: {
+		updateURL: false,
 		tab_item: [
 			{
 				id: 'tab-1',
@@ -34,6 +35,12 @@ module.exports = {
 			name: 'Update URL',
 			context: {
 				updateURL: true
+			}
+		},
+		{
+			name: 'Wrapped Tabs',
+			context: {
+				wrapped: true
 			}
 		}
 	]

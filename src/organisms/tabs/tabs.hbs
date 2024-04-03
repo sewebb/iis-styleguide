@@ -1,15 +1,19 @@
 <div data-tab-component>
-	<ul class="o-tab-list js-o-tab-list"{{#if updateURL}} data-update-url{{/if}}>
-		{{#each tab_item}}
-		<li class="o-tab-list__item">
-			<a class="o-tab-list__link" href="#{{id}}" id="tab-{{name}}">{{{heading}}}</a>
-		</li>
-		{{/each}}
-	</ul>
+		{{#if wrapped}}<div class="wrapper">{{/if}}
+		<ul class="o-tab-list js-o-tab-list"{{#if updateURL}} data-update-url="true"{{/if}}>
+			{{#each tab_item}}
+				<li class="o-tab-list__item">
+					<a class="o-tab-list__link" href="#{{id}}" id="tab-{{name}}">{{{heading}}}</a>
+				</li>
+			{{/each}}
+		</ul>
+	{{#if wrapped}}</div>{{/if}}
 	{{#each tab_item}}
 	<section id="{{id}}" class="o-tab-panel">
 		<h2>{{{heading}}}</h2>
-		{{{content}}}
+		{{#if content}}
+			{{{content}}}
+		{{/if}}
 	</section>
 	{{/each}}
 </div>

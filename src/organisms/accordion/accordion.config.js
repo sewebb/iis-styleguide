@@ -32,7 +32,7 @@ module.exports = {
 			},
 			{
 				heading: 'Proin faucibus pretium orci',
-				content: false,
+				content: '<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec ut elit lacinia, feugiat felis sit amet, congue ante. Morbi vel egestas mi. Nulla urna sapien, gravida et nisl ac, maximus euismod ipsum. Vivamus condimentum, massa non convallis hendrerit, orci mi porttitor nisi, at commodo purus magna non nisi. Duis feugiat lectus in sapien mollis, ac volutpat leo elementum. Nullam euismod massa a nulla placerat sagittis. Integer id purus a dolor fermentum mollis vel feugiat dui. Nullam neque diam, mattis nec cursus at, facilisis nec diam.</p><p>Proin faucibus pretium orci, eu tristique augue condimentum at. Suspendisse potenti. Donec ut luctus eros. Nam justo nunc, facilisis lobortis hendrerit sodales, fermentum at purus. Proin eget elementum nulla, nec tincidunt lacus. Mauris massa eros, interdum eget nunc id, molestie semper libero. Vivamus tortor ex, viverra ut varius vel, finibus hendrerit nunc. Morbi pulvinar arcu erat, consectetu mollis leo vulputate eu.</p>',
 				color: false
 			},
 		]
