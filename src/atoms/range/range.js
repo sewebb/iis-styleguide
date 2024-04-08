@@ -5,7 +5,10 @@ function setValue(range, rangeValue, rangeInput) {
 	const max = range.max ? range.max : 100;
 	const newVal = Number(((val - min) * 100) / (max - min));
 	rangeValue.innerHTML = val;
-	rangeInput.value = val;
+
+	if (rangeInput) {
+		rangeInput.value = val;
+	}
 
 	// Sorta magic numbers based on size of the native UI thumb
 	rangeValue.style.left = `calc(${newVal}% + (${8 - newVal * 0.15}px))`;
@@ -21,14 +24,16 @@ ranges.forEach((wrap) => {
 		range.focus();
 	});
 
-	rangeInput.addEventListener('input', () => {
-		if (rangeInput.value !== '') {
-			range.value = rangeInput.value;
-			rangeValue.innerHTML = rangeInput.value;
-			setValue(range, rangeValue, rangeInput);
-		}
-		rangeInput.focus();
-	});
+	if (rangeInput) {
+		rangeInput.addEventListener('input', () => {
+			if (rangeInput.value !== '') {
+				range.value = rangeInput.value;
+				rangeValue.innerHTML = rangeInput.value;
+				setValue(range, rangeValue, rangeInput);
+			}
+			rangeInput.focus();
+		});
+	}
 
 	setValue(range, rangeValue, rangeInput);
 });
