@@ -2,7 +2,11 @@ window.a11yTabs = (function tabsComponentIIFE(global, document) {
 	const tabInstances = new WeakMap();
 	const className = 'o-tab-list';
 	const tablistElement = document.querySelector(`.js-${className}`);
-	const updateURLFromHash = tablistElement.getAttribute('data-update-url');
+	let updateURLFromHash;
+
+	if (tablistElement) {
+		updateURLFromHash = tablistElement.getAttribute('data-update-url');
+	}
 
 	/**
 	* Instantiates the component

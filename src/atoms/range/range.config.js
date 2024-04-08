@@ -41,5 +41,26 @@ module.exports = {
 				step: '1',
 			}
 		},
+		{
+			name: 'Text input',
+			context: {
+				input: true,
+				value: '0',
+				min: '0',
+				max: '100',
+				step: '1',
+			}
+		},
+		{
+			name: 'No preview',
+			context: {
+				no_preview: true,
+				input: true,
+				value: '0',
+				min: '0',
+				max: '100',
+				step: '1',
+			}
+		}
 	]
 }
