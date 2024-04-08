@@ -166,8 +166,11 @@ strong {
 // Address styling not present in Safari and Chrome.
 //
 
+em,
+i,
 dfn {
-	font-style: italic;
+	font-family: 'HK Grotesk Light Italic';
+	font-style: normal;
 }
 
 h1,
