@@ -6,6 +6,7 @@
 	background: transparent;
 	cursor: pointer;
 	width: 100%;
+	position: relative;
 
 	&::-webkit-slider-runnable-track {
 		background-color: $color-concrete;
@@ -100,5 +101,12 @@
 			margin-left: -4px;
 		}
 	}
+}
+
+@include atom(range-input) {
+	position: absolute;
+	top: 0;
+	right: 0;
+	width: rhythm(5);
 }
 
