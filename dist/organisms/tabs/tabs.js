@@ -2,6 +2,13 @@
 
 window.a11yTabs = function tabsComponentIIFE(global, document) {
 	var tabInstances = new WeakMap();
+	var className = 'o-tab-list';
+	var tablistElement = document.querySelector('.js-' + className);
+	var updateURLFromHash = void 0;
+
+	if (tablistElement) {
+		updateURLFromHash = tablistElement.getAttribute('data-update-url');
+	}
 
 	/**
  * Instantiates the component
@@ -13,8 +20,6 @@ window.a11yTabs = function tabsComponentIIFE(global, document) {
 			return;
 		}
 
-		var className = 'o-tab-list';
-		var tablistElement = document.querySelector('.js-' + className);
 		var namespace = getComputedStyle(tablistElement, ':before').content.replace(/["']/g, '');
 
 		var defaults = {
@@ -46,7 +51,6 @@ window.a11yTabs = function tabsComponentIIFE(global, document) {
 
 		this.tabLinks.forEach(function (item, index) {
 			item.setAttribute('role', 'tab');
-			// item.setAttribute('id', `tab${index}`);
 
 			if (index > 0) {
 				item.setAttribute('tabindex', '-1');
@@ -71,14 +75,10 @@ window.a11yTabs = function tabsComponentIIFE(global, document) {
 
 		tabInstances.set(this.element, this);
 
-		this.eventCallback = handleEvents.bind(this); // eslint-disable-line
-		this.tabList.addEventListener('click', this.eventCallback, false);
-		this.tabList.addEventListener('keydown', this.eventCallback, false);
-
-		tabInstances.set(this.element, this);
-
-		// New line to select the correct tab based on URL hash
-		this.selectTabFromHash(); // Call the new method after setup
+		// Select the correct tab based on URL hash
+		if (updateURLFromHash) {
+			this.selectTabFromHash();
+		}
 	};
 
 	TabComponent.prototype = {
@@ -116,16 +116,18 @@ window.a11yTabs = function tabsComponentIIFE(global, document) {
 			this.tabLinks[newIndex].setAttribute('aria-selected', 'true');
 			this.tabItems[newIndex].setAttribute('data-tab-active', '');
 			this.tabLinks[newIndex].removeAttribute('tabindex');
-			this.tabLinks[newIndex].focus();
+			this.tabLinks[newIndex].focus(); // Focus the newly selected tab
 
 			// update tab panels
 			this.tabPanels[currentIndex].setAttribute('hidden', '');
 			this.tabPanels[newIndex].removeAttribute('hidden');
 
-			// After updating tabs and tab panels, add the URL update feature
 			// Update the browser's URL hash to reflect the current tab's ID
 			var selectedTabId = this.tabLinks[newIndex].id;
-			global.history.pushState(null, '', '#' + selectedTabId);
+
+			if (updateURLFromHash) {
+				window.history.pushState(null, '', '#' + selectedTabId);
+			}
 
 			this.currentIndex = newIndex;
 
