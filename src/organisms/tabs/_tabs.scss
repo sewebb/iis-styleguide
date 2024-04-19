@@ -44,7 +44,7 @@
 		}
 	}
 
-	[role='presentation'] {
+	@include e(item) {
 		display: flex;
 		flex: 0 0 auto;
 		padding: 0;
@@ -54,7 +54,7 @@
 		}
 	}
 
-	[role='tab'] {
+	@include e(link) {
 		@extend %normalize-links;
 
 		display: inline-flex;
@@ -101,6 +101,36 @@
 
 		&:focus {
 			outline: 0;
+		}
+	}
+}
+
+.no-js {
+	@include organism(tab-list) {
+		padding: initial;
+		margin: initial;
+		list-style-type: disc;
+
+		@include plumber(
+			$leading-bottom: 3
+		);
+
+		@include e(item) {
+			display: list-item;
+			margin-top: rhythm(1);
+			margin-left: rhythm(4);
+			padding-top: rhythm(0.25);
+			padding-bottom: rhythm(0.25);
+			padding-top: 0;
+			padding-left: 0;
+		}
+
+		@include e(link) {
+			background-color: transparent;
+			padding: 0;
+			border-radius: 0;
+
+			@extend %link-styles;
 		}
 	}
 }
