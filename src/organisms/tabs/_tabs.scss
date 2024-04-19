@@ -47,7 +47,7 @@
 		flex: 0 0 auto;
 		padding: 0;
 
-		+ [role='presentation'] {
+		+ li {
 			margin-left: rhythm(1);
 		}
 	}
@@ -77,7 +77,7 @@
 	}
 
 	[data-tab-active] {
-		[role='tab'] {
+		a {
 			background-color: $color-snow;
 		}
 	}
