@@ -126,7 +126,7 @@
 	}
 
 	@include organism(accordion) {
-		background-color: lighten($ash-color, 4%);
+		background-color: lighten($color-ash, 4%);
 
 		@include e(panel) {
 			&[aria-hidden='false'],
@@ -240,7 +240,7 @@
 
 		@include m(ash) {
 			border-radius: 0;
-			background-color: lighten($ash-color, 4%);
+			background-color: lighten($color-ash, 4%);
 		}
 	}
 
