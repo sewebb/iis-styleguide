@@ -54,16 +54,16 @@ class ProgressRing extends HTMLElement {
 }
 
 window.customElements.define('progress-ring', ProgressRing);
+const continueElement = document.querySelector('.js-guide-continue');
 
-// Get value from localStorage if present
-if (localStorage.getItem('InmsCurrentTime')) {
-	const videoCurrentTime = localStorage.getItem('InmsCurrentTime');
-	const videoDuration = localStorage.getItem('InmsDuration');
-	const continueElement = document.querySelector('.js-guide-continue');
+// Get value from sessionStorage if present
+if (sessionStorage.getItem('InmsCurrentTime')) {
+	const videoCurrentTime = sessionStorage.getItem('InmsCurrentTime');
+	const videoDuration = sessionStorage.getItem('InmsDuration');
 	const progressRing = document.querySelector('progress-ring');
 	const continueLink = document.querySelector('.js-guide-continue-link');
-	const guideURL = localStorage.getItem('InmsCurrentGuideURL');
-	const guideImage = localStorage.getItem('InmsCurrentGuideImage');
+	const guideURL = sessionStorage.getItem('InmsCurrentGuideURL');
+	const guideImage = sessionStorage.getItem('InmsCurrentGuideImage');
 
 	if ((videoCurrentTime > 0)
 		&& progressRing
@@ -80,5 +80,23 @@ if (localStorage.getItem('InmsCurrentTime')) {
 		continueLink.querySelector('span').innerText = alternativeText;
 		// Calculate percentage played
 		progressRing.setAttribute('progress', Math.floor(currentProgress * 100));
+	}
+}
+
+// Close Continue Component
+const closeButton = document.querySelector('.js-guide-close');
+
+if (closeButton) {
+	closeButton.addEventListener('click', () => {
+		sessionStorage.setItem('InmsGuideClosed', true);
+		continueElement.classList.remove('is-visible');
+	});
+
+	if (!sessionStorage.getItem('InmsGuideClosed')) {
+		continueElement.classList.add('is-visible');
+	}
+
+	if (document.querySelector('.js-video-guide')) {
+		continueElement.classList.remove('is-visible');
 	}
 }

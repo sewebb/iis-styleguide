@@ -5,7 +5,7 @@
 			<div class="scroll-indicator"></div>
 		{{/if}}
 				<div class="table-container">
-					<table class="m-table{{#if modifier}} {{modifier}}{{/if}}">
+					<table class="m-table{{#if modifier}} {{modifier}}{{/if}}" {{#if scrollable}}style="min-width:1360px"{{/if}}>
 						{{#unless increment}}
 						<thead>
 							<tr>

@@ -137,6 +137,22 @@
 				padding-left: rhythm(4);
 			}
 		}
+
+		&.wp-block-iis-visualization {
+			background-color: transparent;
+
+			@include e(content) {
+				p {
+					margin-top: 0;
+				}
+			}
+
+			&--no-padding > {
+				@include e(content) {
+					padding: 0;
+				}
+			}
+		}
 	}
 
 	@include m(bordered) {
@@ -151,16 +167,14 @@
 		height: auto;
 
 		@include bp-up(md) {
+			flex-direction: row;
+			height: auto;
+
 			h1,
 			h2 {
 				font-size: rem(32px);
 				line-height: 1.2;
 			}
-		}
-
-		@include bp-up(md) {
-			flex-direction: row;
-			height: auto;
 
 			@include e(content) {
 				display: flex;
@@ -171,7 +185,6 @@
 
 			@include e(image) {
 				display: block;
-				min-height: 100%;
 				object-fit: cover;
 				object-position: 50% center;
 			}
@@ -182,6 +195,16 @@
 				border-top-left-radius: $border-radius;
 				border-top-right-radius: 0;
 				border-bottom-left-radius: $border-radius;
+			}
+
+			picture {
+				display: flex;
+				width: 100%;
+				max-width: 50%;
+
+				@include e(media) {
+					max-width: 100%;
+				}
 			}
 
 			@include e(bottom) {
@@ -275,6 +298,15 @@
 			svg {
 				fill: var(--snow-color);
 			}
+		}
+	}
+
+	@include m(mini) {
+		padding: rhythm(1) rhythm(2);
+		background-color: $color-snow;
+
+		@include bp-up(md) {
+			padding: rhythm(2) rhythm(3);
 		}
 	}
 }

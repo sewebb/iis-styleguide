@@ -164,6 +164,7 @@ function display() {
 	focusTrap(active.el);
 
 	active.el.setAttribute('aria-hidden', 'false');
+	active.el.setAttribute('data-a11y-toggle-open', 'true');
 
 	if (active.settings.onOpen) {
 		active.settings.onOpen(active.id, active.el);
@@ -229,6 +230,7 @@ function dispatchOnCloseHandlers(el, id) {
 function close() {
 	if (active) {
 		active.el.setAttribute('aria-hidden', 'true');
+		active.el.removeAttribute('data-a11y-toggle-open');
 
 		if (active.settings.onClose) {
 			active.settings.onClose(active.id);
@@ -332,6 +334,7 @@ function delegate(e) {
 
 		const id = openModal.getAttribute('data-modal-open');
 		const modalEl = document.getElementById(id);
+		document.querySelector('body').classList.add('prevent-scroll');
 
 		if (modalEl) {
 			open(modalEl, {
@@ -354,6 +357,7 @@ function delegate(e) {
 		e.stopPropagation();
 
 		const id = closeModal.getAttribute('data-modal-close') || (active && active.el.id);
+		document.querySelector('body').classList.remove('prevent-scroll');
 
 		if (active && active.el.id === id) {
 			close();
@@ -376,10 +380,8 @@ function attach() {
 	document.body.addEventListener('click', delegate);
 }
 
-window.addEventListener('load', () => {
-	createModal();
-	attach();
-});
+createModal();
+attach();
 
 export {
 	clearQueue,

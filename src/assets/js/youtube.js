@@ -1,3 +1,10 @@
+// TODO: Should probably implement a way to localize texts in the styleguide
+import className from './className';
+import hasCookieConsent from './hasCookieConsent';
+
+let consent = hasCookieConsent('C0004');
+const missingConsentMessage = 'För att spela Youtubefilmer krävs att "Riktade kakor" tillåts. Tryck för att "Anpassa kakor"';
+
 function loadYoutubeAPI() {
 	const id = 'iisYoutubeAPI';
 
@@ -24,7 +31,44 @@ function onPlayerStateChange(el, e) {
 	}
 }
 
+function createConsentWarning(el) {
+	if (el.querySelector('[data-youtube-consent-warning]')) {
+		return;
+	}
+
+	const div = document.createElement('div');
+	const button = document.createElement('button');
+	const message = document.createElement('p');
+	message.classList.add('color-cyberspace');
+
+	div.setAttribute('data-youtube-consent-warning', true);
+	div.className = className('m-icon-overlay__message');
+	button.className = className('a-button');
+	button.setAttribute('data-ot-dynamic-show-settings', 'true');
+	button.innerHTML = `<span class="${className('a-button__text')}">Anpassa kakor</span>`;
+	message.innerHTML = missingConsentMessage;
+
+	div.appendChild(message);
+	div.appendChild(button);
+
+	el.appendChild(div);
+}
+
+function destroyConsentWarning(el) {
+	const div = el.querySelector('[data-youtube-consent-warning]');
+
+	if (div) {
+		div.parentNode.removeChild(div);
+	}
+}
+
 function createCover(el) {
+	if (!consent) {
+		createConsentWarning(el);
+	} else {
+		destroyConsentWarning(el);
+	}
+
 	if (el.getElementsByTagName('img').length) {
 		return;
 	}
@@ -70,6 +114,10 @@ function setupYoutubePlayer(el) {
 }
 
 function delegateClick(e) {
+	if (e.target.closest('[data-youtube-consent-warning]')) {
+		return;
+	}
+
 	const el = e.target.closest('[data-youtube]');
 
 	if (!el) {
@@ -109,8 +157,15 @@ export function setupPlayers(container) {
 }
 
 window.onYouTubeIframeAPIReady = () => {
-	setupPlayers(document);
 	document.body.addEventListener('click', delegateClick);
 };
 
+setupPlayers(document);
 loadYoutubeAPI();
+
+window.addEventListener('consent.onetrust', (e) => {
+	consent = e.detail.includes('C0004');
+
+	setupPlayers(document);
+	loadYoutubeAPI();
+});

@@ -81,7 +81,7 @@ $spacing: rhythm(6);
 
 	@include e(content) {
 		position: relative;
-		z-index: z_index(middleground);
+		z-index: z_index(background);
 
 		@include m(peacock) {
 			::selection {
@@ -109,6 +109,7 @@ $spacing: rhythm(6);
 				position: absolute;
 				top: 0;
 				left: 0;
+				z-index: 2;
 				width: rem(575px);
 				height: rem(575px);
 				transform: translate(calc(-100% - #{rem(20px)}), -50%) rotate(-20deg);
@@ -129,6 +130,7 @@ $spacing: rhythm(6);
 				position: absolute;
 				top: 0;
 				right: 0;
+				z-index: 2;
 				width: rem(450px);
 				height: rem(166px);
 				transform: translate(calc(100% + #{rem(20px)}), 50%) rotate(20deg);

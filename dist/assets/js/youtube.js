@@ -5,6 +5,21 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.destroyPlayer = destroyPlayer;
 exports.setupPlayers = setupPlayers;
+
+var _className = require('./className');
+
+var _className2 = _interopRequireDefault(_className);
+
+var _hasCookieConsent = require('./hasCookieConsent');
+
+var _hasCookieConsent2 = _interopRequireDefault(_hasCookieConsent);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+// TODO: Should probably implement a way to localize texts in the styleguide
+var consent = (0, _hasCookieConsent2.default)('C0004');
+var missingConsentMessage = 'För att spela Youtubefilmer krävs att "Riktade kakor" tillåts. Tryck för att "Anpassa kakor"';
+
 function loadYoutubeAPI() {
 	var id = 'iisYoutubeAPI';
 
@@ -28,18 +43,47 @@ function onPlayerStateChange(el, e) {
 	} else if (e.data === YT.PlayerState.UNSTARTED) {
 		el.getElementsByTagName('img')[0].style.zIndex = null;
 		el.getElementsByTagName('button')[0].style.display = null;
+	}
+}
 
-		if (el.youtube) {
-			var playerEl = el.querySelector('[data-youtube-container]');
+function createConsentWarning(el) {
+	if (el.querySelector('[data-youtube-consent-warning]')) {
+		return;
+	}
 
-			playerEl.parentNode.removeChild(playerEl);
-			el.youtube.destroy();
-			el.youtube = null;
-		}
+	var div = document.createElement('div');
+	var button = document.createElement('button');
+	var message = document.createElement('p');
+	message.classList.add('color-cyberspace');
+
+	div.setAttribute('data-youtube-consent-warning', true);
+	div.className = (0, _className2.default)('m-icon-overlay__message');
+	button.className = (0, _className2.default)('a-button');
+	button.setAttribute('data-ot-dynamic-show-settings', 'true');
+	button.innerHTML = '<span class="' + (0, _className2.default)('a-button__text') + '">Anpassa kakor</span>';
+	message.innerHTML = missingConsentMessage;
+
+	div.appendChild(message);
+	div.appendChild(button);
+
+	el.appendChild(div);
+}
+
+function destroyConsentWarning(el) {
+	var div = el.querySelector('[data-youtube-consent-warning]');
+
+	if (div) {
+		div.parentNode.removeChild(div);
 	}
 }
 
 function createCover(el) {
+	if (!consent) {
+		createConsentWarning(el);
+	} else {
+		destroyConsentWarning(el);
+	}
+
 	if (el.getElementsByTagName('img').length) {
 		return;
 	}
@@ -87,6 +131,10 @@ function setupYoutubePlayer(el) {
 }
 
 function delegateClick(e) {
+	if (e.target.closest('[data-youtube-consent-warning]')) {
+		return;
+	}
+
 	var el = e.target.closest('[data-youtube]');
 
 	if (!el) {
@@ -126,8 +174,15 @@ function setupPlayers(container) {
 }
 
 window.onYouTubeIframeAPIReady = function () {
-	setupPlayers(document);
 	document.body.addEventListener('click', delegateClick);
 };
 
+setupPlayers(document);
 loadYoutubeAPI();
+
+window.addEventListener('consent.onetrust', function (e) {
+	consent = e.detail.includes('C0004');
+
+	setupPlayers(document);
+	loadYoutubeAPI();
+});

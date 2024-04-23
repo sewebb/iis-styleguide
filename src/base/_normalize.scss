@@ -12,6 +12,7 @@ html {
 	color: var(--cyberspace-color);
 	font-family: sans-serif;
 	font-size: percentage(math.div($size-base, 16px));
+	font-variant-ligatures: no-common-ligatures;
 	-ms-overflow-style: scrollbar;
 	-webkit-text-size-adjust: 100%;
 	-ms-text-size-adjust: 100%;
@@ -165,8 +166,11 @@ strong {
 // Address styling not present in Safari and Chrome.
 //
 
+em,
+i,
 dfn {
-	font-style: italic;
+	font-family: 'HK Grotesk Light Italic';
+	font-style: normal;
 }
 
 h1,
@@ -281,7 +285,7 @@ hr {
 	margin-top: rhythm(2);
 	margin-bottom: rhythm(2);
 	border: 0;
-	border-bottom: 1px solid $color-granit;
+	border-bottom: 1px solid $color-concrete;
 }
 
 //

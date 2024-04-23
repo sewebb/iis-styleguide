@@ -1,6 +1,13 @@
 import { Editor } from '@tiptap/core';
-import StarterKit from '@tiptap/starter-kit';
+import Document from '@tiptap/extension-document';
+import Paragraph from '@tiptap/extension-paragraph';
+import Text from '@tiptap/extension-text';
+import BulletList from '@tiptap/extension-bullet-list';
+import ListItem from '@tiptap/extension-list-item';
+import Bold from '@tiptap/extension-bold';
+import Italic from '@tiptap/extension-italic';
 import { Link } from '@tiptap/extension-link';
+import History from '@tiptap/extension-history';
 import className from '../../assets/js/className';
 import { open } from '../../molecules/modal/modal';
 
@@ -141,12 +148,21 @@ export function setupTextArea(el, onChange = () => {}) {
 	const editor = new Editor({
 		element: editorEl,
 		extensions: [
-			StarterKit,
+			Document,
+			Paragraph,
+			Text,
+			ListItem,
+			BulletList,
+			Bold,
+			Italic,
 			Link.configure({
 				openOnClick: false,
 				HTMLAttributes: {
 					class: 'u-link',
 				},
+			}),
+			History.configure({
+				depth: 10,
 			}),
 		],
 		content: el.value,

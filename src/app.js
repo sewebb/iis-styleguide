@@ -1,5 +1,6 @@
-import './molecules/form';
-import './atoms/textarea/rich-text';
+import 'a11y-toggle';
+import './focusTrap';
+import './assets/js/conditional';
 
 require('./atoms/grid-toggle/grid-toggle');
 require('./components');
@@ -36,7 +37,7 @@ if (demoModal) {
 			content: '<p>My modal content.</p>',
 			actions: [
 				{
-					text: 'Open modal',
+					text: 'Close modal',
 					color: 'peacock-light',
 					modifier: 'primary',
 					attrs: {
@@ -73,3 +74,13 @@ const unsubscribeOpen = onOpen((el, id) => {
 });
 
 // Call unsubscribe to remove callback
+
+const demoForms = document.querySelectorAll('[data-form]');
+
+[].forEach.call(demoForms, (el) => {
+	if ('form' in el) {
+		el.form.events.on('success', (data) => {
+			console.log('Form success', data);
+		});
+	}
+});

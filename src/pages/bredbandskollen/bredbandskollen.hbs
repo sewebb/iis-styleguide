@@ -1,0 +1,467 @@
+<style>
+	/* BBK theme overrides */
+	.o-header__logo {
+		line-height: 1;
+	}
+	.o-header .logotype {
+		max-width: 8rem;
+		height: 1.8rem;
+		line-height: 1;
+	}
+	@media (min-width: 769px) {
+		.o-header .logotype {
+			max-width: 10rem;
+			height: 2rem;
+		}
+	}
+	@media (min-width: 961px) {
+		.o-header .logotype {
+			max-width: 14rem;
+			height: 3rem;
+		}
+	}
+
+	.o-mega-menu.o-mega-menu--bbk {
+		background-color: #a7d8fd;
+	}
+
+	.o-mega-menu__list__topic,
+	.o-mega-menu__list__item+.o-mega-menu__list__item{
+		border-color: #50b2fc;
+	}
+</style>
+<div class="site u-z-index-foreground" id="site">
+	<div class="site__header" id="siteHeader">
+		<div class="u-position-relative">
+			<header class="o-header">
+				<div class="wrapper">
+					<div class="row justify-content-between align-items-center flex-nowrap">
+						<div class="grid-auto display-flex align-items-stretch">
+							<a href="/" class="o-header__logo-link">
+								<span class="o-header__logo">
+									<svg class="logotype">
+										<use xlink:href="#logotype-bredbandskollen"></use>
+									</svg>
+								</span>
+								<h1 class="u-visuallyhidden">Bredbandskollen</h1>
+							</a>
+						</div>
+						<div class="grid">
+							<nav class="a-main-menu">
+								<ul class="a-main-menu__list">
+									<li class="u-hidden-mobile">
+										<a href="#" class="a-main-menu__list__link">
+											<span class="a-main-menu__list__text">Hjälp</span>
+										</a>
+									</li>
+									<li class="u-hidden-mobile">
+										<a href="#" class="a-main-menu__list__link">
+											<span class="a-main-menu__list__text">Surfkarta</span>
+										</a>
+									</li>
+									<li class="u-hidden-mobile">
+										<a href="#" class="a-main-menu__list__link">
+											<span class="a-main-menu__list__text">Om oss</span>
+										</a>
+									</li>
+									</li>
+									<li>
+										<button type="button" class="a-main-menu__list__link" aria-expanded="false" data-a11y-toggle="dropdown" aria-haspopup="true" id="a11y-toggle-0" aria-controls="dropdown">
+											<span class="a-main-menu__list__text">English</span>
+											<div class="icon-arrow-down"></div>
+										</button>
+										<ul id="dropdown" class="a-main-menu__subnav" data-container="true" data-focus-trap="true" aria-hidden="true" aria-labelledby="a11y-toggle-0">
+											<li class="a-main-menu__subnav__item a-main-menu__subnav__item--top-level"><a href="" class="a-main-menu__subnav__link is-top-level">English</a></li>
+											<li class="a-main-menu__subnav__item a-main-menu__subnav__item--top-level"><a href="" class="a-main-menu__subnav__link is-top-level">Svenska</a></li>
+										</ul>
+									<li>
+										<button type="button" class="a-main-menu__list__link js-toggle-mega-menu" aria-expanded="false">
+											<span class="a-main-menu__list__text">Meny</span>
+											<div class="icon-hamburger"></div>
+										</button>
+									</li>
+								</ul>
+							</nav>
+
+						</div>
+					</div>
+				</div>
+			</header>
+		</div>
+		{{> @mega-menu id="megaMenu" modifier="o-mega-menu--bbk" }}
+	</div>
+	<div class="site__main" id="siteMain">
+		<div class="o-hero o-hero--bbk">
+			<div class="o-hero__top">
+				<div class="o-hero__gauge">
+					<div class="o-hero__icon-pointer"></div>
+					<svg class="o-hero__icon-gauge" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 0 106 106" version="1.1">
+						<g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+							<g id="logo" fill-rule="nonzero">
+								<g id="Group">
+									<g id="Clipped" fill="#FFFFFF">
+										<path d="M105.9,53 C105.9,82.3 82.2,106 52.9,106 C23.7,106 0,82.3 0,53 C0,23.7 23.7,0 53,0 C82.2,0 105.9,23.7 105.9,53" id="Shape"/>
+									</g>
+									<g id="Clipped" transform="translate(2.000000, 2.000000)" fill="#FFFFFF">
+										<path d="M101.5,51 C101.5,78.9 78.9,101.6 51,101.6 C23,101.6 0.4,78.9 0.4,51 C0.4,23.1 23,0.4 51,0.4 C78.9,0.4 101.5,23.1 101.5,51" id="Shape"/>
+									</g>
+									<g id="Clipped" transform="translate(4.000000, 3.000000)" fill="#0477ce">
+										<path d="M98,50 C98,77.1 76,99.1 49,99.1 C21.9,99.1 0,77.1 0,50 C0,22.9 22,0.9 49,0.9 C76,0.9 98,22.9 98,50" id="Shape"/>
+									</g>
+									<g id="Clipped" transform="translate(7.000000, 7.000000)" fill="#FFFFFF">
+										<path d="M91.3,46 C91.3,71.1 71,91.4 46,91.4 C21,91.4 0.6,71.1 0.6,46 C0.6,20.9 20.9,0.6 46,0.6 C71,0.6 91.3,20.9 91.3,46" id="Shape"/>
+									</g>
+									<g id="Clipped" transform="translate(8.000000, 8.000000)" fill="#FFFFFF">
+										<path d="M89.1,45 C89.1,69.4 69.3,89.2 45,89.2 C20.6,89.2 0.8,69.4 0.8,45 C0.8,20.6 20.6,0.8 45,0.8 C69.3,0.8 89.1,20.6 89.1,45" id="Shape"/>
+									</g>
+									<g id="Clipped" transform="translate(23.000000, 76.000000)" fill="#0477ce">
+										<path d="M4.3,2.1 C4.3,3.1 3.5,3.9 2.5,3.9 C1.5,3.9 0.7,3.1 0.7,2.1 C0.7,1.1 1.5,0.3 2.5,0.3 C3.4,0.3 4.3,1.1 4.3,2.1" id="Shape"/>
+									</g>
+									<g id="Clipped" transform="translate(14.000000, 64.000000)" fill="#0477ce">
+										<path d="M4.4,2.3 C4.4,3.3 3.6,4.1 2.6,4.1 C1.6,4.1 0.8,3.3 0.8,2.3 C0.8,1.3 1.6,0.5 2.6,0.5 C3.6,0.5 4.4,1.3 4.4,2.3" id="Shape"/>
+									</g>
+									<g id="Clipped" transform="translate(14.000000, 37.000000)" fill="#0477ce">
+										<path d="M4.4,1.9 C4.4,2.9 3.6,3.7 2.6,3.7 C1.6,3.7 0.8,2.9 0.8,1.9 C0.8,0.9 1.6,0.1 2.6,0.1 C3.6,0.1 4.4,0.8 4.4,1.9" id="Shape"/>
+									</g>
+									<g id="Clipped" transform="translate(23.000000, 24.000000)" fill="#0477ce">
+										<path d="M4.3,2.5 C4.3,3.5 3.5,4.3 2.5,4.3 C1.5,4.3 0.7,3.5 0.7,2.5 C0.7,1.5 1.5,0.7 2.5,0.7 C3.4,0.7 4.3,1.5 4.3,2.5" id="Shape"/>
+									</g>
+									<g id="Clipped" transform="translate(36.000000, 14.000000)" fill="#0477ce">
+										<path d="M3.6,2.6 C3.6,3.6 2.8,4.4 1.8,4.4 C0.8,4.4 7.10542736e-15,3.6 7.10542736e-15,2.6 C7.10542736e-15,1.6 0.8,0.8 1.8,0.8 C2.8,0.8 3.6,1.6 3.6,2.6" id="Shape"/>
+									</g>
+									<g id="Clipped" transform="translate(50.000000, 9.000000)" fill="#0477ce">
+										<path d="M5.6,3.3 C5.6,4.8 4.4,6 2.9,6 C1.4,6 0.2,4.8 0.2,3.3 C0.2,1.8 1.4,0.6 2.9,0.6 C4.4,0.5 5.6,1.7 5.6,3.3" id="Shape"/>
+									</g>
+									<g id="Clipped" transform="translate(10.000000, 50.000000)" fill="#0477ce">
+										<path d="M6,3.4 C6,4.9 4.8,6.1 3.3,6.1 C1.8,6.1 0.6,4.9 0.6,3.4 C0.6,1.9 1.8,0.7 3.3,0.7 C4.8,0.7 6,1.9 6,3.4" id="Shape"/>
+									</g>
+									<g id="Clipped" transform="translate(78.000000, 76.000000)" fill="#0477ce">
+										<path d="M0.5,2.1 C0.5,3.1 1.3,3.9 2.3,3.9 C3.3,3.9 4.1,3.1 4.1,2.1 C4.1,1.1 3.3,0.3 2.3,0.3 C1.3,0.3 0.5,1.1 0.5,2.1" id="Shape"/>
+									</g>
+									<g id="Clipped" transform="translate(87.000000, 64.000000)" fill="#0477ce">
+										<path d="M0.3,2.3 C0.3,3.3 1.1,4.1 2.1,4.1 C3.1,4.1 3.9,3.3 3.9,2.3 C3.9,1.3 3.1,0.5 2.1,0.5 C1.1,0.5 0.3,1.3 0.3,2.3" id="Shape"/>
+									</g>
+									<g id="Clipped" transform="translate(87.000000, 37.000000)" fill="#0477ce">
+										<path d="M0.3,1.9 C0.3,2.9 1.1,3.7 2.1,3.7 C3.1,3.7 3.9,2.9 3.9,1.9 C3.9,0.9 3.1,0.1 2.1,0.1 C1.1,-1.38777878e-17 0.3,0.8 0.3,1.9" id="Shape"/>
+									</g>
+									<g id="Clipped" transform="translate(78.000000, 24.000000)" fill="#0477ce">
+										<path d="M0.5,2.5 C0.5,3.5 1.3,4.3 2.3,4.3 C3.3,4.3 4.1,3.5 4.1,2.5 C4.1,1.5 3.3,0.7 2.3,0.7 C1.3,0.7 0.5,1.5 0.5,2.5" id="Shape"/>
+									</g>
+									<g id="Clipped" transform="translate(66.000000, 14.000000)" fill="#0477ce">
+										<path d="M0.1,2.6 C0.1,3.6 0.9,4.4 1.9,4.4 C2.9,4.4 3.7,3.6 3.7,2.6 C3.7,1.6 2.9,0.8 1.9,0.8 C0.9,0.8 0.1,1.6 0.1,2.6" id="Shape"/>
+									</g>
+									<g id="Clipped" transform="translate(89.000000, 50.000000)" fill="#0477ce">
+										<path d="M0.7,3.4 C0.7,4.9 1.9,6.1 3.4,6.1 C4.9,6.1 6.1,4.9 6.1,3.4 C6.1,1.9 4.9,0.7 3.4,0.7 C2,0.7 0.7,1.9 0.7,3.4" id="Shape"/>
+									</g>
+								</g>
+							</g>
+						</g>
+					</svg>
+				</div>
+				<div class="o-hero__text u-hide-sm">
+					<p class="preamble u-m-b-0"><strong>Bredbandskollen</strong> är ett enkelt sätt för dig att mäta din internethastighet och få hjälp att förbättra den.</p>
+				</div>
+			</div>
+			<button type="button" class="a-button a-button--large a-button--lemon o-hero__button js-start-measurement" data-toggle-text="Avbryt">
+				<span class="a-button__text">Starta mätningen!</span>
+			</button>
+		</div>
+		<div class="wrapper">
+			<div class="u-p-y-2">
+				<div class="grid-auto display-flex flex-column align-items-center u-p-x-0">
+					<p class="js-terms">Genom att starta mätningen godkänner du <a href="#" target="_blank">avtalsvillkoren</a> och att du har tagit del av <a href="#" target="_blank">integritetspolicyn</a>.</p>
+					{{> @progress has_label=false max="100" value="0" max_width="400px" additional_classes="u-m-b-2 js-measure-progress is-hidden"}}
+				</div>
+			</div>
+			<script>
+				/* Dummy measure script */
+				const button = document.querySelector('.js-start-measurement');
+				const buttonTextElement = button.querySelector('span');
+				const buttonText = buttonTextElement.innerText;
+				const toggleText = button.getAttribute('data-toggle-text');
+				const progressBar = document.querySelector('.js-measure-progress');
+
+				button.addEventListener('click', function() {
+					document.querySelector('.o-hero__text').classList.toggle('is-minimized');
+					document.querySelector('.o-hero__gauge').classList.toggle('is-testing');
+					document.querySelector('.o-hero__icon-pointer').classList.toggle('is-testing');
+					progressBar.classList.toggle('is-hidden');
+					document.querySelector('.js-terms').classList.toggle('is-hidden');
+					button.classList.toggle('a-button--lemon');
+					button.classList.toggle('a-button--ruby-dark');
+					buttonTextElement.innerText = (
+						buttonTextElement.innerText === buttonText) ? toggleText : buttonText;
+					button.blur();
+
+					/* Animate progress bar using the value attribute */
+					progressBar.getAttribute('value') == '0' ? progressBar.setAttribute('value', '100') : progressBar.setAttribute('value', '0');
+
+					/* Firefox can't animate progress value, so we use a fallback */
+					const progressValue = progressBar.getAttribute('value');
+					progressBar.style.getPropertyValue('---value') ==  progressValue ? progressBar.style.setProperty('--value', progressValue + '%') : progressBar.style.setProperty('--value', progressValue + '%');
+				});
+			</script>
+			<div class="row u-m-b-8">
+				<main class="grid-18 grid-lg-12">
+					<div class="row">
+						<div class="grid-18 grid-xl-6 u-m-b-2">
+							<div class="m-card m-card--mini">
+								<div class="a-meta a-meta--responsive">Nedladdning</div>
+								<div class="beta beta--responsive u-m-t-0 display-flex align-items-baseline">{{> @icon id="download" additional_classes="u-icon--responsive u-fill-ocean-dark u-flex-shrink-0"}}<span class="mono u-m-l-1">370,55</span><span class="u-font-size-base u-weight-normal u-display-inline-block u-m-l-1">Mbit/s</span></div>
+							</div>
+						</div>
+						<div class="grid-18 grid-xl-6 grid-lg-9 u-m-b-2">
+							<div class="m-card m-card--mini">
+								<div class="a-meta a-meta--responsive">Uppladdning</div>
+								<div class="beta beta--responsive u-m-t-0 display-flex align-items-baseline">{{> @icon id="upload" additional_classes="u-icon--responsive u-fill-ocean-dark u-flex-shrink-0"}}<span class="mono u-m-l-1">134,35</span><span class="u-font-size-base u-weight-normal u-display-inline-block u-m-l-1">Mbit/s</span></div>
+							</div>
+						</div>
+						<div class="grid-18 grid-xl-6 grid-lg-9 u-m-b-2">
+							<div class="m-card m-card--mini">
+								<div class="a-meta a-meta--responsive">Svarstid</div>
+								<div class="beta beta--responsive u-m-t-0 display-flex align-items-baseline">{{> @icon id="time" additional_classes="u-icon--responsive u-fill-ocean-dark u-flex-shrink-0"}}<span class="mono u-m-l-1">6,15</span><span class="u-font-size-base u-weight-normal u-display-inline-block u-m-l-1">ms</span></div>
+							</div>
+						</div>
+					</div>
+					<div class="row u-m-b-2">
+						<div class="grid-18">
+							<div class="background-ocean-light u-border-radius u-p-x-3 u-p-b-2 u-p-t-2">
+								<script src="https://cdn.lordicon.com/lordicon-1.1.0.js"></script>
+								<lord-icon
+									src="https://cdn.lordicon.com/jnzhohhs.json"
+									trigger="loop"
+									delay="5000"
+									colors="primary:#0477ce,secondary:#ffffff"
+									style="width:100px;height:100px">
+								</lord-icon>
+								<h2 class="display-flex align-items-baseline">Är ditt mätresultat bra eller dåligt?</h2>
+								<p>Genom att ange typ av uppkoppling och vilken hastighet du betalar för, kan du få en utvärdering på om ditt mätresultat är bra eller dåligt.</p>
+								<p>Om du har problem med att använda Bredbandskollen, eller misstänker något fel i mätningen kan du <a data-open="supportForm" aria-controls="supportForm" aria-haspopup="dialog" tabindex="0">kontakta vår support</a>.</p>
+								<p>Om du misstänker att du inte får rätt hastighet från din internetleverantör ska du kontakta deras support.</p>
+								<div class="row align-items-stretch">
+									<div class="grid-auto display-flex">
+										<div class="field-group display-flex u-m-b-1">
+											<label for="select" class="u-visuallyhidden">Uppkopplingstyp</label>
+											<select id="select" class="a-select">
+												<option value="" disabled="" selected="">Välj uppkopplingstyp</option>
+												<option value="value-1">Option 1</option>
+												<option value="value-2">Option 2</option>
+												<option value="value-3">Option 3</option>
+												<option value="value-4">Option 4</option>
+											</select>
+										</div>
+									</div>
+									<div class="grid-auto display-flex">
+										<div class="field-group display-flex u-m-b-1">
+											<label for="select" class="u-visuallyhidden">Abonnemang</label>
+											<select id="select" class="a-select">
+												<option value="" disabled="" selected="">Välj abonnemang</option>
+												<option value="value-1">Option 1</option>
+												<option value="value-2">Option 2</option>
+												<option value="value-3">Option 3</option>
+												<option value="value-4">Option 4</option>
+											</select>
+										</div>
+									</div>
+									<div class="grid-auto u-m-b-1">
+										<button type="button" class="a-button">
+											<span class="a-button__text">Utvärdera</span>
+										</button>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+					<div id="apps1">
+						<div class="row" data-responsive="md:apps2,lg:apps1">
+							<div class="grid-18">
+								<h2>Bredbandskollen i mobilen</h2>
+							</div>
+							<div class="grid-6 grid-sm-4 grid-xl-3 u-m-b-2">
+								<a href="#"><img src="/assets/images/app-store.png" alt="App Store"></a>
+							</div>
+							<div class="grid-6 grid-sm-4 grid-xl-3 u-m-b-2">
+								<a href="#"><img src="/assets/images/google-play.png" alt="Google Play"></a>
+							</div>
+							<div class="grid-6 grid-sm-4 grid-xl-3 u-m-b-2">
+								<a href="#"><img src="/assets/images/appgallery.png" alt="Huawei Appgallery"></a>
+							</div>
+						</div>
+					</div>
+				</main>
+				<aside class="grid-18 grid-lg-6">
+					<div class="background-snow u-border-radius u-p-t-2 u-p-b-1 u-p-x-3 u-m-b-2">
+						<dl class="u-m-b-1">
+							<dt class="a-meta a-meta--responsive">Uppkopplingstyp</dt>
+							<dd class="u-m-l-0 u-m-b-2">Okänt</dd>
+							<dt class="a-meta a-meta--responsive">Leverantör</dt>
+							<dd class="u-m-l-0 u-m-b-2">GlobalConnect AB</dd>
+							<dt class="a-meta a-meta--responsive">Mätserver</dt>
+							<dd class="u-m-l-0 u-m-b-2">Stockholm</dd>
+							<dt class="a-meta a-meta--responsive">Mätningen utfördes</dt>
+							<dd class="u-m-l-0">2023-10-20 12:54:12</dd>
+						</dl>
+					</div>
+					<div class="u-b-dashed u-b-concrete u-border-radius u-b-2 u-p-y-2 u-p-x-3 u-m-b-2">
+						<h3>Tidigare mätningar</h3>
+						<dl class="u-m-b-0">
+							<dt class="a-meta a-meta--responsive">23 oktober 2023, 07:34</dt>
+							<dd class="u-m-l-0 u-m-b-2 u-b-solid u-b-concrete u-b-x-0 u-b-t-0 u-b-b-1 display-flex flex-wrap">
+								<div class="beta u-m-r-2 display-flex align-items-center">
+									<svg class="icon u-icon--medium u-fill-ocean-dark">
+										<use xlink:href="#icon-download"></use>
+									</svg>
+									<span class="mono u-m-l-1 u-font-size-base">370,55</span><span class="u-font-size-medium-plus u-weight-normal u-display-inline-block u-m-l-1">Mbit/s</span>
+								</div>
+								<div class="beta display-flex align-items-center">
+									<svg class="icon u-icon--medium u-fill-ocean-dark">
+										<use xlink:href="#icon-upload"></use>
+									</svg>
+									<span class="mono u-m-l-1 u-font-size-base">150,3555</span><span class="u-font-size-medium-plus u-weight-normal u-display-inline-block u-m-l-1">Mbit/s</span>
+								</div>
+							</dd>
+							<dt class="a-meta a-meta--responsive">21 oktober 2023, 16:45</dt>
+							<dd class="u-m-l-0 u-m-b-2 u-b-solid u-b-concrete u-b-x-0 u-b-t-0 u-b-b-1 display-flex flex-wrap">
+								<div class="beta u-m-r-2 display-flex align-items-center">
+									<svg class="icon u-icon--medium u-fill-ocean-dark">
+										<use xlink:href="#icon-download"></use>
+									</svg>
+									<span class="mono u-m-l-1 u-font-size-base">234,14</span><span class="u-font-size-medium-plus u-weight-normal u-display-inline-block u-m-l-1">Mbit/s</span>
+								</div>
+								<div class="beta display-flex align-items-center">
+									<svg class="icon u-icon--medium u-fill-ocean-dark">
+										<use xlink:href="#icon-upload"></use>
+									</svg>
+									<span class="mono u-m-l-1 u-font-size-base">76,9</span><span class="u-font-size-medium-plus u-weight-normal u-display-inline-block u-m-l-1">Mbit/s</span>
+								</div>
+							</dd>
+							<dt class="a-meta a-meta--responsive">18 september 2023, 10:06</dt>
+							<dd class="u-m-l-0 u-m-b-2 display-flex flex-wrap">
+								<div class="beta u-m-r-2 display-flex align-items-center">
+									<svg class="icon u-icon--medium u-fill-ocean-dark">
+										<use xlink:href="#icon-download"></use>
+									</svg>
+									<span class="mono u-m-l-1 u-font-size-base">15,789</span><span class="u-font-size-medium-plus u-weight-normal u-display-inline-block u-m-l-1">Mbit/s</span>
+								</div>
+								<div class="beta display-flex align-items-center">
+									<svg class="icon u-icon--medium u-fill-ocean-dark">
+										<use xlink:href="#icon-upload"></use>
+									</svg>
+									<span class="mono u-m-l-1 u-font-size-base">3,557</span><span class="u-font-size-medium-plus u-weight-normal u-display-inline-block u-m-l-1">Mbit/s</span>
+								</div>
+							</dd>
+							<dd class="u-m-l-0">
+								<a href="#" class="a-button">
+									<span class="a-button__text">Visa alla mätningar</span>
+								</a>
+							</dd>
+						</dl>
+					</div>
+					<div class="u-align-center"><a href="#" class="u-link">Avancerade inställningar</a></div>
+					<div id="apps2" class="u-m-t-2 u-hide-empty"></div>
+				</aside>
+			</div>
+
+			<div class="row u-m-b-2">
+				<div class="grid-18 grid-lg-6">
+					{{> @card is_padded="true"
+						modifier="u-m-b-2"
+						title="Internetdagarna 2023 | 20-21 november | Online"
+						url="#"
+						img_url="https://internetdagarna.se/app/uploads/2023/03/aishamansind-1920x1080.jpg"
+						excerpt="Bredda ditt digitala perspektiv med Internetdagarna! Internetdagarna är Sveriges viktigaste konferens för dig som vill ha kunskap om internet och hur digitaliseringen påverkar individ och samhälle."}}
+				</div>
+				<div class="grid-18 grid-lg-6">
+					{{> @card is_padded="true"
+						modifier="u-m-b-2"
+						title="Vad gör svenskarna på internet?"
+						url="#"
+						img_url="https://svenskarnaochinternet.se/app/uploads/2023/10/framsida-soi2023.jpg"
+						excerpt="Svenskarna och internet är en årlig undersökning av svenska folkets internetvanor, hur användningen av internet utvecklas och digitaliseringen av samhället. Läs rapporten!"}}
+				</div>
+				<div class="grid-18 grid-lg-6">
+					{{> @card is_padded="true"
+						modifier="u-m-b-2"
+						title="Ny version av appen för Android"
+						url="#"
+						img_url="/assets/images/bredbandskollen.jpg"
+						excerpt="Vi har i slutet av augusti släppt en uppdatering för att följa regelverket i Google Play. Appen är nu byggd för att bättre fungera på Android 13. Läs mer här.
+
+"}}
+				</div>
+			</div>
+			<div class="row u-m-b-2">
+				<div class="grid-18 grid-lg-6 u-m-b-2">
+					<div class="m-card m-card--padded wp-block-iis-visualization background-ocean-light">
+						<div class="m-card__content">
+							<lord-icon
+								src="https://cdn.lordicon.com/ojnjgkun.json"
+								trigger="loop"
+								delay="5000"
+								colors="primary:#1f2a36,secondary:#ffffff"
+								style="width:80px;height:80px">
+							</lord-icon>
+							<h2 class="wp-block-heading"><a href="#" class="u-link-area">Hjälp?</a></h2>
+							<p>Har du frågor? Sök efter svaret på våra hjälpsidor.</p>
+						</div>
+					</div>
+				</div>
+				<div class="grid-18 grid-lg-6 u-m-b-2">
+					<div class="m-card m-card--padded wp-block-iis-visualization background-lemon-light">
+						<div class="m-card__content">
+							<lord-icon
+								src="https://cdn.lordicon.com/oesmqhsi.json"
+								trigger="loop"
+								delay="5000"
+								colors="primary:#1f2a36,secondary:#ffffff"
+								style="width:80px;height:80px">
+							</lord-icon>
+							<h2 class="wp-block-heading"><a href="#" class="u-link-area">Surfkarta</a></h2>
+							<p>Med hjälp av denna karta får du en bra överblick av hastigheten i våra svenska mobilnät.</p>
+						</div>
+					</div>
+				</div>
+				<div class="grid-18 grid-lg-6 u-m-b-2">
+					<div class="m-card m-card--padded wp-block-iis-visualization background-concrete">
+						<div class="m-card__content">
+							<lord-icon
+								src="https://cdn.lordicon.com/mdjanuie.json"
+								trigger="loop"
+								delay="5000"
+								colors="primary:#1f2a36,secondary:#ffffff"
+								style="width:80px;height:80px">
+							</lord-icon>
+							<h2 class="wp-block-heading"><a href="#" class="u-link-area">Integritetspolicy</a></h2>
+							<p>Internetstiftelsen ansvarar enligt gällande dataskyddslagstiftning för de personuppgifter som behandlas i Bredbandskollen.</p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="site__footer">
+		{{> @footer footer_text="Bredbandskollen är ett oberoende
+								konsumentverktyg som drivs av <a class='o-footer__link' href='https://internetstiftelsen.se'>Internetstiftelsen</a>.
+								Internetstiftelsen är en oberoende, affärsdriven och allmännyttig organisation. Vi verkar
+								för ett internet som bidrar positivt till människan och samhället. Vi ansvarar för internets
+								svenska toppdomän .se och sköter drift och administration av toppdomänen .nu. Intäkterna
+								från affärsverksamheten finansierar en rad satsningar i syfte att möjliggöra att människor
+								kan nyttja internet på bästa sätt, och stimulera kunskapsdelning och innovation med
+								inriktning på internet." ISO_text="Certifierade enligt ISO/IEC<br>27001:2013"
+			CC_license="Creative Commons licens<br>Erkännande 4.0 Internationell"
+			ISO_image="https://internetstiftelsen.se/app/themes/internetstiftelsen/images/ISO_27001_2013_black_TM.svg"
+			ISO_link="https://internetstiftelsen.se/docs/Certifikat_27001_UKAS_sv.pdf"
+			contact_1="<ul class='u-list-clean o-footer__info__contact__address'><li class='o-footer__info__contact__address__li'>Internetstiftelsen</li><li class='o-footer__info__contact__address__li'>Hammarby Kaj 10D</li><li class='o-footer__info__contact__address__li'>Box 92073</li><li class='o-footer__info__contact__address__li'>120 07 Stockholm</li></ul>"
+			contact_2="<ul class='u-list-clean o-footer__info__contact__address'><li class='o-footer__info__contact__address__li'>E-post: <a class='o-footer__link' href='mailto:info@bredbandskollen.se'>info@bredbandskollen.se</a></li><li class='o-footer__info__contact__address__li'>Telefon: <a class='o-footer__link' href='tel:084523500'>08-452 35 00</a></li><li class='o-footer__info__contact__address__li'>Organisationsnummer: 802405-0190</li></ul>"
+			site_description_1="'En årlig studie av svenska folkets internetvanor"
+			site_description_2="Internetdagarna är en konferens som arrangeras av Internetstiftelsen"
+			site_description_3="Goto 10 är en start- och mötesplats för internetrelaterade frågor som drivs av Internetstiftelsen"
+			site_description_4="Bredbandskollen är ett oberoende konsumentverktyg som drivs av Internetstiftelsen"
+			site_description_5="Ett digitalt museum som byggts, och kureras av Internetstiftelsen"
+			site_description_6="Öppen digital lärresurs med färdiga lektioner för alla stadier i grundskolan"
+			site_description_7="Samlad kunskap som hjälper dig att bli en säker och medveten internetanvändare"
+			site_description_8="Internetstiftelsen verkar för ett internet som bidrar positivt till människan och samhället"
+		}}
+	</div>
+</div>
+

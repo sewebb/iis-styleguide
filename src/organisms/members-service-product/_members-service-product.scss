@@ -1,0 +1,60 @@
+@charset 'UTF-8';
+
+@include organism(service-product-list) {
+	list-style: none;
+	margin: 0 0 rhythm(2) 0;
+	padding: 0;
+
+	@include e(item) {
+		display: flex;
+		flex-direction: column;
+		padding: rhythm(3) rhythm(2);
+
+		& + & {
+			border-top: 1px solid $color-concrete;
+		}
+
+		@include bp-up(sm) {
+			padding-top: rhythm(2);
+			padding-bottom: rhythm(2);
+			flex-direction: row;
+			align-items: center;
+		}
+	}
+
+	@include e(logo) {
+		flex-shrink: 0;
+
+		@include e(image) {
+			width: 100px;
+			height: auto;
+			margin-right: rhythm(4);
+			margin-bottom: rhythm(1);
+
+			@include bp-up(sm) {
+				margin-bottom: 0;
+			}
+		}
+	}
+
+	@include e(data) {
+		@include e(list) {
+			list-style: none;
+			margin: 0;
+			padding: 0;
+
+			dt, dd {
+				margin: 0;
+				padding: 0;
+			}
+
+			dt {
+				@extend %beta;
+			}
+
+			dd {
+				max-width: calc(#{rem(612px)} + #{($indent * 2)});
+			}
+		}
+	}
+}

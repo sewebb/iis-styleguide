@@ -1,6 +1,6 @@
 'use strict';
 
-var inputs = document.querySelectorAll('[type="file"]');
+var inputs = document.querySelectorAll('[type="file"]:not(.wpcf7-file)');
 
 Array.prototype.forEach.call(inputs, function (input) {
 	var label = input.nextElementSibling;

@@ -11,6 +11,7 @@ module.exports = {
 		hero_image: '/assets/images/hero.jpg',
 		has_link: true,
 		has_pre_heading: false,
+		has_text: true,
 	},
 	variants: [
 		{
@@ -21,7 +22,7 @@ module.exports = {
 				limited_width: true,
 				has_radius: true,
 				has_buttons: false,
-				text: 'Nästan alla i Sverige använder internet – men hur meningsfull är tiden vi spenderar där? I rapporten Svenskarna och internet 2019 frågar vi för första gången om meningsfullhet, och det syns stora skillnader mellan olika aktiviteter. Tid på sociala medier tycker bara var fjärde är meningsfull.',
+				text: 'Nästan alla i Sverige använder internet – men hur meningsfull är tiden vi spenderar där? I rapporten Svenskarna och internet 2019 frågar vi för första gången om meningsfullhet, och det syns stora skillnader mellan olika aktiviteter.',
 			}
 		},
 		{
@@ -125,6 +126,19 @@ module.exports = {
 				no_image_class: 'o-hero--break-early o-hero--clean',
 				limited_width: false,
 				has_buttons: false,
+			}
+		},
+		{
+			name: 'No breakpoint',
+			context: {
+				no_image_class: 'o-hero--no-break',
+				limited_width: false,
+				has_buttons: true,
+				has_tags: false,
+				has_link: false,
+				has_text: false,
+				text: 'Konferens online 2023'
+
 			}
 		},
 		{

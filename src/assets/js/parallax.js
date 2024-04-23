@@ -3,10 +3,21 @@ function isInView(el) {
 	return box.top < window.innerHeight && box.bottom >= 0;
 }
 
-const parallaxes = document.querySelectorAll('.js-parallax');
+let parallaxes = [];
+
+// eslint-disable-next-line import/prefer-default-export
+export function cache() {
+	parallaxes = document.querySelectorAll('.js-parallax');
+}
+
+cache();
 
 window.addEventListener('scroll', () => {
 	[].forEach.call(parallaxes, (parallax) => {
+		if (parallax.classList.contains('animate')) {
+			return;
+		}
+
 		const visible = isInView(parallax);
 		if (visible) {
 			parallax.classList.add('animate');

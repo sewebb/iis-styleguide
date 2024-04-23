@@ -69,6 +69,7 @@
 			font-size: rem($size-small);
 			text-decoration: none;
 			-webkit-appearance: none;
+			line-height: 1;
 
 			&:focus,
 			&:hover {
@@ -155,6 +156,7 @@
 				width: $icon-size-medium;
 				height: $icon-size-medium;
 				margin-left: rhythm(1);
+				margin-top: -#{rem(3px)};
 				transform-origin: 50% 50%;
 				transition: all 0.3s ease-out;
 				border: 0;

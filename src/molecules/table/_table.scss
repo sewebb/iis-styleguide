@@ -96,7 +96,7 @@
 	}
 }
 
-@keyframes pulse {
+@keyframes xPulse {
 	0% {
 		right: 0;
 		opacity: 1;
@@ -197,25 +197,27 @@
 	}
 
 	@include m(lines) {
-		tr {
-			background-image:
-				linear-gradient(
-					to right,
-					$color-cyberspace,
-					$color-cyberspace 2px,
-					transparent 2px,
-					transparent 6px
-				);
-			background-repeat: repeat-x;
-			background-position: bottom left;
-			background-size: 6px 1px;
-		}
+		tbody {
+			tr {
+				background-image:
+					linear-gradient(
+							to right,
+							$color-cyberspace,
+							$color-cyberspace 2px,
+							transparent 2px,
+							transparent 6px
+					);
+				background-repeat: repeat-x;
+				background-position: bottom left;
+				background-size: 6px 1px;
+			}
 
-		td,
-		th {
-			padding-top: rhythm(2);
-			padding-bottom: rhythm(2);
-			border: 0;
+			td,
+			th {
+				padding-top: rhythm(2);
+				padding-bottom: rhythm(2);
+				border: 0;
+			}
 		}
 
 		tfoot {
@@ -245,7 +247,7 @@
 		right: rhythm(3);
 		width: rhythm(7);
 		height: 0;
-		animation: pulse 2s infinite;
+		animation: xPulse 2s infinite;
 		font-family: $font-family-mono;
 		font-size: 80%;
 		text-transform: uppercase;
@@ -257,7 +259,7 @@
 		z-index: z_index(background);
 		top: -#{rem(4px)};
 		right: 0;
-		animation: pulse 2s infinite;
+		animation: xPulse 2s infinite;
 		font-family: $font-family-mono;
 	}
 }

@@ -18,6 +18,10 @@
 	@include m(discreet) {
 		@extend %discreet;
 	}
+	@include m(small) {
+		font-size: $size-medium;
+		padding: rhythm(0.5);
+	}
 }
 
 @include b(input-icon) {

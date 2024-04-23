@@ -97,6 +97,13 @@ module.exports = {
 			}
 		},
 		{
+			name: 'Sandstone light',
+			context: {
+				modifiers: ['sandstone-light'],
+				text: 'Sandstone light button'
+			}
+		},
+		{
 			name: 'Transparent',
 			context: {
 				modifiers: ['transparent'],
@@ -161,7 +168,7 @@ module.exports = {
 		{
 			name: 'Transparent with icon',
 			context: {
-				modifiers: ['transparent'],
+				modifiers: ['transparent a-button--icon'],
 				text: 'Going home',
 				icon: 'arrow-forwards',
 				el: 'button'

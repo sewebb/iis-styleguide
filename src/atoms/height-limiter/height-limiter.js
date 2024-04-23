@@ -1,5 +1,4 @@
 const elements = document.querySelectorAll('.js-height-limit');
-
 function update(innerContainer, button, height) {
 	if (button.classList.contains('is-clicked')) {
 		return;
@@ -23,6 +22,7 @@ function setup(element) {
 	const buttonTextElement = button.querySelector('span');
 	const buttonText = buttonTextElement.innerText;
 	const toggleText = element.getAttribute('data-toggle-text');
+	let topPosition;
 
 	update(innerContainer, button, height);
 
@@ -33,6 +33,12 @@ function setup(element) {
 		buttonTextElement.innerText = (
 			buttonTextElement.innerText === buttonText) ? toggleText : buttonText;
 		button.classList.toggle('is-clicked');
+
+		if (!innerContainer.classList.contains('is-limited')) {
+			topPosition = document.documentElement.scrollTop;
+		} else {
+			window.scroll(0, topPosition);
+		}
 
 		setTimeout(() => update(innerContainer, button, height), 1);
 	});

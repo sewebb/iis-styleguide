@@ -14,6 +14,10 @@ var _lodash = require('lodash.template');
 
 var _lodash2 = _interopRequireDefault(_lodash);
 
+var _Events = require('../../assets/js/Events');
+
+var _Events2 = _interopRequireDefault(_Events);
+
 var _Button = require('../../atoms/button/Button');
 
 var _Button2 = _interopRequireDefault(_Button);
@@ -49,10 +53,6 @@ var Form = function () {
 			_this.clearFieldErrors();
 
 			if (_this.validate()) {
-				if (_this.recaptcha) {
-					_this.captchaCallback();
-				}
-
 				_this.send();
 			} else {
 				_this.displayError({ message: _this.i18n('Alla fält måste vara ifyllda') });
@@ -60,6 +60,7 @@ var Form = function () {
 		};
 
 		this.displayError = function (error) {
+			_this.events.emit('error', error);
 			_this.setLoading(false);
 
 			if ('response' in error) {
@@ -131,15 +132,8 @@ var Form = function () {
 
 			_this.success.classList.remove('is-hidden');
 			_this.success.innerHTML = tmpl(json);
-		};
 
-		this.captchaCallback = function () {
-			if (typeof window.grecaptcha !== 'undefined' && 'CAPTCHA_KEY' in process.env) {
-				/* global grecaptcha */
-				grecaptcha.execute(process.env.CAPTCHA_KEY, { action: _this.recaptcha }).then(function (token) {
-					_this.token = token;
-				});
-			}
+			_this.events.emit('success', json);
 		};
 
 		this.reset = function () {
@@ -154,6 +148,7 @@ var Form = function () {
 		this.submit = new _Button2.default(this.element.querySelector('button[type="submit"]'));
 		this.error = this.element.querySelector('[data-form-error]');
 		this.success = this.element.querySelector('[data-form-success]');
+		this.events = new _Events2.default();
 
 		if (this.success) {
 			var tpl = document.getElementById(this.success.getAttribute('data-form-success'));
@@ -173,13 +168,6 @@ var Form = function () {
 		this.errors = {};
 		this.validationRules = null;
 
-		this.recaptcha = this.element.getAttribute('data-recaptcha');
-
-		if (this.recaptcha) {
-			window.captchaCallback = this.captchaCallback;
-			this.renderCaptchaForm();
-		}
-
 		if (this.validation) {
 			this.parseValidationRules();
 		}
@@ -192,15 +180,6 @@ var Form = function () {
 		key: 'collectInputs',
 		value: function collectInputs() {
 			this.inputs = this.element.querySelectorAll('input');
-		}
-	}, {
-		key: 'renderCaptchaForm',
-		value: function renderCaptchaForm() {
-			var s = document.createElement('script');
-			s.defer = true;
-			s.setAttribute('data-origin', this.recaptcha);
-			s.setAttribute('src', 'https://www.google.com/recaptcha/api.js?onload=captchaCallback&render=6LdtNnkUAAAAACYo0vISI-z9tOyr3djjZore-6wY&hl=sv');
-			document.body.appendChild(s);
 		}
 	}, {
 		key: 'parseValidationRules',

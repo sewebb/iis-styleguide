@@ -115,10 +115,9 @@ html {
 	// "Parallax" scroll items
 	@include e(parallax) {
 		opacity: 0;
-		transition: opacity 1s ease-out, transform 5s cubic-bezier(0, 1, 0, 1);
+		transition: opacity 1s ease-out, transform 3s cubic-bezier(0, 1, 0, 1);
 		transform: translateY(200px);
 		will-change: opacity, transform;
-		transition-delay: 0.5s;
 		flex: 100%;
 
 		&.animate {
@@ -259,7 +258,7 @@ html {
 
 			p[class*='card__text'] {
 				@extend %preamble;
-				
+
 				display: block;
 			}
 
@@ -344,10 +343,12 @@ html {
 	}
 
 	@include e(card-text) {
-		display: none;
+		font-size: 80%;
+		line-height: 1.3rem;
 
 		@include bp-up(lg) {
-			display: block;
+			font-size: 100%;
+			line-height: 1.5rem;
 		}
 	}
 }

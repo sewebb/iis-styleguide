@@ -42,6 +42,16 @@
 }
 
 @font-face {
+	font-family: 'HK Grotesk Light Italic';
+	font-style: normal;
+	font-weight: normal;
+	src:
+		url('https://static.internetstiftelsen.se/internetstiftelsen/fonts/HKGrotesk-LightItalic.woff2') format('woff2'),
+		url('https://static.internetstiftelsen.se/internetstiftelsen/fonts/HKGrotesk-LightItalic.woff') format('woff');
+	font-display: swap;
+}
+
+@font-face {
 	font-family: 'Roboto Mono Regular';
 	font-style: normal;
 	font-weight: normal;

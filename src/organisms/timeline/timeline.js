@@ -2,7 +2,8 @@ import '../../assets/js/parallax';
 
 const { offsetTop, offsetBottom, offsetLeft } = require('../../assets/js/offset');
 
-const dataLayer = window.dataLayer || [];
+// eslint-disable-next-line no-underscore-dangle
+const dataLayer = window._mtm || [];
 const progressBar = document.querySelector('.js-progress-bar');
 const decadeContainer = document.querySelector('.js-decade-container');
 const decadeSections = document.querySelectorAll('.js-timeline-decade');
@@ -89,29 +90,34 @@ function isInViewport(element) {
 	}
 
 	return (
-		top < (window.pageYOffset + window.innerHeight)
-		&& (top + height) > window.pageYOffset
+		top < (window.scrollY + window.innerHeight)
+		&& (top + height / 4) > window.scrollY
 	);
 }
 
 function decadeIsVisible() {
 	[].forEach.call(decadeSections, (decadeSection) => {
-		if (isInViewport(decadeSection) && !decadeSection.classList.contains('is-in-view')) {
-			decadeSection.classList.add('is-in-view');
+		// Don't trigger Decade Visible too fast to prevent dataLayer.push
+		// to trigger while user is scrolled past a decade.
+		const timeOut = 1000;
+		const viewTimeout = setTimeout(() => {
+			if (isInViewport(decadeSection) && !decadeSection.classList.contains('is-in-view')) {
+				decadeSection.classList.add('is-in-view');
+				const decadeId = decadeSection.id;
 
-			const decade = decadeSection.id;
-
-			dataLayer.push({
-				event: 'timeline',
-				eventInfo: {
-					category: 'timeline',
-					action: 'active_year',
-					label: decade,
-				},
-			});
-		} else if (!isInViewport(decadeSection)) {
-			decadeSection.classList.remove('is-in-view');
-		}
+				dataLayer.push({
+					event: 'timeline',
+					eventInfo: {
+						category: 'timeline',
+						action: 'active_year',
+						label: decadeId,
+					},
+				});
+			} else if (!isInViewport(decadeSection)) {
+				decadeSection.classList.remove('is-in-view');
+				clearTimeout(viewTimeout);
+			}
+		}, timeOut);
 	});
 }
 
@@ -131,55 +137,3 @@ if (progressBar) {
 		decadeIsVisible();
 	});
 }
-
-// DUMMY TIMELINE ITEM OPEN/CLOSE
-// function wrap(el, wrapper) {
-// 	el.parentNode.insertBefore(wrapper, el);
-// 	wrapper.classList.add('wrapper');
-// 	wrapper.appendChild(el);
-// }
-//
-// const timeLineItems = document.querySelectorAll('.js-timeline-item');
-// let timeLineItemScrollPosition = 0;
-//
-// [].forEach.call(timeLineItems, (timeLineItem) => {
-// 	const timeLineItemLink = timeLineItem.querySelector('a');
-// 	const timeLineItemClose = timeLineItem.querySelector('.js-timeline-item-close');
-// 	const timeLineItemBottomClose = timeLineItem.querySelector('.js-timeline-item-bottom-close');
-//
-// 	timeLineItemLink.addEventListener('click', () => {
-// 		timeLineItemScrollPosition = window.pageYOffset;
-// 		sessionStorage.setItem('scroll-position', timeLineItemScrollPosition);
-//
-// 		if (!timeLineItem.classList.contains('is-open')) {
-// 			timeLineItem.classList.add('is-open');
-// 			timeLineItem.closest('.row').classList.add('row-has-open-child');
-//
-// 			// Wrap open timeline item
-// 			wrap(timeLineItem.querySelector('.wp-block-iis-timeline-post'),
-//			document.createElement('div'));
-// 		}
-// 	});
-//
-// 	timeLineItemClose.addEventListener('click', () => {
-// 		timeLineItem.classList.remove('is-open');
-// 		timeLineItem.closest('.row').classList.remove('row-has-open-child');
-//
-// 		// Destroy generated wrapper
-// 		const wrapper = timeLineItemClose.nextElementSibling;
-// 		wrapper.replaceWith(...wrapper.childNodes);
-//
-// 		const top = sessionStorage.getItem('scroll-position');
-// 		if (top !== null) {
-// 			window.scrollTo(0, parseInt(top, 10));
-// 		}
-// 		sessionStorage.removeItem('scroll-position');
-//
-// 		// Trigger scroll event to reveal timeline items not yet parallaxed into view
-// 		window.dispatchEvent(new CustomEvent('scroll'));
-// 	});
-//
-// 	timeLineItemBottomClose.addEventListener('click', () => {
-// 		timeLineItemClose.click();
-// 	});
-// });

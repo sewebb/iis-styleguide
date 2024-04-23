@@ -11,8 +11,17 @@
 	background: transparent;
 	box-shadow: inset 0 -1px 1px rgba($color-cyberspace, 0.2);
 	font-family: $font-family-headings;
-	font-size: rem(21.6px);
+	font-size: rem(17px);
 	text-align: left;
+
+	@include bp-up(md) {
+		font-size: rem(18px);
+	}
+
+	@include bp-up(xl) {
+		font-size: rem(20px);
+	}
+
 	-webkit-appearance: none;
 
 	&::before,
@@ -101,6 +110,7 @@
 
 .js {
 	.js-accordion {
+
 		@include e(header) {
 			border-bottom: 1px solid var(--snow-color);
 
@@ -239,6 +249,12 @@
 		margin-bottom: 0;
 		padding-top: 0;
 		padding-bottom: 0;
+
+		&:last-of-type {
+			> button {
+				border-bottom: 0;
+			}
+		}
 	}
 
 	@include e(logo) {

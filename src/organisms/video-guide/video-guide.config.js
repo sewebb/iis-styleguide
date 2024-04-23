@@ -1,17 +1,8 @@
 module.exports = {
-	status: 'prototype',
+	status: 'ready',
 
 	context: {
-		videoSrc: '/assets/video/Internets-Historia-HEVC-h265-vp9-chrome.webm',
-		videoSrc2: '/assets/video/Internets-Historia-HEVC-h265-HEVC-h265.mov',
-
-		variants: [
-			{
-				name: 'List',
-				context: {
-
-				}
-			}
-		]
+		videoSrc: 'https://internetmuseum.se/app/uploads/2023/01/guidad-tur-nar-internet-kom-till-svenska-hem.mp4',
+		videoSrc2: 'https://internetmuseum.se/app/uploads/2023/01/guidad-tur-nar-internet-kom-till-svenska-hem-vp9-chrome.webm',
 	}
 }

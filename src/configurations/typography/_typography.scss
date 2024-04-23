@@ -26,17 +26,17 @@ h2,
 .beta,
 %beta {
 	@include plumber(
-		$font-size: 2.2,
+		$font-size: 2.44444,
 		$line-height: 3,
 		$leading-bottom: 1,
 		$baseline: $headings-baseline
 	);
-
+	
 	font-family: $font-family-headings;
 
 	@include bp-up(sm) {
 		@include plumber(
-			$font-size: 2.6,
+			$font-size: 2.666666,
 			$leading-bottom: 1
 		);
 
@@ -48,18 +48,20 @@ h3,
 .gamma,
 %gamma {
 	@include plumber(
-		$font-size: 2.2,
+		$font-size: 2.22222,
 		$line-height: 3,
 		$leading-top: 0,
 		$leading-bottom: 1
 	);
+
+	font-family: $font-family-headings;
 }
 
 h4,
 .delta,
 %delta {
 	@include plumber(
-		$font-size: 2,
+		$font-size: 1.888888,
 		$line-height: 3,
 		$leading-top: 0,
 		$leading-bottom: 1
@@ -170,6 +172,29 @@ small {
 			$line-height: 8,
 			$leading-bottom: 2
 		);
+	}
+
+	&--large-mobile {
+		hyphens: auto;
+		hyphenate-limit-chars: 13 3 4;
+		overflow-wrap: break-word;
+
+		@include plumber(
+			$font-size: 4.5,
+			$line-height: 5,
+			$leading-bottom: 1
+		);
+
+		@include bp-up(md) {
+			hyphens: initial;
+			overflow-wrap: normal;
+
+			@include plumber(
+				$font-size: 7,
+				$line-height: 8,
+				$leading-bottom: 2
+			);
+		}
 	}
 }
 
@@ -323,6 +348,9 @@ blockquote {
 
 	@include bp-up(sm) {
 		padding-right: rhythm(3);
+		max-width: rem(613px);
+		margin-left: auto;
+		margin-right: auto;
 	}
 
 	@include bp-up(md) {
@@ -331,17 +359,24 @@ blockquote {
 
 		p {
 			@include plumber(
-				$font-size: 3,
+				$font-size: 2.7,
 				$line-height: 4,
 				$leading-bottom: 0,
 				$leading-top: 1
 			);
+
+			line-height: 32px;
 		}
 
 		.meta {
 			margin-top: rhythm(0.5);
 			line-height: rhythm(3.5);
 		}
+	}
+
+	@include bp-up(lg) {
+		margin-left: initial;
+		margin-right: initial;
 	}
 }
 

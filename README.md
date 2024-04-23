@@ -33,24 +33,36 @@ $namespace: 'mysite-';
 @import '~@internetstiftelsen/styleguide/src/organisms/header/header';
 ```
 
+Peek into the [app.scss](https://github.com/sewebb/iis-styleguide/blob/master/src/app.scss) to see the full set of components.
+
+For javascript it's basically the same thing. In a javascript file:
+
+```js
+// ES5 build version (path "dist")
+import Button from '@internetstiftelsen/styleguide/dist/atoms/button/button';
+
+// Standard ES6 version (path "src")
+import Button from '@internetstiftelsen/styleguide/src/atoms/button/button';
+
+// Globals and Configuration/Base components are imported by default from the Styleguide Core
+
+// Atoms
+import '@internetstiftelsen/styleguide/src/atoms/button/button';
+import '@internetstiftelsen/styleguide/src/atoms/input/input';
+
+// Molecules
+import '@internetstiftelsen/styleguide/src/molecules/card/card';
+
+// Organisms
+import '~@internetstiftelsen/styleguide/src/organisms/header/header';
+```
+
 ### SCSS Mixins explained:
 ```scss
 @include e(nested-element) {} // Element (.parent-element__nested-element)
 @include m(modifier-name) {} // Modifier (.parent-element--modifier-name)
 	@include b(block-name) {} // Block (.block-name)
 
-```
-
-Peek into the [app.scss](https://github.com/sewebb/iis-styleguide/blob/master/src/app.scss) to see the full set of components.
-
-For javascript it's basically the same thing. In a javascript file:
-
-```js
-// ES5 build version
-import Button from '@internetstiftelsen/styleguide/dist/atoms/button/button';
-
-// Standard ES6 version
-import Button from '@internetstiftelsen/styleguide/src/atoms/button/button';
 ```
 
 Depending on your browser requirements you may use the src version which is not transpiled to ES5.

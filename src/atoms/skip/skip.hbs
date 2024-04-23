@@ -1,5 +1,5 @@
-<ul class="skip" role="navigation">
+<ul class="skip" role="menu">
 	{{#each skip_item}}
-	<li><a {{#if accesskey}}accesskey="{{accesskey}}" {{/if}}href="#{{id}}">{{text}}</a></li>
+	<li role="menuitem"><a {{#if accesskey}}accesskey="{{accesskey}}" {{/if}}href="#{{id}}">{{text}}</a></li>
 	{{/each}}
 </ul>

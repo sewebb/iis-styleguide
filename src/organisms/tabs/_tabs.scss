@@ -2,6 +2,27 @@
 
 @include organism(tab-list) {
 	overflow: hidden;
+	display: flex;
+	position: relative;
+	margin: 0;
+	padding: 0;
+	overflow: auto;
+
+	&::-webkit-scrollbar {
+		position: absolute;
+		z-index: 2;
+		bottom: 0;
+		left: 0;
+		height: rhythm(0.5);
+	}
+
+	&::-webkit-scrollbar-track {
+		background-color: $color-ash;
+	}
+
+	&::-webkit-scrollbar-thumb {
+		background-color: $color-granit;
+	}
 
 	&::before {
 		@extend %u-visuallyhidden;
@@ -9,52 +30,29 @@
 		content: $namespace;
 	}
 
-	&[role='tablist'] {
-		display: flex;
-		position: relative;
-		margin: 0;
-		padding: 0;
-		overflow: auto;
-
-		&::-webkit-scrollbar {
-			position: absolute;
-			z-index: 2;
-			bottom: 0;
-			left: 0;
-			height: rhythm(0.5);
-		}
-
-		&::-webkit-scrollbar-track {
-			background-color: $color-ash;
-		}
-
-		&::-webkit-scrollbar-thumb {
-			background-color: $color-granit;
-		}
-
-		&::after {
-			content: '';
-			display: block;
-			position: fixed;
-			top: 0;
-			right: 0;
-			bottom: 0;
-			width: rhythm(3);
-			background: linear-gradient(90deg, rgba(237, 237, 237, 0) 0%, rgba(237, 237, 237, 1) 75%, rgba(237, 237, 237, 1) 100%);
-		}
+	&::after {
+		content: '';
+		display: block;
+		position: fixed;
+		top: 0;
+		right: 0;
+		bottom: 0;
+		width: rhythm(3);
+		background: linear-gradient(90deg, rgba(237, 237, 237, 0) 0%, rgba(237, 237, 237, 1) 75%, rgba(237, 237, 237, 1) 100%);
 	}
 
-	[role='presentation'] {
+
+	@include e(item) {
 		display: flex;
 		flex: 0 0 auto;
 		padding: 0;
 
-		+ [role='presentation'] {
+		+ li {
 			margin-left: rhythm(1);
 		}
 	}
 
-	[role='tab'] {
+	@include e(link) {
 		@extend %normalize-links;
 
 		display: inline-flex;
@@ -79,28 +77,62 @@
 	}
 
 	[data-tab-active] {
-		[role='tab'] {
+		a {
 			background-color: $color-snow;
 		}
 	}
 }
 
 @include organism(tab-panel) {
-	&[role='tabpanel'] {
-		position: relative;
-		z-index: 2;
-		padding: rhythm(2) rhythm(3);
-		border-top-right-radius: $border-radius;
-		border-bottom-right-radius: $border-radius;
-		border-bottom-left-radius: $border-radius;
-		background-color: $color-snow;
+	position: relative;
+	z-index: 2;
+	padding: rhythm(2) rhythm(3);
+	border-top-right-radius: $border-radius;
+	border-bottom-right-radius: $border-radius;
+	border-bottom-left-radius: $border-radius;
+	background-color: $color-snow;
 
-		&[aria-hidden='true'] {
-			display: none;
+	&[aria-hidden='true'] {
+		display: none;
+	}
+
+	&:focus {
+		outline: 0;
+	}
+}
+
+.no-js {
+	@include organism(tab-list) {
+		display: block;
+		padding: initial;
+		margin: initial;
+		list-style-type: disc;
+
+		@include plumber(
+			$leading-bottom: 3
+		);
+
+		@include e(item) {
+			display: list-item;
+			margin-top: rhythm(1);
+			margin-left: rhythm(4);
+			padding-top: rhythm(0.25);
+			padding-bottom: rhythm(0.25);
+			padding-top: 0;
+			padding-left: 0;
 		}
 
-		&:focus {
-			outline: 0;
+		@include e(link) {
+			background-color: transparent;
+			padding: 0;
+			border-radius: 0;
+
+			@extend %link-styles;
 		}
+	}
+
+	@include organism(tab-panel) {
+		background-color: transparent;
+		padding: 0;
 	}
 }

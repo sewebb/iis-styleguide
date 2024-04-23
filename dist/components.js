@@ -1,12 +1,14 @@
 'use strict';
 
+require('./molecules/form');
+
+require('./atoms/textarea/rich-text');
+
 require('./atoms/password-toggle/password-toggle');
 
 require('./utilities/tab-highlighting/tab-highlighting');
 
 require('./molecules/system-error/system-error');
-
-require('a11y-toggle');
 
 require('./molecules/cookie-disclaimer/cookie-disclaimer');
 
@@ -26,11 +28,7 @@ require('./atoms/tooltip/tooltip');
 
 require('./atoms/toggle-high-contrast/toggle-high-contrast');
 
-require('./focusTrap');
-
 require('./atoms/height-limiter/height-limiter');
-
-require('./assets/js/conditional');
 
 require('./atoms/file/file');
 
@@ -52,8 +50,18 @@ require('./molecules/context-menu/context-menu');
 
 require('./molecules/alert/alert');
 
+require('./molecules/modal/modal-graph');
+
 require('./molecules/continue-video-guide/continue-video-guide');
 
 require('./organisms/video-guide/video-guide');
 
 require('./organisms/timeline/timeline');
+
+require('./molecules/overview-navigation/overview-navigation');
+
+require('./organisms/schedule/schedule-filter');
+
+require('./assets/js/ot');
+
+require('./atoms/range/range');

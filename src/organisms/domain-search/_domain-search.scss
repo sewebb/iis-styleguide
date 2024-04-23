@@ -17,18 +17,25 @@
 			@extend %box-shadow;
 
 			transform: translateY(100%);
+
+			a,
+			button,
+			input {
+				animation-direction: reverse;
+			}
 		}
 
 		@include bp-up(xl) {
 			display: flex;
 		}
-	}
 
-	&[tabindex='-1'] {
-		a,
-		button,
-		input {
-			visibility: hidden;
+		&[aria-hidden='true'] {
+			a,
+			button,
+			input {
+				display: none;
+				animation: 0 ease-in 0s 2s reverse both paused fadeIn;
+			}
 		}
 	}
 
@@ -138,5 +145,22 @@
 
 	@include bp-up(xl) {
 		display: none;
+	}
+}
+
+@keyframes fadeIn {
+	0% {
+		opacity: 0;
+		display: none;
+	}
+
+	1% {
+		opacity: 1;
+		display: block;
+	}
+
+	100% {
+		opacity: 1;
+		display: block;
 	}
 }
