@@ -1,4 +1,4 @@
-import template from 'lodash.template';
+import template from 'lodash/template';
 import Events from '../../assets/js/Events';
 import Button from '../../atoms/button/Button';
 import className from '../../assets/js/className';

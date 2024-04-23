@@ -10,9 +10,9 @@ var _slicedToArray = function () { function sliceIterator(arr, i) { var _arr = [
 
 var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
 
-var _lodash = require('lodash.template');
+var _template = require('lodash/template');
 
-var _lodash2 = _interopRequireDefault(_lodash);
+var _template2 = _interopRequireDefault(_template);
 
 var _Events = require('../../assets/js/Events');
 
@@ -128,7 +128,7 @@ var Form = function () {
 		this.onSuccess = function (json) {
 			_this.setLoading(false);
 
-			var tmpl = (0, _lodash2.default)(_this.successMessage);
+			var tmpl = (0, _template2.default)(_this.successMessage);
 
 			_this.success.classList.remove('is-hidden');
 			_this.success.innerHTML = tmpl(json);
