@@ -1,6 +1,27 @@
 @charset 'UTF-8';
 
 @import '../configurations/colors/colors';
+@import '../theme/dark-mode';
+
+:root {
+	--snow-color: #{$color-snow};
+	--cyberspace-color: #{$color-cyberspace};
+	--black-color: #{$color-black};
+	--ash-color: #{$color-ash};
+	--dark-color: #{$color-cyberspace};
+	--white-color: #{$color-snow};
+	--ocean-dark-color: #{$color-ocean-dark};
+}
+
+@media (prefers-color-scheme: dark) {
+	html:not(.light-theme) {
+		@include dark-mode;
+	}
+}
+
+html.dark-theme {
+	@include dark-mode;
+}
 
 $namespace: '';
 

@@ -1,18 +1,37 @@
 @charset 'UTF-8';
 
-:root {
-	--snow-color: #{$color-snow};
-	--cyberspace-color: #{$color-cyberspace};
-	--black-color: #{$color-black};
-	--ash-color: #{$color-ash};
-	--dark-color: #{$color-cyberspace};
-	--white-color: #{$color-snow};
-}
-
-@media (prefers-color-scheme: dark) {
-	:root {
+@mixin dark-mode {
+	& {
 		--cyberspace-color: #{$color-snow};
 		--snow-color: #{$color-cyberspace};
 		--ash-color: #{$color-black};
+
+		--concrete-color: #{$color-granit};
+		--granit-color: #{$color-concrete};
+		--ocean-dark-color: #{$color-ocean};
+	}
+
+	.background-snow {
+		background-color: $color-cyberspace !important;
+	}
+
+	.background-ash {
+		background-color: $color-black !important;
+	}
+
+	.u-border-top {
+		border-top: 1px solid $color-black;
+	}
+
+	.color-granit {
+		color: $color-concrete;
+	}
+
+	.color-ocean-dark {
+		color: $color-ocean !important;
+	}
+
+	svg {
+		fill: $color-snow;
 	}
 }

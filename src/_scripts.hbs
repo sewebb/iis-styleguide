@@ -1,1 +1,31 @@
 <script type="text/javascript" src="/assets/js/scripts.js"></script>
+
+<script>
+	// Function to toggle between class "light-theme" and "dark-theme"
+	(function() {
+		const html = document.documentElement;
+		const darkModeButton = document.querySelector('.js-toggle-dark-mode');
+		const localStorageKey = 'darkMode';
+		const darkThemeClass = 'dark-theme';
+		const lightThemeClass = 'light-theme';
+
+		function toggleDarkMode() {
+			const newClass = html.classList.contains(darkThemeClass) ? lightThemeClass : darkThemeClass;
+			const oldClass = html.classList.contains(darkThemeClass) ? darkThemeClass : lightThemeClass;
+			html.classList.replace(oldClass, newClass);
+			localStorage.setItem(localStorageKey, html.classList.contains(darkThemeClass));
+		}
+
+		function init() {
+			if (localStorage.getItem(localStorageKey) === 'true') {
+				html.classList.add(darkThemeClass);
+			} else {
+				html.classList.add(lightThemeClass);
+			}
+			darkModeButton.addEventListener('click', toggleDarkMode);
+		}
+
+		init();
+	})();
+
+</script>
