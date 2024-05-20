@@ -136,7 +136,7 @@ module.exports = {
 				has_buttons: true,
 				has_tags: false,
 				has_link: false,
-				has_text: false,
+				has_text: true,
 				text: 'Konferens online 2023'
 
 			}

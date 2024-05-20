@@ -375,6 +375,10 @@
 			}
 		}
 
+		@include e(paragraph) {
+			color: $color-snow;
+		}
+
 		@include e(text) {
 			color: $color-snow;
 		}
