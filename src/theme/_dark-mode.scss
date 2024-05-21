@@ -35,3 +35,13 @@
 		fill: $color-snow;
 	}
 }
+
+@media (prefers-color-scheme: dark) {
+	html:not(.light-theme) {
+		@include dark-mode;
+	}
+}
+
+html.dark-theme {
+	@include dark-mode;
+}
