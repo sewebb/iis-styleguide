@@ -1,6 +1,6 @@
 <div data-tab-component>
 		{{#if wrapped}}<div class="wrapper">{{/if}}
-		<ul class="o-tab-list js-o-tab-list"{{#if updateURL}} data-update-url="true"{{/if}}>
+		<ul class="o-tab-list{{#if gray}} o-tab-list--gray{{/if}} js-o-tab-list"{{#if updateURL}} data-update-url="true"{{/if}}>
 			{{#each tab_item}}
 				<li class="o-tab-list__item">
 					<a class="o-tab-list__link" href="#{{id}}" id="tab-{{name}}">{{{heading}}}</a>
@@ -9,7 +9,7 @@
 		</ul>
 	{{#if wrapped}}</div>{{/if}}
 	{{#each tab_item}}
-	<section id="{{id}}" class="o-tab-panel">
+	<section id="{{id}}" class="o-tab-panel{{#if gray}} o-tab-panel--gray{{/if}}">
 		<h2>{{{heading}}}</h2>
 		{{#if content}}
 			{{{content}}}

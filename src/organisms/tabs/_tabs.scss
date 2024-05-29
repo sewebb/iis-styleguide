@@ -90,6 +90,15 @@
 			background-color: $color-snow;
 		}
 	}
+
+	@include m(gray) {
+		[data-tab-active] {
+			a {
+				background-color: $color-ash;
+				border-color: $color-concrete;
+			}
+		}
+	}
 }
 
 @include organism(tab-panel) {
@@ -109,6 +118,11 @@
 
 	&:focus {
 		outline: 0;
+	}
+
+	@include m(gray) {
+		background-color: $color-ash;
+		border-color: $color-concrete;
 	}
 }
 
