@@ -22,6 +22,11 @@
 		font-size: $size-medium;
 		padding: rhythm(0.5);
 	}
+
+	@include m(large) {
+		font-size: rem(32px);
+		padding: rhythm(1) rhythm(2);
+	}
 }
 
 @include b(input-icon) {
