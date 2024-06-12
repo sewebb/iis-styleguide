@@ -28,10 +28,11 @@ module.exports = {
 		{
 			name: 'Buttons',
 			context: {
+				no_image_class: '',
 				has_tags: false,
 				has_buttons: true,
 				limited_width: false,
-				text: 'Så gott som alla svenskar använder internet och digitala tjänster idag',
+				hero_image: 'https://stage.goto10.se/app/uploads/2024/05/toppbild-goto-10-linkoping-1-.jpg.webp',
 			},
 		},
 		{
@@ -132,14 +133,13 @@ module.exports = {
 			name: 'No breakpoint',
 			context: {
 				no_image_class: 'o-hero--no-break',
-				limited_width: false,
-				has_buttons: true,
 				has_tags: false,
-				has_link: false,
-				has_text: true,
-				text: 'Konferens online 2023'
-
-			}
+				has_buttons: true,
+				limited_width: false,
+				heading: 'Välkommen till Goto 10',
+				hero_image: 'https://stage.goto10.se/app/uploads/2024/05/toppbild-goto-10-linkoping-1-.jpg.webp',
+				text: 'Goto 10 är en kostnadsfri mötesplats för kunskapsutbyte och innovation som drivs av Internetstiftelsen. Besök oss i Linköping, Malmö och Stockholm.',
+			},
 		},
 		{
 			name: 'Dynamic headline',

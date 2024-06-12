@@ -377,6 +377,10 @@
 
 		@include e(paragraph) {
 			color: $color-snow;
+
+			@include bp-down(sm-xs) {
+				font-size: 95%;
+			}
 		}
 
 		@include e(text) {
@@ -385,6 +389,46 @@
 
 		@include e(link) {
 			color: $color-snow;
+		}
+
+		@include bp-down(sm-xs) {
+			@include e(buttons) {
+				position: absolute;
+				bottom: 0;
+				left: rhythm(3);
+				right: rhythm(3);
+				display: flex;
+				flex-wrap: nowrap;
+				justify-content: space-between;
+				align-items: stretch;
+				margin: 0 0 rhythm(2) 0;
+
+				> div {
+					flex: 1;
+					display: flex;
+					align-items: stretch;
+					margin: 0 rhythm(1) 0 0;
+
+					&:last-child {
+						margin-right: 0;
+					}
+				}
+
+				a[class*='a-button'],
+				button[class*='a-button']{
+					flex: 1;
+					margin: 0;
+					padding-top: rhythm(1);
+					padding-bottom: rhythm(1);
+					padding-left: rhythm(1.5);
+					padding-right: rhythm(1.5);
+					white-space: nowrap;
+
+					> span {
+						font-size: 90%;
+					}
+				}
+			}
 		}
 	}
 
