@@ -30,4 +30,5 @@ import './organisms/timeline/timeline';
 import './molecules/overview-navigation/overview-navigation';
 import './organisms/schedule/schedule-filter';
 import './assets/js/ot';
+import './assets/js/charCounter';
 import './atoms/range/range';

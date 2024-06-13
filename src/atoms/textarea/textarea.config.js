@@ -51,6 +51,34 @@ module.exports = {
 				is_richtext: true,
 				has_help: false
 			}
+		},
+		{
+			name: 'Counter (max)',
+			status: 'wip',
+			context: {
+				is_richtext: false,
+				has_help: false,
+				max: 300,
+			},
+		},
+		{
+			name: 'Counter (min)',
+			status: 'wip',
+			context: {
+				is_richtext: false,
+				has_help: false,
+				min: 30,
+			},
+		},
+		{
+			name: 'Counter (min and max)',
+			status: 'wip',
+			context: {
+				is_richtext: false,
+				has_help: false,
+				min: 30,
+				max: 300,
+			},
 		}
 	]
 }
