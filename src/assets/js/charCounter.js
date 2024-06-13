@@ -72,15 +72,16 @@ class CharCounter {
 
 		if (this.isRichText) {
 			wrapper = this.el.editor.options.element;
+			wrapper.style.paddingRight = '3.8333333333rem';
 		} else {
 			wrapper = document.createElement('div');
 
 			wrapper.className = 'u-position-relative';
 			this.el.parentNode.insertBefore(wrapper, this.el);
 			wrapper.appendChild(this.el);
-		}
 
-		wrapper.style.paddingRight = '3.8333333333rem';
+			this.el.style.paddingRight = '3.8333333333rem';
+		}
 
 		counter.className = `color-granit ${className('a-meta')}`;
 		counter.style.cssText = 'position: absolute; top: 5px; right: 10px; z-index: 501;';
