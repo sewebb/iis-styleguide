@@ -1,7 +1,8 @@
+import className from './className';
+
 class CharCounter {
 	constructor(el) {
 		this.el = el;
-		this.wrapper = this.el.closest('[class*="field-group"]');
 		this.counterEl = null;
 		this.min = parseInt(this.el.getAttribute('data-min') || 0, 10);
 		this.max = parseInt(this.el.getAttribute('data-max') || 0, 10);
@@ -24,7 +25,7 @@ class CharCounter {
 
 		if (this.min && count < this.min) {
 			this.counterEl.textContent = `${count}/${this.min}`;
-			this.counterEl.className = 'color-ruby';
+			this.counterEl.className = `color-ruby ${className('a-meta')}`;
 
 			return;
 		}
@@ -32,23 +33,29 @@ class CharCounter {
 		if (this.max && count > this.max) {
 			this.counterEl.textContent = `${count}/${this.max}`;
 			this.counterEl.classList.remove('color-granit');
-			this.counterEl.className = 'color-ruby';
+			this.counterEl.className = `color-ruby ${className('a-meta')}`;
 
 			return;
 		}
 
 		this.counterEl.textContent = `${count}/${this.max || this.min}`;
-		this.counterEl.className = 'color-jade';
+		this.counterEl.className = `color-jade ${className('a-meta')}`;
 	}
 
 	// eslint-disable-next-line class-methods-use-this
 	build() {
 		const counter = document.createElement('small');
+		const wrapper = document.createElement('div');
 
-		counter.className = 'color-granit';
+		wrapper.className = 'u-position-relative';
+
+		this.el.parentNode.insertBefore(wrapper, this.el);
+		wrapper.appendChild(this.el);
+
+		counter.className = `color-granit ${className('a-meta')}`;
 		counter.style.cssText = 'position: absolute; top: 5px; right: 10px; z-index: 501;';
 
-		this.wrapper.appendChild(counter);
+		wrapper.appendChild(counter);
 
 		this.counterEl = counter;
 		this.setCountText();
