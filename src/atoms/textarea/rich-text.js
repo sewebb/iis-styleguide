@@ -186,6 +186,14 @@ export function setupTextArea(el, onChange = () => {}) {
 	el.parentNode.insertBefore(editorEl, el);
 
 	createToolbar(editorEl, editor);
+
+	const event = new CustomEvent('editor-ready', {
+		detail: {
+			editor,
+		},
+	});
+
+	el.dispatchEvent(event);
 }
 
 export function init() {

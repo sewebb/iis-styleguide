@@ -79,6 +79,16 @@ module.exports = {
 				min: 30,
 				max: 300,
 			},
+		},
+		{
+			name: 'Rich text with counter',
+			status: 'wip',
+			context: {
+				is_richtext: true,
+				has_help: true,
+				min: 30,
+				max: 300,
+			},
 		}
 	]
 }
