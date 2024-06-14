@@ -107,3 +107,7 @@
 		display: none !important;
 	}
 }
+
+.u-aria-hidden[aria-hidden='true'] {
+	display: none !important;
+}

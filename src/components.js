@@ -31,3 +31,4 @@ import './molecules/overview-navigation/overview-navigation';
 import './organisms/schedule/schedule-filter';
 import './assets/js/ot';
 import './atoms/range/range';
+import './assets/js/utm-generator';

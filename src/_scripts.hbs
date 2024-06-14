@@ -22,7 +22,10 @@
 			} else {
 				html.classList.add(lightThemeClass);
 			}
-			darkModeButton.addEventListener('click', toggleDarkMode);
+
+			if ( darkModeButton ) {
+				darkModeButton.addEventListener('click', toggleDarkMode);
+			}
 		}
 
 		init();
