@@ -1,11 +1,232 @@
+<style>
+	/* Autocomplete container */
+	.autocomplete {
+		position: relative;
+		display: inline-block;
+	}
+
+	/* Style the input field */
+	.search-input {
+		border: 1px solid #d4d4d4;
+		padding: 10px;
+		width: 300px;
+		font-size: inherit;
+	}
+
+	/* Container for suggestions */
+	.suggestions-box {
+		position: absolute;
+		border: 1px solid #d4d4d4;
+		border-top: none;
+		z-index: 99;
+		top: 100%;
+		left: 0;
+		right: 0;
+		background-color: white;
+		max-height: 200px;
+		overflow-y: auto;
+		width: calc(100% - 2px);
+	}
+
+	/* Style for the suggestion buttons */
+	.suggestion-btn {
+		padding: 10px;
+		cursor: pointer;
+		background-color: #fff;
+		border: none;
+		border-bottom: 1px solid #d4d4d4;
+		width: 100%;
+		text-align: left;
+	}
+
+	.suggestion-btn:hover, .suggestion-btn.autocomplete-active {
+		background-color: DodgerBlue;
+		color: white;
+	}
+
+	/* Selected items container */
+	.selected-items-container {
+		margin-top: 10px;
+		padding: 10px;
+		border: 1px solid #d4d4d4;
+		background-color: #f9f9f9;
+	}
+
+	.selected-items-container:empty {
+		display: none;
+	}
+
+	/* Style for selected items */
+	.selected-items-container li {
+		margin-right: 5px;
+		padding: 5px;
+		border: 1px solid #ccc;
+		background-color: #e4e4e4;
+		border-radius: 4px;
+		display: inline-flex;
+		align-items: center;
+		margin-bottom: 5px;
+		font-size: 90%;
+	}
+
+	/* Remove button for selected items */
+	.selected-items-container button {
+		margin-left: 5px;
+		border: none;
+		background-color: #d80000;
+		color: white;
+		border-radius: 50%;
+		cursor: pointer;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		line-height: 1;
+		width: 16px;
+		height: 16px;
+		position: relative;
+	}
+
+	.selected-items-container button::after {
+		content: '';
+		display: block;
+		width: 16px;
+		height: 16px;
+		position: absolute;
+		top: 0;
+		left: 0;
+		background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI4LjIuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxNiAxNiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTYgMTY7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDojRkZGRkZGO30KPC9zdHlsZT4KPHBvbHlnb24gY2xhc3M9InN0MCIgcG9pbnRzPSI4LDEwIDIsMTYgMCwxNCA2LDggMCwyIDIsMCA4LDYgMTQsMCAxNiwyIDEwLDggMTYsMTQgMTQsMTYgIi8+Cjwvc3ZnPgo=);
+		background-repeat: no-repeat;
+		background-position: center center;
+		background-size: 8px 8px;
+	}
+
+	.selected-items-container button:hover {
+		background-color: darkred;
+	}
+
+	.visually-hidden {
+		position: absolute;
+		width: 1px;
+		height: 1px;
+		margin: -1px;
+		padding: 0;
+		overflow: hidden;
+		clip: rect(0 0 0 0);
+		clip: rect(0, 0, 0, 0);
+	}
+</style>
 <div class="wrapper u-p-y-4">
 	<div class="row">
-		<div class="grid-18">
+		<div class="grid-18 grid-md-12">
 			<h1 class="supersize">UTM-generator</h1>
 			<p class="preamble">UTM används för att märka upp våra betalda marknadsföringssatsningar. Det möjliggör att vi ser var trafiken kommer ifrån och var vi presterar bra.</p>
-			<div class="field-group">
+		</div>
+		<div class="grid-18">
+			<h2>Steg 1: Ange länken du vill tagga</h2>
+			<div class="field-group u-position-sticky-top-0 u-z-index-foreground background-ash u-p-t-1 u-p-b-2">
 				<label for="URL" class="{{labelClasses}}">URL</label>
 				<input type="url" id="URL" placeholder="https://www.exempel.se" autocomplete="off" class="a-input a-input--large" pattern="https://.*" required>
+			</div>
+			<div class="row u-m-t-2 u-m-b-4">
+				<div class="grid-18">
+					<h2>Steg 2: Välj var länken kommer att delas</h2>
+				</div>
+				<div class="grid-18 grid-md-6 grid-lg-3 u-m-b-2">
+					<div class="m-card m-card--padded">
+						<img src="/assets/images/meta-logo.svg" class="m-card__image m-card__media" alt="Meta logotype">
+						<div class="m-card__content u-p-x-2 u-p-y-0">
+							<div class="radio">
+								<input type="radio" id="utm_source_meta" name="utm_source" value="utm_source_meta" class="a-radio u-visuallyhidden" data-toggle="radio" data-target="metaTarget" aria-controls="metaTarget" aria-expanded="false">
+								<label for="utm_source_meta" class="u-link-area u-position-static">
+									Facebook / Instagram
+								</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="grid-18 grid-md-6 grid-lg-3 u-m-b-2">
+					<div class="m-card m-card--padded">
+						<img src="/assets/images/google-ads.svg" class="m-card__image m-card__media" alt="Google Ads logotype">
+						<div class="m-card__content u-p-x-2 u-p-y-0">
+							<div class="radio">
+								<input type="radio" id="utm_source_google_ads" name="utm_source" value="utm_source_google_ads" class="a-radio u-visuallyhidden"  data-toggle="radio" data-target="googleAdsTarget" aria-controls="googleAdsTarget" aria-expanded="false">
+								<label for="utm_source_google_ads" class="u-link-area u-position-static">Google Ads</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="grid-18 grid-md-6 grid-lg-3 u-m-b-2">
+					<div class="m-card m-card--padded">
+						<img src="/assets/images/x.svg" class="m-card__image m-card__media" alt="X logotype">
+						<div class="m-card__content u-p-x-2 u-p-y-0">
+							<div class="radio">
+								<input type="radio" id="utm_source_x" name="utm_source" value="utm_source_x" class="a-radio u-visuallyhidden" data-toggle="radio" data-target="xTarget" aria-controls="xTarget" aria-expanded="false">
+								<label for="utm_source_x" class="u-link-area u-position-static">X / Twitter</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="grid-18 grid-md-6 grid-lg-3 u-m-b-2">
+					<div class="m-card m-card--padded">
+						<img src="/assets/images/linkedin-logo.svg" class="m-card__image m-card__media" alt="LinkedIn logotype">
+						<div class="m-card__content u-p-x-2 u-p-y-0">
+							<div class="radio">
+								<input type="radio" id="utm_source_linkedin" name="utm_source" value="utm_source_linkedin" class="a-radio u-visuallyhidden" data-toggle="radio" data-target="linkedinTarget" aria-controls="linkedinTarget" aria-expanded="false">
+								<label for="utm_source_linkedin" class="u-link-area u-position-static">LinkedIn</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="grid-18 grid-md-6 grid-lg-3 u-m-b-2">
+					<div class="m-card m-card--padded">
+						<img src="/assets/images/email.svg" class="m-card__image m-card__media" alt="E-post">
+						<div class="m-card__content u-p-x-2 u-p-y-0">
+							<div class="radio">
+								<input type="radio" id="utm_source_email" name="utm_source" value="utm_source_email" class="a-radio u-visuallyhidden" data-toggle="radio" data-target="emailTarget" aria-controls="emailTarget" aria-expanded="false">
+								<label for="utm_source_email" class="u-link-area u-position-static">E-post</label>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="grid-18 grid-md-6 grid-lg-3 u-m-b-2">
+					<div class="m-card m-card--padded">
+						<img src="/assets/images/link.svg" class="m-card__image m-card__media" alt="Link">
+						<div class="m-card__content u-p-x-2 u-p-y-0">
+							<div class="radio">
+								<input type="radio" id="utm_source_collab" name="utm_source" value="utm_source_collab" class="a-radio u-visuallyhidden" data-toggle="radio" data-target="collabTarget" aria-controls="collabTarget">
+								<label for="utm_source_collab" class="u-link-area u-position-static">Samarbeten</label>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+			<div id="metaTarget" class="u-aria-hidden">
+				<h2>Steg 3: Välj vad ambitionen med kampanjen är</h2>
+				<div class="row">
+					<div class="grid-18 grid-md-6">
+						<div class="autocomplete">
+							<input type="text" id="searchInput" class="a-input search-input" aria-controls="suggestionsBox" aria-autocomplete="list" aria-haspopup="true" role="combobox" placeholder="Search cities..." aria-label="Search cities" aria-describedby="description"/>
+							<div id="suggestionsBox" class="suggestions-box" role="listbox" aria-live="assertive" aria-atomic="true"></div>
+						</div>
+						<ul id="selectedItemsContainer" class="selected-items-container" aria-live="assertive" aria-atomic="true"></ul>
+						<div class="visually-hidden" id="description">Use up and down arrows and enter to select items and tab and enter to remove items</div>
+					</div>
+				</div>
+			</div>
+			<div id="googleAdsTarget" class="u-aria-hidden">
+				<h2>Steg 3: Välj vad ambitionen med kampanjen är</h2>
+			</div>
+			<div id="xTarget" class="u-aria-hidden">
+				<h2>Steg 3: Välj vad ambitionen med kampanjen är</h2>
+			</div>
+			<div id="linkedinTarget" class="u-aria-hidden">
+				<h2>Steg 3: Välj vad ambitionen med kampanjen är</h2>
+			</div>
+			<div id="emailTarget" class="u-aria-hidden">
+				<h2>Steg 3: Välj vad ambitionen med kampanjen är</h2>
+			</div>
+			<div id="collabTarget" class="u-aria-hidden">
+				<h2>Steg 3: Välj vad ambitionen med kampanjen är</h2>
 			</div>
 		</div>
 	</div>
