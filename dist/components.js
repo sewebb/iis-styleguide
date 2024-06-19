@@ -67,3 +67,7 @@ require('./assets/js/ot');
 require('./assets/js/charCounter');
 
 require('./atoms/range/range');
+
+require('./assets/js/utmGenerator');
+
+require('./assets/js/textToggle');
