@@ -65,3 +65,7 @@ require('./organisms/schedule/schedule-filter');
 require('./assets/js/ot');
 
 require('./atoms/range/range');
+
+require('./assets/js/utmGenerator');
+
+require('./assets/js/textToggle');
