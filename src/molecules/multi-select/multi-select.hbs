@@ -1,0 +1,8 @@
+<h1>Accessible Multi Select with Autocomplete</h1>
+<p>Use your mouse or keyboard to select and remove items. Compatible with screen readers.</p>
+<div class="autocomplete">
+	<input type="text" id="searchInput" class="search-input" aria-controls="suggestionsBox" aria-autocomplete="list" aria-haspopup="true" role="combobox" placeholder="Search cities..." aria-label="Search cities" aria-describedby="description"/>
+	<div id="suggestionsBox" class="suggestions-box" role="listbox" aria-live="assertive" aria-atomic="true"></div>
+</div>
+<ul id="selectedItemsContainer" class="selected-items-container" aria-live="assertive" aria-atomic="true"></ul>
+<div class="visually-hidden" id="description">Use up and down arrows and enter to select items and tab and enter to remove items</div>

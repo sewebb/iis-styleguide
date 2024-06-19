@@ -1,0 +1,116 @@
+@charset "UTF-8";
+
+.autocomplete {
+	position: relative;
+	display: inline-block;
+}
+
+/* Style the input field */
+.search-input {
+	border: 1px solid #d4d4d4;
+	padding: 10px;
+	width: 300px;
+	font-size: inherit;
+}
+
+/* Container for suggestions */
+.suggestions-box {
+	position: absolute;
+	border: 1px solid #d4d4d4;
+	border-top: none;
+	z-index: 99;
+	top: 100%;
+	left: 0;
+	right: 0;
+	background-color: white;
+	max-height: 200px;
+	overflow-y: auto;
+	width: calc(100% - 2px);
+}
+
+/* Style for the suggestion buttons */
+.suggestion-btn {
+	padding: 10px;
+	cursor: pointer;
+	background-color: #fff;
+	border: none;
+	border-bottom: 1px solid #d4d4d4;
+	width: 100%;
+	text-align: left;
+}
+
+.suggestion-btn:hover, .suggestion-btn.autocomplete-active {
+	background-color: DodgerBlue;
+	color: white;
+}
+
+/* Selected items container */
+.selected-items-container {
+	margin-top: 10px;
+	padding: 10px;
+	border: 1px solid #d4d4d4;
+	background-color: #f9f9f9;
+}
+
+.selected-items-container:empty {
+	display: none;
+}
+
+/* Style for selected items */
+.selected-items-container li {
+	margin-right: 5px;
+	padding: 5px;
+	border: 1px solid #ccc;
+	background-color: #e4e4e4;
+	border-radius: 4px;
+	display: inline-flex;
+	align-items: center;
+	margin-bottom: 5px;
+	font-size: 90%;
+}
+
+/* Remove button for selected items */
+.selected-items-container button {
+	margin-left: 5px;
+	border: none;
+	background-color: #d80000;
+	color: white;
+	border-radius: 50%;
+	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	line-height: 1;
+	width: 16px;
+	height: 16px;
+	position: relative;
+}
+
+.selected-items-container button::after {
+	content: '';
+	display: block;
+	width: 16px;
+	height: 16px;
+	position: absolute;
+	top: 0;
+	left: 0;
+	background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI4LjIuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxNiAxNiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTYgMTY7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDojRkZGRkZGO30KPC9zdHlsZT4KPHBvbHlnb24gY2xhc3M9InN0MCIgcG9pbnRzPSI4LDEwIDIsMTYgMCwxNCA2LDggMCwyIDIsMCA4LDYgMTQsMCAxNiwyIDEwLDggMTYsMTQgMTQsMTYgIi8+Cjwvc3ZnPgo=);
+	background-repeat: no-repeat;
+	background-position: center center;
+	background-size: 8px 8px;
+}
+
+.selected-items-container button:hover {
+	background-color: darkred;
+}
+
+.visually-hidden {
+	position: absolute;
+	width: 1px;
+	height: 1px;
+	margin: -1px;
+	padding: 0;
+	overflow: hidden;
+	clip: rect(0 0 0 0);
+	clip: rect(0, 0, 0, 0);
+}

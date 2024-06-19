@@ -34,3 +34,4 @@ import './assets/js/charCounter';
 import './atoms/range/range';
 import './assets/js/utmGenerator';
 import './assets/js/textToggle';
+import './molecules/multi-select/multi-select';
