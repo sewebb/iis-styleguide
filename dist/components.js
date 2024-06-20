@@ -64,4 +64,6 @@ require('./organisms/schedule/schedule-filter');
 
 require('./assets/js/ot');
 
+require('./assets/js/charCounter');
+
 require('./atoms/range/range');

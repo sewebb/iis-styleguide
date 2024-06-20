@@ -203,6 +203,14 @@ function setupTextArea(el) {
 	el.parentNode.insertBefore(editorEl, el);
 
 	createToolbar(editorEl, editor);
+
+	var event = new CustomEvent('editor-ready', {
+		detail: {
+			editor: editor
+		}
+	});
+
+	el.dispatchEvent(event);
 }
 
 function init() {
