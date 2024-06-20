@@ -1,13 +1,69 @@
-// Wait for the DOM to fully load before executing the script
-document.addEventListener('DOMContentLoaded', () => {
-	// Get references to the search input and suggestions box elements
-	const searchInput = document.getElementById('searchInput');
-	const suggestionsBox = document.getElementById('suggestionsBox');
+/* eslint-disable */
+// Get references to the search input and suggestions box elements
+const multiSelect = document.querySelector('.js-multi-select');
+const suggestionsBox = document.querySelector('.js-multi-select-suggestion-box');
+
+if (multiSelect && suggestionsBox) {
 	let currentFocus = -1; // Tracks the currently focused item in the suggestions
 
-	// Event listener for input changes in the search field
-	searchInput.addEventListener('input', () => {
-		const { value } = this;
+	// Function to highlight the active (focused) suggestion
+	function setActive(items) {
+		if (!items.length) return false;
+		removeActive(items);
+		if (currentFocus >= items.length) currentFocus = 0;
+		if (currentFocus < 0) currentFocus = items.length - 1;
+		items[currentFocus].classList.add('autocomplete-active');
+
+		return items;
+	}
+
+// Function to remove highlighting from all suggestions
+	function removeActive(items) {
+		for (let i = 0; i < items.length; i++) {
+			items[i].classList.remove('autocomplete-active');
+		}
+	}
+
+// Function to add a selected item to the list of selected items
+	function addSelectedItem(item) {
+		const container = document.getElementById('selectedItemsContainer');
+		const newItem = document.createElement('li');
+		newItem.textContent = item + ' ';
+		const removeBtn = document.createElement('button');
+		const buttonTextContainer = document.createElement('span');
+		//removeBtn.textContent = 'x';
+		buttonTextContainer.classList.add('visually-hidden');
+		removeBtn.appendChild(buttonTextContainer);
+		buttonTextContainer.textContent ='Remove ' + item; // Accessibility label for screen readers
+		// Event listener for removing the selected item
+		removeBtn.addEventListener('click', function () {
+			removeItem(newItem, Array.from(container.children).indexOf(newItem));
+		});
+		newItem.appendChild(removeBtn);
+		container.appendChild(newItem);
+	}
+
+// Function to remove an item and manage focus appropriately
+	function removeItem(item, index) {
+		const container = document.getElementById('selectedItemsContainer');
+		container.removeChild(item);
+
+		let remainingItems = container.getElementsByTagName('div');
+		// Focus management: set focus to the next item, or the search input if no items left
+		if (remainingItems.length > 0) {
+			if (index < remainingItems.length) {
+				remainingItems[index].getElementsByTagName('button')[0].focus();
+			} else {
+				remainingItems[remainingItems.length - 1].getElementsByTagName('button')[0].focus();
+			}
+		} else {
+			multiSelect.focus();
+		}
+	}
+
+// Event listener for input changes in the search field
+	multiSelect.addEventListener('input', function () {
+		const value = this.value;
 		// Clear suggestions if less than 2 characters are typed
 		if (value.length < 2) {
 			suggestionsBox.innerHTML = '';
@@ -15,7 +71,7 @@ document.addEventListener('DOMContentLoaded', () => {
 		}
 
 		// Define a JSON array of 100 real cities
-		const suggestions = [
+		let suggestions = [
 			{ name: 'New York' }, { name: 'Los Angeles' }, { name: 'Chicago' },
 			{ name: 'Houston' }, { name: 'Phoenix' }, { name: 'Philadelphia' },
 			{ name: 'San Antonio' }, { name: 'San Diego' }, { name: 'Dallas' },
@@ -54,97 +110,47 @@ document.addEventListener('DOMContentLoaded', () => {
 		];
 
 		// Filter suggestions based on the input value
-		const filtered = suggestions.filter((item) => item.name.toLowerCase()
-			.startsWith(value.toLowerCase()));
+		const filtered = suggestions.filter(item => item.name.toLowerCase().startsWith(value.toLowerCase()));
 		// Populate the suggestions box with the filtered results
-		suggestionsBox.innerHTML = filtered.map((item) => `<button class='suggestion-btn' tabindex='0'>${item.name}</button>`).join('');
+		suggestionsBox.innerHTML = filtered.map(item => `<button class='suggestion-btn' tabindex='0'>${item.name}</button>`).join('');
 		// Reset the current focus
 		currentFocus = -1;
 	});
 
-	// Function to remove highlighting from all suggestions
-	function removeActive(items) {
-		for (let i = 0; i < items.length; i += 1) {
-			items[i].classList.remove('autocomplete-active');
-		}
-	}
-
-	// Function to highlight the active (focused) suggestion
-	function setActive(items) {
-		if (!items.length) return false;
-		removeActive(items);
-		if (currentFocus >= items.length) currentFocus = 0;
-		if (currentFocus < 0) currentFocus = items.length - 1;
-		items[currentFocus].classList.add('autocomplete-active');
-	}
-
-	// Event listener for keydown events for navigation and selection in the suggestions box
-	searchInput.addEventListener('keydown', (e) => {
-		const items = suggestionsBox.getElementsByClassName('suggestion-btn');
+// Event listener for keydown events for navigation and selection in the suggestions box
+	multiSelect.addEventListener('keydown', function (e) {
+		let items = suggestionsBox.getElementsByClassName('suggestion-btn');
 		// Navigate down in the suggestions list
-		if (e.keyCode === 40) {
+		if (e.keyCode == 40) {
 			currentFocus = (currentFocus + 1) % items.length;
 			setActive(items);
 			// Navigate up in the suggestions list
-		} else if (e.keyCode === 38) {
+		} else if (e.keyCode == 38) {
 			currentFocus = (currentFocus - 1 + items.length) % items.length;
 			setActive(items);
 			// Handle Enter key to select a focused item
-		} else if (e.keyCode === 13) {
+		} else if (e.keyCode == 13) {
 			e.preventDefault();
 			if (currentFocus > -1 && items[currentFocus]) {
 				addSelectedItem(items[currentFocus].textContent);
 				suggestionsBox.innerHTML = '';
-				searchInput.value = '';
+				multiSelect.value = '';
 				currentFocus = -1;
 			}
 		}
 	});
 
-	// Click event listener for the suggestions box
-	suggestionsBox.addEventListener('click', (e) => {
+// Click event listener for the suggestions box
+	suggestionsBox.addEventListener('click', function (e) {
 		// Add the clicked suggestion to the selected items list
 		if (e.target && e.target.classList.contains('suggestion-btn')) {
 			addSelectedItem(e.target.textContent);
 			suggestionsBox.innerHTML = '';
-			searchInput.value = '';
+			multiSelect.value = '';
 		}
 	});
 
-	// Function to add a selected item to the list of selected items
-	function addSelectedItem(item) {
-		const container = document.getElementById('selectedItemsContainer');
-		const newItem = document.createElement('li');
-		newItem.textContent = `${item} `;
-		const removeBtn = document.createElement('button');
-		const buttonTextContainer = document.createElement('span');
-		// removeBtn.textContent = 'x';
-		buttonTextContainer.classList.add('visually-hidden');
-		removeBtn.appendChild(buttonTextContainer);
-		buttonTextContainer.textContent = `Remove ${item}`; // Accessibility label for screen readers
-		// Event listener for removing the selected item
-		removeBtn.addEventListener('click', () => {
-			removeItem(newItem, Array.from(container.children).indexOf(newItem));
-		});
-		newItem.appendChild(removeBtn);
-		container.appendChild(newItem);
-	}
 
-	// Function to remove an item and manage focus appropriately
-	function removeItem(item, index) {
-		const container = document.getElementById('selectedItemsContainer');
-		container.removeChild(item);
 
-		const remainingItems = container.getElementsByTagName('div');
-		// Focus management: set focus to the next item, or the search input if no items left
-		if (remainingItems.length > 0) {
-			if (index < remainingItems.length) {
-				remainingItems[index].getElementsByTagName('button')[0].focus();
-			} else {
-				remainingItems[remainingItems.length - 1].getElementsByTagName('button')[0].focus();
-			}
-		} else {
-			document.getElementById('searchInput').focus();
-		}
-	}
-});
+
+}

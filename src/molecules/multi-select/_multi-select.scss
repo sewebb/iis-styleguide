@@ -1,31 +1,23 @@
 @charset "UTF-8";
 
-.autocomplete {
+@include molecule(multi-select) {
 	position: relative;
-	display: inline-block;
-}
 
-/* Style the input field */
-.search-input {
-	border: 1px solid #d4d4d4;
-	padding: 10px;
-	width: 300px;
-	font-size: inherit;
-}
+	@include e(suggestions-box) {
+		position: absolute;
+		border-top: none;
+		z-index: z_index(foreground);
+		top: 100%;
+		left: 0;
+		right: 0;
+		background-color: $color-snow;
+		overflow-y: auto;
+		max-height: rhythm(15);
+		border-bottom-left-radius: $border-radius;
+		border-bottom-right-radius: $border-radius;
 
-/* Container for suggestions */
-.suggestions-box {
-	position: absolute;
-	border: 1px solid #d4d4d4;
-	border-top: none;
-	z-index: 99;
-	top: 100%;
-	left: 0;
-	right: 0;
-	background-color: white;
-	max-height: 200px;
-	overflow-y: auto;
-	width: calc(100% - 2px);
+		@extend %box-shadow;
+	}
 }
 
 /* Style for the suggestion buttons */
@@ -46,10 +38,12 @@
 
 /* Selected items container */
 .selected-items-container {
-	margin-top: 10px;
-	padding: 10px;
+	margin-top: -#{rhythm(1)};
+	padding: rhythm(2) rhythm(1) rhythm(1) rhythm(1);
 	border: 1px solid #d4d4d4;
-	background-color: #f9f9f9;
+	background-color: $color-concrete;
+	border-bottom-left: $border-radius;
+	border-bottom-right-radius: $border-radius;
 }
 
 .selected-items-container:empty {
