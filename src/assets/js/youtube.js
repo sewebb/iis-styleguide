@@ -81,6 +81,9 @@ function createCover(el) {
 
 	img.loading = 'lazy';
 	img.src = url;
+	img.alt = 'tumnagel för video';
+	img.width = 480;
+	img.height = 270;
 }
 
 function setupYoutubePlayer(el) {
