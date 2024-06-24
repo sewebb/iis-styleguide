@@ -71,3 +71,5 @@ require('./atoms/range/range');
 require('./assets/js/utmGenerator');
 
 require('./assets/js/textToggle');
+
+require('./molecules/multi-select/multi-select');
