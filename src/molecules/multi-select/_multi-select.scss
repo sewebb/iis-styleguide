@@ -3,6 +3,12 @@
 @include molecule(multi-select) {
 	position: relative;
 
+	&::before {
+		@extend %u-visuallyhidden;
+
+		content: $namespace;
+	}
+
 	@include e(suggestions-box) {
 		position: absolute;
 		border-top: none;
@@ -18,22 +24,22 @@
 
 		@extend %box-shadow;
 	}
-}
 
-/* Style for the suggestion buttons */
-.suggestion-btn {
-	padding: 10px;
-	cursor: pointer;
-	background-color: #fff;
-	border: none;
-	border-bottom: 1px solid #d4d4d4;
-	width: 100%;
-	text-align: left;
-}
+	@include e(suggestion-btn) {
+		padding: 10px;
+		cursor: pointer;
+		background-color: #fff;
+		border: none;
+		border-bottom: 1px solid #d4d4d4;
+		width: 100%;
+		text-align: left;
 
-.suggestion-btn:hover, .suggestion-btn.autocomplete-active {
-	background-color: DodgerBlue;
-	color: white;
+		&:hover,
+		&.autocomplete-active {
+			background-color: $color-ocean;
+			color: $color-snow;
+		}
+	}
 }
 
 /* Selected items container */
@@ -59,7 +65,7 @@
 	border-radius: 4px;
 	display: inline-flex;
 	align-items: center;
-	margin-bottom: 5px;
+	margin-bottom: 0;
 	font-size: 90%;
 }
 

@@ -1,10 +1,13 @@
 /* eslint-disable */
 // Get references to the search input and suggestions box elements
-const multiSelect = document.querySelector('.js-multi-select');
-const suggestionsBox = document.querySelector('.js-multi-select-suggestion-box');
+const className = 'm-multi-select';
+const multiSelectElement = document.querySelector(`.js-${className}`);
+const multiSelectInput = document.querySelector(`.js-${className}__input`);
+const suggestionsBox = document.querySelector(`.js-${className}-suggestions-box`);
 
-if (multiSelect && suggestionsBox) {
+if (multiSelectInput && suggestionsBox) {
 	let currentFocus = -1; // Tracks the currently focused item in the suggestions
+	const namespace = getComputedStyle(multiSelectElement, ':before').content.replace(/["']/g, '');
 
 	// Function to highlight the active (focused) suggestion
 	function setActive(items) {
@@ -57,12 +60,12 @@ if (multiSelect && suggestionsBox) {
 				remainingItems[remainingItems.length - 1].getElementsByTagName('button')[0].focus();
 			}
 		} else {
-			multiSelect.focus();
+			multiSelectInput.focus();
 		}
 	}
 
 // Event listener for input changes in the search field
-	multiSelect.addEventListener('input', function () {
+	multiSelectInput.addEventListener('input', function () {
 		const value = this.value;
 		// Clear suggestions if less than 2 characters are typed
 		if (value.length < 2) {
@@ -112,14 +115,14 @@ if (multiSelect && suggestionsBox) {
 		// Filter suggestions based on the input value
 		const filtered = suggestions.filter(item => item.name.toLowerCase().startsWith(value.toLowerCase()));
 		// Populate the suggestions box with the filtered results
-		suggestionsBox.innerHTML = filtered.map(item => `<button class='suggestion-btn' tabindex='0'>${item.name}</button>`).join('');
+		suggestionsBox.innerHTML = filtered.map(item => `<button class='${namespace}m-multi-select__suggestion-btn' tabindex='0'>${item.name}</button>`).join('');
 		// Reset the current focus
 		currentFocus = -1;
 	});
 
 // Event listener for keydown events for navigation and selection in the suggestions box
-	multiSelect.addEventListener('keydown', function (e) {
-		let items = suggestionsBox.getElementsByClassName('suggestion-btn');
+	multiSelectInput.addEventListener('keydown', function (e) {
+		let items = suggestionsBox.getElementsByClassName(`${namespace}m-multi-select__suggestion-btn`);
 		// Navigate down in the suggestions list
 		if (e.keyCode == 40) {
 			currentFocus = (currentFocus + 1) % items.length;
@@ -134,7 +137,7 @@ if (multiSelect && suggestionsBox) {
 			if (currentFocus > -1 && items[currentFocus]) {
 				addSelectedItem(items[currentFocus].textContent);
 				suggestionsBox.innerHTML = '';
-				multiSelect.value = '';
+				multiSelectInput.value = '';
 				currentFocus = -1;
 			}
 		}
@@ -146,7 +149,7 @@ if (multiSelect && suggestionsBox) {
 		if (e.target && e.target.classList.contains('suggestion-btn')) {
 			addSelectedItem(e.target.textContent);
 			suggestionsBox.innerHTML = '';
-			multiSelect.value = '';
+			multiSelectInput.value = '';
 		}
 	});
 
