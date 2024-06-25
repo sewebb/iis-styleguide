@@ -1,6 +1,319 @@
 <div class="m-multi-select js-m-multi-select">
-	<input type="text" class="search-input a-input js-m-multi-select__input" aria-controls="suggestionsBox" aria-autocomplete="list" aria-haspopup="true" role="combobox" placeholder="Search cities..." aria-label="Search cities" aria-describedby="multiSelectDescription"/>
-	<div class="m-multi-select__suggestions-box js-m-multi-select-suggestions-box" role="listbox" aria-live="assertive" aria-atomic="true"></div>
-	<ul id="selectedItemsContainer" class="selected-items-container" aria-live="assertive" aria-atomic="true"></ul>
-	<div class="visually-hidden" id="multiSelectDescription">Use up and down arrows and enter to select items and tab and enter to remove items</div>
+	<div class="m-multi-select__search">
+		<input type="text" class="search-input a-input js-m-multi-select__input" data-multi-select-suggestions="suggestions" aria-controls="multiSelectSuggestionsBox" aria-autocomplete="list" aria-haspopup="true" role="combobox" placeholder="Sök städer..." aria-label="Sök städer" aria-describedby="multiSelectDescription"/>
+		<div class="m-multi-select__suggestions-box js-m-multi-select-suggestions-box" id="multiSelectSuggestionsBox" role="listbox" aria-live="assertive" aria-atomic="true"></div>
+	</div>
+	<ul class="m-multi-select-selected-items js-m-multi-select-selected-items" aria-live="assertive" aria-atomic="true"></ul>
+	<div class="u-visuallyhidden" id="multiSelectDescription">Använd upp och ner-pilarna för att lägga till sökträffar och tabb plus enter för att ta bort valda sökträffar</div>
 </div>
+
+<script id="suggestions" type="application/json">
+	[
+		{
+		"name":"New York"
+		},
+		{
+		"name":"Los Angeles"
+		},
+		{
+		"name":"Chicago"
+		},
+		{
+		"name":"Houston"
+		},
+		{
+		"name":"Phoenix"
+		},
+		{
+		"name":"Philadelphia"
+		},
+		{
+		"name":"San Antonio"
+		},
+		{
+		"name":"San Diego"
+		},
+		{
+		"name":"Dallas"
+		},
+		{
+		"name":"San Jose"
+		},
+		{
+		"name":"Austin"
+		},
+		{
+		"name":"Jacksonville"
+		},
+		{
+		"name":"Fort Worth"
+		},
+		{
+		"name":"Columbus"
+		},
+		{
+		"name":"San Francisco"
+		},
+		{
+		"name":"Tokyo"
+		},
+		{
+		"name":"Delhi"
+		},
+		{
+		"name":"Shanghai"
+		},
+		{
+		"name":"Sao Paulo"
+		},
+		{
+		"name":"Mumbai"
+		},
+		{
+		"name":"Beijing"
+		},
+		{
+		"name":"Cairo"
+		},
+		{
+		"name":"Dhaka"
+		},
+		{
+		"name":"Mexico City"
+		},
+		{
+		"name":"Osaka"
+		},
+		{
+		"name":"Karachi"
+		},
+		{
+		"name":"Chongqing"
+		},
+		{
+		"name":"Istanbul"
+		},
+		{
+		"name":"Buenos Aires"
+		},
+		{
+		"name":"Kolkata"
+		},
+		{
+		"name":"Kinshasa"
+		},
+		{
+		"name":"Lagos"
+		},
+		{
+		"name":"Manila"
+		},
+		{
+		"name":"Tianjin"
+		},
+		{
+		"name":"Rio de Janeiro"
+		},
+		{
+		"name":"Guangzhou"
+		},
+		{
+		"name":"Lahore"
+		},
+		{
+		"name":"Moscow"
+		},
+		{
+		"name":"Shenzhen"
+		},
+		{
+		"name":"Bangalore"
+		},
+		{
+		"name":"Paris"
+		},
+		{
+		"name":"Bogota"
+		},
+		{
+		"name":"Jakarta"
+		},
+		{
+		"name":"Chennai"
+		},
+		{
+		"name":"Lima"
+		},
+		{
+		"name":"Bangkok"
+		},
+		{
+		"name":"Seoul"
+		},
+		{
+		"name":"Nagoya"
+		},
+		{
+		"name":"Hyderabad"
+		},
+		{
+		"name":"London"
+		},
+		{
+		"name":"Tehran"
+		},
+		{
+		"name":"Chengdu"
+		},
+		{
+		"name":"Nanjing"
+		},
+		{
+		"name":"Wuhan"
+		},
+		{
+		"name":"Ho Chi Minh City"
+		},
+		{
+		"name":"Luanda"
+		},
+		{
+		"name":"Ahmedabad"
+		},
+		{
+		"name":"Kuala Lumpur"
+		},
+		{
+		"name":"Xi’an"
+		},
+		{
+		"name":"Hong Kong"
+		},
+		{
+		"name":"Dongguan"
+		},
+		{
+		"name":"Hangzhou"
+		},
+		{
+		"name":"Foshan"
+		},
+		{
+		"name":"Shenyang"
+		},
+		{
+		"name":"Riyadh"
+		},
+		{
+		"name":"Baghdad"
+		},
+		{
+		"name":"Santiago"
+		},
+		{
+		"name":"Surat"
+		},
+		{
+		"name":"Madrid"
+		},
+		{
+		"name":"Suzhou"
+		},
+		{
+		"name":"Pune"
+		},
+		{
+		"name":"Harbin"
+		},
+		{
+		"name":"Houston"
+		},
+		{
+		"name":"Toronto"
+		},
+		{
+		"name":"Dar es Salaam"
+		},
+		{
+		"name":"Miami"
+		},
+		{
+		"name":"Belo Horizonte"
+		},
+		{
+		"name":"Singapore"
+		},
+		{
+		"name":"Atlanta"
+		},
+		{
+		"name":"Fukuoka"
+		},
+		{
+		"name":"Khartoum"
+		},
+		{
+		"name":"Barcelona"
+		},
+		{
+		"name":"Johannesburg"
+		},
+		{
+		"name":"Saint Petersburg"
+		},
+		{
+		"name":"Qingdao"
+		},
+		{
+		"name":"Dalian"
+		},
+		{
+		"name":"Washington, D.C."
+		},
+		{
+		"name":"Yangon"
+		},
+		{
+		"name":"Alexandria"
+		},
+		{
+		"name":"Jinan"
+		},
+		{
+		"name":"Guadalajara"
+		},
+		{
+		"name":"Sydney"
+		},
+		{
+		"name":"Melbourne"
+		},
+		{
+		"name":"Montreal"
+		},
+		{
+		"name":"Ankara"
+		},
+		{
+		"name":"Recife"
+		},
+		{
+		"name":"Durban"
+		},
+		{
+		"name":"Porto Alegre"
+		},
+		{
+		"name":"Dusseldorf"
+		},
+		{
+		"name":"Hamburg"
+		},
+		{
+		"name":"Cape Town"
+		},
+		{
+		"name":"Stockholm"
+		}
+	]
+</script>
