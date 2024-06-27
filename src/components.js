@@ -35,4 +35,4 @@ import './atoms/range/range';
 import './assets/js/utmGenerator';
 import './assets/js/textToggle';
 import './assets/js/iconToggle';
-// import './molecules/multi-select/multi-select';
+import './molecules/multi-select/multi-select';

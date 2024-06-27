@@ -3,7 +3,7 @@ const className = 'm-multi-select';
 const multiSelectElements = document.querySelectorAll(`.js-${className}`);
 let namespace;
 
-if( multiSelectElements ) {
+if( multiSelectElements.length ) {
 	namespace = getComputedStyle(multiSelectElements[0], ':before').content.replace(/["']/g, '');
 }
 
