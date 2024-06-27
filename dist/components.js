@@ -73,3 +73,5 @@ require('./assets/js/utmGenerator');
 require('./assets/js/textToggle');
 
 require('./assets/js/iconToggle');
+
+require('./molecules/multi-select/multi-select');
