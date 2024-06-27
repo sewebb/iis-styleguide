@@ -11,3 +11,10 @@
 	{{> @icon id=icon additional_classes="a-button__icon"}}
 	{{/if}}
 </{{getelement el "a"}}>
+
+<button href="#" class="a-button a-button--icon" data-toggle-icon-target="myIcon" data-toggle-icon="arrow-forwards|check" data-toggle-text="Button with icon|Foo" data-toggle-target="boo">
+	<span class="a-button__text" id="boo">Button with icon</span>
+	<svg class="icon a-button__icon" id="myIcon">
+		<use xlink:href="#icon-arrow-forwards"></use>
+	</svg>
+</button>

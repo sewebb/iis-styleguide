@@ -12,10 +12,10 @@ function toggleTextOnClick(e) {
 	target.innerText = options[nextIteration];
 }
 
-const toggleTextButtons = document.querySelectorAll('[data-toggle-text]');
-
-if (toggleTextButtons) {
-	[].forEach.call(toggleTextButtons, (toggleTextButton) => {
-		toggleTextButton.addEventListener('click', toggleTextOnClick);
-	});
-}
+/* eslint-disable */
+document.addEventListener('click', (e) => {
+	if (e.target.closest('[data-toggle-text]')) {
+		toggleTextOnClick(e);
+		return false;
+	}
+});

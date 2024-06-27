@@ -14,10 +14,10 @@ function toggleTextOnClick(e) {
 	target.innerText = options[nextIteration];
 }
 
-var toggleTextButtons = document.querySelectorAll('[data-toggle-text]');
-
-if (toggleTextButtons) {
-	[].forEach.call(toggleTextButtons, function (toggleTextButton) {
-		toggleTextButton.addEventListener('click', toggleTextOnClick);
-	});
-}
+/* eslint-disable */
+document.addEventListener('click', function (e) {
+	if (e.target.closest('[data-toggle-text]')) {
+		toggleTextOnClick(e);
+		return false;
+	}
+});

@@ -1,80 +1,83 @@
 'use strict';
 
 /* eslint-disable */
-// Get references to the search input and suggestions box elements
 var className = 'm-multi-select';
-var multiSelectElement = document.querySelector('.js-' + className);
-var multiSelectInput = document.querySelector('.js-' + className + '__input');
-var suggestionsBox = document.querySelector('.js-' + className + '-suggestions-box');
+var multiSelectElements = document.querySelectorAll('.js-' + className);
+var namespace = void 0;
 
-if (multiSelectInput && suggestionsBox) {
+if (multiSelectElements) {
+	namespace = getComputedStyle(multiSelectElements[0], ':before').content.replace(/["']/g, '');
+}
 
-	// Function to highlight the active (focused) suggestion
-	var setActive = function setActive(items) {
-		if (!items.length) return false;
-		removeActive(items);
-		if (currentFocus >= items.length) currentFocus = 0;
-		if (currentFocus < 0) currentFocus = items.length - 1;
-		items[currentFocus].classList.add('autocomplete-active');
+var currentFocus = -1; // Tracks the currently focused item in the suggestions
 
-		return items;
-	};
+// Highlight the active (focused) suggestion
+function setActive(items) {
+	if (!items.length) return false;
+	removeActive(items);
+	if (currentFocus >= items.length) currentFocus = 0;
+	if (currentFocus < 0) currentFocus = items.length - 1;
+	items[currentFocus].classList.add('autocomplete-active');
 
-	// Function to remove highlighting from all suggestions
+	return items;
+}
 
+// Remove highlighting from all suggestions
+function removeActive(items) {
+	for (var i = 0; i < items.length; i += 1) {
+		items[i].classList.remove('autocomplete-active');
+	}
+}
 
-	var removeActive = function removeActive(items) {
-		for (var i = 0; i < items.length; i++) {
-			items[i].classList.remove('autocomplete-active');
-		}
-	};
+// Add a selected item to the list of selected items
+function addSelectedItem(item) {
+	var selectedItemsList = document.querySelector('.js-m-multi-select-selected-items');
+	var newItem = document.createElement('li');
+	newItem.textContent = item + ' ';
+	newItem.classList.add(namespace + 'a-tag');
+	newItem.classList.add(namespace + 'm-multi-select__tag');
 
-	// Function to add a selected item to the list of selected items
+	var removeBtn = document.createElement('button');
+	removeBtn.classList.add(namespace + 'm-multi-select-selected-items__remove-btn');
 
+	var buttonTextContainer = document.createElement('span');
+	buttonTextContainer.classList.add('u-visuallyhidden');
+	removeBtn.appendChild(buttonTextContainer);
+	buttonTextContainer.textContent = 'Ta bort ' + item; // Accessibility label for screen readers
 
-	var addSelectedItem = function addSelectedItem(item) {
-		var container = document.getElementById('selectedItemsContainer');
-		var newItem = document.createElement('li');
-		newItem.textContent = item + ' ';
-		var removeBtn = document.createElement('button');
-		var buttonTextContainer = document.createElement('span');
-		//removeBtn.textContent = 'x';
-		buttonTextContainer.classList.add('visually-hidden');
-		removeBtn.appendChild(buttonTextContainer);
-		buttonTextContainer.textContent = 'Remove ' + item; // Accessibility label for screen readers
-		// Event listener for removing the selected item
-		removeBtn.addEventListener('click', function () {
-			removeItem(newItem, Array.from(container.children).indexOf(newItem));
-		});
-		newItem.appendChild(removeBtn);
-		container.appendChild(newItem);
-	};
+	// Event listener for removing the selected item
+	removeBtn.addEventListener('click', function () {
+		removeItem(newItem, Array.from(selectedItemsList.children).indexOf(newItem));
+	});
+	newItem.appendChild(removeBtn);
+	selectedItemsList.appendChild(newItem);
+}
 
-	// Function to remove an item and manage focus appropriately
+// Remove an item and manage focus appropriately
+function removeItem(item, index) {
+	var selectedItemsList = document.querySelector('.js-m-multi-select-selected-items');
+	selectedItemsList.removeChild(item);
 
-
-	var removeItem = function removeItem(item, index) {
-		var container = document.getElementById('selectedItemsContainer');
-		container.removeChild(item);
-
-		var remainingItems = container.getElementsByTagName('div');
-		// Focus management: set focus to the next item, or the search input if no items left
-		if (remainingItems.length > 0) {
-			if (index < remainingItems.length) {
-				remainingItems[index].getElementsByTagName('button')[0].focus();
-			} else {
-				remainingItems[remainingItems.length - 1].getElementsByTagName('button')[0].focus();
-			}
+	var remainingItems = selectedItemsList.getElementsByTagName('div');
+	// Focus management: set focus to the next item, or the search input if no items left
+	if (remainingItems.length > 0) {
+		if (index < remainingItems.length) {
+			remainingItems[index].getElementsByTagName('button')[0].focus();
 		} else {
-			multiSelectInput.focus();
+			remainingItems[remainingItems.length - 1].getElementsByTagName('button')[0].focus();
 		}
-	};
+	} else {
+		multiSelectInput.focus();
+	}
+}
+
+function setup(multiSelectElement) {
+	var multiSelectInput = multiSelectElement.querySelector('.js-' + className + '__input');
+	var suggestionsBox = multiSelectElement.querySelector('.js-' + className + '-suggestions-box');
+	var suggestionsData = multiSelectInput.getAttribute('data-multi-select-suggestions');
 
 	// Event listener for input changes in the search field
-
-
-	var currentFocus = -1; // Tracks the currently focused item in the suggestions
-	var namespace = getComputedStyle(multiSelectElement, ':before').content.replace(/["']/g, '');multiSelectInput.addEventListener('input', function () {
+	multiSelectInput.addEventListener('input', function () {
 		var value = this.value;
 		// Clear suggestions if less than 2 characters are typed
 		if (value.length < 2) {
@@ -82,8 +85,9 @@ if (multiSelectInput && suggestionsBox) {
 			return;
 		}
 
-		// Define a JSON array of 100 real cities
-		var suggestions = [{ name: 'New York' }, { name: 'Los Angeles' }, { name: 'Chicago' }, { name: 'Houston' }, { name: 'Phoenix' }, { name: 'Philadelphia' }, { name: 'San Antonio' }, { name: 'San Diego' }, { name: 'Dallas' }, { name: 'San Jose' }, { name: 'Austin' }, { name: 'Jacksonville' }, { name: 'Fort Worth' }, { name: 'Columbus' }, { name: 'San Francisco' }, { name: 'Tokyo' }, { name: 'Delhi' }, { name: 'Shanghai' }, { name: 'Sao Paulo' }, { name: 'Mumbai' }, { name: 'Beijing' }, { name: 'Cairo' }, { name: 'Dhaka' }, { name: 'Mexico City' }, { name: 'Osaka' }, { name: 'Karachi' }, { name: 'Chongqing' }, { name: 'Istanbul' }, { name: 'Buenos Aires' }, { name: 'Kolkata' }, { name: 'Kinshasa' }, { name: 'Lagos' }, { name: 'Manila' }, { name: 'Tianjin' }, { name: 'Rio de Janeiro' }, { name: 'Guangzhou' }, { name: 'Lahore' }, { name: 'Moscow' }, { name: 'Shenzhen' }, { name: 'Bangalore' }, { name: 'Paris' }, { name: 'Bogota' }, { name: 'Jakarta' }, { name: 'Chennai' }, { name: 'Lima' }, { name: 'Bangkok' }, { name: 'Seoul' }, { name: 'Nagoya' }, { name: 'Hyderabad' }, { name: 'London' }, { name: 'Tehran' }, { name: 'Chengdu' }, { name: 'Nanjing' }, { name: 'Wuhan' }, { name: 'Ho Chi Minh City' }, { name: 'Luanda' }, { name: 'Ahmedabad' }, { name: 'Kuala Lumpur' }, { name: 'Xi’an' }, { name: 'Hong Kong' }, { name: 'Dongguan' }, { name: 'Hangzhou' }, { name: 'Foshan' }, { name: 'Shenyang' }, { name: 'Riyadh' }, { name: 'Baghdad' }, { name: 'Santiago' }, { name: 'Surat' }, { name: 'Madrid' }, { name: 'Suzhou' }, { name: 'Pune' }, { name: 'Harbin' }, { name: 'Houston' }, { name: 'Toronto' }, { name: 'Dar es Salaam' }, { name: 'Miami' }, { name: 'Belo Horizonte' }, { name: 'Singapore' }, { name: 'Atlanta' }, { name: 'Fukuoka' }, { name: 'Khartoum' }, { name: 'Barcelona' }, { name: 'Johannesburg' }, { name: 'Saint Petersburg' }, { name: 'Qingdao' }, { name: 'Dalian' }, { name: 'Washington, D.C.' }, { name: 'Yangon' }, { name: 'Alexandria' }, { name: 'Jinan' }, { name: 'Guadalajara' }, { name: 'Sydney' }, { name: 'Melbourne' }, { name: 'Montreal' }, { name: 'Ankara' }, { name: 'Recife' }, { name: 'Durban' }, { name: 'Porto Alegre' }, { name: 'Dusseldorf' }, { name: 'Hamburg' }, { name: 'Cape Town' }];
+		// Define JSON
+		var suggestions = document.getElementById(suggestionsData).textContent;
+		suggestions = JSON.parse(suggestions);
 
 		// Filter suggestions based on the input value
 		var filtered = suggestions.filter(function (item) {
@@ -120,7 +124,7 @@ if (multiSelectInput && suggestionsBox) {
 		}
 	});
 
-	// Click event listener for the suggestions box
+	// Event listener for the suggestions box
 	suggestionsBox.addEventListener('click', function (e) {
 		// Add the clicked suggestion to the selected items list
 		if (e.target && e.target.classList.contains('suggestion-btn')) {
@@ -129,4 +133,8 @@ if (multiSelectInput && suggestionsBox) {
 			multiSelectInput.value = '';
 		}
 	});
+}
+
+if (multiSelectElements) {
+	[].forEach.call(multiSelectElements, setup);
 }
