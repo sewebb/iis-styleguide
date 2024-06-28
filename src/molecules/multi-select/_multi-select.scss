@@ -9,6 +9,10 @@
 		content: $namespace;
 	}
 
+	@include e(search) {
+		position: relative;
+	}
+
 	@include e(suggestions-box) {
 		position: absolute;
 		border-top: none;
