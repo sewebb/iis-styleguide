@@ -8,6 +8,8 @@ var _className2 = _interopRequireDefault(_className);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
+function _toConsumableArray(arr) { if (Array.isArray(arr)) { for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) { arr2[i] = arr[i]; } return arr2; } else { return Array.from(arr); } }
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
 var MultiSelect = function () {
@@ -47,7 +49,9 @@ var MultiSelect = function () {
 
 		this.onClick = function (e) {
 			if (e.target.classList.contains((0, _className2.default)(_this.baseClassName + '__suggestion-btn'))) {
-				_this.addItem(e.target.textContent);
+				_this.addItem(_this.data.find(function (d) {
+					return d.value === e.target.value;
+				}));
 				_this.clearSuggestions();
 				_this.input.value = '';
 			}
@@ -56,6 +60,7 @@ var MultiSelect = function () {
 		this.element = el;
 		this.baseClassName = 'm-multi-select';
 		this.currentFocus = -1;
+		this.name = this.element.getAttribute('data-multi-select-name');
 		this.input = this.element.querySelector('.js-' + this.baseClassName + '__input');
 		this.suggestionsBox = this.element.querySelector('.js-' + this.baseClassName + '-suggestions-box');
 		this.selectedItemsList = this.element.querySelector('.js-m-multi-select-selected-items');
@@ -102,14 +107,25 @@ var MultiSelect = function () {
 			this.suggestionsBox.innerHTML = '';
 		}
 	}, {
+		key: 'addSuggestions',
+		value: function addSuggestions(suggestions) {
+			var _this2 = this;
+
+			this.data = [].concat(_toConsumableArray(this.data), _toConsumableArray(suggestions.filter(function (s) {
+				return !_this2.data.find(function (d) {
+					return d.value === s.value;
+				});
+			})));
+		}
+	}, {
 		key: 'filterData',
 		value: function filterData(query) {
-			var _this2 = this;
+			var _this3 = this;
 
 			return this.data.filter(function (item) {
 				return item.name.toLowerCase().startsWith(query.toLowerCase());
 			}).filter(function (item) {
-				return !_this2.selectedItems.includes(item.name);
+				return !_this3.selectedItems.includes(item.name);
 			});
 		}
 	}, {
@@ -117,16 +133,24 @@ var MultiSelect = function () {
 		value: function populateSuggestions(suggestions) {
 			var cls = (0, _className2.default)(this.baseClassName + '__suggestion-btn');
 			this.suggestionsBox.innerHTML = suggestions.map(function (item) {
-				return '<button class=\'' + cls + '\' tabindex=\'0\'>' + item.name + '</button>';
+				return '<button class=\'' + cls + '\' tabindex=\'0\' value="' + item.value + '">' + item.name + '</button>';
 			}).join('');
 		}
 	}, {
 		key: 'removeItem',
-		value: function removeItem(item, index) {
-			var selectedItemsList = this.element.querySelector('.js-m-multi-select-selected-items');
-			selectedItemsList.removeChild(item);
+		value: function removeItem(item) {
+			var node = this.element.querySelector('.js-m-multi-select-selected-items li[data-value="' + item.value + '"]');
 
-			var remainingItems = selectedItemsList.getElementsByTagName('div');
+			if (!node) {
+				return;
+			}
+
+			var parent = node.closest('.js-m-multi-select-selected-items');
+			var index = Array.prototype.indexOf.call(parent.children, node);
+
+			node.remove();
+
+			var remainingItems = parent.getElementsByTagName('li');
 
 			// Focus management: set focus to the next item, or the search input if no items left
 			if (remainingItems.length > 0) {
@@ -139,17 +163,25 @@ var MultiSelect = function () {
 				this.input.focus();
 			}
 
-			this.selectedItems = this.selectedItems.filter(function (name) {
-				return name !== item.firstChild.textContent.trim();
+			this.selectedItems = this.selectedItems.filter(function (i) {
+				return i.value !== item.value;
 			});
+
+			var itemInput = this.element.querySelector('input[value="' + item.value + '"]');
+			itemInput.remove();
 		}
 	}, {
 		key: 'addItem',
 		value: function addItem(item) {
-			var _this3 = this;
+			var _this4 = this;
+
+			if (!item) {
+				return;
+			}
 
 			var newItem = document.createElement('li');
-			newItem.textContent = item + ' ';
+			newItem.textContent = item.name + ' ';
+			newItem.setAttribute('data-value', item.value);
 			newItem.classList.add((0, _className2.default)('a-tag'));
 			newItem.classList.add((0, _className2.default)(this.baseClassName + '__tag'));
 
@@ -159,17 +191,25 @@ var MultiSelect = function () {
 			var buttonTextContainer = document.createElement('span');
 			buttonTextContainer.classList.add('u-visuallyhidden');
 			removeBtn.appendChild(buttonTextContainer);
-			buttonTextContainer.textContent = 'Ta bort ' + item; // Accessibility label for screen readers
+			buttonTextContainer.textContent = 'Ta bort ' + item.name; // Accessibility label for screen readers
 
 			// Event listener for removing the selected item
 			removeBtn.addEventListener('click', function () {
-				_this3.removeItem(newItem, Array.from(_this3.selectedItemsList.children).indexOf(newItem));
+				_this4.removeItem(item);
 			});
 
 			newItem.appendChild(removeBtn);
 
 			this.selectedItemsList.appendChild(newItem);
 			this.selectedItems.push(item);
+
+			var itemInput = document.createElement('input');
+
+			itemInput.type = 'hidden';
+			itemInput.name = this.name + '[]';
+			itemInput.value = item.value;
+
+			this.element.appendChild(itemInput);
 		}
 	}, {
 		key: 'removeHighlight',
@@ -204,7 +244,12 @@ var MultiSelect = function () {
 			var items = this.suggestionsBox.getElementsByClassName(this.baseClassName + '__suggestion-btn');
 
 			if (this.currentFocus > -1 && items[this.currentFocus]) {
-				this.addItem(items[this.currentFocus].textContent);
+				var item = items[this.currentFocus];
+
+				this.addItem(this.data.find(function (d) {
+					return d.value === item.value;
+				}));
+
 				this.clearSuggestions();
 				this.input.value = '';
 				this.resetFocus();
@@ -219,6 +264,6 @@ var multiSelectElements = document.querySelectorAll('.js-m-multi-select');
 
 if (multiSelectElements) {
 	[].forEach.call(multiSelectElements, function (el) {
-		return new MultiSelect(el);
+		el.multiSelect = new MultiSelect(el);
 	});
 }

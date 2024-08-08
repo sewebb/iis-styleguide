@@ -5,6 +5,7 @@ class MultiSelect {
 		this.element = el;
 		this.baseClassName = 'm-multi-select';
 		this.currentFocus = -1;
+		this.name = this.element.getAttribute('data-multi-select-name');
 		this.input = this.element.querySelector(`.js-${this.baseClassName}__input`);
 		this.suggestionsBox = this.element.querySelector(`.js-${this.baseClassName}-suggestions-box`);
 		this.selectedItemsList = this.element.querySelector('.js-m-multi-select-selected-items');
@@ -45,6 +46,13 @@ class MultiSelect {
 		this.suggestionsBox.innerHTML = '';
 	}
 
+	addSuggestions(suggestions) {
+		this.data = [
+			...this.data,
+			...suggestions.filter((s) => !this.data.find((d) => d.value === s.value)),
+		];
+	}
+
 	filterData(query) {
 		return this.data
 			.filter((item) => item.name.toLowerCase().startsWith(query.toLowerCase()))
@@ -53,7 +61,7 @@ class MultiSelect {
 
 	populateSuggestions(suggestions) {
 		const cls = className(`${this.baseClassName}__suggestion-btn`);
-		this.suggestionsBox.innerHTML = suggestions.map((item) => `<button class='${cls}' tabindex='0'>${item.name}</button>`).join('');
+		this.suggestionsBox.innerHTML = suggestions.map((item) => `<button class='${cls}' tabindex='0' value="${item.value}">${item.name}</button>`).join('');
 	}
 
 	onInput = () => {
@@ -72,11 +80,19 @@ class MultiSelect {
 		this.resetFocus();
 	}
 
-	removeItem(item, index) {
-		const selectedItemsList = this.element.querySelector('.js-m-multi-select-selected-items');
-		selectedItemsList.removeChild(item);
+	removeItem(item) {
+		const node = this.element.querySelector(`.js-m-multi-select-selected-items li[data-value="${item.value}"]`);
 
-		const remainingItems = selectedItemsList.getElementsByTagName('div');
+		if (!node) {
+			return;
+		}
+
+		const parent = node.closest('.js-m-multi-select-selected-items');
+		const index = Array.prototype.indexOf.call(parent.children, node);
+
+		node.remove();
+
+		const remainingItems = parent.getElementsByTagName('li');
 
 		// Focus management: set focus to the next item, or the search input if no items left
 		if (remainingItems.length > 0) {
@@ -90,12 +106,20 @@ class MultiSelect {
 		}
 
 		this.selectedItems = this.selectedItems
-			.filter((name) => name !== item.firstChild.textContent.trim());
+			.filter((i) => i.value !== item.value);
+
+		const itemInput = this.element.querySelector(`input[value="${item.value}"]`);
+		itemInput.remove();
 	}
 
 	addItem(item) {
+		if (!item) {
+			return;
+		}
+
 		const newItem = document.createElement('li');
-		newItem.textContent = `${item} `;
+		newItem.textContent = `${item.name} `;
+		newItem.setAttribute('data-value', item.value);
 		newItem.classList.add(className('a-tag'));
 		newItem.classList.add(className(`${this.baseClassName}__tag`));
 
@@ -105,17 +129,25 @@ class MultiSelect {
 		const buttonTextContainer = document.createElement('span');
 		buttonTextContainer.classList.add('u-visuallyhidden');
 		removeBtn.appendChild(buttonTextContainer);
-		buttonTextContainer.textContent = `Ta bort ${item}`; // Accessibility label for screen readers
+		buttonTextContainer.textContent = `Ta bort ${item.name}`; // Accessibility label for screen readers
 
 		// Event listener for removing the selected item
 		removeBtn.addEventListener('click', () => {
-			this.removeItem(newItem, Array.from(this.selectedItemsList.children).indexOf(newItem));
+			this.removeItem(item);
 		});
 
 		newItem.appendChild(removeBtn);
 
 		this.selectedItemsList.appendChild(newItem);
 		this.selectedItems.push(item);
+
+		const itemInput = document.createElement('input');
+
+		itemInput.type = 'hidden';
+		itemInput.name = `${this.name}[]`;
+		itemInput.value = item.value;
+
+		this.element.appendChild(itemInput);
 	}
 
 	removeHighlight() {
@@ -147,7 +179,10 @@ class MultiSelect {
 		const items = this.suggestionsBox.getElementsByClassName(`${this.baseClassName}__suggestion-btn`);
 
 		if (this.currentFocus > -1 && items[this.currentFocus]) {
-			this.addItem(items[this.currentFocus].textContent);
+			const item = items[this.currentFocus];
+
+			this.addItem(this.data.find((d) => d.value === item.value));
+
 			this.clearSuggestions();
 			this.input.value = '';
 			this.resetFocus();
@@ -168,7 +203,7 @@ class MultiSelect {
 
 	onClick = (e) => {
 		if (e.target.classList.contains(className(`${this.baseClassName}__suggestion-btn`))) {
-			this.addItem(e.target.textContent);
+			this.addItem(this.data.find((d) => d.value === e.target.value));
 			this.clearSuggestions();
 			this.input.value = '';
 		}
@@ -178,5 +213,7 @@ class MultiSelect {
 const multiSelectElements = document.querySelectorAll('.js-m-multi-select');
 
 if (multiSelectElements) {
-	[].forEach.call(multiSelectElements, (el) => new MultiSelect(el));
+	[].forEach.call(multiSelectElements, (el) => {
+		el.multiSelect = new MultiSelect(el);
+	});
 }
