@@ -69,6 +69,7 @@ var MultiSelect = function () {
 
 		this.getData();
 		this.attach();
+		this.sync();
 	}
 
 	_createClass(MultiSelect, [{
@@ -118,14 +119,33 @@ var MultiSelect = function () {
 			})));
 		}
 	}, {
+		key: 'sync',
+		value: function sync() {
+			var _this3 = this;
+
+			var inputs = this.element.querySelectorAll('input[name="' + this.name + '[]"]');
+
+			this.selectedItems = [];
+
+			inputs.forEach(function (input) {
+				var item = _this3.data.find(function (d) {
+					return d.value === input.value;
+				});
+
+				if (item) {
+					_this3.addItem(item, false);
+				}
+			});
+		}
+	}, {
 		key: 'filterData',
 		value: function filterData(query) {
-			var _this3 = this;
+			var _this4 = this;
 
 			return this.data.filter(function (item) {
 				return item.name.toLowerCase().startsWith(query.toLowerCase());
 			}).filter(function (item) {
-				return !_this3.selectedItems.includes(item.name);
+				return !_this4.selectedItems.includes(item.name);
 			});
 		}
 	}, {
@@ -173,7 +193,9 @@ var MultiSelect = function () {
 	}, {
 		key: 'addItem',
 		value: function addItem(item) {
-			var _this4 = this;
+			var _this5 = this;
+
+			var save = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
 
 			if (!item) {
 				return;
@@ -195,7 +217,7 @@ var MultiSelect = function () {
 
 			// Event listener for removing the selected item
 			removeBtn.addEventListener('click', function () {
-				_this4.removeItem(item);
+				_this5.removeItem(item);
 			});
 
 			newItem.appendChild(removeBtn);
@@ -203,13 +225,15 @@ var MultiSelect = function () {
 			this.selectedItemsList.appendChild(newItem);
 			this.selectedItems.push(item);
 
-			var itemInput = document.createElement('input');
+			if (save) {
+				var itemInput = document.createElement('input');
 
-			itemInput.type = 'hidden';
-			itemInput.name = this.name + '[]';
-			itemInput.value = item.value;
+				itemInput.type = 'hidden';
+				itemInput.name = this.name + '[]';
+				itemInput.value = item.value;
 
-			this.element.appendChild(itemInput);
+				this.element.appendChild(itemInput);
+			}
 		}
 	}, {
 		key: 'removeHighlight',
