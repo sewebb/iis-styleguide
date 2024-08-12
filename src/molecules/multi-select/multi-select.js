@@ -168,7 +168,7 @@ class MultiSelect {
 	}
 
 	removeHighlight() {
-		const items = this.suggestionsBox.getElementsByClassName(`${this.baseClassName}__suggestion-btn`);
+		const items = this.suggestionsBox.getElementsByClassName(className(`${this.baseClassName}__suggestion-btn`));
 
 		[].forEach.call(items, (item) => {
 			item.classList.remove('autocomplete-active');
@@ -176,7 +176,7 @@ class MultiSelect {
 	}
 
 	highlight(direction) {
-		const items = this.suggestionsBox.getElementsByClassName(`${this.baseClassName}__suggestion-btn`);
+		const items = this.suggestionsBox.getElementsByClassName(className(`${this.baseClassName}__suggestion-btn`));
 		let focus = this.currentFocus;
 
 		if (direction === 'down') {

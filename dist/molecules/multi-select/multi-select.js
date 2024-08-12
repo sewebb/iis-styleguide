@@ -238,7 +238,7 @@ var MultiSelect = function () {
 	}, {
 		key: 'removeHighlight',
 		value: function removeHighlight() {
-			var items = this.suggestionsBox.getElementsByClassName(this.baseClassName + '__suggestion-btn');
+			var items = this.suggestionsBox.getElementsByClassName((0, _className2.default)(this.baseClassName + '__suggestion-btn'));
 
 			[].forEach.call(items, function (item) {
 				item.classList.remove('autocomplete-active');
@@ -247,7 +247,7 @@ var MultiSelect = function () {
 	}, {
 		key: 'highlight',
 		value: function highlight(direction) {
-			var items = this.suggestionsBox.getElementsByClassName(this.baseClassName + '__suggestion-btn');
+			var items = this.suggestionsBox.getElementsByClassName((0, _className2.default)(this.baseClassName + '__suggestion-btn'));
 			var focus = this.currentFocus;
 
 			if (direction === 'down') {
