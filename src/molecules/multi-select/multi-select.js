@@ -14,6 +14,7 @@ class MultiSelect {
 
 		this.getData();
 		this.attach();
+		this.sync();
 	}
 
 	getData() {
@@ -51,6 +52,20 @@ class MultiSelect {
 			...this.data,
 			...suggestions.filter((s) => !this.data.find((d) => d.value === s.value)),
 		];
+	}
+
+	sync() {
+		const inputs = this.element.querySelectorAll(`input[name="${this.name}[]"]`);
+
+		this.selectedItems = [];
+
+		inputs.forEach((input) => {
+			const item = this.data.find((d) => d.value === input.value);
+
+			if (item) {
+				this.addItem(item, false);
+			}
+		});
 	}
 
 	filterData(query) {
@@ -112,7 +127,7 @@ class MultiSelect {
 		itemInput.remove();
 	}
 
-	addItem(item) {
+	addItem(item, save = true) {
 		if (!item) {
 			return;
 		}
@@ -141,13 +156,15 @@ class MultiSelect {
 		this.selectedItemsList.appendChild(newItem);
 		this.selectedItems.push(item);
 
-		const itemInput = document.createElement('input');
+		if (save) {
+			const itemInput = document.createElement('input');
 
-		itemInput.type = 'hidden';
-		itemInput.name = `${this.name}[]`;
-		itemInput.value = item.value;
+			itemInput.type = 'hidden';
+			itemInput.name = `${this.name}[]`;
+			itemInput.value = item.value;
 
-		this.element.appendChild(itemInput);
+			this.element.appendChild(itemInput);
+		}
 	}
 
 	removeHighlight() {
