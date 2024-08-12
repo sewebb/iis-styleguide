@@ -3,10 +3,10 @@
 		<input type="hidden" name="cities[]" value="{{default_value}}">
 	{{/if}}
 	<div class="m-multi-select__search">
-		<input type="text" class="search-input a-input js-m-multi-select__input" data-multi-select-suggestions="suggestions" aria-controls="multiSelectSuggestionsBox" aria-autocomplete="list" aria-haspopup="true" role="combobox" placeholder="Sök städer..." aria-label="Sök städer" aria-describedby="multiSelectDescription"/>
+		<input type="search" class="a-input js-m-multi-select__input" data-multi-select-suggestions="suggestions" aria-controls="multiSelectSuggestionsBox" aria-autocomplete="list" aria-haspopup="listbox" role="combobox" placeholder="Sök städer..." aria-label="Sök städer" aria-describedby="multiSelectDescription"/>
 		<div class="m-multi-select__suggestions-box js-m-multi-select-suggestions-box" id="multiSelectSuggestionsBox" role="listbox" aria-live="assertive" aria-atomic="true"></div>
 	</div>
-	<ul class="m-multi-select-selected-items js-m-multi-select-selected-items" aria-live="assertive" aria-atomic="true"></ul>
+	<ul class="m-multi-select-selected-items js-m-multi-select-selected-items" aria-live="assertive" aria-atomic="true" aria-multiselectable="true"></ul>
 	<div class="u-visuallyhidden" id="multiSelectDescription">Använd upp och ner-pilarna för att lägga till sökträffar och tabb plus enter för att ta bort valda sökträffar</div>
 </div>
 {{#if add}}

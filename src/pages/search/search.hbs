@@ -9,7 +9,7 @@
 								{{> @icon id="search"}}
 							</span>
 						</div>
-						<div class="grid u-p-l-0 display-flex">
+						<div class="grid u-p-l-0 display-flex" role="search">
 							<label for="{{input_id}}" class="u-visuallyhidden">{{label}}</label>
 							<input type="search" class="o-search__input js-search-domain-input" placeholder="{{label}}" id="{{input_id}}" aria-describedby="number-of-hits" value="">
 							{{> @button el="button" button_type="submit" text="Sök" modifiers="secondary o-search__submit" id="o-search-result-submit"}}

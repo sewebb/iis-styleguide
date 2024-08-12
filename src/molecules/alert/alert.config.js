@@ -4,6 +4,7 @@ module.exports = {
 	context: {
 		name: 'Information',
 		type: 'info',
+		role: 'alert',
 		text: 'Meddelanderuta med vanlig information, t.ex information om öppettider. <a href="https://internetstiftelsen.se">Dessa meddelanden</a> är fasta dv.s inget dom dyker upp tillfälligt när användaren interagerar med tjänsten.',
 		additional_classes: false,
 	},

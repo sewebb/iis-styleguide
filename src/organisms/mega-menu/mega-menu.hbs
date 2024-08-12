@@ -2,7 +2,7 @@
 	{{#if domain_search}}
 		{{> @domain-search hidden="true" id="domain-search-2" input_id="search-domain-2" label="sök en .se- eller .nu-domän" addidional_classes="o-domain-search--is-in-mega-menu"}}
 	{{/if}}
-	<div class="wrapper o-mega-menu__wrapper">
+	<nav class="wrapper o-mega-menu__wrapper" aria-label="Megameny">
 		<div class="row align-items-start">
 			{{#each columns}}
 				<div class="grid-18 grid-lg">
@@ -18,7 +18,7 @@
 				</div>
 			{{/each}}
 		</div>
-	</div>
+	</nav>
 	{{#if search}}
 	<div class="row o-mega-menu__search__wrapper background-jade">
 		<div class="wrapper">
