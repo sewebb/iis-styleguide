@@ -69,9 +69,11 @@ class MultiSelect {
 	}
 
 	filterData(query) {
+		const selectedValues = this.selectedItems.map((item) => item.value);
+
 		return this.data
 			.filter((item) => item.name.toLowerCase().startsWith(query.toLowerCase()))
-			.filter((item) => !this.selectedItems.includes(item.name));
+			.filter((item) => !selectedValues.includes(item.value));
 	}
 
 	populateSuggestions(suggestions) {

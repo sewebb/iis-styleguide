@@ -140,12 +140,14 @@ var MultiSelect = function () {
 	}, {
 		key: 'filterData',
 		value: function filterData(query) {
-			var _this4 = this;
+			var selectedValues = this.selectedItems.map(function (item) {
+				return item.value;
+			});
 
 			return this.data.filter(function (item) {
 				return item.name.toLowerCase().startsWith(query.toLowerCase());
 			}).filter(function (item) {
-				return !_this4.selectedItems.includes(item.name);
+				return !selectedValues.includes(item.value);
 			});
 		}
 	}, {
@@ -193,7 +195,7 @@ var MultiSelect = function () {
 	}, {
 		key: 'addItem',
 		value: function addItem(item) {
-			var _this5 = this;
+			var _this4 = this;
 
 			var save = arguments.length > 1 && arguments[1] !== undefined ? arguments[1] : true;
 
@@ -217,7 +219,7 @@ var MultiSelect = function () {
 
 			// Event listener for removing the selected item
 			removeBtn.addEventListener('click', function () {
-				_this5.removeItem(item);
+				_this4.removeItem(item);
 			});
 
 			newItem.appendChild(removeBtn);
