@@ -195,7 +195,7 @@ class MultiSelect {
 	}
 
 	selectHighlighted() {
-		const items = this.suggestionsBox.getElementsByClassName(`${this.baseClassName}__suggestion-btn`);
+		const items = this.suggestionsBox.getElementsByClassName(className(`${this.baseClassName}__suggestion-btn`));
 
 		if (this.currentFocus > -1 && items[this.currentFocus]) {
 			const item = items[this.currentFocus];

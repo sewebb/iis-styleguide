@@ -267,7 +267,7 @@ var MultiSelect = function () {
 	}, {
 		key: 'selectHighlighted',
 		value: function selectHighlighted() {
-			var items = this.suggestionsBox.getElementsByClassName(this.baseClassName + '__suggestion-btn');
+			var items = this.suggestionsBox.getElementsByClassName((0, _className2.default)(this.baseClassName + '__suggestion-btn'));
 
 			if (this.currentFocus > -1 && items[this.currentFocus]) {
 				var item = items[this.currentFocus];
