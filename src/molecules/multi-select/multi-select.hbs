@@ -1,5 +1,7 @@
 <div class="m-multi-select js-m-multi-select" data-multi-select-name="cities">
-	<input type="hidden" name="cities[]" value="new-york">
+	{{#if default_value}}
+		<input type="hidden" name="cities[]" value="{{default_value}}">
+	{{/if}}
 	<div class="m-multi-select__search">
 		<input type="text" class="search-input a-input js-m-multi-select__input" data-multi-select-suggestions="suggestions" aria-controls="multiSelectSuggestionsBox" aria-autocomplete="list" aria-haspopup="true" role="combobox" placeholder="Sök städer..." aria-label="Sök städer" aria-describedby="multiSelectDescription"/>
 		<div class="m-multi-select__suggestions-box js-m-multi-select-suggestions-box" id="multiSelectSuggestionsBox" role="listbox" aria-live="assertive" aria-atomic="true"></div>
@@ -7,6 +9,25 @@
 	<ul class="m-multi-select-selected-items js-m-multi-select-selected-items" aria-live="assertive" aria-atomic="true"></ul>
 	<div class="u-visuallyhidden" id="multiSelectDescription">Använd upp och ner-pilarna för att lägga till sökträffar och tabb plus enter för att ta bort valda sökträffar</div>
 </div>
+{{#if add}}
+	<form id="addMultiSelectItem" class="u-p-default background-snow">
+		<input class="a-input" placeholder="City nam and enter">
+	</form>
+	<script>
+		document.getElementById('addMultiSelectItem').addEventListener('submit', (e) => {
+			e.preventDefault();
+			const input = e.target.querySelector('input');
+			const name = input.value;
+			const select = document.querySelector('.js-m-multi-select');
+
+			if (name) {
+				select.multiSelect.addSuggestions([{ name, value: name }]);
+				select.multiSelect.addItem({ name, value: name });
+				input.value = '';
+			}
+		});
+	</script>
+{{/if}}
 
 <script id="suggestions" type="application/json">
 	[
