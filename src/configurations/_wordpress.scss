@@ -393,3 +393,11 @@ hr.wp-block-separator {
 		width: 100vw;
 	}
 }
+
+ul.wp-block-list,
+ol.wp-block-list {
+	li > a {
+		@extend %break-long-links;
+		@extend %link-styles;
+	}
+}
