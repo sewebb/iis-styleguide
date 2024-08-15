@@ -7,6 +7,9 @@
 				<div class="table-container">
 					<table class="m-table{{#if modifier}} {{modifier}}{{/if}}" {{#if scrollable}}style="min-width:1360px"{{/if}}>
 						{{#unless increment}}
+						{{#if caption}}
+							<caption>Caption for the table</caption>
+						{{/if}}
 						<thead>
 							<tr>
 								<th>{{th}}</th>

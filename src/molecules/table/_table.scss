@@ -6,6 +6,12 @@
 	border: 0;
 	counter-reset: table-counter;
 
+	caption {
+		font-family: $font-family-headings;
+		padding-top: rhythm(1);
+		padding-bottom: rhythm(1);
+	}
+
 	thead,
 	tfoot {
 		font-family: $font-family-mono;

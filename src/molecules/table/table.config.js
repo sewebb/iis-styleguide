@@ -13,7 +13,8 @@ module.exports = {
 		td_unit3: '.se',
 		td_num4: '99',
 		td_unit4: 'kr/mån',
-		modifier: false
+		modifier: false,
+		caption: false
 	},
 	variants: [
 		{
@@ -49,6 +50,14 @@ module.exports = {
 			context: {
 				modifier: 'm-table--scrollable m-table--rows',
 				scrollable: true
+			}
+		},
+		{
+			name: 'With caption',
+			context: {
+				modifier: 'm-table--columns',
+				scrollable: false,
+				caption: true
 			}
 		},
 	]
