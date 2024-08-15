@@ -1,0 +1,9 @@
+<button href="#" class="a-button a-button--icon" {{#if toggle_icon}}data-toggle-icon-target="myIcon" data-toggle-icon="arrow-forwards|check"{{/if}} {{#if toggle_text}}data-toggle-text="{{#if external_target}}{{toggle_text_secondary_value}}{{else}}{{toggle_text_primary_value}}{{/if}}|Foo" data-toggle-target="boo"{{/if}}>
+	<span class="a-button__text" {{#unless external_target}}id="boo"{{/unless}}>{{toggle_text_primary_value}}</span>
+	<svg class="icon a-button__icon" id="myIcon">
+		<use xlink:href="#icon-arrow-forwards"></use>
+	</svg>
+</button>
+{{#if external_target}}
+<div id="{{target_id}}">I am an external target</div>
+{{/if}}
