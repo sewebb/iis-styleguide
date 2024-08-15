@@ -1,5 +1,4 @@
-<div class="u-p-default">
-	{{#unless multipleInputs}}
+{{#unless multipleInputs}}
 	<div class="m-input-group">
 		{{#if before}}
 			<span class="m-input-group__label">{{before}}</span>
@@ -9,12 +8,11 @@
 			<span class="m-input-group__label">{{after}}</span>
 		{{/if}}
 	</div>
-	{{/unless}}
-	{{#if multipleInputs}}
-		<div class="m-input-group">
-			<input type="text" placeholder="Name" class="a-input">
-			<span class="m-input-group__label">@</span>
-			<input type="text" placeholder="Server" class="a-input">
-		</div>
-	{{/if}}
-</div>
+{{/unless}}
+{{#if multipleInputs}}
+	<div class="m-input-group">
+		<input type="text" placeholder="Name" class="a-input">
+		<span class="m-input-group__label">@</span>
+		<input type="text" placeholder="Server" class="a-input">
+	</div>
+{{/if}}
