@@ -1,18 +1,18 @@
 {{#unless multipleInputs}}
-	<div class="m-input-group">
-		{{#if before}}
-			<span class="m-input-group__label">{{before}}</span>
-		{{/if}}
-		<input type="{{type}}" placeholder="{{placeholder}}" class="a-input">
-		{{#if after}}
-			<span class="m-input-group__label">{{after}}</span>
-		{{/if}}
-	</div>
+<div class="m-input-group">
+	{{#if before}}
+		<span class="m-input-group__label" id="{{before}}">{{before}}</span>
+	{{/if}}
+		<input type="{{type}}" placeholder="{{placeholder}}" class="a-input" aria-label="{{placeholder}}" aria-describedby="{{#if before}}{{before}}{{#if after}} {{after}}{{/if}}{{/if}}{{#if after}}{{after}}{{/if}}">
+	{{#if after}}
+		<span class="m-input-group__label" id="{{after}}">{{after}}</span>
+	{{/if}}
+</div>
 {{/unless}}
 {{#if multipleInputs}}
-	<div class="m-input-group">
-		<input type="text" placeholder="Name" class="a-input">
-		<span class="m-input-group__label">@</span>
-		<input type="text" placeholder="Server" class="a-input">
-	</div>
+<div class="m-input-group">
+	<input type="text" placeholder="Name" class="a-input" aria-label="Name" aria-describedby="@">
+	<span class="m-input-group__label" id="@">@</span>
+	<input type="text" placeholder="Server" class="a-input" aria-label="Server">
+</div>
 {{/if}}
