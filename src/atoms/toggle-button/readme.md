@@ -1,2 +1,2 @@
 # Toggle button
-This component uses the textToggle.js file located here: `/assets/js/`
+This component uses the textToggle.js and iconToggle.js files located here: `/assets/js/`
