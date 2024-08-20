@@ -9,9 +9,14 @@ function toggleTextOnClick(e) {
 	var i = parseInt(el.dataset.iteration || 0, 10);
 	var options = el.dataset.toggleText.split('|');
 	var nextIteration = i + 1 === options.length ? 0 : i + 1;
+	var ariaPressed = el.getAttribute('aria-pressed');
 
 	el.dataset.iteration = nextIteration;
 	target.innerText = options[nextIteration];
+
+	if (ariaPressed) {
+		el.setAttribute('aria-pressed', ariaPressed === 'true' ? 'false' : 'true');
+	}
 }
 
 /* eslint-disable */
