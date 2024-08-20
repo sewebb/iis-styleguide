@@ -19,7 +19,8 @@
 	&.is-invalid {
 		input,
 		select,
-		textarea {
+		textarea,
+		[class*='a-textarea--rich-text'] {
 			@extend %invalid;
 		}
 
@@ -29,7 +30,7 @@
 			&::selection {
 				background-color: $color-ruby;
 			}
-	
+
 			&::-moz-selection {
 				background-color: $color-ruby;
 			}
