@@ -49,21 +49,20 @@ class CharCounter {
 
 		if (this.min && count < this.min) {
 			this.counterEl.textContent = `${count}/${this.min}`;
-			this.counterEl.className = `color-ruby ${className('a-meta')}`;
+			this.counterEl.className = `backgrond-ruby-light ${className('a-meta')}`;
 
 			return;
 		}
 
 		if (this.max && count > this.max) {
 			this.counterEl.textContent = `${count}/${this.max}`;
-			this.counterEl.classList.remove('color-granit');
-			this.counterEl.className = `color-ruby ${className('a-meta')}`;
+			this.counterEl.className = `background-ruby-light ${className('a-meta')}`;
 
 			return;
 		}
 
 		this.counterEl.textContent = `${count}/${this.max || this.min}`;
-		this.counterEl.className = `color-jade ${className('a-meta')}`;
+		this.counterEl.className = `background-jade-light ${className('a-meta')}`;
 	}
 
 	build() {
@@ -83,8 +82,8 @@ class CharCounter {
 			this.el.style.paddingRight = '3.8333333333rem';
 		}
 
-		counter.className = `color-granit ${className('a-meta')}`;
-		counter.style.cssText = 'position: absolute; top: 5px; right: 10px; z-index: 501;';
+		counter.className = `color-cyberspace ${className('a-meta')}`;
+		counter.style.cssText = 'position: absolute; top: .5rem; right: .5rem; z-index: 501;background-color: #ff9fb4; border-radius: 0.25rem; padding: .25rem; line-height: 1;margin: 0';
 
 		wrapper.appendChild(counter);
 
