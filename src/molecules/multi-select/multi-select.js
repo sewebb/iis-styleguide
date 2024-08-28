@@ -44,6 +44,7 @@ class MultiSelect {
 	}
 
 	clearSuggestions() {
+		this.input.setAttribute('aria-expanded', 'false');
 		this.suggestionsBox.innerHTML = '';
 	}
 
@@ -79,6 +80,10 @@ class MultiSelect {
 	populateSuggestions(suggestions) {
 		const cls = className(`${this.baseClassName}__suggestion-btn`);
 		this.suggestionsBox.innerHTML = suggestions.map((item) => `<button class='${cls}' tabindex='0' value="${item.value}">${item.name}</button>`).join('');
+
+		if (this.suggestionsBox.innerHTML) {
+			this.input.setAttribute('aria-expanded', 'true');
+		}
 	}
 
 	onInput = () => {
