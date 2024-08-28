@@ -98,7 +98,12 @@ class MultiSelect {
 
 		const suggestions = this.filterData(value);
 
-		this.populateSuggestions(suggestions);
+		if (suggestions.length) {
+			this.populateSuggestions(suggestions);
+		} else {
+			this.clearSuggestions();
+		}
+
 		this.resetFocus();
 	}
 
