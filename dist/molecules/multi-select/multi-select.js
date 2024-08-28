@@ -31,7 +31,12 @@ var MultiSelect = function () {
 
 			var suggestions = _this.filterData(value);
 
-			_this.populateSuggestions(suggestions);
+			if (suggestions.length) {
+				_this.populateSuggestions(suggestions);
+			} else {
+				_this.clearSuggestions();
+			}
+
 			_this.resetFocus();
 		};
 
@@ -105,6 +110,7 @@ var MultiSelect = function () {
 	}, {
 		key: 'clearSuggestions',
 		value: function clearSuggestions() {
+			this.input.setAttribute('aria-expanded', 'false');
 			this.suggestionsBox.innerHTML = '';
 		}
 	}, {
@@ -157,6 +163,10 @@ var MultiSelect = function () {
 			this.suggestionsBox.innerHTML = suggestions.map(function (item) {
 				return '<button class=\'' + cls + '\' tabindex=\'0\' value="' + item.value + '">' + item.name + '</button>';
 			}).join('');
+
+			if (this.suggestionsBox.innerHTML) {
+				this.input.setAttribute('aria-expanded', 'true');
+			}
 		}
 	}, {
 		key: 'removeItem',
