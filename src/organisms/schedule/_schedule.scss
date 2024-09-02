@@ -2,27 +2,9 @@
 
 @include organism(schedule-filter)  {
 	margin-bottom: rhythm(2);
-	position: sticky;
-	top: -1px;
-	padding-top: 1px;
 	background-color: $color-ash;
 	z-index: z_index(foregroundMinus);
 	transition: box-shadow 0.25s ease, border-width 0.25s ease, background-color 0.25s ease;
-
-	&.is-sticky {
-		border-bottom: 1px solid $color-concrete;
-		margin-left: -#{$grid-gutter-width};
-		margin-right: -#{$grid-gutter-width};
-		padding-left: $grid-gutter-width;
-		padding-right: $grid-gutter-width;
-		background-color: $color-snow;
-		@extend %box-shadow;
-
-		@include bp-up(xxl) {
-			border-bottom-left-radius: $border-radius;
-			border-bottom-right-radius: $border-radius;
-		}
-	}
 
 	@include e(button) {
 		font-size: $size-base;
