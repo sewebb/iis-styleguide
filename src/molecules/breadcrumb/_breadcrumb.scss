@@ -97,13 +97,12 @@
 		max-width: rhythm(30);
 		overflow: hidden;
 		color: var(--cyberspace-color);
-		text-decoration: none;
 		text-overflow: ellipsis;
 		white-space: nowrap;
 
 		&[aria-current] {
-			color: $color-granit;
 			pointer-events: none;
+			text-decoration: none;
 
 			&::before {
 				font-weight: 400;
@@ -112,7 +111,7 @@
 
 		&:hover,
 		&:focus {
-			text-decoration: underline;
+			color: $color-ruby;
 		}
 
 		@include bp-up(md) {
