@@ -186,6 +186,7 @@ html {
 
 			& + [class*='timeline__item'] {
 				transform: translateY(0) !important;
+				margin-top: rhythm(6);
 			}
 
 			@include bp-up(md) {
