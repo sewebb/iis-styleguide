@@ -184,6 +184,10 @@ html {
 			padding-top: rhythm(6);
 			padding-bottom: rhythm(4);
 
+			& + [class*='timeline__item'] {
+				transform: translateY(0) !important;
+			}
+
 			@include bp-up(md) {
 				padding-top: rhythm(8);
 				padding-bottom: rhythm(8);
