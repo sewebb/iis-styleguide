@@ -1,4 +1,5 @@
 @charset 'UTF-8';
+@use "sass:color";
 
 @include b(field-group) {
 	position: relative;
@@ -94,7 +95,7 @@ fieldset[disabled] {
 			@extend %disabled;
 
 			&::before {
-				background-color: darken($color-concrete, 5%) !important;
+				background-color: color.adjust($color-concrete, $lightness: -5%) !important;
 			}
 		}
 	}
@@ -104,14 +105,14 @@ fieldset[disabled] {
 			@extend %disabled;
 
 			&::before {
-				background-color: darken($color-concrete, 5%);
+				background-color: color.adjust($color-concrete, $lightness: -5%);
 			}
 
 			&:hover,
 			&:focus {
 				/* stylelint-disable */
 				&::before {
-					background-color: darken($color-concrete, 5%);
+					background-color: color.adjust($color-concrete, $lightness: -5%);
 				}
 				/* stylelint-enable */
 			}

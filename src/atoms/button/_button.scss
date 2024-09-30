@@ -1,4 +1,5 @@
 @charset 'UTF-8';
+@use "sass:color";
 
 // Default Button
 /// @group Buttons
@@ -342,7 +343,7 @@
 
 		&:hover,
 		&:focus {
-			color: darken($color-jade, 10%);
+			color: color.adjust($color-jade, $lightness: -10%);
 			text-shadow: none;
 		}
 
@@ -430,7 +431,7 @@
 		color: $color-peacock;
 
 		&:hover {
-			color: darken($color-peacock, 10%);
+			color: color.adjust($color-peacock, $lightness: -10%);
 			text-shadow: none;
 		}
 
@@ -501,7 +502,7 @@
 		&:hover {
 			color: $color-sandstone;
 		}
-		
+
 		&:focus {
 			color: $color-sandstone-light;
 		}

@@ -1,3 +1,6 @@
+@charset 'UTF-8';
+@use "sass:color";
+
 @include organism(search) {
 	border-radius: $border-radius;
 	background-color: $color-snow;
@@ -33,13 +36,13 @@
 		transition: padding 0.25s ease-out;
 		border: 0;
 		border-radius: $border-radius;
-		background-color: lighten($color-ash, 4%);
+		background-color: color.adjust($color-ash, $lightness: 4%);
 		letter-spacing: -0.1px;
 		-webkit-appearance: none;
 
 		&:focus {
 			@extend %input-focus;
-			
+
 			background-color: $color-snow;
 		}
 
@@ -48,10 +51,10 @@
 		}
 
 		@include m(force-focus-look) {
-			background-color: lighten($color-ash, 4%);
+			background-color: color.adjust($color-ash, $lightness: 4%);
 
 			&:focus {
-				background-color: lighten($color-ash, 4%);
+				background-color: color.adjust($color-ash, $lightness: 4%);
 			}
 		}
 	}

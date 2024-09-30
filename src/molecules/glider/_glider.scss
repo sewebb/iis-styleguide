@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@use "sass:color";
 
 // The Glider components is dependant on JS-classes and is therefore not namespaced
 
@@ -114,7 +115,7 @@
 
 	&.disabled {
 		background-color: $color-ash;
-		box-shadow: 0 2px 5px lighten($color-granit, 25%);
+		box-shadow: 0 2px 5px color.adjust($color-granit, $lightness: 25%);
 		pointer-events: none;
 
 		svg {

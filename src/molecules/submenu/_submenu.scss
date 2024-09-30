@@ -1,6 +1,7 @@
 @charset "UTF-8";
 
 @use "sass:math";
+@use "sass:color";
 
 @include molecule(submenu) {
 	margin: 0 0 rhythm(2) 0;
@@ -143,7 +144,7 @@
 			margin: 0;
 			padding: rhythm(1) rhythm(3);
 			border: 0;
-			border-left: 1px solid darken($color-ash, 5%);
+			border-left: 1px solid color.adjust($color-ash, $lightness: -5%);
 			background-color: transparent;
 
 			&::before,
@@ -171,7 +172,7 @@
 
 			&[aria-expanded='true'] {
 				margin-bottom: -1px;
-				background-color: lighten($color-ash, 3%);
+				background-color: color.adjust($color-ash, $lightness: 3%);
 
 				&::after {
 					transform: rotate(-135deg);
@@ -183,7 +184,7 @@
 			}
 
 			&:hover {
-				background-color: lighten($color-ash, 3%);
+				background-color: color.adjust($color-ash, $lightness: 3%);
 			}
 
 			@include bp-up(md) {
@@ -207,8 +208,8 @@
 	@include e(sublevel) {
 		margin: 0;
 		padding: 0;
-		border-top: 1px solid darken($color-ash, 3);
-		background-color: lighten($color-ash, 3%);
+		border-top: 1px solid color.adjust($color-ash, $lightness: -3%);
+		background-color: color.adjust($color-ash, $lightness: 3%);
 		list-style: none;
 
 		&[aria-hidden='true'] {
@@ -221,7 +222,7 @@
 			padding: 0 rhythm(1.5);
 
 			& + & {
-				border-top: 1px solid darken($color-ash, 4);
+				border-top: 1px solid color.adjust($color-ash, $lightness: -4%);
 			}
 
 			/* Support for icon on sublevel */

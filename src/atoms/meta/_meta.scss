@@ -1,14 +1,6 @@
 @charset 'UTF-8';
 
 @include atom(meta) {
-	@include plumber(
-		$font-size: 1.7,
-		$baseline: $mono-baseline,
-		$leading-bottom: 0
-	);
-
-	@include color_values($colors, 'fill', $prefix: '--', $separator: '-');
-
 	display: flex;
 	position: relative;
 	align-items: center;
@@ -17,6 +9,14 @@
 	text-decoration: none;
 	text-transform: uppercase;
 	white-space: nowrap;
+
+	@include plumber(
+		$font-size: 1.7,
+		$baseline: $mono-baseline,
+		$leading-bottom: 0
+	);
+
+	@include color_values($colors, 'fill', $prefix: '--', $separator: '-');
 
 	span {
 		margin-left: rem(3px);
