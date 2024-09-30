@@ -1,4 +1,4 @@
-<div class="wrapper-fluid o-domain-search{{#if addidional_classes}} {{addidional_classes}}{{/if}}" {{#if id}}id="{{id}}"{{/if}} aria-hidden="{{hidden}}">
+<div class="wrapper-fluid o-domain-search{{#if white_background}} background-snow{{/if}}{{#if addidional_classes}} {{addidional_classes}}{{/if}}" {{#if id}}id="{{id}}"{{/if}} aria-hidden="{{hidden}}">
 	<div class="wrapper u-p-x-0">
 		<div class="grid">
 			<div class="display-flex align-items-center">
@@ -6,43 +6,6 @@
 					<label for="{{input_id}}" class="u-visuallyhidden">{{#if label}}{{label}}{{/if}}</label>
 					<input type="search" class="o-domain-search__input js-search-domain-input" autocomplete="off" {{#if label}}placeholder="{{label}}"{{/if}} id="{{input_id}}">
 					{{> @button el="button" button_type="submit" text="Sök domän" modifiers="secondary o-domain-search__submit" id="o-domain-search-submit"}}
-				</div>
-			</div>
-			<div class="row o-domain-search__list-container">
-				<div class="grid">
-					<ul class="o-domain-search__list u-list-clean row">
-						<li class="grid-18 grid-md-7 grid-xl-4">
-							<a href="https://old.iis.se/domaner/registrera/tips/">Hur registrerar jag en domän?
-								<svg class="icon o-mega-menu__link__icon">
-									<use xlink:href="#icon-external-link"></use>
-								</svg>
-							</a>
-						</li>
-						<li class="grid-18 grid-md-10 grid-xl-4">
-							<a href="https://old.iis.se/domaner/kontakta-kundtjanst/?q=">
-								Ändra mina befintliga uppgifter
-								<svg class="icon o-mega-menu__link__icon">
-									<use xlink:href="#icon-external-link"></use>
-								</svg>
-							</a>
-							</li>
-						<li class="grid-sm-18 grid-md-7 grid-xl-4">
-							<a href="https://old.iis.se/domaner/aterforsaljare/">
-								Hitta återförsäljare av domäner
-								<svg class="icon o-mega-menu__link__icon">
-									<use xlink:href="#icon-external-link"></use>
-								</svg>
-							</a>
-						</li>
-						<li class="grid-18 grid-md-10 grid-xl-4">
-							<a href="https://old.iis.se/domaner/free/?q=">
-								Ta reda på ägaren av ett domännamn
-								<svg class="icon o-mega-menu__link__icon">
-									<use xlink:href="#icon-external-link"></use>
-								</svg>
-							</a>
-						</li>
-					</ul>
 				</div>
 			</div>
 		</div>
