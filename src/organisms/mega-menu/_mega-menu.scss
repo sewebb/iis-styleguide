@@ -1,11 +1,9 @@
-$border-color: darken($color-jade, 5%);
-
 @include organism(mega-menu) {
 	z-index: z_index(middlegroundImportant);
 	padding-right: 0;
 	padding-left: 0;
 	transition: transform 0.25s ease-out;
-	background-color: $color-jade-light;
+	background-color: currentColor;
 
 	&[aria-hidden='true'] {
 		display: none;
@@ -31,35 +29,182 @@ $border-color: darken($color-jade, 5%);
 	}
 
 	@include e(wrapper) {
-		padding-top: rhythm(3);
-
 		@include bp-down(md) {
 			padding-right: rhythm(1);
 			padding-left: rhythm(1);
+			border-bottom: 1px solid currentColor;
+		}
+
+		@include bp-up(lg) {
+			padding-top: rhythm(3);
+		}
+	}
+
+	@include e(column) {
+		padding-bottom: rhythm(2);
+
+		@include bp-down(md) {
+			padding-left: 0;
+			padding-right: 0;
+			padding-bottom: 0;
+		}
+	}
+
+	@include e(buttons-list) {
+		display: flex;
+		align-items: stretch;
+		margin: 0;
+		padding: 0;
+		list-style: none;
+
+		@include e(item) {
+			width: 50%;
+			flex-grow: 1;
+			flex-shrink: 0;
+			margin: 0;
+			padding: 0;
+
+			& + & {
+				border-left: 1px solid currentColor;
+			}
+		}
+
+		@include e(link) {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			padding-top: rhythm(2);
+			padding-bottom: rhythm(2);
+			text-align: center;
+			color: $color-cyberspace;
+			text-decoration: none;
+			font-family: $font-family-headings;
+			border: 0;
+			background-color: transparent;
+			appearance: none;
+			width: 100%;
+			height: 100%;
+
+			&[aria-expanded='true'] {
+				background-color: currentColor;
+			}
+
+			svg {
+				width: $icon-size-large * 1.25;
+				height: $icon-size-large * 1.25;
+				margin-bottom: rhythm(1);
+				pointer-events: none;
+			}
+
+			span {
+				pointer-events: none;
+			}
+		}
+
+		@include bp-up(lg) {
+			display: none;
+		}
+	}
+
+	@include e(search-container) {
+		background-color: currentcolor;
+		padding-top: rhythm(2);
+		padding-bottom: rhythm(2);
+
+		&[aria-hidden='true'] {
+			display: none;
+		}
+	}
+
+	@include e(topic) {
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		border-top: 1px solid currentColor;
+
+		@include bp-up(lg) {
+			background-color: transparent;
+			border-top: 0;
+			margin-bottom: rhythm(1);
+		}
+	}
+
+	@include e(topic-button) {
+		margin-left: auto;
+		align-self: stretch;
+		padding-left: rhythm(1.5);
+		padding-right: rhythm(1.5);
+		border-left: 1px solid currentColor;
+
+		@include bp-up(lg) {
+			display: none;
+			pointer-events: none;
+		}
+
+		&[aria-expanded='true'] {
+			background-color: currentColor;
+
+			svg {
+				transform: rotate(-180deg);
+			}
 		}
 	}
 
 	@include e(list) {
-		margin-top: rhythm(1);
+		margin-top: 0;
+		background-color: currentColor;
+		margin-bottom: 0;
+		padding-top: 0;
+		padding-bottom: 0;
+
+		&[aria-hidden='true'] {
+			display: none;
+		}
+
+		@include bp-up(lg) {
+			margin-top: rhythm(1);
+			background-color: transparent;
+			border-bottom: 0;
+
+			&[aria-hidden='true'] {
+				display: initial;
+			}
+		}
 
 		@include e(topic) {
-			margin-top: rhythm(2);
-			margin-bottom: rhythm(0.5);
-			padding: rhythm(1) rhythm(1);
-			border-bottom: 1px solid $border-color;
+			margin-top: 0;
+			margin-bottom: 0;
+			border-bottom: 1px solid currentColor;
 			font-family: $font-family-headings;
 
-			&:first-child {
-				margin-top: 0;
+			> a {
+				padding: rhythm(1) rhythm(3.5);
+			}
+
+			@include bp-up(lg) {
+				margin-top: rhythm(2);
+				margin-bottom: rhythm(0.5);
+				padding: rhythm(1) rhythm(1);
+				border-bottom: 0;
+
+				> a {
+					padding: 0;
+				}
 			}
 		}
 
 		@include e(item) {
-			margin: 0 0 rhythm(0.5) 0;
-			padding: rhythm(1) rhythm(1);
+			margin: 0;
+			border-bottom: 1px solid currentColor;
 
-			& + & {
-				border-top: 1px solid $border-color;
+			&:last-child {
+				border-bottom: 0;
+			}
+
+			@include bp-up(lg) {
+				padding: rhythm(1) rhythm(1);
+				margin-bottom: rhythm(0.5);
+				border-bottom: 0;
 			}
 		}
 
@@ -85,8 +230,10 @@ $border-color: darken($color-jade, 5%);
 	@include e(link) {
 		display: inline-flex;
 		align-items: baseline;
+		width: 100%;
 		color: $color-cyberspace;
 		text-decoration: none;
+		padding: rhythm(1) rhythm(5);
 
 		&:hover {
 			&:not(span) {
@@ -94,15 +241,20 @@ $border-color: darken($color-jade, 5%);
 			}
 		}
 
+		@include bp-up(lg) {
+			padding: 0;
+		}
+
 		@include m(large) {
 			display: block;
-			padding: 0 rhythm(1);
+			width: 100%;
+			padding: rhythm(1.5) rhythm(2);
 			font-family: $font-family-headings;
-			font-size: rem(23px);
 			white-space: nowrap;
 
 			@include bp-up(lg) {
 				padding: 0;
+				font-size: rem(23px);
 			}
 		}
 
