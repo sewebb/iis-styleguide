@@ -2,7 +2,6 @@
 
 @include organism(domain-search) {
 	padding: rhythm(2) 0 rhythm(1) 0;
-	background-color: $color-snow;
 
 	&:not([class*='is-in-mega-menu']) {
 		display: none;

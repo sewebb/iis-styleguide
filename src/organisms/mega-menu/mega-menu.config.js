@@ -8,6 +8,7 @@ module.exports = {
 		columns: [
 			 {
 				headline: 'Domäner',
+				list_id: 'domains',
 				topics: [
 					{
 						topic: '',
@@ -61,6 +62,7 @@ module.exports = {
 			 },
 			{
 				headline: 'Kunskap',
+				list_id: 'kunskap',
 				topics: [
 					{
 						topic: 'För skolan',
@@ -96,6 +98,7 @@ module.exports = {
 			},
 			{
 				headline: 'Mötesplatser',
+				list_id: 'motesplatser',
 				topics: [
 					{
 						topic: '',
@@ -126,6 +129,7 @@ module.exports = {
 			},
 			{
 				headline: 'Om oss',
+				list_id: 'om-oss',
 				topics: [
 					{
 						topic: 'Presentation',
@@ -150,6 +154,7 @@ module.exports = {
 			},
 			{
 				headline: 'English',
+				list_id: 'english',
 				topics: [
 					{
 						topic: '',
@@ -181,6 +186,13 @@ module.exports = {
 			name: 'With domain search',
 			context: {
 				domain_search: true
+			}
+		},
+		{
+			name: 'With both searches',
+			context: {
+				domain_search: true,
+				search: true
 			}
 		}
 	]
