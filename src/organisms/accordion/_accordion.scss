@@ -1,4 +1,5 @@
 @charset 'UTF-8';
+@use "sass:color";
 
 // Extends
 %header {
@@ -13,6 +14,7 @@
 	font-family: $font-family-headings;
 	font-size: rem(17px);
 	text-align: left;
+	-webkit-appearance: none;
 
 	@include bp-up(md) {
 		font-size: rem(18px);
@@ -21,8 +23,6 @@
 	@include bp-up(xl) {
 		font-size: rem(20px);
 	}
-
-	-webkit-appearance: none;
 
 	&::before,
 	&::after {
@@ -126,7 +126,7 @@
 	}
 
 	@include organism(accordion) {
-		background-color: lighten($color-ash, 4%);
+		background-color: color.adjust($color-ash, $lightness: 4%);
 
 		@include e(panel) {
 			&[aria-hidden='false'],
@@ -240,7 +240,7 @@
 
 		@include m(ash) {
 			border-radius: 0;
-			background-color: lighten($color-ash, 4%);
+			background-color: color.adjust($color-ash, $lightness: 4%);
 		}
 	}
 

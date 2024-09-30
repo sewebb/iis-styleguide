@@ -1,4 +1,5 @@
 @charset 'UTF-8';
+@use "sass:color";
 
 %normalize-links {
 	padding: 0;
@@ -60,7 +61,7 @@
 	padding: rhythm(1);
 	border: 1px solid $color-granit;
 	border-radius: $border-radius;
-	background-color: lighten($color-ash, 4%);
+	background-color: color.adjust($color-ash, $lightness: 4%);
 	-webkit-appearance: none;
 	font-size: rem(16px);
 }
@@ -72,7 +73,7 @@
 
 %invalid {
 	border-color: $color-ruby;
-	background-color: lighten($color-ruby-light, 16%);
+	background-color: color.adjust($color-ruby-light, $lightness: 16%);
 }
 
 %disabled {
@@ -88,12 +89,12 @@
 
 %discreet {
 	border-style: dashed;
-	border-color: lighten($color-granit, 20%);
+	border-color: color.adjust($color-granit, $lightness: 20%);
 	background-color: transparent;
 
 	&:focus {
 		border-style: solid;
-		background-color: lighten($color-ash, 4%);
+		background-color:  color.adjust($color-ash, $lightness: 4%);
 	}
 }
 
