@@ -1,4 +1,5 @@
 @charset 'UTF-8';
+@use "sass:color";
 
 // Forwards / backwards
 /// @group Paging
@@ -29,7 +30,7 @@
 	border: 1px solid $color-ash;
 	border-radius: 50%;
 	background-color: $color-snow;
-	box-shadow: 0 3px 5px lighten($color-granit, 15%);
+	box-shadow: 0 3px 5px color.adjust($color-granit, $lightness: 15%);
 
 	@include bp-up(sm) {
 		width: rhythm(6);

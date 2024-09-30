@@ -1,4 +1,5 @@
 @charset 'UTF-8';
+@use "sass:color";
 
 /// @group Colors
 $color-black: #000 !default;
@@ -25,17 +26,17 @@ $color-twitter: #00aced !default;
 $color-linkedin: #0a66c2 !default;
 
 // Dark colors only for accessibility
-$color-ruby-dark: darken($color-ruby, 20%);
-$color-peacock-dark: darken($color-peacock, 20%);
-$color-jade-dark: darken($color-jade, 20%);
-$color-sandstone-dark: darken($color-sandstone, 20%);
-$color-lemon-dark: darken($color-lemon, 15%);
-$color-ocean-dark: darken($color-ocean, 24%);
+$color-ruby-dark: color.adjust($color-ruby, $lightness: -20%);
+$color-peacock-dark: color.adjust($color-peacock, $lightness: -20%);
+$color-jade-dark: color.adjust($color-jade, $lightness: -20%);
+$color-sandstone-dark: color.adjust($color-sandstone, $lightness: -20%);
+$color-lemon-dark: color.adjust($color-lemon, $lightness: -15%);
+$color-ocean-dark:color.adjust($color-ocean, $lightness: -24%);
 
 // Medium dark colors, for decoration purposes like borders
-$color-ruby-medium-dark: darken($color-ruby, 10%);
-$color-peacock-medium-dark: darken($color-peacock, 10%);
-$color-jade-medium-dark: darken($color-jade, 10%);
-$color-sandstone-medium-dark: darken($color-sandstone, 10%);
-$color-lemon-medium-dark: darken($color-lemon, 13%);
-$color-ocean-medium-dark: darken($color-ocean, 10%);
+$color-ruby-medium-dark:  color.adjust($color-ruby, $lightness: -10%);
+$color-peacock-medium-dark:  color.adjust($color-peacock, $lightness: -10%);
+$color-jade-medium-dark: color.adjust($color-jade, $lightness: -10%);
+$color-sandstone-medium-dark: color.adjust($color-sandstone, $lightness: -10%);
+$color-lemon-medium-dark: color.adjust($color-lemon, $lightness: -13%);
+$color-ocean-medium-dark: color.adjust($color-ocean, $lightness: -10%);

@@ -1,4 +1,5 @@
 @charset 'UTF-8';
+@use "sass:color";
 
 @include atom(checkbox) {
 	&[type='checkbox'] {
@@ -30,7 +31,7 @@
 			&:hover {
 				+ label {
 					&::before {
-						background-color: darken($color-ash, 5%);
+						background-color: color.adjust($color-ash, $lightness: -5%);
 					}
 				}
 			}
@@ -58,7 +59,7 @@
 				@extend %disabled;
 
 				&::before {
-					background-color: darken($color-concrete, 5%);
+					background-color: color.adjust($color-concrete, $lightness: -5%);
 				}
 			}
 		}

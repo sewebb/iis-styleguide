@@ -23,13 +23,12 @@
 	}
 
 	@include e(inner) {
-
-		@include make-container-max-widths();
-
 		display: flex;
 		flex-wrap: wrap;
 		margin-right: auto;
 		margin-left: auto;
+
+		@include make-container-max-widths();
 
 		@include bp-down(xl) {
 			padding-right: $grid-gutter-width;
