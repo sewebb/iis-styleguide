@@ -202,8 +202,12 @@ module.exports = {
 			name: 'With both searches',
 			context: {
 				domain_search: true,
+<<<<<<< HEAD
 				search: true,
 				hidden: true
+=======
+				search: true
+>>>>>>> de0dd2f (implement a new layout for the mobile mega menu)
 			}
 		}
 	]

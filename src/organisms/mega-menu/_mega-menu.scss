@@ -233,11 +233,15 @@
 		width: 100%;
 		color: $color-cyberspace;
 		text-decoration: none;
+<<<<<<< HEAD
 		padding: rhythm(1) rhythm(3.5);
 
 		@include m(sub-level) {
 			padding: rhythm(1) rhythm(5);
 		}
+=======
+		padding: rhythm(1) rhythm(5);
+>>>>>>> de0dd2f (implement a new layout for the mobile mega menu)
 
 		&:hover {
 			&:not(span) {
