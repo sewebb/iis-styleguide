@@ -1,17 +1,16 @@
 @charset "UTF-8";
 
 @include organism(event-listing-item) {
-
-	@include e(button) {
-
-	}
-
 	position: relative;
 	padding: rhythm(2);
 	border-left: 4px solid;
 	border-radius: $border-radius;
 	background-color: $color-snow;
 	font-size: $size-medium-plus;
+
+	@include e(button) {
+
+	}
 
 	@include bp-up(md) {
 		font-size: $size-base;
