@@ -1,4 +1,5 @@
 @charset 'UTF-8';
+@use "sass:color";
 
 @include organism(tab-list) {
 	overflow: hidden;
@@ -81,7 +82,7 @@
 		}
 
 		&:hover {
-			background-color: darken($color-concrete, 5%);
+			background-color: color.adjust($color-concrete, $lightness: -5%);
 		}
 	}
 
