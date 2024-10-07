@@ -51,7 +51,6 @@ class CharCounter {
 			this.counterEl.textContent = `${count}/${this.min}`;
 			this.counterEl.className = `backgrond-ruby-light ${className('a-meta')}`;
 			this.el.setAttribute('aria-invalid', 'true');
-			this.counterEl.closest('.field-group').classList.add('is-invalid');
 
 			return;
 		}
@@ -60,7 +59,6 @@ class CharCounter {
 			this.counterEl.textContent = `${count}/${this.max}`;
 			this.counterEl.className = `background-ruby-light ${className('a-meta')}`;
 			this.el.setAttribute('aria-invalid', 'true');
-			this.counterEl.closest('.field-group').classList.add('is-invalid');
 
 			return;
 		}
