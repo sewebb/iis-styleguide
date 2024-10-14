@@ -62,7 +62,7 @@
 		}
 
 		@include bp-up(sm) {
-			width: rem(300px);
+			max-width: rem(300px);
 		}
 	}
 }
