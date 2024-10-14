@@ -3,12 +3,11 @@ module.exports = {
 
 	context: {
 		hidden: 'false',
-		id: 'megaMenu',
+		id: 'mega-menu',
 		modifier:'',
 		columns: [
-			 {
+			{
 				headline: 'Domäner',
-				list_id: 'domains',
 				topics: [
 					{
 						topic: '',
@@ -59,25 +58,21 @@ module.exports = {
 						]
 					}
 				],
-			 },
+			},
 			{
 				headline: 'Kunskap',
-				list_id: 'kunskap',
 				topics: [
 					{
 						topic: 'För skolan',
 						items: [
 							{
-								item: 'Digitala lektioner',
-								is_sub_level: true,
+								item: 'Digitala lektioner'
 							},
 							{
-								item: 'Lärarfortbildning',
-								is_sub_level: true,
+								item: 'Lärarfortbildning'
 							},
 							{
-								item: 'Fördjupning',
-								is_sub_level: true,
+								item: 'Fördjupning'
 							},
 
 						]
@@ -86,16 +81,13 @@ module.exports = {
 						topic: 'För samhället',
 						items: [
 							{
-								item: 'Svenskarna och internet',
-								is_sub_level: true,
+								item: 'Svenskarna och internet'
 							},
 							{
-								item: 'Projekt internetaccess',
-								is_sub_level: true,
+								item: 'Projekt internetaccess'
 							},
 							{
-								item: 'Federationers',
-								is_sub_level: true,
+								item: 'Federationers'
 							},
 
 						]
@@ -104,7 +96,6 @@ module.exports = {
 			},
 			{
 				headline: 'Mötesplatser',
-				list_id: 'motesplatser',
 				topics: [
 					{
 						topic: '',
@@ -126,7 +117,7 @@ module.exports = {
 							},
 							{
 								item: 'Investeringar',
-								external: true,
+								external: true
 							},
 
 						]
@@ -135,27 +126,22 @@ module.exports = {
 			},
 			{
 				headline: 'Om oss',
-				list_id: 'om-oss',
 				topics: [
 					{
 						topic: 'Presentation',
 						items: [
 							{
 								item: 'Jobba hos oss',
-								is_sub_level: true,
 								external: true
 							},
 							{
-								item: 'Press',
-								is_sub_level: true,
+								item: 'Press'
 							},
 							{
-								item: 'Pressbilder och fotografier',
-								is_sub_level: true,
+								item: 'Pressbilder och fotografier'
 							},
 							{
-								item: 'Kontakt',
-								is_sub_level: true,
+								item: 'Kontakt'
 							}
 
 						]
@@ -164,7 +150,6 @@ module.exports = {
 			},
 			{
 				headline: 'English',
-				list_id: 'english',
 				topics: [
 					{
 						topic: '',
@@ -196,18 +181,6 @@ module.exports = {
 			name: 'With domain search',
 			context: {
 				domain_search: true
-			}
-		},
-		{
-			name: 'With both searches',
-			context: {
-				domain_search: true,
-<<<<<<< HEAD
-				search: true,
-				hidden: true
-=======
-				search: true
->>>>>>> de0dd2f (implement a new layout for the mobile mega menu)
 			}
 		}
 	]
