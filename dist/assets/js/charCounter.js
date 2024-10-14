@@ -72,7 +72,6 @@ var CharCounter = function () {
 				this.counterEl.textContent = count + '/' + this.min;
 				this.counterEl.className = 'backgrond-ruby-light ' + (0, _className2.default)('a-meta');
 				this.el.setAttribute('aria-invalid', 'true');
-				this.counterEl.closest('.field-group').classList.add('is-invalid');
 
 				return;
 			}
@@ -81,7 +80,6 @@ var CharCounter = function () {
 				this.counterEl.textContent = count + '/' + this.max;
 				this.counterEl.className = 'background-ruby-light ' + (0, _className2.default)('a-meta');
 				this.el.setAttribute('aria-invalid', 'true');
-				this.counterEl.closest('.field-group').classList.add('is-invalid');
 
 				return;
 			}
