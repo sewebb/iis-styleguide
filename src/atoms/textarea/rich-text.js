@@ -180,7 +180,7 @@ export function setupTextArea(el, onChange = () => {}) {
 	editorEl.className = el.className;
 	editorEl.classList.add(className('a-textarea--rich-text'));
 
-	el.style.display = 'none';
+	el.classList.add(className('a-textarea--hidden'));
 	el.editor = editor;
 
 	el.parentNode.insertBefore(editorEl, el);
