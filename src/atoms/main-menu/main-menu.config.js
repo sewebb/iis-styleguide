@@ -68,7 +68,11 @@ module.exports = {
 				extra_class: 'js-toggle-mega-menu',
 				has_expandable: true,
 				controls: 'mega-menu',
-				hide_mobile: false
+				hide_mobile: false,
+				has_id: true,
+				id: 'mega-menu-text',
+				toggle_text: true,
+				data_toggle_text: 'Meny|Stäng'
 			}
 		]
 	}
