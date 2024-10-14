@@ -3,7 +3,7 @@ module.exports = {
 
 	context: {
 		hidden: 'false',
-		id: 'mega-menu',
+		id: 'megaMenu',
 		modifier:'',
 		columns: [
 			 {
@@ -68,13 +68,16 @@ module.exports = {
 						topic: 'För skolan',
 						items: [
 							{
-								item: 'Digitala lektioner'
+								item: 'Digitala lektioner',
+								is_sub_level: true,
 							},
 							{
-								item: 'Lärarfortbildning'
+								item: 'Lärarfortbildning',
+								is_sub_level: true,
 							},
 							{
-								item: 'Fördjupning'
+								item: 'Fördjupning',
+								is_sub_level: true,
 							},
 
 						]
@@ -83,13 +86,16 @@ module.exports = {
 						topic: 'För samhället',
 						items: [
 							{
-								item: 'Svenskarna och internet'
+								item: 'Svenskarna och internet',
+								is_sub_level: true,
 							},
 							{
-								item: 'Projekt internetaccess'
+								item: 'Projekt internetaccess',
+								is_sub_level: true,
 							},
 							{
-								item: 'Federationers'
+								item: 'Federationers',
+								is_sub_level: true,
 							},
 
 						]
@@ -120,7 +126,7 @@ module.exports = {
 							},
 							{
 								item: 'Investeringar',
-								external: true
+								external: true,
 							},
 
 						]
@@ -136,16 +142,20 @@ module.exports = {
 						items: [
 							{
 								item: 'Jobba hos oss',
+								is_sub_level: true,
 								external: true
 							},
 							{
-								item: 'Press'
+								item: 'Press',
+								is_sub_level: true,
 							},
 							{
-								item: 'Pressbilder och fotografier'
+								item: 'Pressbilder och fotografier',
+								is_sub_level: true,
 							},
 							{
-								item: 'Kontakt'
+								item: 'Kontakt',
+								is_sub_level: true,
 							}
 
 						]
@@ -192,7 +202,8 @@ module.exports = {
 			name: 'With both searches',
 			context: {
 				domain_search: true,
-				search: true
+				search: true,
+				hidden: true
 			}
 		}
 	]
