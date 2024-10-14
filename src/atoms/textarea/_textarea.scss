@@ -22,10 +22,9 @@
 	@include m(hidden) {
 		@include visuallyhidden;
 
-		// Usually in a field-group and we want validation messages at the top
-		top: 0;
 		min-height: 0;
 		min-width: 0;
+		width: 100%;
 		padding: 0;
 	}
 
