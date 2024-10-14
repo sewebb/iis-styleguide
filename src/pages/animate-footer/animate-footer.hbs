@@ -28,7 +28,7 @@
 										</a>
 									</li>
 									<li class="u-hidden-mobile">
-										<a href="#" class="a-main-menu__list__link is-current">
+										<a href="#" class="a-main-menu__list__link">
 											<span class="a-main-menu__list__text">Domäner</span>
 										</a>
 									</li>
@@ -43,9 +43,19 @@
 											<div class="icon-arrow-down"></div>
 										</button>
 									</li>
+									<li class="u-hidden-mobile">
+											<span class="a-main-menu__list__button">
+												<a href="/?s=" class="a-main-menu__list__link a-main-menu__list__search-link u-p-r-5">
+													<span class="a-main-menu__list__text">Sök</span>
+													<svg class="icon u-icon--medium a-button__icon">
+														<use xlink:href="#icon-search" fill="#1f2a36"></use>
+													</svg>
+												</a>
+											</span>
+									</li>
 									<li>
-										<button type="button" class="a-main-menu__list__link js-toggle-mega-menu" aria-expanded="false">
-											<span class="a-main-menu__list__text">Meny</span>
+										<button type="button" class="a-main-menu__list__link js-toggle-mega-menu" aria-expanded="false" data-toggle-target="menu-btn-text" data-toggle-text="Meny|Stäng">
+											<span class="a-main-menu__list__text" id="menu-btn-text">Meny</span>
 											<div class="icon-hamburger"></div>
 										</button>
 									</li>
@@ -60,7 +70,7 @@
 			{{> @domain-search}}
 		</div>
 
-		{{> @mega-menu id="megaMenu" search=true domain_search=true}}
+		{{render '@mega-menu--with-both-searches' id="megaMenu" search=true domain_search=true hidden=true}}
 	</div>
 	<div class="site__main" id="siteMain">
 		<div class="background-snow">

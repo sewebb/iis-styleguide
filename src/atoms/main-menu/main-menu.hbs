@@ -30,8 +30,8 @@
 				</a>
 			</div>
 			{{else}}
-			<{{#if url}}a href="{{url}}"{{else}}button type="button"{{/if}} class="a-main-menu__list__link{{#if is_current}} is-current{{/if}}{{#if extra_class}} {{extra_class}}{{/if}}" {{#if has_expandable}}aria-expanded="false" data-a11y-toggle="{{controls}}"{{/if}}>
-				<span class="a-main-menu__list__text">{{text}}</span>
+			<{{#if url}}a href="{{url}}"{{else}}button type="button"{{#if toggle_text}} data-toggle-target="{{id}}" data-toggle-text="{{data_toggle_text}}"{{/if}}{{/if}} class="a-main-menu__list__link{{#if is_current}} is-current{{/if}}{{#if extra_class}} {{extra_class}}{{/if}}" {{#if has_expandable}}aria-expanded="false" data-a11y-toggle="{{controls}}"{{/if}}>
+				<span class="a-main-menu__list__text"{{#if has_id}} id="{{id}}"{{/if}}>{{text}}</span>
 				{{#if icon}}
 				<div class="{{icon}}"></div>
 				{{/if}}
