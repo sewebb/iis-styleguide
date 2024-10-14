@@ -1,8 +1,10 @@
 @charset 'UTF-8';
+
 @use "sass:color";
 
 @include organism(domain-search) {
 	padding: rhythm(2) 0 rhythm(1) 0;
+	background-color: $color-snow;
 
 	&:not([class*='is-in-mega-menu']) {
 		display: none;
@@ -81,10 +83,10 @@
 		}
 
 		@include m(force-focus-look) {
-			background-color: color.adjust($color-ash, $lightness: 4%);
+			background-color:  color.adjust($color-ash, $lightness: 4%);
 
 			&:focus {
-				background-color: color.adjust($color-ash, $lightness: 4%);
+				background-color:  color.adjust($color-ash, $lightness: 4%);
 			}
 		}
 	}
