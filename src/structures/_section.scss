@@ -43,8 +43,8 @@
 
 	@include e(title) {
 		margin-bottom: rhythm(3);
-		padding-right: rem(15px);
-		padding-left: rem(15px);
+		padding-right: to_rem(15px);
+		padding-left: to_rem(15px);
 	}
 
 	@include e(label) {

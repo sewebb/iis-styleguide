@@ -93,9 +93,9 @@
 			@include e(headline) {
 				font-family: $font-family-bold;
 				color: $color-snow;
-				text-shadow: 0 0 rem(50px) rgba($color-black, 1),
-					0 0 rem(10px) rgba($color-black, 1),
-					rem(1px) rem(1px) rem(2px) rgba($color-black, 0.6);
+				text-shadow: 0 0 to_rem(50px) rgba($color-black, 1),
+					0 0 to_rem(10px) rgba($color-black, 1),
+					to_rem(1px) to_rem(1px) to_rem(2px) rgba($color-black, 0.6);
 
 				@include plumber(
 					$font-size: 3,

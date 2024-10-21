@@ -76,7 +76,7 @@
 			position: relative;
 			width: $icon-size-medium;
 			height: $icon-size-medium;
-			transform: translateY(rem(1px));
+			transform: translateY(to_rem(1px));
 			fill: currentColor;
 		}
 	}
@@ -156,7 +156,7 @@
 	}
 
 	@include m(bordered) {
-		border-top: rem(4px) solid $color-ocean;
+		border-top: to_rem(4px) solid $color-ocean;
 	}
 
 	@include e(bottom) {
@@ -172,7 +172,7 @@
 
 			h1,
 			h2 {
-				font-size: rem(32px);
+				font-size: to_rem(32px);
 				line-height: 1.2;
 			}
 

@@ -31,7 +31,7 @@ h2,
 		$leading-bottom: 1,
 		$baseline: $headings-baseline
 	);
-	
+
 	font-family: $font-family-headings;
 
 	@include bp-up(sm) {
@@ -207,7 +207,7 @@ small {
 	line-height: 79px;
 	font-size: 120px;
 	font-family: $font-family-bold;
-	letter-spacing: -#{rem(5px)};
+	letter-spacing: -#{to_rem(5px)};
 
 	@include bp-up(sm) {
 		line-height: 100px;
@@ -217,13 +217,13 @@ small {
 	@include bp-up(md) {
 		line-height: 135px;
 		font-size: 200px;
-		letter-spacing: -#{rem(10px)};
+		letter-spacing: -#{to_rem(10px)};
 	}
 
 	@include bp-up(lg) {
 		line-height: 201px;
 		font-size: 295px;
-		letter-spacing: -#{rem(20px)};
+		letter-spacing: -#{to_rem(20px)};
 	}
 
 	@include bp-up(xl) {
@@ -234,14 +234,14 @@ small {
 	// Special rule for decade starting with 1
 	@include m(19) {
 		&::first-letter {
-			letter-spacing: -#{rem(20px)};
+			letter-spacing: -#{to_rem(20px)};
 
 			@include bp-up(lg) {
-				letter-spacing: -#{rem(40px)};
+				letter-spacing: -#{to_rem(40px)};
 			}
 
 			@include bp-up(xl) {
-				letter-spacing: -#{rem(45px)};
+				letter-spacing: -#{to_rem(45px)};
 			}
 		}
 	}
@@ -273,14 +273,14 @@ small {
 
 	font-family: $font-family-mono;
 	font-weight: normal;
-	letter-spacing: rem(0.5px);
+	letter-spacing: to_rem(0.5px);
 	text-transform: uppercase;
 }
 
 .mono {
 	font-family: $font-family-mono;
 	font-weight: normal;
-	letter-spacing: rem(0.5px);
+	letter-spacing: to_rem(0.5px);
 	text-decoration: none;
 	text-transform: uppercase;
 }
@@ -309,7 +309,7 @@ blockquote {
 	margin-right: 0;
 	margin-bottom: rhythm(5);
 	margin-left: 0;
-	padding-left: rem(40px);
+	padding-left: to_rem(40px);
 
 	p {
 		@include plumber(
@@ -348,14 +348,14 @@ blockquote {
 
 	@include bp-up(sm) {
 		padding-right: rhythm(3);
-		max-width: rem(613px);
+		max-width: to_rem(613px);
 		margin-left: auto;
 		margin-right: auto;
 	}
 
 	@include bp-up(md) {
 		margin-top: rhythm(6.5);
-		padding-left: rem(52px);
+		padding-left: to_rem(52px);
 
 		p {
 			@include plumber(

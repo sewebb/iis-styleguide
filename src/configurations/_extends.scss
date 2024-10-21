@@ -17,13 +17,13 @@
 
 %link-styles {
 	padding: rhythm(0) rhythm(0.5);
-	border-bottom: rem(2px) solid $color-peacock;
+	border-bottom: to_rem(2px) solid $color-peacock;
 	color: var(---cyberspace-color);
 	text-decoration: none;
 
 	&:hover,
 	&:focus {
-		border-bottom: rem(2px) solid $color-ocean-light;
+		border-bottom: to_rem(2px) solid $color-ocean-light;
 		border-radius: $border-radius;
 		background-color: $color-ocean-light;
 	}
@@ -63,7 +63,7 @@
 	border-radius: $border-radius;
 	background-color: color.adjust($color-ash, $lightness: 4%);
 	-webkit-appearance: none;
-	font-size: rem(16px);
+	font-size: to_rem(16px);
 }
 
 %input-focus {

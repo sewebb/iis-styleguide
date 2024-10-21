@@ -100,7 +100,7 @@ $border-color: color.adjust($color-jade, $lightness: -5%);
 			display: block;
 			padding: 0 rhythm(1);
 			font-family: $font-family-headings;
-			font-size: rem(23px);
+			font-size: to_rem(23px);
 			white-space: nowrap;
 
 			@include bp-up(lg) {

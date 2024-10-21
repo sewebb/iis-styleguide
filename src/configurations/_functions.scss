@@ -1,13 +1,14 @@
+@use "sass:map";
 @charset 'UTF-8';
 
 @use "sass:math";
 
 @function rhythm($lines) {
-	@return rem($lines * $base-unit);
+	@return to_rem($lines * $base-unit);
 }
 
 // Converts px value to rem
-@function rem($size) {
+@function to_rem($size) {
 	@return math.div($size, $size-base) * 1rem;
 }
 
@@ -18,13 +19,13 @@
 // Convert rem back to px
 @function rem_to_px($size) {
 	$value: parse_int($size) * 10px;
-	@return round($value);
+	@return math.round($value);
 }
 
 @function z_index($layer) {
-	@return map_get($z-index, $layer);
+	@return map.get($z-index, $layer);
 }
 
 @function make_col($size, $columns: $grid-columns) {
-	@return percentage(math.div($size, $columns));
+	@return math.percentage(math.div($size, $columns));
 }

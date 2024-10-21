@@ -24,7 +24,7 @@
 	}
 
 	@include m(large) {
-		font-size: rem(32px);
+		font-size: to_rem(32px);
 		padding: rhythm(1) rhythm(2);
 	}
 }

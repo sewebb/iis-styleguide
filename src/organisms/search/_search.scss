@@ -24,7 +24,7 @@
 	@include e(status) {
 		background-color: $color-jade-light;
 		font-family: $font-family-mono;
-		font-size: rem($size-medium-plus);
+		font-size: to_rem($size-medium-plus);
 		text-transform: uppercase;
 	}
 
@@ -68,7 +68,7 @@
 	@include bp-down(sm) {
 		@include e(submit) {
 			padding: rhythm(0.6) rhythm(1);
-			font-size: rem($size-small);
+			font-size: to_rem($size-small);
 		}
 	}
 
@@ -83,14 +83,14 @@
 		}
 
 		@include e(input) {
-			font-size: rem(32px);
+			font-size: to_rem(32px);
 		}
 	}
 
 	@include m(tight) {
 		@include e(submit) {
 			padding: rhythm(0.6) rhythm(1);
-			font-size: rem($size-small);
+			font-size: to_rem($size-small);
 
 			@include bp-up(sm) {
 				padding-right: rhythm(3);

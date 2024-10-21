@@ -12,7 +12,7 @@
 	@include e(text) {
 		flex: 1;
 		font-family: $font-family-mono;
-		font-size: rem($size-medium-plus);
+		font-size: to_rem($size-medium-plus);
 		text-align: center;
 		text-transform: uppercase;
 	}

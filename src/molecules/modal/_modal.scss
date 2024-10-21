@@ -50,7 +50,7 @@
 		@include bp-up(sm) {
 			padding: rhythm(4) rhythm(4) rhythm(6) rhythm(4);
 			width: auto;
-			min-width: rem(576px);
+			min-width: to_rem(576px);
 		}
 
 		@include bp-up(md) {
@@ -58,7 +58,7 @@
 		}
 
 		@include bp-up(lg) {
-			max-width: rem(961px);
+			max-width: to_rem(961px);
 		}
 
 		@include m(no-max-width) {

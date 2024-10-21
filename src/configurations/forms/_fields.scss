@@ -42,11 +42,11 @@
 @include b(input-help) {
 	width: 100%;
 	padding: rhythm(0.5) rhythm(1);
-	transform: translateY(rem(-3px));
+	transform: translateY(to_rem(-3px));
 	border-bottom-right-radius: $border-radius;
 	border-bottom-left-radius: $border-radius;
 	background-color: $color-concrete;
-	font-size: rem(16px);
+	font-size: to_rem(16px);
 
 	&:empty {
 		display: none;

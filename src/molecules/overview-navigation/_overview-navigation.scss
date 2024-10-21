@@ -17,7 +17,7 @@
 		margin: 0;
 		padding: 0;
 		width: 100%;
-		max-height: calc(100dvh - rem(130px));
+		max-height: calc(100dvh - to_rem(130px));
 		overflow-y: auto;
 	}
 
@@ -72,8 +72,8 @@
 		pointer-events: none;
 		padding: 0;
 		border: 0;
-		width: rem(60px);
-		height: rem(60px);
+		width: to_rem(60px);
+		height: to_rem(60px);
 		flex-shrink: 0;
 		flex-grow: 0;
 		align-items: center;

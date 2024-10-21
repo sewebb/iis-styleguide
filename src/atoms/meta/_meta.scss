@@ -19,7 +19,7 @@
 	@include color_values($colors, 'fill', $prefix: '--', $separator: '-');
 
 	span {
-		margin-left: rem(3px);
+		margin-left: to_rem(3px);
 	}
 
 	@include b(icon) {

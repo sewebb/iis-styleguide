@@ -32,7 +32,7 @@
 	@include atom(file-preview) {
 		position: relative;
 		width: 100%;
-		height: rem(169px);
+		height: to_rem(169px);
 		margin-bottom: rhythm(1);
 		overflow: hidden;
 		border-radius: $border-radius;
@@ -62,7 +62,7 @@
 		}
 
 		@include bp-up(sm) {
-			max-width: rem(300px);
+			max-width: to_rem(300px);
 		}
 	}
 }

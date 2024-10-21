@@ -365,7 +365,7 @@ hr.wp-block-separator {
 
 	&.aligncenter {
 		width: 50vw;
-		max-width: rem(469px);
+		max-width: to_rem(469px);
 		margin-top: rhythm(2);
 		margin-bottom: rhythm(2);
 	}
@@ -373,7 +373,7 @@ hr.wp-block-separator {
 	&.alignleft {
 		float: none;
 		margin-left: 0;
-		max-width: rem(90px);
+		max-width: to_rem(90px);
 		margin-top: rhythm(2);
 		margin-bottom: rhythm(2);
 

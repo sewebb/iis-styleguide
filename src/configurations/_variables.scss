@@ -1,8 +1,8 @@
 @charset 'UTF-8';
 
 @use "sass:math";
-
-@import '../vendor/grid/functions';
+@use '../vendor/baseline/plumber' as p;
+@use '../vendor/grid/functions' as grid;
 
 // Typography
 $font-family-base: 'HK Grotesk', sans-serif !default;
@@ -29,14 +29,14 @@ $size-small: 12px !default;
 
 // Base units
 $base-unit: math.div($size-base, 2) !default;
-$rem-size: rem($base-unit) !default;
+$rem-size: to_rem($base-unit) !default;
 
 // Small size
-$small-text: rem($size-small);
+$small-text: to_rem($size-small);
 
 // Baseline defaults
-@include plumber-set-defaults(
-	$grid-height: rem($base-unit),
+@include p.plumber-set-defaults(
+	$grid-height: to_rem($base-unit),
 	$baseline: $body-baseline,
 	$font-size: 2,
 	$line-height: 3,
@@ -61,15 +61,15 @@ $grid-breakpoints: (
 	xxl: 1400px
 ) !default;
 
-@include _assert-ascending($grid-breakpoints, '$grid-breakpoints');
-@include _assert-starts-at-zero($grid-breakpoints);
+@include grid.assert-ascending($grid-breakpoints, '$grid-breakpoints');
+@include grid.assert-starts-at-zero($grid-breakpoints);
 
 // Grid columns
 //
 // Set the number of columns and specify the width of the gutters.
 
 $grid-columns: 18 !default;
-$grid-gutter-width: rem(20px) !default;
+$grid-gutter-width: to_rem(20px) !default;
 
 // Grid containers
 //
@@ -79,17 +79,17 @@ $container-max-widths: (
 	xl: 1360px
 ) !default;
 
-@include _assert-ascending($container-max-widths, '$container-max-widths');
+@include grid.assert-ascending($container-max-widths, '$container-max-widths');
 
 // Default border-radius
 $border-radius: rhythm(0.5);
 
 // Icons
-$icon-size: rem(24px);
-$icon-size-large: rem(28px);
-$icon-size-medium: rem(20px);
-$icon-size-small: rem(16px);
-$icon-size-smallest: rem(12px);
+$icon-size: to_rem(24px);
+$icon-size-large: to_rem(28px);
+$icon-size-medium: to_rem(20px);
+$icon-size-small: to_rem(16px);
+$icon-size-smallest: to_rem(12px);
 
 // Z-indexes
 $z-index: (

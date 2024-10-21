@@ -146,8 +146,8 @@
 		}
 
 		@include e(image-wrapper) {
-			width: rem(50px);
-			height: rem(50px);
+			width: to_rem(50px);
+			height: to_rem(50px);
 			margin-right: rhythm(2);
 			position: relative;
 
@@ -156,14 +156,14 @@
 			}
 
 			@include m(medium) {
-				width: rem(75px);
-				height: rem(75px);
+				width: to_rem(75px);
+				height: to_rem(75px);
 
 			}
 
 			@include m(large) {
-				width: rem(125px);
-				height: rem(125px);
+				width: to_rem(125px);
+				height: to_rem(125px);
 				margin-bottom: rhythm(2);
 
 				@include bp-up(md) {
@@ -206,8 +206,8 @@
 
 		@include e(image) {
 			border-radius: 50%;
-			width: rem(50px);
-			height: rem(50px);
+			width: to_rem(50px);
+			height: to_rem(50px);
 			position: relative;
 			z-index: 3;
 			box-shadow: 0 0 0 3px $color-snow;
@@ -217,14 +217,14 @@
 			}
 
 			@include m(medium) {
-				width: rem(75px);
-				height: rem(75px);
+				width: to_rem(75px);
+				height: to_rem(75px);
 
 			}
 
 			@include m(large) {
-				width: rem(125px);
-				height: rem(125px);
+				width: to_rem(125px);
+				height: to_rem(125px);
 				margin-bottom: rhythm(2);
 				box-shadow: none;
 

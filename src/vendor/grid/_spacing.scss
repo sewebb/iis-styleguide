@@ -1,4 +1,5 @@
-@each $breakpoint in map-keys($grid-breakpoints) {
+@use "sass:map";
+@each $breakpoint in map.keys($grid-breakpoints) {
 	@include bp-up($breakpoint) {
 		$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
 

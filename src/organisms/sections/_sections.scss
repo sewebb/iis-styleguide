@@ -109,9 +109,9 @@ $spacing: rhythm(6);
 				top: 0;
 				left: 0;
 				z-index: 2;
-				width: rem(575px);
-				height: rem(575px);
-				transform: translate(calc(-100% - #{rem(20px)}), -50%) rotate(-20deg);
+				width: to_rem(575px);
+				height: to_rem(575px);
+				transform: translate(calc(-100% - #{to_rem(20px)}), -50%) rotate(-20deg);
 				transform-origin: right bottom;
 				background-color: $color-peacock;
 			}
@@ -130,9 +130,9 @@ $spacing: rhythm(6);
 				top: 0;
 				right: 0;
 				z-index: 2;
-				width: rem(450px);
-				height: rem(166px);
-				transform: translate(calc(100% + #{rem(20px)}), 50%) rotate(20deg);
+				width: to_rem(450px);
+				height: to_rem(166px);
+				transform: translate(calc(100% + #{to_rem(20px)}), 50%) rotate(20deg);
 				transform-origin: left bottom;
 				background-color: $color-ruby;
 			}

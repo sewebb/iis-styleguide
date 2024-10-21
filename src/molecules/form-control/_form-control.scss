@@ -9,7 +9,7 @@
 			padding-top: rhythm(1.85);
 			padding-bottom: rhythm(1.85);
 			padding-left: rhythm(2);
-			font-size: rem(20px);
+			font-size: to_rem(20px);
 
 			&.has-icon {
 				padding-right: rhythm(6);
@@ -28,29 +28,29 @@
 			padding: rhythm(1.6) rhythm(4);
 
 			@include b(a-button__text) {
-				font-size: rem(24px);
+				font-size: to_rem(24px);
 			}
 		}
 
 		// Checkbox
 		@include atom(checkbox) {
 			+ label {
-				font-size: rem(20px);
+				font-size: to_rem(20px);
 
 				&::before {
 					width: $icon-size;
 					height: $icon-size;
-					margin-top: rem(3px);
+					margin-top: to_rem(3px);
 				}
 			}
 
 			&:checked {
 				+ label {
 					&::after {
-						top: rem(10px);
-						left: rem(8px);
-						width: rem(8px);
-						height: rem(15px);
+						top: to_rem(10px);
+						left: to_rem(8px);
+						width: to_rem(8px);
+						height: to_rem(15px);
 						border-width: 0 4px 4px 0;
 					}
 				}
@@ -61,7 +61,7 @@
 		@include atom(radio) {
 			&[type='radio'] {
 				+ label {
-					font-size: rem(20px);
+					font-size: to_rem(20px);
 
 					&::before {
 						width: $icon-size;
@@ -79,13 +79,13 @@
 			padding-left: rhythm(2);
 			background-position: calc(100% - #{rhythm(2)}) 50%;
 			background-size: $icon-size $icon-size;
-			font-size: rem(20px);
+			font-size: to_rem(20px);
 		}
 
 		// Textarea
 		@include atom(textarea) {
 			height: rhythm(15);
-			font-size: rem(20px);
+			font-size: to_rem(20px);
 		}
 	}
 
@@ -95,7 +95,7 @@
 		@include b(a-input) {
 			padding-top: rhythm(0.5);
 			padding-bottom: rhythm(0.8);
-			font-size: rem(16px);
+			font-size: to_rem(16px);
 		}
 
 		// Input icon
@@ -117,13 +117,13 @@
 			padding-top: rhythm(0.5);
 			padding-bottom: rhythm(0.8);
 			background-size: $icon-size-small $icon-size-small;
-			font-size: rem(16px);
+			font-size: to_rem(16px);
 		}
 
 		// Textarea
 		@include atom(textarea) {
 			height: rhythm(12);
-			font-size: rem(16px);
+			font-size: to_rem(16px);
 		}
 	}
 }

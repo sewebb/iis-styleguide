@@ -16,11 +16,11 @@
 				content: '';
 				display: block;
 				flex-shrink: 0;
-				width: rem(15px);
-				height: rem(15px);
-				margin-top: rem(3px);
+				width: to_rem(15px);
+				height: to_rem(15px);
+				margin-top: to_rem(3px);
 				margin-right: rhythm(1);
-				transform: translateX(rem(1px));
+				transform: translateX(to_rem(1px));
 				border: 2px solid transparent;
 				border-radius: 50%;
 				background-color: $color-snow;

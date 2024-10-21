@@ -1,8 +1,7 @@
 @charset 'UTF-8';
 
 @use "sass:math";
-
-@import '../configurations/colors/colors';
+@use '../configurations/colors/colors';
 
 html {
 	box-sizing: border-box;
@@ -11,7 +10,7 @@ html {
 	background-color: theme_palette('background');
 	color: var(--cyberspace-color);
 	font-family: sans-serif;
-	font-size: percentage(math.div($size-base, 16px));
+	font-size: math.percentage(math.div($size-base, 16px));
 	font-variant-ligatures: no-common-ligatures;
 	-ms-overflow-style: scrollbar;
 	-webkit-text-size-adjust: 100%;
@@ -299,7 +298,7 @@ pre {
 	margin-bottom: rhythm(4);
 	padding: rhythm(2);
 	overflow: auto;
-	border-top: rem(4px) solid $color-sandstone;
+	border-top: to_rem(4px) solid $color-sandstone;
 	border-radius: $border-radius;
 	background-color: $color-snow;
 	font-size: $size-medium;

@@ -38,7 +38,7 @@
 	@include e(icon) {
 		width: $icon-size-small;
 		height: $icon-size-small;
-		margin-top: rem(3px);
+		margin-top: to_rem(3px);
 		margin-left: rhythm(1);
 		fill: currentColor;
 	}

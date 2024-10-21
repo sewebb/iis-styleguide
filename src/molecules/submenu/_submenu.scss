@@ -152,8 +152,8 @@
 				content: '';
 				display: block;
 				position: absolute;
-				top: rem(22px);
-				right: rem(25px);
+				top: to_rem(22px);
+				right: to_rem(25px);
 				width: math.div($icon-size-small, 1.5);
 				height: 2px;
 				transform-origin: center center;
@@ -166,7 +166,7 @@
 			}
 
 			&::after {
-				right: rem(18px);
+				right: to_rem(18px);
 				transform: rotate(-45deg);
 			}
 
@@ -192,14 +192,14 @@
 
 				&::before,
 				&::after {
-					top: rem(31px);
-					right: rem(33px);
+					top: to_rem(31px);
+					right: to_rem(33px);
 					width: $icon-size-small;
 					height: 3px;
 				}
 
 				&::after {
-					right: rem(23px);
+					right: to_rem(23px);
 				}
 			}
 		}

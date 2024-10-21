@@ -12,16 +12,16 @@
 	background: transparent;
 	box-shadow: inset 0 -1px 1px rgba($color-cyberspace, 0.2);
 	font-family: $font-family-headings;
-	font-size: rem(17px);
+	font-size: to_rem(17px);
 	text-align: left;
 	-webkit-appearance: none;
 
 	@include bp-up(md) {
-		font-size: rem(18px);
+		font-size: to_rem(18px);
 	}
 
 	@include bp-up(xl) {
-		font-size: rem(20px);
+		font-size: to_rem(20px);
 	}
 
 	&::before,
@@ -30,7 +30,7 @@
 		display: block;
 		position: absolute;
 		top: 50%;
-		right: rem(23px);
+		right: to_rem(23px);
 		width: $icon-size-small;
 		height: 3px;
 		transform: translateY(-50%);
@@ -44,7 +44,7 @@
 	}
 
 	&::after {
-		right: rem(13px);
+		right: to_rem(13px);
 		transform: rotate(-45deg);
 	}
 
@@ -292,7 +292,7 @@
 
 		@include e(flag) {
 			margin-right: rhythm(1);
-			font-size: rem(32px);
+			font-size: to_rem(32px);
 			line-height: 1;
 		}
 	}

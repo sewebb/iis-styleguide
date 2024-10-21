@@ -1,6 +1,7 @@
+@use "sass:map";
 @charset 'UTF-8';
 
-@import '../configurations/colors/colors';
+@use '../configurations/colors/colors';
 
 :root {
 	--snow-color: #{$color-snow};
@@ -20,7 +21,7 @@ $theme-palette: (
 ) !default;
 
 @function theme_palette($key: 'background') {
-	@return map-get($theme-palette, $key);
+	@return map.get($theme-palette, $key);
 }
 
 @include b(site) {

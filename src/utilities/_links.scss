@@ -23,13 +23,13 @@
 /* Force body text link link-styles */
 .u-link {
 	padding: rhythm(0) rhythm(0.5) !important;
-	border-bottom: rem(2px) solid $color-peacock !important;
+	border-bottom: to_rem(2px) solid $color-peacock !important;
 	color: var(--cyberspace-color) !important;
 	text-decoration: none !important;
 
 	&:hover,
 	&:focus {
-		border-bottom: rem(2px) solid $color-ocean-light !important;
+		border-bottom: to_rem(2px) solid $color-ocean-light !important;
 		border-radius: $border-radius !important;
 		background-color: $color-ocean-light !important;
 	}

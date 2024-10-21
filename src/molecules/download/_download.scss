@@ -57,8 +57,8 @@
 	}
 
 	@include b(icon) {
-		width: rem(57px);
-		height: rem(78px);
+		width: to_rem(57px);
+		height: to_rem(78px);
 		color: var(--cyberspace-color);
 		fill: currentColor;
 	}

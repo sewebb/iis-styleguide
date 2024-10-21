@@ -96,7 +96,7 @@
 						}
 
 						figcaption {
-							max-width: rem(612px);
+							max-width: to_rem(612px);
 							text-align: center;
 							color: $color-snow;
 							padding-left: rhythm(2);

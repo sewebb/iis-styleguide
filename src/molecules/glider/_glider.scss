@@ -168,8 +168,8 @@
 
 .glider-dot {
 	display: block;
-	width: rem(14px);
-	height: rem(14px);
+	width: to_rem(14px);
+	height: to_rem(14px);
 	margin: rhythm(0.5);
 	padding: 0;
 	border: 0;

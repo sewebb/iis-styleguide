@@ -10,7 +10,7 @@
 		padding: 0 rhythm(1);
 		background: $color-concrete;
 		border: 1px solid $color-granit;
-		font-size: rem(16px);
+		font-size: to_rem(16px);
 
 		&:first-child {
 			border-radius: $border-radius 0 0 $border-radius;

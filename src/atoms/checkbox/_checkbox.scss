@@ -18,7 +18,7 @@
 				flex-shrink: 0;
 				width: $icon-size-small;
 				height: $icon-size-small;
-				margin-top: rem(3px);
+				margin-top: to_rem(3px);
 				margin-right: rhythm(1);
 				border: 1px solid $color-cyberspace;
 				border-radius: $border-radius;
@@ -43,10 +43,10 @@
 					content: '';
 					display: block;
 					position: absolute;
-					top: rem(10.5px);
-					left: rem(6px);
-					width: rem(5px);
-					height: rem(9px);
+					top: to_rem(10.5px);
+					left: to_rem(6px);
+					width: to_rem(5px);
+					height: to_rem(9px);
 					transform: rotate(45deg);
 					border: solid $color-cyberspace;
 					border-width: 0 2px 2px 0;

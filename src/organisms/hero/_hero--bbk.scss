@@ -70,8 +70,8 @@
 	}
 
 	@include e(gauge) {
-		width: rem(162px);
-		height: rem(162px);
+		width: to_rem(162px);
+		height: to_rem(162px);
 		flex-shrink: 0;
 		transform: scale(.7) translate3d(0,0,0);
 		position: relative;
@@ -134,8 +134,8 @@
 			background-repeat: no-repeat;
 			background-size: 46px 43px;
 			position: absolute;
-			top: -#{rem(7px)};
-			left: -#{rem(20px)};
+			top: -#{to_rem(7px)};
+			left: -#{to_rem(20px)};
 		}
 	}
 }

@@ -1,3 +1,5 @@
+@use "sass:meta";
+@use "sass:string";
 @charset 'UTF-8';
 
 /// Element class separator
@@ -15,8 +17,8 @@ $state-prefix: 'is';
 /// Converts selector to string
 /// @group BEM
 @function selector_to_string($selector) {
-	$selector: inspect($selector); //cast to string
-	$selector: str-slice($selector, 2, -2); //remove brackets
+	$selector: meta.inspect($selector); //cast to string
+	$selector: string.slice($selector, 2, -2); //remove brackets
 	@return $selector;
 }
 
@@ -24,7 +26,7 @@ $state-prefix: 'is';
 /// @group BEM
 @function contains_modifier($selector) {
 	$selector: selector_to_string($selector);
-	@if str-index($selector, $modifier-separator) {
+	@if string.index($selector, $modifier-separator) {
 		@return true;
 	} @else {
 		@return false;
@@ -35,8 +37,8 @@ $state-prefix: 'is';
 /// @group BEM
 @function get_block($selector) {
 	$selector: selector_to_string($selector);
-	$modifier-start: str-index($selector, $modifier-separator) - 1;
-	@return str-slice($selector, 0, $modifier-start);
+	$modifier-start: string.index($selector, $modifier-separator) - 1;
+	@return string.slice($selector, 0, $modifier-start);
 }
 
 /// Encapsulates a standalone entity that is meaningful on its own.

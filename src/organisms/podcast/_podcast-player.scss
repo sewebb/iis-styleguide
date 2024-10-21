@@ -7,7 +7,7 @@
 
 	// Player
 
-	$time-left-width: rem(65px);
+	$time-left-width: to_rem(65px);
 
 	position: fixed;
 	z-index: z_index(middlegroundImportant);
@@ -64,20 +64,20 @@
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-		max-width: rem(200px);
+		max-width: to_rem(200px);
 
 		@include bp-up(sm) {
-			max-width: rem(250px);
+			max-width: to_rem(250px);
 		}
 
 		@include bp-up(lg) {
-			max-width: rem(500px);
+			max-width: to_rem(500px);
 		}
 	}
 
 	@include e(description) {
 		display: block;
-		max-width: rem(200px);
+		max-width: to_rem(200px);
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
@@ -87,11 +87,11 @@
 		}
 
 		@include bp-up(sm) {
-			max-width: rem(250px);
+			max-width: to_rem(250px);
 		}
 
 		@include bp-up(lg) {
-			max-width: rem(500px);
+			max-width: to_rem(500px);
 		}
 	}
 

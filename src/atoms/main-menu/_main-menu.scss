@@ -66,7 +66,7 @@
 			background-color: transparent;
 			color: var(--cyberspace-color);
 			font-family: $font-family-medium;
-			font-size: rem($size-small);
+			font-size: to_rem($size-small);
 			text-decoration: none;
 			-webkit-appearance: none;
 			line-height: 1;
@@ -140,11 +140,11 @@
 				}
 
 				&::before {
-					top: -#{rem(6px)};
+					top: -#{to_rem(6px)};
 				}
 
 				&::after {
-					bottom: -#{rem(6px)};
+					bottom: -#{to_rem(6px)};
 				}
 			}
 
@@ -156,7 +156,7 @@
 				width: $icon-size-medium;
 				height: $icon-size-medium;
 				margin-left: rhythm(1);
-				margin-top: -#{rem(3px)};
+				margin-top: -#{to_rem(3px)};
 				transform-origin: 50% 50%;
 				transition: all 0.3s ease-out;
 				border: 0;
@@ -176,12 +176,12 @@
 				}
 
 				&::before {
-					left: -#{rem(2px)};
+					left: -#{to_rem(2px)};
 					transform: rotate(45deg);
 				}
 
 				&::after {
-					right: -#{rem(2px)};
+					right: -#{to_rem(2px)};
 					transform: rotate(-45deg);
 				}
 			}
@@ -192,7 +192,7 @@
 		}
 
 		@include e(text) {
-			margin-top: -#{rem(3px)}; // Adjust for the font's bad placement in viewbox
+			margin-top: -#{to_rem(3px)}; // Adjust for the font's bad placement in viewbox
 			pointer-events: none;
 		}
 	}

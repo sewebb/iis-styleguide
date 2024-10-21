@@ -1,31 +1,29 @@
-@charset 'UTF-8';
-
 // Plumber baseline
-@import 'vendor/baseline/plumber';
+@use 'vendor/baseline/plumber';
 
 // Configurations
-@import 'configurations/functions';
-@import 'configurations/variables';
-@import 'configurations/config';
-@import 'configurations/bem';
-@import 'configurations/mixins';
+@use 'configurations/functions';
+@use 'configurations/variables';
+@use 'configurations/config';
+@use 'configurations/bem';
+@use 'configurations/mixins';
 
 // Grid
-@import 'vendor/grid/breakpoints';
-@import 'vendor/grid/grid-framework';
-@import 'vendor/grid/grid';
-@import 'vendor/grid/flex';
-@import 'vendor/grid/spacing';
+@use 'vendor/grid/breakpoints';
+@use 'vendor/grid/grid-framework';
+@use 'vendor/grid/grid';
+@use 'vendor/grid/flex';
+@use 'vendor/grid/spacing';
 
 // Theme
-@import 'theme/theme';
+@use 'theme/theme';
 
 // Base
-@import 'base/normalize';
-@import 'base/fonts/fonts';
+@use 'base/normalize';
+@use 'base/fonts/fonts';
 
 // Utilities
-@import 'utilities/manifest';
+@use 'utilities/manifest';
 
 // Print
-@import 'print';
+@use 'print';

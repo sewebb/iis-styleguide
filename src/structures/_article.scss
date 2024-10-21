@@ -43,7 +43,7 @@
 			> figure,
 			> blockquote {
 				&:not(.alignfull):not(.alignleft):not(.alignright):not(.alignwide):not(.wp-block-iis-hero)  {
-					max-width: calc(#{rem(612px)} + #{($indent * 2)});
+					max-width: calc(#{to_rem(612px)} + #{($indent * 2)});
 					margin-right: math.div($grid-gutter-width, 2);
 					margin-left: $indent * 2;
 				}
@@ -54,7 +54,7 @@
 			}
 
 			> p.preamble {
-				max-width: rem(612px);
+				max-width: to_rem(612px);
 				margin-left: $indent;
 			}
 

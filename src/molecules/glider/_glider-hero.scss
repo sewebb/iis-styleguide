@@ -168,7 +168,7 @@
 			height: 100%;
 
 			@include bp-up(sm) {
-				min-height: rem(500px);
+				min-height: to_rem(500px);
 				max-height: 75vh;
 			}
 		}

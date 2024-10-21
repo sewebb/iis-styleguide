@@ -2,7 +2,7 @@
 
 @include molecule(byline) {
 	width: 100%;
-	max-width: rem(400px);
+	max-width: to_rem(400px);
 
 	[class*='meta'] {
 		margin-bottom: rhythm(1);
@@ -14,8 +14,8 @@
 	}
 
 	@include e(icon) {
-		width: rem(22px);
-		height: rem(22px);
+		width: to_rem(22px);
+		height: to_rem(22px);
 		margin-right: rhythm(0.5);
 	}
 
@@ -27,8 +27,8 @@
 
 	@include e(portrait) {
 		display: block;
-		width: rem(64px);
-		height: rem(64px);
+		width: to_rem(64px);
+		height: to_rem(64px);
 		margin-bottom: rhythm(1);
 		border-radius: 50%;
 		background-color: $color-concrete;

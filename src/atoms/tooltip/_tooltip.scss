@@ -8,14 +8,14 @@
 	margin-left: rhythm(1);
 	padding: rhythm(1);
 	border-radius: 50%;
-	box-shadow: 0 0 0 rem(5px) transparent;
+	box-shadow: 0 0 0 to_rem(5px) transparent;
 	overflow: visible;
 
 	&:focus,
 	&:hover {
 		overflow: visible;
 		clip: auto;
-		box-shadow: 0 0 0 rem(5px) $color-ocean-light;
+		box-shadow: 0 0 0 to_rem(5px) $color-ocean-light;
 
 		[class*='text'] {
 			overflow: visible;
@@ -43,9 +43,9 @@
 		top: auto;
 		bottom: 130%;
 		left: 50%;
-		width: rem(300px);
+		width: to_rem(300px);
 		height: auto;
-		margin: 0 0 rem(5px) 0;
+		margin: 0 0 to_rem(5px) 0;
 		padding: rhythm(1);
 		transform: rotateX(90deg) scale(0.2) translateX(-100%);
 		transform-origin: bottom center;

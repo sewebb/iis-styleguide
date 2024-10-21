@@ -20,7 +20,7 @@ $alert-text: $color-cyberspace;
 
 	> h2,
 	> p {
-		max-width: rem(600px);
+		max-width: to_rem(600px);
 	}
 
 	> p:last-child {

@@ -32,8 +32,8 @@
 
 				@include bp-up(md) {
 					display: block;
-					width: rem(170px);
-					height: rem(170px);
+					width: to_rem(170px);
+					height: to_rem(170px);
 				}
 			}
 		}
@@ -50,8 +50,8 @@
 			}
 
 			@include e(image) {
-				width: rem(310px);
-				height: rem(310px);
+				width: to_rem(310px);
+				height: to_rem(310px);
 				margin-right: 0;
 				margin-left: rhythm(4);
 			}
@@ -79,8 +79,8 @@
 
 			@include bp-up(sm) {
 				display: block;
-				width: rem(255px);
-				height: rem(255px);
+				width: to_rem(255px);
+				height: to_rem(255px);
 				margin-right: rhythm(3);
 			}
 		}

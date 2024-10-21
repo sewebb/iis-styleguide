@@ -80,7 +80,7 @@
 				font-family: $font-family-mono;
 				font-size: 14px !important;
 				text-transform: uppercase;
-				text-shadow: 0 0 rem(5px) $color-black;
+				text-shadow: 0 0 to_rem(5px) $color-black;
 
 				@include bp-up(sm-xs) {
 					margin-left: rhythm(0.5);
@@ -112,20 +112,20 @@
 			transform: scale(1) translateY(0);
 			animation: pulse infinite 1.5s ease;
 			will-change: transform;
-			top: rem(15px);
+			top: to_rem(15px);
 
 			@include bp-up(sm) {
 				animation: pulse2 infinite 1.5s ease;
-				top: rem(20px);
+				top: to_rem(20px);
 			}
 
 			@include bp-up(md) {
-				top: rem(40px);
+				top: to_rem(40px);
 			}
 
 			@include bp-up(xl) {
 				animation: pulse3 infinite 1.5s ease;
-				top: rem(50px);
+				top: to_rem(50px);
 			}
 		}
 

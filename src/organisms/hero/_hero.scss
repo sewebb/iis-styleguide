@@ -29,7 +29,7 @@
 		width: 100%;
 
 		@include bp-up(sm) {
-			min-height: rem(500px);
+			min-height: to_rem(500px);
 			max-height: 50vh;
 		}
 	}
@@ -491,7 +491,7 @@
 
 	// Hero with video
 	@include m(video) {
-		margin-top: rem(20px);
+		margin-top: to_rem(20px);
 		//padding-top: 56.25%;
 
 		iframe {
@@ -516,7 +516,7 @@
 			object-position: 50% center;
 
 			@include bp-up(sm) {
-				min-height: rem(500px);
+				min-height: to_rem(500px);
 				max-height: 50vh;
 			}
 
@@ -551,7 +551,7 @@
 				width: $icon-size-medium;
 				height: $icon-size-medium;
 				margin-left: rhythm(0.5);
-				transform: translateY(rem(1px));
+				transform: translateY(to_rem(1px));
 				fill: currentColor;
 
 				@include m(external) {
@@ -583,9 +583,9 @@
 			z-index: z_index(background);
 			top: 25%;
 			left: -25%;
-			width: rem(250px);
-			height: rem(250px);
-			transform: translate(calc(-150% - #{rem(20px)}), -50%) rotate(-20deg);
+			width: to_rem(250px);
+			height: to_rem(250px);
+			transform: translate(calc(-150% - #{to_rem(20px)}), -50%) rotate(-20deg);
 			transform-origin: center left;
 			animation: spin 240s linear infinite;
 			animation-direction: alternate;
@@ -606,9 +606,9 @@
 			position: absolute;
 			top: 75%;
 			right: -25%;
-			width: rem(250px);
-			height: rem(80px);
-			transform: translate(calc(120% + #{rem(20px)}), 50%) rotate(20deg);
+			width: to_rem(250px);
+			height: to_rem(80px);
+			transform: translate(calc(120% + #{to_rem(20px)}), 50%) rotate(20deg);
 			transform-origin: center center;
 			animation: spin 240s linear infinite;
 			animation-direction: alternate-reverse;

@@ -3,7 +3,7 @@
 @include molecule(info-box) {
 	margin: rhythm(4) 0;
 	padding: rhythm(4);
-	border-top: rem(4px) solid $color-lemon;
+	border-top: to_rem(4px) solid $color-lemon;
 	border-radius: $border-radius;
 	background-color: var(--snow-color);
 
