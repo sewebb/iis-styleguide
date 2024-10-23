@@ -3,6 +3,8 @@
 /// Create an atom with the given name. Alias for the block mixin that autoprefixes the class with a-.
 ///@group General
 @use "sass:math";
+@use 'variables' as v;
+@use '../configurations/colors/colors' as c;
 
 @mixin atom($name) {
 	@include b(a-#{$name}) {
@@ -29,7 +31,7 @@
 /// Create a Block with the given name.
 /// @group General
 @mixin b($name) {
-	.#{$namespace}#{$name} {
+	.#{v.$namespace}#{$name} {
 		@content;
 	}
 }
@@ -53,7 +55,7 @@
 }
 
 @mixin card-shadow($shadow-color, $color-opacity) {
-	box-shadow: 0 rhythm(8) rhythm(12) rgba($color-cyberspace, 0.2);
+	box-shadow: 0 rhythm(8) rhythm(12) rgba(c.$color-cyberspace, 0.2);
 }
 
 // Alerts
@@ -65,34 +67,34 @@
 
 // Tags
 @mixin tag {
-	border: 1px solid $color-granit;
+	border: 1px solid c.$color-granit;
 	border-radius: to_rem(17.5px);
-	color: $color-cyberspace;
+	color: c.$color-cyberspace;
 
 	&:hover,
 	&:focus {
-		border: 1px solid $color-granit;
+		border: 1px solid c.$color-granit;
 		border-radius: to_rem(17.5px);
-		background-color: $color-granit;
-		color: $color-snow;
+		background-color: c.$color-granit;
+		color: c.$color-snow;
 
 		[class*=text] {
-			color: $color-snow;
+			color: c.$color-snow;
 		}
 	}
 }
 
 @mixin tag-light {
-	border-color: $color-snow;
-	color: $color-snow;
+	border-color: c.$color-snow;
+	color: c.$color-snow;
 
 	&:hover,
 	&:focus {
 		border: 1px solid transparent;
-		background-color: rgba($color-snow, 0.5);
+		background-color: rgba(c.$color-snow, 0.5);
 
 		[class*=text] {
-			color: $color-cyberspace;
+			color: c.$color-cyberspace;
 		}
 	}
 }

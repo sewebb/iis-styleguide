@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@use 'sass:meta';
 @use 'colors' as c;
 
 /// Get a shaded version of a color
@@ -66,7 +67,7 @@ $colors: (
 @mixin color_values($map, $attribute, $prefix: '-', $separator: '-', $base: 'base') {
 	@each $key, $value in $map {
 		&#{if($key != $base, #{$prefix}#{$key}, '')} {
-			@if type-of($value) == 'map' {
+			@if meta.type-of($value) == 'map' {
 				@include color_values($value, $attribute, $separator);
 			}
 			@else {
@@ -82,7 +83,7 @@ $colors: (
 @mixin color_classes($map, $attribute, $prefix: '', $separator: '.', $base: 'base', $element: '') {
 	@each $key, $value in $map {
 		&#{if($key != $base, #{$separator}#{$key}, '')} {
-			@if type-of($value) == 'map' {
+			@if meta.type-of($value) == 'map' {
 				@include color_classes($value, $attribute, $prefix: '.', $separator: '-', $element:  $element);
 			}
 			@else {
@@ -105,7 +106,7 @@ $colors: (
 /// @group Colors
 @mixin wordpress_color_classes($map, $attribute,  $separator: '-', $suffix: '', $base: 'base') {
 	@each $key, $value in $map {
-		@if type-of($value) == 'map' {
+		@if meta.type-of($value) == 'map' {
 			&#{if($key != $base, #{$separator}#{$key}, '')} {
 				@include wordpress_color_classes($value, $attribute, $separator, '-color');
 			}

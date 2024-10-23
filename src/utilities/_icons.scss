@@ -1,73 +1,77 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../configurations/variables' as v;
+@use '../configurations/colors/colors' as c;
+@use '../configurations/bem' as m2;
+@use '../vendor/grid/breakpoints' as bp;
 
 // Default
-$fill-color: $color-black;
+$fill-color: c.$color-black;
 
-@include b(u-icon) {
+@include m2.b(u-icon) {
 	display: block !important;
-	width: $icon-size !important;
-	height: $icon-size !important;
+	width: v.$icon-size !important;
+	height: v.$icon-size !important;
 	background-repeat: no-repeat !important;
 	background-position: center center !important;
 
 	// Sizes
-	@include m(smallest) {
-		width: $icon-size-smallest !important;
-		height: $icon-size-smallest !important;
+	@include m2.m(smallest) {
+		width: v.$icon-size-smallest !important;
+		height: v.$icon-size-smallest !important;
 	}
 
-	@include m(small) {
-		width: $icon-size-small !important;
-		height: $icon-size-small !important;
+	@include m2.m(small) {
+		width: v.$icon-size-small !important;
+		height: v.$icon-size-small !important;
 	}
 
-	@include m(medium) {
-		width: $icon-size-medium !important;
-		height: $icon-size-medium !important;
+	@include m2.m(medium) {
+		width: v.$icon-size-medium !important;
+		height: v.$icon-size-medium !important;
 	}
 
-	@include m(large) {
-		width: $icon-size-large !important;
-		height: $icon-size-large !important;
+	@include m2.m(large) {
+		width: v.$icon-size-large !important;
+		height: v.$icon-size-large !important;
 	}
 
-	@include m(supersize) {
-		width: $icon-size-large * 1.5 !important;
-		height: $icon-size-large * 1.5 !important;
+	@include m2.m(supersize) {
+		width: calc(v.$icon-size-large * 1.5) !important;
+		height: calc(v.$icon-size-large * 1.5) !important;
 	}
 
-	@include m(responsive) {
-		width: $icon-size !important;
-		height: $icon-size !important;
+	@include m2.m(responsive) {
+		width: v.$icon-size !important;
+		height: v.$icon-size !important;
 
-		@include bp-up(md) {
-			width: $icon-size-large !important;
-			height: $icon-size-large !important;
+		@include bp.bp-up(md) {
+			width: v.$icon-size-large !important;
+			height: v.$icon-size-large !important;
 		}
 	}
 
 	// Specific icons
-	@include m(check) {
+	@include m2.m(check) {
 		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 24.42' fill='" + $fill-color + "'%3E%3Cpolygon points='12.04 24.42 0 13.26 2.87 10.16 11.81 18.44 28.9 0 32 2.87 12.04 24.42' data-name='Layer 3'/%3E%3C/svg%3E") !important;
 		// Colors
-		@include m(jade) {
-			$fill-color: $color-jade !important;
+		@include m2.m(jade) {
+			$fill-color: c.$color-jade !important;
 
 			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 24.42' fill='" + $fill-color + "'%3E%3Cpolygon points='12.04 24.42 0 13.26 2.87 10.16 11.81 18.44 28.9 0 32 2.87 12.04 24.42' data-name='Layer 3'/%3E%3C/svg%3E") !important;
 		}
 	}
 
-	@include m(close) {
+	@include m2.m(close) {
 		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='" + $fill-color + "'%3E%3Cpath d='M27.5,2L30,4.5L4.5,30L2,27.5L27.5,2z'/%3E%3Cpath d='M30,27.5L27.5,30L2,4.5L4.5,2L30,27.5z'/%3E%3C/svg%3E") !important;
 
-		@include m(ruby) {
-			$fill-color: $color-ruby !important;
+		@include m2.m(ruby) {
+			$fill-color: c.$color-ruby !important;
 
 			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='" + $fill-color + "'%3E%3Cpath d='M27.5,2L30,4.5L4.5,30L2,27.5L27.5,2z'/%3E%3Cpath d='M30,27.5L27.5,30L2,4.5L4.5,2L30,27.5z'/%3E%3C/svg%3E") !important;
 		}
 	}
 
-	@include m(color) {
+	@include m2.m(color) {
 		fill: currentColor;
 	}
 }

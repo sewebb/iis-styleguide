@@ -1,6 +1,10 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 
 @use "sass:math";
+@use '../variables' as v;
+@use '../../vendor/grid/grid' as m3;
+@use '../../vendor/grid/breakpoints' as bp;
+@use '../../vendor/grid/grid-framework' as m4;
 
 // Grid only
 //
@@ -19,16 +23,16 @@
 //
 // Set the container width, and override it for fixed navbars in media queries.
 
-@if $enable-grid-classes {
+@if v.$enable-grid-classes {
 	.wrapper,
 	%wrapper {
-		@include make-container();
-		@include make-container-max-widths();
+		@include m3.make-container();
+		@include m3.make-container-max-widths();
 
 		// Specify bigger wrapper padding on smaller screens
-		@include bp-down(xl) {
-			padding-right: $grid-gutter-width;
-			padding-left: $grid-gutter-width;
+		@include bp.bp-down(xl) {
+			padding-right: v.$grid-gutter-width;
+			padding-left: v.$grid-gutter-width;
 		}
 	}
 }
@@ -38,9 +42,9 @@
 // Utilizes the mixin meant for fixed width containers, but with 100% width for
 // fluid, full width layouts.
 
-@if $enable-grid-classes {
+@if v.$enable-grid-classes {
 	.wrapper-fluid {
-		@include make-container();
+		@include m3.make-container();
 	}
 }
 
@@ -61,7 +65,7 @@
 			transform: translateY(rhythm($col-gap));
 		}
 
-		@include bp-only(sm) {
+		@include bp.bp-only(sm) {
 			> [class*='grid-']:last-child {
 				transform: translateY(rhythm($gap));
 			}
@@ -84,7 +88,7 @@
 		@include make-asymmetric-cols($bp-gap, true);
 	}
 
-	@include bp-up(sm) {
+	@include bp.bp-up(sm) {
 		margin: rhythm($margin * 1.25) 0 0;
 
 		&:not(.asymmetric-reversed) {
@@ -98,13 +102,13 @@
 		}
 	}
 
-	@include bp-up(md) {
+	@include bp.bp-up(md) {
 		&.asymmetric-reversed {
 			margin-bottom: calc(100px);
 		}
 	}
 
-	@include bp-up(lg) {
+	@include bp.bp-up(lg) {
 
 
 		margin: rhythm($margin * 1.5) 0 0;
@@ -121,7 +125,7 @@
 		}
 	}
 
-	@include bp-up(xl) {
+	@include bp.bp-up(xl) {
 		margin: rhythm($margin * 2) 0 0;
 
 		&:not(.asymmetric-reversed) {
@@ -137,33 +141,33 @@
 	}
 }
 
-@if $enable-grid-classes {
+@if v.$enable-grid-classes {
 	.row {
-		@include make-row();
+		@include m3.make-row();
 	}
 
 	.asymmetric {
 		@include make-asymmetric-row;
 
-		@include bp-up(sm) {
+		@include bp.bp-up(sm) {
 			&-sm {
 				@include make-asymmetric-row;
 			}
 		}
 
-		@include bp-up(md) {
+		@include bp.bp-up(md) {
 			&-md {
 				@include make-asymmetric-row;
 			}
 		}
 
-		@include bp-up(lg) {
+		@include bp.bp-up(lg) {
 			&-lg {
 				@include make-asymmetric-row;
 			}
 		}
 
-		@include bp-up(xl) {
+		@include bp.bp-up(xl) {
 			&-xl {
 				@include make-asymmetric-row;
 			}
@@ -192,6 +196,6 @@
 //
 // Common styles for small and large grid columns
 
-@if $enable-grid-classes {
-	@include make-grid-columns();
+@if v.$enable-grid-classes {
+	@include m4.make-grid-columns();
 }

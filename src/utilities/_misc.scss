@@ -1,4 +1,5 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../configurations/colors/colors' as c;
 
 // Adds a divider between two words, like a pipe (|) character.
 // Example usage:
@@ -12,7 +13,7 @@
 	height: 1em;
 	margin: 0 0.5em;
 	padding: 0.7em 0;
-	background: $color-black;
+	background: c.$color-black;
 	vertical-align: sub;
 }
 

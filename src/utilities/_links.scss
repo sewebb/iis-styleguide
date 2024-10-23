@@ -1,4 +1,8 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../configurations/variables' as v;
+@use '../configurations/colors/colors' as c;
+@use '../configurations/bem' as m2;
+@use '../configurations/colors/colors-functions' as cf;
 
 /* Force normalize links */
 .u-link-normal,
@@ -23,34 +27,34 @@
 /* Force body text link link-styles */
 .u-link {
 	padding: rhythm(0) rhythm(0.5) !important;
-	border-bottom: to_rem(2px) solid $color-peacock !important;
+	border-bottom: to_rem(2px) solid c.$color-peacock !important;
 	color: var(--cyberspace-color) !important;
 	text-decoration: none !important;
 
 	&:hover,
 	&:focus {
-		border-bottom: to_rem(2px) solid $color-ocean-light !important;
-		border-radius: $border-radius !important;
-		background-color: $color-ocean-light !important;
+		border-bottom: to_rem(2px) solid c.$color-ocean-light !important;
+		border-radius: v.$border-radius !important;
+		background-color: c.$color-ocean-light !important;
 	}
 
 	&[href^='mailto'] {
 		hyphens: none !important;
 	}
 
-	@include m(light) {
-		color: $color-snow !important;
+	@include m2.m(light) {
+		color: c.$color-snow !important;
 
 		&:hover,
 		&:focus {
-			color: $color-cyberspace !important;
+			color: c.$color-cyberspace !important;
 		}
 	}
 }
 
 /* Create linked box (requires parent box to have position:relative) */
 .u-link-area {
-	color: $color-cyberspace !important;
+	color: c.$color-cyberspace !important;
 	text-decoration: none !important;
 
 	&::after {
@@ -66,7 +70,7 @@
 
 	&:hover,
 	&:focus {
-		color: $color-ruby !important;
+		color: c.$color-ruby !important;
 		text-decoration: underline !important;
 	}
 }
@@ -74,17 +78,17 @@
 .u-icon-list-link {
 	padding: 0;
 	border-bottom: 0;
-	color: $color-cyberspace;
+	color: c.$color-cyberspace;
 	text-decoration: none;
 
 	&:hover,
 	&:focus {
-		border-radius: $border-radius;
-		background-color: $color-ocean-light;
+		border-radius: v.$border-radius;
+		background-color: c.$color-ocean-light;
 	}
 
-	@include m(current) {
-		color: $color-ruby;
+	@include m2.m(current) {
+		color: c.$color-ruby;
 		text-decoration: underline;
 	}
 }
@@ -92,8 +96,8 @@
 // Generate parent element link color classes e.g. .u-color-ruby a
 /// @group Colors
 .u-link-color {
-	@include color_classes (
-		$map: $colors,
+	@include cf.color_classes (
+		$map: cf.$colors,
 		$separator: '-',
 		$attribute: 'color',
 		$element: 'a'

@@ -1,4 +1,9 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+
+@use '../configurations/variables' as v;
+@use '../configurations/colors/colors' as c;
+@use '../configurations/mixins' as m;
+@use '../configurations/bem' as m2;
 
 %list-clean {
 	margin: 0;
@@ -26,11 +31,11 @@
 		padding: rhythm(1);
 
 		&:nth-child(odd) {
-			background-color: $color-ash;
+			background-color: c.$color-ash;
 		}
 
 		&:nth-child(even) {
-			background-color: $color-snow;
+			background-color: c.$color-snow;
 		}
 	}
 }
@@ -39,17 +44,17 @@
 	@extend %list-striped;
 }
 
-@include b(u-list__icon) {
+@include m.b(u-list__icon) {
 	flex-shrink: 0;
-	width: $icon-size;
-	height: $icon-size;
+	width: v.$icon-size;
+	height: v.$icon-size;
 	margin-right: rhythm(2);
 
-	@include m(green) {
-		fill: $color-jade;
+	@include m2.m(green) {
+		fill: c.$color-jade;
 	}
 
-	@include m(red) {
-		fill: $color-ruby;
+	@include m2.m(red) {
+		fill: c.$color-ruby;
 	}
 }

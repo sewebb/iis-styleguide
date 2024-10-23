@@ -1,9 +1,11 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../configurations/mixins' as m;
+@use '../configurations/colors/colors' as c;
 
 .u-box-shadow {
 	@extend %box-shadow;
 }
 
 .u-box-shadow-card {
-	@include card-shadow($color-cyberspace, 0.2);
+	@include m.card-shadow(c.$color-cyberspace, 0.2);
 }

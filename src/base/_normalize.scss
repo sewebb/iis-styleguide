@@ -1,7 +1,8 @@
 @charset 'UTF-8';
 
 @use "sass:math";
-@use '../configurations/colors/colors';
+@use '../configurations/colors/colors' as c;
+@use '../configurations/variables' as v;
 
 html {
 	box-sizing: border-box;
@@ -10,7 +11,7 @@ html {
 	background-color: theme_palette('background');
 	color: var(--cyberspace-color);
 	font-family: sans-serif;
-	font-size: math.percentage(math.div($size-base, 16px));
+	font-size: math.percentage(math.div(v.$size-base, 16px));
 	font-variant-ligatures: no-common-ligatures;
 	-ms-overflow-style: scrollbar;
 	-webkit-text-size-adjust: 100%;
@@ -26,7 +27,7 @@ body {
 	padding-right: env(safe-area-inset-right);
 	padding-left: env(safe-area-inset-left);
 	overflow-x: hidden;
-	font-family: $font-family-base;
+	font-family: v.$font-family-base;
 	-ms-overflow-style: auto;
 	-webkit-overflow-scrolling: touch;
 }
@@ -186,8 +187,8 @@ h6 {
 //
 
 mark {
-	background: $color-lemon-light;
-	color: $color-black;
+	background: c.$color-lemon-light;
+	color: c.$color-black;
 }
 
 //
@@ -285,7 +286,7 @@ hr.wp-block-separator {
 	margin-top: rhythm(2);
 	margin-bottom: rhythm(2);
 	border: 0;
-	border-bottom: 1px solid $color-concrete;
+	border-bottom: 1px solid c.$color-concrete;
 }
 
 //
@@ -298,10 +299,10 @@ pre {
 	margin-bottom: rhythm(4);
 	padding: rhythm(2);
 	overflow: auto;
-	border-top: to_rem(4px) solid $color-sandstone;
-	border-radius: $border-radius;
-	background-color: $color-snow;
-	font-size: $size-medium;
+	border-top: to_rem(4px) solid c.$color-sandstone;
+	border-radius: v.$border-radius;
+	background-color: c.$color-snow;
+	font-size: v.$size-medium;
 
 	code {
 		padding: 0;
@@ -312,8 +313,8 @@ code {
 	display: block;
 	width: 100%;
 	padding: rhythm(2);
-	font-size: $size-medium;
-	color: $color-cyberspace;
+	font-size: v.$size-medium;
+	color: c.$color-cyberspace;
 }
 
 //
@@ -324,7 +325,7 @@ code,
 kbd,
 pre,
 samp {
-	font-family: $font-family-mono;
+	font-family: v.$font-family-mono;
 }
 
 // Forms
@@ -469,27 +470,27 @@ input[type='search']::-webkit-search-decoration {
 // Style placeholders
 ::-webkit-input-placeholder {
 	opacity: 1;
-	color: $color-granit;
+	color: c.$color-granit;
 }
 
 ::-moz-placeholder {
 	opacity: 1;
-	color: $color-granit;
+	color: c.$color-granit;
 }
 
 :-ms-input-placeholder {
 	opacity: 1;
-	color: $color-granit;
+	color: c.$color-granit;
 }
 
 :-moz-placeholder {
 	opacity: 1;
-	color: $color-granit;
+	color: c.$color-granit;
 }
 
 ::placeholder {
 	opacity: 1;
-	color: $color-granit;
+	color: c.$color-granit;
 }
 
 // Remove spinner from fields in Chrome

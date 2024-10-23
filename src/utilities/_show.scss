@@ -1,31 +1,32 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../vendor/grid/breakpoints' as bp;
 
 .u-show-xs {
-	@include bp-down(xs) {
+	@include bp.bp-down(xs) {
 		display: initial !important;
 	}
 }
 
 .u-show-sm-xs {
-	@include bp-down(sm-xs) {
+	@include bp.bp-down(sm-xs) {
 		display: initial !important;
 	}
 }
 
 .u-show-sm {
-	@include bp-down(sm) {
+	@include bp.bp-down(sm) {
 		display: initial !important;
 	}
 }
 
 .u-show-md {
-	@include bp-down(md) {
+	@include bp.bp-down(md) {
 		display: initial !important;
 	}
 }
 
 .u-show-lg {
-	@include bp-down(lg) {
+	@include bp.bp-down(lg) {
 		display: initial !important;
 	}
 }

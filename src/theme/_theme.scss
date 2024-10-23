@@ -1,16 +1,18 @@
 @use "sass:map";
 @charset 'UTF-8';
 
-@use '../configurations/colors/colors';
+@use '../configurations/colors/colors' as c;
+@use '../configurations/mixins' as m;
+@use '../configurations/bem' as m2;
 
 :root {
-	--snow-color: #{$color-snow};
-	--cyberspace-color: #{$color-cyberspace};
-	--black-color: #{$color-black};
-	--ash-color: #{$color-ash};
-	--dark-color: #{$color-cyberspace};
-	--white-color: #{$color-snow};
-	--ocean-dark-color: #{$color-ocean-dark};
+	--snow-color: #{c.$color-snow};
+	--cyberspace-color: #{c.$color-cyberspace};
+	--black-color: #{c.$color-black};
+	--ash-color: #{c.$color-ash};
+	--dark-color: #{c.$color-cyberspace};
+	--white-color: #{c.$color-snow};
+	--ocean-dark-color: #{c.$color-ocean-dark};
 }
 
 $namespace: '';
@@ -24,18 +26,18 @@ $theme-palette: (
 	@return map.get($theme-palette, $key);
 }
 
-@include b(site) {
+@include m.b(site) {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
 
-	@include e(header) {
+	@include m2.e(header) {
 		display: flex;
 		position: relative;
 		flex-direction: column;
 	}
 
-	@include e(main) {
+	@include m2.e(main) {
 		flex: 1 0 auto;
 		transition: opacity 0.2s ease-out, height 0.2s ease-out;
 		opacity: 1;
@@ -48,16 +50,16 @@ $theme-palette: (
 }
 
 :root {
-	--m-submenu-background-color: #{$color-ocean-light};
-	--m-submenu-icon-fill-color: #{$color-cyberspace};
-	--m-submenu-icon-background-hover-color: #{$color-ocean-light};
-	--m-info-box-border-color: #{$color-peacock};
-	--m-modal-button-primary-color: #{$color-peacock-light};
-	--m-modal-button-primary-hover-color: #{$color-peacock};
-	--m-modal-button-primary-border-color: #{$color-peacock};
-	--m-modal-button-primary-text-color: #{$color-cyberspace};
-	--m-modal-button-secondary-color: #{$color-ruby-light};
-	--m-modal-button-secondary-hover-color: #{$color-ruby};
-	--m-modal-button-secondary-border-color: #{$color-ruby};
-	--m-modal-button-secondary-text-color: #{$color-cyberspace};
+	--m-submenu-background-color: #{c.$color-ocean-light};
+	--m-submenu-icon-fill-color: #{c.$color-cyberspace};
+	--m-submenu-icon-background-hover-color: #{c.$color-ocean-light};
+	--m-info-box-border-color: #{c.$color-peacock};
+	--m-modal-button-primary-color: #{c.$color-peacock-light};
+	--m-modal-button-primary-hover-color: #{c.$color-peacock};
+	--m-modal-button-primary-border-color: #{c.$color-peacock};
+	--m-modal-button-primary-text-color: #{c.$color-cyberspace};
+	--m-modal-button-secondary-color: #{c.$color-ruby-light};
+	--m-modal-button-secondary-hover-color: #{c.$color-ruby};
+	--m-modal-button-secondary-border-color: #{c.$color-ruby};
+	--m-modal-button-secondary-text-color: #{c.$color-cyberspace};
 }

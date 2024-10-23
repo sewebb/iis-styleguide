@@ -1,4 +1,6 @@
 @charset 'UTF-8';
+@use '../configurations/config' as cv;
+@use '../configurations/variables' as v;
 
 /// @group Utilities
 $class-p: u-p !default;
@@ -50,21 +52,21 @@ $class-p-y: u-p-y !default;
 }
 
 .u-p-default {
-	padding: $default-padding !important;
+	padding: cv.$default-padding !important;
 }
 
 .u-p-t-default {
-	padding-top: $default-padding !important;
+	padding-top: cv.$default-padding !important;
 }
 
 .u-p-b-default {
-	padding-bottom: $default-padding !important;
+	padding-bottom: cv.$default-padding !important;
 }
 
 .u-p-l-default {
-	padding-left: $default-padding !important;
+	padding-left: cv.$default-padding !important;
 }
 
 .u-p-r-default {
-	padding-right: $default-padding !important;
+	padding-right: cv.$default-padding !important;
 }

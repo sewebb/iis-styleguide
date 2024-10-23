@@ -4,6 +4,8 @@
 @use '../vendor/baseline/plumber' as p;
 @use '../vendor/grid/functions' as grid;
 
+$namespace: '' !default;
+
 // Typography
 $font-family-base: 'HK Grotesk', sans-serif !default;
 $font-family-headings: 'HK Grotesk Semibold', sans-serif !default;
@@ -17,6 +19,7 @@ $mono-baseline: 0.110 !default; // Roboto Mono Regular
 
 // Size base
 $size-base: 18px !default;
+$size-base-unitless: 18 !default;
 
 // Size medium plus
 $size-medium-plus: 15.3px !default;

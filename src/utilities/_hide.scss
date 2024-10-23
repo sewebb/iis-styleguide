@@ -1,17 +1,19 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../configurations/mixins' as m;
+@use '../vendor/grid/breakpoints' as bp;
 
 // Hide visually but not for screen readers
 /// @group Utilities
 %u-visuallyhidden,
 .u-visuallyhidden {
-	@include visuallyhidden;
+	@include m.visuallyhidden;
 }
 
 // Hide on certain breakpoint
 /// @group Utilities
 @mixin hide-on-screen-width($bp) {
-	@include bp-down($bp) {
-		@include visuallyhidden;
+	@include bp.bp-down($bp) {
+		@include m.visuallyhidden;
 	}
 }
 
@@ -24,7 +26,7 @@
 // Hide on mobile
 /// @group Utilities
 .u-hidden-mobile {
-	@include bp-down(lg) {
+	@include bp.bp-down(lg) {
 		display: none !important;
 	}
 }
@@ -35,61 +37,61 @@
 }
 
 .u-hide-xs {
-	@include bp-down(xs) {
+	@include bp.bp-down(xs) {
 		display: none !important;
 	}
 }
 
 .u-hide-sm-xs {
-	@include bp-down(sm-xs) {
+	@include bp.bp-down(sm-xs) {
 		display: none !important;
 	}
 }
 
 .u-hide-sm {
-	@include bp-down(sm) {
+	@include bp.bp-down(sm) {
 		display: none !important;
 	}
 }
 
 .u-hide-md {
-	@include bp-down(md) {
+	@include bp.bp-down(md) {
 		display: none !important;
 	}
 }
 
 .u-hide-lg {
-	@include bp-down(lg) {
+	@include bp.bp-down(lg) {
 		display: none !important;
 	}
 }
 
 .u-hide-xs-up {
-	@include bp-up(xs) {
+	@include bp.bp-up(xs) {
 		display: none !important;
 	}
 }
 
 .u-hide-sm-up {
-	@include bp-up(sm) {
+	@include bp.bp-up(sm) {
 		display: none !important;
 	}
 }
 
 .u-hide-md-up {
-	@include bp-up(md) {
+	@include bp.bp-up(md) {
 		display: none !important;
 	}
 }
 
 .u-hide-lg-up {
-	@include bp-up(lg) {
+	@include bp.bp-up(lg) {
 		display: none !important;
 	}
 }
 
 .u-hide-xl-up {
-	@include bp-up(xl) {
+	@include bp.bp-up(xl) {
 		display: none !important;
 	}
 }

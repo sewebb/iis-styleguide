@@ -1,6 +1,7 @@
+@charset "UTF-8";
 @use "sass:meta";
 @use "sass:string";
-@charset 'UTF-8';
+@use '../configurations/variables' as v;
 
 /// Element class separator
 /// @group BEM
@@ -44,7 +45,7 @@ $state-prefix: 'is';
 /// Encapsulates a standalone entity that is meaningful on its own.
 /// @group BEM
 @mixin b($name) {
-	.#{$namespace}#{$name} {
+	.#{v.$namespace}#{$name} {
 		@content;
 	}
 }

@@ -1,25 +1,28 @@
+@charset "UTF-8";
 @use "sass:map";
-@charset 'UTF-8';
+@use "sass:math";
+@use "sass:list";
+@use '../../configurations/variables' as v;
+@use 'breakpoints' as bp;
+@use 'grid' as m5;
 
 // Framework grid generation
 //
 // Used to generate the correct number of grid classes given
 // any value of `$grid-columns`.
 
-@use "sass:math";
-
-@mixin make-grid-columns($columns: $grid-columns, $gutter: $grid-gutter-width, $breakpoints: $grid-breakpoints) {
+@mixin make-grid-columns($columns: v.$grid-columns, $gutter: v.$grid-gutter-width, $breakpoints: v.$grid-breakpoints) {
 	// Common properties for all breakpoints
 	%grid-column {
 		position: relative;
 		width: 100%;
 		min-height: 1px; // Prevent columns from collapsing when empty
-		padding-right: math.div($gutter, 2);
-		padding-left: math.div($gutter, 2);
+		padding-right: list.slash($gutter, 2);
+		padding-left: list.slash($gutter, 2);
 	}
 
 	@each $breakpoint in map.keys($breakpoints) {
-		$infix: breakpoint-infix($breakpoint, $breakpoints);
+		$infix: bp.breakpoint-infix($breakpoint, $breakpoints);
 
 		// Allow columns to stretch full width below their breakpoints
 		@for $i from 1 through $columns {
@@ -33,7 +36,7 @@
 			@extend %grid-column;
 		}
 
-		@include bp-up($breakpoint, $breakpoints) {
+		@include bp.bp-up($breakpoint, $breakpoints) {
 			// Provide basic `.grid-{bp}` classes for equal-width flexbox columns
 			.grid#{$infix} {
 				flex-basis: 0;
@@ -49,7 +52,7 @@
 
 			@for $i from 1 through $columns {
 				.grid#{$infix}-#{$i} {
-					@include make-col($i, $columns);
+					@include m5.make-col($i, $columns);
 				}
 			}
 
@@ -63,7 +66,7 @@
 			@for $i from 0 through ($columns - 1) {
 				@if not ($infix == '' and $i == 0) { // Avoid emitting useless .offset-0
 					.offset#{$infix}-#{$i} {
-						@include make-col-offset($i, $columns); }
+						@include m5.make-col-offset($i, $columns); }
 				}
 			}
 		}

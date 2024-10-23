@@ -1,4 +1,6 @@
 @charset 'UTF-8';
+@use '../configurations/config' as cv;
+@use '../configurations/variables' as v;
 
 /// @group Utilities
 $class-m: u-m !default;
@@ -49,23 +51,23 @@ $class-m-y: u-m-y !default;
 }
 
 .u-m-default {
-	margin: $default-margin !important;
+	margin: cv.$default-margin !important;
 }
 
 .u-m-t-default {
-	margin-top: $default-margin !important;
+	margin-top: cv.$default-margin !important;
 }
 
 .u-m-b-default {
-	margin-bottom: $default-margin !important;
+	margin-bottom: cv.$default-margin !important;
 }
 
 .u-m-l-default {
-	margin-left: $default-margin !important;
+	margin-left: cv.$default-margin !important;
 }
 
 .u-m-r-default {
-	margin-right: $default-margin !important;
+	margin-right: cv.$default-margin !important;
 }
 
 .u-m-offset-0 {
@@ -73,11 +75,11 @@ $class-m-y: u-m-y !default;
 }
 
 .u-m-offset-1 {
-	margin-left: $indent !important;
+	margin-left: v.$indent !important;
 }
 
 .u-m-offset-2 {
-	margin-left: $indent * 2 !important;
+	margin-left: v.$indent * 2 !important;
 }
 
 .u-m-l-auto {
