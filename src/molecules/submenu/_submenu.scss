@@ -1,33 +1,33 @@
 @charset "UTF-8";
 @use "sass:math";
 @use "sass:color";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/config' as m3;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../configurations/colors/colors-functions' as cf;
-@use '../../vendor/grid/breakpoints' as bp;
-@use '../../vendor/grid/grid' as g;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/grid/grid' as grid;
 
-@include m.molecule(submenu) {
+@include mixin.molecule(submenu) {
 	margin: 0 0 rhythm(2) 0;
 	padding: 0;
 	overflow: hidden;
-	border-radius: v.$border-radius;
-	background-color: c.$color-snow;
+	border-radius: var.$border-radius;
+	background-color: colors.$color-snow;
 	list-style: none;
 
-	@include m2.e(title) {
+	@include bem.e(title) {
 		background-color: var(--m-submenu-background-color);
 
-		@include m2.e(link) {
+		@include bem.e(link) {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
 			padding: rhythm(2);
-			color: c.$color-cyberspace;
-			font-family: v.$font-family-headings;
+			color: colors.$color-cyberspace;
+			font-family: var.$font-family-headings;
 			text-decoration: none;
 
 			&:hover,
@@ -41,42 +41,42 @@
 
 			> svg {
 				flex-shrink: 0;
-				width: v.$icon-size-small;
-				height: v.$icon-size-small;
+				width: var.$icon-size-small;
+				height: var.$icon-size-small;
 				margin-left: rhythm(1);
 				transform: rotate(-90deg);
 			}
 
-			@include bp.bp-up(md) {
+			@include breakpoint.bp-up(md) {
 				padding: rhythm(2) rhythm(3);
 
 				> svg {
-					width: v.$icon-size-medium;
-					height: v.$icon-size-medium;
+					width: var.$icon-size-medium;
+					height: var.$icon-size-medium;
 				}
 			}
 		}
 	}
 
-	@include m2.e(item) {
+	@include bem.e(item) {
 		margin: 0;
 		padding: 0;
 
 		& + & {
-			border-top: 1px solid c.$color-ash;
+			border-top: 1px solid colors.$color-ash;
 		}
 
 		&:last-child {
 			> a {
 				padding-bottom: rhythm(2);
 
-				@include bp.bp-up(md) {
+				@include breakpoint.bp-up(md) {
 					padding-bottom: rhythm(3);
 				}
 			}
 		}
 
-		@include m2.e(link) {
+		@include bem.e(link) {
 			display: flex;
 			position: relative;
 			align-items: center;
@@ -101,8 +101,8 @@
 				top: 50%;
 				right: rhythm(2);
 				flex-shrink: 0;
-				width: v.$icon-size;
-				height: v.$icon-size;
+				width: var.$icon-size;
+				height: var.$icon-size;
 				margin-left: rhythm(1);
 				padding: rhythm(0.5);
 				overflow: hidden;
@@ -111,16 +111,16 @@
 				background-color: var(--m-submenu-icon-background-hover-color);
 				fill: var(--m-submenu-icon-fill-color);
 
-				@include bp.bp-up(md) {
+				@include breakpoint.bp-up(md) {
 					right: rhythm(3);
-					width: v.$icon-size * 1.6;
-					height: v.$icon-size * 1.6;
+					width: var.$icon-size * 1.6;
+					height: var.$icon-size * 1.6;
 					padding: rhythm(1);
 				}
 			}
 
 			&.is-current {
-				font-family: v.$font-family-headings;
+				font-family: var.$font-family-headings;
 				pointer-events: none;
 
 				> svg {
@@ -128,22 +128,22 @@
 				}
 			}
 
-			@include bp.bp-up(md) {
+			@include breakpoint.bp-up(md) {
 				padding: rhythm(2) rhythm(7) rhythm(2) rhythm(3);
 			}
 
-			@include m2.m(has-sublevel) {
+			@include bem.m(has-sublevel) {
 				display: flex;
 				flex-grow: 1;
 			}
 		}
 
-		@include m2.e(sublevel) {
+		@include bem.e(sublevel) {
 			display: flex;
 			justify-content: space-between;
 		}
 
-		@include m2.e(toggle-button) {
+		@include bem.e(toggle-button) {
 			display: flex;
 			position: relative;
 			position: relative;
@@ -151,7 +151,7 @@
 			margin: 0;
 			padding: rhythm(1) rhythm(3);
 			border: 0;
-			border-left: 1px solid color.adjust(c.$color-ash, $lightness: -5%);
+			border-left: 1px solid color.adjust(colors.$color-ash, $lightness: -5%);
 			background-color: transparent;
 
 			&::before,
@@ -161,11 +161,11 @@
 				position: absolute;
 				top: to_rem(22px);
 				right: to_rem(25px);
-				width: math.div(v.$icon-size-small, 1.5);
+				width: math.div(var.$icon-size-small, 1.5);
 				height: 2px;
 				transform-origin: center center;
 				transition: transform 0.25s ease-out;
-				background-color: c.$color-cyberspace;
+				background-color: colors.$color-cyberspace;
 			}
 
 			&::before {
@@ -179,7 +179,7 @@
 
 			&[aria-expanded='true'] {
 				margin-bottom: -1px;
-				background-color: color.adjust(c.$color-ash, $lightness: 3%);
+				background-color: color.adjust(colors.$color-ash, $lightness: 3%);
 
 				&::after {
 					transform: rotate(-135deg);
@@ -191,17 +191,17 @@
 			}
 
 			&:hover {
-				background-color: color.adjust(c.$color-ash, $lightness: 3%);
+				background-color: color.adjust(colors.$color-ash, $lightness: 3%);
 			}
 
-			@include bp.bp-up(md) {
+			@include breakpoint.bp-up(md) {
 				padding: rhythm(2) rhythm(4);
 
 				&::before,
 				&::after {
 					top: to_rem(31px);
 					right: to_rem(33px);
-					width: v.$icon-size-small;
+					width: var.$icon-size-small;
 					height: 3px;
 				}
 
@@ -212,11 +212,11 @@
 		}
 	}
 
-	@include m2.e(sublevel) {
+	@include bem.e(sublevel) {
 		margin: 0;
 		padding: 0;
-		border-top: 1px solid color.adjust(c.$color-ash, $lightness: -3%);
-		background-color: color.adjust(c.$color-ash, $lightness: 3%);
+		border-top: 1px solid color.adjust(colors.$color-ash, $lightness: -3%);
+		background-color: color.adjust(colors.$color-ash, $lightness: 3%);
 		list-style: none;
 
 		&[aria-hidden='true'] {
@@ -224,23 +224,23 @@
 			border-top: 1px solid transparent;
 		}
 
-		@include m2.e(item) {
+		@include bem.e(item) {
 			margin: 0;
 			padding: 0 rhythm(1.5);
 
 			& + & {
-				border-top: 1px solid color.adjust(c.$color-ash, $lightness: -4%);
+				border-top: 1px solid color.adjust(colors.$color-ash, $lightness: -4%);
 			}
 
 			/* Support for icon on sublevel */
 
-			@include m2.e(link) {
+			@include bem.e(link) {
 				> svg {
 					display: none;
 					padding: rhythm(0.5);
-					background-color: c.$color-concrete;
+					background-color: colors.$color-concrete;
 
-					@include bp.bp-up(md) {
+					@include breakpoint.bp-up(md) {
 						padding: rhythm(1);
 					}
 				}

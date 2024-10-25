@@ -1,11 +1,11 @@
 @charset "UTF-8";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/config' as m3;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../configurations/colors/colors-functions' as cf;
-@use '../../vendor/grid/breakpoints' as bp;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
 @mixin table() {
 	width: 100%;
@@ -14,14 +14,14 @@
 	counter-reset: table-counter;
 
 	caption {
-		font-family: v.$font-family-headings;
+		font-family: var.$font-family-headings;
 		padding-top: rhythm(1);
 		padding-bottom: rhythm(1);
 	}
 
 	thead,
 	tfoot {
-		font-family: v.$font-family-mono;
+		font-family: var.$font-family-mono;
 		font-size: 85%;
 		text-transform: uppercase;
 	}
@@ -29,15 +29,15 @@
 	tfoot {
 		th,
 		td {
-			border-top: 2px solid c.$color-granit;
-			font-family: v.$font-family-headings;
+			border-top: 2px solid colors.$color-granit;
+			font-family: var.$font-family-headings;
 			font-size: 90%;
 
 			&::before {
 				display: none;
 			}
 
-			@include bp.bp-up(lg) {
+			@include breakpoint.bp-up(lg) {
 				font-size: 100%;
 			}
 		}
@@ -65,7 +65,7 @@
 		padding-right: rhythm(2);
 		padding-bottom: rhythm(1);
 		padding-left: rhythm(2);
-		border-bottom: 2px solid c.$color-granit;
+		border-bottom: 2px solid colors.$color-granit;
 		color: var(--cyberspace-color);
 		font-size: 90%;
 		text-align: left;
@@ -87,7 +87,7 @@
 			display: inline;
 		}
 
-		@include bp.bp-up(lg) {
+		@include breakpoint.bp-up(lg) {
 			font-size: 100%;
 		}
 	}
@@ -97,7 +97,7 @@
 	}
 }
 
-@include m2.b(table-container) {
+@include bem.b(table-container) {
 	position: relative;
 	width: 100%;
 	max-width: 1320px;
@@ -126,16 +126,16 @@
 	}
 }
 
-@include m.molecule(table) {
+@include mixin.molecule(table) {
 	@include table();
 
-	@include m2.m(columns) {
+	@include bem.m(columns) {
 		th {
-			border-bottom: 2px solid c.$color-granit;
+			border-bottom: 2px solid colors.$color-granit;
 		}
 
 		td {
-			border-bottom: 1px solid c.$color-granit;
+			border-bottom: 1px solid colors.$color-granit;
 		}
 
 		th,
@@ -146,7 +146,7 @@
 		}
 	}
 
-	@include m2.m(rows) {
+	@include bem.m(rows) {
 		thead {
 			th {
 				background-color: var(--ash-color);
@@ -170,7 +170,7 @@
 		}
 	}
 
-	@include m2.m(align-text-center) {
+	@include bem.m(align-text-center) {
 		th,
 		td {
 			text-align: center;
@@ -181,7 +181,7 @@
 		}
 	}
 
-	@include m2.m(increment) {
+	@include bem.m(increment) {
 		tbody {
 			tr:nth-child(odd) {
 				th,
@@ -209,14 +209,14 @@
 		}
 	}
 
-	@include m2.m(lines) {
+	@include bem.m(lines) {
 		tbody {
 			tr {
 				background-image:
 					linear-gradient(
 							to right,
-							c.$color-cyberspace,
-							c.$color-cyberspace 2px,
+							colors.$color-cyberspace,
+							colors.$color-cyberspace 2px,
 							transparent 2px,
 							transparent 6px
 					);
@@ -246,7 +246,7 @@
 	}
 }
 
-@include m2.b(scroll-indicator) {
+@include bem.b(scroll-indicator) {
 	display: block;
 	position: relative;
 	width: 100%;
@@ -261,7 +261,7 @@
 		width: rhythm(7);
 		height: 0;
 		animation: xPulse 2s infinite;
-		font-family: v.$font-family-mono;
+		font-family: var.$font-family-mono;
 		font-size: 80%;
 		text-transform: uppercase;
 	}
@@ -273,20 +273,20 @@
 		top: -#{to_rem(4px)};
 		right: 0;
 		animation: xPulse 2s infinite;
-		font-family: v.$font-family-mono;
+		font-family: var.$font-family-mono;
 	}
 }
 
-@include m2.b(table-scroll-wrapper) {
+@include bem.b(table-scroll-wrapper) {
 
-	@include m2.b(table-container) {
+	@include bem.b(table-container) {
 		overflow-x: auto;
 		overflow-y: hidden;
 		-webkit-overflow-scrolling: touch;
 	}
 
-	@include bp.bp-up(sm) {
-		@include m2.b(scroll-indicator) {
+	@include breakpoint.bp-up(sm) {
+		@include bem.b(scroll-indicator) {
 			display: none;
 		}
 	}

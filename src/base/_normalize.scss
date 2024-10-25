@@ -1,8 +1,8 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 
 @use "sass:math";
-@use '../configurations/colors/colors' as c;
-@use '../configurations/variables' as v;
+@use '../configurations/colors/colors' as colors;
+@use '../configurations/variables' as var;
 
 html {
 	box-sizing: border-box;
@@ -11,7 +11,7 @@ html {
 	background-color: theme_palette('background');
 	color: var(--cyberspace-color);
 	font-family: sans-serif;
-	font-size: math.percentage(math.div(v.$size-base, 16px));
+	font-size: math.percentage(math.div(var.$size-base, 16px));
 	font-variant-ligatures: no-common-ligatures;
 	-ms-overflow-style: scrollbar;
 	-webkit-text-size-adjust: 100%;
@@ -27,7 +27,7 @@ body {
 	padding-right: env(safe-area-inset-right);
 	padding-left: env(safe-area-inset-left);
 	overflow-x: hidden;
-	font-family: v.$font-family-base;
+	font-family: var.$font-family-base;
 	-ms-overflow-style: auto;
 	-webkit-overflow-scrolling: touch;
 }
@@ -187,8 +187,8 @@ h6 {
 //
 
 mark {
-	background: c.$color-lemon-light;
-	color: c.$color-black;
+	background: colors.$color-lemon-light;
+	color: colors.$color-black;
 }
 
 //
@@ -286,7 +286,7 @@ hr.wp-block-separator {
 	margin-top: rhythm(2);
 	margin-bottom: rhythm(2);
 	border: 0;
-	border-bottom: 1px solid c.$color-concrete;
+	border-bottom: 1px solid colors.$color-concrete;
 }
 
 //
@@ -299,10 +299,10 @@ pre {
 	margin-bottom: rhythm(4);
 	padding: rhythm(2);
 	overflow: auto;
-	border-top: to_rem(4px) solid c.$color-sandstone;
-	border-radius: v.$border-radius;
-	background-color: c.$color-snow;
-	font-size: v.$size-medium;
+	border-top: to_rem(4px) solid colors.$color-sandstone;
+	border-radius: var.$border-radius;
+	background-color: colors.$color-snow;
+	font-size: var.$size-medium;
 
 	code {
 		padding: 0;
@@ -313,8 +313,8 @@ code {
 	display: block;
 	width: 100%;
 	padding: rhythm(2);
-	font-size: v.$size-medium;
-	color: c.$color-cyberspace;
+	font-size: var.$size-medium;
+	color: colors.$color-cyberspace;
 }
 
 //
@@ -325,7 +325,7 @@ code,
 kbd,
 pre,
 samp {
-	font-family: v.$font-family-mono;
+	font-family: var.$font-family-mono;
 }
 
 // Forms
@@ -470,27 +470,27 @@ input[type='search']::-webkit-search-decoration {
 // Style placeholders
 ::-webkit-input-placeholder {
 	opacity: 1;
-	color: c.$color-granit;
+	color: colors.$color-granit;
 }
 
 ::-moz-placeholder {
 	opacity: 1;
-	color: c.$color-granit;
+	color: colors.$color-granit;
 }
 
 :-ms-input-placeholder {
 	opacity: 1;
-	color: c.$color-granit;
+	color: colors.$color-granit;
 }
 
 :-moz-placeholder {
 	opacity: 1;
-	color: c.$color-granit;
+	color: colors.$color-granit;
 }
 
 ::placeholder {
 	opacity: 1;
-	color: c.$color-granit;
+	color: colors.$color-granit;
 }
 
 // Remove spinner from fields in Chrome

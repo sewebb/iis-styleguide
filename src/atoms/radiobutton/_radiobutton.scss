@@ -1,12 +1,12 @@
 @charset "UTF-8";
 @use "sass:color";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../configurations/colors/colors-functions' as cf;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
 
-@include m.atom(radio) {
+@include mixin.atom(radio) {
 	&[type='radio'] {
 		+ label {
 			display: inline-flex;
@@ -15,7 +15,7 @@
 			padding-top: rhythm(0.5);
 			padding-right: rhythm(2);
 			padding-bottom: rhythm(0.5);
-			font-family: v.$font-family-base;
+			font-family: var.$font-family-base;
 
 			&::before {
 				content: '';
@@ -28,8 +28,8 @@
 				transform: translateX(to_rem(1px));
 				border: 2px solid transparent;
 				border-radius: 50%;
-				background-color: c.$color-snow;
-				box-shadow: 0 0 0 1px c.$color-cyberspace;
+				background-color: colors.$color-snow;
+				box-shadow: 0 0 0 1px colors.$color-cyberspace;
 			}
 		}
 
@@ -37,7 +37,7 @@
 		&:hover {
 			+ label {
 				&::before {
-					background-color: color.adjust(c.$color-snow, $lightness: -5%);
+					background-color: color.adjust(colors.$color-snow, $lightness: -5%);
 				}
 			}
 		}
@@ -45,8 +45,8 @@
 		&:checked {
 			+ label {
 				&::before {
-					border: 2px solid c.$color-ash;
-					background-color: c.$color-cyberspace;
+					border: 2px solid colors.$color-ash;
+					background-color: colors.$color-cyberspace;
 				}
 			}
 		}
@@ -56,14 +56,14 @@
 				@extend %disabled;
 
 				&::before {
-					background-color: color.adjust(c.$color-concrete, $lightness: -5%);
+					background-color: color.adjust(colors.$color-concrete, $lightness: -5%);
 				}
 			}
 
 			&:checked {
 				+ label {
 					&::before {
-						background-color: c.$color-cyberspace;
+						background-color: colors.$color-cyberspace;
 					}
 				}
 			}
@@ -72,27 +72,27 @@
 		&:invalid {
 			+ label {
 				&::before {
-					background-color: c.$color-ruby-light;
-					box-shadow: 0 0 0 1px c.$color-ruby-dark;
+					background-color: colors.$color-ruby-light;
+					box-shadow: 0 0 0 1px colors.$color-ruby-dark;
 				}
 			}
 		}
 	}
 }
 
-@include m2.b(radio) {
+@include bem.b(radio) {
 	&.is-invalid {
 		[type='radio'] {
 			+ label {
 				&::before {
-					background-color: c.$color-ruby-light;
-					box-shadow: 0 0 0 1px c.$color-ruby-dark;
+					background-color: colors.$color-ruby-light;
+					box-shadow: 0 0 0 1px colors.$color-ruby-dark;
 				}
 			}
 		}
 	}
 
-	@include m2.m(inline) {
+	@include bem.m(inline) {
 		padding-top: 0;
 		padding-bottom: 0;
 

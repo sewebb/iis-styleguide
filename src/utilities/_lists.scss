@@ -1,9 +1,9 @@
 @charset "UTF-8";
 
-@use '../configurations/variables' as v;
-@use '../configurations/colors/colors' as c;
-@use '../configurations/mixins' as m;
-@use '../configurations/bem' as m2;
+@use '../configurations/variables' as var;
+@use '../configurations/colors/colors' as colors;
+@use '../configurations/mixins' as mixin;
+@use '../configurations/bem' as bem;
 
 %list-clean {
 	margin: 0;
@@ -31,11 +31,11 @@
 		padding: rhythm(1);
 
 		&:nth-child(odd) {
-			background-color: c.$color-ash;
+			background-color: colors.$color-ash;
 		}
 
 		&:nth-child(even) {
-			background-color: c.$color-snow;
+			background-color: colors.$color-snow;
 		}
 	}
 }
@@ -44,17 +44,17 @@
 	@extend %list-striped;
 }
 
-@include m.b(u-list__icon) {
+@include mixin.b(u-list__icon) {
 	flex-shrink: 0;
-	width: v.$icon-size;
-	height: v.$icon-size;
+	width: var.$icon-size;
+	height: var.$icon-size;
 	margin-right: rhythm(2);
 
-	@include m2.m(green) {
-		fill: c.$color-jade;
+	@include bem.m(green) {
+		fill: colors.$color-jade;
 	}
 
-	@include m2.m(red) {
-		fill: c.$color-ruby;
+	@include bem.m(red) {
+		fill: colors.$color-ruby;
 	}
 }

@@ -1,41 +1,41 @@
 @charset "UTF-8";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../configurations/colors/colors-functions' as cf;
-@use '../../vendor/grid/breakpoints' as bp;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
 
-@include m.atom(progress) {
+@include mixin.atom(progress) {
 	&[value] {
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		appearance: none;
 		display: block;
-		color: c.$color-ocean;
-		background: c.$color-concrete;
+		color: colors.$color-ocean;
+		background: colors.$color-concrete;
 		border: none;
 		width: 100%;
 		border-radius: 0;
 		height: rhythm(1);
 
-		@include bp.bp-up(md) {
+		@include breakpoint.bp-up(md) {
 			height: rhythm(2);
 		}
 	}
 	&[value]::-webkit-progress-bar {
 		border-radius: 0;
-		background: c.$color-concrete;
+		background: colors.$color-concrete;
 	}
 	&[value]::-webkit-progress-value {
 		border-radius: 0;
-		background: c.$color-ocean;
+		background: colors.$color-ocean;
 		transition: width 5s ease;
 	}
 	&[value]::-moz-progress-bar {
 		border-radius: 0;
-		background: c.$color-ocean;
+		background: colors.$color-ocean;
 		transition: padding-bottom 5s ease;
 		padding-left: 60px;
 		padding-bottom: var(--value);
@@ -45,7 +45,7 @@
 	}
 }
 
-@include m.atom(progress-label) {
+@include mixin.atom(progress-label) {
 	display: flex;
 	align-items: center;
 

@@ -1,10 +1,10 @@
 @charset "UTF-8";
 @use "sass:color";
-@use '../bem' as m2;
-@use '../variables' as v;
-@use '../colors/colors' as c;
+@use '../bem' as bem;
+@use '../variables' as var;
+@use '../colors/colors' as colors;
 
-@include m2.b(field-group) {
+@include bem.b(field-group) {
 	position: relative;
 	margin-bottom: rhythm(4);
 
@@ -28,27 +28,27 @@
 			@extend %invalid;
 		}
 
-		@include m2.b(input-help) {
-			background-color: c.$color-ruby-light;
+		@include bem.b(input-help) {
+			background-color: colors.$color-ruby-light;
 
 			&::selection {
-				background-color: c.$color-ruby;
+				background-color: colors.$color-ruby;
 			}
 
 			&::-moz-selection {
-				background-color: c.$color-ruby;
+				background-color: colors.$color-ruby;
 			}
 		}
 	}
 }
 
-@include m2.b(input-help) {
+@include bem.b(input-help) {
 	width: 100%;
 	padding: rhythm(0.5) rhythm(1);
 	transform: translateY(to_rem(-3px));
-	border-bottom-right-radius: v.$border-radius;
-	border-bottom-left-radius: v.$border-radius;
-	background-color: c.$color-concrete;
+	border-bottom-right-radius: var.$border-radius;
+	border-bottom-left-radius: var.$border-radius;
+	background-color: colors.$color-concrete;
 	font-size: to_rem(16px);
 
 	&:empty {
@@ -69,7 +69,7 @@ fieldset[disabled] {
 		&:hover,
 		&:focus {
 			svg {
-				fill: c.$color-cyberspace;
+				fill: colors.$color-cyberspace;
 			}
 		}
 	}
@@ -82,9 +82,9 @@ fieldset[disabled] {
 		+ label {
 			@extend %disabled;
 
-			background-color: c.$color-granit;
-			box-shadow: 0 0 0 1px inset c.$color-granit;
-			color: c.$color-granit;
+			background-color: colors.$color-granit;
+			box-shadow: 0 0 0 1px inset colors.$color-granit;
+			color: colors.$color-granit;
 
 			&:hover,
 			&:focus {
@@ -98,7 +98,7 @@ fieldset[disabled] {
 			@extend %disabled;
 
 			&::before {
-				background-color: color.adjust(c.$color-concrete, $lightness: -5%) !important;
+				background-color: color.adjust(colors.$color-concrete, $lightness: -5%) !important;
 			}
 		}
 	}
@@ -108,14 +108,14 @@ fieldset[disabled] {
 			@extend %disabled;
 
 			&::before {
-				background-color: color.adjust(c.$color-concrete, $lightness: -5%);
+				background-color: color.adjust(colors.$color-concrete, $lightness: -5%);
 			}
 
 			&:hover,
 			&:focus {
 				/* stylelint-disable */
 				&::before {
-					background-color: color.adjust(c.$color-concrete, $lightness: -5%);
+					background-color: color.adjust(colors.$color-concrete, $lightness: -5%);
 				}
 				/* stylelint-enable */
 			}
@@ -127,7 +127,7 @@ fieldset[disabled] {
 
 				/* stylelint-disable */
 				&::before {
-					background-color: c.$color-cyberspace;
+					background-color: colors.$color-cyberspace;
 				}
 				/* stylelint-enable */
 			}

@@ -1,13 +1,13 @@
 @charset "UTF-8";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/config' as m3;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../configurations/colors/colors-functions' as cf;
-@use '../../vendor/grid/breakpoints' as bp;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
-@include m.molecule(byline) {
+@include mixin.molecule(byline) {
 	width: 100%;
 	max-width: to_rem(400px);
 
@@ -15,41 +15,41 @@
 		margin-bottom: rhythm(1);
 	}
 
-	@include m2.e(figure) {
+	@include bem.e(figure) {
 		display: flex;
 		align-items: center;
 	}
 
-	@include m2.e(icon) {
+	@include bem.e(icon) {
 		width: to_rem(22px);
 		height: to_rem(22px);
 		margin-right: rhythm(0.5);
 	}
 
-	@include m2.e(link) {
+	@include bem.e(link) {
 		@extend %link-styles;
 
 		margin-left: rhythm(-0.5);
 	}
 
-	@include m2.e(portrait) {
+	@include bem.e(portrait) {
 		display: block;
 		width: to_rem(64px);
 		height: to_rem(64px);
 		margin-bottom: rhythm(1);
 		border-radius: 50%;
-		background-color: c.$color-concrete;
+		background-color: colors.$color-concrete;
 	}
 
-	@include m2.e(list) {
+	@include bem.e(list) {
 		margin: rhythm(2) 0 rhythm(1) 0;
 		padding: 0;
 		list-style: none;
 
-		@include m2.e(item) {
+		@include bem.e(item) {
 			padding-top: 0;
 			padding-bottom: 0;
-			font-size: v.$size-medium-plus;
+			font-size: var.$size-medium-plus;
 		}
 	}
 }

@@ -1,29 +1,29 @@
 @charset "UTF-8";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/config' as m3;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../configurations/colors/colors-functions' as cf;
-@use '../../vendor/grid/breakpoints' as bp;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
-@include m.molecule(teaser-news) {
+@include mixin.molecule(teaser-news) {
 	height: 100%;
 	padding: rhythm(2);
-	border-radius: v.$border-radius;
+	border-radius: var.$border-radius;
 	background-color: var(--snow-color);
 
-	@include bp.bp-up(md) {
+	@include breakpoint.bp-up(md) {
 		padding: rhythm(2) rhythm(4);
 	}
 
-	@include m2.e(list) {
+	@include bem.e(list) {
 		margin: 0;
 		padding: 0;
 		list-style: none;
 	}
 
-	@include m2.e(item) {
+	@include bem.e(item) {
 		position: relative;
 
 		&:not(:last-child) {
@@ -31,7 +31,7 @@
 		}
 	}
 
-	@include m2.e(link) {
+	@include bem.e(link) {
 		@extend %normalize-links;
 
 		color: currentcolor;
@@ -39,7 +39,7 @@
 
 		&:hover,
 		&:focus {
-			color: c.$color-ruby;
+			color: colors.$color-ruby;
 			text-decoration: underline;
 		}
 

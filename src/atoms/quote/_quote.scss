@@ -1,12 +1,12 @@
 @charset "UTF-8";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../configurations/colors/colors-functions' as cf;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
 
 
-@include m.atom(quote) {
+@include mixin.atom(quote) {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -14,18 +14,18 @@
 	margin: 0;
 	padding: 0;
 
-	@include m2.e(footer) {
+	@include bem.e(footer) {
 		display: flex;
 		align-items: center;
 		padding-top: rhythm(1);
-		font-family: v.$font-family-headings;
+		font-family: var.$font-family-headings;
 	}
 
-	@include m2.e(avatar) {
+	@include bem.e(avatar) {
 		width: rhythm(4);
 		height: rhythm(4);
 		margin-right: rhythm(2);
 		border-radius: 50%;
-		background-color: c.$color-snow;
+		background-color: colors.$color-snow;
 	}
 }

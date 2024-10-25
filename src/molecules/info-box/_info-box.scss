@@ -1,17 +1,17 @@
 @charset "UTF-8";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/config' as m3;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../configurations/colors/colors-functions' as cf;
-@use '../../vendor/grid/breakpoints' as bp;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
-@include m.molecule(info-box) {
+@include mixin.molecule(info-box) {
 	margin: rhythm(4) 0;
 	padding: rhythm(4);
-	border-top: to_rem(4px) solid c.$color-lemon;
-	border-radius: v.$border-radius;
+	border-top: to_rem(4px) solid colors.$color-lemon;
+	border-radius: var.$border-radius;
 	background-color: var(--snow-color);
 
 	> p,
@@ -22,30 +22,30 @@
 		}
 	}
 
-	@include bp.bp-up(md) {
+	@include breakpoint.bp-up(md) {
 		padding-right: rhythm(5.5);
 		padding-left: rhythm(5.5);
 	}
 
-	@include m2.m(big) {
-		border-color: c.$color-jade;
+	@include bem.m(big) {
+		border-color: colors.$color-jade;
 
 		p {
 			@extend %preamble;
 		}
 	}
 
-	@include m2.m(basic) {
+	@include bem.m(basic) {
 		margin-top: 0;
 		padding: rhythm(2);
 		border-top: 0;
 		border-color: none;
 
-		@include bp.bp-up(md) {
+		@include breakpoint.bp-up(md) {
 			padding: rhythm(4);
 		}
 
-		@include bp.bp-up(lg) {
+		@include breakpoint.bp-up(lg) {
 			padding-top: rhythm(6);
 			padding-right: rhythm(8);
 			padding-bottom: rhythm(6);
@@ -53,7 +53,7 @@
 		}
 	}
 
-	@include m2.m(custom-border) {
+	@include bem.m(custom-border) {
 		border-color: var(--m-info-box-border-color);
 	}
 }

@@ -1,15 +1,15 @@
 @charset "UTF-8";
 @use "sass:map";
-@use '../../configurations/variables' as v;
-@use 'breakpoints' as bp;
+@use '../../configurations/variables' as var;
+@use 'breakpoints' as breakpoint;
 
 // Flex variation
 //
 // Custom styles for additional flex alignment options.
 
-@each $breakpoint in map.keys(v.$grid-breakpoints) {
-	@include bp.bp-up($breakpoint) {
-		$infix: bp.breakpoint-infix($breakpoint, v.$grid-breakpoints);
+@each $breakpoint in map.keys(var.$grid-breakpoints) {
+	@include breakpoint.bp-up($breakpoint) {
+		$infix: breakpoint.breakpoint-infix($breakpoint, var.$grid-breakpoints);
 
 		.display-flex { display: flex !important; }
 

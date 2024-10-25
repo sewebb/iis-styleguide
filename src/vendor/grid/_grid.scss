@@ -1,8 +1,8 @@
 @charset "UTF-8";
 @use "sass:math";
 @use "sass:list";
-@use '../../configurations/variables' as v;
-@use 'breakpoints' as bp;
+@use '../../configurations/variables' as var;
+@use 'breakpoints' as breakpoint;
 
 /// Grid system
 //
@@ -12,14 +12,14 @@
 	width: 100%;
 	margin-right: auto;
 	margin-left: auto;
-	padding-right: list.slash(v.$grid-gutter-width, 2);
-	padding-left: list.slash(v.$grid-gutter-width, 2);
+	padding-right: list.slash(var.$grid-gutter-width, 2);
+	padding-left: list.slash(var.$grid-gutter-width, 2);
 }
 
 // For each breakpoint, define the maximum width of the container in a media query
-@mixin make-container-max-widths($max-widths: v.$container-max-widths, $breakpoints: v.$grid-breakpoints) {
+@mixin make-container-max-widths($max-widths: var.$container-max-widths, $breakpoints: var.$grid-breakpoints) {
 	@each $breakpoint, $container-max-width in $max-widths {
-		@include bp.bp-up($breakpoint, $breakpoints) {
+		@include breakpoint.bp-up($breakpoint, $breakpoints) {
 			max-width: $container-max-width;
 		}
 	}
@@ -28,8 +28,8 @@
 @mixin make-row() {
 	display: flex;
 	flex-wrap: wrap;
-	margin-right: list.slash(v.$grid-gutter-width, -2);
-	margin-left: list.slash(v.$grid-gutter-width, -2);
+	margin-right: list.slash(var.$grid-gutter-width, -2);
+	margin-left: list.slash(var.$grid-gutter-width, -2);
 }
 
 @mixin make-col-ready() {
@@ -39,11 +39,11 @@
 	// later on to override this initial width.
 	width: 100%;
 	min-height: 1px; // Prevent collapsing
-	padding-right: math.div(v.$grid-gutter-width, 2);
-	padding-left: math.div(v.$grid-gutter-width, 2);
+	padding-right: math.div(var.$grid-gutter-width, 2);
+	padding-left: math.div(var.$grid-gutter-width, 2);
 }
 
-@mixin make-col($size, $columns: v.$grid-columns) {
+@mixin make-col($size, $columns: var.$grid-columns) {
 	flex: 0 0 math.percentage(math.div($size, $columns));
 	// Add a `max-width` to ensure content within each column does not blow out
 	// the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
@@ -51,6 +51,6 @@
 	max-width: math.percentage(math.div($size, $columns));
 }
 
-@mixin make-col-offset($size, $columns: v.$grid-columns) {
+@mixin make-col-offset($size, $columns: var.$grid-columns) {
 	margin-left: math.percentage(math.div($size, $columns));
 }

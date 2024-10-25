@@ -1,18 +1,18 @@
 @charset "UTF-8";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../configurations/colors/colors-functions' as cf;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
 
 
-@include m.atom(rating) {
+@include mixin.atom(rating) {
 	display: inline-flex;
 	flex-direction: row-reverse;
 
 	> label {
-		width: v.$icon-size-large * 1.5;
-		height: v.$icon-size-large * 1.5;
+		width: var.$icon-size-large * 1.5;
+		height: var.$icon-size-large * 1.5;
 		display: inline-flex;
 		background-position: center center;
 		background-repeat: no-repeat;
@@ -20,7 +20,7 @@
 		background-image: url("data:image/svg+xml,%3C%3Fxml version='1.0' encoding='utf-8'%3F%3E%3C!-- Generator: Adobe Illustrator 25.4.1, SVG Export Plug-In . SVG Version: 6.00 Build 0) --%3E%3Csvg version='1.1' id='Layer_1' xmlns='http://www.w3.org/2000/svg' xmlns:xlink='http://www.w3.org/1999/xlink' x='0px' y='0px' viewBox='0 0 300 255' style='enable-background:new 0 0 300 255;' xml:space='preserve'%3E%3Cstyle type='text/css'%3E .st0%7Bfill:%238E9297;%7D%0A%3C/style%3E%3Cpath class='st0' d='M266.9,36.7V0.4h-99v36.3h-35.8V0.4h-99v36.3h-33v72.8h33.2v36.3h32.9v36.3h33.2v36.6h32.9V255h35.8v-36.3H201 v-36.6h33v-36.3h32.9v-36.3h33.2V36.7H266.9z M257.5,85h-45.7V36.7H235v24.5h22.5V85z'/%3E%3C/svg%3E%0A");
 	}
 
-	@include m2.e(radio) {
+	@include bem.e(radio) {
 		&:hover,
 		&:checked {
 			~ label {

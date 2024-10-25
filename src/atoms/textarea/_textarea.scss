@@ -1,13 +1,13 @@
 @charset "UTF-8";
 @use "sass:color";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../configurations/colors/colors-functions' as cf;
-@use '../../vendor/baseline/plumber' as p;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/baseline/plumber' as plumber;
 
-@include m.atom(textarea) {
+@include mixin.atom(textarea) {
 	@extend %input;
 
 	min-width: 100%;
@@ -22,12 +22,12 @@
 		@extend %disabled;
 	}
 
-	@include m2.m(discreet) {
+	@include bem.m(discreet) {
 		@extend %discreet;
 	}
 
-	@include m2.m(hidden) {
-		@include m.visuallyhidden;
+	@include bem.m(hidden) {
+		@include mixin.visuallyhidden;
 
 		min-height: 0;
 		min-width: 0;
@@ -35,7 +35,7 @@
 		padding: 0;
 	}
 
-	@include m2.m(rich-text) {
+	@include bem.m(rich-text) {
 		min-height: auto;
 
 		> div {
@@ -44,7 +44,7 @@
 			p,
 			ul,
 			ol {
-				@include p.plumber(
+				@include plumber.plumber(
 					$font-size: 1.75,
 					$leading-bottom: 2
 				);
@@ -56,7 +56,7 @@
 		}
 	}
 
-	@include m2.e(toolbar) {
+	@include bem.e(toolbar) {
 		button {
 			@extend %button-toolbar;
 

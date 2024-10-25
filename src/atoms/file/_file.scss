@@ -1,14 +1,14 @@
 @charset "UTF-8";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../configurations/colors/colors-functions' as cf;
-@use '../../vendor/grid/breakpoints' as bp;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
 
 .js {
-	@include m.atom(file) {
+	@include mixin.atom(file) {
 		@extend %u-visuallyhidden;
 
 		&:focus {
@@ -23,12 +23,12 @@
 			@extend %disabled;
 		}
 
-		@include m2.m(discreet) {
+		@include bem.m(discreet) {
 			@extend %discreet;
 		}
 	}
 
-	@include m.atom(file-text) {
+	@include mixin.atom(file-text) {
 		width: auto;
 		max-width: 250px;
 		overflow: hidden;
@@ -36,14 +36,14 @@
 		white-space: nowrap;
 	}
 
-	@include m.atom(file-preview) {
+	@include mixin.atom(file-preview) {
 		position: relative;
 		width: 100%;
 		height: to_rem(169px);
 		margin-bottom: rhythm(1);
 		overflow: hidden;
-		border-radius: v.$border-radius;
-		background-color: c.$color-concrete;
+		border-radius: var.$border-radius;
+		background-color: colors.$color-concrete;
 
 		&::after {
 			content: attr(data-label);
@@ -51,7 +51,7 @@
 			top: 50%;
 			left: 50%;
 			transform: translateX(-50%) translateY(-50%);
-			font-size: v.$size-medium;
+			font-size: var.$size-medium;
 		}
 
 		> img {
@@ -68,7 +68,7 @@
 			}
 		}
 
-		@include bp.bp-up(sm) {
+		@include breakpoint.bp-up(sm) {
 			max-width: to_rem(300px);
 		}
 	}

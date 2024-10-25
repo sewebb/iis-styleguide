@@ -1,26 +1,26 @@
 @charset "UTF-8";
 @use "sass:meta";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/config' as m3;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../configurations/colors/colors-functions' as cf;
-@use '../../vendor/grid/breakpoints' as bp;
-@use '../../vendor/grid/grid' as g;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/grid/grid' as grid;
 
-@include m.molecule(natural-language-form) {
+@include mixin.molecule(natural-language-form) {
 	display: inline-block;
 	position: relative;
 
-	@include m2.m(arrow) {
-		@include m2.e(label) {
+	@include bem.m(arrow) {
+		@include bem.e(label) {
 			padding-right: rhythm(4);
 			border-bottom: 2px solid currentColor;
 			background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-arrow-down' viewBox='0 0 32 18.9' width='100%25' height='100%25'%3E%3Cpolygon points='32,2.9 16,18.9 0,2.9 2.9,0 16,13.1 29.1,0 '%3E%3C/polygon%3E%3C/svg%3E%0A");
 			background-repeat: no-repeat;
 			background-position: calc(95%) 60%;
-			background-size: v.$icon-size-medium v.$icon-size-medium;
+			background-size: var.$icon-size-medium var.$icon-size-medium;
 			text-decoration: none;
 
 			@if meta.variable-exists(cyberspace-color) {
@@ -45,18 +45,18 @@
 				background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-arrow-down' fill='%23f99963' viewBox='0 0 32 18.9' width='100%25' height='100%25'%3E%3Cpolygon points='32,2.9 16,18.9 0,2.9 2.9,0 16,13.1 29.1,0 '%3E%3C/polygon%3E%3C/svg%3E%0A");
 			}
 
-			@include bp.bp-up(sm) {
+			@include breakpoint.bp-up(sm) {
 				border-bottom: 4px solid currentColor;
 				background-position: calc(100%) 60%;
 			}
 
-			@include bp.bp-up(lg) {
+			@include breakpoint.bp-up(lg) {
 				border-bottom: 5px solid currentColor;
 			}
 		}
 	}
 
-	@include m2.e(select) {
+	@include bem.e(select) {
 		position: absolute;
 		top: 0;
 		right: 0;
@@ -67,7 +67,7 @@
 		cursor: pointer;
 	}
 
-	@include m2.e(label) {
+	@include bem.e(label) {
 		display: inline-block;
 		font-family: inherit;
 		font-size: inherit;
@@ -75,27 +75,27 @@
 		cursor: pointer;
 
 		option:not(:checked) {
-			color: c.$color-cyberspace;
+			color: colors.$color-cyberspace;
 		}
 
 		&[data-color='ocean'] {
-			color: c.$color-ocean;
+			color: colors.$color-ocean;
 		}
 
 		&[data-color='peacock'] {
-			color: c.$color-peacock;
+			color: colors.$color-peacock;
 		}
 
 		&[data-color='jade'] {
-			color: c.$color-jade;
+			color: colors.$color-jade;
 		}
 
 		&[data-color='sandstone'] {
-			color: c.$color-sandstone;
+			color: colors.$color-sandstone;
 		}
 	}
 
-	@include m2.e(input) {
+	@include bem.e(input) {
 		position: relative;
 		z-index: 1;
 		top: 0;
@@ -110,19 +110,19 @@
 		cursor: pointer;
 
 		&[data-color='ocean'] {
-			color: c.$color-ocean;
+			color: colors.$color-ocean;
 		}
 
 		&[data-color='peacock'] {
-			color: c.$color-peacock;
+			color: colors.$color-peacock;
 		}
 
 		&[data-color='jade'] {
-			color: c.$color-jade;
+			color: colors.$color-jade;
 		}
 	}
 
-	@include m2.e(temp-text) {
+	@include bem.e(temp-text) {
 		position: absolute;
 		z-index: -1;
 		top: 0;

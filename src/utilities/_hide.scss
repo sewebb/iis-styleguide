@@ -1,19 +1,19 @@
 @charset "UTF-8";
-@use '../configurations/mixins' as m;
-@use '../vendor/grid/breakpoints' as bp;
+@use '../configurations/mixins' as mixin;
+@use '../vendor/grid/breakpoints' as breakpoint;
 
 // Hide visually but not for screen readers
 /// @group Utilities
 %u-visuallyhidden,
 .u-visuallyhidden {
-	@include m.visuallyhidden;
+	@include mixin.visuallyhidden;
 }
 
 // Hide on certain breakpoint
 /// @group Utilities
 @mixin hide-on-screen-width($bp) {
-	@include bp.bp-down($bp) {
-		@include m.visuallyhidden;
+	@include breakpoint.bp-down($bp) {
+		@include mixin.visuallyhidden;
 	}
 }
 
@@ -26,7 +26,7 @@
 // Hide on mobile
 /// @group Utilities
 .u-hidden-mobile {
-	@include bp.bp-down(lg) {
+	@include breakpoint.bp-down(lg) {
 		display: none !important;
 	}
 }
@@ -37,61 +37,61 @@
 }
 
 .u-hide-xs {
-	@include bp.bp-down(xs) {
+	@include breakpoint.bp-down(xs) {
 		display: none !important;
 	}
 }
 
 .u-hide-sm-xs {
-	@include bp.bp-down(sm-xs) {
+	@include breakpoint.bp-down(sm-xs) {
 		display: none !important;
 	}
 }
 
 .u-hide-sm {
-	@include bp.bp-down(sm) {
+	@include breakpoint.bp-down(sm) {
 		display: none !important;
 	}
 }
 
 .u-hide-md {
-	@include bp.bp-down(md) {
+	@include breakpoint.bp-down(md) {
 		display: none !important;
 	}
 }
 
 .u-hide-lg {
-	@include bp.bp-down(lg) {
+	@include breakpoint.bp-down(lg) {
 		display: none !important;
 	}
 }
 
 .u-hide-xs-up {
-	@include bp.bp-up(xs) {
+	@include breakpoint.bp-up(xs) {
 		display: none !important;
 	}
 }
 
 .u-hide-sm-up {
-	@include bp.bp-up(sm) {
+	@include breakpoint.bp-up(sm) {
 		display: none !important;
 	}
 }
 
 .u-hide-md-up {
-	@include bp.bp-up(md) {
+	@include breakpoint.bp-up(md) {
 		display: none !important;
 	}
 }
 
 .u-hide-lg-up {
-	@include bp.bp-up(lg) {
+	@include breakpoint.bp-up(lg) {
 		display: none !important;
 	}
 }
 
 .u-hide-xl-up {
-	@include bp.bp-up(xl) {
+	@include breakpoint.bp-up(xl) {
 		display: none !important;
 	}
 }

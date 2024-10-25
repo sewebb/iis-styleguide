@@ -1,77 +1,77 @@
 @charset "UTF-8";
-@use '../configurations/variables' as v;
-@use '../configurations/colors/colors' as c;
-@use '../configurations/bem' as m2;
-@use '../vendor/grid/breakpoints' as bp;
+@use '../configurations/variables' as var;
+@use '../configurations/colors/colors' as colors;
+@use '../configurations/bem' as bem;
+@use '../vendor/grid/breakpoints' as breakpoint;
 
 // Default
-$fill-color: c.$color-black;
+$fill-color: colors.$color-black;
 
-@include m2.b(u-icon) {
+@include bem.b(u-icon) {
 	display: block !important;
-	width: v.$icon-size !important;
-	height: v.$icon-size !important;
+	width: var.$icon-size !important;
+	height: var.$icon-size !important;
 	background-repeat: no-repeat !important;
 	background-position: center center !important;
 
 	// Sizes
-	@include m2.m(smallest) {
-		width: v.$icon-size-smallest !important;
-		height: v.$icon-size-smallest !important;
+	@include bem.m(smallest) {
+		width: var.$icon-size-smallest !important;
+		height: var.$icon-size-smallest !important;
 	}
 
-	@include m2.m(small) {
-		width: v.$icon-size-small !important;
-		height: v.$icon-size-small !important;
+	@include bem.m(small) {
+		width: var.$icon-size-small !important;
+		height: var.$icon-size-small !important;
 	}
 
-	@include m2.m(medium) {
-		width: v.$icon-size-medium !important;
-		height: v.$icon-size-medium !important;
+	@include bem.m(medium) {
+		width: var.$icon-size-medium !important;
+		height: var.$icon-size-medium !important;
 	}
 
-	@include m2.m(large) {
-		width: v.$icon-size-large !important;
-		height: v.$icon-size-large !important;
+	@include bem.m(large) {
+		width: var.$icon-size-large !important;
+		height: var.$icon-size-large !important;
 	}
 
-	@include m2.m(supersize) {
-		width: calc(v.$icon-size-large * 1.5) !important;
-		height: calc(v.$icon-size-large * 1.5) !important;
+	@include bem.m(supersize) {
+		width: calc(var.$icon-size-large * 1.5) !important;
+		height: calc(var.$icon-size-large * 1.5) !important;
 	}
 
-	@include m2.m(responsive) {
-		width: v.$icon-size !important;
-		height: v.$icon-size !important;
+	@include bem.m(responsive) {
+		width: var.$icon-size !important;
+		height: var.$icon-size !important;
 
-		@include bp.bp-up(md) {
-			width: v.$icon-size-large !important;
-			height: v.$icon-size-large !important;
+		@include breakpoint.bp-up(md) {
+			width: var.$icon-size-large !important;
+			height: var.$icon-size-large !important;
 		}
 	}
 
 	// Specific icons
-	@include m2.m(check) {
+	@include bem.m(check) {
 		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 24.42' fill='" + $fill-color + "'%3E%3Cpolygon points='12.04 24.42 0 13.26 2.87 10.16 11.81 18.44 28.9 0 32 2.87 12.04 24.42' data-name='Layer 3'/%3E%3C/svg%3E") !important;
 		// Colors
-		@include m2.m(jade) {
-			$fill-color: c.$color-jade !important;
+		@include bem.m(jade) {
+			$fill-color: colors.$color-jade !important;
 
 			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 24.42' fill='" + $fill-color + "'%3E%3Cpolygon points='12.04 24.42 0 13.26 2.87 10.16 11.81 18.44 28.9 0 32 2.87 12.04 24.42' data-name='Layer 3'/%3E%3C/svg%3E") !important;
 		}
 	}
 
-	@include m2.m(close) {
+	@include bem.m(close) {
 		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='" + $fill-color + "'%3E%3Cpath d='M27.5,2L30,4.5L4.5,30L2,27.5L27.5,2z'/%3E%3Cpath d='M30,27.5L27.5,30L2,4.5L4.5,2L30,27.5z'/%3E%3C/svg%3E") !important;
 
-		@include m2.m(ruby) {
-			$fill-color: c.$color-ruby !important;
+		@include bem.m(ruby) {
+			$fill-color: colors.$color-ruby !important;
 
 			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32' fill='" + $fill-color + "'%3E%3Cpath d='M27.5,2L30,4.5L4.5,30L2,27.5L27.5,2z'/%3E%3Cpath d='M30,27.5L27.5,30L2,4.5L4.5,2L30,27.5z'/%3E%3C/svg%3E") !important;
 		}
 	}
 
-	@include m2.m(color) {
+	@include bem.m(color) {
 		fill: currentColor;
 	}
 }

@@ -1,10 +1,10 @@
 @charset "UTF-8";
 @use "sass:math";
-@use '../vendor/grid/breakpoints' as bp;
-@use '../vendor/baseline/plumber' as p;
-@use 'colors/colors' as c;
-@use 'variables' as v;
-@use 'mixins' as m;
+@use '../vendor/grid/breakpoints' as breakpoint;
+@use '../vendor/baseline/plumber' as plumber;
+@use 'colors/colors' as colors;
+@use 'variables' as var;
+@use 'mixins' as mixin;
 
 //
 // Modifies Wordpress Core classes
@@ -21,7 +21,7 @@ div.aligncenter {
 	margin: 0 auto rhythm(3);
 }
 
-@include bp.bp-up(lg) {
+@include breakpoint.bp-up(lg) {
 	.alignright {
 		width: calc(#{make_col(6)} - 13px); // <== You ugly magic number you, we hates it!
 		margin: 0 0 rhythm(3) 0;
@@ -55,7 +55,7 @@ div.aligncenter {
 	margin-bottom: rhythm(3);
 
 	figcaption {
-		@include p.plumber(
+		@include plumber.plumber(
 			$font-size: 1.7,
 			$line-height: 2,
 			$leading-bottom: 0
@@ -141,16 +141,16 @@ div.aligncenter {
 
 		figcaption {
 			padding: rhythm(1);
-			font-size: v.$size-small;
+			font-size: var.$size-small;
 			line-height: 1.4;
 
-			@include bp.bp-up(sm) {
+			@include breakpoint.bp-up(sm) {
 				padding-bottom: rhythm(2);
-				font-size: v.$size-medium;
+				font-size: var.$size-medium;
 			}
 
-			@include bp.bp-up(lg) {
-				font-size: v.$size-base;
+			@include breakpoint.bp-up(lg) {
+				font-size: var.$size-base;
 			}
 		}
 	}
@@ -158,7 +158,7 @@ div.aligncenter {
 
 .wp-block-embed {
 	figcaption {
-		@include p.plumber(
+		@include plumber.plumber(
 			$font-size: 1.5,
 			$line-height: 2,
 			$leading-bottom: 0
@@ -181,7 +181,7 @@ div.aligncenter {
 				margin-bottom: 0;
 			}
 
-			@include m.molecule(card) {
+			@include mixin.molecule(card) {
 				&:not(:only-child) {
 					height: auto;
 				}
@@ -200,9 +200,9 @@ div.aligncenter {
 .wp-block-group {
 	display: flex;
 	flex-wrap: wrap;
-	margin-right: math.div(v.$grid-gutter-width, -2);
+	margin-right: math.div(var.$grid-gutter-width, -2);
 	margin-bottom: rhythm(2);
-	margin-left: math.div(v.$grid-gutter-width, -2);
+	margin-left: math.div(var.$grid-gutter-width, -2);
 
 	&.alignfull {
 		right: auto;
@@ -219,9 +219,9 @@ div.aligncenter {
 .wp-block-columns {
 	display: flex;
 	flex-wrap: wrap;
-	margin-right: math.div(v.$grid-gutter-width, -2);
+	margin-right: math.div(var.$grid-gutter-width, -2);
 	margin-bottom: rhythm(2);
-	margin-left: math.div(v.$grid-gutter-width, -2);
+	margin-left: math.div(var.$grid-gutter-width, -2);
 
 	&.alignfull {
 		right: auto;
@@ -229,7 +229,7 @@ div.aligncenter {
 		width: auto;
 	}
 }
-@include bp.bp-up(md) {
+@include breakpoint.bp-up(md) {
 	.wp-block-columns {
 		flex-wrap: nowrap;
 	}
@@ -238,18 +238,18 @@ div.aligncenter {
 .wp-block-column {
 	flex-grow: 1;
 	min-width: 0;
-	margin-right: math.div(v.$grid-gutter-width, 2);
-	margin-left: math.div(v.$grid-gutter-width, 2);
+	margin-right: math.div(var.$grid-gutter-width, 2);
+	margin-left: math.div(var.$grid-gutter-width, 2);
 	word-break: break-word;
 	overflow-wrap: break-word;
 }
-@include bp.bp-down(sm) {
+@include breakpoint.bp-down(sm) {
 	.wp-block-column {
 		flex-basis: 100% !important;
 	}
 }
 
-@include bp.bp-up(md) {
+@include breakpoint.bp-up(md) {
 	.wp-block-column {
 		flex-basis: 0;
 		flex-grow: 1;
@@ -260,18 +260,18 @@ div.aligncenter {
 	}
 
 	.wp-block-column:not(:first-child) {
-		margin-left: math.div(v.$grid-gutter-width, 2);
+		margin-left: math.div(var.$grid-gutter-width, 2);
 	}
 }
 
-@include bp.bp-between(sm, md) {
+@include breakpoint.bp-between(sm, md) {
 	.wp-block-column:nth-child(even) {
-		margin-left: math.div(v.$grid-gutter-width, 2);
+		margin-left: math.div(var.$grid-gutter-width, 2);
 	}
 }
 
 .wp-block-column:nth-child(even) {
-	margin-left: math.div(v.$grid-gutter-width, 2);
+	margin-left: math.div(var.$grid-gutter-width, 2);
 }
 
 .wp-block-columns.are-vertically-aligned-top {
@@ -321,8 +321,8 @@ div.aligncenter {
 			background-image:
 				linear-gradient(
 					to right,
-					c.$color-cyberspace,
-					c.$color-cyberspace 2px,
+					colors.$color-cyberspace,
+					colors.$color-cyberspace 2px,
 					transparent 2px,
 					transparent 6px
 				);
@@ -336,12 +336,12 @@ div.aligncenter {
 .wp-block-image,
 .wp-block-image:not(.is-style-rounded) {
 	img {
-		border-radius: v.$border-radius;
+		border-radius: var.$border-radius;
 	}
 }
 
 .wp-block-embed-youtube {
-	border-radius: v.$border-radius;
+	border-radius: var.$border-radius;
 	overflow: hidden;
 }
 
@@ -356,7 +356,7 @@ div.aligncenter {
 hr.wp-block-separator {
 	display: flex;
 	border-top: 0;
-	border-color: c.$color-concrete;
+	border-color: colors.$color-concrete;
 
 	&[class*=align] {
 		height: 22px;
@@ -382,8 +382,8 @@ hr.wp-block-separator {
 		margin-top: rhythm(2);
 		margin-bottom: rhythm(2);
 
-		@include bp.bp-up(lg) {
-			margin-left: v.$indent * 2;
+		@include breakpoint.bp-up(lg) {
+			margin-left: var.$indent * 2;
 		}
 	}
 

@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
-@use '../configurations/colors/colors' as c;
-@use '../configurations/colors/colors-functions' as cf;
+@use '../configurations/colors/colors' as colors;
+@use '../configurations/colors/colors-functions' as colorFunc;
 
 /// Namespace
 /// Prepended to all outputted classes
@@ -33,17 +33,17 @@ $default-padding: rhythm(2) !default;
 ///
 /// @group Config
 $theme-colors: (
-	primary: c.$color-ruby,
-	secondary: c.$color-jade,
-	subtle: c.$color-granit
+	primary: colors.$color-ruby,
+	secondary: colors.$color-jade,
+	subtle: colors.$color-granit
 );
 
 /// Text colors
 ///
 /// @group Config
 .color {
-	@include cf.color_values($theme-colors, 'color', $separator: '-');
+	@include colorFunc.color_values($theme-colors, 'color', $separator: '-');
 }
 
 // Default text-shadow
-$text-shadow: 0 0 rhythm(2) rgba(c.$color-black, 0.5);
+$text-shadow: 0 0 rhythm(2) rgba(colors.$color-black, 0.5);

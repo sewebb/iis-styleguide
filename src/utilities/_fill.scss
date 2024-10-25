@@ -1,18 +1,18 @@
 @charset "UTF-8";
-@use '../configurations/colors/colors' as c;
+@use '../configurations/colors/colors' as colors;
 
 .u-fill-snow {
-	fill: c.$color-snow !important;
+	fill: colors.$color-snow !important;
 }
 
 .u-fill-concrete {
-	fill: c.$color-concrete !important;
+	fill: colors.$color-concrete !important;
 }
 
 .u-fill-granit {
-	fill: c.$color-granit !important;
+	fill: colors.$color-granit !important;
 }
 
 .u-fill-ocean-dark {
-	fill: c.$color-ocean-dark !important;
+	fill: colors.$color-ocean-dark !important;
 }

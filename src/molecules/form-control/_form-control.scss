@@ -1,18 +1,18 @@
 @charset "UTF-8";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/config' as m3;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../configurations/colors/colors-functions' as cf;
-@use '../../vendor/grid/breakpoints' as bp;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
-@include m.molecule(form-control) {
+@include mixin.molecule(form-control) {
 
 	// Modifier for large form fields
-	@include m2.m(large) {
+	@include bem.m(large) {
 		// Inputs
-		@include m.atom(input) {
+		@include mixin.atom(input) {
 			padding-top: rhythm(1.85);
 			padding-bottom: rhythm(1.85);
 			padding-left: rhythm(2);
@@ -24,29 +24,29 @@
 		}
 
 		// Input icon
-		@include m2.b(input-icon) {
+		@include bem.b(input-icon) {
 			> svg {
 				transform: translateY(-#{rhythm(4.6)}) translateX(-#{rhythm(2)});
 			}
 		}
 
 		// Buttons
-		@include m.atom(button) {
+		@include mixin.atom(button) {
 			padding: rhythm(1.6) rhythm(4);
 
-			@include m2.b(a-button__text) {
+			@include bem.b(a-button__text) {
 				font-size: to_rem(24px);
 			}
 		}
 
 		// Checkbox
-		@include m.atom(checkbox) {
+		@include mixin.atom(checkbox) {
 			+ label {
 				font-size: to_rem(20px);
 
 				&::before {
-					width: v.$icon-size;
-					height: v.$icon-size;
+					width: var.$icon-size;
+					height: var.$icon-size;
 					margin-top: to_rem(3px);
 				}
 			}
@@ -65,14 +65,14 @@
 		}
 
 		// Radiobutton
-		@include m.atom(radio) {
+		@include mixin.atom(radio) {
 			&[type='radio'] {
 				+ label {
 					font-size: to_rem(20px);
 
 					&::before {
-						width: v.$icon-size;
-						height: v.$icon-size;
+						width: var.$icon-size;
+						height: var.$icon-size;
 						border-width: 3px;
 					}
 				}
@@ -80,55 +80,55 @@
 		}
 
 		// Select
-		@include m.atom(select) {
+		@include mixin.atom(select) {
 			padding-top: rhythm(1.85);
 			padding-bottom: rhythm(1.85);
 			padding-left: rhythm(2);
 			background-position: calc(100% - #{rhythm(2)}) 50%;
-			background-size: v.$icon-size v.$icon-size;
+			background-size: var.$icon-size var.$icon-size;
 			font-size: to_rem(20px);
 		}
 
 		// Textarea
-		@include m.atom(textarea) {
+		@include mixin.atom(textarea) {
 			height: rhythm(15);
 			font-size: to_rem(20px);
 		}
 	}
 
 	// Modifier for small form fields
-	@include m2.m(small) {
+	@include bem.m(small) {
 		// Inputs
-		@include m2.b(a-input) {
+		@include bem.b(a-input) {
 			padding-top: rhythm(0.5);
 			padding-bottom: rhythm(0.8);
 			font-size: to_rem(16px);
 		}
 
 		// Input icon
-		@include m2.b(input-icon) {
+		@include bem.b(input-icon) {
 			> svg {
-				width: v.$icon-size-medium;
-				height: v.$icon-size-medium;
+				width: var.$icon-size-medium;
+				height: var.$icon-size-medium;
 				transform: translateY(-#{rhythm(3.1)}) translateX(-#{rhythm(1)});
 			}
 		}
 
 		// Buttons
-		@include m.atom(button) {
+		@include mixin.atom(button) {
 			padding: rhythm(0.6) rhythm(1.5);
 		}
 
 		// Select
-		@include m.atom(select) {
+		@include mixin.atom(select) {
 			padding-top: rhythm(0.5);
 			padding-bottom: rhythm(0.8);
-			background-size: v.$icon-size-small v.$icon-size-small;
+			background-size: var.$icon-size-small var.$icon-size-small;
 			font-size: to_rem(16px);
 		}
 
 		// Textarea
-		@include m.atom(textarea) {
+		@include mixin.atom(textarea) {
 			height: rhythm(12);
 			font-size: to_rem(16px);
 		}

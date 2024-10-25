@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @use 'sass:meta';
-@use 'colors' as c;
+@use 'colors' as colors;
 
 /// Get a shaded version of a color
 /// @group Colors
@@ -16,52 +16,52 @@
 
 /// @group Colors
 $colors: (
-	black: c.$color-black,
-	snow: c.$color-snow,
-	cyberspace: c.$color-cyberspace,
-	dark: c.$color-dark,
-	granit: c.$color-granit,
-	concrete: c.$color-concrete,
-	ash: c.$color-ash,
+	black: colors.$color-black,
+	snow: colors.$color-snow,
+	cyberspace: colors.$color-cyberspace,
+	dark: colors.$color-dark,
+	granit: colors.$color-granit,
+	concrete: colors.$color-concrete,
+	ash: colors.$color-ash,
 	ruby: (
-		base: c.$color-ruby,
-		light: c.$color-ruby-light,
-		dark: c.$color-ruby-dark,
-		medium-dark: c.$color-ruby-medium-dark
+		base: colors.$color-ruby,
+		light: colors.$color-ruby-light,
+		dark: colors.$color-ruby-dark,
+		medium-dark: colors.$color-ruby-medium-dark
 	),
 	peacock: (
-		base: c.$color-peacock,
-		light: c.$color-peacock-light,
-		dark: c.$color-peacock-dark,
-		medium-dark: c.$color-peacock-medium-dark
+		base: colors.$color-peacock,
+		light: colors.$color-peacock-light,
+		dark: colors.$color-peacock-dark,
+		medium-dark: colors.$color-peacock-medium-dark
 	),
 	jade: (
-		base: c.$color-jade,
-		light: c.$color-jade-light,
-		dark: c.$color-jade-dark,
-		medium-dark: c.$color-jade-medium-dark
+		base: colors.$color-jade,
+		light: colors.$color-jade-light,
+		dark: colors.$color-jade-dark,
+		medium-dark: colors.$color-jade-medium-dark
 	),
 	sandstone: (
-		base: c.$color-sandstone,
-		light: c.$color-sandstone-light,
-		dark: c.$color-sandstone-dark,
-		medium-dark: c.$color-sandstone-medium-dark
+		base: colors.$color-sandstone,
+		light: colors.$color-sandstone-light,
+		dark: colors.$color-sandstone-dark,
+		medium-dark: colors.$color-sandstone-medium-dark
 	),
 	lemon: (
-		base: c.$color-lemon,
-		light: c.$color-lemon-light,
-		dark: c.$color-lemon-dark,
-		medium-dark: c.$color-lemon-medium-dark
+		base: colors.$color-lemon,
+		light: colors.$color-lemon-light,
+		dark: colors.$color-lemon-dark,
+		medium-dark: colors.$color-lemon-medium-dark
 	),
 	ocean: (
-		base: c.$color-ocean,
-		light: c.$color-ocean-light,
-		dark : c.$color-ocean-dark,
-		medium-dark: c.$color-ocean-medium-dark
+		base: colors.$color-ocean,
+		light: colors.$color-ocean-light,
+		dark : colors.$color-ocean-dark,
+		medium-dark: colors.$color-ocean-medium-dark
 	)
 );
 
-/// Generate color values on attributes e.g @include color_values(c.$colors, 'color', $separator: '-');
+/// Generate color values on attributes e.g @include color_values(colors.$colors, 'color', $separator: '-');
 /// Generates this: color: color-name;
 /// @group Colors
 @mixin color_values($map, $attribute, $prefix: '-', $separator: '-', $base: 'base') {
@@ -77,7 +77,7 @@ $colors: (
 	}
 }
 
-/// Generate color classes with attribute and value and pass optional nested element e.g @include color_classes ($map: c.$colors,$prefix: '-',$attribute: 'fill',$element: 'svg');
+/// Generate color classes with attribute and value and pass optional nested element e.g @include color_classes ($map: colors.$colors,$prefix: '-',$attribute: 'fill',$element: 'svg');
 /// Generates this: element.color-name element {fill: color-name}
 /// @group Colors
 @mixin color_classes($map, $attribute, $prefix: '', $separator: '.', $base: 'base', $element: '') {

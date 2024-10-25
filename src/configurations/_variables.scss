@@ -1,9 +1,9 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 
 @use "sass:math";
-@use '../vendor/baseline/plumber' as p;
+@use '../vendor/baseline/plumber' as plumber;
 @use '../vendor/grid/functions' as grid;
-@use '../configurations/functions' as f;
+@use '../configurations/functions' as func;
 
 $namespace: '' !default;
 
@@ -32,14 +32,14 @@ $size-small: 12px !default;
 
 // Base units
 $base-unit: math.div($size-base, 2) !default;
-$rem-size: f.to_rem($base-unit) !default;
+$rem-size: func.to_rem($base-unit) !default;
 
 // Small size
-$small-text: f.to_rem($size-small);
+$small-text: func.to_rem($size-small);
 
 // Baseline defaults
-@include p.plumber-set-defaults(
-	$grid-height: f.to_rem($base-unit), // 9px based on 18px font size
+@include plumber.plumber-set-defaults(
+	$grid-height: func.to_rem($base-unit), // 9px based on 18px font size
 	$baseline: $body-baseline,
 	$font-size: 2,
 	$line-height: 3,
@@ -72,7 +72,7 @@ $grid-breakpoints: (
 // Set the number of columns and specify the width of the gutters.
 
 $grid-columns: 18 !default;
-$grid-gutter-width: f.to_rem(20px) !default;
+$grid-gutter-width: func.to_rem(20px) !default;
 
 // Grid containers
 //
@@ -88,11 +88,11 @@ $container-max-widths: (
 $border-radius: rhythm(0.5);
 
 // Icons
-$icon-size: f.to_rem(24px);
-$icon-size-large: f.to_rem(28px);
-$icon-size-medium: f.to_rem(20px);
-$icon-size-small: f.to_rem(16px);
-$icon-size-smallest: f.to_rem(12px);
+$icon-size: func.to_rem(24px);
+$icon-size-large: func.to_rem(28px);
+$icon-size-medium: func.to_rem(20px);
+$icon-size-small: func.to_rem(16px);
+$icon-size-smallest: func.to_rem(12px);
 
 // Z-indexes
 $z-index: (

@@ -1,5 +1,5 @@
 @charset "UTF-8";
-@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors' as colors;
 
 // IE Specific animation
 _:-ms-lang(x),
@@ -18,11 +18,11 @@ _:-ms-lang(x),
 	}
 
 	circle {
-		stroke: c.$color-ocean;
+		stroke: colors.$color-ocean;
 
 		+ circle {
 			stroke-dasharray: 100;
-			stroke: c.$color-ocean-light;
+			stroke: colors.$color-ocean-light;
 		}
 	}
 }

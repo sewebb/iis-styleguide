@@ -1,12 +1,12 @@
 @charset "UTF-8";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../configurations/colors/colors-functions' as cf;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
 
 /// @group Tags
-@include m.atom(tag) {
+@include mixin.atom(tag) {
 	@extend %normalize-links;
 
 	@extend %tag;
@@ -18,52 +18,52 @@
 	margin-right: rhythm(1);
 	margin-bottom: rhythm(1);
 	padding: rhythm(1) rhythm(2);
-	font-size: v.$small-text;
+	font-size: var.$small-text;
 	line-height: 1;
 	text-decoration: none;
 	text-transform: uppercase;
 
 	&--background {
-		@include cf.color_values(cf.$colors, 'background-color', $separator: '-');
-		@include cf.color_values(cf.$colors, 'border-color', $separator: '-');
+		@include colorFunc.color_values(colorFunc.$colors, 'background-color', $separator: '-');
+		@include colorFunc.color_values(colorFunc.$colors, 'border-color', $separator: '-');
 	}
 
-	@include m2.e(text) {
+	@include bem.e(text) {
 		color: var(--cyberspace-color);
 		letter-spacing: 0.025rem;
 	}
 
-	@include m2.m(light) {
+	@include bem.m(light) {
 		@extend %tag-light;
 
-		@include m2.e(text) {
-			color: c.$color-snow;
+		@include bem.e(text) {
+			color: colors.$color-snow;
 		}
 	}
 
 	> svg {
-		width: v.$icon-size-small;
-		height: v.$icon-size-small;
+		width: var.$icon-size-small;
+		height: var.$icon-size-small;
 	}
 
-	@include m2.m(hover-light) {
+	@include bem.m(hover-light) {
 		&:hover,
 		&:focus {
 			background-color: currentColor !important;
 
 			[class*=text] {
-				color: c.$color-snow;
+				color: colors.$color-snow;
 			}
 		}
 	}
 
-	@include m2.m(hover-dark) {
+	@include bem.m(hover-dark) {
 		&:hover,
 		&:focus {
 			background-color: currentColor !important;
 
 			[class*=text] {
-				color: c.$color-cyberspace;
+				color: colors.$color-cyberspace;
 			}
 		}
 	}

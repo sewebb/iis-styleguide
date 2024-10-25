@@ -1,10 +1,10 @@
 @charset "UTF-8";
 @use "sass:color";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../vendor/grid/breakpoints' as bp;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
 // The Glider components is dependant on JS-classes and is therefore not namespaced
 
@@ -31,7 +31,7 @@
 		cursor: grab;
 		user-select: none;
 
-		@include m2.b(glider-slide) {
+		@include bem.b(glider-slide) {
 			img {
 				pointer-events: none;
 				user-select: none;
@@ -65,26 +65,26 @@
 
 	img:not([class]) {
 		display: block;
-		border-radius: v.$border-radius;
+		border-radius: var.$border-radius;
 		width: 100%;
 	}
 
-	@include bp.bp-only(sm) {
+	@include breakpoint.bp-only(sm) {
 		padding-right: rhythm(2);
 		padding-left: rhythm(2);
 	}
 
-	@include bp.bp-up(lg) {
+	@include breakpoint.bp-up(lg) {
 		padding-right: rhythm(3);
 		padding-left: rhythm(3);
 	}
 
-	@include m2.m(stretch-items) {
+	@include bem.m(stretch-items) {
 		display: flex;
 		align-items: stretch;
 	}
 
-	@include bp.bp-up(lg) {
+	@include breakpoint.bp-up(lg) {
 		&:not(.active) {
 			&::after {
 				content: '';
@@ -93,7 +93,7 @@
 				bottom: 0;
 				left: 0;
 				width: 1px;
-				background-color: c.$color-concrete;
+				background-color: colors.$color-concrete;
 			}
 		}
 	}
@@ -110,7 +110,7 @@
 	cursor: pointer;
 
 	&:focus {
-		background-color: c.$color-snow;
+		background-color: colors.$color-snow;
 	}
 
 	svg {
@@ -119,17 +119,17 @@
 	}
 
 	&.disabled {
-		background-color: c.$color-ash;
-		box-shadow: 0 2px 5px color.adjust(c.$color-granit, $lightness: 25%);
+		background-color: colors.$color-ash;
+		box-shadow: 0 2px 5px color.adjust(colors.$color-granit, $lightness: 25%);
 		pointer-events: none;
 
 		svg {
 			opacity: 0.2;
-			fill: c.$color-cyberspace;
+			fill: colors.$color-cyberspace;
 		}
 	}
 
-	@include bp.bp-up(sm) {
+	@include breakpoint.bp-up(sm) {
 		left: rhythm(1);
 	}
 }
@@ -138,7 +138,7 @@
 	right: 0;
 	left: auto;
 
-	@include bp.bp-up(sm) {
+	@include breakpoint.bp-up(sm) {
 		right: rhythm(1);
 	}
 }
@@ -180,13 +180,13 @@
 	border: 0;
 	border-radius: 50%;
 	outline: none;
-	background: c.$color-concrete;
+	background: colors.$color-concrete;
 	cursor: pointer;
 	user-select: none;
 
 	&:hover,
 	&:focus,
 	&.active {
-		background: c.$color-cyberspace;
+		background: colors.$color-cyberspace;
 	}
 }

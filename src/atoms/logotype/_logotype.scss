@@ -1,7 +1,7 @@
 @charset "UTF-8";
-@use '../../configurations/mixins' as m;
+@use '../../configurations/mixins' as mixin;
 
-@include m.atom(logotype) {
+@include mixin.atom(logotype) {
 	display: flex;
 	width: 100%;
 }

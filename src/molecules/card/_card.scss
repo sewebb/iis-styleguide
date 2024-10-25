@@ -1,34 +1,34 @@
 @charset "UTF-8";
 @use "sass:color";
 @use "sass:math";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/config' as m3;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../configurations/colors/colors-functions' as cf;
-@use '../../vendor/grid/breakpoints' as bp;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
-@include m.molecule(card) {
+@include mixin.molecule(card) {
 	display: flex;
 	position: relative;
 	flex-direction: column;
 	height: 100%;
 	overflow: hidden;
-	border-radius: v.$border-radius;
+	border-radius: var.$border-radius;
 
-	@include m2.e(image) {
+	@include bem.e(image) {
 		display: block;
 		width: 100%;
-		border-radius: v.$border-radius;
+		border-radius: var.$border-radius;
 	}
 
-	@include m2.e(map) {
+	@include bem.e(map) {
 		display: block;
 		position: relative;
 		padding-top: 56.25%;
 		overflow: hidden;
-		border-radius: v.$border-radius;
+		border-radius: var.$border-radius;
 
 		> iframe {
 			position: absolute;
@@ -40,7 +40,7 @@
 			height: 100%;
 		}
 
-		@include bp.bp-up(lg) {
+		@include breakpoint.bp-up(lg) {
 			min-height: rhythm(44);
 			padding-top: 0;
 
@@ -50,7 +50,7 @@
 		}
 	}
 
-	@include m2.e(link) {
+	@include bem.e(link) {
 		color: var(---cyberspace-color);
 		text-decoration: none;
 
@@ -67,30 +67,30 @@
 
 		&:hover,
 		&:focus {
-			color: c.$color-ruby;
+			color: colors.$color-ruby;
 			text-decoration: underline;
 
 			> h1,
 			> h2 {
 				> span[class*='color'] {
-					color: c.$color-ruby !important;
+					color: colors.$color-ruby !important;
 					text-decoration: underline !important;
 				}
 			}
 		}
 	}
 
-	@include m2.e(headline) {
-		@include m2.e(icon) {
+	@include bem.e(headline) {
+		@include bem.e(icon) {
 			position: relative;
-			width: v.$icon-size-medium;
-			height: v.$icon-size-medium;
+			width: var.$icon-size-medium;
+			height: var.$icon-size-medium;
 			transform: translateY(to_rem(1px));
 			fill: currentColor;
 		}
 	}
 
-	@include m2.e(meta) {
+	@include bem.e(meta) {
 		display: flex;
 		flex-wrap: nowrap;
 		align-items: flex-start;
@@ -98,7 +98,7 @@
 		margin-bottom: rhythm(1);
 	}
 
-	@include m2.e(content) {
+	@include bem.e(content) {
 
 		&:first-child {
 			padding: rhythm(3) 0;
@@ -114,18 +114,18 @@
 		}
 	}
 
-	@include m2.e(text) {
+	@include bem.e(text) {
 		margin-top: rhythm(1);
 	}
 
-	@include m2.m(shadow) {
-		@include m.card-shadow(c.$color-cyberspace, 0.2);
+	@include bem.m(shadow) {
+		@include mixin.card-shadow(colors.$color-cyberspace, 0.2);
 	}
 
-	@include m2.m(padded) {
+	@include bem.m(padded) {
 		background-color: var(--snow-color);
 
-		@include m2.e(media) {
+		@include bem.e(media) {
 			flex: 0 0 auto;
 			width: 100%;
 			max-width: 100%;
@@ -133,7 +133,7 @@
 			border-bottom-left-radius: 0;
 		}
 
-		@include m2.e(content) {
+		@include bem.e(content) {
 			padding-right: rhythm(2);
 			padding-left: rhythm(2);
 
@@ -141,7 +141,7 @@
 				margin-top: rhythm(1);
 			}
 
-			@include bp.bp-up(md) {
+			@include breakpoint.bp-up(md) {
 				padding-right: rhythm(4);
 				padding-left: rhythm(4);
 			}
@@ -150,32 +150,32 @@
 		&.wp-block-iis-visualization {
 			background-color: transparent;
 
-			@include m2.e(content) {
+			@include bem.e(content) {
 				p {
 					margin-top: 0;
 				}
 			}
 
 			&--no-padding > {
-				@include m2.e(content) {
+				@include bem.e(content) {
 					padding: 0;
 				}
 			}
 		}
 	}
 
-	@include m2.m(bordered) {
-		border-top: to_rem(4px) solid c.$color-ocean;
+	@include bem.m(bordered) {
+		border-top: to_rem(4px) solid colors.$color-ocean;
 	}
 
-	@include m2.e(bottom) {
+	@include bem.e(bottom) {
 		margin-top: rhythm(2);
 	}
 
-	@include m2.m(wide) {
+	@include bem.m(wide) {
 		height: auto;
 
-		@include bp.bp-up(md) {
+		@include breakpoint.bp-up(md) {
 			flex-direction: row;
 			height: auto;
 
@@ -185,25 +185,25 @@
 				line-height: 1.2;
 			}
 
-			@include m2.e(content) {
+			@include bem.e(content) {
 				display: flex;
 				flex-basis: 50%;
 				flex-direction: column;
 				padding-top: rhythm(2);
 			}
 
-			@include m2.e(image) {
+			@include bem.e(image) {
 				display: block;
 				object-fit: cover;
 				object-position: 50% center;
 			}
 
-			@include m2.e(media) {
+			@include bem.e(media) {
 				max-width: 50%;
 				margin-bottom: 0;
-				border-top-left-radius: v.$border-radius;
+				border-top-left-radius: var.$border-radius;
 				border-top-right-radius: 0;
-				border-bottom-left-radius: v.$border-radius;
+				border-bottom-left-radius: var.$border-radius;
 			}
 
 			picture {
@@ -211,33 +211,33 @@
 				width: 100%;
 				max-width: 50%;
 
-				@include m2.e(media) {
+				@include bem.e(media) {
 					max-width: 100%;
 				}
 			}
 
-			@include m2.e(bottom) {
+			@include bem.e(bottom) {
 				margin-top: 0;
 			}
 
-			@include m2.m(flipped) {
+			@include bem.m(flipped) {
 				flex-direction: row-reverse;
 
-				@include m2.e(media) {
-					border-top-right-radius: v.$border-radius;
+				@include bem.e(media) {
+					border-top-right-radius: var.$border-radius;
 					border-top-left-radius: 0;
 					border-bottom-left-radius: 0;
-					border-bottom-right-radius: v.$border-radius;
+					border-bottom-right-radius: var.$border-radius;
 				}
 			}
 
-			@include m2.m(stretch) {
+			@include bem.m(stretch) {
 				height: 100%;
 			}
 		}
 	}
 
-	@include m2.m(teaser) {
+	@include bem.m(teaser) {
 		display: block;
 		overflow: hidden;
 
@@ -257,11 +257,11 @@
 			bottom: 0;
 			left: 0;
 			transition: opacity 0.75s ease-out;
-			border-radius: v.$border-radius;
-			background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(c.$color-cyberspace, 0) 35%, rgba(c.$color-cyberspace, 1) 100%);
+			border-radius: var.$border-radius;
+			background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(colors.$color-cyberspace, 0) 35%, rgba(colors.$color-cyberspace, 1) 100%);
 		}
 
-		@include m2.e(image) {
+		@include bem.e(image) {
 			width: 100%;
 			max-width: none;
 			height: 100%;
@@ -270,7 +270,7 @@
 			object-fit: cover;
 		}
 
-		@include m2.e(content) {
+		@include bem.e(content) {
 			display: flex;
 			position: absolute;
 			z-index: z_index(middleground);
@@ -283,23 +283,23 @@
 			justify-content: flex-end;
 			padding: rhythm(4);
 			color: var(--snow-color);
-			text-shadow: m3.$text-shadow;
+			text-shadow: config.$text-shadow;
 		}
 
-		@include m2.e(link) {
+		@include bem.e(link) {
 			color: var(--snow-color);
 		}
 
-		@include m2.e(text) {
+		@include bem.e(text) {
 			margin-top: 0;
 			color: var(--snow-color);
 		}
 
-		@include m2.e(bottom) {
+		@include bem.e(bottom) {
 			margin-top: 0;
 		}
 
-		@include m2.e(meta) {
+		@include bem.e(meta) {
 			* {
 				color: var(--snow-color);
 			}
@@ -310,11 +310,11 @@
 		}
 	}
 
-	@include m2.m(mini) {
+	@include bem.m(mini) {
 		padding: rhythm(1) rhythm(2);
-		background-color: c.$color-snow;
+		background-color: colors.$color-snow;
 
-		@include bp.bp-up(md) {
+		@include breakpoint.bp-up(md) {
 			padding: rhythm(2) rhythm(3);
 		}
 	}

@@ -1,82 +1,82 @@
 @charset "UTF-8";
-@use '../../configurations/variables' as v;
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
+@use '../../configurations/variables' as var;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
 @use '../../configurations/functions' as f;
-@use '../../configurations/colors/colors' as c;
-@use '../../configurations/colors/colors-functions' as cf;
-@use '../../vendor/baseline/plumber' as p;
-@use '../../vendor/grid/breakpoints' as bp;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/baseline/plumber' as plumber;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
-@include m.atom(meta) {
+@include mixin.atom(meta) {
 	display: flex;
 	position: relative;
 	align-items: center;
 	color: var(--cyberspace-color);
-	font-family: v.$font-family-mono;
+	font-family: var.$font-family-mono;
 	text-decoratiosn: none;
 	text-transform: uppercase;
 	white-space: nowrap;
 
-	@include p.plumber(
+	@include plumber.plumber(
 		$font-size: 1.7,
-		$baseline: v.$mono-baseline,
+		$baseline: var.$mono-baseline,
 		$leading-bottom: 0
 	);
 
-	@include cf.color_values(cf.$colors, 'fill', $prefix: '--', $separator: '-');
+	@include colorFunc.color_values(colorFunc.$colors, 'fill', $prefix: '--', $separator: '-');
 
 	span {
 		margin-left: f.to_rem(3px);
 	}
 
-	@include m2.b(icon) {
+	@include bem.b(icon) {
 		display: flex;
 		flex-shrink: 0;
 		align-items: center;
-		width: v.$icon-size;
-		height: v.$icon-size;
+		width: var.$icon-size;
+		height: var.$icon-size;
 		margin-right: rhythm(1);
 		fill: inherit;
 		color: var(--color-cyberspace);
 		fill: currentColor;
 	}
 
-	@include m2.m(light) {
-		color: c.$color-snow;
+	@include bem.m(light) {
+		color: colors.$color-snow;
 
-		@include m2.b(icon) {
-			fill: c.$color-snow;
+		@include bem.b(icon) {
+			fill: colors.$color-snow;
 		}
 	}
 
-	@include m2.m(lowercase) {
+	@include bem.m(lowercase) {
 		text-transform: initial;
 	}
 
-	@include m2.m(wrap) {
+	@include bem.m(wrap) {
 		white-space: normal;
 	}
 
-	@include m2.m(responsive) {
-		@include p.plumber(
+	@include bem.m(responsive) {
+		@include plumber.plumber(
 			$font-size: 1.4,
-			$baseline: v.$mono-baseline,
+			$baseline: var.$mono-baseline,
 			$leading-bottom: 0
 		);
 
-		@include bp.bp-up(md) {
-			@include p.plumber(
+		@include breakpoint.bp-up(md) {
+			@include plumber.plumber(
 				$font-size: 1.6,
-				$baseline: v.$mono-baseline,
+				$baseline: var.$mono-baseline,
 				$leading-bottom: 0
 			);
 		}
 
-		@include bp.bp-up(lg) {
-			@include p.plumber(
+		@include breakpoint.bp-up(lg) {
+			@include plumber.plumber(
 				$font-size: 1.7,
-				$baseline:v.$mono-baseline,
+				$baseline:var.$mono-baseline,
 				$leading-bottom: 0
 			);
 		}

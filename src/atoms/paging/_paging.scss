@@ -1,29 +1,29 @@
 @charset "UTF-8";
 @use "sass:color";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../vendor/grid/breakpoints' as bp;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
 // Forwards / backwards
 /// @group Paging
-@include m.atom(paging-wrapper) {
+@include mixin.atom(paging-wrapper) {
 	display: flex;
 	position: relative;
 	width: 100%;
 	align-items: center;
 
-	@include m2.e(text) {
+	@include bem.e(text) {
 		flex: 1;
-		font-family: v.$font-family-mono;
-		font-size: to_rem(v.$size-medium-plus);
+		font-family: var.$font-family-mono;
+		font-size: to_rem(var.$size-medium-plus);
 		text-align: center;
 		text-transform: uppercase;
 	}
 }
 
-@include m.atom(paging) {
+@include mixin.atom(paging) {
 	display: inline-flex;
 	position: relative;
 	flex-grow: 0;
@@ -32,31 +32,31 @@
 	justify-content: center;
 	width: rhythm(4);
 	height: rhythm(4);
-	border: 1px solid c.$color-ash;
+	border: 1px solid colors.$color-ash;
 	border-radius: 50%;
-	background-color: c.$color-snow;
-	box-shadow: 0 3px 5px color.adjust(c.$color-granit, $lightness: 15%);
+	background-color: colors.$color-snow;
+	box-shadow: 0 3px 5px color.adjust(colors.$color-granit, $lightness: 15%);
 
-	@include bp.bp-up(sm) {
+	@include breakpoint.bp-up(sm) {
 		width: rhythm(6);
 		height: rhythm(6);
 	}
 
 	&:focus,
 	&:hover {
-		background-color: c.$color-ash;
+		background-color: colors.$color-ash;
 	}
 
-	@include m2.e(icon) {
+	@include bem.e(icon) {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: v.$icon-size-small;
-		height: v.$icon-size-small;
+		width: var.$icon-size-small;
+		height: var.$icon-size-small;
 
-		@include bp.bp-up(sm) {
-			width: v.$icon-size-medium;
-			height: v.$icon-size-medium;
+		@include breakpoint.bp-up(sm) {
+			width: var.$icon-size-medium;
+			height: var.$icon-size-medium;
 		}
 	}
 }

@@ -1,23 +1,23 @@
 @charset "UTF-8";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/config' as m3;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../configurations/colors/colors-functions' as cf;
-@use '../../vendor/grid/breakpoints' as bp;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
-$alert-success-border: c.$color-jade;
-$alert-success-bg: c.$color-jade-light;
-$alert-info-border: c.$color-ocean;
-$alert-info-bg: c.$color-ocean-light;
-$alert-warning-border: c.$color-lemon;
-$alert-warning-bg: c.$color-lemon-light;
-$alert-error-border: c.$color-ruby;
-$alert-error-bg: c.$color-ruby-light;
-$alert-text: c.$color-cyberspace;
+$alert-success-border: colors.$color-jade;
+$alert-success-bg: colors.$color-jade-light;
+$alert-info-border: colors.$color-ocean;
+$alert-info-bg: colors.$color-ocean-light;
+$alert-warning-border: colors.$color-lemon;
+$alert-warning-bg: colors.$color-lemon-light;
+$alert-error-border: colors.$color-ruby;
+$alert-error-bg: colors.$color-ruby-light;
+$alert-text: colors.$color-cyberspace;
 
-@include m.molecule(alert) {
+@include mixin.molecule(alert) {
 	position: relative;
 	margin-bottom: rhythm(4);
 	padding: rhythm(2) rhythm(2) rhythm(3) rhythm(2);
@@ -37,12 +37,12 @@ $alert-text: c.$color-cyberspace;
 	a {
 		@extend %normalize-links;
 
-		color: c.$color-cyberspace;
-		font-family: v.$font-family-headings;
+		color: colors.$color-cyberspace;
+		font-family: var.$font-family-headings;
 		text-decoration: underline;
 	}
 
-	@include m2.m(dismissable) {
+	@include bem.m(dismissable) {
 		padding-right: rhythm(4);
 
 		// Adjust close button position
@@ -62,27 +62,27 @@ $alert-text: c.$color-cyberspace;
 	//
 	// Generate contextual modifier classes for colorizing the alert.
 
-	@include m2.m(success) {
-		@include m.alert-variant($alert-success-border, $alert-success-bg, $alert-text);
+	@include bem.m(success) {
+		@include mixin.alert-variant($alert-success-border, $alert-success-bg, $alert-text);
 	}
 
-	@include m2.m(info) {
-		@include m.alert-variant($alert-info-border, $alert-info-bg, $alert-text);
+	@include bem.m(info) {
+		@include mixin.alert-variant($alert-info-border, $alert-info-bg, $alert-text);
 	}
 
-	@include m2.m(warning) {
-		@include m.alert-variant($alert-warning-border, $alert-warning-bg, $alert-text);
+	@include bem.m(warning) {
+		@include mixin.alert-variant($alert-warning-border, $alert-warning-bg, $alert-text);
 	}
 
-	@include m2.m(error) {
-		@include m.alert-variant($alert-error-border, $alert-error-bg, $alert-text);
+	@include bem.m(error) {
+		@include mixin.alert-variant($alert-error-border, $alert-error-bg, $alert-text);
 
 		::selection {
-			background-color: c.$color-ruby;
+			background-color: colors.$color-ruby;
 		}
 
 		::-moz-selection {
-			background-color: c.$color-ruby;
+			background-color: colors.$color-ruby;
 		}
 	}
 }

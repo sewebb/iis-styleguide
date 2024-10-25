@@ -1,15 +1,15 @@
 @charset "UTF-8";
 @use "sass:color";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../configurations/colors/colors-functions' as cf;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
 
-@include m.atom(tooltip) {
+@include mixin.atom(tooltip) {
 	position: relative;
-	width: v.$icon-size;
-	height: v.$icon-size;
+	width: var.$icon-size;
+	height: var.$icon-size;
 	margin-right: rhythm(1);
 	margin-left: rhythm(1);
 	padding: rhythm(1);
@@ -21,7 +21,7 @@
 	&:hover {
 		overflow: visible;
 		clip: auto;
-		box-shadow: 0 0 0 to_rem(5px) c.$color-ocean-light;
+		box-shadow: 0 0 0 to_rem(5px) colors.$color-ocean-light;
 
 		[class*='text'] {
 			overflow: visible;
@@ -42,7 +42,7 @@
 		fill: currentColor;
 	}
 
-	@include m2.e(text) {
+	@include bem.e(text) {
 		display: block;
 		position: absolute;
 		z-index: z_index(foreground);
@@ -57,12 +57,12 @@
 		transform-origin: bottom center;
 		-webkit-backface-visibility: hidden;
 		transition: transform 0.3s cubic-bezier(0.3, 0, 0, 1);
-		border-radius: v.$border-radius;
+		border-radius: var.$border-radius;
 		opacity: 0;
-		background-color: c.$color-cyberspace;
-		color: c.$color-snow;
-		font-family: v.$font-family-base;
-		font-size: v.$size-small;
+		background-color: colors.$color-cyberspace;
+		color: colors.$color-snow;
+		font-family: var.$font-family-base;
+		font-size: var.$size-small;
 		text-align: left;
 		user-select: none;
 
@@ -78,7 +78,7 @@
 			border: solid transparent;
 			border-width: 15px;
 			border-color: rgba(31, 42, 54, 0);
-			border-top-color: c.$color-cyberspace;
+			border-top-color: colors.$color-cyberspace;
 			border-bottom-color: transparent;
 			pointer-events: none;
 		}
@@ -92,7 +92,7 @@
 				top: auto;
 				bottom: calc(100% - 1px);
 				border-top-color: transparent;
-				border-bottom-color: c.$color-cyberspace;
+				border-bottom-color: colors.$color-cyberspace;
 			}
 		}
 	}

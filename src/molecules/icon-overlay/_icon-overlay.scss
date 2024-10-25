@@ -1,18 +1,18 @@
 @charset "UTF-8";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/config' as m3;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../configurations/colors/colors-functions' as cf;
-@use '../../vendor/grid/breakpoints' as bp;
-@use '../../vendor/grid/grid' as g;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/grid/grid' as grid;
 
-@include m.molecule(icon-overlay) {
+@include mixin.molecule(icon-overlay) {
 	position: relative;
 	width: 100%;
 	overflow: hidden;
-	border-radius: v.$border-radius;
+	border-radius: var.$border-radius;
 
 	> img {
 		display: block;
@@ -34,7 +34,7 @@
 		left: 0;
 	}
 
-	@include m2.e(button) {
+	@include bem.e(button) {
 		position: absolute;
 		z-index: 3;
 		top: 50%;
@@ -49,30 +49,30 @@
 		&:hover,
 		&:focus {
 			> svg {
-				fill: c.$color-concrete;
+				fill: colors.$color-concrete;
 			}
 		}
 
-		@include bp.bp-up(sm) {
+		@include breakpoint.bp-up(sm) {
 			width: rhythm(10);
 			height: rhythm(10);
 		}
 	}
 
-	@include m2.e(icon) {
+	@include bem.e(icon) {
 		width: rhythm(7);
 		height: rhythm(7);
-		fill: c.$color-snow;
+		fill: colors.$color-snow;
 		filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.4));
 		cursor: pointer;
 
-		@include bp.bp-up(sm) {
+		@include breakpoint.bp-up(sm) {
 			width: rhythm(10);
 			height: rhythm(10);
 		}
 	}
 
-	@include m2.e(message) {
+	@include bem.e(message) {
 		display: flex;
 		flex-direction: column;
 		position: absolute;
@@ -84,7 +84,7 @@
 		align-items: center;
 		justify-content: center;
 		text-align: center;
-		background: c.$color-concrete;
+		background: colors.$color-concrete;
 		padding-left: rhythm(2);
 		padding-right: rhythm(2);
 	}

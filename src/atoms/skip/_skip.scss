@@ -1,8 +1,8 @@
 @charset "UTF-8";
-@use '../../configurations/bem' as m2;
-@use '../../configurations/colors/colors' as c;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/colors/colors' as colors;
 
-@include m2.b(skip) {
+@include bem.b(skip) {
 	position: relative;
 	z-index: 1001;
 	height: 0;
@@ -31,8 +31,8 @@
 			height: auto;
 			padding-top: rhythm(1);
 			padding-bottom: rhythm(1.5);
-			background-color: c.$color-cyberspace;
-			color: c.$color-snow;
+			background-color: colors.$color-cyberspace;
+			color: colors.$color-snow;
 			text-align: center;
 			text-indent: 0;
 		}

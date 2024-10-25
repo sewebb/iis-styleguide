@@ -2,8 +2,8 @@
 @use "sass:map";
 @use "sass:math";
 @use "sass:list";
-@use '../../configurations/variables' as v;
-@use 'breakpoints' as bp;
+@use '../../configurations/variables' as var;
+@use 'breakpoints' as breakpoint;
 @use 'grid' as m5;
 
 // Framework grid generation
@@ -11,7 +11,7 @@
 // Used to generate the correct number of grid classes given
 // any value of `$grid-columns`.
 
-@mixin make-grid-columns($columns: v.$grid-columns, $gutter: v.$grid-gutter-width, $breakpoints: v.$grid-breakpoints) {
+@mixin make-grid-columns($columns: var.$grid-columns, $gutter: var.$grid-gutter-width, $breakpoints: var.$grid-breakpoints) {
 	// Common properties for all breakpoints
 	%grid-column {
 		position: relative;
@@ -22,7 +22,7 @@
 	}
 
 	@each $breakpoint in map.keys($breakpoints) {
-		$infix: bp.breakpoint-infix($breakpoint, $breakpoints);
+		$infix: breakpoint.breakpoint-infix($breakpoint, $breakpoints);
 
 		// Allow columns to stretch full width below their breakpoints
 		@for $i from 1 through $columns {
@@ -36,7 +36,7 @@
 			@extend %grid-column;
 		}
 
-		@include bp.bp-up($breakpoint, $breakpoints) {
+		@include breakpoint.bp-up($breakpoint, $breakpoints) {
 			// Provide basic `.grid-{bp}` classes for equal-width flexbox columns
 			.grid#{$infix} {
 				flex-basis: 0;

@@ -1,9 +1,9 @@
 @charset "UTF-8";
-@use '../configurations/variables' as v;
-@use '../configurations/colors/colors-functions' as cf;
+@use '../configurations/variables' as var;
+@use '../configurations/colors/colors-functions' as colorFunc;
 
 .u-border-radius {
-	border-radius: v.$border-radius !important;
+	border-radius: var.$border-radius !important;
 }
 
 .u-border-radius-50 {
@@ -45,7 +45,7 @@ $class-b-y: u-b-y !default;
 // Generate border color classes e.g. .border-color-ruby
 /// @group Colors
 .u-b {
-	@include cf.color_values(cf.$colors, 'border-color', $separator: '-');
+	@include colorFunc.color_values(colorFunc.$colors, 'border-color', $separator: '-');
 }
 
 // Generate classes for border widths e.g. .u-b-0 and .u-b-l-4.

@@ -1,15 +1,15 @@
 @charset "UTF-8";
 @use "sass:math";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../vendor/grid/breakpoints' as bp;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
 $guide: #4bffff !default;
 $rgba: rgba !default;
 
-@include m2.b(grid-toggle) {
+@include bem.b(grid-toggle) {
 	position: fixed;
 	right: 40px;
 	bottom: 40px;
@@ -17,12 +17,12 @@ $rgba: rgba !default;
 	height: 60px;
 	border: 0;
 	border-radius: 50%;
-	background: c.$color-ruby;
-	color: c.$color-snow;
+	background: colors.$color-ruby;
+	color: colors.$color-snow;
 	font-size: 0.7rem;
 }
 
-@include m2.b(baseline-grid) {
+@include bem.b(baseline-grid) {
 	height: 1000%;
 	background-image: linear-gradient(to top, $guide 0, $guide 1px, transparent 1px);
 	background-size: 100% math.div(1rem, 2);

@@ -1,11 +1,11 @@
 @charset "UTF-8";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../configurations/colors/colors-functions' as cf;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
 
-@include m.atom(input) {
+@include mixin.atom(input) {
 	@extend %input;
 
 	&:focus {
@@ -20,21 +20,21 @@
 		@extend %disabled;
 	}
 
-	@include m2.m(discreet) {
+	@include bem.m(discreet) {
 		@extend %discreet;
 	}
-	@include m2.m(small) {
-		font-size: v.$size-medium;
+	@include bem.m(small) {
+		font-size: var.$size-medium;
 		padding: rhythm(0.5);
 	}
 
-	@include m2.m(large) {
+	@include bem.m(large) {
 		font-size: to_rem(32px);
 		padding: rhythm(1) rhythm(2);
 	}
 }
 
-@include m2.b(input-icon) {
+@include bem.b(input-icon) {
 	display: flex;
 	justify-content: flex-end;
 	width: 100%;
@@ -43,8 +43,8 @@
 	> svg {
 		position: relative;
 		z-index: z_index(middleground);
-		width: v.$icon-size;
-		height: v.$icon-size;
+		width: var.$icon-size;
+		height: var.$icon-size;
 		transform: translateY(-#{rhythm(3.7)}) translateX(-#{rhythm(1)});
 	}
 }

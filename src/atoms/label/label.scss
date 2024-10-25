@@ -1,22 +1,22 @@
 @charset "UTF-8";
-@use '../../configurations/mixins' as m;
-@use '../../configurations/bem' as m2;
-@use '../../configurations/variables' as v;
-@use '../../configurations/colors/colors' as c;
-@use '../../configurations/colors/colors-functions' as cf;
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
 
 label,
 .label-legend {
 	display: inline-block;
 	margin-bottom: rhythm(0.5);
-	font-family: v.$font-family-headings;
+	font-family: var.$font-family-headings;
 	font-size: to_rem(16px);
 	cursor: pointer;
 
 	&.is-required {
 		&::after {
 			content: '*';
-			color: c.$color-ruby;
+			color: colors.$color-ruby;
 		}
 	}
 }

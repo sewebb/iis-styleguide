@@ -1,8 +1,8 @@
 @charset "UTF-8";
-@use 'colors-functions' as cf;
+@use 'colors-functions' as colorFunc;
 
 // Generate text color classes e.g. .color-ruby
 /// @group Colors
 .color {
-	@include cf.color_values(cf.$colors, 'color', $separator: '-');
+	@include colorFunc.color_values(colorFunc.$colors, 'color', $separator: '-');
 }
