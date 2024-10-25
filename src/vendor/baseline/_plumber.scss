@@ -1,13 +1,12 @@
 @charset "UTF-8";
+@use "sass:math";
+@use "sass:meta";
+@use "sass:map";
 
 // PLUMBER - Easy baseline grids with SASS
 // https://jamonserrano.github.io/plumber-sass
 // Copyright 2016 Viktor Honti
 // MIT License
-
-@use "sass:math";
-@use "sass:meta";
-@use "sass:map";
 
 @mixin plumber(
 	$font-size: null,

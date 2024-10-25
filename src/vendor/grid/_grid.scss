@@ -39,11 +39,11 @@
 	// later on to override this initial width.
 	width: 100%;
 	min-height: 1px; // Prevent collapsing
-	padding-right: math.div($grid-gutter-width, 2);
-	padding-left: math.div($grid-gutter-width, 2);
+	padding-right: math.div(v.$grid-gutter-width, 2);
+	padding-left: math.div(v.$grid-gutter-width, 2);
 }
 
-@mixin make-col($size, $columns: $grid-columns) {
+@mixin make-col($size, $columns: v.$grid-columns) {
 	flex: 0 0 math.percentage(math.div($size, $columns));
 	// Add a `max-width` to ensure content within each column does not blow out
 	// the width of the column. Applies to IE10+ and Firefox. Chrome and Safari
@@ -51,6 +51,6 @@
 	max-width: math.percentage(math.div($size, $columns));
 }
 
-@mixin make-col-offset($size, $columns: $grid-columns) {
+@mixin make-col-offset($size, $columns: v.$grid-columns) {
 	margin-left: math.percentage(math.div($size, $columns));
 }

@@ -1,6 +1,13 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use "sass:color";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors-functions' as cf;
+@use '../../vendor/baseline/plumber' as p;
 
-@include atom(textarea) {
+@include m.atom(textarea) {
 	@extend %input;
 
 	min-width: 100%;
@@ -15,12 +22,12 @@
 		@extend %disabled;
 	}
 
-	@include m(discreet) {
+	@include m2.m(discreet) {
 		@extend %discreet;
 	}
 
-	@include m(hidden) {
-		@include visuallyhidden;
+	@include m2.m(hidden) {
+		@include m.visuallyhidden;
 
 		min-height: 0;
 		min-width: 0;
@@ -28,7 +35,7 @@
 		padding: 0;
 	}
 
-	@include m(rich-text) {
+	@include m2.m(rich-text) {
 		min-height: auto;
 
 		> div {
@@ -37,7 +44,7 @@
 			p,
 			ul,
 			ol {
-				@include plumber(
+				@include p.plumber(
 					$font-size: 1.75,
 					$leading-bottom: 2
 				);
@@ -49,7 +56,7 @@
 		}
 	}
 
-	@include e(toolbar) {
+	@include m2.e(toolbar) {
 		button {
 			@extend %button-toolbar;
 

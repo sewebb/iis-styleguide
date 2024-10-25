@@ -1,8 +1,13 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../vendor/grid/breakpoints' as bp;
 
-@include atom(main-menu) {
+@include m.atom(main-menu) {
 
-	@include e(list) {
+	@include m2.e(list) {
 		$root: &;
 
 		display: flex;
@@ -18,45 +23,45 @@
 			position: relative;
 
 			&:last-child {
-				#{$root}#{$element-separator}link {
+				#{$root}#{m2.$element-separator}link {
 					padding-right: 0;
 				}
 			}
 		}
 
-		@include e(button) {
+		@include m2.e(button) {
 			padding: rhythm(2) 0 rhythm(2) rhythm(1);
 
-			@include atom(button) {
+			@include m.atom(button) {
 				padding: rhythm(0.4) rhythm(1.5);
-				font-family: $font-family-medium;
-				font-size: $size-small;
+				font-family: v.$font-family-medium;
+				font-size: v.$size-small;
 
-				@include e(text) {
+				@include m2.e(text) {
 					overflow: hidden;
 					text-overflow: ellipsis;
 					white-space: nowrap;
 				}
 
-				@include m(icon-left) {
+				@include m2.m(icon-left) {
 					padding-left: rhythm(5);
 				}
 
-				@include m(icon-right) {
+				@include m2.m(icon-right) {
 					padding-right: rhythm(5);
 				}
 			}
 
-			@include bp-up(sm) {
-				@include atom(button) {
+			@include bp.bp-up(sm) {
+				@include m.atom(button) {
 					padding-top: rhythm(0.6);
 					padding-bottom: rhythm(0.6);
-					font-size: $size-base;
+					font-size: v.$size-base;
 				}
 			}
 		}
 
-		@include e(link) {
+		@include m2.e(link) {
 			@extend %normalize-links;
 
 			display: flex;
@@ -65,8 +70,8 @@
 			border: 0;
 			background-color: transparent;
 			color: var(--cyberspace-color);
-			font-family: $font-family-medium;
-			font-size: to_rem($size-small);
+			font-family: v.$font-family-medium;
+			font-size: to_rem(v.$size-small);
 			text-decoration: none;
 			-webkit-appearance: none;
 			line-height: 1;
@@ -77,13 +82,13 @@
 			}
 
 			&.is-current {
-				color: $color-ruby;
-				font-family: $font-family-medium;
+				color: c.$color-ruby;
+				font-family: v.$font-family-medium;
 			}
 
 			&[aria-expanded='true'] {
 
-				@include b(icon-hamburger) {
+				@include m2.b(icon-hamburger) {
 					transform: rotate(-90deg);
 					background-color: transparent;
 
@@ -98,7 +103,7 @@
 					}
 				}
 
-				@include b(icon-arrow-down) {
+				@include m2.b(icon-arrow-down) {
 					&::before {
 						left: 0;
 						width: 100%;
@@ -113,12 +118,12 @@
 				}
 			}
 
-			@include b(icon-hamburger) {
+			@include m2.b(icon-hamburger) {
 				display: flex;
 				position: relative;
 				z-index: -1;
 				flex-direction: column;
-				width: $icon-size-medium;
+				width: v.$icon-size-medium;
 				height: 2px;
 				margin-left: rhythm(1);
 				transform-origin: 50% 50%;
@@ -148,13 +153,13 @@
 				}
 			}
 
-			@include b(icon-arrow-down) {
+			@include m2.b(icon-arrow-down) {
 				display: flex;
 				position: relative;
 				z-index: -1;
 				flex-direction: column;
-				width: $icon-size-medium;
-				height: $icon-size-medium;
+				width: v.$icon-size-medium;
+				height: v.$icon-size-medium;
 				margin-left: rhythm(1);
 				margin-top: -#{to_rem(3px)};
 				transform-origin: 50% 50%;
@@ -186,27 +191,27 @@
 				}
 			}
 
-			@include bp-up(sm) {
-				font-size: $size-base;
+			@include bp.bp-up(sm) {
+				font-size: v.$size-base;
 			}
 		}
 
-		@include e(text) {
+		@include m2.e(text) {
 			margin-top: -#{to_rem(3px)}; // Adjust for the font's bad placement in viewbox
 			pointer-events: none;
 		}
 	}
 
-	@include e(subnav) {
+	@include m2.e(subnav) {
 		position: absolute;
 		left: 0;
 		top: calc(100% - #{rhythm(1)});
 		margin: 0;
 		padding: 0;
-		background-color: $color-snow;
-		border: 1px solid $color-ash;
+		background-color: c.$color-snow;
+		border: 1px solid c.$color-ash;
 
-		@include card-shadow($color-cyberspace, 0.2);
+		@include m.card-shadow(c.$color-cyberspace, 0.2);
 
 		&::after,
 		&:before {
@@ -222,13 +227,13 @@
 
 		&::after {
 			border-color: rgba(255, 255, 255, 0);
-			border-bottom-color: $color-snow;
+			border-bottom-color: c.$color-snow;
 			border-width: 15px;
 			margin-left: -15px;
 		}
 		&::before {
 			border-color: rgba(238, 238, 238, 0);
-			border-bottom-color: $color-ash;
+			border-bottom-color: c.$color-ash;
 			border-width: 16px;
 			margin-left: -16px;
 		}
@@ -238,15 +243,15 @@
 			display: none;
 		}
 
-		@include e(item) {
+		@include m2.e(item) {
 			width: 100%;
 
 			& + & {
-				border-top: 1px solid $color-ash;
+				border-top: 1px solid c.$color-ash;
 			}
 
 			a {
-				color: $color-cyberspace;
+				color: c.$color-cyberspace;
 				display: block;
 				width: 100%;
 				padding: rhythm(0.5) rhythm(2);
@@ -262,8 +267,8 @@
 }
 
 .no-js {
-	@include atom(main-menu) {
-		@include e(subnav) {
+	@include m.atom(main-menu) {
+		@include m2.e(subnav) {
 			display: block;
 		}
 	}

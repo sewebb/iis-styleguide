@@ -1,7 +1,13 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 @use "sass:color";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors-functions' as cf;
 
-@include atom(range) {
+
+@include m.atom(range) {
 	-webkit-appearance: none;
 	appearance: none;
 	background: transparent;
@@ -10,38 +16,38 @@
 	position: relative;
 
 	&::-webkit-slider-runnable-track {
-		background-color: $color-concrete;
+		background-color: c.$color-concrete;
 		height: rhythm(1);
-		border-radius: $border-radius;
-		border-top: 1px solid color.adjust($color-granit, $lightness: 15%);
+		border-radius: v.$border-radius;
+		border-top: 1px solid color.adjust(c.$color-granit, $lightness: 15%);
 	}
 
 	&::-moz-range-track {
-		background-color: $color-concrete;
+		background-color: c.$color-concrete;
 		height: rhythm(1);
-		border-radius: $border-radius;
-		border-top: 1px solid $color-granit;
+		border-radius: v.$border-radius;
+		border-top: 1px solid c.$color-granit;
 	}
 
 	&::-webkit-slider-thumb {
 		-webkit-appearance: none;
 		appearance: none;
 		margin-top: -#{rhythm(1.125)};
-		background-color: $color-ash;
+		background-color: c.$color-ash;
 		height: rhythm(3);
 		width: rhythm(1.5);
-		border: 1px solid $color-granit;
-		border-radius: $border-radius;
+		border: 1px solid c.$color-granit;
+		border-radius: v.$border-radius;
 	}
 
 	&::-moz-range-thumb {
-		background-color: $color-ash;
+		background-color: c.$color-ash;
 		height: rhythm(3);
 		width: rhythm(1.5);
 		border-radius: 0;
 		border: 0;
-		border: 1px solid $color-granit;
-		border-radius: $border-radius;
+		border: 1px solid c.$color-granit;
+		border-radius: v.$border-radius;
 	}
 
 	&:focus {
@@ -49,10 +55,10 @@
 		box-shadow: none !important;
 
 		& + output {
-			background-color: $color-ocean-light;
+			background-color: c.$color-ocean-light;
 
 			&::after {
-				border-bottom-color: $color-ocean-light;
+				border-bottom-color: c.$color-ocean-light;
 			}
 		}
 	}
@@ -68,31 +74,31 @@
 	}
 
 	&:focus::-webkit-slider-thumb {
-		background-color: $color-snow;
-		border-color: $color-ocean;
-		box-shadow: 0 0 0 inset rgba($color-cyberspace, 0.2), 0 1px 2px rgba($color-cyberspace, 0.2), 0 0 0 3px $color-ocean-light;
+		background-color: c.$color-snow;
+		border-color: c.$color-ocean;
+		box-shadow: 0 0 0 inset rgba(c.$color-cyberspace, 0.2), 0 1px 2px rgba(c.$color-cyberspace, 0.2), 0 0 0 3px c.$color-ocean-light;
 	}
 
 	&:focus::-moz-range-thumb {
-		background-color: $color-snow;
-		border-color: $color-ocean;
-		box-shadow: 0 0 0 inset rgba($color-cyberspace, 0.2), 0 1px 2px rgba($color-cyberspace, 0.2), 0 0 0 3px $color-ocean-light;
+		background-color: c.$color-snow;
+		border-color: c.$color-ocean;
+		box-shadow: 0 0 0 inset rgba(c.$color-cyberspace, 0.2), 0 1px 2px rgba(c.$color-cyberspace, 0.2), 0 0 0 3px c.$color-ocean-light;
 	}
 
-	@include m(no-preview) {
+	@include m2.m(no-preview) {
 		& + output {
 			display: none;
 		}
 	}
 
-	@include e(value){
-		background-color: $color-concrete;
+	@include m2.e(value){
+		background-color: c.$color-concrete;
 		padding: rhythm(0.5) rhythm(1);
 		position: absolute;
-		border-radius: $border-radius;
+		border-radius: v.$border-radius;
 		left: 50%;
 		transform: translateX(-50%) translateY(calc(100% + 8px));
-		font-size: $size-medium;
+		font-size: v.$size-medium;
 
 		&::after {
 			bottom: 100%;
@@ -103,15 +109,15 @@
 			width: 0;
 			position: absolute;
 			pointer-events: none;
-			border-color: rgba($color-concrete, 0);
-			border-bottom-color: $color-concrete;
+			border-color: rgba(c.$color-concrete, 0);
+			border-bottom-color: c.$color-concrete;
 			border-width: 4px;
 			margin-left: -4px;
 		}
 	}
 }
 
-@include atom(range-input) {
+@include m.atom(range-input) {
 	position: absolute;
 	top: 0;
 	right: 0;

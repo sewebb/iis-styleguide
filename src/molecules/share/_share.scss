@@ -1,7 +1,14 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/config' as m3;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors-functions' as cf;
+@use '../../vendor/grid/breakpoints' as bp;
 
-@include molecule(share) {
-	@include e(platforms) {
+@include m.molecule(share) {
+	@include m2.e(platforms) {
 		visibility: visible;
 		max-height: 80rem;
 		padding: rhythm(1) 0;
@@ -21,33 +28,33 @@
 		}
 	}
 
-	@include e(button) {
+	@include m2.e(button) {
 		padding-left: 0;
 	}
 
-	@include e(icon) {
+	@include m2.e(icon) {
 		margin-right: rhythm(2);
 		padding: 0;
 
-		@include b(icon) {
-			width: $icon-size * 1.5;
-			height: $icon-size * 1.5;
+		@include m2.b(icon) {
+			width: v.$icon-size * 1.5;
+			height: v.$icon-size * 1.5;
 
 			&.icon-facebook {
-				fill: $color-facebook;
+				fill: c.$color-facebook;
 			}
 
 			&.icon-twitter {
-				fill: $color-twitter;
+				fill: c.$color-twitter;
 			}
 
 			&.icon-linkedin {
-				fill: $color-linkedin;
+				fill: c.$color-linkedin;
 			}
 		}
 	}
 
-	@include m(inline) {
+	@include m2.m(inline) {
 		display: inline-flex;
 		align-items: center;
 	}

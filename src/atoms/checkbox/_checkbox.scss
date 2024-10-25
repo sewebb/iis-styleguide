@@ -1,7 +1,12 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 @use "sass:color";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors-functions' as cf;
 
-@include atom(checkbox) {
+@include m.atom(checkbox) {
 	&[type='checkbox'] {
 		+ label {
 			display: inline-flex;
@@ -10,19 +15,19 @@
 			padding-top: rhythm(0.5);
 			padding-right: rhythm(2);
 			padding-bottom: rhythm(0.5);
-			font-family: $font-family-base;
+			font-family: v.$font-family-base;
 
 			&::before {
 				content: '';
 				display: block;
 				flex-shrink: 0;
-				width: $icon-size-small;
-				height: $icon-size-small;
+				width: v.$icon-size-small;
+				height: v.$icon-size-small;
 				margin-top: to_rem(3px);
 				margin-right: rhythm(1);
-				border: 1px solid $color-cyberspace;
-				border-radius: $border-radius;
-				background-color: $color-snow;
+				border: 1px solid c.$color-cyberspace;
+				border-radius: v.$border-radius;
+				background-color: c.$color-snow;
 			}
 		}
 
@@ -31,7 +36,7 @@
 			&:hover {
 				+ label {
 					&::before {
-						background-color: color.adjust($color-ash, $lightness: -5%);
+						background-color: color.adjust(c.$color-ash, $lightness: -5%);
 					}
 				}
 			}
@@ -48,7 +53,7 @@
 					width: to_rem(5px);
 					height: to_rem(9px);
 					transform: rotate(45deg);
-					border: solid $color-cyberspace;
+					border: solid c.$color-cyberspace;
 					border-width: 0 2px 2px 0;
 				}
 			}
@@ -59,25 +64,25 @@
 				@extend %disabled;
 
 				&::before {
-					background-color: color.adjust($color-concrete, $lightness: -5%);
+					background-color: color.adjust(c.$color-concrete, $lightness: -5%);
 				}
 			}
 		}
 	}
 }
 
-@include b(checkbox) {
+@include m2.b(checkbox) {
 	&.is-invalid {
 		[type='checkbox'] {
 			+ label {
 				&::before {
-					border-color: $color-ruby-dark;
-					background-color: $color-ruby-light;
+					border-color: c.$color-ruby-dark;
+					background-color: c.$color-ruby-light;
 				}
 			}
 		}
 	}
-	@include m(inline) {
+	@include m2.m(inline) {
 		padding-top: 0;
 		padding-bottom: 0;
 

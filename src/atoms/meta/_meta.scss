@@ -1,74 +1,82 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../../configurations/variables' as v;
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/functions' as f;
+@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors-functions' as cf;
+@use '../../vendor/baseline/plumber' as p;
+@use '../../vendor/grid/breakpoints' as bp;
 
-@include atom(meta) {
+@include m.atom(meta) {
 	display: flex;
 	position: relative;
 	align-items: center;
 	color: var(--cyberspace-color);
-	font-family: $font-family-mono;
-	text-decoration: none;
+	font-family: v.$font-family-mono;
+	text-decoratiosn: none;
 	text-transform: uppercase;
 	white-space: nowrap;
 
-	@include plumber(
+	@include p.plumber(
 		$font-size: 1.7,
-		$baseline: $mono-baseline,
+		$baseline: v.$mono-baseline,
 		$leading-bottom: 0
 	);
 
-	@include color_values($colors, 'fill', $prefix: '--', $separator: '-');
+	@include cf.color_values(cf.$colors, 'fill', $prefix: '--', $separator: '-');
 
 	span {
-		margin-left: to_rem(3px);
+		margin-left: f.to_rem(3px);
 	}
 
-	@include b(icon) {
+	@include m2.b(icon) {
 		display: flex;
 		flex-shrink: 0;
 		align-items: center;
-		width: $icon-size;
-		height: $icon-size;
+		width: v.$icon-size;
+		height: v.$icon-size;
 		margin-right: rhythm(1);
 		fill: inherit;
 		color: var(--color-cyberspace);
 		fill: currentColor;
 	}
 
-	@include m(light) {
-		color: $color-snow;
+	@include m2.m(light) {
+		color: c.$color-snow;
 
-		@include b(icon) {
-			fill: $color-snow;
+		@include m2.b(icon) {
+			fill: c.$color-snow;
 		}
 	}
 
-	@include m(lowercase) {
+	@include m2.m(lowercase) {
 		text-transform: initial;
 	}
 
-	@include m(wrap) {
+	@include m2.m(wrap) {
 		white-space: normal;
 	}
 
-	@include m(responsive) {
-		@include plumber(
+	@include m2.m(responsive) {
+		@include p.plumber(
 			$font-size: 1.4,
-			$baseline: $mono-baseline,
+			$baseline: v.$mono-baseline,
 			$leading-bottom: 0
 		);
 
-		@include bp-up(md) {
-			@include plumber(
+		@include bp.bp-up(md) {
+			@include p.plumber(
 				$font-size: 1.6,
-				$baseline: $mono-baseline,
+				$baseline: v.$mono-baseline,
 				$leading-bottom: 0
 			);
 		}
 
-		@include bp-up(lg) {
-			@include plumber(
+		@include bp.bp-up(lg) {
+			@include p.plumber(
 				$font-size: 1.7,
-				$baseline: $mono-baseline,
+				$baseline:v.$mono-baseline,
 				$leading-bottom: 0
 			);
 		}

@@ -1,9 +1,14 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 @use "sass:color";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../vendor/grid/breakpoints' as bp;
 
 // Default Button
 /// @group Buttons
-@include atom(button) {
+@include m.atom(button) {
 	display: inline-flex;
 	position: relative;
 	flex-wrap: nowrap;
@@ -13,12 +18,12 @@
 	padding: rhythm(1.112) rhythm(2);
 	overflow: hidden;
 	border: 0;
-	border-radius: $border-radius;
+	border-radius: v.$border-radius;
 	background-color: currentColor;
 	background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
 	box-shadow: 0 0 0 1px inset currentColor;
-	color: $color-ocean-dark;
-	font-family: $font-family-headings;
+	color: c.$color-ocean-dark;
+	font-family: v.$font-family-headings;
 	font-size: to_rem(16px);
 	text-decoration: none;
 	text-shadow: none;
@@ -27,16 +32,16 @@
 
 	&:hover,
 	&:focus {
-		color: $color-ocean;
+		color: c.$color-ocean;
 	}
 
 	&:disabled {
-		background-color: $color-granit !important;
+		background-color: c.$color-granit !important;
 		box-shadow: none;
 		cursor: not-allowed;
 
 		[class*='text'] {
-			color: $color-snow !important;
+			color: c.$color-snow !important;
 			text-shadow: none !important;
 		}
 	}
@@ -47,38 +52,38 @@
 	}
 
 	&.is-loading & {
-		@include e(text) {
+		@include m2.e(text) {
 			transform: translateY(-100%);
 			opacity: 0;
 		}
 
-		@include e(icon) {
+		@include m2.e(icon) {
 			transform: translateY(-100%);
 			opacity: 0;
 		}
 
-		@include e(spinner) {
+		@include m2.e(spinner) {
 			transform: translate(-50%, -50%);
 			opacity: 1;
 		}
 	}
 
-	@include e(text) {
+	@include m2.e(text) {
 		position: relative;
 		transform: translateY(0);
 		transition: 0.3s opacity, 0.3s transform;
 		transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
 		opacity: 1;
-		color: $color-snow;
+		color: c.$color-snow;
 		pointer-events: none;
 	}
 
-	@include e(spinner) {
+	@include m2.e(spinner) {
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		width: $icon-size-small;
-		height: $icon-size-small;
+		width: v.$icon-size-small;
+		height: v.$icon-size-small;
 		transform: translate(-50%, 50%);
 		transition: 0.3s opacity, 0.3s transform;
 		transition-timing-function: cubic-bezier(0.175, 0.885, 0.32, 1.275);
@@ -87,122 +92,122 @@
 
 	// Modifiers
 
-	@include m(full-width) {
+	@include m2.m(full-width) {
 		display: flex;
 		width: 100%;
 	}
 
-	@include m(small) {
+	@include m2.m(small) {
 		padding: rhythm(0.6) rhythm(1.5);
 	}
 
-	@include m(large) {
+	@include m2.m(large) {
 		padding: rhythm(1.6) rhythm(4);
 
-		@include e(text) {
-			@include bp-up(sm) {
+		@include m2.e(text) {
+			@include bp.bp-up(sm) {
 				font-size: to_rem(24px);
 			}
 		}
 
-		@include e(icon) {
-			width: $icon-size;
-			height: $icon-size;
+		@include m2.e(icon) {
+			width: v.$icon-size;
+			height: v.$icon-size;
 		}
 
-		@include e(spinner) {
-			width: $icon-size;
-			height: $icon-size;
+		@include m2.e(spinner) {
+			width: v.$icon-size;
+			height: v.$icon-size;
 		}
 	}
 
-	@include m(large-responsive) {
+	@include m2.m(large-responsive) {
 		padding: rhythm(1.6) rhythm(4);
 
-		@include e(text) {
+		@include m2.e(text) {
 			font-size: to_rem(24px);
 		}
 
-		@include e(icon) {
-			width: $icon-size;
-			height: $icon-size;
+		@include m2.e(icon) {
+			width: v.$icon-size;
+			height: v.$icon-size;
 		}
 
-		@include e(spinner) {
-			width: $icon-size;
-			height: $icon-size;
+		@include m2.e(spinner) {
+			width: v.$icon-size;
+			height: v.$icon-size;
 		}
 
-		@include bp-down(sm) {
+		@include bp.bp-down(sm) {
 			padding: rhythm(1.112) rhythm(2);
 
-			@include e(text) {
+			@include m2.e(text) {
 				font-size: to_rem(16px);
 			}
 		}
 	}
 
-	@include m(icon) {
+	@include m2.m(icon) {
 		justify-content: space-between;
 		max-width: rhythm(50);
 		padding-right: rhythm(5);
 		text-align: left;
 	}
 
-	@include m(icon-left) {
+	@include m2.m(icon-left) {
 		justify-content: space-between;
 		max-width: rhythm(50);
 		padding-right: rhythm(2);
 		padding-left: rhythm(5);
 
-		@include e(icon) {
+		@include m2.e(icon) {
 			right: auto;
 			left: rhythm(1.5);
 		}
 	}
 
-	@include m(standalone-icon) {
+	@include m2.m(standalone-icon) {
 		padding: rhythm(1);
 		border: 0;
 		border-radius: 0;
 		background-color: transparent;
 		box-shadow: none;
 
-		@include e(text) {
-			@include visuallyhidden;
+		@include m2.e(text) {
+			@include m.visuallyhidden;
 		}
 
-		@include e(icon) {
+		@include m2.e(icon) {
 			position: static;
-			width: $icon-size;
-			height: $icon-size;
+			width: v.$icon-size;
+			height: v.$icon-size;
 			transform: none;
 			color: var(--cyberspace-color);
 			fill: currentColor;
 		}
 
-		@include m(white) {
-			@include e(icon) {
-				fill: $color-snow;
+		@include m2.m(white) {
+			@include m2.e(icon) {
+				fill: c.$color-snow;
 			}
 		}
 	}
 
-	@include e(icon) {
+	@include m2.e(icon) {
 		position: absolute;
 		z-index: z_index(background);
 		top: 50%;
 		right: rhythm(1.5);
-		width: $icon-size-small;
-		height: $icon-size-small;
+		width: v.$icon-size-small;
+		height: v.$icon-size-small;
 		transform: translateY(-50%);
 		transition: fill 100ms linear;
-		fill: $color-snow;
+		fill: c.$color-snow;
 		pointer-events: none;
 	}
 
 	// More colors
-	@include m(transparent) {
+	@include m2.m(transparent) {
 		border-color: transparent;
 		background-color: transparent;
 		box-shadow: none;
@@ -214,325 +219,325 @@
 			text-decoration: underline;
 		}
 
-		@include e(text) {
+		@include m2.e(text) {
 			color: var(--cyberspace-color);
 		}
 
-		@include e(icon) {
-			width: $icon-size;
-			height: $icon-size;
+		@include m2.e(icon) {
+			width: v.$icon-size;
+			height: v.$icon-size;
 			fill: var(--cyberspace-cyberspace);
 			fill: currentColor;
 		}
 
-		@include m(small-icon) {
-			@include e(icon) {
-				width: $icon-size-small;
-				height: $icon-size-small;
+		@include m2.m(small-icon) {
+			@include m2.e(icon) {
+				width: v.$icon-size-small;
+				height: v.$icon-size-small;
 			}
 		}
 	}
 
-	@include m(cyberspace) {
-		color: $color-cyberspace;
+	@include m2.m(cyberspace) {
+		color: c.$color-cyberspace;
 
 		&:hover,
 		&:focus {
-			color: $color-granit;
+			color: c.$color-granit;
 		}
 
-		@include e(text) {
-			color: $color-snow;
+		@include m2.e(text) {
+			color: c.$color-snow;
 		}
 
-		@include e(icon) {
-			fill: $color-snow;
+		@include m2.e(icon) {
+			fill: c.$color-snow;
 		}
 	}
 
-	@include m(snow) {
+	@include m2.m(snow) {
 		color: transparent;
 
 		&:hover,
 		&:focus {
-			color: $color-snow;
+			color: c.$color-snow;
 		}
 
-		@include e(text) {
-			color: $color-snow;
+		@include m2.e(text) {
+			color: c.$color-snow;
 		}
 
-		@include e(icon) {
-			fill: $color-snow;
-		}
-	}
-
-	@include m(ruby) {
-		color: $color-ruby;
-
-		&:hover,
-		&:focus {
-			color: $color-ruby-dark;
-		}
-
-		@include e(text) {
-			color: $color-snow;
-			text-shadow: 0 0 rhythm(0.5) $color-ruby-dark;
-		}
-
-		@include e(icon) {
-			fill: $color-snow;
+		@include m2.e(icon) {
+			fill: c.$color-snow;
 		}
 	}
 
-	@include m(ruby-light) {
-		box-shadow: 0 0 0 1px inset $color-ruby;
-		color: $color-ruby-light;
+	@include m2.m(ruby) {
+		color: c.$color-ruby;
 
 		&:hover,
 		&:focus {
-			color: $color-ruby;
+			color: c.$color-ruby-dark;
 		}
 
-		@include e(text) {
-			color: $color-cyberspace;
+		@include m2.e(text) {
+			color: c.$color-snow;
+			text-shadow: 0 0 rhythm(0.5) c.$color-ruby-dark;
 		}
 
-		@include e(icon) {
-			fill: $color-cyberspace;
+		@include m2.e(icon) {
+			fill: c.$color-snow;
 		}
 	}
 
-	@include m(ruby-dark) {
-		color: $color-ruby-dark;
+	@include m2.m(ruby-light) {
+		box-shadow: 0 0 0 1px inset c.$color-ruby;
+		color: c.$color-ruby-light;
 
 		&:hover,
 		&:focus {
-			color: $color-ruby;
+			color: c.$color-ruby;
 		}
 
-		@include e(text) {
-			color: $color-snow;
+		@include m2.e(text) {
+			color: c.$color-cyberspace;
 		}
 
-		@include e(icon) {
-			fill: $color-snow;
+		@include m2.e(icon) {
+			fill: c.$color-cyberspace;
 		}
 	}
 
-	@include m(ocean-light) {
-		box-shadow: 0 0 0 1px inset $color-ocean;
-		color: $color-ocean-light;
+	@include m2.m(ruby-dark) {
+		color: c.$color-ruby-dark;
 
 		&:hover,
 		&:focus {
-			color: $color-ocean;
+			color: c.$color-ruby;
 		}
 
-		@include e(text) {
-			color: $color-cyberspace;
+		@include m2.e(text) {
+			color: c.$color-snow;
 		}
 
-		@include e(icon) {
-			fill: $color-cyberspace;
+		@include m2.e(icon) {
+			fill: c.$color-snow;
 		}
 	}
 
-	@include m(jade) {
-		color: $color-jade;
+	@include m2.m(ocean-light) {
+		box-shadow: 0 0 0 1px inset c.$color-ocean;
+		color: c.$color-ocean-light;
 
 		&:hover,
 		&:focus {
-			color: color.adjust($color-jade, $lightness: -10%);
+			color: c.$color-ocean;
+		}
+
+		@include m2.e(text) {
+			color: c.$color-cyberspace;
+		}
+
+		@include m2.e(icon) {
+			fill: c.$color-cyberspace;
+		}
+	}
+
+	@include m2.m(jade) {
+		color: c.$color-jade;
+
+		&:hover,
+		&:focus {
+			color: color.adjust(c.$color-jade, $lightness: -10%);
 			text-shadow: none;
 		}
 
-		@include e(text) {
-			color: $color-snow;
-			text-shadow: 0 0 rhythm(2) $color-jade-dark;
+		@include m2.e(text) {
+			color: c.$color-snow;
+			text-shadow: 0 0 rhythm(2) c.$color-jade-dark;
 		}
 
-		@include e(icon) {
-			fill: $color-cyberspace;
+		@include m2.e(icon) {
+			fill: c.$color-cyberspace;
 		}
 	}
 
-	@include m(jade-light) {
-		box-shadow: 0 0 0 1px inset $color-jade;
-		color: $color-jade-light;
+	@include m2.m(jade-light) {
+		box-shadow: 0 0 0 1px inset c.$color-jade;
+		color: c.$color-jade-light;
 
 		&:hover,
 		&:focus {
-			color: $color-jade;
+			color: c.$color-jade;
 		}
 
-		@include e(text) {
-			color: $color-cyberspace;
+		@include m2.e(text) {
+			color: c.$color-cyberspace;
 		}
 
-		@include e(icon) {
-			fill: $color-cyberspace;
+		@include m2.e(icon) {
+			fill: c.$color-cyberspace;
 		}
 	}
 
-	@include m(jade-dark) {
-		color: $color-jade-dark;
+	@include m2.m(jade-dark) {
+		color: c.$color-jade-dark;
 
 		&:hover,
 		&:focus {
-			color: $color-jade;
+			color: c.$color-jade;
 		}
 
-		@include e(text) {
-			color: $color-snow;
+		@include m2.e(text) {
+			color: c.$color-snow;
 		}
 
-		@include e(icon) {
-			fill: $color-snow;
+		@include m2.e(icon) {
+			fill: c.$color-snow;
 		}
 	}
 
-	@include m(lemon) {
-		color: $color-lemon;
+	@include m2.m(lemon) {
+		color: c.$color-lemon;
 
 		&:hover,
 		&:focus {
-			color: $color-lemon-light;
+			color: c.$color-lemon-light;
 		}
 
-		@include e(text) {
-			color: $color-cyberspace;
+		@include m2.e(text) {
+			color: c.$color-cyberspace;
 		}
 
-		@include e(icon) {
-			fill: $color-cyberspace;
+		@include m2.e(icon) {
+			fill: c.$color-cyberspace;
 		}
 	}
 
-	@include m(lemon-light) {
-		box-shadow: 0 0 0 1px inset $color-lemon;
-		color: $color-lemon-light;
+	@include m2.m(lemon-light) {
+		box-shadow: 0 0 0 1px inset c.$color-lemon;
+		color: c.$color-lemon-light;
 
 		&:hover,
 		&:focus {
-			background-color: $color-lemon;
+			background-color: c.$color-lemon;
 		}
 
-		@include e(text) {
-			color: $color-cyberspace;
+		@include m2.e(text) {
+			color: c.$color-cyberspace;
 		}
 
-		@include e(icon) {
-			fill: $color-cyberspace;
+		@include m2.e(icon) {
+			fill: c.$color-cyberspace;
 		}
 	}
 
-	@include m(peacock) {
-		color: $color-peacock;
+	@include m2.m(peacock) {
+		color: c.$color-peacock;
 
 		&:hover {
-			color: color.adjust($color-peacock, $lightness: -10%);
+			color: color.adjust(c.$color-peacock, $lightness: -10%);
 			text-shadow: none;
 		}
 
 		&:focus {
-			color: $color-peacock;
+			color: c.$color-peacock;
 		}
 
 		&:hover:focus {
-			color: $color-peacock;
+			color: c.$color-peacock;
 		}
 
-		@include e(text) {
-			color: $color-snow;
-			text-shadow: 0 0 rhythm(2) $color-peacock-dark;
+		@include m2.e(text) {
+			color: c.$color-snow;
+			text-shadow: 0 0 rhythm(2) c.$color-peacock-dark;
 		}
 
-		@include e(icon) {
-			fill: $color-cyberspace;
+		@include m2.e(icon) {
+			fill: c.$color-cyberspace;
 		}
 	}
 
-	@include m(peacock-light) {
-		box-shadow: 0 0 0 1px inset $color-peacock;
-		color: $color-peacock-light;
+	@include m2.m(peacock-light) {
+		box-shadow: 0 0 0 1px inset c.$color-peacock;
+		color: c.$color-peacock-light;
 
 		&:hover {
-			color: $color-peacock;
+			color: c.$color-peacock;
 		}
 
 		&:focus {
-			color: $color-peacock-light;
+			color: c.$color-peacock-light;
 		}
 
 		&:hover:focus {
-			color: $color-peacock-light;
+			color: c.$color-peacock-light;
 		}
 
-		@include e(text) {
-			color: $color-cyberspace;
+		@include m2.e(text) {
+			color: c.$color-cyberspace;
 		}
 
-		@include e(icon) {
-			fill: $color-cyberspace;
+		@include m2.e(icon) {
+			fill: c.$color-cyberspace;
 		}
 	}
 
-	@include m(sandstone) {
-		color: $color-sandstone;
+	@include m2.m(sandstone) {
+		color: c.$color-sandstone;
 
 		&:hover,
 		&:focus {
-			color: $color-sandstone-light;
+			color: c.$color-sandstone-light;
 		}
 
-		@include e(text) {
-			color: $color-cyberspace;
+		@include m2.e(text) {
+			color: c.$color-cyberspace;
 		}
 
-		@include e(icon) {
-			fill: $color-cyberspace;
+		@include m2.e(icon) {
+			fill: c.$color-cyberspace;
 		}
 	}
 
-	@include m(sandstone-light) {
-		box-shadow: 0 0 0 1px inset $color-sandstone;
-		color: $color-sandstone-light;
+	@include m2.m(sandstone-light) {
+		box-shadow: 0 0 0 1px inset c.$color-sandstone;
+		color: c.$color-sandstone-light;
 
 		&:hover {
-			color: $color-sandstone;
+			color: c.$color-sandstone;
 		}
 
 		&:focus {
-			color: $color-sandstone-light;
+			color: c.$color-sandstone-light;
 		}
 
 		&:hover:focus {
-			color: $color-sandstone-light;
+			color: c.$color-sandstone-light;
 		}
 
-		@include e(text) {
-			color: $color-cyberspace;
+		@include m2.e(text) {
+			color: c.$color-cyberspace;
 		}
 
-		@include e(icon) {
-			fill: $color-cyberspace;
+		@include m2.e(icon) {
+			fill: c.$color-cyberspace;
 		}
 	}
 
-	@include m(dashed) {
+	@include m2.m(dashed) {
 		border: 1px dashed;
 		background: transparent;
 		box-shadow: none;
-		color: $color-cyberspace;
+		color: c.$color-cyberspace;
 
 		&:hover,
 		&:focus {
-			color: $color-cyberspace;
+			color: c.$color-cyberspace;
 			text-decoration: underline;
 		}
 
-		@include e(text) {
+		@include m2.e(text) {
 			color: inherit;
 		}
 	}

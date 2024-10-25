@@ -1,6 +1,11 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors-functions' as cf;
 
-@include atom(input) {
+@include m.atom(input) {
 	@extend %input;
 
 	&:focus {
@@ -15,21 +20,21 @@
 		@extend %disabled;
 	}
 
-	@include m(discreet) {
+	@include m2.m(discreet) {
 		@extend %discreet;
 	}
-	@include m(small) {
-		font-size: $size-medium;
+	@include m2.m(small) {
+		font-size: v.$size-medium;
 		padding: rhythm(0.5);
 	}
 
-	@include m(large) {
+	@include m2.m(large) {
 		font-size: to_rem(32px);
 		padding: rhythm(1) rhythm(2);
 	}
 }
 
-@include b(input-icon) {
+@include m2.b(input-icon) {
 	display: flex;
 	justify-content: flex-end;
 	width: 100%;
@@ -38,8 +43,8 @@
 	> svg {
 		position: relative;
 		z-index: z_index(middleground);
-		width: $icon-size;
-		height: $icon-size;
+		width: v.$icon-size;
+		height: v.$icon-size;
 		transform: translateY(-#{rhythm(3.7)}) translateX(-#{rhythm(1)});
 	}
 }

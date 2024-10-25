@@ -1,11 +1,17 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors-functions' as cf;
+
 
 /// @group Links
-@include b(archive-link-wrapper) {
+@include m2.b(archive-link-wrapper) {
 	padding: rhythm(2) 0;
-	border-bottom: 1px solid $color-cyberspace;
+	border-bottom: 1px solid c.$color-cyberspace;
 }
-@include atom(archive-link) {
+@include m.atom(archive-link) {
 	display: inline-flex;
 	position: relative;
 	flex-wrap: nowrap;
@@ -13,7 +19,7 @@
 	justify-content: center;
 	border: 0;
 	color: currentColor;
-	font-family: $font-family-headings;
+	font-family: v.$font-family-headings;
 	text-decoration: none;
 	hyphens: auto;
 
@@ -22,22 +28,22 @@
 		text-decoration: underline;
 	}
 
-	@include e(text) {
+	@include m2.e(text) {
 		position: relative;
 		top: -#{rhythm(0.2)};
-		color: $color-cyberspace;
+		color: c.$color-cyberspace;
 	}
 
-	@include m(icon) {
+	@include m2.m(icon) {
 		justify-content: space-between;
 		max-width: rhythm(50);
 		padding-right: rhythm(5);
 		text-align: left;
 	}
 
-	@include e(icon) {
-		width: $icon-size-small;
-		height: $icon-size-small;
+	@include m2.e(icon) {
+		width: v.$icon-size-small;
+		height: v.$icon-size-small;
 		margin-top: to_rem(3px);
 		margin-left: rhythm(1);
 		fill: currentColor;

@@ -1,22 +1,29 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/config' as m3;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors-functions' as cf;
+@use '../../vendor/grid/breakpoints' as bp;
 
-@include molecule(teaser-news) {
+@include m.molecule(teaser-news) {
 	height: 100%;
 	padding: rhythm(2);
-	border-radius: $border-radius;
+	border-radius: v.$border-radius;
 	background-color: var(--snow-color);
 
-	@include bp-up(md) {
+	@include bp.bp-up(md) {
 		padding: rhythm(2) rhythm(4);
 	}
 
-	@include e(list) {
+	@include m2.e(list) {
 		margin: 0;
 		padding: 0;
 		list-style: none;
 	}
 
-	@include e(item) {
+	@include m2.e(item) {
 		position: relative;
 
 		&:not(:last-child) {
@@ -24,7 +31,7 @@
 		}
 	}
 
-	@include e(link) {
+	@include m2.e(link) {
 		@extend %normalize-links;
 
 		color: currentcolor;
@@ -32,7 +39,7 @@
 
 		&:hover,
 		&:focus {
-			color: $color-ruby;
+			color: c.$color-ruby;
 			text-decoration: underline;
 		}
 

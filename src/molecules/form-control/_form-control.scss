@@ -1,11 +1,18 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/config' as m3;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors-functions' as cf;
+@use '../../vendor/grid/breakpoints' as bp;
 
-@include molecule(form-control) {
+@include m.molecule(form-control) {
 
 	// Modifier for large form fields
-	@include m(large) {
+	@include m2.m(large) {
 		// Inputs
-		@include atom(input) {
+		@include m.atom(input) {
 			padding-top: rhythm(1.85);
 			padding-bottom: rhythm(1.85);
 			padding-left: rhythm(2);
@@ -17,29 +24,29 @@
 		}
 
 		// Input icon
-		@include b(input-icon) {
+		@include m2.b(input-icon) {
 			> svg {
 				transform: translateY(-#{rhythm(4.6)}) translateX(-#{rhythm(2)});
 			}
 		}
 
 		// Buttons
-		@include atom(button) {
+		@include m.atom(button) {
 			padding: rhythm(1.6) rhythm(4);
 
-			@include b(a-button__text) {
+			@include m2.b(a-button__text) {
 				font-size: to_rem(24px);
 			}
 		}
 
 		// Checkbox
-		@include atom(checkbox) {
+		@include m.atom(checkbox) {
 			+ label {
 				font-size: to_rem(20px);
 
 				&::before {
-					width: $icon-size;
-					height: $icon-size;
+					width: v.$icon-size;
+					height: v.$icon-size;
 					margin-top: to_rem(3px);
 				}
 			}
@@ -58,14 +65,14 @@
 		}
 
 		// Radiobutton
-		@include atom(radio) {
+		@include m.atom(radio) {
 			&[type='radio'] {
 				+ label {
 					font-size: to_rem(20px);
 
 					&::before {
-						width: $icon-size;
-						height: $icon-size;
+						width: v.$icon-size;
+						height: v.$icon-size;
 						border-width: 3px;
 					}
 				}
@@ -73,55 +80,55 @@
 		}
 
 		// Select
-		@include atom(select) {
+		@include m.atom(select) {
 			padding-top: rhythm(1.85);
 			padding-bottom: rhythm(1.85);
 			padding-left: rhythm(2);
 			background-position: calc(100% - #{rhythm(2)}) 50%;
-			background-size: $icon-size $icon-size;
+			background-size: v.$icon-size v.$icon-size;
 			font-size: to_rem(20px);
 		}
 
 		// Textarea
-		@include atom(textarea) {
+		@include m.atom(textarea) {
 			height: rhythm(15);
 			font-size: to_rem(20px);
 		}
 	}
 
 	// Modifier for small form fields
-	@include m(small) {
+	@include m2.m(small) {
 		// Inputs
-		@include b(a-input) {
+		@include m2.b(a-input) {
 			padding-top: rhythm(0.5);
 			padding-bottom: rhythm(0.8);
 			font-size: to_rem(16px);
 		}
 
 		// Input icon
-		@include b(input-icon) {
+		@include m2.b(input-icon) {
 			> svg {
-				width: $icon-size-medium;
-				height: $icon-size-medium;
+				width: v.$icon-size-medium;
+				height: v.$icon-size-medium;
 				transform: translateY(-#{rhythm(3.1)}) translateX(-#{rhythm(1)});
 			}
 		}
 
 		// Buttons
-		@include atom(button) {
+		@include m.atom(button) {
 			padding: rhythm(0.6) rhythm(1.5);
 		}
 
 		// Select
-		@include atom(select) {
+		@include m.atom(select) {
 			padding-top: rhythm(0.5);
 			padding-bottom: rhythm(0.8);
-			background-size: $icon-size-small $icon-size-small;
+			background-size: v.$icon-size-small v.$icon-size-small;
 			font-size: to_rem(16px);
 		}
 
 		// Textarea
-		@include atom(textarea) {
+		@include m.atom(textarea) {
 			height: rhythm(12);
 			font-size: to_rem(16px);
 		}

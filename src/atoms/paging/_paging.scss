@@ -1,24 +1,29 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 @use "sass:color";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../vendor/grid/breakpoints' as bp;
 
 // Forwards / backwards
 /// @group Paging
-@include atom(paging-wrapper) {
+@include m.atom(paging-wrapper) {
 	display: flex;
 	position: relative;
 	width: 100%;
 	align-items: center;
 
-	@include e(text) {
+	@include m2.e(text) {
 		flex: 1;
-		font-family: $font-family-mono;
-		font-size: to_rem($size-medium-plus);
+		font-family: v.$font-family-mono;
+		font-size: to_rem(v.$size-medium-plus);
 		text-align: center;
 		text-transform: uppercase;
 	}
 }
 
-@include atom(paging) {
+@include m.atom(paging) {
 	display: inline-flex;
 	position: relative;
 	flex-grow: 0;
@@ -27,31 +32,31 @@
 	justify-content: center;
 	width: rhythm(4);
 	height: rhythm(4);
-	border: 1px solid $color-ash;
+	border: 1px solid c.$color-ash;
 	border-radius: 50%;
-	background-color: $color-snow;
-	box-shadow: 0 3px 5px color.adjust($color-granit, $lightness: 15%);
+	background-color: c.$color-snow;
+	box-shadow: 0 3px 5px color.adjust(c.$color-granit, $lightness: 15%);
 
-	@include bp-up(sm) {
+	@include bp.bp-up(sm) {
 		width: rhythm(6);
 		height: rhythm(6);
 	}
 
 	&:focus,
 	&:hover {
-		background-color: $color-ash;
+		background-color: c.$color-ash;
 	}
 
-	@include e(icon) {
+	@include m2.e(icon) {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: $icon-size-small;
-		height: $icon-size-small;
+		width: v.$icon-size-small;
+		height: v.$icon-size-small;
 
-		@include bp-up(sm) {
-			width: $icon-size-medium;
-			height: $icon-size-medium;
+		@include bp.bp-up(sm) {
+			width: v.$icon-size-medium;
+			height: v.$icon-size-medium;
 		}
 	}
 }

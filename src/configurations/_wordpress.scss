@@ -1,9 +1,14 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use "sass:math";
+@use '../vendor/grid/breakpoints' as bp;
+@use '../vendor/baseline/plumber' as p;
+@use 'colors/colors' as c;
+@use 'variables' as v;
+@use 'mixins' as m;
 
 //
 // Modifies Wordpress Core classes
 //
-@use "sass:math";
 
 .wp-caption {
 	margin-bottom: rhythm(3);
@@ -16,7 +21,7 @@ div.aligncenter {
 	margin: 0 auto rhythm(3);
 }
 
-@include bp-up(lg) {
+@include bp.bp-up(lg) {
 	.alignright {
 		width: calc(#{make_col(6)} - 13px); // <== You ugly magic number you, we hates it!
 		margin: 0 0 rhythm(3) 0;
@@ -50,7 +55,7 @@ div.aligncenter {
 	margin-bottom: rhythm(3);
 
 	figcaption {
-		@include plumber(
+		@include p.plumber(
 			$font-size: 1.7,
 			$line-height: 2,
 			$leading-bottom: 0
@@ -136,16 +141,16 @@ div.aligncenter {
 
 		figcaption {
 			padding: rhythm(1);
-			font-size: $size-small;
+			font-size: v.$size-small;
 			line-height: 1.4;
 
-			@include bp-up(sm) {
+			@include bp.bp-up(sm) {
 				padding-bottom: rhythm(2);
-				font-size: $size-medium;
+				font-size: v.$size-medium;
 			}
 
-			@include bp-up(lg) {
-				font-size: $size-base;
+			@include bp.bp-up(lg) {
+				font-size: v.$size-base;
 			}
 		}
 	}
@@ -153,7 +158,7 @@ div.aligncenter {
 
 .wp-block-embed {
 	figcaption {
-		@include plumber(
+		@include p.plumber(
 			$font-size: 1.5,
 			$line-height: 2,
 			$leading-bottom: 0
@@ -176,7 +181,7 @@ div.aligncenter {
 				margin-bottom: 0;
 			}
 
-			@include molecule(card) {
+			@include m.molecule(card) {
 				&:not(:only-child) {
 					height: auto;
 				}
@@ -195,9 +200,9 @@ div.aligncenter {
 .wp-block-group {
 	display: flex;
 	flex-wrap: wrap;
-	margin-right: math.div($grid-gutter-width, -2);
+	margin-right: math.div(v.$grid-gutter-width, -2);
 	margin-bottom: rhythm(2);
-	margin-left: math.div($grid-gutter-width, -2);
+	margin-left: math.div(v.$grid-gutter-width, -2);
 
 	&.alignfull {
 		right: auto;
@@ -214,9 +219,9 @@ div.aligncenter {
 .wp-block-columns {
 	display: flex;
 	flex-wrap: wrap;
-	margin-right: math.div($grid-gutter-width, -2);
+	margin-right: math.div(v.$grid-gutter-width, -2);
 	margin-bottom: rhythm(2);
-	margin-left: math.div($grid-gutter-width, -2);
+	margin-left: math.div(v.$grid-gutter-width, -2);
 
 	&.alignfull {
 		right: auto;
@@ -224,7 +229,7 @@ div.aligncenter {
 		width: auto;
 	}
 }
-@include bp-up(md) {
+@include bp.bp-up(md) {
 	.wp-block-columns {
 		flex-wrap: nowrap;
 	}
@@ -233,18 +238,18 @@ div.aligncenter {
 .wp-block-column {
 	flex-grow: 1;
 	min-width: 0;
-	margin-right: math.div($grid-gutter-width, 2);
-	margin-left: math.div($grid-gutter-width, 2);
+	margin-right: math.div(v.$grid-gutter-width, 2);
+	margin-left: math.div(v.$grid-gutter-width, 2);
 	word-break: break-word;
 	overflow-wrap: break-word;
 }
-@include bp-down(sm) {
+@include bp.bp-down(sm) {
 	.wp-block-column {
 		flex-basis: 100% !important;
 	}
 }
 
-@include bp-up(md) {
+@include bp.bp-up(md) {
 	.wp-block-column {
 		flex-basis: 0;
 		flex-grow: 1;
@@ -255,18 +260,18 @@ div.aligncenter {
 	}
 
 	.wp-block-column:not(:first-child) {
-		margin-left: math.div($grid-gutter-width, 2);
+		margin-left: math.div(v.$grid-gutter-width, 2);
 	}
 }
 
-@include bp-between(sm, md) {
+@include bp.bp-between(sm, md) {
 	.wp-block-column:nth-child(even) {
-		margin-left: math.div($grid-gutter-width, 2);
+		margin-left: math.div(v.$grid-gutter-width, 2);
 	}
 }
 
 .wp-block-column:nth-child(even) {
-	margin-left: math.div($grid-gutter-width, 2);
+	margin-left: math.div(v.$grid-gutter-width, 2);
 }
 
 .wp-block-columns.are-vertically-aligned-top {
@@ -316,8 +321,8 @@ div.aligncenter {
 			background-image:
 				linear-gradient(
 					to right,
-					$color-cyberspace,
-					$color-cyberspace 2px,
+					c.$color-cyberspace,
+					c.$color-cyberspace 2px,
 					transparent 2px,
 					transparent 6px
 				);
@@ -331,12 +336,12 @@ div.aligncenter {
 .wp-block-image,
 .wp-block-image:not(.is-style-rounded) {
 	img {
-		border-radius: $border-radius;
+		border-radius: v.$border-radius;
 	}
 }
 
 .wp-block-embed-youtube {
-	border-radius: $border-radius;
+	border-radius: v.$border-radius;
 	overflow: hidden;
 }
 
@@ -351,7 +356,7 @@ div.aligncenter {
 hr.wp-block-separator {
 	display: flex;
 	border-top: 0;
-	border-color: $color-concrete;
+	border-color: c.$color-concrete;
 
 	&[class*=align] {
 		height: 22px;
@@ -377,8 +382,8 @@ hr.wp-block-separator {
 		margin-top: rhythm(2);
 		margin-bottom: rhythm(2);
 
-		@include bp-up(lg) {
-			margin-left: $indent * 2;
+		@include bp.bp-up(lg) {
+			margin-left: v.$indent * 2;
 		}
 	}
 

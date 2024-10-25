@@ -1,4 +1,14 @@
-@include molecule(modal) {
+@charset "UTF-8";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/config' as m3;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors-functions' as cf;
+@use '../../vendor/grid/breakpoints' as bp;
+@use '../../vendor/grid/grid' as g;
+
+@include m.molecule(modal) {
 	display: flex;
 	position: fixed;
 	z-index: z_index(foreground);
@@ -14,7 +24,7 @@
 	}
 
 	// Adjust close button position
-	@include m(has-overlay) {
+	@include m2.m(has-overlay) {
 		&::after {
 			content: '';
 			position: absolute;
@@ -27,7 +37,7 @@
 		}
 	}
 
-	@include e(container) {
+	@include m2.e(container) {
 		display: flex;
 		position: relative;
 		z-index: z_index(foreground);
@@ -37,7 +47,7 @@
 		margin: rhythm(1);
 		padding: rhythm(4) rhythm(2) rhythm(4) rhythm(2);
 		overflow-y: auto;
-		border-radius: $border-radius;
+		border-radius: v.$border-radius;
 		background: var(--snow-color);
 
 		> button {
@@ -47,25 +57,25 @@
 			right: rhythm(1);
 		}
 
-		@include bp-up(sm) {
+		@include bp.bp-up(sm) {
 			padding: rhythm(4) rhythm(4) rhythm(6) rhythm(4);
 			width: auto;
 			min-width: to_rem(576px);
 		}
 
-		@include bp-up(md) {
+		@include bp.bp-up(md) {
 			padding: rhythm(8) rhythm(8) rhythm(6) rhythm(8);
 		}
 
-		@include bp-up(lg) {
+		@include bp.bp-up(lg) {
 			max-width: to_rem(961px);
 		}
 
-		@include m(no-max-width) {
+		@include m2.m(no-max-width) {
 			max-width: none;
 		}
 
-		@include m(dynamic-width) {
+		@include m2.m(dynamic-width) {
 			width: 100%;
 			max-width: calc(100vw);
 			min-width: 0;
@@ -79,64 +89,64 @@
 		}
 	}
 
-	@include bp-up(md) {
-		@include e(input-wrapper) {
+	@include bp.bp-up(md) {
+		@include m2.e(input-wrapper) {
 			display: flex;
 			justify-content: space-between;
 			margin-bottom: rhythm(2);
 		}
 	}
 
-	@include e(content) {
+	@include m2.e(content) {
 		position: relative;
 		margin-right: rhythm(2);
 
-		@include bp-up(sm) {
+		@include bp.bp-up(sm) {
 			margin-right: 0;
 		}
 
-		@include m(form-name) {
+		@include m2.m(form-name) {
 			flex: 0 0 45%;
 		}
 
-		@include m(form-lname) {
+		@include m2.m(form-lname) {
 			flex: 0 0 45%;
 		}
 
-		@include e(input-wrapper) {
+		@include m2.e(input-wrapper) {
 			display: flex;
 			justify-content: space-between;
 			margin-bottom: rhythm(2);
 		}
 
-		@include bp-up(md) {
+		@include bp.bp-up(md) {
 
-			@include m(form-email) {
+			@include m2.m(form-email) {
 				margin-bottom: rhythm(2);
 			}
 
-			@include m(form-username) {
+			@include m2.m(form-username) {
 				margin-bottom: rhythm(2);
 			}
 		}
-		@include m(form-check) {
+		@include m2.m(form-check) {
 			display: flex;
 		}
 
-		@include m(form-text) {
+		@include m2.m(form-text) {
 			display: flex;
 			justify-content: center;
 			margin-top: rhythm(2);
 		}
 	}
 
-	@include e(buttons) {
+	@include m2.e(buttons) {
 		display: flex;
 		flex-shrink: 0;
 		justify-content: flex-end;
 	}
 
-	@include e(button-primary) {
+	@include m2.e(button-primary) {
 		color: var(--m-modal-button-primary-color) !important;
 		box-shadow: 0 0 0 1px inset var(--m-modal-button-primary-border-color) !important;
 
@@ -150,7 +160,7 @@
 		}
 	}
 
-	@include e(button-secondary) {
+	@include m2.e(button-secondary) {
 		color: var(--m-modal-button-secondary-color) !important;
 		box-shadow: 0 0 0 1px inset var(--m-modal-button-secondary-border-color) !important;
 
@@ -164,7 +174,7 @@
 		}
 	}
 
-	@include e(graph-button) {
+	@include m2.e(graph-button) {
 		padding: 0;
 		position: relative;
 
@@ -175,36 +185,36 @@
 
 		&::after {
 			content: attr(data-zoom);
-			color: $color-snow;
+			color: c.$color-snow;
 			padding: rhythm(1) rhythm(2) rhythm(1) rhythm(4);
 			display: block;
 			position: absolute;
 			top: 0;
 			left: 0;
-			border-top-left-radius: $border-radius;
-			border-bottom-right-radius: $border-radius;
+			border-top-left-radius: v.$border-radius;
+			border-bottom-right-radius: v.$border-radius;
 			width: auto;
 			line-height: 1;
-			height: $icon-size-large * 1.4;
-			background-color: rgba($color-cyberspace, 0.7);
+			height: v.$icon-size-large * 1.4;
+			background-color: rgba(c.$color-cyberspace, 0.7);
 			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-search' viewbox='0 0 32 32' width='32' height='32' fill='%23ffffff'%3E%3Cpath d='M24,21.8l8,8L29.9,32l-8-8c-5.9,4.6-14.3,3.6-19-2.2S-0.7,7.6,5.1,2.9S19.3-0.7,24,5.1C27.9,10,27.9,16.9,24,21.8L24,21.8z M13.4,23.9c5.8,0,10.5-4.7,10.5-10.5S19.2,3,13.4,3S3,7.7,3,13.4S7.7,23.9,13.4,23.9z'/%3E%3C/svg%3E");
 			background-position: rhythm(1) center;
-			background-size: $icon-size-medium $icon-size-medium;
+			background-size: v.$icon-size-medium v.$icon-size-medium;
 			background-repeat: no-repeat;
 
 		}
 	}
 
-	@include e(button-fixed) {
+	@include m2.e(button-fixed) {
 		position: fixed !important;
 		top: rhythm(2) !important;
 		right: rhythm(3) !important;
 		z-index: z_index(foreground) !important;
 	}
 
-	@include e(overlay-button) {
+	@include m2.e(overlay-button) {
 		position: fixed !important;
-		color: $color-snow;
+		color: c.$color-snow;
 		display: flex;
 		align-items: center;
 		text-align: center;
@@ -216,8 +226,8 @@
 		bottom: 0 !important;
 		left: 0 !important;
 		background: rgba(0, 0, 0, 0.5);
-		text-shadow: 0 0 rhythm(0.5) $color-cyberspace;
-		font-family: $font-family-headings;
+		text-shadow: 0 0 rhythm(0.5) c.$color-cyberspace;
+		font-family: v.$font-family-headings;
 		border: 0;
 		width: 100vw;
 
@@ -225,12 +235,12 @@
 			display: none;
 		}
 
-		@include bp-up(xxl) {
+		@include bp.bp-up(xxl) {
 			display: none;
 		}
 	}
 
-	@include b(field-group) {
+	@include m2.b(field-group) {
 		margin-bottom: rhythm(1);
 	}
 }

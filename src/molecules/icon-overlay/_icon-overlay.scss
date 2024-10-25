@@ -1,10 +1,18 @@
 @charset "UTF-8";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/config' as m3;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors-functions' as cf;
+@use '../../vendor/grid/breakpoints' as bp;
+@use '../../vendor/grid/grid' as g;
 
-@include molecule(icon-overlay) {
+@include m.molecule(icon-overlay) {
 	position: relative;
 	width: 100%;
 	overflow: hidden;
-	border-radius: $border-radius;
+	border-radius: v.$border-radius;
 
 	> img {
 		display: block;
@@ -26,7 +34,7 @@
 		left: 0;
 	}
 
-	@include e(button) {
+	@include m2.e(button) {
 		position: absolute;
 		z-index: 3;
 		top: 50%;
@@ -41,30 +49,30 @@
 		&:hover,
 		&:focus {
 			> svg {
-				fill: $color-concrete;
+				fill: c.$color-concrete;
 			}
 		}
 
-		@include bp-up(sm) {
+		@include bp.bp-up(sm) {
 			width: rhythm(10);
 			height: rhythm(10);
 		}
 	}
 
-	@include e(icon) {
+	@include m2.e(icon) {
 		width: rhythm(7);
 		height: rhythm(7);
-		fill: $color-snow;
+		fill: c.$color-snow;
 		filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.4));
 		cursor: pointer;
 
-		@include bp-up(sm) {
+		@include bp.bp-up(sm) {
 			width: rhythm(10);
 			height: rhythm(10);
 		}
 	}
 
-	@include e(message) {
+	@include m2.e(message) {
 		display: flex;
 		flex-direction: column;
 		position: absolute;
@@ -76,7 +84,7 @@
 		align-items: center;
 		justify-content: center;
 		text-align: center;
-		background: $color-concrete;
+		background: c.$color-concrete;
 		padding-left: rhythm(2);
 		padding-right: rhythm(2);
 	}

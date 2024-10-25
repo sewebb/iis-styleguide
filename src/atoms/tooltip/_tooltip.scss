@@ -1,9 +1,15 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use "sass:color";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors-functions' as cf;
 
-@include atom(tooltip) {
+@include m.atom(tooltip) {
 	position: relative;
-	width: $icon-size;
-	height: $icon-size;
+	width: v.$icon-size;
+	height: v.$icon-size;
 	margin-right: rhythm(1);
 	margin-left: rhythm(1);
 	padding: rhythm(1);
@@ -15,7 +21,7 @@
 	&:hover {
 		overflow: visible;
 		clip: auto;
-		box-shadow: 0 0 0 to_rem(5px) $color-ocean-light;
+		box-shadow: 0 0 0 to_rem(5px) c.$color-ocean-light;
 
 		[class*='text'] {
 			overflow: visible;
@@ -36,7 +42,7 @@
 		fill: currentColor;
 	}
 
-	@include e(text) {
+	@include m2.e(text) {
 		display: block;
 		position: absolute;
 		z-index: z_index(foreground);
@@ -51,12 +57,12 @@
 		transform-origin: bottom center;
 		-webkit-backface-visibility: hidden;
 		transition: transform 0.3s cubic-bezier(0.3, 0, 0, 1);
-		border-radius: $border-radius;
+		border-radius: v.$border-radius;
 		opacity: 0;
-		background-color: $color-cyberspace;
-		color: $color-snow;
-		font-family: $font-family-base;
-		font-size: $size-small;
+		background-color: c.$color-cyberspace;
+		color: c.$color-snow;
+		font-family: v.$font-family-base;
+		font-size: v.$size-small;
 		text-align: left;
 		user-select: none;
 
@@ -72,7 +78,7 @@
 			border: solid transparent;
 			border-width: 15px;
 			border-color: rgba(31, 42, 54, 0);
-			border-top-color: $color-cyberspace;
+			border-top-color: c.$color-cyberspace;
 			border-bottom-color: transparent;
 			pointer-events: none;
 		}
@@ -86,7 +92,7 @@
 				top: auto;
 				bottom: calc(100% - 1px);
 				border-top-color: transparent;
-				border-bottom-color: $color-cyberspace;
+				border-bottom-color: c.$color-cyberspace;
 			}
 		}
 	}

@@ -1,7 +1,12 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors-functions' as cf;
 
 /// @group Tags
-@include atom(tag) {
+@include m.atom(tag) {
 	@extend %normalize-links;
 
 	@extend %tag;
@@ -13,52 +18,52 @@
 	margin-right: rhythm(1);
 	margin-bottom: rhythm(1);
 	padding: rhythm(1) rhythm(2);
-	font-size: $small-text;
+	font-size: v.$small-text;
 	line-height: 1;
 	text-decoration: none;
 	text-transform: uppercase;
 
 	&--background {
-		@include color_values($colors, 'background-color', $separator: '-');
-		@include color_values($colors, 'border-color', $separator: '-');
+		@include cf.color_values(cf.$colors, 'background-color', $separator: '-');
+		@include cf.color_values(cf.$colors, 'border-color', $separator: '-');
 	}
 
-	@include e(text) {
+	@include m2.e(text) {
 		color: var(--cyberspace-color);
 		letter-spacing: 0.025rem;
 	}
 
-	@include m(light) {
+	@include m2.m(light) {
 		@extend %tag-light;
 
-		@include e(text) {
-			color: $color-snow;
+		@include m2.e(text) {
+			color: c.$color-snow;
 		}
 	}
 
 	> svg {
-		width: $icon-size-small;
-		height: $icon-size-small;
+		width: v.$icon-size-small;
+		height: v.$icon-size-small;
 	}
 
-	@include m(hover-light) {
+	@include m2.m(hover-light) {
 		&:hover,
 		&:focus {
 			background-color: currentColor !important;
 
 			[class*=text] {
-				color: $color-snow;
+				color: c.$color-snow;
 			}
 		}
 	}
 
-	@include m(hover-dark) {
+	@include m2.m(hover-dark) {
 		&:hover,
 		&:focus {
 			background-color: currentColor !important;
 
 			[class*=text] {
-				color: $color-cyberspace;
+				color: c.$color-cyberspace;
 			}
 		}
 	}

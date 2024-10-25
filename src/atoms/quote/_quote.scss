@@ -1,6 +1,12 @@
 @charset "UTF-8";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors-functions' as cf;
 
-@include atom(quote) {
+
+@include m.atom(quote) {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
@@ -8,18 +14,18 @@
 	margin: 0;
 	padding: 0;
 
-	@include e(footer) {
+	@include m2.e(footer) {
 		display: flex;
 		align-items: center;
 		padding-top: rhythm(1);
-		font-family: $font-family-headings;
+		font-family: v.$font-family-headings;
 	}
 
-	@include e(avatar) {
+	@include m2.e(avatar) {
 		width: rhythm(4);
 		height: rhythm(4);
 		margin-right: rhythm(2);
 		border-radius: 50%;
-		background-color: $color-snow;
+		background-color: c.$color-snow;
 	}
 }

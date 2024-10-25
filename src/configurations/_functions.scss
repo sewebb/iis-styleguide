@@ -1,7 +1,11 @@
+@charset "UTF-8";
 @use "sass:map";
-@charset 'UTF-8';
-
 @use "sass:math";
+
+// Size base
+$size-base: 18px;
+// Base unit
+$base-unit: math.div($size-base, 2);
 
 @function rhythm($lines) {
 	@return to_rem($lines * $base-unit);

@@ -1,13 +1,20 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/config' as m3;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors-functions' as cf;
+@use '../../vendor/grid/breakpoints' as bp;
 
-@include molecule(download) {
+@include m.molecule(download) {
 	position: relative;
 	padding: rhythm(2.5);
-	border: 1px solid $color-peacock;
-	border-radius: $border-radius;
+	border: 1px solid c.$color-peacock;
+	border-radius: v.$border-radius;
 	background-color: var(--snow-color);
 
-	@include e(link) {
+	@include m2.e(link) {
 		display: block;
 		margin-bottom: rhythm(1);
 		color: currentcolor;
@@ -15,7 +22,7 @@
 
 		&:hover,
 		&:focus {
-			color: $color-peacock;
+			color: c.$color-peacock;
 			text-decoration: underline;
 		}
 
@@ -31,50 +38,50 @@
 		}
 	}
 
-	@include e(icon-file) {
+	@include m2.e(icon-file) {
 		margin-bottom: rhythm(1);
 		line-height: 0;
 
-		@include bp-up(sm) {
+		@include bp.bp-up(sm) {
 			margin-right: rhythm(0.5);
 			margin-bottom: 0;
 		}
 	}
 
-	@include e(icon-download) {
+	@include m2.e(icon-download) {
 		display: flex;
 		align-items: center;
 		justify-content: center;
 		width: rhythm(3.5);
 		height: rhythm(3.5);
 		margin-left: rhythm(1);
-		border-radius: $border-radius;
-		background-color: $color-peacock-light;
+		border-radius: v.$border-radius;
+		background-color: c.$color-peacock-light;
 	}
 
-	@include e(text) {
+	@include m2.e(text) {
 		white-space: nowrap;
 	}
 
-	@include b(icon) {
+	@include m2.b(icon) {
 		width: to_rem(57px);
 		height: to_rem(78px);
 		color: var(--cyberspace-color);
 		fill: currentColor;
 	}
 
-	@include e(trigger) {
+	@include m2.e(trigger) {
 		margin-top: rhythm(1);
 		margin-left: 0;
 
-		@include b(icon) {
-			width: $icon-size-medium;
-			height: $icon-size-medium;
+		@include m2.b(icon) {
+			width: v.$icon-size-medium;
+			height: v.$icon-size-medium;
 			color: var(--dark-color);
 			fill: currentColor;
 		}
 
-		@include bp-up(sm) {
+		@include bp.bp-up(sm) {
 			margin-top: 0;
 			margin-left: rhythm(1);
 		}

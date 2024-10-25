@@ -1,26 +1,33 @@
 @charset "UTF-8";
-
 @use "sass:math";
 @use "sass:color";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/config' as m3;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors-functions' as cf;
+@use '../../vendor/grid/breakpoints' as bp;
+@use '../../vendor/grid/grid' as g;
 
-@include molecule(submenu) {
+@include m.molecule(submenu) {
 	margin: 0 0 rhythm(2) 0;
 	padding: 0;
 	overflow: hidden;
-	border-radius: $border-radius;
-	background-color: $color-snow;
+	border-radius: v.$border-radius;
+	background-color: c.$color-snow;
 	list-style: none;
 
-	@include e(title) {
+	@include m2.e(title) {
 		background-color: var(--m-submenu-background-color);
 
-		@include e(link) {
+		@include m2.e(link) {
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
 			padding: rhythm(2);
-			color: $color-cyberspace;
-			font-family: $font-family-headings;
+			color: c.$color-cyberspace;
+			font-family: v.$font-family-headings;
 			text-decoration: none;
 
 			&:hover,
@@ -34,42 +41,42 @@
 
 			> svg {
 				flex-shrink: 0;
-				width: $icon-size-small;
-				height: $icon-size-small;
+				width: v.$icon-size-small;
+				height: v.$icon-size-small;
 				margin-left: rhythm(1);
 				transform: rotate(-90deg);
 			}
 
-			@include bp-up(md) {
+			@include bp.bp-up(md) {
 				padding: rhythm(2) rhythm(3);
 
 				> svg {
-					width: $icon-size-medium;
-					height: $icon-size-medium;
+					width: v.$icon-size-medium;
+					height: v.$icon-size-medium;
 				}
 			}
 		}
 	}
 
-	@include e(item) {
+	@include m2.e(item) {
 		margin: 0;
 		padding: 0;
 
 		& + & {
-			border-top: 1px solid $color-ash;
+			border-top: 1px solid c.$color-ash;
 		}
 
 		&:last-child {
 			> a {
 				padding-bottom: rhythm(2);
 
-				@include bp-up(md) {
+				@include bp.bp-up(md) {
 					padding-bottom: rhythm(3);
 				}
 			}
 		}
 
-		@include e(link) {
+		@include m2.e(link) {
 			display: flex;
 			position: relative;
 			align-items: center;
@@ -94,8 +101,8 @@
 				top: 50%;
 				right: rhythm(2);
 				flex-shrink: 0;
-				width: $icon-size;
-				height: $icon-size;
+				width: v.$icon-size;
+				height: v.$icon-size;
 				margin-left: rhythm(1);
 				padding: rhythm(0.5);
 				overflow: hidden;
@@ -104,16 +111,16 @@
 				background-color: var(--m-submenu-icon-background-hover-color);
 				fill: var(--m-submenu-icon-fill-color);
 
-				@include bp-up(md) {
+				@include bp.bp-up(md) {
 					right: rhythm(3);
-					width: $icon-size * 1.6;
-					height: $icon-size * 1.6;
+					width: v.$icon-size * 1.6;
+					height: v.$icon-size * 1.6;
 					padding: rhythm(1);
 				}
 			}
 
 			&.is-current {
-				font-family: $font-family-headings;
+				font-family: v.$font-family-headings;
 				pointer-events: none;
 
 				> svg {
@@ -121,22 +128,22 @@
 				}
 			}
 
-			@include bp-up(md) {
+			@include bp.bp-up(md) {
 				padding: rhythm(2) rhythm(7) rhythm(2) rhythm(3);
 			}
 
-			@include m(has-sublevel) {
+			@include m2.m(has-sublevel) {
 				display: flex;
 				flex-grow: 1;
 			}
 		}
 
-		@include e(sublevel) {
+		@include m2.e(sublevel) {
 			display: flex;
 			justify-content: space-between;
 		}
 
-		@include e(toggle-button) {
+		@include m2.e(toggle-button) {
 			display: flex;
 			position: relative;
 			position: relative;
@@ -144,7 +151,7 @@
 			margin: 0;
 			padding: rhythm(1) rhythm(3);
 			border: 0;
-			border-left: 1px solid color.adjust($color-ash, $lightness: -5%);
+			border-left: 1px solid color.adjust(c.$color-ash, $lightness: -5%);
 			background-color: transparent;
 
 			&::before,
@@ -154,11 +161,11 @@
 				position: absolute;
 				top: to_rem(22px);
 				right: to_rem(25px);
-				width: math.div($icon-size-small, 1.5);
+				width: math.div(v.$icon-size-small, 1.5);
 				height: 2px;
 				transform-origin: center center;
 				transition: transform 0.25s ease-out;
-				background-color: $color-cyberspace;
+				background-color: c.$color-cyberspace;
 			}
 
 			&::before {
@@ -172,7 +179,7 @@
 
 			&[aria-expanded='true'] {
 				margin-bottom: -1px;
-				background-color: color.adjust($color-ash, $lightness: 3%);
+				background-color: color.adjust(c.$color-ash, $lightness: 3%);
 
 				&::after {
 					transform: rotate(-135deg);
@@ -184,17 +191,17 @@
 			}
 
 			&:hover {
-				background-color: color.adjust($color-ash, $lightness: 3%);
+				background-color: color.adjust(c.$color-ash, $lightness: 3%);
 			}
 
-			@include bp-up(md) {
+			@include bp.bp-up(md) {
 				padding: rhythm(2) rhythm(4);
 
 				&::before,
 				&::after {
 					top: to_rem(31px);
 					right: to_rem(33px);
-					width: $icon-size-small;
+					width: v.$icon-size-small;
 					height: 3px;
 				}
 
@@ -205,11 +212,11 @@
 		}
 	}
 
-	@include e(sublevel) {
+	@include m2.e(sublevel) {
 		margin: 0;
 		padding: 0;
-		border-top: 1px solid color.adjust($color-ash, $lightness: -3%);
-		background-color: color.adjust($color-ash, $lightness: 3%);
+		border-top: 1px solid color.adjust(c.$color-ash, $lightness: -3%);
+		background-color: color.adjust(c.$color-ash, $lightness: 3%);
 		list-style: none;
 
 		&[aria-hidden='true'] {
@@ -217,23 +224,23 @@
 			border-top: 1px solid transparent;
 		}
 
-		@include e(item) {
+		@include m2.e(item) {
 			margin: 0;
 			padding: 0 rhythm(1.5);
 
 			& + & {
-				border-top: 1px solid color.adjust($color-ash, $lightness: -4%);
+				border-top: 1px solid color.adjust(c.$color-ash, $lightness: -4%);
 			}
 
 			/* Support for icon on sublevel */
 
-			@include e(link) {
+			@include m2.e(link) {
 				> svg {
 					display: none;
 					padding: rhythm(0.5);
-					background-color: $color-concrete;
+					background-color: c.$color-concrete;
 
-					@include bp-up(md) {
+					@include bp.bp-up(md) {
 						padding: rhythm(1);
 					}
 				}

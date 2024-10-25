@@ -1,6 +1,14 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/config' as m3;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors-functions' as cf;
+@use '../../vendor/grid/breakpoints' as bp;
+@use '../../vendor/grid/grid' as g;
 
-@include molecule(cookie-disclaimer) {
+@include m.molecule(cookie-disclaimer) {
 	display: none;
 	position: relative;
 	z-index: z_index(foreground);
@@ -9,42 +17,42 @@
 		display: block;
 	}
 
-	@include bp-up(lg) {
+	@include bp.bp-up(lg) {
 		position: fixed;
 		right: 0;
 		bottom: 0;
 		left: 0;
 	}
 
-	@include e(wrapper) {
+	@include m2.e(wrapper) {
 		width: 100%;
 		margin-bottom: 0 !important;
 		padding: rhythm(2) 0;
 	}
 
-	@include e(inner) {
+	@include m2.e(inner) {
 		display: flex;
 		flex-wrap: wrap;
 		margin-right: auto;
 		margin-left: auto;
 
-		@include make-container-max-widths();
+		@include g.make-container-max-widths();
 
-		@include bp-down(xl) {
-			padding-right: $grid-gutter-width;
-			padding-left: $grid-gutter-width;
+		@include bp.bp-down(xl) {
+			padding-right: v.$grid-gutter-width;
+			padding-left: v.$grid-gutter-width;
 		}
 	}
 
-	@include e(inner-first) {
+	@include m2.e(inner-first) {
 		display: flex;
 		align-items: center;
 		width: 100%;
 
 		a {
 			padding: 0 0.25rem;
-			border-bottom: 0.11111rem solid $color-peacock;
-			color: $color-black;
+			border-bottom: 0.11111rem solid c.$color-peacock;
+			color: c.$color-black;
 			text-decoration: none;
 
 			&:hover,
@@ -53,14 +61,14 @@
 			}
 		}
 
-		@include bp-up(md) {
-			@include make-col(12);
+		@include bp.bp-up(md) {
+			@include g.make-col(12);
 
 			padding-right: rhythm(3);
 		}
 	}
 
-	@include e(inner-second) {
+	@include m2.e(inner-second) {
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
@@ -71,14 +79,14 @@
 			font-size: 18px;
 		}
 
-		@include bp-up(md) {
-			@include make-col(6);
+		@include bp.bp-up(md) {
+			@include g.make-col(6);
 
 			padding-top: 0;
 		}
 	}
 
-	@include e(text) {
+	@include m2.e(text) {
 		margin-bottom: 0;
 	}
 }

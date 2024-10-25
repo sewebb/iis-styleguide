@@ -1,16 +1,23 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/config' as m3;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors-functions' as cf;
+@use '../../vendor/grid/breakpoints' as bp;
 
-$alert-success-border: $color-jade;
-$alert-success-bg: $color-jade-light;
-$alert-info-border: $color-ocean;
-$alert-info-bg: $color-ocean-light;
-$alert-warning-border: $color-lemon;
-$alert-warning-bg: $color-lemon-light;
-$alert-error-border: $color-ruby;
-$alert-error-bg: $color-ruby-light;
-$alert-text: $color-cyberspace;
+$alert-success-border: c.$color-jade;
+$alert-success-bg: c.$color-jade-light;
+$alert-info-border: c.$color-ocean;
+$alert-info-bg: c.$color-ocean-light;
+$alert-warning-border: c.$color-lemon;
+$alert-warning-bg: c.$color-lemon-light;
+$alert-error-border: c.$color-ruby;
+$alert-error-bg: c.$color-ruby-light;
+$alert-text: c.$color-cyberspace;
 
-@include molecule(alert) {
+@include m.molecule(alert) {
 	position: relative;
 	margin-bottom: rhythm(4);
 	padding: rhythm(2) rhythm(2) rhythm(3) rhythm(2);
@@ -30,12 +37,12 @@ $alert-text: $color-cyberspace;
 	a {
 		@extend %normalize-links;
 
-		color: $color-cyberspace;
-		font-family: $font-family-headings;
+		color: c.$color-cyberspace;
+		font-family: v.$font-family-headings;
 		text-decoration: underline;
 	}
 
-	@include m(dismissable) {
+	@include m2.m(dismissable) {
 		padding-right: rhythm(4);
 
 		// Adjust close button position
@@ -55,27 +62,27 @@ $alert-text: $color-cyberspace;
 	//
 	// Generate contextual modifier classes for colorizing the alert.
 
-	@include m(success) {
-		@include alert-variant($alert-success-border, $alert-success-bg, $alert-text);
+	@include m2.m(success) {
+		@include m.alert-variant($alert-success-border, $alert-success-bg, $alert-text);
 	}
 
-	@include m(info) {
-		@include alert-variant($alert-info-border, $alert-info-bg, $alert-text);
+	@include m2.m(info) {
+		@include m.alert-variant($alert-info-border, $alert-info-bg, $alert-text);
 	}
 
-	@include m(warning) {
-		@include alert-variant($alert-warning-border, $alert-warning-bg, $alert-text);
+	@include m2.m(warning) {
+		@include m.alert-variant($alert-warning-border, $alert-warning-bg, $alert-text);
 	}
 
-	@include m(error) {
-		@include alert-variant($alert-error-border, $alert-error-bg, $alert-text);
+	@include m2.m(error) {
+		@include m.alert-variant($alert-error-border, $alert-error-bg, $alert-text);
 
 		::selection {
-			background-color: $color-ruby;
+			background-color: c.$color-ruby;
 		}
 
 		::-moz-selection {
-			background-color: $color-ruby;
+			background-color: c.$color-ruby;
 		}
 	}
 }

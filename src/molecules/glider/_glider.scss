@@ -1,5 +1,10 @@
 @charset "UTF-8";
 @use "sass:color";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../vendor/grid/breakpoints' as bp;
 
 // The Glider components is dependant on JS-classes and is therefore not namespaced
 
@@ -26,7 +31,7 @@
 		cursor: grab;
 		user-select: none;
 
-		@include b(glider-slide) {
+		@include m2.b(glider-slide) {
 			img {
 				pointer-events: none;
 				user-select: none;
@@ -60,26 +65,26 @@
 
 	img:not([class]) {
 		display: block;
-		border-radius: $border-radius;
+		border-radius: v.$border-radius;
 		width: 100%;
 	}
 
-	@include bp-only(sm) {
+	@include bp.bp-only(sm) {
 		padding-right: rhythm(2);
 		padding-left: rhythm(2);
 	}
 
-	@include bp-up(lg) {
+	@include bp.bp-up(lg) {
 		padding-right: rhythm(3);
 		padding-left: rhythm(3);
 	}
 
-	@include m(stretch-items) {
+	@include m2.m(stretch-items) {
 		display: flex;
 		align-items: stretch;
 	}
 
-	@include bp-up(lg) {
+	@include bp.bp-up(lg) {
 		&:not(.active) {
 			&::after {
 				content: '';
@@ -88,7 +93,7 @@
 				bottom: 0;
 				left: 0;
 				width: 1px;
-				background-color: $color-concrete;
+				background-color: c.$color-concrete;
 			}
 		}
 	}
@@ -105,7 +110,7 @@
 	cursor: pointer;
 
 	&:focus {
-		background-color: $color-snow;
+		background-color: c.$color-snow;
 	}
 
 	svg {
@@ -114,17 +119,17 @@
 	}
 
 	&.disabled {
-		background-color: $color-ash;
-		box-shadow: 0 2px 5px color.adjust($color-granit, $lightness: 25%);
+		background-color: c.$color-ash;
+		box-shadow: 0 2px 5px color.adjust(c.$color-granit, $lightness: 25%);
 		pointer-events: none;
 
 		svg {
 			opacity: 0.2;
-			fill: $color-cyberspace;
+			fill: c.$color-cyberspace;
 		}
 	}
 
-	@include bp-up(sm) {
+	@include bp.bp-up(sm) {
 		left: rhythm(1);
 	}
 }
@@ -133,7 +138,7 @@
 	right: 0;
 	left: auto;
 
-	@include bp-up(sm) {
+	@include bp.bp-up(sm) {
 		right: rhythm(1);
 	}
 }
@@ -175,13 +180,13 @@
 	border: 0;
 	border-radius: 50%;
 	outline: none;
-	background: $color-concrete;
+	background: c.$color-concrete;
 	cursor: pointer;
 	user-select: none;
 
 	&:hover,
 	&:focus,
 	&.active {
-		background: $color-cyberspace;
+		background: c.$color-cyberspace;
 	}
 }

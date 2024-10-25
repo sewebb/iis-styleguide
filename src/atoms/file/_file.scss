@@ -1,7 +1,14 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors-functions' as cf;
+@use '../../vendor/grid/breakpoints' as bp;
+
 
 .js {
-	@include atom(file) {
+	@include m.atom(file) {
 		@extend %u-visuallyhidden;
 
 		&:focus {
@@ -16,12 +23,12 @@
 			@extend %disabled;
 		}
 
-		@include m(discreet) {
+		@include m2.m(discreet) {
 			@extend %discreet;
 		}
 	}
 
-	@include atom(file-text) {
+	@include m.atom(file-text) {
 		width: auto;
 		max-width: 250px;
 		overflow: hidden;
@@ -29,14 +36,14 @@
 		white-space: nowrap;
 	}
 
-	@include atom(file-preview) {
+	@include m.atom(file-preview) {
 		position: relative;
 		width: 100%;
 		height: to_rem(169px);
 		margin-bottom: rhythm(1);
 		overflow: hidden;
-		border-radius: $border-radius;
-		background-color: $color-concrete;
+		border-radius: v.$border-radius;
+		background-color: c.$color-concrete;
 
 		&::after {
 			content: attr(data-label);
@@ -44,7 +51,7 @@
 			top: 50%;
 			left: 50%;
 			transform: translateX(-50%) translateY(-50%);
-			font-size: $size-medium;
+			font-size: v.$size-medium;
 		}
 
 		> img {
@@ -61,7 +68,7 @@
 			}
 		}
 
-		@include bp-up(sm) {
+		@include bp.bp-up(sm) {
 			max-width: to_rem(300px);
 		}
 	}

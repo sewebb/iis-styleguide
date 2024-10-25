@@ -1,6 +1,10 @@
 @charset "UTF-8";
 @use '../variables' as v;
+@use '../colors/colors' as c;
+@use '../colors/colors-functions' as cf;
+@use '../../vendor/grid/breakpoints' as bp;
 @use '../../vendor/baseline/plumber' as p;
+@use '../bem' as m2;
 
 h1,
 .alpha,
@@ -14,7 +18,7 @@ h1,
 
 	font-family: v.$font-family-headings;
 
-	@include bp-up(sm) {
+	@include bp.bp-up(sm) {
 		@include p.plumber(
 			$font-size: 4,
 			$line-height: 5,
@@ -36,7 +40,7 @@ h2,
 
 	font-family: v.$font-family-headings;
 
-	@include bp-up(sm) {
+	@include bp.bp-up(sm) {
 		@include p.plumber(
 			$font-size: 2.666666,
 			$leading-bottom: 1
@@ -155,12 +159,12 @@ small {
 		$font-size: 3,
 		$line-height: 4,
 		$leading-bottom: 1,
-		$baseline: $headings-baseline
+		$baseline: v.$headings-baseline
 	);
 
-	font-family: $font-family-bold;
+	font-family: v.$font-family-bold;
 
-	@include bp-up(sm) {
+	@include bp.bp-up(sm) {
 		@include p.plumber(
 			$font-size: 4.5,
 			$line-height: 5,
@@ -168,7 +172,7 @@ small {
 		);
 	}
 
-	@include bp-up(md) {
+	@include bp.bp-up(md) {
 		@include p.plumber(
 			$font-size: 7,
 			$line-height: 8,
@@ -187,7 +191,7 @@ small {
 			$leading-bottom: 1
 		);
 
-		@include bp-up(md) {
+		@include bp.bp-up(md) {
 			hyphens: initial;
 			overflow-wrap: normal;
 
@@ -208,41 +212,41 @@ small {
 
 	line-height: 79px;
 	font-size: 120px;
-	font-family: $font-family-bold;
+	font-family: v.$font-family-bold;
 	letter-spacing: -#{to_rem(5px)};
 
-	@include bp-up(sm) {
+	@include bp.bp-up(sm) {
 		line-height: 100px;
 		font-size: 150px;
 	}
 
-	@include bp-up(md) {
+	@include bp.bp-up(md) {
 		line-height: 135px;
 		font-size: 200px;
 		letter-spacing: -#{to_rem(10px)};
 	}
 
-	@include bp-up(lg) {
+	@include bp.bp-up(lg) {
 		line-height: 201px;
 		font-size: 295px;
 		letter-spacing: -#{to_rem(20px)};
 	}
 
-	@include bp-up(xl) {
+	@include bp.bp-up(xl) {
 		line-height: 247px;
 		font-size: 360px;
 	}
 
 	// Special rule for decade starting with 1
-	@include m(19) {
+	@include m2.m(19) {
 		&::first-letter {
 			letter-spacing: -#{to_rem(20px)};
 
-			@include bp-up(lg) {
+			@include bp.bp-up(lg) {
 				letter-spacing: -#{to_rem(40px)};
 			}
 
-			@include bp-up(xl) {
+			@include bp.bp-up(xl) {
 				letter-spacing: -#{to_rem(45px)};
 			}
 		}
@@ -258,7 +262,7 @@ small {
 		$leading-bottom: 4
 	);
 
-	@include bp-up(sm) {
+	@include bp.bp-up(sm) {
 		@include p.plumber(
 			$font-size: 3,
 			$line-height: 4,
@@ -270,17 +274,17 @@ small {
 .meta {
 	@include p.plumber(
 		$font-size: 1.75,
-		$baseline: $mono-baseline
+		$baseline: v.$mono-baseline
 	);
 
-	font-family: $font-family-mono;
+	font-family: v.$font-family-mono;
 	font-weight: normal;
 	letter-spacing: to_rem(0.5px);
 	text-transform: uppercase;
 }
 
 .mono {
-	font-family: $font-family-mono;
+	font-family: v.$font-family-mono;
 	font-weight: normal;
 	letter-spacing: to_rem(0.5px);
 	text-decoration: none;
@@ -288,17 +292,17 @@ small {
 }
 
 ::selection {
-	background-color: $color-ruby-light;
+	background-color: c.$color-ruby-light;
 }
 
 ::-moz-selection {
-	background-color: $color-ruby-light;
+	background-color: c.$color-ruby-light;
 }
 
 blockquote {
 
-	@include color_classes (
-		$map: $colors,
+	@include cf.color_classes (
+		$map: cf.$colors,
 		$prefix: '-',
 		$attribute: 'fill',
 		$element: 'svg'
@@ -319,7 +323,7 @@ blockquote {
 			$line-height: 3,
 			$leading-top: 1,
 			$leading-bottom: 0,
-			$baseline: $headings-baseline
+			$baseline: v.$headings-baseline
 		);
 	}
 
@@ -330,9 +334,9 @@ blockquote {
 		left: 0;
 		width: rhythm(2);
 		height: rhythm(4);
-		fill: $color-black;
+		fill: c.$color-black;
 
-		@include bp-up(md) {
+		@include bp.bp-up(md) {
 			width: rhythm(3);
 			height: rhythm(6);
 		}
@@ -348,14 +352,14 @@ blockquote {
 		line-height: rhythm(2.5);
 	}
 
-	@include bp-up(sm) {
+	@include bp.bp-up(sm) {
 		padding-right: rhythm(3);
 		max-width: to_rem(613px);
 		margin-left: auto;
 		margin-right: auto;
 	}
 
-	@include bp-up(md) {
+	@include bp.bp-up(md) {
 		margin-top: rhythm(6.5);
 		padding-left: to_rem(52px);
 
@@ -376,7 +380,7 @@ blockquote {
 		}
 	}
 
-	@include bp-up(lg) {
+	@include bp.bp-up(lg) {
 		margin-left: initial;
 		margin-right: initial;
 	}
@@ -385,6 +389,6 @@ blockquote {
 b,
 strong,
 legend {
-	font-family: $font-family-headings;
+	font-family: v.$font-family-headings;
 	font-weight: normal;
 }

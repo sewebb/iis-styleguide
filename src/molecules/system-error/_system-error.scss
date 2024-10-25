@@ -1,37 +1,45 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/config' as m3;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors-functions' as cf;
+@use '../../vendor/grid/breakpoints' as bp;
+@use '../../vendor/baseline/plumber' as p;
 
-@include molecule(system-error) {
+@include m.molecule(system-error) {
 	display: flex;
 	flex-direction: column;
 	align-items: center;
 	margin: rhythm(8) 0;
 
-	@include bp-up(md) {
+	@include bp.bp-up(md) {
 		justify-content: center;
 	}
 
-	@include e(content) {
+	@include m2.e(content) {
 		max-width: 600px;
-		padding-right: $grid-gutter-width;
-		padding-left: $grid-gutter-width;
+		padding-right: v.$grid-gutter-width;
+		padding-left: v.$grid-gutter-width;
 		text-align: left;
 	}
 
-	@include e(heading) {
+	@include m2.e(heading) {
 
-		@include plumber(
+		@include p.plumber(
 			$font-size: 10,
 			$line-height: 11,
 			$leading-bottom: 2
 		);
 
 		animation: rumble 4s infinite linear;
-		font-family: $font-family-mono;
-		text-shadow: 0 1px 0 rgba($color-snow, 0.8), 0 30px 100px rgba($color-cyberspace, 0.5);
+		font-family: v.$font-family-mono;
+		text-shadow: 0 1px 0 rgba(c.$color-snow, 0.8), 0 30px 100px rgba(c.$color-cyberspace, 0.5);
 
-		@include bp-up(md) {
+		@include bp.bp-up(md) {
 
-			@include plumber(
+			@include p.plumber(
 				$font-size: 15,
 				$line-height: 16,
 				$leading-bottom: 4

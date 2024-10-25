@@ -1,7 +1,12 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 @use "sass:color";
+@use '../../configurations/mixins' as m;
+@use '../../configurations/bem' as m2;
+@use '../../configurations/variables' as v;
+@use '../../configurations/colors/colors' as c;
+@use '../../configurations/colors/colors-functions' as cf;
 
-@include atom(radio) {
+@include m.atom(radio) {
 	&[type='radio'] {
 		+ label {
 			display: inline-flex;
@@ -10,7 +15,7 @@
 			padding-top: rhythm(0.5);
 			padding-right: rhythm(2);
 			padding-bottom: rhythm(0.5);
-			font-family: $font-family-base;
+			font-family: v.$font-family-base;
 
 			&::before {
 				content: '';
@@ -23,8 +28,8 @@
 				transform: translateX(to_rem(1px));
 				border: 2px solid transparent;
 				border-radius: 50%;
-				background-color: $color-snow;
-				box-shadow: 0 0 0 1px $color-cyberspace;
+				background-color: c.$color-snow;
+				box-shadow: 0 0 0 1px c.$color-cyberspace;
 			}
 		}
 
@@ -32,7 +37,7 @@
 		&:hover {
 			+ label {
 				&::before {
-					background-color: color.adjust($color-snow, $lightness: -5%);
+					background-color: color.adjust(c.$color-snow, $lightness: -5%);
 				}
 			}
 		}
@@ -40,8 +45,8 @@
 		&:checked {
 			+ label {
 				&::before {
-					border: 2px solid $color-ash;
-					background-color: $color-cyberspace;
+					border: 2px solid c.$color-ash;
+					background-color: c.$color-cyberspace;
 				}
 			}
 		}
@@ -51,14 +56,14 @@
 				@extend %disabled;
 
 				&::before {
-					background-color: color.adjust($color-concrete, $lightness: -5%);
+					background-color: color.adjust(c.$color-concrete, $lightness: -5%);
 				}
 			}
 
 			&:checked {
 				+ label {
 					&::before {
-						background-color: $color-cyberspace;
+						background-color: c.$color-cyberspace;
 					}
 				}
 			}
@@ -67,27 +72,27 @@
 		&:invalid {
 			+ label {
 				&::before {
-					background-color: $color-ruby-light;
-					box-shadow: 0 0 0 1px $color-ruby-dark;
+					background-color: c.$color-ruby-light;
+					box-shadow: 0 0 0 1px c.$color-ruby-dark;
 				}
 			}
 		}
 	}
 }
 
-@include b(radio) {
+@include m2.b(radio) {
 	&.is-invalid {
 		[type='radio'] {
 			+ label {
 				&::before {
-					background-color: $color-ruby-light;
-					box-shadow: 0 0 0 1px $color-ruby-dark;
+					background-color: c.$color-ruby-light;
+					box-shadow: 0 0 0 1px c.$color-ruby-dark;
 				}
 			}
 		}
 	}
 
-	@include m(inline) {
+	@include m2.m(inline) {
 		padding-top: 0;
 		padding-bottom: 0;
 
