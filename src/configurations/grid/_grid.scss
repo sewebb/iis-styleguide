@@ -2,6 +2,7 @@
 
 @use "sass:math";
 @use '../variables' as var;
+@use '../functions' as func;
 @use '../../vendor/grid/grid' as grid;
 @use '../../vendor/grid/breakpoints' as breakpoint;
 @use '../../vendor/grid/grid-framework' as gridFramework;
@@ -62,12 +63,12 @@
 
 		> .grid,
 		> [class*='grid-']:nth-child(#{$i}) {
-			transform: translateY(rhythm($col-gap));
+			transform: translateY(func.rhythm($col-gap));
 		}
 
 		@include breakpoint.bp-only(sm) {
 			> [class*='grid-']:last-child {
-				transform: translateY(rhythm($gap));
+				transform: translateY(func.rhythm($gap));
 			}
 		}
 	}
@@ -78,7 +79,7 @@
 	$bp-gap: $gap;
 	$margin: 7;
 
-	margin: rhythm($margin) 0 0;
+	margin: func.rhythm($margin) 0 0;
 
 	&:not(.asymmetric-reversed) {
 		@include make-asymmetric-cols($bp-gap);
@@ -89,7 +90,7 @@
 	}
 
 	@include breakpoint.bp-up(sm) {
-		margin: rhythm($margin * 1.25) 0 0;
+		margin: func.rhythm($margin * 1.25) 0 0;
 
 		&:not(.asymmetric-reversed) {
 			$bp-gap: $gap * 1.25;
@@ -111,7 +112,7 @@
 	@include breakpoint.bp-up(lg) {
 
 
-		margin: rhythm($margin * 1.5) 0 0;
+		margin: func.rhythm($margin * 1.5) 0 0;
 
 		&:not(.asymmetric-reversed) {
 			$bp-gap: $gap * 1.5;
@@ -126,7 +127,7 @@
 	}
 
 	@include breakpoint.bp-up(xl) {
-		margin: rhythm($margin * 2) 0 0;
+		margin: func.rhythm($margin * 2) 0 0;
 
 		&:not(.asymmetric-reversed) {
 			$bp-gap: $gap * 2;

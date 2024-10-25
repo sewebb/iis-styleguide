@@ -2,6 +2,7 @@
 @use '../../configurations/mixins' as mixin;
 @use '../../configurations/bem' as bem;
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
 @use '../../configurations/colors/colors-functions' as colorFunc;
 @use '../../vendor/grid/breakpoints' as breakpoint;
@@ -18,10 +19,10 @@
 		border: none;
 		width: 100%;
 		border-radius: 0;
-		height: rhythm(1);
+		height: func.rhythm(1);
 
 		@include breakpoint.bp-up(md) {
-			height: rhythm(2);
+			height: func.rhythm(2);
 		}
 	}
 	&[value]::-webkit-progress-bar {
@@ -50,6 +51,6 @@
 	align-items: center;
 
 	> progress {
-		margin-left: rhythm(1);
+		margin-left: func.rhythm(1);
 	}
 }

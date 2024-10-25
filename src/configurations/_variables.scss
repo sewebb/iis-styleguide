@@ -85,7 +85,7 @@ $container-max-widths: (
 @include grid.assert-ascending($container-max-widths, '$container-max-widths');
 
 // Default border-radius
-$border-radius: rhythm(0.5);
+$border-radius: func.rhythm(0.5);
 
 // Icons
 $icon-size: func.to_rem(24px);

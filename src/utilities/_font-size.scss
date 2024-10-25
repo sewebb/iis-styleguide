@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @use '../configurations/variables' as var;
-
+@use '../configurations/functions' as func;
 .u-font-size-small {
 	font-size: var.$size-small !important;
 	line-height: 1.5;

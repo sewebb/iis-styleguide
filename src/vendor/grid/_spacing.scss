@@ -1,5 +1,6 @@
 @use "sass:map";
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use 'breakpoints' as breakpoint;
 
 @each $breakpoint in map.keys(var.$grid-breakpoints) {

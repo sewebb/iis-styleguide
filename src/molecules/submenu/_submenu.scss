@@ -5,13 +5,14 @@
 @use '../../configurations/bem' as bem;
 @use '../../configurations/config' as config;
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
 @use '../../configurations/colors/colors-functions' as colorFunc;
 @use '../../vendor/grid/breakpoints' as breakpoint;
 @use '../../vendor/grid/grid' as grid;
 
 @include mixin.molecule(submenu) {
-	margin: 0 0 rhythm(2) 0;
+	margin: 0 0 func.rhythm(2) 0;
 	padding: 0;
 	overflow: hidden;
 	border-radius: var.$border-radius;
@@ -25,7 +26,7 @@
 			display: flex;
 			align-items: center;
 			justify-content: space-between;
-			padding: rhythm(2);
+			padding: func.rhythm(2);
 			color: colors.$color-cyberspace;
 			font-family: var.$font-family-headings;
 			text-decoration: none;
@@ -43,12 +44,12 @@
 				flex-shrink: 0;
 				width: var.$icon-size-small;
 				height: var.$icon-size-small;
-				margin-left: rhythm(1);
+				margin-left: func.rhythm(1);
 				transform: rotate(-90deg);
 			}
 
 			@include breakpoint.bp-up(md) {
-				padding: rhythm(2) rhythm(3);
+				padding: func.rhythm(2) func.rhythm(3);
 
 				> svg {
 					width: var.$icon-size-medium;
@@ -68,10 +69,10 @@
 
 		&:last-child {
 			> a {
-				padding-bottom: rhythm(2);
+				padding-bottom: func.rhythm(2);
 
 				@include breakpoint.bp-up(md) {
-					padding-bottom: rhythm(3);
+					padding-bottom: func.rhythm(3);
 				}
 			}
 		}
@@ -81,7 +82,7 @@
 			position: relative;
 			align-items: center;
 			justify-content: space-between;
-			padding: rhythm(1) rhythm(6) rhythm(1) rhythm(2);
+			padding: func.rhythm(1) func.rhythm(6) func.rhythm(1) func.rhythm(2);
 			overflow: hidden;
 			color: var(--m-submenu-icon-fill-color);
 			text-decoration: none;
@@ -99,12 +100,12 @@
 				display: none;
 				position: absolute;
 				top: 50%;
-				right: rhythm(2);
+				right: func.rhythm(2);
 				flex-shrink: 0;
 				width: var.$icon-size;
 				height: var.$icon-size;
-				margin-left: rhythm(1);
-				padding: rhythm(0.5);
+				margin-left: func.rhythm(1);
+				padding: func.rhythm(0.5);
 				overflow: hidden;
 				transform: translateY(-50%);
 				border-radius: 50%;
@@ -112,10 +113,10 @@
 				fill: var(--m-submenu-icon-fill-color);
 
 				@include breakpoint.bp-up(md) {
-					right: rhythm(3);
+					right: func.rhythm(3);
 					width: var.$icon-size * 1.6;
 					height: var.$icon-size * 1.6;
-					padding: rhythm(1);
+					padding: func.rhythm(1);
 				}
 			}
 
@@ -129,7 +130,7 @@
 			}
 
 			@include breakpoint.bp-up(md) {
-				padding: rhythm(2) rhythm(7) rhythm(2) rhythm(3);
+				padding: func.rhythm(2) func.rhythm(7) func.rhythm(2) func.rhythm(3);
 			}
 
 			@include bem.m(has-sublevel) {
@@ -149,7 +150,7 @@
 			position: relative;
 			align-items: center;
 			margin: 0;
-			padding: rhythm(1) rhythm(3);
+			padding: func.rhythm(1) func.rhythm(3);
 			border: 0;
 			border-left: 1px solid color.adjust(colors.$color-ash, $lightness: -5%);
 			background-color: transparent;
@@ -159,8 +160,8 @@
 				content: '';
 				display: block;
 				position: absolute;
-				top: to_rem(22px);
-				right: to_rem(25px);
+				top: func.to_rem(22px);
+				right: func.to_rem(25px);
 				width: math.div(var.$icon-size-small, 1.5);
 				height: 2px;
 				transform-origin: center center;
@@ -173,7 +174,7 @@
 			}
 
 			&::after {
-				right: to_rem(18px);
+				right: func.to_rem(18px);
 				transform: rotate(-45deg);
 			}
 
@@ -195,18 +196,18 @@
 			}
 
 			@include breakpoint.bp-up(md) {
-				padding: rhythm(2) rhythm(4);
+				padding: func.rhythm(2) func.rhythm(4);
 
 				&::before,
 				&::after {
-					top: to_rem(31px);
-					right: to_rem(33px);
+					top: func.to_rem(31px);
+					right: func.to_rem(33px);
 					width: var.$icon-size-small;
 					height: 3px;
 				}
 
 				&::after {
-					right: to_rem(23px);
+					right: func.to_rem(23px);
 				}
 			}
 		}
@@ -226,7 +227,7 @@
 
 		@include bem.e(item) {
 			margin: 0;
-			padding: 0 rhythm(1.5);
+			padding: 0 func.rhythm(1.5);
 
 			& + & {
 				border-top: 1px solid color.adjust(colors.$color-ash, $lightness: -4%);
@@ -237,11 +238,11 @@
 			@include bem.e(link) {
 				> svg {
 					display: none;
-					padding: rhythm(0.5);
+					padding: func.rhythm(0.5);
 					background-color: colors.$color-concrete;
 
 					@include breakpoint.bp-up(md) {
-						padding: rhythm(1);
+						padding: func.rhythm(1);
 					}
 				}
 
@@ -262,11 +263,11 @@
 	}
 
 	25% {
-		transform: translateY(-#{rhythm(0.5)}) rotate(-90deg);
+		transform: translateY(-#{func.rhythm(0.5)}) rotate(-90deg);
 	}
 
 	75% {
-		transform: translateY(rhythm(0.5)) rotate(-90deg);
+		transform: translateY(func.rhythm(0.5)) rotate(-90deg);
 	}
 
 	100% {

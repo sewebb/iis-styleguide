@@ -1,8 +1,10 @@
 @charset "UTF-8";
 @use "sass:color";
 @use '../../configurations/mixins' as mixin;
+@use '../../configurations/extends';
 @use '../../configurations/bem' as bem;
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
 @use '../../configurations/colors/colors-functions' as colorFunc;
 
@@ -10,10 +12,10 @@
 	@extend %input;
 
 	width: auto;
-	padding-right: rhythm(5);
+	padding-right: func.rhythm(5);
 	background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-arrow-down' viewBox='0 0 32 18.9' width='100%25' height='100%25'%3E%3Cpolygon points='32,2.9 16,18.9 0,2.9 2.9,0 16,13.1 29.1,0 '%3E%3C/polygon%3E%3C/svg%3E%0A");
 	background-repeat: no-repeat;
-	background-position: calc(100% - #{rhythm(1)}) 50%;
+	background-position: calc(100% - #{func.rhythm(1)}) 50%;
 	background-size: var.$icon-size-medium var.$icon-size-medium;
 
 	&:focus {

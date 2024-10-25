@@ -2,6 +2,7 @@
 @use '../../configurations/mixins' as mixin;
 @use '../../configurations/bem' as bem;
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
 @use '../../configurations/colors/colors-functions' as colorFunc;
 
@@ -10,21 +11,21 @@
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
-	max-width: to_rem(500px);
+	max-width: func.to_rem(500px);
 	margin: 0;
 	padding: 0;
 
 	@include bem.e(footer) {
 		display: flex;
 		align-items: center;
-		padding-top: rhythm(1);
+		padding-top: func.rhythm(1);
 		font-family: var.$font-family-headings;
 	}
 
 	@include bem.e(avatar) {
-		width: rhythm(4);
-		height: rhythm(4);
-		margin-right: rhythm(2);
+		width: func.rhythm(4);
+		height: func.rhythm(4);
+		margin-right: func.rhythm(2);
 		border-radius: 50%;
 		background-color: colors.$color-snow;
 	}

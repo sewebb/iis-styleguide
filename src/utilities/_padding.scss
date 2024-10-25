@@ -1,6 +1,7 @@
 @charset "UTF-8";
 @use '../configurations/config' as config;
 @use '../configurations/variables' as var;
+@use '../configurations/functions' as func;
 
 /// @group Utilities
 $class-p: u-p !default;
@@ -15,39 +16,39 @@ $class-p-y: u-p-y !default;
 @for $i from 0 through 8 {
 	// Padding all
 	.#{$class-p}-#{$i} {
-		padding: rhythm($i) !important;
+		padding: func.rhythm($i) !important;
 	}
 
 	// Padding top
 	.#{$class-p-t}-#{$i} {
-		padding-top: rhythm($i) !important;
+		padding-top: func.rhythm($i) !important;
 	}
 
 	// Padding right
 	.#{$class-p-r}-#{$i} {
-		padding-right: rhythm($i) !important;
+		padding-right: func.rhythm($i) !important;
 	}
 
 	// Padding bottom
 	.#{$class-p-b}-#{$i} {
-		padding-bottom: rhythm($i) !important;
+		padding-bottom: func.rhythm($i) !important;
 	}
 
 	// Padding left
 	.#{$class-p-l}-#{$i} {
-		padding-left: rhythm($i) !important;
+		padding-left: func.rhythm($i) !important;
 	}
 
 	// Padding x (left and right)
 	.#{$class-p-x}-#{$i} {
-		padding-right: rhythm($i) !important;
-		padding-left: rhythm($i) !important;
+		padding-right: func.rhythm($i) !important;
+		padding-left: func.rhythm($i) !important;
 	}
 
 	// Padding x (left and right)
 	.#{$class-p-y}-#{$i} {
-		padding-top: rhythm($i) !important;
-		padding-bottom: rhythm($i) !important;
+		padding-top: func.rhythm($i) !important;
+		padding-bottom: func.rhythm($i) !important;
 	}
 }
 

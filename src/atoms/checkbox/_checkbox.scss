@@ -1,8 +1,10 @@
 @charset "UTF-8";
 @use "sass:color";
 @use '../../configurations/mixins' as mixin;
+@use '../../configurations/extends';
 @use '../../configurations/bem' as bem;
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
 @use '../../configurations/colors/colors-functions' as colorFunc;
 
@@ -12,9 +14,9 @@
 			display: inline-flex;
 			position: relative;
 			align-items: flex-start;
-			padding-top: rhythm(0.5);
-			padding-right: rhythm(2);
-			padding-bottom: rhythm(0.5);
+			padding-top: func.rhythm(0.5);
+			padding-right: func.rhythm(2);
+			padding-bottom: func.rhythm(0.5);
 			font-family: var.$font-family-base;
 
 			&::before {
@@ -23,8 +25,8 @@
 				flex-shrink: 0;
 				width: var.$icon-size-small;
 				height: var.$icon-size-small;
-				margin-top: to_rem(3px);
-				margin-right: rhythm(1);
+				margin-top: func.to_rem(3px);
+				margin-right: func.rhythm(1);
 				border: 1px solid colors.$color-cyberspace;
 				border-radius: var.$border-radius;
 				background-color: colors.$color-snow;
@@ -48,10 +50,10 @@
 					content: '';
 					display: block;
 					position: absolute;
-					top: to_rem(10.5px);
-					left: to_rem(6px);
-					width: to_rem(5px);
-					height: to_rem(9px);
+					top: func.to_rem(10.5px);
+					left: func.to_rem(6px);
+					width: func.to_rem(5px);
+					height: func.to_rem(9px);
 					transform: rotate(45deg);
 					border: solid colors.$color-cyberspace;
 					border-width: 0 2px 2px 0;
@@ -88,8 +90,8 @@
 
 		input[type='checkbox'] {
 			+ label {
-				margin-top: rhythm(1);
-				margin-bottom: rhythm(1);
+				margin-top: func.rhythm(1);
+				margin-bottom: func.rhythm(1);
 			}
 		}
 	}

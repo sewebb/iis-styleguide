@@ -1,24 +1,35 @@
 @charset "UTF-8";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../configurations/typography/typography';
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/grid/grid' as grid;
+@use '../../vendor/baseline/plumber' as plumber;
 
 html {
 	scroll-behavior: smooth;
 }
 
-@include organism(timeline) {
+@include mixin.organism(timeline) {
 	position: sticky;
 	top: -1px;
 	left: 0;
 	right: 0;
 	z-index: z_index(middlegroundImportant);
-	background: $color-ash;
+	background: colors.$color-ash;
 
-	@include card-shadow($color-cyberspace, 0.2);
+	@include mixin.card-shadow(colors.$color-cyberspace, 0.2);
 
 	&::after {
-		background-color: $color-concrete;
+		background-color: colors.$color-concrete;
 		content: '';
 		display: block;
-		height: rhythm(1);
+		height: func.rhythm(1);
 		position: absolute;
 		top: 0;
 		left: 0;
@@ -27,14 +38,14 @@ html {
 	}
 
 
-	@include e(progress-bar) {
+	@include bem.e(progress-bar) {
 		display:flex;
-		height: rhythm(1);
+		height: func.rhythm(1);
 		background-image: linear-gradient(90deg, #55c7b4 0vw, #55c7b4 14.285vw, #c27fec 14.285vw, #c27fec 28.57vw, #ffa94d 28.57vw, #ffa94d 42.855vw, #ffce2e 42.855vw, #ffce2e 57.14vw, #50b2fc 57.14vw, #50b2fc 71.425vw, #ff4069 71.425vw, #ff4069 85.71vw, #8E9297 85.71vw, #8E9297 100%);
 		width: 0;
 	}
 
-	@include e(decades-container) {
+	@include bem.e(decades-container) {
 		display: flex;
 		justify-content: space-around;
 		align-items: stretch;
@@ -43,77 +54,77 @@ html {
 			display: block;
 			flex: 1;
 			text-decoration: none;
-			color: $color-cyberspace;
+			color: colors.$color-cyberspace;
 			text-align: center;
-			padding-top: rhythm(1);
-			padding-bottom: rhythm(1);
-			font-family: $font-family-headings;
-			font-size: $size-medium;
+			padding-top: func.rhythm(1);
+			padding-bottom: func.rhythm(1);
+			font-family: var.$font-family-headings;
+			font-size: var.$size-medium;
 
 			&.is-reading {
 				&:nth-child(1) {
-					color: $color-jade;
+					color: colors.$color-jade;
 				}
 
 				&:nth-child(2) {
-					color: $color-peacock;
+					color: colors.$color-peacock;
 				}
 
 				&:nth-child(3) {
-					color: $color-sandstone;
+					color: colors.$color-sandstone;
 				}
 
 				&:nth-child(4) {
-					color: $color-lemon;
+					color: colors.$color-lemon;
 				}
 
 				&:nth-child(5) {
-					color: $color-ocean;
+					color: colors.$color-ocean;
 				}
 
 				&:nth-child(6) {
-					color: $color-ruby;
+					color: colors.$color-ruby;
 				}
 
 				&:nth-child(7) {
-					color: $color-granit;
+					color: colors.$color-granit;
 				}
 			}
 
-			@include bp-up(lg) {
-				font-size: $size-base;
-				padding-top: rhythm(2);
-				padding-bottom: rhythm(2);
+			@include breakpoint.bp-up(lg) {
+				font-size: var.$size-base;
+				padding-top: func.rhythm(2);
+				padding-bottom: func.rhythm(2);
 			}
 		}
 	}
 
-	@include e(decade) {
-		@include e(intro) {
-			padding-top: rhythm(4);
-			margin-bottom: rhythm(8);
+	@include bem.e(decade) {
+		@include bem.e(intro) {
+			padding-top: func.rhythm(4);
+			margin-bottom: func.rhythm(8);
 
-			@include bp-up(sm) {
-				margin-bottom: rhythm(10);
+			@include breakpoint.bp-up(sm) {
+				margin-bottom: func.rhythm(10);
 			}
 
-			@include bp-up(md) {
-				margin-bottom: rhythm(12);
+			@include breakpoint.bp-up(md) {
+				margin-bottom: func.rhythm(12);
 			}
 
-			@include bp-up(lg) {
-				margin-bottom: rhythm(14);
+			@include breakpoint.bp-up(lg) {
+				margin-bottom: func.rhythm(14);
 			}
 
-			@include bp-up(xl) {
-				margin-bottom: rhythm(18);
+			@include breakpoint.bp-up(xl) {
+				margin-bottom: func.rhythm(18);
 			}
 		}
 	}
 
 
 	// "Parallax" scroll items
-	@include e(parallax) {
+	@include bem.e(parallax) {
 		opacity: 0;
 		transition: opacity 1s ease-out, transform 3s cubic-bezier(0, 1, 0, 1);
 		transform: translateY(200px);
@@ -129,8 +140,8 @@ html {
 		}
 	}
 
-	@include e(item) {
-		@include e(content) {
+	@include bem.e(item) {
+		@include bem.e(content) {
 			display: none;
 			padding-bottom: 0;
 			margin-top: 0;
@@ -140,7 +151,7 @@ html {
 			background-position: center center;
 			background-size: 45px 45px;
 
-			@include bp-up(lg) {
+			@include breakpoint.bp-up(lg) {
 				min-height: 100px;
 				background-size: 100px 100px;
 			}
@@ -149,18 +160,18 @@ html {
 				background-image: none;
 			}
 
-			@include e(meta) {
-				@include e(related) {
-					margin-top: rhythm(4);
-					border-top: 1px solid $color-granit;
-					padding-top: rhythm(4);
+			@include bem.e(meta) {
+				@include bem.e(related) {
+					margin-top: func.rhythm(4);
+					border-top: 1px solid colors.$color-granit;
+					padding-top: func.rhythm(4);
 
 					img {
 						max-height: 100px;
 						width: 100%;
 						object-fit: cover;
 						object-position: 50% 25%;
-						border-radius: $border-radius;
+						border-radius: var.$border-radius;
 					}
 				}
 			}
@@ -173,7 +184,7 @@ html {
 
 		&.is-open {
 			flex: 0 0 100%;
-			background-color: $color-cyberspace;
+			background-color: colors.$color-cyberspace;
 			width: 100vw;
 			max-width: 100vw;
 			min-width: 100vw;
@@ -181,17 +192,17 @@ html {
 			margin-right: calc(50% - 50vw);
 			transform: translateY(0) !important;
 			z-index: z_index(middlegroundImportant);
-			padding-top: rhythm(6);
-			padding-bottom: rhythm(4);
+			padding-top: func.rhythm(6);
+			padding-bottom: func.rhythm(4);
 
 			& + [class*='timeline__item'] {
 				transform: translateY(0) !important;
-				margin-top: rhythm(6);
+				margin-top: func.rhythm(6);
 			}
 
-			@include bp-up(md) {
-				padding-top: rhythm(8);
-				padding-bottom: rhythm(8);
+			@include breakpoint.bp-up(md) {
+				padding-top: func.rhythm(8);
+				padding-bottom: func.rhythm(8);
 			}
 
 			h1,
@@ -204,7 +215,7 @@ html {
 			ol li,
 			ul li a,
 			ol li a {
-				color: $color-snow;
+				color: colors.$color-snow;
 			}
 
 			p a,
@@ -216,7 +227,7 @@ html {
 			ol li a {
 				&:hover,
 				&:focus {
-					color: $color-cyberspace;
+					color: colors.$color-cyberspace;
 				}
 			}
 
@@ -231,14 +242,14 @@ html {
 				ol li,
 				ul li a,
 				ol li a {
-					color: $color-cyberspace;
+					color: colors.$color-cyberspace;
 				}
 
 				ul li a,
 				ol li a {
 					&:hover,
 					&:focus {
-						color: $color-cyberspace;
+						color: colors.$color-cyberspace;
 					}
 				}
 			}
@@ -271,19 +282,19 @@ html {
 				margin-left: auto;
 				margin-right: auto;
 
-				@include bp-up(sm) {
+				@include breakpoint.bp-up(sm) {
 					width: make_col(16);
 				}
 
-				@include bp-up(md) {
+				@include breakpoint.bp-up(md) {
 					width: make_col(12);
 				}
 
-				@include bp-up(lg) {
+				@include breakpoint.bp-up(lg) {
 					width: make_col(12);
 				}
 
-				@include bp-up(xl) {
+				@include breakpoint.bp-up(xl) {
 					width: make_col(9);
 				}
 			}
@@ -300,20 +311,20 @@ html {
 			button[class*="close"] {
 				display: inline-block;
 				position: absolute;
-				right: rhythm(1);
-				transform: translateY(-#{rhythm(1)});
+				right: func.rhythm(1);
+				transform: translateY(-#{func.rhythm(1)});
 
 				&:first-child {
-					top: rhythm(1);
+					top: func.rhythm(1);
 					transform: none;
 				}
 
-				@include bp-up(md) {
-					right: rhythm(2);
-					transform: translateY(rhythm(2));
+				@include breakpoint.bp-up(md) {
+					right: func.rhythm(2);
+					transform: translateY(func.rhythm(2));
 
 					&:first-child {
-						top: rhythm(2);
+						top: func.rhythm(2);
 					}
 				}
 			}
@@ -324,22 +335,22 @@ html {
 		}
 	}
 
-	@include e(item-close) {
+	@include bem.e(item-close) {
 		display: none;
 	}
 
-	@include e(heading) {
-		@include plumber(
-			$font-size: 2,
+	@include bem.e(heading) {
+		@include plumber.plumber(
+			var.$font-size: 2,
 			$line-height: 3,
 			$leading-top: 0,
 			$leading-bottom: 0,
-			$baseline: $body-baseline
+			$baseline: var.$body-baseline
 		);
 
-		@include bp-up(sm) {
-			@include plumber(
-				$font-size: 2.2,
+		@include breakpoint.bp-up(sm) {
+			@include plumber.plumber(
+				var.$font-size: 2.2,
 				$line-height: 3,
 				$leading-top: 0,
 				$leading-bottom: 0,
@@ -347,11 +358,11 @@ html {
 		}
 	}
 
-	@include e(card-text) {
+	@include bem.e(card-text) {
 		font-size: 80%;
 		line-height: 1.3rem;
 
-		@include bp-up(lg) {
+		@include breakpoint.bp-up(lg) {
 			font-size: 100%;
 			line-height: 1.5rem;
 		}

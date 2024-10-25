@@ -3,6 +3,7 @@
 @use '../../configurations/mixins' as mixin;
 @use '../../configurations/bem' as bem;
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
 @use '../../configurations/colors/colors-functions' as colorFunc;
 
@@ -10,18 +11,18 @@
 	position: relative;
 	width: var.$icon-size;
 	height: var.$icon-size;
-	margin-right: rhythm(1);
-	margin-left: rhythm(1);
-	padding: rhythm(1);
+	margin-right: func.rhythm(1);
+	margin-left: func.rhythm(1);
+	padding: func.rhythm(1);
 	border-radius: 50%;
-	box-shadow: 0 0 0 to_rem(5px) transparent;
+	box-shadow: 0 0 0 func.to_rem(5px) transparent;
 	overflow: visible;
 
 	&:focus,
 	&:hover {
 		overflow: visible;
 		clip: auto;
-		box-shadow: 0 0 0 to_rem(5px) colors.$color-ocean-light;
+		box-shadow: 0 0 0 func.to_rem(5px) colors.$color-ocean-light;
 
 		[class*='text'] {
 			overflow: visible;
@@ -49,10 +50,10 @@
 		top: auto;
 		bottom: 130%;
 		left: 50%;
-		width: to_rem(300px);
+		width: func.to_rem(300px);
 		height: auto;
-		margin: 0 0 to_rem(5px) 0;
-		padding: rhythm(1);
+		margin: 0 0 func.to_rem(5px) 0;
+		padding: func.rhythm(1);
 		transform: rotateX(90deg) scale(0.2) translateX(-100%);
 		transform-origin: bottom center;
 		-webkit-backface-visibility: hidden;

@@ -1,7 +1,19 @@
 @charset "UTF-8";
 @use "sass:color";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/extends';
+@use '../../utilities/hide';
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/grid/grid' as grid;
+@use '../../vendor/baseline/plumber' as plumber;
 
-@include organism(tab-list) {
+@include mixin.organism(tab-list) {
 	overflow: hidden;
 	display: flex;
 	position: relative;
@@ -12,28 +24,28 @@
 	mask-image: linear-gradient(-90deg, rgba(237, 237, 237, 0) 0%, rgba(237, 237, 237, 0) 5%, rgba(237, 237, 237, 1) 10%, rgba(237, 237, 237, 1) 100%);
 	mask-repeat: repeat-y;
 	mask-position: top right;
-	mask-size: 100% rhythm(6);
+	mask-size: 100% func.rhythm(6);
 
 	&::-webkit-scrollbar {
 		position: absolute;
 		z-index: 2;
 		bottom: 0;
 		left: 0;
-		height: rhythm(0.5);
+		height: func.rhythm(0.5);
 	}
 
 	&::-webkit-scrollbar-track {
-		background-color: $color-concrete;
+		background-color: colors.$color-concrete;
 	}
 
 	&::-webkit-scrollbar-thumb {
-		background-color: $color-granit;
+		background-color: colors.$color-granit;
 	}
 
 	&::before {
 		@extend %u-visuallyhidden;
 
-		content: $namespace;
+		content: var.$namespace;
 	}
 
 	&::after {
@@ -43,75 +55,75 @@
 		top: 0;
 		right: 0;
 		bottom: 0;
-		width: rhythm(3);
-		height: rhythm(6);
+		width: func.rhythm(3);
+		height: func.rhythm(6);
 	}
 
 
-	@include e(item) {
+	@include bem.e(item) {
 		display: flex;
 		flex: 0 0 auto;
 		padding: 0;
 
 		+ li {
-			margin-left: rhythm(1);
+			margin-left: func.rhythm(1);
 		}
 	}
 
-	@include e(link) {
+	@include bem.e(link) {
 		@extend %normalize-links;
 
 		display: inline-flex;
 		position: relative;
 		align-items: center;
-		padding: rhythm(1.5) rhythm(3);
-		border-top-left-radius: $border-radius;
-		border-top-right-radius: $border-radius;
-		background-color: $color-concrete;
-		color: $color-cyberspace;
+		padding: func.rhythm(1.5) func.rhythm(3);
+		border-top-left-radius: var.$border-radius;
+		border-top-right-radius: var.$border-radius;
+		background-color: colors.$color-concrete;
+		color: colors.$color-cyberspace;
 		text-decoration: none;
-		border: 1px solid $color-ash;
+		border: 1px solid colors.$color-ash;
 		border-bottom: 0;
 
 		&:hover,
 		&:focus {
-			border-top-left-radius: $border-radius;
-			border-top-right-radius: $border-radius;
-			border: 1px solid $color-ash;
+			border-top-left-radius: var.$border-radius;
+			border-top-right-radius: var.$border-radius;
+			border: 1px solid colors.$color-ash;
 			border-bottom: 0;
 		}
 
 		&:hover {
-			background-color: color.adjust($color-concrete, $lightness: -5%);
+			background-color: color.adjust(colors.$color-concrete, $lightness: -5%);
 		}
 	}
 
 	[data-tab-active] {
 		a {
-			background-color: $color-snow;
+			background-color: colors.$color-snow;
 		}
 	}
 
-	@include m(gray) {
+	@include bem.m(gray) {
 		[data-tab-active] {
 			a {
-				background-color: $color-ash;
-				border-color: $color-concrete;
+				background-color: colors.$color-ash;
+				border-color: colors.$color-concrete;
 			}
 		}
 	}
 }
 
-@include organism(tab-panel) {
+@include mixin.organism(tab-panel) {
 	position: relative;
 	top: -1px;
 	z-index: 2;
-	padding: rhythm(2) rhythm(3);
-	border-top-right-radius: $border-radius;
-	border-bottom-right-radius: $border-radius;
-	border-bottom-left-radius: $border-radius;
-	background-color: $color-snow;
-	border: 1px solid $color-ash;
+	padding: func.rhythm(2) func.rhythm(3);
+	border-top-right-radius: var.$border-radius;
+	border-bottom-right-radius: var.$border-radius;
+	border-bottom-left-radius: var.$border-radius;
+	background-color: colors.$color-snow;
+	border: 1px solid colors.$color-ash;
 
 	&[aria-hidden='true'] {
 		display: none;
@@ -121,34 +133,34 @@
 		outline: 0;
 	}
 
-	@include m(gray) {
-		background-color: $color-ash;
-		border-color: $color-concrete;
+	@include bem.m(gray) {
+		background-color: colors.$color-ash;
+		border-color: colors.$color-concrete;
 	}
 }
 
 .no-js {
-	@include organism(tab-list) {
+	@include mixin.organism(tab-list) {
 		display: block;
 		padding: initial;
 		margin: initial;
 		list-style-type: disc;
 
-		@include plumber(
+		@include plumber.plumber(
 			$leading-bottom: 3
 		);
 
-		@include e(item) {
+		@include bem.e(item) {
 			display: list-item;
-			margin-top: rhythm(1);
-			margin-left: rhythm(4);
-			padding-top: rhythm(0.25);
-			padding-bottom: rhythm(0.25);
+			margin-top: func.rhythm(1);
+			margin-left: func.rhythm(4);
+			padding-top: func.rhythm(0.25);
+			padding-bottom: func.rhythm(0.25);
 			padding-top: 0;
 			padding-left: 0;
 		}
 
-		@include e(link) {
+		@include bem.e(link) {
 			background-color: transparent;
 			padding: 0;
 			border-radius: 0;
@@ -157,7 +169,7 @@
 		}
 	}
 
-	@include organism(tab-panel) {
+	@include mixin.organism(tab-panel) {
 		background-color: transparent;
 		padding: 0;
 	}

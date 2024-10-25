@@ -1,7 +1,9 @@
 @charset "UTF-8";
 @use '../../configurations/mixins' as mixin;
+@use '../../configurations/extends';
 @use '../../configurations/bem' as bem;
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
 @use '../../vendor/grid/breakpoints' as breakpoint;
 
@@ -30,10 +32,10 @@
 		}
 
 		@include bem.e(button) {
-			padding: rhythm(2) 0 rhythm(2) rhythm(1);
+			padding: func.rhythm(2) 0 func.rhythm(2) func.rhythm(1);
 
 			@include mixin.atom(button) {
-				padding: rhythm(0.4) rhythm(1.5);
+				padding: func.rhythm(0.4) func.rhythm(1.5);
 				font-family: var.$font-family-medium;
 				font-size: var.$size-small;
 
@@ -44,18 +46,18 @@
 				}
 
 				@include bem.m(icon-left) {
-					padding-left: rhythm(5);
+					padding-left: func.rhythm(5);
 				}
 
 				@include bem.m(icon-right) {
-					padding-right: rhythm(5);
+					padding-right: func.rhythm(5);
 				}
 			}
 
 			@include breakpoint.bp-up(sm) {
 				@include mixin.atom(button) {
-					padding-top: rhythm(0.6);
-					padding-bottom: rhythm(0.6);
+					padding-top: func.rhythm(0.6);
+					padding-bottom: func.rhythm(0.6);
 					font-size: var.$size-base;
 				}
 			}
@@ -66,12 +68,12 @@
 
 			display: flex;
 			align-items: center;
-			padding: rhythm(2) rhythm(1);
+			padding: func.rhythm(2) func.rhythm(1);
 			border: 0;
 			background-color: transparent;
 			color: var(--cyberspace-color);
 			font-family: var.$font-family-medium;
-			font-size: to_rem(var.$size-small);
+			font-size: func.to_rem(var.$size-small);
 			text-decoration: none;
 			-webkit-appearance: none;
 			line-height: 1;
@@ -125,7 +127,7 @@
 				flex-direction: column;
 				width: var.$icon-size-medium;
 				height: 2px;
-				margin-left: rhythm(1);
+				margin-left: func.rhythm(1);
 				transform-origin: 50% 50%;
 				transition: all 0.3s ease-out, background-color 0.15s ease-out;
 				border: 0;
@@ -145,11 +147,11 @@
 				}
 
 				&::before {
-					top: -#{to_rem(6px)};
+					top: -#{func.to_rem(6px)};
 				}
 
 				&::after {
-					bottom: -#{to_rem(6px)};
+					bottom: -#{func.to_rem(6px)};
 				}
 			}
 
@@ -160,8 +162,8 @@
 				flex-direction: column;
 				width: var.$icon-size-medium;
 				height: var.$icon-size-medium;
-				margin-left: rhythm(1);
-				margin-top: -#{to_rem(3px)};
+				margin-left: func.rhythm(1);
+				margin-top: -#{func.to_rem(3px)};
 				transform-origin: 50% 50%;
 				transition: all 0.3s ease-out;
 				border: 0;
@@ -181,12 +183,12 @@
 				}
 
 				&::before {
-					left: -#{to_rem(2px)};
+					left: -#{func.to_rem(2px)};
 					transform: rotate(45deg);
 				}
 
 				&::after {
-					right: -#{to_rem(2px)};
+					right: -#{func.to_rem(2px)};
 					transform: rotate(-45deg);
 				}
 			}
@@ -197,7 +199,7 @@
 		}
 
 		@include bem.e(text) {
-			margin-top: -#{to_rem(3px)}; // Adjust for the font's bad placement in viewbox
+			margin-top: -#{func.to_rem(3px)}; // Adjust for the font's bad placement in viewbox
 			pointer-events: none;
 		}
 	}
@@ -205,7 +207,7 @@
 	@include bem.e(subnav) {
 		position: absolute;
 		left: 0;
-		top: calc(100% - #{rhythm(1)});
+		top: calc(100% - #{func.rhythm(1)});
 		margin: 0;
 		padding: 0;
 		background-color: colors.$color-snow;
@@ -216,7 +218,7 @@
 		&::after,
 		&:before {
 			bottom: 100%;
-			left: rhythm(4);
+			left: func.rhythm(4);
 			border: solid transparent;
 			content: '';
 			height: 0;
@@ -254,7 +256,7 @@
 				color: colors.$color-cyberspace;
 				display: block;
 				width: 100%;
-				padding: rhythm(0.5) rhythm(2);
+				padding: func.rhythm(0.5) func.rhythm(2);
 				text-decoration: none;
 				white-space: nowrap;
 

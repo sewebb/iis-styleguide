@@ -3,20 +3,21 @@
 @use '../../configurations/bem' as bem;
 @use '../../configurations/config' as config;
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
 @use '../../configurations/colors/colors-functions' as colorFunc;
 @use '../../vendor/grid/breakpoints' as breakpoint;
 
 @include mixin.molecule(download) {
 	position: relative;
-	padding: rhythm(2.5);
+	padding: func.rhythm(2.5);
 	border: 1px solid colors.$color-peacock;
 	border-radius: var.$border-radius;
 	background-color: var(--snow-color);
 
 	@include bem.e(link) {
 		display: block;
-		margin-bottom: rhythm(1);
+		margin-bottom: func.rhythm(1);
 		color: currentcolor;
 		text-decoration: none;
 
@@ -39,11 +40,11 @@
 	}
 
 	@include bem.e(icon-file) {
-		margin-bottom: rhythm(1);
+		margin-bottom: func.rhythm(1);
 		line-height: 0;
 
 		@include breakpoint.bp-up(sm) {
-			margin-right: rhythm(0.5);
+			margin-right: func.rhythm(0.5);
 			margin-bottom: 0;
 		}
 	}
@@ -52,9 +53,9 @@
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: rhythm(3.5);
-		height: rhythm(3.5);
-		margin-left: rhythm(1);
+		width: func.rhythm(3.5);
+		height: func.rhythm(3.5);
+		margin-left: func.rhythm(1);
 		border-radius: var.$border-radius;
 		background-color: colors.$color-peacock-light;
 	}
@@ -64,14 +65,14 @@
 	}
 
 	@include bem.b(icon) {
-		width: to_rem(57px);
-		height: to_rem(78px);
+		width: func.to_rem(57px);
+		height: func.to_rem(78px);
 		color: var(--cyberspace-color);
 		fill: currentColor;
 	}
 
 	@include bem.e(trigger) {
-		margin-top: rhythm(1);
+		margin-top: func.rhythm(1);
 		margin-left: 0;
 
 		@include bem.b(icon) {
@@ -83,7 +84,7 @@
 
 		@include breakpoint.bp-up(sm) {
 			margin-top: 0;
-			margin-left: rhythm(1);
+			margin-left: func.rhythm(1);
 		}
 	}
 }

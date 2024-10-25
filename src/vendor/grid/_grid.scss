@@ -2,6 +2,7 @@
 @use "sass:math";
 @use "sass:list";
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use 'breakpoints' as breakpoint;
 
 /// Grid system

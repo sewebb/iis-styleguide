@@ -1,7 +1,7 @@
 @charset "UTF-8";
 @use '../vendor/grid/breakpoints' as breakpoint;
 @use '../configurations/variables' as var;
-
+@use '../configurations/functions' as func;
 .u-indent-0 {
 	@include breakpoint.bp-up(lg) {
 		margin-left: 0;

@@ -1,13 +1,23 @@
+@charset "UTF-8";
 @use "sass:color";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/grid/grid' as grid;
 
-$border-color: color.adjust($color-jade, $lightness: -5%);
+$border-color: color.adjust(colors.$color-jade, $lightness: -5%);
 
-@include organism(mega-menu) {
+@include mixin.organism(mega-menu) {
 	z-index: z_index(middlegroundImportant);
 	padding-right: 0;
 	padding-left: 0;
 	transition: transform 0.25s ease-out;
-	background-color: $color-jade-light;
+	background-color: colors.$color-jade-light;
 
 	&[aria-hidden='true'] {
 		display: none;
@@ -18,7 +28,7 @@ $border-color: color.adjust($color-jade, $lightness: -5%);
 		transform: translateY(0);
 
 		+ {
-			@include organism(domain-search) {
+			@include mixin.organism(domain-search) {
 				display: none;
 			}
 		}
@@ -32,48 +42,48 @@ $border-color: color.adjust($color-jade, $lightness: -5%);
 		}
 	}
 
-	@include e(wrapper) {
-		padding-top: rhythm(3);
+	@include bem.e(wrapper) {
+		padding-top: func.rhythm(3);
 
-		@include bp-down(md) {
-			padding-right: rhythm(1);
-			padding-left: rhythm(1);
+		@include breakpoint.bp-down(md) {
+			padding-right: func.rhythm(1);
+			padding-left: func.rhythm(1);
 		}
 	}
 
-	@include e(list) {
-		margin-top: rhythm(1);
+	@include bem.e(list) {
+		margin-top: func.rhythm(1);
 
-		@include e(topic) {
-			margin-top: rhythm(2);
-			margin-bottom: rhythm(0.5);
-			padding: rhythm(1) rhythm(1);
+		@include bem.e(topic) {
+			margin-top: func.rhythm(2);
+			margin-bottom: func.rhythm(0.5);
+			padding: func.rhythm(1) func.rhythm(1);
 			border-bottom: 1px solid $border-color;
-			font-family: $font-family-headings;
+			font-family: var.$font-family-headings;
 
 			&:first-child {
 				margin-top: 0;
 			}
 		}
 
-		@include e(item) {
-			margin: 0 0 rhythm(0.5) 0;
-			padding: rhythm(1) rhythm(1);
+		@include bem.e(item) {
+			margin: 0 0 func.rhythm(0.5) 0;
+			padding: func.rhythm(1) func.rhythm(1);
 
 			& + & {
 				border-top: 1px solid $border-color;
 			}
 		}
 
-		@include bp-up(lg) {
+		@include breakpoint.bp-up(lg) {
 
-			@include e(topic) {
+			@include bem.e(topic) {
 				padding: 0;
 				border-bottom: 0;
 			}
 
-			@include e(item) {
-				margin-bottom: rhythm(1);
+			@include bem.e(item) {
+				margin-bottom: func.rhythm(1);
 				padding: 0;
 				line-height: 1.3;
 
@@ -84,10 +94,10 @@ $border-color: color.adjust($color-jade, $lightness: -5%);
 		}
 	}
 
-	@include e(link) {
+	@include bem.e(link) {
 		display: inline-flex;
 		align-items: baseline;
-		color: $color-cyberspace;
+		color: colors.$color-cyberspace;
 		text-decoration: none;
 
 		&:hover {
@@ -96,42 +106,42 @@ $border-color: color.adjust($color-jade, $lightness: -5%);
 			}
 		}
 
-		@include m(large) {
+		@include bem.m(large) {
 			display: block;
-			padding: 0 rhythm(1);
-			font-family: $font-family-headings;
-			font-size: to_rem(23px);
+			padding: 0 func.rhythm(1);
+			font-family: var.$font-family-headings;
+			font-size: func.to_rem(23px);
 			white-space: nowrap;
 
-			@include bp-up(lg) {
+			@include breakpoint.bp-up(lg) {
 				padding: 0;
 			}
 		}
 
-		@include e(icon) {
-			width: $icon-size-smallest;
-			height: $icon-size-smallest;
+		@include bem.e(icon) {
+			width: var.$icon-size-smallest;
+			height: var.$icon-size-smallest;
 			flex-shrink: 0;
-			margin-left: rhythm(0.5);
+			margin-left: func.rhythm(0.5);
 		}
 	}
 
-	@include bp-up(lg) {
+	@include breakpoint.bp-up(lg) {
 		padding-bottom: 0;
 
-		@include e(link) {
-			@include m(large) {
+		@include bem.e(link) {
+			@include bem.m(large) {
 				padding: 0;
 			}
 		}
 	}
 
-	@include e(search) {
-		@include e(wrapper) {
-			padding: rhythm(2) rhythm(1);
+	@include bem.e(search) {
+		@include bem.e(wrapper) {
+			padding: func.rhythm(2) func.rhythm(1);
 
-			@include bp-up(md) {
-				padding: rhythm(3) rhythm(2);
+			@include breakpoint.bp-up(md) {
+				padding: func.rhythm(3) func.rhythm(2);
 			}
 		}
 	}

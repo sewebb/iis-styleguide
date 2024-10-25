@@ -1,64 +1,74 @@
 @charset "UTF-8";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/grid/grid' as grid;
+@use '../../vendor/baseline/plumber' as plumber;
 
-@include organism(event-listing-item) {
+@include mixin.organism(event-listing-item) {
 	position: relative;
-	padding: rhythm(2);
+	padding: func.rhythm(2);
 	border-left: 4px solid;
-	border-radius: $border-radius;
-	background-color: $color-snow;
-	font-size: $size-medium-plus;
+	border-radius: var.$border-radius;
+	background-color: colors.$color-snow;
+	font-size: var.$size-medium-plus;
 
-	@include e(button) {
+	@include bem.e(button) {
 
 	}
 
-	@include bp-up(md) {
-		font-size: $size-base;
+	@include breakpoint.bp-up(md) {
+		font-size: var.$size-base;
 	}
 
-	@include e(upper) {
+	@include bem.e(upper) {
 		position: static;
 		flex-direction: column;
-		margin-bottom: rhythm(1);
+		margin-bottom: func.rhythm(1);
 	}
 
-	@include e(lower) {
+	@include bem.e(lower) {
 		align-items: center;
 		justify-content: space-between;
-		margin-top: rhythm(1);
+		margin-top: func.rhythm(1);
 	}
 
-	@include e(heading) {
-		@include plumber(
-			$font-size: 2.5,
+	@include bem.e(heading) {
+		@include plumber.plumber(
+			var.$font-size: 2.5,
 			$leading-bottom: 1
 		);
 
-		font-family: $font-family-headings;
+		font-family: var.$font-family-headings;
 		line-height: 1.75rem;
 	}
 
-	@include e(footer) {
-		margin-bottom: rhythm(2);
-		margin-top: rhythm(2);
+	@include bem.e(footer) {
+		margin-bottom: func.rhythm(2);
+		margin-top: func.rhythm(2);
 
-		@include bp-up(sm-xs) {
+		@include breakpoint.bp-up(sm-xs) {
 			margin-bottom: 0;
 			margin-top: 0;
 		}
 	}
 
-	@include e(button) {
-		margin-right: rhythm(1);
-		margin-left: rhythm(1);
+	@include bem.e(button) {
+		margin-right: func.rhythm(1);
+		margin-left: func.rhythm(1);
 	}
 
-	@include e(icon-wrapper) {
+	@include bem.e(icon-wrapper) {
 		display: flex;
 		align-items: center;
 	}
 
-	@include e(icon) {
-		margin-right: rhythm(1);
+	@include bem.e(icon) {
+		margin-right: func.rhythm(1);
 	}
 }

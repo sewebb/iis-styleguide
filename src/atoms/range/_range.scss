@@ -3,6 +3,7 @@
 @use '../../configurations/mixins' as mixin;
 @use '../../configurations/bem' as bem;
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
 @use '../../configurations/colors/colors-functions' as colorFunc;
 
@@ -17,14 +18,14 @@
 
 	&::-webkit-slider-runnable-track {
 		background-color: colors.$color-concrete;
-		height: rhythm(1);
+		height: func.rhythm(1);
 		border-radius: var.$border-radius;
 		border-top: 1px solid color.adjust(colors.$color-granit, $lightness: 15%);
 	}
 
 	&::-moz-range-track {
 		background-color: colors.$color-concrete;
-		height: rhythm(1);
+		height: func.rhythm(1);
 		border-radius: var.$border-radius;
 		border-top: 1px solid colors.$color-granit;
 	}
@@ -32,18 +33,18 @@
 	&::-webkit-slider-thumb {
 		-webkit-appearance: none;
 		appearance: none;
-		margin-top: -#{rhythm(1.125)};
+		margin-top: -#{func.rhythm(1.125)};
 		background-color: colors.$color-ash;
-		height: rhythm(3);
-		width: rhythm(1.5);
+		height: func.rhythm(3);
+		width: func.rhythm(1.5);
 		border: 1px solid colors.$color-granit;
 		border-radius: var.$border-radius;
 	}
 
 	&::-moz-range-thumb {
 		background-color: colors.$color-ash;
-		height: rhythm(3);
-		width: rhythm(1.5);
+		height: func.rhythm(3);
+		width: func.rhythm(1.5);
 		border-radius: 0;
 		border: 0;
 		border: 1px solid colors.$color-granit;
@@ -93,7 +94,7 @@
 
 	@include bem.e(value){
 		background-color: colors.$color-concrete;
-		padding: rhythm(0.5) rhythm(1);
+		padding: func.rhythm(0.5) func.rhythm(1);
 		position: absolute;
 		border-radius: var.$border-radius;
 		left: 50%;
@@ -122,6 +123,6 @@
 	top: 0;
 	right: 0;
 	z-index: 0;
-	width: rhythm(5);
+	width: func.rhythm(5);
 }
 

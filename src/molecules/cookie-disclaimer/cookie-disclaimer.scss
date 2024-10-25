@@ -3,6 +3,7 @@
 @use '../../configurations/bem' as bem;
 @use '../../configurations/config' as config;
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
 @use '../../configurations/colors/colors-functions' as colorFunc;
 @use '../../vendor/grid/breakpoints' as breakpoint;
@@ -27,7 +28,7 @@
 	@include bem.e(wrapper) {
 		width: 100%;
 		margin-bottom: 0 !important;
-		padding: rhythm(2) 0;
+		padding: func.rhythm(2) 0;
 	}
 
 	@include bem.e(inner) {
@@ -64,7 +65,7 @@
 		@include breakpoint.bp-up(md) {
 			@include grid.make-col(12);
 
-			padding-right: rhythm(3);
+			padding-right: func.rhythm(3);
 		}
 	}
 
@@ -73,7 +74,7 @@
 		align-items: center;
 		justify-content: flex-end;
 		width: 100%;
-		padding-top: rhythm(2);
+		padding-top: func.rhythm(2);
 
 		button {
 			font-size: 18px;

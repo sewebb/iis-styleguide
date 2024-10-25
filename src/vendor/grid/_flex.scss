@@ -1,6 +1,7 @@
 @charset "UTF-8";
 @use "sass:map";
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use 'breakpoints' as breakpoint;
 
 // Flex variation

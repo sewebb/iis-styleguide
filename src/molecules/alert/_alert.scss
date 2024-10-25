@@ -1,8 +1,10 @@
 @charset "UTF-8";
 @use '../../configurations/mixins' as mixin;
+@use '../../configurations/extends';
 @use '../../configurations/bem' as bem;
 @use '../../configurations/config' as config;
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
 @use '../../configurations/colors/colors-functions' as colorFunc;
 @use '../../vendor/grid/breakpoints' as breakpoint;
@@ -19,19 +21,19 @@ $alert-text: colors.$color-cyberspace;
 
 @include mixin.molecule(alert) {
 	position: relative;
-	margin-bottom: rhythm(4);
-	padding: rhythm(2) rhythm(2) rhythm(3) rhythm(2);
+	margin-bottom: func.rhythm(4);
+	padding: func.rhythm(2) func.rhythm(2) func.rhythm(3) func.rhythm(2);
 	border: 1px solid transparent;
 	background-repeat: no-repeat;
-	background-position: rhythm(2) 50%;
+	background-position: func.rhythm(2) 50%;
 
 	> h2,
 	> p {
-		max-width: to_rem(600px);
+		max-width: func.to_rem(600px);
 	}
 
 	> p:last-child {
-		margin-bottom: rhythm(0.5);
+		margin-bottom: func.rhythm(0.5);
 	}
 
 	a {
@@ -43,14 +45,14 @@ $alert-text: colors.$color-cyberspace;
 	}
 
 	@include bem.m(dismissable) {
-		padding-right: rhythm(4);
+		padding-right: func.rhythm(4);
 
 		// Adjust close button position
 		button:not(.a-button--is-static) {
 			position: absolute;
 			z-index: z_index(background);
-			top: rhythm(1);
-			right: rhythm(1);
+			top: func.rhythm(1);
+			right: func.rhythm(1);
 		}
 
 		&[aria-hidden="true"] {

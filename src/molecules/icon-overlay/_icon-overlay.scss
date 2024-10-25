@@ -3,6 +3,7 @@
 @use '../../configurations/bem' as bem;
 @use '../../configurations/config' as config;
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
 @use '../../configurations/colors/colors-functions' as colorFunc;
 @use '../../vendor/grid/breakpoints' as breakpoint;
@@ -39,8 +40,8 @@
 		z-index: 3;
 		top: 50%;
 		left: 50%;
-		width: rhythm(7);
-		height: rhythm(7);
+		width: func.rhythm(7);
+		height: func.rhythm(7);
 		padding: 0;
 		transform: translateX(-50%) translateY(-50%);
 		border: 0;
@@ -54,21 +55,21 @@
 		}
 
 		@include breakpoint.bp-up(sm) {
-			width: rhythm(10);
-			height: rhythm(10);
+			width: func.rhythm(10);
+			height: func.rhythm(10);
 		}
 	}
 
 	@include bem.e(icon) {
-		width: rhythm(7);
-		height: rhythm(7);
+		width: func.rhythm(7);
+		height: func.rhythm(7);
 		fill: colors.$color-snow;
 		filter: drop-shadow(5px 5px 5px rgba(0, 0, 0, 0.4));
 		cursor: pointer;
 
 		@include breakpoint.bp-up(sm) {
-			width: rhythm(10);
-			height: rhythm(10);
+			width: func.rhythm(10);
+			height: func.rhythm(10);
 		}
 	}
 
@@ -85,7 +86,7 @@
 		justify-content: center;
 		text-align: center;
 		background: colors.$color-concrete;
-		padding-left: rhythm(2);
-		padding-right: rhythm(2);
+		padding-left: func.rhythm(2);
+		padding-right: func.rhythm(2);
 	}
 }

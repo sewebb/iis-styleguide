@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @use '../configurations/mixins' as mixin;
+@use '../configurations/extends';
 @use '../configurations/colors/colors' as colors;
 
 .u-box-shadow {

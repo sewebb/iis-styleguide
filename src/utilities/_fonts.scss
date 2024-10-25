@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @use '../configurations/variables' as var;
-
+@use '../configurations/functions' as func;
 .u-weight-normal {
 	font-family: var.$font-family-base !important;
 	font-weight: normal !important;

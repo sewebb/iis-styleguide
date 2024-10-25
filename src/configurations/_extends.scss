@@ -2,6 +2,7 @@
 @use "sass:color";
 @use 'colors/colors' as colors;
 @use 'variables' as var;
+@use 'functions' as func;
 @use 'mixins' as mixin;
 
 %normalize-links {
@@ -19,14 +20,14 @@
 }
 
 %link-styles {
-	padding: rhythm(0) rhythm(0.5);
-	border-bottom: to_rem(2px) solid colors.$color-peacock;
+	padding: func.rhythm(0) func.rhythm(0.5);
+	border-bottom: func.to_rem(2px) solid colors.$color-peacock;
 	color: var(---cyberspace-color);
 	text-decoration: none;
 
 	&:hover,
 	&:focus {
-		border-bottom: to_rem(2px) solid colors.$color-ocean-light;
+		border-bottom: func.to_rem(2px) solid colors.$color-ocean-light;
 		border-radius: var.$border-radius;
 		background-color: colors.$color-ocean-light;
 	}
@@ -61,12 +62,12 @@
 	z-index: z_index(middleground);
 	width: 100%;
 	min-width: 0;
-	padding: rhythm(1);
+	padding: func.rhythm(1);
 	border: 1px solid colors.$color-granit;
 	border-radius: var.$border-radius;
 	background-color: color.adjust(colors.$color-ash, $lightness: 4%);
 	-webkit-appearance: none;
-	font-size: to_rem(16px);
+	font-size: func.to_rem(16px);
 }
 
 %input-focus {
@@ -118,7 +119,7 @@
 }
 
 %box-shadow {
-	box-shadow: 0 rhythm(0.5) rhythm(0.5) rgba(colors.$color-cyberspace, 0.1) !important;
+	box-shadow: 0 func.rhythm(0.5) func.rhythm(0.5) rgba(colors.$color-cyberspace, 0.1) !important;
 }
 
 %button-toolbar {
@@ -127,10 +128,10 @@
 	flex-wrap: nowrap;
 	align-items: center;
 	justify-content: center;
-	width: rhythm(4);
-	height: rhythm(4);
+	width: func.rhythm(4);
+	height: func.rhythm(4);
 	margin: 0;
-	padding: rhythm(1);
+	padding: func.rhythm(1);
 	overflow: hidden;
 	border: 0;
 	border-radius: 0;
@@ -164,8 +165,8 @@
 	}
 
 	svg {
-		width: rhythm(2);
-		height: rhythm(2);
+		width: func.rhythm(2);
+		height: func.rhythm(2);
 		fill: colors.$color-cyberspace;
 	}
 }

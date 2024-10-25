@@ -4,6 +4,7 @@
 @use '../../configurations/bem' as bem;
 @use '../../configurations/config' as config;
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
 @use '../../configurations/colors/colors-functions' as colorFunc;
 @use '../../vendor/grid/breakpoints' as breakpoint;
@@ -15,7 +16,7 @@
 
 	@include bem.m(arrow) {
 		@include bem.e(label) {
-			padding-right: rhythm(4);
+			padding-right: func.rhythm(4);
 			border-bottom: 2px solid currentColor;
 			background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-arrow-down' viewBox='0 0 32 18.9' width='100%25' height='100%25'%3E%3Cpolygon points='32,2.9 16,18.9 0,2.9 2.9,0 16,13.1 29.1,0 '%3E%3C/polygon%3E%3C/svg%3E%0A");
 			background-repeat: no-repeat;
@@ -62,7 +63,7 @@
 		right: 0;
 		bottom: 0;
 		left: 0;
-		padding-right: rhythm(4);
+		padding-right: func.rhythm(4);
 		opacity: 0;
 		cursor: pointer;
 	}

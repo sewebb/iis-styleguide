@@ -2,8 +2,10 @@
 @use "sass:color";
 @use "sass:math";
 @use '../../configurations/mixins' as mixin;
+@use '../../configurations/extends';
 @use '../../configurations/bem' as bem;
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
 @use '../../configurations/colors/colors-functions' as colorFunc;
 @use '../../vendor/grid/breakpoints' as breakpoint;
@@ -14,7 +16,7 @@
 	align-items: center;
 	width: 100%;
 	margin: 0;
-	padding: rhythm(1) 0;
+	padding: func.rhythm(1) 0;
 	list-style: none;
 
 	&::before {
@@ -22,8 +24,8 @@
 		display: flex;
 		width: math.div(var.$icon-size, 2);
 		height: math.div(var.$icon-size, 2);
-		margin-right: rhythm(1);
-		transform: translateY(to_rem(1px));
+		margin-right: func.rhythm(1);
+		transform: translateY(func.to_rem(1px));
 		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-arrow-backwards' viewBox='0 0 18.1 32'%3E%3Cpolygon points='16,32 0,16 16,0 18.9,2.9 5.9,16 18.9,29.1 '%3E%3C/polygon%3E%3C/svg%3E");
 		background-repeat: no-repeat;
 		background-position: center center;
@@ -61,35 +63,35 @@
 			position: static;
 			flex-shrink: 0;
 			width: auto;
-			max-width: to_rem(250px);
+			max-width: func.to_rem(250px);
 			min-height: 0;
 			overflow: hidden;
 			text-overflow: ellipsis;
 		}
 
 		@include breakpoint.bp-up(sm) {
-			max-width: to_rem(300px);
+			max-width: func.to_rem(300px);
 		}
 
 		@include breakpoint.bp-up(lg) {
-			max-width: to_rem(350px);
+			max-width: func.to_rem(350px);
 		}
 
 		@include breakpoint.bp-up(xl) {
-			max-width: to_rem(400px);
+			max-width: func.to_rem(400px);
 		}
 	}
 
 	@include bem.b(icon) {
 		width: math.div(var.$icon-size, 2);
 		height: math.div(var.$icon-size, 2);
-		margin: 0 rhythm(1);
-		transform: translateY(to_rem(1px));
+		margin: 0 func.rhythm(1);
+		transform: translateY(func.to_rem(1px));
 		color: var(--cyberspace-color);
 		fill: currentColor;
 
 		&:first-child {
-			margin: 0 rhythm(1) 0 0;
+			margin: 0 func.rhythm(1) 0 0;
 
 			@include breakpoint.bp-up(md) {
 				display: none;
@@ -100,7 +102,7 @@
 	@include bem.e(link) {
 		@extend %normalize-links;
 
-		max-width: rhythm(30);
+		max-width: func.rhythm(30);
 		overflow: hidden;
 		color: var(--cyberspace-color);
 		text-overflow: ellipsis;
@@ -121,7 +123,7 @@
 		}
 
 		@include breakpoint.bp-up(md) {
-			max-width: rhythm(25);
+			max-width: func.rhythm(25);
 		}
 
 		@include breakpoint.bp-up(xl) {

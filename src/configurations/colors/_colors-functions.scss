@@ -5,13 +5,13 @@
 /// Get a shaded version of a color
 /// @group Colors
 @function shade($color, $percentage) {
-	@return mix(black, $color, $percentage);
+	@return mix(black, colors.$color, $percentage);
 }
 
 /// Get a tinted version of a color
 /// @group Colors
 @function tint($color, $percentage) {
-	@return mix(white, $color, $percentage);
+	@return mix(white, colors.$color, $percentage);
 }
 
 /// @group Colors

@@ -1,8 +1,17 @@
 @charset "UTF-8";
 @use "sass:color";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/extends';
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
-@include organism(domain-search) {
-	padding: rhythm(2) 0 rhythm(1) 0;
+@include mixin.organism(domain-search) {
+	padding: func.rhythm(2) 0 func.rhythm(1) 0;
 
 	&:not([class*='is-in-mega-menu']) {
 		display: none;
@@ -25,7 +34,7 @@
 			}
 		}
 
-		@include bp-up(xl) {
+		@include breakpoint.bp-up(xl) {
 			display: flex;
 		}
 
@@ -40,110 +49,110 @@
 	}
 
 	a {
-		color: $color-cyberspace;
+		color: colors.$color-cyberspace;
 		text-decoration: underline;
 
 		&:hover,
 		&:focus {
-			border-bottom: to_rem(2px) solid $color-jade;
+			border-bottom: func.to_rem(2px) solid colors.$color-jade;
 			border-radius: 0;
 			background-color: transparent;
 			text-decoration: none;
 		}
 
 		[class*='icon'] {
-			transform: translateY(to_rem(2px));
+			transform: translateY(func.to_rem(2px));
 		}
 	}
 
-	@include bp-up(md) {
-		padding: rhythm(3) rhythm(1);
+	@include breakpoint.bp-up(md) {
+		padding: func.rhythm(3) func.rhythm(1);
 	}
 
-	@include e(list-container) {
-		padding: 0 rhythm(1) 0 rhythm(1);
+	@include bem.e(list-container) {
+		padding: 0 func.rhythm(1) 0 func.rhythm(1);
 	}
 
-	@include e(input) {
+	@include bem.e(input) {
 		display: block;
-		width: calc(100% - #{rhythm(2)});
-		margin-right: rhythm(2);
-		padding: rhythm(1) rhythm(2);
+		width: calc(100% - #{func.rhythm(2)});
+		margin-right: func.rhythm(2);
+		padding: func.rhythm(1) func.rhythm(2);
 		transition: padding 0.25s ease-out;
 		border: 0;
-		border-radius: $border-radius;
-		background-color: color.adjust($color-ash, $lightness: 4%);
+		border-radius: var.$border-radius;
+		background-color: color.adjust(colors.$color-ash, $lightness: 4%);
 		letter-spacing: -0.1px;
 		-webkit-appearance: none;
 
-		@include bp-up(md) {
-			font-size: to_rem(32px);
+		@include breakpoint.bp-up(md) {
+			font-size: func.to_rem(32px);
 		}
 
-		@include m(force-focus-look) {
-			background-color:  color.adjust($color-ash, $lightness: 4%);
+		@include bem.m(force-focus-look) {
+			background-color:  color.adjust(colors.$color-ash, $lightness: 4%);
 
 			&:focus {
-				background-color:  color.adjust($color-ash, $lightness: 4%);
+				background-color:  color.adjust(colors.$color-ash, $lightness: 4%);
 			}
 		}
 	}
 
-	@include e(list) {
+	@include bem.e(list) {
 		display: flex;
 		flex-wrap: wrap;
-		padding: rhythm(1) 0 0 0;
+		padding: func.rhythm(1) 0 0 0;
 
 		li {
-			padding: rhythm(1) 0;
+			padding: func.rhythm(1) 0;
 			white-space: nowrap;
 
 			+ li {
-				border-top: 1px solid $color-concrete;
+				border-top: 1px solid colors.$color-concrete;
 
-				@include bp-up(md) {
+				@include breakpoint.bp-up(md) {
 					padding-bottom: 0;
 					border-top: 0;
 				}
 			}
 
 			a {
-				padding: 0 rhythm(1);
+				padding: 0 func.rhythm(1);
 				border-bottom: 0;
-				font-size: to_rem($size-medium-plus);
+				font-size: func.to_rem(var.$size-medium-plus);
 				text-decoration: underline;
 
-				@include bp-up(md) {
+				@include breakpoint.bp-up(md) {
 					padding: 0;
 				}
 			}
 		}
 	}
 
-	@include bp-up(md) {
+	@include breakpoint.bp-up(md) {
 
-		@include e(pretext) {
-			font-size: to_rem(32px);
+		@include bem.e(pretext) {
+			font-size: func.to_rem(32px);
 		}
 	}
 
-	@include e(submit) {
+	@include bem.e(submit) {
 		flex-shrink: 0;
-		padding-right: rhythm(4);
-		padding-left: rhythm(4);
-		font-size: to_rem(24px);
+		padding-right: func.rhythm(4);
+		padding-left: func.rhythm(4);
+		font-size: func.to_rem(24px);
 
-		@include bp-down(md) {
-			font-size: to_rem($size-base);
+		@include breakpoint.bp-down(md) {
+			font-size: func.to_rem(var.$size-base);
 		}
 
-		@include bp-down(sm) {
-			padding: rhythm(0.6) rhythm(1);
-			font-size: to_rem($size-small);
+		@include breakpoint.bp-down(sm) {
+			padding: func.rhythm(0.6) func.rhythm(1);
+			font-size: func.to_rem(var.$size-small);
 		}
 	}
 
-	@include bp-up(xl) {
+	@include breakpoint.bp-up(xl) {
 		display: none;
 	}
 }

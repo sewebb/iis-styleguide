@@ -4,34 +4,36 @@
 @use '../vendor/baseline/plumber' as plumber;
 @use 'colors/colors' as colors;
 @use 'variables' as var;
+@use 'functions' as func;
 @use 'mixins' as mixin;
+@use 'extends';
 
 //
 // Modifies Wordpress Core classes
 //
 
 .wp-caption {
-	margin-bottom: rhythm(3);
+	margin-bottom: func.rhythm(3);
 }
 
 // Customize
 .aligncenter,
 div.aligncenter {
 	display: block;
-	margin: 0 auto rhythm(3);
+	margin: 0 auto func.rhythm(3);
 }
 
 @include breakpoint.bp-up(lg) {
 	.alignright {
-		width: calc(#{make_col(6)} - 13px); // <== You ugly magic number you, we hates it!
-		margin: 0 0 rhythm(3) 0;
+		width: calc(#{func.make_col(6)} - 13px); // <== You ugly magic number you, we hates it!
+		margin: 0 0 func.rhythm(3) 0;
 		float: right;
 		clear: right;
 	}
 
 	.alignleft {
-		width: calc(#{make_col(6)} - 13px); // <== You ugly magic number you, we hates it!
-		margin: 0 rhythm(2) rhythm(3) 0;
+		width: calc(#{func.make_col(6)} - 13px); // <== You ugly magic number you, we hates it!
+		margin: 0 func.rhythm(2) func.rhythm(3) 0;
 		float: left;
 		clear: left;
 	}
@@ -52,11 +54,11 @@ div.aligncenter {
 }
 
 .wp-block-image {
-	margin-bottom: rhythm(3);
+	margin-bottom: func.rhythm(3);
 
 	figcaption {
 		@include plumber.plumber(
-			$font-size: 1.7,
+			var.$font-size: 1.7,
 			$line-height: 2,
 			$leading-bottom: 0
 		);
@@ -126,13 +128,13 @@ div.aligncenter {
 	display: flex;
 	flex-wrap: wrap;
 	justify-content: space-between;
-	margin: rhythm(2) 0;
+	margin: func.rhythm(2) 0;
 	padding: 0;
 	list-style: none;
 
 	.blocks-gallery-item {
 		width: 48%;
-		margin-bottom: rhythm(2);
+		margin-bottom: func.rhythm(2);
 
 		img {
 			display: block;
@@ -140,12 +142,12 @@ div.aligncenter {
 		}
 
 		figcaption {
-			padding: rhythm(1);
+			padding: func.rhythm(1);
 			font-size: var.$size-small;
 			line-height: 1.4;
 
 			@include breakpoint.bp-up(sm) {
-				padding-bottom: rhythm(2);
+				padding-bottom: func.rhythm(2);
 				font-size: var.$size-medium;
 			}
 
@@ -159,7 +161,7 @@ div.aligncenter {
 .wp-block-embed {
 	figcaption {
 		@include plumber.plumber(
-			$font-size: 1.5,
+			var.$font-size: 1.5,
 			$line-height: 2,
 			$leading-bottom: 0
 		);
@@ -175,7 +177,7 @@ div.aligncenter {
 
 	> .row {
 		> [class*='grid'] {
-			margin-bottom: rhythm(2);
+			margin-bottom: func.rhythm(2);
 
 			> *:only-child {
 				margin-bottom: 0;
@@ -201,7 +203,7 @@ div.aligncenter {
 	display: flex;
 	flex-wrap: wrap;
 	margin-right: math.div(var.$grid-gutter-width, -2);
-	margin-bottom: rhythm(2);
+	margin-bottom: func.rhythm(2);
 	margin-left: math.div(var.$grid-gutter-width, -2);
 
 	&.alignfull {
@@ -220,7 +222,7 @@ div.aligncenter {
 	display: flex;
 	flex-wrap: wrap;
 	margin-right: math.div(var.$grid-gutter-width, -2);
-	margin-bottom: rhythm(2);
+	margin-bottom: func.rhythm(2);
 	margin-left: math.div(var.$grid-gutter-width, -2);
 
 	&.alignfull {
@@ -307,8 +309,8 @@ div.aligncenter {
 
 .wp-block-table {
 	td {
-		padding-top: rhythm(2) !important;
-		padding-bottom: rhythm(2) !important;
+		padding-top: func.rhythm(2) !important;
+		padding-bottom: func.rhythm(2) !important;
 	}
 
 	[class*='lines'],
@@ -346,10 +348,10 @@ div.aligncenter {
 }
 
 .wp-block-graph {
-	margin-top: rhythm(4);
+	margin-top: func.rhythm(4);
 
 	& + & {
-		margin-top: -#{rhythm(3)};
+		margin-top: -#{func.rhythm(3)};
 	}
 }
 
@@ -370,17 +372,17 @@ hr.wp-block-separator {
 
 	&.aligncenter {
 		width: 50vw;
-		max-width: to_rem(469px);
-		margin-top: rhythm(2);
-		margin-bottom: rhythm(2);
+		max-width: func.to_rem(469px);
+		margin-top: func.rhythm(2);
+		margin-bottom: func.rhythm(2);
 	}
 
 	&.alignleft {
 		float: none;
 		margin-left: 0;
-		max-width: to_rem(90px);
-		margin-top: rhythm(2);
-		margin-bottom: rhythm(2);
+		max-width: func.to_rem(90px);
+		margin-top: func.rhythm(2);
+		margin-bottom: func.rhythm(2);
 
 		@include breakpoint.bp-up(lg) {
 			margin-left: var.$indent * 2;

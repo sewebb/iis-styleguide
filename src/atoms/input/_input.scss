@@ -1,7 +1,9 @@
 @charset "UTF-8";
 @use '../../configurations/mixins' as mixin;
+@use '../../configurations/extends';
 @use '../../configurations/bem' as bem;
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
 @use '../../configurations/colors/colors-functions' as colorFunc;
 
@@ -13,7 +15,7 @@
 	}
 
 	&.has-icon {
-		padding-right: rhythm(5);
+		padding-right: func.rhythm(5);
 	}
 
 	&[disabled] {
@@ -25,12 +27,12 @@
 	}
 	@include bem.m(small) {
 		font-size: var.$size-medium;
-		padding: rhythm(0.5);
+		padding: func.rhythm(0.5);
 	}
 
 	@include bem.m(large) {
-		font-size: to_rem(32px);
-		padding: rhythm(1) rhythm(2);
+		font-size: func.to_rem(32px);
+		padding: func.rhythm(1) func.rhythm(2);
 	}
 }
 
@@ -45,6 +47,6 @@
 		z-index: z_index(middleground);
 		width: var.$icon-size;
 		height: var.$icon-size;
-		transform: translateY(-#{rhythm(3.7)}) translateX(-#{rhythm(1)});
+		transform: translateY(-#{func.rhythm(3.7)}) translateX(-#{func.rhythm(1)});
 	}
 }

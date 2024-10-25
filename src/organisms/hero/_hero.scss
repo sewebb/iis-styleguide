@@ -1,142 +1,153 @@
 @charset "UTF-8";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/typography/typography';
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/grid/grid' as grid;
+@use '../../vendor/baseline/plumber' as plumber;
 
-@include organism(hero) {
+@include mixin.organism(hero) {
 	position: relative;
 	z-index: z_index(background);
-	margin-bottom: rhythm(4);
+	margin-bottom: func.rhythm(4);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 
 	.supersize {
 		+ [class*='buttons'] {
-			margin-top: rhythm(2);
+			margin-top: func.rhythm(2);
 
-			@include bp-up(lg) {
-				margin-top: rhythm(3);
+			@include breakpoint.bp-up(lg) {
+				margin-top: func.rhythm(3);
 			}
 		}
 	}
 
-	@include bp-up(sm) {
+	@include breakpoint.bp-up(sm) {
 		overflow: hidden;
 		background-color: transparent;
 	}
 
-	@include e(image) {
+	@include bem.e(image) {
 		display: block;
 		object-fit: cover;
 		object-position: 50% 25%;
 		width: 100%;
 
-		@include bp-up(sm) {
-			min-height: to_rem(500px);
+		@include breakpoint.bp-up(sm) {
+			min-height: func.to_rem(500px);
 			max-height: 50vh;
 		}
 	}
 
-	@include e(caption) {
+	@include bem.e(caption) {
 		display: flex;
 		align-items: flex-end;
-		padding: rhythm(2) 0;
+		padding: func.rhythm(2) 0;
 		background-image: none;
 
-		@include bp-up(sm) {
+		@include breakpoint.bp-up(sm) {
 			position: absolute;
 			z-index: z_index(middlegroundImportant);
 			top: 0;
 			right: 0;
 			bottom: 0;
 			left: 0;
-			padding: rhythm(4);
-			background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba($color-black, 0) 35%, rgba($color-black, 1) 100%);
-			text-shadow: $text-shadow;
+			padding: func.rhythm(4);
+			background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(colors.$color-black, 0) 35%, rgba(colors.$color-black, 1) 100%);
+			text-shadow: config.$text-shadow;
 		}
 
-		@include bp-up(md) {
-			padding: rhythm(6);
+		@include breakpoint.bp-up(md) {
+			padding: func.rhythm(6);
 		}
 
-		@include bp-up(lg) {
-			padding: rhythm(8);
+		@include breakpoint.bp-up(lg) {
+			padding: func.rhythm(8);
 		}
 	}
 
-	@include e(paragraph) {
-		color: $color-cyberspace;
+	@include bem.e(paragraph) {
+		color: colors.$color-cyberspace;
 
-		@include plumber(
-			$font-size: 2.5,
+		@include plumber.plumber(
+			var.$font-size: 2.5,
 			$line-height: 3
 		);
 
-		@include bp-up(sm) {
-			color: $color-snow;
+		@include breakpoint.bp-up(sm) {
+			color: colors.$color-snow;
 		}
 	}
 
-	@include e(tags) {
-		margin-top: rhythm(2);
+	@include bem.e(tags) {
+		margin-top: func.rhythm(2);
 
-		@include bp-up(lg) {
-			margin-top: rhythm(3);
+		@include breakpoint.bp-up(lg) {
+			margin-top: func.rhythm(3);
 		}
 
-		@include bp-down(sm-xs) {
+		@include breakpoint.bp-down(sm-xs) {
 			[class*="tag--light"] {
 				[class*="tag__text"] {
-					color: $color-cyberspace;
+					color: colors.$color-cyberspace;
 				}
 			}
 		}
 	}
 
-	@include e(buttons) {
+	@include bem.e(buttons) {
 		display: flex;
 		flex-direction: row;
 		flex-wrap: wrap;
-		margin: -#{rhythm(1)} 0 0 -#{rhythm(3)};
+		margin: -#{func.rhythm(1)} 0 0 -#{func.rhythm(3)};
 
-		@include atom(button) {
-			margin: rhythm(1) 0 0 rhythm(3);
+		@include mixin.atom(button) {
+			margin: func.rhythm(1) 0 0 func.rhythm(3);
 		}
 
-		@include bp-up(sm) {
+		@include breakpoint.bp-up(sm) {
 			flex-direction: row;
 		}
 	}
 
-	@include e(text) {
+	@include bem.e(text) {
 		:last-child {
 			margin-bottom: 0;
 		}
 
-		@include bp-up(sm) {
-			color: $color-snow;
+		@include breakpoint.bp-up(sm) {
+			color: colors.$color-snow;
 		}
 
-		@include bp-up(md) {
+		@include breakpoint.bp-up(md) {
 			max-width: 100%;
 		}
 
-		@include bp-up(lg) {
+		@include breakpoint.bp-up(lg) {
 			max-width: 70%;
 		}
 
-		@include bp-up(xxl) {
+		@include breakpoint.bp-up(xxl) {
 			max-width: 60%;
 		}
 	}
 
-	@include b(a-tag) {
-		@include tag;
+	@include bem.b(a-tag) {
+		@include mixin.tag;
 
-		@include bp-up(sm) {
-			@include tag-light;
+		@include breakpoint.bp-up(sm) {
+			@include mixin.tag-light;
 		}
 	}
 
-	@include e(link) {
-		color: $color-cyberspace;
+	@include bem.e(link) {
+		color: colors.$color-cyberspace;
 		text-decoration: none;
 
 		&:hover,
@@ -156,32 +167,32 @@
 		}
 
 		> p {
-			@include plumber(
-				$font-size: 2.5,
+			@include plumber.plumber(
+				var.$font-size: 2.5,
 				$line-height: 3
 			);
 		}
 
 		+ [class*='buttons'] {
-			margin-top: rhythm(2);
+			margin-top: func.rhythm(2);
 
-			@include bp-up(lg) {
-				margin-top: rhythm(3);
+			@include breakpoint.bp-up(lg) {
+				margin-top: func.rhythm(3);
 			}
 		}
 
-		@include bp-up(sm) {
-			color: $color-snow;
+		@include breakpoint.bp-up(sm) {
+			color: colors.$color-snow;
 		}
 	}
 
 	// Hero without image
-	@include m(no-image) {
+	@include bem.m(no-image) {
 		background-color: transparent;
 		-webkit-font-smoothing: auto;
 		-moz-osx-font-smoothing: auto;
 
-		@include e(caption) {
+		@include bem.e(caption) {
 			position: static;
 			background-image: none;
 			text-shadow: none;
@@ -190,127 +201,127 @@
 				padding-right: 0;
 				padding-left: 0;
 
-				@include bp-up(sm) {
-					padding-right: $grid-gutter-width;
-					padding-left: $grid-gutter-width;
+				@include breakpoint.bp-up(sm) {
+					padding-right: var.$grid-gutter-width;
+					padding-left: var.$grid-gutter-width;
 				}
 			}
 
-			@include bp-down(md) {
+			@include breakpoint.bp-down(md) {
 				padding-right: 0;
 				padding-left: 0;
 			}
 		}
 
-		@include e(paragraph) {
-			color: $color-cyberspace;
+		@include bem.e(paragraph) {
+			color: colors.$color-cyberspace;
 		}
 
 		&.alignfull {
-			@include e(caption) {
+			@include bem.e(caption) {
 				.wrapper {
-					padding-right: rhythm(2);
-					padding-left: rhythm(2);
+					padding-right: func.rhythm(2);
+					padding-left: func.rhythm(2);
 				}
 			}
 		}
 
-		@include e(link) {
-			color: $color-cyberspace;
+		@include bem.e(link) {
+			color: colors.$color-cyberspace;
 		}
 
-		@include e(text) {
-			color: $color-cyberspace;
+		@include bem.e(text) {
+			color: colors.$color-cyberspace;
 		}
 
-		@include e(paragraph) {
+		@include bem.e(paragraph) {
 			@extend %preamble;
 		}
 
-		@include b(a-tag) {
-			@include tag;
+		@include bem.b(a-tag) {
+			@include mixin.tag;
 
 			[class*=text] {
-				color: $color-cyberspace;
+				color: colors.$color-cyberspace;
 			}
 		}
 
-		@include bp-up(md) {
-			@include e(text) {
+		@include breakpoint.bp-up(md) {
+			@include bem.e(text) {
 				max-width: 85%;
 			}
 		}
 
-		@include bp-up(lg) {
-			@include e(text) {
+		@include breakpoint.bp-up(lg) {
+			@include bem.e(text) {
 				max-width: 67%;
 			}
 		}
 	}
 
-	@include m(timeline) {
-		@include e(caption) {
-			background-color: $color-snow;
+	@include bem.m(timeline) {
+		@include bem.e(caption) {
+			background-color: colors.$color-snow;
 
-			@include bp-up(sm) {
+			@include breakpoint.bp-up(sm) {
 				background-color: transparent;
 			}
 		}
 	}
 
 	// Hero with earlier mobile breakpoint
-	@include m(break-early) {
-		@include e(caption) {
-			@include bp-up(sm) {
+	@include bem.m(break-early) {
+		@include bem.e(caption) {
+			@include breakpoint.bp-up(sm) {
 				position: static;
-				padding: rhythm(2) 0;
+				padding: func.rhythm(2) 0;
 			}
 
-			@include bp-up(md) {
-				padding: rhythm(3) rhythm(1);
+			@include breakpoint.bp-up(md) {
+				padding: func.rhythm(3) func.rhythm(1);
 			}
 
-			@include bp-up(lg) {
+			@include breakpoint.bp-up(lg) {
 				position: absolute;
 				z-index: z_index(middlegroundImportant);
 				top: 50%;
 				right: 0;
 				bottom: auto;
 				left: 0;
-				padding: rhythm(4);
+				padding: func.rhythm(4);
 				transform: translateY(-50%);
-				background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba($color-black, 0) 55%, rgba($color-black, 1) 100%);
-				text-shadow: 0 0 rhythm(2) rgba($color-black, 0.5);
+				background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(colors.$color-black, 0) 55%, rgba(colors.$color-black, 1) 100%);
+				text-shadow: 0 0 func.rhythm(2) rgba(colors.$color-black, 0.5);
 			}
 
-			@include bp-down(md) {
+			@include breakpoint.bp-down(md) {
 				[class*="tag--light"] {
 					[class*="tag__text"] {
-						color: $color-cyberspace;
+						color: colors.$color-cyberspace;
 					}
 				}
 			}
 		}
 
-		@include e(text) {
+		@include bem.e(text) {
 			max-width: 100%;
 
-			@include bp-up(md) {
+			@include breakpoint.bp-up(md) {
 				max-width: 90%;
 			}
 
-			@include bp-up(lg) {
+			@include breakpoint.bp-up(lg) {
 				max-width: 85%;
 			}
 
-			@include bp-up(xxl) {
+			@include breakpoint.bp-up(xxl) {
 				max-width: 70%;
 			}
 
-			@include bp-only(lg) {
+			@include breakpoint.bp-only(lg) {
 				.supersize {
-					@include plumber(
-						$font-size: 6,
+					@include plumber.plumber(
+						var.$font-size: 6,
 						$line-height: 7,
 						$leading-bottom: 2
 					);
@@ -318,96 +329,96 @@
 			}
 		}
 
-		@include e(link) {
-			color: $color-cyberspace;
+		@include bem.e(link) {
+			color: colors.$color-cyberspace;
 			text-shadow: none;
 
-			@include bp-up(lg) {
-				color: $color-snow;
-				text-shadow: 0 0 rhythm(2) rgba($color-black, 0.5);
+			@include breakpoint.bp-up(lg) {
+				color: colors.$color-snow;
+				text-shadow: 0 0 func.rhythm(2) rgba(colors.$color-black, 0.5);
 			}
 		}
 
-		@include b(a-tag) {
-			@include tag;
+		@include bem.b(a-tag) {
+			@include mixin.tag;
 
-			@include bp-up(lg) {
-				@include tag-light;
+			@include breakpoint.bp-up(lg) {
+				@include mixin.tag-light;
 			}
 		}
 	}
 
-	@include m(no-break) {
-		@include e(image) {
+	@include bem.m(no-break) {
+		@include bem.e(image) {
 			aspect-ratio: 1 / 1;
 			object-position: 100% 25%;
 
-			@include bp-up(sm-xs) {
+			@include breakpoint.bp-up(sm-xs) {
 				aspect-ratio: 4 / 3;
 			}
 
-			@include bp-up(sm) {
+			@include breakpoint.bp-up(sm) {
 				aspect-ratio: 16 / 9;
 			}
 
-			@include bp-up(md) {
+			@include breakpoint.bp-up(md) {
 				object-position: 50% 25%;
 			}
 		}
 
-		@include e(caption) {
+		@include bem.e(caption) {
 			position: absolute;
 			z-index: z_index(middlegroundImportant);
 			top: 0;
 			right: 0;
 			bottom: 0;
 			left: 0;
-			padding: rhythm(1) rhythm(1) rhythm(4) rhythm(1);
-			background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba($color-black, 0) 35%, rgba($color-black, 1) 100%);
-			text-shadow: $text-shadow;
+			padding: func.rhythm(1) func.rhythm(1) func.rhythm(4) func.rhythm(1);
+			background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(colors.$color-black, 0) 35%, rgba(colors.$color-black, 1) 100%);
+			text-shadow: config.$text-shadow;
 
-			@include bp-up(sm) {
-				padding: rhythm(2) rhythm(2) rhythm(4) rhythm(2);
+			@include breakpoint.bp-up(sm) {
+				padding: func.rhythm(2) func.rhythm(2) func.rhythm(4) func.rhythm(2);
 			}
 
-			@include bp-up(md) {
-				padding: rhythm(4);
+			@include breakpoint.bp-up(md) {
+				padding: func.rhythm(4);
 			}
 		}
 
-		@include e(paragraph) {
-			color: $color-snow;
+		@include bem.e(paragraph) {
+			color: colors.$color-snow;
 
-			@include bp-down(sm-xs) {
+			@include breakpoint.bp-down(sm-xs) {
 				font-size: 95%;
 			}
 		}
 
-		@include e(text) {
-			color: $color-snow;
+		@include bem.e(text) {
+			color: colors.$color-snow;
 		}
 
-		@include e(link) {
-			color: $color-snow;
+		@include bem.e(link) {
+			color: colors.$color-snow;
 		}
 
-		@include bp-down(sm-xs) {
-			@include e(buttons) {
+		@include breakpoint.bp-down(sm-xs) {
+			@include bem.e(buttons) {
 				position: absolute;
 				bottom: 0;
-				left: rhythm(3);
-				right: rhythm(3);
+				left: func.rhythm(3);
+				right: func.rhythm(3);
 				display: flex;
 				flex-wrap: nowrap;
 				justify-content: space-between;
 				align-items: stretch;
-				margin: 0 0 rhythm(2) 0;
+				margin: 0 0 func.rhythm(2) 0;
 
 				> div {
 					flex: 1;
 					display: flex;
 					align-items: stretch;
-					margin: 0 rhythm(1) 0 0;
+					margin: 0 func.rhythm(1) 0 0;
 
 					&:last-child {
 						margin-right: 0;
@@ -418,10 +429,10 @@
 				button[class*='a-button']{
 					flex: 1;
 					margin: 0;
-					padding-top: rhythm(1);
-					padding-bottom: rhythm(1);
-					padding-left: rhythm(1.5);
-					padding-right: rhythm(1.5);
+					padding-top: func.rhythm(1);
+					padding-bottom: func.rhythm(1);
+					padding-left: func.rhythm(1.5);
+					padding-right: func.rhythm(1.5);
 					white-space: nowrap;
 
 					> span {
@@ -433,27 +444,27 @@
 	}
 
 	// Hero without darkened caption
-	@include m(clean) {
-		@include e(caption) {
+	@include bem.m(clean) {
+		@include bem.e(caption) {
 			background: none;
 		}
 	}
 
 	// Hero with border-radius
-	@include m(border-radius) {
-		border-radius: $border-radius;
+	@include bem.m(border-radius) {
+		border-radius: var.$border-radius;
 
-		@include e(image) {
-			border-radius: $border-radius;
+		@include bem.e(image) {
+			border-radius: var.$border-radius;
 		}
 
-		@include bp-up(md) {
-			@include e(text) {
+		@include breakpoint.bp-up(md) {
+			@include bem.e(text) {
 				max-width: 100%;
 
 				.supersize {
-					@include plumber(
-						$font-size: 4.5,
+					@include plumber.plumber(
+						var.$font-size: 4.5,
 						$line-height: 5,
 						$leading-bottom: 1
 					);
@@ -461,19 +472,19 @@
 			}
 		}
 
-		@include bp-up(lg) {
-			@include e(text) {
+		@include breakpoint.bp-up(lg) {
+			@include bem.e(text) {
 				max-width: 90%;
 			}
 		}
 
-		@include bp-up(xxl) {
-			@include e(text) {
+		@include breakpoint.bp-up(xxl) {
+			@include bem.e(text) {
 				max-width: 80%;
 
 				.supersize {
-					@include plumber(
-						$font-size: 7,
+					@include plumber.plumber(
+						var.$font-size: 7,
 						$line-height: 8,
 						$leading-bottom: 2
 					);
@@ -481,7 +492,7 @@
 			}
 		}
 
-		@include bp-only(xs) {
+		@include breakpoint.bp-only(xs) {
 			.wrapper {
 				padding-left: 0;
 				padding-right: 0;
@@ -490,8 +501,8 @@
 	}
 
 	// Hero with video
-	@include m(video) {
-		margin-top: to_rem(20px);
+	@include bem.m(video) {
+		margin-top: func.to_rem(20px);
 		//padding-top: 56.25%;
 
 		iframe {
@@ -502,21 +513,21 @@
 			left: 0;
 		}
 
-		@include bp-up(lg) {
-			margin-top: rhythm(4);
+		@include breakpoint.bp-up(lg) {
+			margin-top: func.rhythm(4);
 		}
 	}
 
-	@include m(video-wide) {
+	@include bem.m(video-wide) {
 		width: 100%;
 
-		@include e(video) {
+		@include bem.e(video) {
 			width: 100%;
 			object-fit: cover;
 			object-position: 50% center;
 
-			@include bp-up(sm) {
-				min-height: to_rem(500px);
+			@include breakpoint.bp-up(sm) {
+				min-height: func.to_rem(500px);
 				max-height: 50vh;
 			}
 
@@ -524,7 +535,7 @@
 	}
 
 	// Event
-	@include m(event) {
+	@include bem.m(event) {
 		width: 100%;
 
 		[class*='share'] {
@@ -532,48 +543,48 @@
 				> svg {
 					&[class*='facebook'],
 					&[class*='linkedin'] {
-						border-radius: $border-radius;
-						background-color: $color-snow;
+						border-radius: var.$border-radius;
+						background-color: colors.$color-snow;
 					}
 				}
 			}
 		}
 
-		@include e(content) {
-			padding: rhythm(2) 0;
+		@include bem.e(content) {
+			padding: func.rhythm(2) 0;
 
-			@include bp-up(sm) {
-				padding: rhythm(4);
+			@include breakpoint.bp-up(sm) {
+				padding: func.rhythm(4);
 			}
 
-			@include e(icon) {
+			@include bem.e(icon) {
 				position: relative;
-				width: $icon-size-medium;
-				height: $icon-size-medium;
-				margin-left: rhythm(0.5);
-				transform: translateY(to_rem(1px));
+				width: var.$icon-size-medium;
+				height: var.$icon-size-medium;
+				margin-left: func.rhythm(0.5);
+				transform: translateY(func.to_rem(1px));
 				fill: currentColor;
 
-				@include m(external) {
-					width: $icon-size-smallest;
-					height: $icon-size-smallest;
+				@include bem.m(external) {
+					width: var.$icon-size-smallest;
+					height: var.$icon-size-smallest;
 				}
 			}
 		}
 
-		@include e(text) {
+		@include bem.e(text) {
 			margin-bottom: 0;
-			color: $color-cyberspace;
+			color: colors.$color-cyberspace;
 		}
 
-		@include e(spacer) {
+		@include bem.e(spacer) {
 			display: inline-flex;
-			margin-right: rhythm(1);
+			margin-right: func.rhythm(1);
 		}
 	}
 
 	// Geometric
-	@include m(geometric) {
+	@include bem.m(geometric) {
 		position: relative;
 		overflow: hidden;
 
@@ -583,19 +594,19 @@
 			z-index: z_index(background);
 			top: 25%;
 			left: -25%;
-			width: to_rem(250px);
-			height: to_rem(250px);
-			transform: translate(calc(-150% - #{to_rem(20px)}), -50%) rotate(-20deg);
+			width: func.to_rem(250px);
+			height: func.to_rem(250px);
+			transform: translate(calc(-150% - #{func.to_rem(20px)}), -50%) rotate(-20deg);
 			transform-origin: center left;
 			animation: spin 240s linear infinite;
 			animation-direction: alternate;
-			background-color: $color-lemon;
+			background-color: colors.$color-lemon;
 
-			@include bp-up(sm) {
+			@include breakpoint.bp-up(sm) {
 				left: -15%;
 			}
 
-			@include bp-up(xl) {
+			@include breakpoint.bp-up(xl) {
 				left: 0;
 				animation-duration: 120s;
 			}
@@ -606,31 +617,31 @@
 			position: absolute;
 			top: 75%;
 			right: -25%;
-			width: to_rem(250px);
-			height: to_rem(80px);
-			transform: translate(calc(120% + #{to_rem(20px)}), 50%) rotate(20deg);
+			width: func.to_rem(250px);
+			height: func.to_rem(80px);
+			transform: translate(calc(120% + #{func.to_rem(20px)}), 50%) rotate(20deg);
 			transform-origin: center center;
 			animation: spin 240s linear infinite;
 			animation-direction: alternate-reverse;
-			background-color: $color-lemon;
+			background-color: colors.$color-lemon;
 
-			@include bp-up(sm) {
+			@include breakpoint.bp-up(sm) {
 				right: -15%;
 			}
 
-			@include bp-up(xl) {
+			@include breakpoint.bp-up(xl) {
 				right: 0;
 				animation-duration: 120s;
 			}
 		}
 
-		@include bp-up(xl) {
+		@include breakpoint.bp-up(xl) {
 			h1 {
 				max-width: 60%;
 			}
 		}
 
-		@include e(content) {
+		@include bem.e(content) {
 			position: relative;
 			z-index: z_index(middleground);
 		}

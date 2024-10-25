@@ -1,6 +1,7 @@
 @charset "UTF-8";
 @use '../../configurations/bem' as bem;
 @use '../../configurations/colors/colors' as colors;
+@use '../../configurations/functions' as func;
 
 @include bem.b(skip) {
 	position: relative;
@@ -29,8 +30,8 @@
 		&:focus {
 			width: 100%;
 			height: auto;
-			padding-top: rhythm(1);
-			padding-bottom: rhythm(1.5);
+			padding-top: func.rhythm(1);
+			padding-bottom: func.rhythm(1.5);
 			background-color: colors.$color-cyberspace;
 			color: colors.$color-snow;
 			text-align: center;

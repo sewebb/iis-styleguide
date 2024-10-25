@@ -1,8 +1,10 @@
 @charset "UTF-8";
 @use '../../configurations/mixins' as mixin;
+@use '../../configurations/extends';
 @use '../../configurations/bem' as bem;
 @use '../../configurations/config' as config;
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
 @use '../../configurations/colors/colors-functions' as colorFunc;
 @use '../../vendor/grid/breakpoints' as breakpoint;
@@ -25,9 +27,9 @@
 
 		position: absolute;
 		top: 100%;
-		left: rhythm(1);
+		left: func.rhythm(1);
 		width: auto;
-		min-width: calc(100% - #{rhythm(1)});
+		min-width: calc(100% - #{func.rhythm(1)});
 		border: 1px solid colors.$color-concrete;
 		background-color: colors.$color-snow;
 		white-space: nowrap;
@@ -47,7 +49,7 @@
 
 		a {
 			display: block;
-			padding: rhythm(1) rhythm(2);
+			padding: func.rhythm(1) func.rhythm(2);
 			color: colors.$color-cyberspace;
 			text-decoration: none;
 

@@ -1,83 +1,92 @@
 @charset "UTF-8";
 @use "sass:color";
-
 @use "sass:math";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/grid/grid' as grid;
+@use '../../vendor/baseline/plumber' as plumber;
 
-@include organism(podcast-player) {
+@include mixin.organism(podcast-player) {
 
 	// Player
 
-	$time-left-width: to_rem(65px);
+	$time-left-width: func.to_rem(65px);
 
 	position: fixed;
 	z-index: z_index(middlegroundImportant);
 	right: 0;
 	bottom: 0;
 	left: 0;
-	padding: rhythm(1) 0 0 0;
+	padding: func.rhythm(1) 0 0 0;
 	transform: translateY(0);
 	transition: transform 0.25s ease-out;
-	background-color: $color-snow;
-	box-shadow: 0 -#{rhythm(1)} rhythm(3) color.adjust($color-cyberspace, $lightness: 70%);
+	background-color: colors.$color-snow;
+	box-shadow: 0 -#{func.rhythm(1)} func.rhythm(3) color.adjust(colors.$color-cyberspace, $lightness: 70%);
 
-	@include m(hidden) {
+	@include bem.m(hidden) {
 		transform: translateY(100%);
 		box-shadow: none;
 	}
 
-	@include e(player) {
+	@include bem.e(player) {
 		display: flex;
 		flex-grow: 1;
 		align-items: center;
 
-		@include e(show-info) {
+		@include bem.e(show-info) {
 			display: none;
 
-			@include bp-up(sm) {
+			@include breakpoint.bp-up(sm) {
 				display: block;
 			}
 		}
 
-		@include e(image) {
+		@include bem.e(image) {
 			display: none;
 
-			@include bp-up(md) {
+			@include breakpoint.bp-up(md) {
 				display: flex;
 				flex-grow: 0;
-				width: rhythm(7);
-				height: rhythm(7);
-				margin-right: rhythm(2);
-				border-radius: $border-radius;
+				width: func.rhythm(7);
+				height: func.rhythm(7);
+				margin-right: func.rhythm(2);
+				border-radius: var.$border-radius;
 			}
 		}
 	}
 
-	@include e(show-info) {
+	@include bem.e(show-info) {
 		display: flex;
 		flex-direction: column;
 	}
 
-	@include e(title) {
+	@include bem.e(title) {
 		margin-bottom: 0;
-		color: $color-ruby;
-		font-family: $font-family-headings;
+		color: colors.$color-ruby;
+		font-family: var.$font-family-headings;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
-		max-width: to_rem(200px);
+		max-width: func.to_rem(200px);
 
-		@include bp-up(sm) {
-			max-width: to_rem(250px);
+		@include breakpoint.bp-up(sm) {
+			max-width: func.to_rem(250px);
 		}
 
-		@include bp-up(lg) {
-			max-width: to_rem(500px);
+		@include breakpoint.bp-up(lg) {
+			max-width: func.to_rem(500px);
 		}
 	}
 
-	@include e(description) {
+	@include bem.e(description) {
 		display: block;
-		max-width: to_rem(200px);
+		max-width: func.to_rem(200px);
 		overflow: hidden;
 		text-overflow: ellipsis;
 		white-space: nowrap;
@@ -86,95 +95,95 @@
 			display: none;
 		}
 
-		@include bp-up(sm) {
-			max-width: to_rem(250px);
+		@include breakpoint.bp-up(sm) {
+			max-width: func.to_rem(250px);
 		}
 
-		@include bp-up(lg) {
-			max-width: to_rem(500px);
+		@include breakpoint.bp-up(lg) {
+			max-width: func.to_rem(500px);
 		}
 	}
 
-	@include e(playtime) {
-		@include bp-between(sm, md) {
+	@include bem.e(playtime) {
+		@include breakpoint.bp-between(sm, md) {
 			display: none;
 		}
 	}
 
-	@include e(spacer) {
-		@include bp-between(sm, md) {
+	@include bem.e(spacer) {
+		@include breakpoint.bp-between(sm, md) {
 			display: none;
 		}
 	}
 
-	@include e(controls) {
+	@include bem.e(controls) {
 		display: flex;
 		flex-grow: 1;
 		align-items: center;
 		justify-content: center;
 	}
 
-	@include e(spacer) {
-		margin-right: rhythm(0.5);
-		margin-left: rhythm(0.5);
+	@include bem.e(spacer) {
+		margin-right: func.rhythm(0.5);
+		margin-left: func.rhythm(0.5);
 	}
 
-	@include e(button) {
+	@include bem.e(button) {
 		display: flex;
 		align-items: center;
-		margin: 0 rhythm(1);
+		margin: 0 func.rhythm(1);
 		padding: 0;
 		border: 0;
 		background-color: transparent;
 
 		&:hover {
 			> svg {
-				fill: $color-ruby;
+				fill: colors.$color-ruby;
 			}
 		}
 	}
 
-	@include e(timeleft) {
+	@include bem.e(timeleft) {
 		min-width: $time-left-width;
 	}
 
-	@include e(rewind-icon) {
-		width: $icon-size-large * 1.2;
-		height: $icon-size-large * 1.2;
+	@include bem.e(rewind-icon) {
+		width: var.$icon-size-large * 1.2;
+		height: var.$icon-size-large * 1.2;
 	}
 
-	@include e(forward-icon) {
-		width: $icon-size-large * 1.2;
-		height: $icon-size-large * 1.2;
+	@include bem.e(forward-icon) {
+		width: var.$icon-size-large * 1.2;
+		height: var.$icon-size-large * 1.2;
 	}
 
-	@include e(play-icon) {
+	@include bem.e(play-icon) {
 		display: block;
-		width: $icon-size-large * 1.5;
-		height: $icon-size-large * 1.5;
+		width: var.$icon-size-large * 1.5;
+		height: var.$icon-size-large * 1.5;
 	}
 
-	@include e(progressbar) {
+	@include bem.e(progressbar) {
 		flex-wrap: wrap;
 		width: 100%;
-		height: rhythm(0.5);
-		margin-top: rhythm(1);
-		background-color: $color-concrete;
+		height: func.rhythm(0.5);
+		margin-top: func.rhythm(1);
+		background-color: colors.$color-concrete;
 
-		@include e(progress) {
+		@include bem.e(progress) {
 			width: 0;
-			height: rhythm(1);
+			height: func.rhythm(1);
 		}
 	}
 
-	@include e(close) {
+	@include bem.e(close) {
 		position: absolute;
-		right: rhythm(0.5);
+		right: func.rhythm(0.5);
 		top: 50%;
 		transform: translateY(-50%);
 
-		@include bp-up(xxl) {
-			right: rhythm(2);
+		@include breakpoint.bp-up(xxl) {
+			right: func.rhythm(2);
 		}
 	}
 }

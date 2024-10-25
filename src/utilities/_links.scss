@@ -1,6 +1,6 @@
 @charset "UTF-8";
 @use '../configurations/variables' as var;
-@use '../configurations/colors/colors' as colors;
+@use '../configurations/functions' as func;@use '../configurations/colors/colors' as colors;
 @use '../configurations/bem' as bem;
 @use '../configurations/colors/colors-functions' as colorFunc;
 
@@ -26,14 +26,14 @@
 
 /* Force body text link link-styles */
 .u-link {
-	padding: rhythm(0) rhythm(0.5) !important;
-	border-bottom: to_rem(2px) solid colors.$color-peacock !important;
+	padding: func.rhythm(0) func.rhythm(0.5) !important;
+	border-bottom: func.to_rem(2px) solid colors.$color-peacock !important;
 	color: var(--cyberspace-color) !important;
 	text-decoration: none !important;
 
 	&:hover,
 	&:focus {
-		border-bottom: to_rem(2px) solid colors.$color-ocean-light !important;
+		border-bottom: func.to_rem(2px) solid colors.$color-ocean-light !important;
 		border-radius: var.$border-radius !important;
 		background-color: colors.$color-ocean-light !important;
 	}

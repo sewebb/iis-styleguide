@@ -2,11 +2,13 @@
 @use "sass:color";
 @use '../bem' as bem;
 @use '../variables' as var;
+@use '../functions' as func;
+@use '../extends';
 @use '../colors/colors' as colors;
 
 @include bem.b(field-group) {
 	position: relative;
-	margin-bottom: rhythm(4);
+	margin-bottom: func.rhythm(4);
 
 	&:last-child {
 		margin-bottom: 0;
@@ -16,7 +18,7 @@
 	textarea,
 	select {
 		+ .button {
-			margin-top: rhythm(1);
+			margin-top: func.rhythm(1);
 		}
 	}
 
@@ -44,12 +46,12 @@
 
 @include bem.b(input-help) {
 	width: 100%;
-	padding: rhythm(0.5) rhythm(1);
-	transform: translateY(to_rem(-3px));
+	padding: func.rhythm(0.5) func.rhythm(1);
+	transform: translateY(func.to_rem(-3px));
 	border-bottom-right-radius: var.$border-radius;
 	border-bottom-left-radius: var.$border-radius;
 	background-color: colors.$color-concrete;
-	font-size: to_rem(16px);
+	font-size: func.to_rem(16px);
 
 	&:empty {
 		display: none;

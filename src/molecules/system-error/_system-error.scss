@@ -3,6 +3,7 @@
 @use '../../configurations/bem' as bem;
 @use '../../configurations/config' as config;
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
 @use '../../configurations/colors/colors-functions' as colorFunc;
 @use '../../vendor/grid/breakpoints' as breakpoint;
@@ -12,7 +13,7 @@
 	display: flex;
 	flex-direction: column;
 	align-items: center;
-	margin: rhythm(8) 0;
+	margin: func.rhythm(8) 0;
 
 	@include breakpoint.bp-up(md) {
 		justify-content: center;
@@ -28,7 +29,7 @@
 	@include bem.e(heading) {
 
 		@include plumber.plumber(
-			$font-size: 10,
+			var.$font-size: 10,
 			$line-height: 11,
 			$leading-bottom: 2
 		);
@@ -40,7 +41,7 @@
 		@include breakpoint.bp-up(md) {
 
 			@include plumber.plumber(
-				$font-size: 15,
+				var.$font-size: 15,
 				$line-height: 16,
 				$leading-bottom: 4
 			);

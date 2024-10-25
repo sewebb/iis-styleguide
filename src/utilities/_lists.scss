@@ -1,7 +1,7 @@
 @charset "UTF-8";
 
 @use '../configurations/variables' as var;
-@use '../configurations/colors/colors' as colors;
+@use '../configurations/functions' as func;@use '../configurations/colors/colors' as colors;
 @use '../configurations/mixins' as mixin;
 @use '../configurations/bem' as bem;
 
@@ -16,8 +16,8 @@
 
 	> li ul,
 	> li ol {
-		margin-top: rhythm(1);
-		margin-left: rhythm(2);
+		margin-top: func.rhythm(1);
+		margin-left: func.rhythm(2);
 	}
 }
 
@@ -28,7 +28,7 @@
 	li {
 		display: flex;
 		align-items: center;
-		padding: rhythm(1);
+		padding: func.rhythm(1);
 
 		&:nth-child(odd) {
 			background-color: colors.$color-ash;
@@ -48,7 +48,7 @@
 	flex-shrink: 0;
 	width: var.$icon-size;
 	height: var.$icon-size;
-	margin-right: rhythm(2);
+	margin-right: func.rhythm(2);
 
 	@include bem.m(green) {
 		fill: colors.$color-jade;

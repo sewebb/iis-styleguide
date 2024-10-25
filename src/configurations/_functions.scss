@@ -6,6 +6,8 @@
 $size-base: 18px;
 // Base unit
 $base-unit: math.div($size-base, 2);
+// Grid columns
+$grid-columns: 18;
 
 @function rhythm($lines) {
 	@return to_rem($lines * $base-unit);

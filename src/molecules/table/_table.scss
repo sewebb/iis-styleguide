@@ -3,6 +3,7 @@
 @use '../../configurations/bem' as bem;
 @use '../../configurations/config' as config;
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
 @use '../../configurations/colors/colors-functions' as colorFunc;
 @use '../../vendor/grid/breakpoints' as breakpoint;
@@ -15,8 +16,8 @@
 
 	caption {
 		font-family: var.$font-family-headings;
-		padding-top: rhythm(1);
-		padding-bottom: rhythm(1);
+		padding-top: func.rhythm(1);
+		padding-bottom: func.rhythm(1);
 	}
 
 	thead,
@@ -61,10 +62,10 @@
 
 	th,
 	td {
-		padding-top: rhythm(1);
-		padding-right: rhythm(2);
-		padding-bottom: rhythm(1);
-		padding-left: rhythm(2);
+		padding-top: func.rhythm(1);
+		padding-right: func.rhythm(2);
+		padding-bottom: func.rhythm(1);
+		padding-left: func.rhythm(2);
 		border-bottom: 2px solid colors.$color-granit;
 		color: var(--cyberspace-color);
 		font-size: 90%;
@@ -199,8 +200,8 @@
 		}
 
 		th {
-			width: rhythm(4);
-			padding-right: rhythm(3);
+			width: func.rhythm(4);
+			padding-right: func.rhythm(3);
 
 			&::before {
 				content: counter(table-counter);
@@ -227,8 +228,8 @@
 
 			td,
 			th {
-				padding-top: rhythm(2);
-				padding-bottom: rhythm(2);
+				padding-top: func.rhythm(2);
+				padding-bottom: func.rhythm(2);
 				border: 0;
 			}
 		}
@@ -250,15 +251,15 @@
 	display: block;
 	position: relative;
 	width: 100%;
-	height: rhythm(3);
+	height: func.rhythm(3);
 
 	&::before {
 		content: 'Scroll';
 		position: absolute;
 		z-index: z_index(background);
 		top: 0;
-		right: rhythm(3);
-		width: rhythm(7);
+		right: func.rhythm(3);
+		width: func.rhythm(7);
 		height: 0;
 		animation: xPulse 2s infinite;
 		font-family: var.$font-family-mono;
@@ -270,7 +271,7 @@
 		content: '›';
 		position: absolute;
 		z-index: z_index(background);
-		top: -#{to_rem(4px)};
+		top: -#{func.to_rem(4px)};
 		right: 0;
 		animation: xPulse 2s infinite;
 		font-family: var.$font-family-mono;

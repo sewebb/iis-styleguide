@@ -1,5 +1,6 @@
 @charset "UTF-8";
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use '../../configurations/mixins' as mixin;
 @use '../../configurations/bem' as bem;
 @use '../../configurations/functions' as f;
@@ -19,7 +20,7 @@
 	white-space: nowrap;
 
 	@include plumber.plumber(
-		$font-size: 1.7,
+		var.$font-size: 1.7,
 		$baseline: var.$mono-baseline,
 		$leading-bottom: 0
 	);
@@ -27,7 +28,7 @@
 	@include colorFunc.color_values(colorFunc.$colors, 'fill', $prefix: '--', $separator: '-');
 
 	span {
-		margin-left: f.to_rem(3px);
+		margin-left: func.to_rem(3px);
 	}
 
 	@include bem.b(icon) {
@@ -36,7 +37,7 @@
 		align-items: center;
 		width: var.$icon-size;
 		height: var.$icon-size;
-		margin-right: rhythm(1);
+		margin-right: func.rhythm(1);
 		fill: inherit;
 		color: var(--color-cyberspace);
 		fill: currentColor;
@@ -60,14 +61,14 @@
 
 	@include bem.m(responsive) {
 		@include plumber.plumber(
-			$font-size: 1.4,
+			var.$font-size: 1.4,
 			$baseline: var.$mono-baseline,
 			$leading-bottom: 0
 		);
 
 		@include breakpoint.bp-up(md) {
 			@include plumber.plumber(
-				$font-size: 1.6,
+				var.$font-size: 1.6,
 				$baseline: var.$mono-baseline,
 				$leading-bottom: 0
 			);
@@ -75,7 +76,7 @@
 
 		@include breakpoint.bp-up(lg) {
 			@include plumber.plumber(
-				$font-size: 1.7,
+				var.$font-size: 1.7,
 				$baseline:var.$mono-baseline,
 				$leading-bottom: 0
 			);

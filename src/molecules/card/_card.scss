@@ -5,6 +5,7 @@
 @use '../../configurations/bem' as bem;
 @use '../../configurations/config' as config;
 @use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
 @use '../../configurations/colors/colors-functions' as colorFunc;
 @use '../../vendor/grid/breakpoints' as breakpoint;
@@ -41,7 +42,7 @@
 		}
 
 		@include breakpoint.bp-up(lg) {
-			min-height: rhythm(44);
+			min-height: func.rhythm(44);
 			padding-top: 0;
 
 			> iframe {
@@ -85,7 +86,7 @@
 			position: relative;
 			width: var.$icon-size-medium;
 			height: var.$icon-size-medium;
-			transform: translateY(to_rem(1px));
+			transform: translateY(func.to_rem(1px));
 			fill: currentColor;
 		}
 	}
@@ -95,18 +96,18 @@
 		flex-wrap: nowrap;
 		align-items: flex-start;
 		justify-content: space-between;
-		margin-bottom: rhythm(1);
+		margin-bottom: func.rhythm(1);
 	}
 
 	@include bem.e(content) {
 
 		&:first-child {
-			padding: rhythm(3) 0;
+			padding: func.rhythm(3) 0;
 		}
 
 		&:not(:first-child) {
-			margin-top: rhythm(2);
-			padding-bottom: rhythm(3);
+			margin-top: func.rhythm(2);
+			padding-bottom: func.rhythm(3);
 		}
 
 		> :last-child {
@@ -115,7 +116,7 @@
 	}
 
 	@include bem.e(text) {
-		margin-top: rhythm(1);
+		margin-top: func.rhythm(1);
 	}
 
 	@include bem.m(shadow) {
@@ -134,16 +135,16 @@
 		}
 
 		@include bem.e(content) {
-			padding-right: rhythm(2);
-			padding-left: rhythm(2);
+			padding-right: func.rhythm(2);
+			padding-left: func.rhythm(2);
 
 			p {
-				margin-top: rhythm(1);
+				margin-top: func.rhythm(1);
 			}
 
 			@include breakpoint.bp-up(md) {
-				padding-right: rhythm(4);
-				padding-left: rhythm(4);
+				padding-right: func.rhythm(4);
+				padding-left: func.rhythm(4);
 			}
 		}
 
@@ -165,11 +166,11 @@
 	}
 
 	@include bem.m(bordered) {
-		border-top: to_rem(4px) solid colors.$color-ocean;
+		border-top: func.to_rem(4px) solid colors.$color-ocean;
 	}
 
 	@include bem.e(bottom) {
-		margin-top: rhythm(2);
+		margin-top: func.rhythm(2);
 	}
 
 	@include bem.m(wide) {
@@ -181,7 +182,7 @@
 
 			h1,
 			h2 {
-				font-size: to_rem(32px);
+				font-size: func.to_rem(32px);
 				line-height: 1.2;
 			}
 
@@ -189,7 +190,7 @@
 				display: flex;
 				flex-basis: 50%;
 				flex-direction: column;
-				padding-top: rhythm(2);
+				padding-top: func.rhythm(2);
 			}
 
 			@include bem.e(image) {
@@ -281,7 +282,7 @@
 			flex-direction: column;
 			align-content: stretch;
 			justify-content: flex-end;
-			padding: rhythm(4);
+			padding: func.rhythm(4);
 			color: var(--snow-color);
 			text-shadow: config.$text-shadow;
 		}
@@ -311,11 +312,11 @@
 	}
 
 	@include bem.m(mini) {
-		padding: rhythm(1) rhythm(2);
+		padding: func.rhythm(1) func.rhythm(2);
 		background-color: colors.$color-snow;
 
 		@include breakpoint.bp-up(md) {
-			padding: rhythm(2) rhythm(3);
+			padding: func.rhythm(2) func.rhythm(3);
 		}
 	}
 }

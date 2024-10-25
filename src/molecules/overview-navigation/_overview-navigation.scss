@@ -1,48 +1,57 @@
 @charset "UTF-8";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/grid/grid' as grid;
 
-@include molecule(overview-navigation) {
+@include mixin.molecule(overview-navigation) {
 	overflow: visible;
 	min-width: 300px;
 	max-width: 453px;
 	display: flex;
 	flex-direction: column;
-	border-radius: $border-radius;
+	border-radius: var.$border-radius;
 	transition: left 0.25s ease-out, top 0.5s ease-out;
-	box-shadow: 0 0 0 1px $color-ash;
+	box-shadow: 0 0 0 1px colors.$color-ash;
 
-	@include e(list) {
+	@include bem.e(list) {
 		overflow: hidden;
-		border-radius: $border-radius;
-		background-color: $color-snow;
+		border-radius: var.$border-radius;
+		background-color: colors.$color-snow;
 		margin: 0;
 		padding: 0;
 		width: 100%;
-		max-height: calc(100dvh - to_rem(130px));
+		max-height: calc(100dvh - func.to_rem(130px));
 		overflow-y: auto;
 	}
 
-	@include e(title) {
-		margin-bottom: rhythm(2);
+	@include bem.e(title) {
+		margin-bottom: func.rhythm(2);
 	}
 
-	@include e(item) {
+	@include bem.e(item) {
 		display: flex;
 		align-items: center;
-		margin-top: rhythm(1);
-		margin-bottom: rhythm(1);
+		margin-top: func.rhythm(1);
+		margin-bottom: func.rhythm(1);
 		margin-left: 0;
 
 		&:last-child {
-			margin-bottom: rhythm(3);
+			margin-bottom: func.rhythm(3);
 		}
 	}
 
-	@include e(item__link) {
-		padding: 0 rhythm(2);
+	@include bem.e(item__link) {
+		padding: 0 func.rhythm(2);
 		border: none;
 		border-radius: 0;
 		background-color: initial;
-		color: $color-cyberspace;
+		color: colors.$color-cyberspace;
 		display: flex;
 		align-items: center;
 		text-decoration: none;
@@ -56,14 +65,14 @@
 		}
 
 		> svg {
-			height: $icon-size-small;
-			width: $icon-size-small;
-			margin-right: rhythm(1);
+			height: var.$icon-size-small;
+			width: var.$icon-size-small;
+			margin-right: func.rhythm(1);
 			flex-shrink: 0;
 		}
 	}
 
-	@include e(button) {
+	@include bem.e(button) {
 		position: fixed;
 		bottom: auto;
 		right: auto;
@@ -72,15 +81,15 @@
 		pointer-events: none;
 		padding: 0;
 		border: 0;
-		width: to_rem(60px);
-		height: to_rem(60px);
+		width: func.to_rem(60px);
+		height: func.to_rem(60px);
 		flex-shrink: 0;
 		flex-grow: 0;
 		align-items: center;
 		justify-content: center;
 		border-radius: 50%;
-		background-color: $color-snow;
-		box-shadow: inset 0 0 0 4px currentColor, 0 0 0 1px $color-snow, 0 0 6px rgba($color-cyberspace, 30%);
+		background-color: colors.$color-snow;
+		box-shadow: inset 0 0 0 4px currentColor, 0 0 0 1px colors.$color-snow, 0 0 6px rgba(colors.$color-cyberspace, 30%);
 
 		&:hover,
 		&:focus {
@@ -89,8 +98,8 @@
 
 
 		> svg {
-			width: $icon-size-large;
-			height: $icon-size-large;
+			width: var.$icon-size-large;
+			height: var.$icon-size-large;
 			flex-shrink: 0;
 			opacity: 1;
 
@@ -102,28 +111,28 @@
 		&::after {
 			content: attr(data-title);
 			position: absolute;
-			bottom: -#{rhythm(3)};
+			bottom: -#{func.rhythm(3)};
 			text-transform: uppercase;
 			text-align: center;
-			font-size: $size-small;
-			font-family: $font-family-mono;
-			text-shadow: 0 1px 0 $color-snow;
-			color: $color-cyberspace;
-			background-color: $color-snow;
-			border-radius: $border-radius;
-			padding-left: rhythm(0.5);
-			padding-right: rhythm(0.5);
+			font-size: var.$size-small;
+			font-family: var.$font-family-mono;
+			text-shadow: 0 1px 0 colors.$color-snow;
+			color: colors.$color-cyberspace;
+			background-color: colors.$color-snow;
+			border-radius: var.$border-radius;
+			padding-left: func.rhythm(0.5);
+			padding-right: func.rhythm(0.5);
 		}
 
 		&.is-fixed {
-			//top: calc(100vh - rhythm(11)) !important;
+			//top: calc(100vh - func.rhythm(11)) !important;
 			//top: auto !important;
-			bottom: calc(env(safe-area-inset-bottom) + rhythm(5)) !important;
+			bottom: calc(env(safe-area-inset-bottom) + func.rhythm(5)) !important;
 			//left: auto !important;
-			right: rhythm(2) !important;
+			right: func.rhythm(2) !important;
 			pointer-events: auto;
 
-			@include bp-up(xxl) {
+			@include breakpoint.bp-up(xxl) {
 				//left: auto !important;
 				right: calc(50vw - 680px)  !important;
 			}
@@ -160,14 +169,14 @@
 
 	&.is-minimized {
 		position: fixed;
-		right: rhythm(2);
-		bottom: rhythm(13);
+		right: func.rhythm(2);
+		bottom: func.rhythm(13);
 		z-index: z_index(foregroundMinus);
 		margin-top: 0;
 		margin-bottom: 0;
-		margin-left: rhythm(2);
+		margin-left: func.rhythm(2);
 
-		@include bp-up(xxl) {
+		@include breakpoint.bp-up(xxl) {
 			right: calc(50vw - 680px)  !important;
 		}
 	}
