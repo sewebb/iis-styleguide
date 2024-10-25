@@ -4,12 +4,13 @@
 @use '../configurations/colors/colors' as colors;
 @use '../configurations/variables' as var;
 @use '../configurations/functions' as func;
+@use '../theme/theme' as theme;
 
 html {
 	box-sizing: border-box;
 	height: 100%;
 	min-height: 100%;
-	background-color: theme_palette('background');
+	background-color: theme.theme_palette('background');
 	color: var(--cyberspace-color);
 	font-family: sans-serif;
 	font-size: math.percentage(math.div(var.$size-base, 16px));
