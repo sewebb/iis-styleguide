@@ -11,7 +11,6 @@ import './organisms/mega-menu/mega-menu';
 import './molecules/share/share';
 import './molecules/natural-language-form/natural-language-form';
 import './atoms/tooltip/tooltip';
-import './atoms/toggle-high-contrast/toggle-high-contrast';
 import './atoms/height-limiter/height-limiter';
 import './atoms/file/file';
 import './atoms/file/filePreview';
