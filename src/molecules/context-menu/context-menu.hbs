@@ -1,6 +1,6 @@
 <nav class="m-context-menu js-context-menu">
-	<button type="button" class="a-button a-button--icon a-button--transparent a-button--icon js-context-menu-btn" aria-expanded="false" data-toggle-icon-target="contextMenuIcon" data-toggle-icon="download|close" data-a11y-toggle="{{controls}}" aria-controls="{{controls}}" {{#if outsideClick}}data-close-on-outside-click="true"{{/if}}>
-		<span class="a-button__text">Exportera</span>
+	<button type="button" class="a-button a-button--icon a-button--transparent a-button--icon js-context-menu-btn" aria-expanded="false" data-toggle-target="contextMenuText" data-toggle-text="Exportera|Stäng" data-toggle-icon-target="contextMenuIcon" data-toggle-icon="download|close" data-a11y-toggle="{{controls}}" aria-controls="{{controls}}" {{#if outsideClick}}data-close-on-outside-click="true"{{/if}}>
+		<span class="a-button__text" id="contextMenuText">Exportera</span>
 		<svg class="icon a-button__icon m-context-me__icon" id="contextMenuIcon">
 			<use xlink:href="#icon-download"></use>
 		</svg>
@@ -10,5 +10,6 @@
 		<li class="m-context-menu__item"><a href="#">JSON</a></li>
 		<li class="m-context-menu__item"><a href="#">PNG</a></li>
 		<li class="m-context-menu__item"><a href="#">Excel</a></li>
+		<li class="m-context-menu__item"><a href="#">Lorem ipsum dolor</a></li>
 	</ul>
 </nav>
