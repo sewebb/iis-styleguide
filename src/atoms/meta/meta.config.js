@@ -27,7 +27,7 @@ module.exports = {
 			context: {
 				text: 'artikel',
 				icon: 'article',
-				color: 'ruby',
+				color: '#ff4069',
 			}
 		},
 		{

@@ -38,9 +38,11 @@
 		width: var.$icon-size;
 		height: var.$icon-size;
 		margin-right: func.rhythm(1);
-		fill: inherit;
 		color: var(--color-cyberspace);
-		fill: currentColor;
+
+		svg {
+			fill: inherit;
+		}
 	}
 
 	@include bem.m(light) {
