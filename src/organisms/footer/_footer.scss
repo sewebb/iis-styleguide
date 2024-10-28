@@ -20,13 +20,13 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 
 @include mixin.organism(footer) {
 	position: relative;
-	z-index: z_index(middleground);
+	z-index: func.z_index(middleground);
 	transform: translateY(0);
 	border-top: 1px solid colors.$color-ash;
 	font-size: $footer-font-size;
 
 	&.is-animated {
-		z-index: z_index(foreground);
+		z-index: func.z_index(foreground);
 	}
 
 	@include bem.e(logotype) {

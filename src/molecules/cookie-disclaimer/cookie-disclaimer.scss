@@ -12,7 +12,7 @@
 @include mixin.molecule(cookie-disclaimer) {
 	display: none;
 	position: relative;
-	z-index: z_index(foreground);
+	z-index: func.z_index(foreground);
 
 	&.is-visible {
 		display: block;

@@ -21,7 +21,7 @@
 		position: absolute;
 		top: func.rhythm(2);
 		left: func.rhythm(2);
-		z-index: z_index(background);
+		z-index: func.z_index(background);
 		padding-right: func.rhythm(2);
 		max-width: 95%;
 

@@ -12,7 +12,7 @@
 
 @include mixin.organism(header) {
 	position: relative;
-	z-index: z_index(foregroundMinus);
+	z-index: func.z_index(foregroundMinus);
 	border-bottom: 1px solid colors.$color-ash;
 	background-color: var(--snow-color);
 

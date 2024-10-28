@@ -20,7 +20,7 @@ html {
 	top: -1px;
 	left: 0;
 	right: 0;
-	z-index: z_index(middlegroundImportant);
+	z-index: func.z_index(middlegroundImportant);
 	background: colors.$color-ash;
 
 	@include mixin.card-shadow(colors.$color-cyberspace, 0.2);
@@ -134,7 +134,7 @@ html {
 		&.animate {
 			transform: translateY(0);
 			opacity: 1;
-			z-index: z_index(middleGround);
+			z-index: func.z_index(middleGround);
 
 
 		}
@@ -191,7 +191,7 @@ html {
 			margin-left: calc(50% - 50vw);
 			margin-right: calc(50% - 50vw);
 			transform: translateY(0) !important;
-			z-index: z_index(middlegroundImportant);
+			z-index: func.z_index(middlegroundImportant);
 			padding-top: func.rhythm(6);
 			padding-bottom: func.rhythm(4);
 

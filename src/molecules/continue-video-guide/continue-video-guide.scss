@@ -13,7 +13,7 @@
 	position: fixed;
 	bottom: 0;
 	right: 0;
-	z-index: z_index(middlegroundImportant);
+	z-index: func.z_index(middlegroundImportant);
 	width: 100px;
 	height: calc(100px + 23px + func.rhythm(1));
 	transform: scale(0.7);

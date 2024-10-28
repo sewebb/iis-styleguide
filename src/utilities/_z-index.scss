@@ -1,21 +1,22 @@
 @charset "UTF-8";
+@use '../configurations/functions' as func;
 
 .u-z-index-background {
-	z-index: z_index(background) !important;
+	z-index: func.z_index(background) !important;
 }
 
 .u-z-index-foreground {
-	z-index: z_index(foreground) !important;
+	z-index: func.z_index(foreground) !important;
 }
 
 .u-z-index-foreground-minus {
-	z-index: z_index(foregroundMinus) !important;
+	z-index: func.z_index(foregroundMinus) !important;
 }
 
 .u-z-index-middleground {
-	z-index: z_index(middleground) !important;
+	z-index: func.z_index(middleground) !important;
 }
 
 .u-z-index-middleground-important {
-	z-index: z_index(middlegroundImportant) !important;
+	z-index: func.z_index(middlegroundImportant) !important;
 }

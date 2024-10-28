@@ -44,7 +44,7 @@
 
 	> svg {
 		position: relative;
-		z-index: z_index(middleground);
+		z-index: func.z_index(middleground);
 		width: var.$icon-size;
 		height: var.$icon-size;
 		transform: translateY(-#{func.rhythm(3.7)}) translateX(-#{func.rhythm(1)});

@@ -50,7 +50,7 @@ $alert-text: colors.$color-cyberspace;
 		// Adjust close button position
 		button:not(.a-button--is-static) {
 			position: absolute;
-			z-index: z_index(background);
+			z-index: func.z_index(background);
 			top: func.rhythm(1);
 			right: func.rhythm(1);
 		}

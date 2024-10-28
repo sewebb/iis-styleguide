@@ -104,7 +104,7 @@
 	position: absolute;
 	top: 50%;
 	left: 0;
-	z-index: z_index(middleground);
+	z-index: func.z_index(middleground);
 	transform: translateY(-50%);
 	transition: background-color 0.25s ease-out;
 	user-select: none;

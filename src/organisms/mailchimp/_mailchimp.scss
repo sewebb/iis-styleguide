@@ -73,7 +73,7 @@
 
 	@include bem.m(sliding) {
 		position: fixed;
-		z-index: z_index(foregroundMinus);
+		z-index: func.z_index(foregroundMinus);
 		top: func.rhythm(1);
 		right: -500px;
 		bottom: func.rhythm(1);

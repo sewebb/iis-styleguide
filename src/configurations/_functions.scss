@@ -28,6 +28,15 @@ $grid-columns: 18;
 	@return math.round($value);
 }
 
+// Z-indexes
+$z-index: (
+	'foreground': 1000,
+	'foregroundMinus': 999,
+	'middleground': 500,
+	'middlegroundImportant': 750,
+	'background': 1
+);
+
 @function z_index($layer) {
 	@return map.get($z-index, $layer);
 }

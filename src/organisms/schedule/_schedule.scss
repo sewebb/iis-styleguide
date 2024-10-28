@@ -13,7 +13,7 @@
 @include mixin.organism(schedule-filter)  {
 	margin-bottom: func.rhythm(2);
 	background-color: colors.$color-ash;
-	z-index: z_index(foregroundMinus);
+	z-index: func.z_index(foregroundMinus);
 	transition: box-shadow 0.25s ease, border-width 0.25s ease, background-color 0.25s ease;
 
 	@include bem.e(button) {
@@ -248,7 +248,7 @@
 			position: absolute;
 			top: 0;
 			right: 0;
-			z-index: z_index(middleGround);
+			z-index: func.z_index(middleGround);
 		}
 
 		@include bem.e(owner) {

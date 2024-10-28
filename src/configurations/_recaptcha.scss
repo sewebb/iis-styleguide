@@ -1,5 +1,5 @@
 @charset "UTF-8";
 
 .grecaptcha-badge {
-	z-index: z_index(foregroundMinus);
+	z-index: func.z_index(foregroundMinus);
 }

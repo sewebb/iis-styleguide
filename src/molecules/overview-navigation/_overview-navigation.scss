@@ -171,7 +171,7 @@
 		position: fixed;
 		right: func.rhythm(2);
 		bottom: func.rhythm(13);
-		z-index: z_index(foregroundMinus);
+		z-index: func.z_index(foregroundMinus);
 		margin-top: 0;
 		margin-bottom: 0;
 		margin-left: func.rhythm(2);

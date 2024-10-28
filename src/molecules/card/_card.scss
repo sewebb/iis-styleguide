@@ -252,7 +252,7 @@
 		&::after {
 			content: '';
 			position: absolute;
-			z-index: z_index(background);
+			z-index: func.z_index(background);
 			top: 0;
 			right: 0;
 			bottom: 0;
@@ -274,7 +274,7 @@
 		@include bem.e(content) {
 			display: flex;
 			position: absolute;
-			z-index: z_index(middleground);
+			z-index: func.z_index(middleground);
 			top: 0;
 			right: 0;
 			bottom: 0;

@@ -94,13 +94,4 @@ $icon-size-medium: func.to_rem(20px);
 $icon-size-small: func.to_rem(16px);
 $icon-size-smallest: func.to_rem(12px);
 
-// Z-indexes
-$z-index: (
-	'foreground': 1000,
-	'foregroundMinus': 999,
-	'middleground': 500,
-	'middlegroundImportant': 750,
-	'background': 1
-);
-
 $indent: 3.78825%;

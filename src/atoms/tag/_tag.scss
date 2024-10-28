@@ -16,7 +16,7 @@
 	display: inline-flex;
 	align-items: center;
 	position: relative;
-	z-index: z_index(middleground);
+	z-index: func.z_index(middleground);
 	margin-right: func.rhythm(1);
 	margin-bottom: func.rhythm(1);
 	padding: func.rhythm(1) func.rhythm(2);

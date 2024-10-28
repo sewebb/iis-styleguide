@@ -90,7 +90,7 @@ $spacing: func.rhythm(6);
 
 	@include bem.e(content) {
 		position: relative;
-		z-index: z_index(background);
+		z-index: func.z_index(background);
 
 		@include bem.m(peacock) {
 			::selection {

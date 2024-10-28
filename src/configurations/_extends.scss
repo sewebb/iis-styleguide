@@ -59,7 +59,7 @@
 %input {
 	display: block;
 	position: relative;
-	z-index: z_index(middleground);
+	z-index: func.z_index(middleground);
 	width: 100%;
 	min-width: 0;
 	padding: func.rhythm(1);

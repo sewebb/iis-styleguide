@@ -13,7 +13,7 @@
 $border-color: color.adjust(colors.$color-jade, $lightness: -5%);
 
 @include mixin.organism(mega-menu) {
-	z-index: z_index(middlegroundImportant);
+	z-index: func.z_index(middlegroundImportant);
 	padding-right: 0;
 	padding-left: 0;
 	transition: transform 0.25s ease-out;

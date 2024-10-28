@@ -16,7 +16,7 @@
 	&:not([class*='is-in-mega-menu']) {
 		display: none;
 		position: absolute;
-		z-index: z_index(middlegroundImportant);
+		z-index: func.z_index(middlegroundImportant);
 		bottom: 0;
 		transform: translateY(0);
 		transition: transform 0.25s ease-out;

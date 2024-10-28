@@ -256,7 +256,7 @@
 	&::before {
 		content: 'Scroll';
 		position: absolute;
-		z-index: z_index(background);
+		z-index: func.z_index(background);
 		top: 0;
 		right: func.rhythm(3);
 		width: func.rhythm(7);
@@ -270,7 +270,7 @@
 	&::after {
 		content: '›';
 		position: absolute;
-		z-index: z_index(background);
+		z-index: func.z_index(background);
 		top: -#{func.to_rem(4px)};
 		right: 0;
 		animation: xPulse 2s infinite;

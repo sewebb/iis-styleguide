@@ -19,7 +19,7 @@
 	$time-left-width: func.to_rem(65px);
 
 	position: fixed;
-	z-index: z_index(middlegroundImportant);
+	z-index: func.z_index(middlegroundImportant);
 	right: 0;
 	bottom: 0;
 	left: 0;

@@ -82,7 +82,7 @@
 						right: 0;
 						top: 0;
 						bottom: 0;
-						z-index: z_index(foreground);
+						z-index: func.z_index(foreground);
 						display: flex;
 						align-items: center;
 						justify-content: center;

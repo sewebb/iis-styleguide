@@ -13,7 +13,7 @@
 
 @include mixin.organism(hero) {
 	position: relative;
-	z-index: z_index(background);
+	z-index: func.z_index(background);
 	margin-bottom: func.rhythm(4);
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
@@ -53,7 +53,7 @@
 
 		@include breakpoint.bp-up(sm) {
 			position: absolute;
-			z-index: z_index(middlegroundImportant);
+			z-index: func.z_index(middlegroundImportant);
 			top: 0;
 			right: 0;
 			bottom: 0;
@@ -283,7 +283,7 @@
 
 			@include breakpoint.bp-up(lg) {
 				position: absolute;
-				z-index: z_index(middlegroundImportant);
+				z-index: func.z_index(middlegroundImportant);
 				top: 50%;
 				right: 0;
 				bottom: auto;
@@ -368,7 +368,7 @@
 
 		@include bem.e(caption) {
 			position: absolute;
-			z-index: z_index(middlegroundImportant);
+			z-index: func.z_index(middlegroundImportant);
 			top: 0;
 			right: 0;
 			bottom: 0;
@@ -591,7 +591,7 @@
 		&::after {
 			content: '';
 			position: absolute;
-			z-index: z_index(background);
+			z-index: func.z_index(background);
 			top: 25%;
 			left: -25%;
 			width: func.to_rem(250px);
@@ -643,7 +643,7 @@
 
 		@include bem.e(content) {
 			position: relative;
-			z-index: z_index(middleground);
+			z-index: func.z_index(middleground);
 		}
 
 		@keyframes spin {

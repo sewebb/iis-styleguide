@@ -117,7 +117,7 @@
 
 		@include bem.e(button-continue) {
 			position: relative;
-			z-index: z_index(middleground);
+			z-index: func.z_index(middleground);
 			align-self: center;
 			transform: scale(1) translateY(0);
 			animation: pulse infinite 1.5s ease;

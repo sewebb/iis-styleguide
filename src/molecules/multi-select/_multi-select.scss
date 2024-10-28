@@ -27,7 +27,7 @@
 	@include bem.e(suggestions-box) {
 		position: absolute;
 		border-top: none;
-		z-index: z_index(foreground);
+		z-index: func.z_index(foreground);
 		top: 100%;
 		left: 0;
 		right: 0;
