@@ -16,7 +16,7 @@ $spacing: func.rhythm(6);
 
 @include mixin.organism(section) {
 	position: relative;
-	padding: list.slash($spacing, 1.5) 0;
+	padding: math.div($spacing, 1.5) 0;
 	background-color: var(--ash-color);
 
 	@include bem.m(white) {
@@ -50,7 +50,7 @@ $spacing: func.rhythm(6);
 	}
 
 	@include breakpoint.bp-up(md) {
-		padding: list.slash($spacing * 1.25, 1.5) 0;
+		padding: math.div($spacing * 1.25, 1.5) 0;
 
 		@include bem.m('white') {
 			padding: $spacing * 1.25 0;
@@ -63,7 +63,7 @@ $spacing: func.rhythm(6);
 	}
 
 	@include breakpoint.bp-up(lg) {
-		padding: list.slash($spacing * 1.5, 1.5) 0;
+		padding: math.div($spacing * 1.5, 1.5) 0;
 
 		@include bem.m('white') {
 			padding: $spacing * 1.5 0;
@@ -76,7 +76,7 @@ $spacing: func.rhythm(6);
 	}
 
 	@include breakpoint.bp-up(xl) {
-		padding: list.slash($spacing * 2, 1.5) 0;
+		padding: math.div($spacing * 2, 1.5) 0;
 
 		@include bem.m('white') {
 			padding: $spacing * 2 0;

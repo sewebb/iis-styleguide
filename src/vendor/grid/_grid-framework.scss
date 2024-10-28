@@ -18,8 +18,8 @@
 		position: relative;
 		width: 100%;
 		min-height: 1px; // Prevent columns from collapsing when empty
-		padding-right: list.slash($gutter, 2);
-		padding-left: list.slash($gutter, 2);
+		padding-right: math.div($gutter, 2);
+		padding-left: math.div($gutter, 2);
 	}
 
 	@each $breakpoint in map.keys($breakpoints) {
