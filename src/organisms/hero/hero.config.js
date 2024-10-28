@@ -137,7 +137,7 @@ module.exports = {
 				has_buttons: true,
 				limited_width: false,
 				heading: 'Välkommen till Goto 10',
-				hero_image: 'https://stage.goto10.se/app/uploads/2024/05/toppbild-goto-10-linkoping-1-.jpg.webp',
+				hero_image: 'https://www.goto10.se/app/uploads/2024/06/toppbild-goto-10-linkoping-1-.jpg.webp',
 				text: 'Goto 10 är en kostnadsfri mötesplats för kunskapsutbyte och innovation som drivs av Internetstiftelsen. Besök oss i Linköping, Malmö och Stockholm.',
 			},
 		},
