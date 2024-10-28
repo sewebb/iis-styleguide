@@ -10,7 +10,7 @@
 @use '../../vendor/grid/breakpoints' as breakpoint;
 @use '../../vendor/grid/grid' as grid;
 
-@includem. molecule(context-menu) {
+@include mixin.molecule(context-menu) {
 	display: inline-flex;
 	position: relative;
 	flex-direction: column;
