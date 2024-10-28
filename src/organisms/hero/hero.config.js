@@ -32,7 +32,7 @@ module.exports = {
 				has_tags: false,
 				has_buttons: true,
 				limited_width: false,
-				hero_image: 'https://stage.goto10.se/app/uploads/2024/05/toppbild-goto-10-linkoping-1-.jpg.webp',
+				hero_image: 'https://www.goto10.se/app/uploads/2024/06/toppbild-goto-10-linkoping-1-.jpg.webp',
 			},
 		},
 		{

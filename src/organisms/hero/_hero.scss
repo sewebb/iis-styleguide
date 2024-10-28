@@ -546,6 +546,10 @@
 						border-radius: var.$border-radius;
 						background-color: colors.$color-snow;
 					}
+
+					&[class*='facebook'] {
+						border-radius: 50%;
+					}
 				}
 			}
 		}
