@@ -19,6 +19,13 @@
 		span {
 			pointer-events: none;
 		}
+
+		&[aria-expanded='true'] {
+			> svg {
+				width: var.$icon-size-medium;
+				height: var.$icon-size-medium;
+			}
+		}
 	}
 
 	@include bem.e(list) {
