@@ -7,8 +7,8 @@
 @use '../../configurations/colors/colors' as colors;
 @use '../../vendor/grid/breakpoints' as breakpoint;
 
-// Default Button
-/// @group Buttons
+/* Default Button
+/// @group Buttons */
 @include mixin.atom(button) {
 	display: inline-flex;
 	position: relative;
@@ -21,7 +21,7 @@
 	border: 0;
 	border-radius: var.$border-radius;
 	background-color: currentColor;
-	background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214
+	background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214;
 	box-shadow: 0 0 0 1px inset currentColor;
 	color: colors.$color-ocean-dark;
 	font-family: var.$font-family-headings;
@@ -47,7 +47,7 @@
 		}
 	}
 
-	// States
+	/* States */
 	&.is-loading {
 		cursor: wait;
 	}
@@ -91,7 +91,7 @@
 		opacity: 0;
 	}
 
-	// Modifiers
+	/* Modifiers */
 
 	@include bem.m(full-width) {
 		display: flex;
@@ -207,7 +207,7 @@
 		pointer-events: none;
 	}
 
-	// More colors
+	/* More colors */
 	@include bem.m(transparent) {
 		border-color: transparent;
 		background-color: transparent;

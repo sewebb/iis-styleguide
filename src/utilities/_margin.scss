@@ -3,7 +3,7 @@
 @use '../configurations/variables' as var;
 @use '../configurations/functions' as func;
 
-/// @group Utilities
+/* @group Utilities */
 $class-m: u-m !default;
 $class-m-t: u-m-t !default;
 $class-m-r: u-m-r !default;
@@ -13,38 +13,38 @@ $class-m-x: u-m-x !default;
 $class-m-y: u-m-y !default;
 
 @for $i from 0 through 8 {
-	// Margin all
+	/* Margin all */
 	.#{$class-m}-#{$i} {
 		margin: func.rhythm($i) !important;
 	}
 
-	// Margin top
+	/* Margin top */
 	.#{$class-m-t}-#{$i} {
 		margin-top: func.rhythm($i) !important;
 	}
 
-	// Margin right
+	/* Margin right */
 	.#{$class-m-r}-#{$i} {
 		margin-right: func.rhythm($i) !important;
 	}
 
-	// Margin bottom
+	/* Margin bottom */
 	.#{$class-m-b}-#{$i} {
 		margin-bottom: func.rhythm($i) !important;
 	}
 
-	// Margin left
+	/* Margin left */
 	.#{$class-m-l}-#{$i} {
 		margin-left: func.rhythm($i) !important;
 	}
 
-	// Margin x (left and right)
+	/* Margin x (left and right) */
 	.#{$class-m-x}-#{$i} {
 		margin-right: func.rhythm($i) !important;
 		margin-left: func.rhythm($i) !important;
 	}
 
-	// Margin y (top and bottom)
+	/* Margin y (top and bottom) */
 	.#{$class-m-y}-#{$i} {
 		margin-top: func.rhythm($i) !important;
 		margin-bottom: func.rhythm($i) !important;

@@ -11,7 +11,7 @@
 @use '../../vendor/grid/breakpoints' as breakpoint;
 @use '../../utilities/hide';
 
-// Extends
+/* Extends */
 %header {
 	display: flex;
 	position: relative;
@@ -85,7 +85,7 @@
 
 %is-visible {
 	visibility: visible;
-	max-height: 10000em; // Rediculous height
+	max-height: 10000em; /* Rediculous height */
 	overflow: visible;
 	transition: visibility 0s ease, max-height 0.25s ease, opacity 0.25s ease;
 	opacity: 1;
@@ -100,7 +100,7 @@
 	opacity: 0;
 }
 
-// Styling before Accordion script kicks in
+/* Styling before Accordion script kicks in */
 .js-accordion {
 	@include bem.e(header) {
 		@extend %header;
@@ -234,7 +234,7 @@
 	@include bem.e(panel) {
 		@extend %panel;
 
-		// Nested to prevent padding when JS is disabled
+		/* Nested to prevent padding when JS is disabled */
 		@include bem.e(content) {
 			position: relative;
 			padding: func.rhythm(3);

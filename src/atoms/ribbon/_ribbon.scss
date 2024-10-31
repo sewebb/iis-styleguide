@@ -9,7 +9,7 @@
 
 @include mixin.atom(ribbon) {
 	position: fixed;
-	z-index: 100000; // Must be higher than WP's admin toolbar
+	z-index: 100000; /* Must be higher than WP's admin toolbar */
 	bottom: 0;
 	left: 0;
 	padding: func.rhythm(1) 0;

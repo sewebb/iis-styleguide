@@ -2,18 +2,18 @@
 @use "sass:map";
 @use "sass:math";
 
-// Size base
+/* Size base */
 $size-base: 18px;
-// Base unit
+/* Base unit */
 $base-unit: math.div($size-base, 2);
-// Grid columns
+/* Grid columns */
 $grid-columns: 18;
 
 @function rhythm($lines) {
 	@return to_rem($lines * $base-unit);
 }
 
-// Converts px value to rem
+/* Converts px value to rem */
 @function to_rem($size) {
 	@return math.div($size, $size-base) * 1rem;
 }
@@ -22,13 +22,13 @@ $grid-columns: 18;
 	@return math.div($n, $n * 0 + 1);
 }
 
-// Convert rem back to px
+/* Convert rem back to px */
 @function rem_to_px($size) {
 	$value: parse_int($size) * 10px;
 	@return math.round($value);
 }
 
-// Z-indexes
+/* Z-indexes */
 $z-index: (
 	'foreground': 1000,
 	'foregroundMinus': 999,

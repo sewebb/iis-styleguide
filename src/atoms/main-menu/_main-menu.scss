@@ -199,7 +199,7 @@
 		}
 
 		@include bem.e(text) {
-			margin-top: -#{func.to_rem(3px)}; // Adjust for the font's bad placement in viewbox
+			margin-top: -#{func.to_rem(3px)}; /* Adjust for the font's bad placement in viewbox */
 			pointer-events: none;
 		}
 	}

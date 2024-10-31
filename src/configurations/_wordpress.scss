@@ -8,15 +8,15 @@
 @use 'mixins' as mixin;
 @use 'extends';
 
-//
+/*
 // Modifies Wordpress Core classes
-//
+*/
 
 .wp-caption {
 	margin-bottom: func.rhythm(3);
 }
 
-// Customize
+/* Customize */
 .aligncenter,
 div.aligncenter {
 	display: block;
@@ -25,14 +25,14 @@ div.aligncenter {
 
 @include breakpoint.bp-up(lg) {
 	.alignright {
-		width: calc(#{func.make_col(6)} - 13px); // <== You ugly magic number you, we hates it!
+		width: calc(#{func.make_col(6)} - 13px); /* <== You ugly magic number you, we hates it! */
 		margin: 0 0 func.rhythm(3) 0;
 		float: right;
 		clear: right;
 	}
 
 	.alignleft {
-		width: calc(#{func.make_col(6)} - 13px); // <== You ugly magic number you, we hates it!
+		width: calc(#{func.make_col(6)} - 13px); /* <== You ugly magic number you, we hates it! */
 		margin: 0 func.rhythm(2) func.rhythm(3) 0;
 		float: left;
 		clear: left;
@@ -197,7 +197,7 @@ div.aligncenter {
 	}
 }
 
-// WP Core Column Block/Group Styles
+/* WP Core Column Block/Group Styles */
 
 .wp-block-group {
 	display: flex;

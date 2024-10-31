@@ -14,7 +14,7 @@
 
 @include mixin.organism(podcast-player) {
 
-	// Player
+	/* Player */
 
 	$time-left-width: func.to_rem(65px);
 

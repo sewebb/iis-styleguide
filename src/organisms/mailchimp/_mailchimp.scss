@@ -32,7 +32,7 @@
 
 		@include breakpoint.bp-up(lg) {
 			display: flex;
-			display: -webkit-box; // Weird Sarafi bug needs this
+			display: -webkit-box; /* Weird Sarafi bug needs this */
 			width: 50%;
 			margin-bottom: 0;
 		}

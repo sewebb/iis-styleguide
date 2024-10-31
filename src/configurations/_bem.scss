@@ -3,28 +3,28 @@
 @use "sass:string";
 @use '../configurations/variables' as var;
 
-/// Element class separator
-/// @group BEM
+/* Element class separator
+/// @group BEM */
 $element-separator: '__';
 
-/// Element class modifier
-/// @group BEM
+/* Element class modifier
+/// @group BEM */
 $modifier-separator: '--';
 
-/// Element class state prefix
-/// @group BEM
+/* Element class state prefix
+/// @group BEM */
 $state-prefix: 'is';
 
-/// Converts selector to string
-/// @group BEM
+/* Converts selector to string
+/// @group BEM */
 @function selector_to_string($selector) {
-	$selector: meta.inspect($selector); //cast to string
-	$selector: string.slice($selector, 2, -2); //remove brackets
+	$selector: meta.inspect($selector); /*cast to string */
+	$selector: string.slice($selector, 2, -2); /* remove brackets */
 	@return $selector;
 }
 
-/// Checks if a inside a BEM modifier
-/// @group BEM
+/* Checks if a inside a BEM modifier
+/// @group BEM */
 @function contains_modifier($selector) {
 	$selector: selector_to_string($selector);
 	@if string.index($selector, $modifier-separator) {
@@ -34,24 +34,24 @@ $state-prefix: 'is';
 	}
 }
 
-/// Get BEM block
-/// @group BEM
+/* Get BEM block
+/// @group BEM */
 @function get_block($selector) {
 	$selector: selector_to_string($selector);
 	$modifier-start: string.index($selector, $modifier-separator) - 1;
 	@return string.slice($selector, 0, $modifier-start);
 }
 
-/// Encapsulates a standalone entity that is meaningful on its own.
-/// @group BEM
+/* Encapsulates a standalone entity that is meaningful on its own.
+/// @group BEM */
 @mixin b($name) {
 	.#{var.$namespace}#{$name} {
 		@content;
 	}
 }
 
-/// Parts of a block and have no standalone meaning
-/// @group BEM
+/* Parts of a block and have no standalone meaning
+/// @group BEM */
 @mixin e($element) {
 	$selector: &;
 	@if contains_modifier($selector) {
@@ -72,8 +72,8 @@ $state-prefix: 'is';
 	}
 }
 
-/// Flags on blocks or elements. Use them to change appearance or behavior.
-/// @group BEM
+/* Flags on blocks or elements. Use them to change appearance or behavior.
+/// @group BEM */
 @mixin m($modifier) {
 	@at-root {
 		#{&}#{$modifier-separator + $modifier} {
@@ -82,8 +82,8 @@ $state-prefix: 'is';
 	}
 }
 
-/// States on blocks or elements. Use them to state.
-/// @group BEM
+/* States on blocks or elements. Use them to state.
+/// @group BEM */
 @mixin s($state, $prefix: $state-prefix) {
 	@at-root {
 		&.#{$prefix}-#{$state} {

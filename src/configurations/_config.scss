@@ -4,47 +4,47 @@
 @use '../configurations/colors/colors' as colors;
 @use '../configurations/colors/colors-functions' as colorFunc;
 
-/// Namespace
+/* Namespace
 /// Prepended to all outputted classes
 ///
-/// @group Config
+/// @group Config */
 $namespace: '' !default;
 
-/// Theme path
+/* Theme path
 /// For images and other media
 ///
-/// @group Config
+/// @group Config */
 $theme-path: '/app/themes/internetstiftelsen' !default;
 
-/// Responsive breakpoints
-/// @group Config
+/* Responsive breakpoints
+/// @group Config */
 $breakpoints: (
 	'sm': 0,
 	'md': 640px,
 	'lg': 1100px
 );
 
-/// Default margin and padding
+/* Default margin and padding
 ///
-/// @group Config
+/// @group Config */
 $default-margin: func.rhythm(2) !default;
 $default-padding: func.rhythm(2) !default;
 
-/// Theme colors
+/* Theme colors
 ///
-/// @group Config
+/// @group Config */
 $theme-colors: (
 	primary: colors.$color-ruby,
 	secondary: colors.$color-jade,
 	subtle: colors.$color-granit
 );
 
-/// Text colors
+/* Text colors
 ///
-/// @group Config
+/// @group Config */
 .color {
 	@include colorFunc.color_values($theme-colors, 'color', $separator: '-');
 }
 
-// Default text-shadow
+/* Default text-shadow */
 $text-shadow: 0 0 func.rhythm(2) rgba(colors.$color-black, 0.5);

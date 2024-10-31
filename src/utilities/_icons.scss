@@ -4,7 +4,7 @@
 @use '../configurations/bem' as bem;
 @use '../vendor/grid/breakpoints' as breakpoint;
 
-// Default
+/* Default */
 $fill-color: colors.$color-black;
 
 @include bem.b(u-icon) {
@@ -14,7 +14,7 @@ $fill-color: colors.$color-black;
 	background-repeat: no-repeat !important;
 	background-position: center center !important;
 
-	// Sizes
+	/* Sizes */
 	@include bem.m(smallest) {
 		width: var.$icon-size-smallest !important;
 		height: var.$icon-size-smallest !important;
@@ -50,10 +50,10 @@ $fill-color: colors.$color-black;
 		}
 	}
 
-	// Specific icons
+	/* Specific icons */
 	@include bem.m(check) {
 		background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 24.42' fill='" + $fill-color + "'%3E%3Cpolygon points='12.04 24.42 0 13.26 2.87 10.16 11.81 18.44 28.9 0 32 2.87 12.04 24.42' data-name='Layer 3'/%3E%3C/svg%3E") !important;
-		// Colors
+		/* Colors */
 		@include bem.m(jade) {
 			$fill-color: colors.$color-jade !important;
 
