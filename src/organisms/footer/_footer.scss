@@ -12,7 +12,7 @@
 @use '../../vendor/grid/grid' as grid;
 @use '../../vendor/baseline/plumber' as plumber;
 
-$footer-font-size: 18px; // To ensure all footers on all sites have the same font size this component used pixel based values
+$footer-font-size: 18px; /* To ensure all footers on all sites have the same font size this component used pixel based values */
 
 * { /* Because not all of the old sites have this */
 	box-sizing: border-box;
