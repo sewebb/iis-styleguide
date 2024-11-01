@@ -15,4 +15,4 @@ module.exports = {
 		strong: 'Den här texten är bold',
 		italic: 'den här texten är italic',
 	}
-}
+};

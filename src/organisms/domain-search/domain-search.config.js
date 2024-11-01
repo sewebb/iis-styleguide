@@ -8,4 +8,4 @@ module.exports = {
 		label: 'sök en .se- eller .nu-domän',
 		white_background: true
 	}
-}
+};

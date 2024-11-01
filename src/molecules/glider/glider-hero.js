@@ -6,7 +6,7 @@ export function initHeroGlider(node) {
 	if (node.hasAttribute('data-glider-initialized')) {
 		return;
 	}
-	// eslint-disable-next-line no-underscore-dangle
+	 
 	const dataLayer = window._mtm || [];
 	const gliderLinks = document.querySelectorAll('.glider-slide a');
 

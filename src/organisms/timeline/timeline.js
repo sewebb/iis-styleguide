@@ -2,7 +2,7 @@ import '../../assets/js/parallax';
 
 const { offsetTop, offsetBottom, offsetLeft } = require('../../assets/js/offset');
 
-// eslint-disable-next-line no-underscore-dangle
+ 
 const dataLayer = window._mtm || [];
 const progressBar = document.querySelector('.js-progress-bar');
 const decadeContainer = document.querySelector('.js-decade-container');
@@ -85,7 +85,7 @@ function isInViewport(element) {
 	const height = element.offsetHeight;
 
 	while (element.offsetParent) {
-		element = element.offsetParent; // eslint-disable-line
+		element = element.offsetParent;  
 		top += element.offsetTop;
 	}
 

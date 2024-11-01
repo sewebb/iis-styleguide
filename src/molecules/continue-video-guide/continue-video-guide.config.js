@@ -4,4 +4,4 @@ module.exports = {
 	context: {
 		additional_classes: false
 	}
-}
+};

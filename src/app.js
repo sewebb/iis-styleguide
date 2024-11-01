@@ -61,14 +61,14 @@ if (demoModal) {
 	});
 }
 
-// eslint-disable-next-line no-unused-vars
+ 
 const unsubscribe = onClose((el, id) => {
 	console.log('Global onClose', el, id);
 });
 
 // Call unsubscribe to remove callback
 
-// eslint-disable-next-line no-unused-vars
+ 
 const unsubscribeOpen = onOpen((el, id) => {
 	console.log('Global onOpen', el, id);
 });

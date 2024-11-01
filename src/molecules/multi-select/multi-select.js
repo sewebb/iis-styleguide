@@ -105,7 +105,7 @@ class MultiSelect {
 		}
 
 		this.resetFocus();
-	}
+	};
 
 	removeItem(item) {
 		const node = this.element.querySelector(`.js-m-multi-select-selected-items li[data-value="${item.value}"]`);
@@ -228,7 +228,7 @@ class MultiSelect {
 
 			this.selectHighlighted();
 		}
-	}
+	};
 
 	onClick = (e) => {
 		if (e.target.classList.contains(className(`${this.baseClassName}__suggestion-btn`))) {
@@ -236,7 +236,7 @@ class MultiSelect {
 			this.clearSuggestions();
 			this.input.value = '';
 		}
-	}
+	};
 }
 
 const multiSelectElements = document.querySelectorAll('.js-m-multi-select');

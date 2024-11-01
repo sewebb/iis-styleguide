@@ -73,7 +73,7 @@ window.a11yTabs = (function tabsComponentIIFE(global, document) {
 			}
 		});
 
-		this.eventCallback = handleEvents.bind(this); // eslint-disable-line
+		this.eventCallback = handleEvents.bind(this);  
 		this.tabList.addEventListener('click', this.eventCallback, false);
 		this.tabList.addEventListener('keydown', this.eventCallback, false);
 
@@ -257,4 +257,4 @@ window.a11yTabs = (function tabsComponentIIFE(global, document) {
 	};
 }(window, document));
 
-const tabComponent = a11yTabs.create('[data-tab-component]'); // eslint-disable-line
+const tabComponent = a11yTabs.create('[data-tab-component]');  

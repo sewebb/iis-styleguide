@@ -23,7 +23,7 @@ module.exports = {
 		if (item.isDefault) {
 			return ''; // Don't render default empty icon
 		}
-		return `<div class="icon-wrapper">${markup}</div>`
+		return `<div class="icon-wrapper">${markup}</div>`;
 	},
 
 	context: {

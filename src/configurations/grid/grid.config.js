@@ -5,4 +5,4 @@ module.exports = {
 		title: 'Grid',
 		description: 'Layout grid - 18 columns.'
 	}
-}
+};

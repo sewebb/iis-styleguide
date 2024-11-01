@@ -16,4 +16,4 @@ module.exports = {
 		has_image: true,
 		has_radius: true
 	}
-}
+};

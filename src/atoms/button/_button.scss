@@ -21,7 +21,7 @@
 	border: 0;
 	border-radius: var.$border-radius;
 	background-color: currentColor;
-	background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214;
+	background-image: none; // Reset unusual Firefox-on-Android default style; see https://github.com/necolas/normalize.css/issues/214;https
 	box-shadow: 0 0 0 1px inset currentColor;
 	color: colors.$color-ocean-dark;
 	font-family: var.$font-family-headings;

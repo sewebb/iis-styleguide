@@ -8,4 +8,4 @@ module.exports = {
 		overlay_icon: "play",
 		additional_classes: false
 	}
-}
+};

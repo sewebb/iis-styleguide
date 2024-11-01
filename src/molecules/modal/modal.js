@@ -104,7 +104,7 @@ function addAction(action) {
 
 	if (action.onClick) {
 		el.addEventListener('click', (e) => {
-			// eslint-disable-next-line no-use-before-define
+			 
 			action.onClick(e, modal, close);
 		});
 	}
@@ -113,7 +113,7 @@ function addAction(action) {
 function handleKeyUp(e) {
 	Object.entries(keyHandlers).forEach(([key, handler]) => {
 		if (e.key.toLowerCase() === key) {
-			// eslint-disable-next-line no-use-before-define
+			 
 			handler(e, modal, close);
 		}
 	});

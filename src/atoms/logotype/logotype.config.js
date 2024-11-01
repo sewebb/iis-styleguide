@@ -20,7 +20,7 @@ module.exports = {
 	preview: '@layout-logotypes',
 
 	collator: function(markup, item) {
-		return `<div class="logotype-wrapper">${markup}</div>`
+		return `<div class="logotype-wrapper">${markup}</div>`;
 	},
 
 	context: {

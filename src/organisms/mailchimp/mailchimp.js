@@ -49,7 +49,7 @@ function isInViewport(element) {
 	const height = element.offsetHeight;
 
 	while (element.offsetParent) {
-		element = element.offsetParent; // eslint-disable-line
+		element = element.offsetParent;  
 		top += element.offsetTop;
 	}
 
