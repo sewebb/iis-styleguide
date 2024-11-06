@@ -3,6 +3,7 @@ import className from './className';
 import hasCookieConsent from './hasCookieConsent';
 
 let consent = hasCookieConsent('C0004');
+let YT;
 const missingConsentMessage = 'För att spela Youtubefilmer krävs att "Riktade kakor" tillåts. Tryck för att "Anpassa kakor"';
 
 function loadYoutubeAPI() {
@@ -21,7 +22,7 @@ function loadYoutubeAPI() {
 	firstScript.parentNode.insertBefore(tag, firstScript);
 }
 
-function onPlayerStateChange(el, e) {
+function onPlayerStateChange(el, e, YT) {
 	if (e.data === YT.PlayerState.PLAYING) {
 		el.getElementsByTagName('img')[0].style.zIndex = '-1';
 		el.getElementsByTagName('button')[0].style.display = 'none';

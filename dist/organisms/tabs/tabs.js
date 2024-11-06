@@ -69,7 +69,7 @@ window.a11yTabs = function tabsComponentIIFE(global, document) {
 			}
 		});
 
-		this.eventCallback = handleEvents.bind(this); // eslint-disable-line
+		this.eventCallback = handleEvents.bind(this);
 		this.tabList.addEventListener('click', this.eventCallback, false);
 		this.tabList.addEventListener('keydown', this.eventCallback, false);
 
@@ -251,4 +251,5 @@ window.a11yTabs = function tabsComponentIIFE(global, document) {
 	};
 }(window, document);
 
-var tabComponent = a11yTabs.create('[data-tab-component]'); // eslint-disable-line
+// eslint-disable-next-line no-unused-vars,no-undef
+var tabComponent = a11yTabs.create('[data-tab-component]');

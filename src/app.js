@@ -6,7 +6,7 @@ require('./atoms/grid-toggle/grid-toggle');
 require('./components');
 
 const Button = require('./atoms/button/Button');
-const { open, onClose, onOpen } = require('./molecules/modal/modal');
+const { open } = require('./molecules/modal/modal');
 
 const demoButtons = document.querySelectorAll('button.a-button.has-loader');
 
@@ -60,20 +60,6 @@ if (demoModal) {
 		});
 	});
 }
-
- 
-const unsubscribe = onClose((el, id) => {
-	console.log('Global onClose', el, id);
-});
-
-// Call unsubscribe to remove callback
-
- 
-const unsubscribeOpen = onOpen((el, id) => {
-	console.log('Global onOpen', el, id);
-});
-
-// Call unsubscribe to remove callback
 
 const demoForms = document.querySelectorAll('[data-form]');
 

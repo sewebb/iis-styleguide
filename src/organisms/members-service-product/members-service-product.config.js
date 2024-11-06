@@ -1,5 +1,3 @@
-const { filter } = require("lodash");
-
 module.exports = {
 	status: 'wip',
 	default: 'Single item',

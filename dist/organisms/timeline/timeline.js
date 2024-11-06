@@ -7,9 +7,6 @@ var _require = require('../../assets/js/offset'),
     offsetBottom = _require.offsetBottom,
     offsetLeft = _require.offsetLeft;
 
-// eslint-disable-next-line no-underscore-dangle
-
-
 var dataLayer = window._mtm || [];
 var progressBar = document.querySelector('.js-progress-bar');
 var decadeContainer = document.querySelector('.js-decade-container');
@@ -93,7 +90,8 @@ function isInViewport(element) {
 	var height = element.offsetHeight;
 
 	while (element.offsetParent) {
-		element = element.offsetParent; // eslint-disable-line
+		// eslint-disable-next-line no-param-reassign
+		element = element.offsetParent;
 		top += element.offsetTop;
 	}
 

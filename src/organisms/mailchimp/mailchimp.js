@@ -49,7 +49,8 @@ function isInViewport(element) {
 	const height = element.offsetHeight;
 
 	while (element.offsetParent) {
-		element = element.offsetParent;  
+		// eslint-disable-next-line no-param-reassign
+		element = element.offsetParent;
 		top += element.offsetTop;
 	}
 

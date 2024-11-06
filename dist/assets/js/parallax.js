@@ -10,8 +10,6 @@ function isInView(el) {
 }
 
 var parallaxes = [];
-
-// eslint-disable-next-line import/prefer-default-export
 function cache() {
 	parallaxes = document.querySelectorAll('.js-parallax');
 }

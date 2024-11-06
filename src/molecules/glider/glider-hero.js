@@ -1,12 +1,10 @@
 import Glider from 'glider-js';
 import nodeAdded from '../../assets/js/nodeAdded';
-
-// eslint-disable-next-line import/prefer-default-export
 export function initHeroGlider(node) {
 	if (node.hasAttribute('data-glider-initialized')) {
 		return;
 	}
-	 
+
 	const dataLayer = window._mtm || [];
 	const gliderLinks = document.querySelectorAll('.glider-slide a');
 

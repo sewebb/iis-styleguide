@@ -19,7 +19,6 @@ function toggleTextOnClick(e) {
 	}
 }
 
-/* eslint-disable */
 document.addEventListener('click', function (e) {
 	if (e.target.closest('[data-toggle-text]')) {
 		toggleTextOnClick(e);

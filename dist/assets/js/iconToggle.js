@@ -5,7 +5,7 @@ function toggleIconOnClick(e) {
 	e.preventDefault();
 
 	var el = e.target;
-	/* eslint-disable-next-line */
+
 	var target = el.dataset.toggleIconTarget ? document.getElementById(el.dataset.toggleIconTarget) : el;
 	var i = parseInt(el.dataset.iconIteration || 0, 10);
 	var options = el.dataset.toggleIcon.split('|');
@@ -16,7 +16,6 @@ function toggleIconOnClick(e) {
 	useElement.setAttribute('xlink:href', '#icon-' + options[nextIteration]);
 }
 
-/* eslint-disable */
 document.addEventListener('click', function (e) {
 	if (e.target.closest('[data-toggle-icon]')) {
 		toggleIconOnClick(e);
