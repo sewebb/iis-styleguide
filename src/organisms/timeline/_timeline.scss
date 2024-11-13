@@ -283,19 +283,19 @@ html {
 				margin-right: auto;
 
 				@include breakpoint.bp-up(sm) {
-					width: make_col(16);
+					width: func.make_col(16);
 				}
 
 				@include breakpoint.bp-up(md) {
-					width: make_col(12);
+					width: func.make_col(12);
 				}
 
 				@include breakpoint.bp-up(lg) {
-					width: make_col(12);
+					width: func.make_col(12);
 				}
 
 				@include breakpoint.bp-up(xl) {
-					width: make_col(9);
+					width: func.make_col(9);
 				}
 			}
 
