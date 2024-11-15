@@ -10,6 +10,6 @@ function track(data) {
 
 		window._mtm.push(data);
 	} else {
-		console.log('GTM not loaded', data);
+		console.log('Matomo not loaded', data);
 	}
 }
