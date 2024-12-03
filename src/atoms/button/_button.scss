@@ -354,8 +354,7 @@
 		}
 
 		@include bem.e(text) {
-			color: colors.$color-snow;
-			text-shadow: 0 0 func.rhythm(2) colors.$color-jade-dark;
+			color: colors.$color-cyberspace;
 		}
 
 		@include bem.e(icon) {
@@ -451,7 +450,7 @@
 
 		@include bem.e(text) {
 			color: colors.$color-snow;
-			text-shadow: 0 0 func.rhythm(2) colors.$color-peacock-dark;
+			text-shadow: 0 0 func.rhythm(1) colors.$color-peacock-dark;
 		}
 
 		@include bem.e(icon) {
