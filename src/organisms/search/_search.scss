@@ -1,112 +1,121 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 @use "sass:color";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/extends';
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/grid/grid' as grid;
 
-@include organism(search) {
-	border-radius: $border-radius;
-	background-color: $color-snow;
+@include mixin.organism(search) {
+	border-radius: var.$border-radius;
+	background-color: colors.$color-snow;
 
-	@include e(padded) {
-		padding: rhythm(2);
+	@include bem.e(padded) {
+		padding: func.rhythm(2);
 	}
 
-	@include e(border) {
-		border-top: 1px solid $color-concrete;
+	@include bem.e(border) {
+		border-top: 1px solid colors.$color-concrete;
 	}
 
-	@include e(icon) {
+	@include bem.e(icon) {
 		display: flex;
 		flex-grow: 0;
-		width: $icon-size;
-		height: $icon-size;
-		margin-right: rhythm(2);
+		width: var.$icon-size;
+		height: var.$icon-size;
+		margin-right: func.rhythm(2);
 	}
 
-	@include e(status) {
-		background-color: $color-jade-light;
-		font-family: $font-family-mono;
-		font-size: rem($size-medium-plus);
+	@include bem.e(status) {
+		background-color: colors.$color-jade-light;
+		font-family: var.$font-family-mono;
+		font-size: func.to_rem(var.$size-medium-plus);
 		text-transform: uppercase;
 	}
 
-	@include e(input) {
+	@include bem.e(input) {
 		display: block;
-		width: calc(100% - #{rhythm(2)});
-		margin-right: rhythm(2);
-		padding: rhythm(1) rhythm(2);
+		width: calc(100% - #{func.rhythm(2)});
+		margin-right: func.rhythm(2);
+		padding: func.rhythm(1) func.rhythm(2);
 		transition: padding 0.25s ease-out;
 		border: 0;
-		border-radius: $border-radius;
-		background-color: color.adjust($color-ash, $lightness: 4%);
+		border-radius: var.$border-radius;
+		background-color: color.adjust(colors.$color-ash, $lightness: 4%);
 		letter-spacing: -0.1px;
 		-webkit-appearance: none;
 
 		&:focus {
 			@extend %input-focus;
-
-			background-color: $color-snow;
+			background-color: colors.$color-snow;
 		}
 
 		+ [aria-live] {
-			width: calc(100% - #{rhythm(2)});
+			width: calc(100% - #{func.rhythm(2)});
 		}
 
-		@include m(force-focus-look) {
-			background-color: color.adjust($color-ash, $lightness: 4%);
+		@include bem.m(force-focus-look) {
+			background-color: color.adjust(colors.$color-ash, $lightness: 4%);
 
 			&:focus {
-				background-color: color.adjust($color-ash, $lightness: 4%);
+				background-color: color.adjust(colors.$color-ash, $lightness: 4%);
 			}
 		}
 	}
 
-	@include e(submit) {
+	@include bem.e(submit) {
 		flex-shrink: 0;
-		padding-right: rhythm(4);
-		padding-left: rhythm(4);
+		padding-right: func.rhythm(4);
+		padding-left: func.rhythm(4);
 	}
 
-	@include bp-down(sm) {
-		@include e(submit) {
-			padding: rhythm(0.6) rhythm(1);
-			font-size: rem($size-small);
-		}
-	}
-
-	@include bp-up(md) {
-		@include e(padded) {
-			padding: rhythm(3);
-		}
-
-		@include e(icon) {
-			width: $icon-size * 1.5;
-			height: $icon-size * 1.5;
-		}
-
-		@include e(input) {
-			font-size: rem(32px);
+	@include breakpoint.bp-down(sm) {
+		@include bem.e(submit) {
+			padding: func.rhythm(0.6) func.rhythm(1);
+			font-size: func.to_rem(var.$size-small);
 		}
 	}
 
-	@include m(tight) {
-		@include e(submit) {
-			padding: rhythm(0.6) rhythm(1);
-			font-size: rem($size-small);
+	@include breakpoint.bp-up(md) {
+		@include bem.e(padded) {
+			padding: func.rhythm(3);
+		}
 
-			@include bp-up(sm) {
-				padding-right: rhythm(3);
-				padding-left: rhythm(3);
-				font-size: $size-base;
+		@include bem.e(icon) {
+			width: var.$icon-size * 1.5;
+			height: var.$icon-size * 1.5;
+		}
+
+		@include bem.e(input) {
+			font-size: func.to_rem(32px);
+		}
+	}
+
+	@include bem.m(tight) {
+		@include bem.e(submit) {
+			padding: func.rhythm(0.6) func.rhythm(1);
+			font-size: func.to_rem(var.$size-small);
+
+			@include breakpoint.bp-up(sm) {
+				padding-right: func.rhythm(3);
+				padding-left: func.rhythm(3);
+				font-size: var.$size-base;
 			}
 		}
 
-		@include e(icon) {
-			width: $icon-size;
-			height: $icon-size;
+		@include bem.e(icon) {
+			width: var.$icon-size;
+			height: var.$icon-size;
 		}
 
-		@include e(input) {
-			padding: rhythm(1) rhythm(2);
-			font-size: $size-base;
+		@include bem.e(input) {
+			padding: func.rhythm(1) func.rhythm(2);
+			font-size: var.$size-base;
 		}
 	}
 }

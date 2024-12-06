@@ -1,15 +1,25 @@
 @charset "UTF-8";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/grid/grid' as grid;
+@use '../../vendor/baseline/plumber' as plumber;
 
-@include organism(schedule-filter)  {
-	margin-bottom: rhythm(2);
-	background-color: $color-ash;
-	z-index: z_index(foregroundMinus);
+@include mixin.organism(schedule-filter)  {
+	margin-bottom: func.rhythm(2);
+	background-color: colors.$color-ash;
+	z-index: func.z_index(foregroundMinus);
 	transition: box-shadow 0.25s ease, border-width 0.25s ease, background-color 0.25s ease;
 
-	@include e(button) {
-		font-size: $size-base;
+	@include bem.e(button) {
+		font-size: var.$size-base;
 
-		@include bp-up(md) {
+		@include breakpoint.bp-up(md) {
 			pointer-events: none;
 
 			&:hover,
@@ -30,8 +40,8 @@
 			}
 		}
 	}
-	@include e(list) {
-		padding: 0 0 rhythm(1) 0;
+	@include bem.e(list) {
+		padding: 0 0 func.rhythm(1) 0;
 		margin: 0;
 		display: flex;
 		flex-wrap: wrap;
@@ -39,7 +49,7 @@
 		&[aria-hidden='true'] {
 			display: none;
 
-			@include bp-up(md) {
+			@include breakpoint.bp-up(md) {
 				display: flex;
 			}
 		}
@@ -47,7 +57,7 @@
 		dt {
 			width: 100%;
 			flex-basis: 100%;
-			font-family: $font-family-headings;
+			font-family: var.$font-family-headings;
 		}
 
 		dt,
@@ -58,21 +68,21 @@
 	}
 }
 
-@include organism(schedule) {
-	@include e(item) {
-		background-color: $color-snow;
-		border-right: $border-radius;
-		padding: rhythm(1) rhythm(3) rhythm(1) rhythm(2);
+@include mixin.organism(schedule) {
+	@include bem.e(item) {
+		background-color: colors.$color-snow;
+		border-right: var.$border-radius;
+		padding: func.rhythm(1) func.rhythm(3) func.rhythm(1) func.rhythm(2);
 		border-left-width: 4px;
 		border-left-style: solid;
-		border-radius: $border-radius;
-		margin-bottom: rhythm(2);
+		border-radius: var.$border-radius;
+		margin-bottom: func.rhythm(2);
 
 		a {
 			&:hover,
 			&:focus {
 				span {
-					color: $color-ruby;
+					color: colors.$color-ruby;
 				}
 			}
 		}
@@ -97,86 +107,86 @@
 			margin-bottom: 0;
 		}
 
-		@include m(keynote) {
-			background-color: $color-cyberspace;
-			color: $color-snow;
-			border-color: $color-cyberspace;
-			padding: rhythm(2) rhythm(3) rhythm(2) rhythm(2);
+		@include bem.m(keynote) {
+			background-color: colors.$color-cyberspace;
+			color: colors.$color-snow;
+			border-color: colors.$color-cyberspace;
+			padding: func.rhythm(2) func.rhythm(3) func.rhythm(2) func.rhythm(2);
 
 			svg  {
-				fill: $color-snow !important;
+				fill: colors.$color-snow !important;
 			}
 
 			span {
-				color: $color-snow;
+				color: colors.$color-snow;
 			}
 		}
 
-		@include m(granit) {
-			border-color: $color-granit;
+		@include bem.m(granit) {
+			border-color: colors.$color-granit;
 		}
 
-		@include m(lemon) {
-			border-color: $color-lemon;
+		@include bem.m(lemon) {
+			border-color: colors.$color-lemon;
 		}
 
-		@include m(jade) {
-			border-color: $color-jade;
+		@include bem.m(jade) {
+			border-color: colors.$color-jade;
 		}
 
-		@include m(ruby) {
-			border-color: $color-ruby;
+		@include bem.m(ruby) {
+			border-color: colors.$color-ruby;
 		}
 
-		@include m(peacock) {
-			border-color: $color-peacock;
+		@include bem.m(peacock) {
+			border-color: colors.$color-peacock;
 		}
 
-		@include m(ocean) {
-			border-color: $color-ocean;
+		@include bem.m(ocean) {
+			border-color: colors.$color-ocean;
 		}
 
-		@include m(sandstone) {
-			border-color: $color-sandstone;
+		@include bem.m(sandstone) {
+			border-color: colors.$color-sandstone;
 		}
 
-		@include m(transparent) {
+		@include bem.m(transparent) {
 			background-color: transparent;
 			border-color: transparent;
 		}
 
-		@include e(image-wrapper) {
-			width: rem(50px);
-			height: rem(50px);
-			margin-right: rhythm(2);
+		@include bem.e(image-wrapper) {
+			width: func.to_rem(50px);
+			height: func.to_rem(50px);
+			margin-right: func.rhythm(2);
 			position: relative;
 
-			@include bp-up(md) {
+			@include breakpoint.bp-up(md) {
 				margin-right: 0;
 			}
 
-			@include m(medium) {
-				width: rem(75px);
-				height: rem(75px);
+			@include bem.m(medium) {
+				width: func.to_rem(75px);
+				height: func.to_rem(75px);
 
 			}
 
-			@include m(large) {
-				width: rem(125px);
-				height: rem(125px);
-				margin-bottom: rhythm(2);
+			@include bem.m(large) {
+				width: func.to_rem(125px);
+				height: func.to_rem(125px);
+				margin-bottom: func.rhythm(2);
 
-				@include bp-up(md) {
+				@include breakpoint.bp-up(md) {
 					margin-bottom: 0;
 				}
 			}
 
-			@include m(multiple) {
-				margin-right: rhythm(3);
+			@include bem.m(multiple) {
+				margin-right: func.rhythm(3);
 				flex-grow: 0;
 				flex-shrink: 0;
 
-				@include bp-up(md) {
+				@include breakpoint.bp-up(md) {
 					margin-right: 0;
 				}
 
@@ -188,73 +198,73 @@
 					width: 100%;
 					height: 100%;
 					top: 0;
-					left: rhythm(1.25);
-					background-color: $color-ash;
+					left: func.rhythm(1.25);
+					background-color: colors.$color-ash;
 					position: absolute;
 					z-index: 2;
 					transform: scale(0.95);
-					box-shadow: 0 0 0 3px $color-snow;
+					box-shadow: 0 0 0 3px colors.$color-snow;
 				}
 
 				&::after {
-					left: rhythm(2.5);
+					left: func.rhythm(2.5);
 					z-index: 1;
 					transform: scale(0.9);
 				}
 			}
 		}
 
-		@include e(image) {
+		@include bem.e(image) {
 			border-radius: 50%;
-			width: rem(50px);
-			height: rem(50px);
+			width: func.to_rem(50px);
+			height: func.to_rem(50px);
 			position: relative;
 			z-index: 3;
-			box-shadow: 0 0 0 3px $color-snow;
+			box-shadow: 0 0 0 3px colors.$color-snow;
 
-			@include bp-up(lg) {
+			@include breakpoint.bp-up(lg) {
 				margin-right: 0;
 			}
 
-			@include m(medium) {
-				width: rem(75px);
-				height: rem(75px);
+			@include bem.m(medium) {
+				width: func.to_rem(75px);
+				height: func.to_rem(75px);
 
 			}
 
-			@include m(large) {
-				width: rem(125px);
-				height: rem(125px);
-				margin-bottom: rhythm(2);
+			@include bem.m(large) {
+				width: func.to_rem(125px);
+				height: func.to_rem(125px);
+				margin-bottom: func.rhythm(2);
 				box-shadow: none;
 
-				@include bp-up(md) {
+				@include breakpoint.bp-up(md) {
 					margin-bottom: 0;
 				}
 			}
 		}
 
-		@include e(close-btn) {
+		@include bem.e(close-btn) {
 			position: absolute;
 			top: 0;
 			right: 0;
-			z-index: z_index(middleGround);
+			z-index: func.z_index(middleGround);
 		}
 
-		@include e(owner) {
+		@include bem.e(owner) {
 			display: flex;
-			margin-bottom: rhythm(1);
+			margin-bottom: func.rhythm(1);
 			align-items: center;
 
 			> span {
 				line-height: 1.2;
 			}
 
-			@include bp-up(lg) {
+			@include breakpoint.bp-up(lg) {
 				margin-bottom: 0;
 			}
 
-			@include bp-up(md) {
+			@include breakpoint.bp-up(md) {
 				flex-wrap: wrap;
 				flex-direction: column;
 				align-items: center;
@@ -262,7 +272,7 @@
 
 				> span {
 					text-align: center;
-					margin-top: rhythm(0.5);
+					margin-top: func.rhythm(0.5);
 				}
 			}
 		}

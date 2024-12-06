@@ -96,7 +96,7 @@ var OverviewNavigation = function () {
 
 			this.button.style.transition = 'none';
 			this.updateButtonPosition();
-			// eslint-disable-next-line no-unused-expressions
+
 			this.element.offsetHeight; // force reflow
 			this.button.style.transition = 'right 0.25s ease-out, bottom 0.25s ease-out, opacity 0.25s ease-out';
 
@@ -119,7 +119,6 @@ var OverviewNavigation = function () {
 			this.element.setAttribute('aria-hidden', 'false');
 			this.element.classList.remove('is-minimized');
 
-			// eslint-disable-next-line no-unused-expressions
 			this.element.offsetHeight; // force reflow
 
 			this.updateButtonPosition();

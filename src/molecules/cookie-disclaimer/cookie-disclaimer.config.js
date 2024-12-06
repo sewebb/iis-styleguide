@@ -9,4 +9,4 @@ module.exports = {
 		js_class: 'js-dismiss-alert',
 		is_dismissable: true,
 	}
-}
+};

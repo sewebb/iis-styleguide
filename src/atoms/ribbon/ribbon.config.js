@@ -6,4 +6,4 @@ module.exports = {
 		text: 'stage',
 		background: 'peacock-light'
 	}
-}
+};

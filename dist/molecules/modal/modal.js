@@ -124,7 +124,7 @@ function addAction(action) {
 
 	if (action.onClick) {
 		el.addEventListener('click', function (e) {
-			// eslint-disable-next-line no-use-before-define
+
 			action.onClick(e, modal, close);
 		});
 	}
@@ -137,7 +137,7 @@ function handleKeyUp(e) {
 		    handler = _ref6[1];
 
 		if (e.key.toLowerCase() === key) {
-			// eslint-disable-next-line no-use-before-define
+
 			handler(e, modal, close);
 		}
 	});

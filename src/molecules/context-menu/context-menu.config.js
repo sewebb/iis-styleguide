@@ -9,20 +9,20 @@ module.exports = {
 	},
 	variants: [
 		{
-		name: 'No focus trap',
-		context: {
-			controls: 'contextMenu2',
-			focusTrap: false,
-			outsideClick: false
+			name: 'No focus trap',
+			context: {
+				controls: 'contextMenu2',
+				focusTrap: false,
+				outsideClick: false
 			}
 		},
 		{
-		name: 'Close on outside click',
-		context: {
-			controls: 'contextMenu3',
-			focusTrap: false,
-			outsideClick: true
+			name: 'Close on outside click',
+			context: {
+				controls: 'contextMenu3',
+				focusTrap: false,
+				outsideClick: true
 			}
 		}
 	]
-}
+};

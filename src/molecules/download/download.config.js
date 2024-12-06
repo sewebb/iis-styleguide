@@ -9,4 +9,4 @@ module.exports = {
 		download: 'Ladda ner',
 		icon: 'arrow-forwards'
 	}
-}
+};

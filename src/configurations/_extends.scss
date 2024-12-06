@@ -1,5 +1,9 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 @use "sass:color";
+@use 'colors/colors' as colors;
+@use 'variables' as var;
+@use 'functions' as func;
+@use 'mixins' as mixin;
 
 %normalize-links {
 	padding: 0;
@@ -16,16 +20,16 @@
 }
 
 %link-styles {
-	padding: rhythm(0) rhythm(0.5);
-	border-bottom: rem(2px) solid $color-peacock;
+	padding: func.rhythm(0) func.rhythm(0.5);
+	border-bottom: func.to_rem(2px) solid colors.$color-peacock;
 	color: var(---cyberspace-color);
 	text-decoration: none;
 
 	&:hover,
 	&:focus {
-		border-bottom: rem(2px) solid $color-ocean-light;
-		border-radius: $border-radius;
-		background-color: $color-ocean-light;
+		border-bottom: func.to_rem(2px) solid colors.$color-ocean-light;
+		border-radius: var.$border-radius;
+		background-color: colors.$color-ocean-light;
 	}
 
 	&[href^='mailto'] {
@@ -55,25 +59,25 @@
 %input {
 	display: block;
 	position: relative;
-	z-index: z_index(middleground);
+	z-index: func.z_index(middleground);
 	width: 100%;
 	min-width: 0;
-	padding: rhythm(1);
-	border: 1px solid $color-granit;
-	border-radius: $border-radius;
-	background-color: color.adjust($color-ash, $lightness: 4%);
+	padding: func.rhythm(1);
+	border: 1px solid colors.$color-granit;
+	border-radius: var.$border-radius;
+	background-color: color.adjust(colors.$color-ash, $lightness: 4%);
 	-webkit-appearance: none;
-	font-size: rem(16px);
+	font-size: func.to_rem(16px);
 }
 
 %input-focus {
-	border-color: $color-ocean;
-	box-shadow: 0 0 0 inset rgba($color-cyberspace, 0.2), 0 1px 2px rgba($color-cyberspace, 0.2), 0 0 0 3px $color-ocean-light;
+	border-color: colors.$color-ocean;
+	box-shadow: 0 0 0 inset rgba(colors.$color-cyberspace, 0.2), 0 1px 2px rgba(colors.$color-cyberspace, 0.2), 0 0 0 3px colors.$color-ocean-light;
 }
 
 %invalid {
-	border-color: $color-ruby;
-	background-color: color.adjust($color-ruby-light, $lightness: 16%);
+	border-color: colors.$color-ruby;
+	background-color: color.adjust(colors.$color-ruby-light, $lightness: 16%);
 }
 
 %disabled {
@@ -89,12 +93,12 @@
 
 %discreet {
 	border-style: dashed;
-	border-color: color.adjust($color-granit, $lightness: 20%);
+	border-color: color.adjust(colors.$color-granit, $lightness: 20%);
 	background-color: transparent;
 
 	&:focus {
 		border-style: solid;
-		background-color:  color.adjust($color-ash, $lightness: 4%);
+		background-color:  color.adjust(colors.$color-ash, $lightness: 4%);
 	}
 }
 
@@ -107,15 +111,15 @@
 }
 
 %tag {
-	@include tag;
+	@include mixin.tag;
 }
 
 %tag-light {
-	@include tag-light;
+	@include mixin.tag-light;
 }
 
 %box-shadow {
-	box-shadow: 0 rhythm(0.5) rhythm(0.5) rgba($color-cyberspace, 0.1) !important;
+	box-shadow: 0 func.rhythm(0.5) func.rhythm(0.5) rgba(colors.$color-cyberspace, 0.1) !important;
 }
 
 %button-toolbar {
@@ -124,46 +128,46 @@
 	flex-wrap: nowrap;
 	align-items: center;
 	justify-content: center;
-	width: rhythm(4);
-	height: rhythm(4);
+	width: func.rhythm(4);
+	height: func.rhythm(4);
 	margin: 0;
-	padding: rhythm(1);
+	padding: func.rhythm(1);
 	overflow: hidden;
 	border: 0;
 	border-radius: 0;
-	border-radius: $border-radius;
-	background-color: $color-snow;
+	border-radius: var.$border-radius;
+	background-color: colors.$color-snow;
 	cursor: pointer;
 
 	&:hover,
 	&:focus,
 	&:active,
 	&.is-active {
-		background-color: $color-cyberspace;
+		background-color: colors.$color-cyberspace;
 
 		svg {
-			fill: $color-snow;
+			fill: colors.$color-snow;
 		}
 	}
 
 	&:disabled {
-		background-color: $color-concrete !important;
+		background-color: colors.$color-concrete !important;
 		box-shadow: none;
 		cursor: not-allowed;
 
 		[class*='text'] {
-			color: $color-snow !important;
+			color: colors.$color-snow !important;
 		}
 
 		svg {
-			fill: $color-granit;
+			fill: colors.$color-granit;
 		}
 	}
 
 	svg {
-		width: rhythm(2);
-		height: rhythm(2);
-		fill: $color-cyberspace;
+		width: func.rhythm(2);
+		height: func.rhythm(2);
+		fill: colors.$color-cyberspace;
 	}
 }
 

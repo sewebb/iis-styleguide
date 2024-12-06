@@ -1,61 +1,71 @@
-@charset 'UTF-8';
-
+@charset "UTF-8";
 @use "sass:math";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/extends';
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/grid/grid' as grid;
+@use '../../vendor/baseline/plumber' as plumber;
 
-$footer-font-size: 18px; // To ensure all footers on all sites have the same font size this component used pixel based values
+$footer-font-size: 18px; /* To ensure all footers on all sites have the same font size this component used pixel based values */
 
 * { /* Because not all of the old sites have this */
 	box-sizing: border-box;
 }
 
-@include organism(footer) {
+@include mixin.organism(footer) {
 	position: relative;
-	z-index: z_index(middleground);
+	z-index: func.z_index(middleground);
 	transform: translateY(0);
-	border-top: 1px solid $color-ash;
+	border-top: 1px solid colors.$color-ash;
 	font-size: $footer-font-size;
 
 	&.is-animated {
-		z-index: z_index(foreground);
+		z-index: func.z_index(foreground);
 	}
 
-	@include e(logotype) {
+	@include bem.e(logotype) {
 		width: 100%;
 		max-width: 250px;
 		height: 100%;
 
-		@include bp-up(xl) {
+		@include breakpoint.bp-up(xl) {
 			max-width: 300px;
 		}
 	}
 
-	@include e(link) {
+	@include bem.e(link) {
 		@extend %normalize-links;
 
 		background-color: transparent;
-		color: $color-jade;
+		color: colors.$color-jade;
 		text-decoration: none;
 
 		&:hover,
 		&:focus {
 			background-color: transparent;
-			color: $color-jade;
+			color: colors.$color-jade;
 			text-decoration: underline;
 		}
 	}
 
-	@include e(info) {
-		background-color: $color-cyberspace;
-		color: $color-snow;
+	@include bem.e(info) {
+		background-color: colors.$color-cyberspace;
+		color: colors.$color-snow;
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 
-		@include e(freetext) {
-			padding: rhythm(3) rhythm(3) rhythm(4) rhythm(3);
-			border-bottom: 1px solid $color-black;
+		@include bem.e(freetext) {
+			padding: func.rhythm(3) func.rhythm(3) func.rhythm(4) func.rhythm(3);
+			border-bottom: 1px solid colors.$color-black;
 
-			@include bp-up(xl) {
-				padding: rhythm(4) rhythm(6);
+			@include breakpoint.bp-up(xl) {
+				padding: func.rhythm(4) func.rhythm(6);
 				border-bottom: 0;
 			}
 
@@ -64,21 +74,21 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 				margin-bottom: 27px;
 				font-size: $footer-font-size;
 
-				@include bp-up(xxl) {
-					@include make-col(14);
-					max-width: rem(612px);
+				@include breakpoint.bp-up(xxl) {
+					@include grid.make-col(14);
+					max-width: func.to_rem(612px);
 				}
 			}
 
 			a {
 				@extend %normalize-links;
 
-				color: $color-jade;
-				text-decoration: none;
+				color: colors.$color-jade;
+				text-decoration: underline;
 
 				&:hover,
 				&:focus {
-					color: $color-jade;
+					color: colors.$color-jade;
 					text-decoration: underline;
 				}
 
@@ -88,154 +98,154 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 			}
 		}
 
-		@include e(contact) {
+		@include bem.e(contact) {
 			font-size: 80%;
 
-			@include bp-up(lg) {
-				border-left: 1px solid $color-black;
+			@include breakpoint.bp-up(lg) {
+				border-left: 1px solid colors.$color-black;
 			}
 
-			@include e(address) {
+			@include bem.e(address) {
 				font-size: inherit;
 
-				@include e(li) {
+				@include bem.e(li) {
 					font-size: #{($footer-font-size) - 3px};
 					line-height: 1.3;
 				}
 			}
 
-			@include bp-up(xxl) {
-				padding-right: rhythm(1);
+			@include breakpoint.bp-up(xxl) {
+				padding-right: func.rhythm(1);
 
 				& + & {
 					padding-right: 0;
-					padding-left: rhythm(1);
+					padding-left: func.rhythm(1);
 				}
 			}
 
-			@include e(row-first) {
-				border-bottom: 1px solid $color-black;
+			@include bem.e(row-first) {
+				border-bottom: 1px solid colors.$color-black;
 				overflow: hidden;
 
-				@include bp-up(lg) {
+				@include breakpoint.bp-up(lg) {
 					height: 70%;
 				}
 
-				@include bp-up(xl) {
+				@include breakpoint.bp-up(xl) {
 					height: 50%;
 				}
 			}
 
-			@include e(row-second) {
-				@include bp-up(lg) {
+			@include bem.e(row-second) {
+				@include breakpoint.bp-up(lg) {
 					height: 30%;
 				}
 
-				@include bp-up(xl) {
+				@include breakpoint.bp-up(xl) {
 					height: 50%;
 				}
 			}
 		}
 
-		@include e(address1) {
-			padding: rhythm(3);
-			border-bottom: 1px solid $color-black;
+		@include bem.e(address1) {
+			padding: func.rhythm(3);
+			border-bottom: 1px solid colors.$color-black;
 
-			@include bp-only(md) {
+			@include breakpoint.bp-only(md) {
 				border-bottom: 0;
 			}
 
-			@include bp-up(xl) {
+			@include breakpoint.bp-up(xl) {
 				border-bottom: 0;
-				padding: rhythm(4) rhythm(3) rhythm(3) rhythm(6);
+				padding: func.rhythm(4) func.rhythm(3) func.rhythm(3) func.rhythm(6);
 			}
 		}
 
-		@include e(address2) {
-			padding: rhythm(3);
+		@include bem.e(address2) {
+			padding: func.rhythm(3);
 
-			@include bp-only(md) {
-				border-left: 1px solid $color-black;
+			@include breakpoint.bp-only(md) {
+				border-left: 1px solid colors.$color-black;
 			}
 
-			@include bp-up(xl) {
-				border-left: 1px solid $color-black;
-				padding-left: rhythm(6);
-				padding-top: rhythm(4);
+			@include breakpoint.bp-up(xl) {
+				border-left: 1px solid colors.$color-black;
+				padding-left: func.rhythm(6);
+				padding-top: func.rhythm(4);
 			}
 		}
 
-		@include e(ISO) {
-			border-bottom: 1px solid $color-black;
-			padding: rhythm(3);
+		@include bem.e(ISO) {
+			border-bottom: 1px solid colors.$color-black;
+			padding: func.rhythm(3);
 			display: flex;
 			align-items: center;
 
-			@include bp-up(md) {
+			@include breakpoint.bp-up(md) {
 				border-bottom: 0;
 			}
 
-			@include bp-up(xl) {
-				padding: rhythm(3) rhythm(3) rhythm(4) rhythm(6);
+			@include breakpoint.bp-up(xl) {
+				padding: func.rhythm(3) func.rhythm(3) func.rhythm(4) func.rhythm(6);
 			}
 		}
 
-		@include e(CC) {
-			padding: rhythm(3);
+		@include bem.e(CC) {
+			padding: func.rhythm(3);
 			display: flex;
 			align-items: center;
 
-			@include bp-up(md) {
-				border-left: 1px solid $color-black;
+			@include breakpoint.bp-up(md) {
+				border-left: 1px solid colors.$color-black;
 			}
 
-			@include bp-up(xl) {
-				padding-left: rhythm(6);
-				padding-bottom: rhythm(4);
+			@include breakpoint.bp-up(xl) {
+				padding-left: func.rhythm(6);
+				padding-bottom: func.rhythm(4);
 			}
 		}
 	}
 
-	@include e(logotypes) {
+	@include bem.e(logotypes) {
 		max-width: 100%;
 		height: auto;
-		background-color: $color-snow;
+		background-color: colors.$color-snow;
 
-		@include e(item) {
+		@include bem.e(item) {
 			display: flex;
 			flex-basis: 100%;
 			flex-grow: 1;
 			flex-shrink: 1;
 			justify-content: center;
 			min-height: 130px;
-			padding: 0 rhythm(6);
+			padding: 0 func.rhythm(6);
 			overflow: hidden;
-			border-bottom: 1px solid $color-ash;
-			border-left: 1px solid $color-ash;
+			border-bottom: 1px solid colors.$color-ash;
+			border-left: 1px solid colors.$color-ash;
 
-			@include bp-up(sm) {
+			@include breakpoint.bp-up(sm) {
 				flex-basis: 50%;
 				padding: 0;
 				min-height: 200px;
 			}
 
-			@include bp-only(sm) {
-				padding: 0 rhythm(2);
+			@include breakpoint.bp-only(sm) {
+				padding: 0 func.rhythm(2);
 			}
 
-			@include bp-up(md) {
+			@include breakpoint.bp-up(md) {
 				flex-basis: 50%;
 			}
 
-			@include bp-up(lg) {
+			@include breakpoint.bp-up(lg) {
 				flex-basis: 33.333333%;
 			}
 
-			@include bp-up(xl) {
+			@include breakpoint.bp-up(xl) {
 				flex-basis: 16.666666%;
 			}
 
-			@include e(link) {
+			@include bem.e(link) {
 				display: block;
 				width: 100%;
 				height: 100%;
@@ -243,7 +253,7 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 				overflow: hidden;
 				perspective: 1000px;
 
-				@include bp-up(sm) {
+				@include breakpoint.bp-up(sm) {
 					&:hover,
 					&:focus {
 						[class*='inner'] {
@@ -252,38 +262,38 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 					}
 				}
 
-				@include bp-up(sm) {
+				@include breakpoint.bp-up(sm) {
 					padding: 0;
 				}
 
-				@include bp-up(md) {
-					padding: 0 rhythm(4);
+				@include breakpoint.bp-up(md) {
+					padding: 0 func.rhythm(4);
 				}
 
-				@include bp-up(xl) {
-					padding: 0 rhythm(3);
+				@include breakpoint.bp-up(xl) {
+					padding: 0 func.rhythm(3);
 				}
 			}
 
-			@include e(inner) {
+			@include bem.e(inner) {
 				position: relative;
 				width: 100%;
 				height: 100%;
 				transform-style: preserve-3d;
 				transition: transform 0.5s;
-				color: $color-cyberspace;
+				color: colors.$color-cyberspace;
 				text-align: center;
 			}
 
-			@include e(front) {
+			@include bem.e(front) {
 				position: absolute;
 				width: 100%;
 				height: 100%;
 				backface-visibility: hidden;
-				background-color: $color-snow;
+				background-color: colors.$color-snow;
 			}
 
-			@include e(back) {
+			@include bem.e(back) {
 				display: flex;
 				position: absolute;
 				flex-direction: column;
@@ -293,21 +303,21 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 				height: 100%;
 				transform: rotateY(180deg);
 				backface-visibility: hidden;
-				background-color: $color-snow;
+				background-color: colors.$color-snow;
 
 				span {
 					display: inline-block;
 					max-width: 300px;
 
-					@include plumber(
+					@include plumber.plumber(
 						$font-size: 1.7,
 						$line-height: 2
 					);
 				}
 
-				@include bp-only(xl) {
+				@include breakpoint.bp-only(xl) {
 					h2 {
-						font-size: rem(18px);
+						font-size: func.to_rem(18px);
 						line-height: 1.3rem;
 					}
 				}
@@ -315,7 +325,7 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 		}
 	}
 
-	@include e(logo-link) {
+	@include bem.e(logo-link) {
 		display: flex;
 		justify-content: center;
 		background-color: transparent;
@@ -328,7 +338,7 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 		}
 	}
 
-	@include e(external-link) {
+	@include bem.e(external-link) {
 		display: flex;
 		align-items: center;
 		font-size: 12px;
@@ -337,50 +347,50 @@ $footer-font-size: 18px; // To ensure all footers on all sites have the same fon
 		text-decoration: none;
 	}
 
-	@include e(external-logo) {
-		width: rhythm(6);
+	@include bem.e(external-logo) {
+		width: func.rhythm(6);
 		max-width: 100%;
 		height: auto;
-		margin-right: rhythm(2);
+		margin-right: func.rhythm(2);
 
-		@include m(cc) {
+		@include bem.m(cc) {
 			width: auto;
 		}
 	}
 
-	@include e(bottom-links) {
+	@include bem.e(bottom-links) {
 		display: flex;
 		flex-wrap: wrap-reverse;
 		justify-content: center;
 		width: 100%;
-		background-color: $color-black;
+		background-color: colors.$color-black;
 	}
 
-	@include e(about-link) {
+	@include bem.e(about-link) {
 		font-size: #{($footer-font-size) - 4px};
 		-webkit-font-smoothing: antialiased;
 		-moz-osx-font-smoothing: grayscale;
 	}
 }
 
-@include b(o-footer-grid) {
+@include bem.b(o-footer-grid) {
 	position: relative;
 	flex-basis: 100%;
 	flex-grow: 1;
 	width: 100%;
 	max-width: 100%;
 	min-height: 1px;
-	padding-right: math.div($grid-gutter-width, 2);
-	padding-left: math.div($grid-gutter-width, 2);
+	padding-right: math.div(var.$grid-gutter-width, 2);
+	padding-left: math.div(var.$grid-gutter-width, 2);
 	-ms-flex-preferred-size: 0;
 	-webkit-box-flex: 1;
 	-ms-flex-positive: 1;
 
 	& + & {
-		margin-top: rhythm(2);
+		margin-top: func.rhythm(2);
 	}
 
-	@include bp-up(sm) {
+	@include breakpoint.bp-up(sm) {
 		flex-basis: 0;
 
 		& + & {

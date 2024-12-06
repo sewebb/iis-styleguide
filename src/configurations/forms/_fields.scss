@@ -1,9 +1,14 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 @use "sass:color";
+@use '../bem' as bem;
+@use '../variables' as var;
+@use '../functions' as func;
+@use '../extends';
+@use '../colors/colors' as colors;
 
-@include b(field-group) {
+@include bem.b(field-group) {
 	position: relative;
-	margin-bottom: rhythm(4);
+	margin-bottom: func.rhythm(4);
 
 	&:last-child {
 		margin-bottom: 0;
@@ -13,7 +18,7 @@
 	textarea,
 	select {
 		+ .button {
-			margin-top: rhythm(1);
+			margin-top: func.rhythm(1);
 		}
 	}
 
@@ -25,28 +30,28 @@
 			@extend %invalid;
 		}
 
-		@include b(input-help) {
-			background-color: $color-ruby-light;
+		@include bem.b(input-help) {
+			background-color: colors.$color-ruby-light;
 
 			&::selection {
-				background-color: $color-ruby;
+				background-color: colors.$color-ruby;
 			}
 
 			&::-moz-selection {
-				background-color: $color-ruby;
+				background-color: colors.$color-ruby;
 			}
 		}
 	}
 }
 
-@include b(input-help) {
+@include bem.b(input-help) {
 	width: 100%;
-	padding: rhythm(0.5) rhythm(1);
-	transform: translateY(rem(-3px));
-	border-bottom-right-radius: $border-radius;
-	border-bottom-left-radius: $border-radius;
-	background-color: $color-concrete;
-	font-size: rem(16px);
+	padding: func.rhythm(0.5) func.rhythm(1);
+	transform: translateY(func.to_rem(-3px));
+	border-bottom-right-radius: var.$border-radius;
+	border-bottom-left-radius: var.$border-radius;
+	background-color: colors.$color-concrete;
+	font-size: func.to_rem(16px);
 
 	&:empty {
 		display: none;
@@ -66,7 +71,7 @@ fieldset[disabled] {
 		&:hover,
 		&:focus {
 			svg {
-				fill: $color-cyberspace;
+				fill: colors.$color-cyberspace;
 			}
 		}
 	}
@@ -79,9 +84,9 @@ fieldset[disabled] {
 		+ label {
 			@extend %disabled;
 
-			background-color: $color-granit;
-			box-shadow: 0 0 0 1px inset $color-granit;
-			color: $color-granit;
+			background-color: colors.$color-granit;
+			box-shadow: 0 0 0 1px inset colors.$color-granit;
+			color: colors.$color-granit;
 
 			&:hover,
 			&:focus {
@@ -95,7 +100,7 @@ fieldset[disabled] {
 			@extend %disabled;
 
 			&::before {
-				background-color: color.adjust($color-concrete, $lightness: -5%) !important;
+				background-color: color.adjust(colors.$color-concrete, $lightness: -5%) !important;
 			}
 		}
 	}
@@ -105,14 +110,14 @@ fieldset[disabled] {
 			@extend %disabled;
 
 			&::before {
-				background-color: color.adjust($color-concrete, $lightness: -5%);
+				background-color: color.adjust(colors.$color-concrete, $lightness: -5%);
 			}
 
 			&:hover,
 			&:focus {
 				/* stylelint-disable */
 				&::before {
-					background-color: color.adjust($color-concrete, $lightness: -5%);
+					background-color: color.adjust(colors.$color-concrete, $lightness: -5%);
 				}
 				/* stylelint-enable */
 			}
@@ -124,7 +129,7 @@ fieldset[disabled] {
 
 				/* stylelint-disable */
 				&::before {
-					background-color: $color-cyberspace;
+					background-color: colors.$color-cyberspace;
 				}
 				/* stylelint-enable */
 			}

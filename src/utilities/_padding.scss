@@ -1,6 +1,9 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../configurations/config' as config;
+@use '../configurations/variables' as var;
+@use '../configurations/functions' as func;
 
-/// @group Utilities
+/* @group Utilities */
 $class-p: u-p !default;
 $class-p-t: u-p-t !default;
 $class-p-r: u-p-r !default;
@@ -11,60 +14,60 @@ $class-p-y: u-p-y !default;
 
 /* stylelint-disable */
 @for $i from 0 through 8 {
-	// Padding all
+	/* Padding all */
 	.#{$class-p}-#{$i} {
-		padding: rhythm($i) !important;
+		padding: func.rhythm($i) !important;
 	}
 
-	// Padding top
+	/* Padding top */
 	.#{$class-p-t}-#{$i} {
-		padding-top: rhythm($i) !important;
+		padding-top: func.rhythm($i) !important;
 	}
 
-	// Padding right
+	/* Padding right */
 	.#{$class-p-r}-#{$i} {
-		padding-right: rhythm($i) !important;
+		padding-right: func.rhythm($i) !important;
 	}
 
-	// Padding bottom
+	/* Padding bottom */
 	.#{$class-p-b}-#{$i} {
-		padding-bottom: rhythm($i) !important;
+		padding-bottom: func.rhythm($i) !important;
 	}
 
-	// Padding left
+	/* Padding left */
 	.#{$class-p-l}-#{$i} {
-		padding-left: rhythm($i) !important;
+		padding-left: func.rhythm($i) !important;
 	}
 
-	// Padding x (left and right)
+	/* Padding x (left and right) */
 	.#{$class-p-x}-#{$i} {
-		padding-right: rhythm($i) !important;
-		padding-left: rhythm($i) !important;
+		padding-right: func.rhythm($i) !important;
+		padding-left: func.rhythm($i) !important;
 	}
 
-	// Padding x (left and right)
+	/* Padding x (left and right) */
 	.#{$class-p-y}-#{$i} {
-		padding-top: rhythm($i) !important;
-		padding-bottom: rhythm($i) !important;
+		padding-top: func.rhythm($i) !important;
+		padding-bottom: func.rhythm($i) !important;
 	}
 }
 
 .u-p-default {
-	padding: $default-padding !important;
+	padding: config.$default-padding !important;
 }
 
 .u-p-t-default {
-	padding-top: $default-padding !important;
+	padding-top: config.$default-padding !important;
 }
 
 .u-p-b-default {
-	padding-bottom: $default-padding !important;
+	padding-bottom: config.$default-padding !important;
 }
 
 .u-p-l-default {
-	padding-left: $default-padding !important;
+	padding-left: config.$default-padding !important;
 }
 
 .u-p-r-default {
-	padding-right: $default-padding !important;
+	padding-right: config.$default-padding !important;
 }

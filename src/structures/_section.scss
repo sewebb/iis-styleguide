@@ -1,53 +1,65 @@
-@include b(section) {
-	margin-top: rhythm(8);
+@charset "UTF-8";
+@use '../configurations/mixins' as mixin;
+@use '../configurations/bem' as bem;
+@use '../configurations/config' as config;
+@use '../configurations/variables' as var;
+@use '../configurations/functions' as func;
+@use '../configurations/colors/colors' as colors;
+@use '../configurations/colors/colors-functions' as colorFunc;
+@use '../vendor/grid/breakpoints' as breakpoint;
+@use '../vendor/grid/grid' as grid;
+@use '../vendor/baseline/plumber' as plumber;
 
-	@include m(tight) {
-		margin-top: rhythm(2);
+@include bem.b(section) {
+	margin-top: func.rhythm(8);
 
-		@include bp-up(md) {
-			margin-top: rhythm(4);
+	@include bem.m(tight) {
+		margin-top: func.rhythm(2);
+
+		@include breakpoint.bp-up(md) {
+			margin-top: func.rhythm(4);
 		}
 	}
 
-	@include m(no-margin) {
+	@include bem.m(no-margin) {
 		margin-top: 0;
 	}
 
-	@include m(peacock) {
+	@include bem.m(peacock) {
 		p > a {
-			background-color: $color-peacock-light;
+			background-color: colors.$color-peacock-light;
 		}
 
 		::selection {
-			background-color: $color-peacock-light;
+			background-color: colors.$color-peacock-light;
 		}
 
 		::-moz-selection {
-			background-color: $color-peacock-light;
+			background-color: colors.$color-peacock-light;
 		}
 	}
 
-	@include m(jade) {
+	@include bem.m(jade) {
 		p > a {
-			background-color: $color-jade-light;
+			background-color: colors.$color-jade-light;
 		}
 
 		::selection {
-			background-color: $color-jade-light;
+			background-color: colors.$color-jade-light;
 		}
 
 		::-moz-selection {
-			background-color: $color-jade-light;
+			background-color: colors.$color-jade-light;
 		}
 	}
 
-	@include e(title) {
-		margin-bottom: rhythm(3);
-		padding-right: rem(15px);
-		padding-left: rem(15px);
+	@include bem.e(title) {
+		margin-bottom: func.rhythm(3);
+		padding-right: func.to_rem(15px);
+		padding-left: func.to_rem(15px);
 	}
 
-	@include e(label) {
+	@include bem.e(label) {
 		text-transform: uppercase;
 	}
 }

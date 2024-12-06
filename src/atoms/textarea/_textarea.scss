@@ -1,11 +1,20 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use "sass:color";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/extends';
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/baseline/plumber' as plumber;
 
-@include atom(textarea) {
+@include mixin.atom(textarea) {
 	@extend %input;
 
 	min-width: 100%;
 	max-width: 100%;
-	min-height: rhythm(12);
+	min-height: func.rhythm(12);
 
 	&:focus {
 		@extend %input-focus;
@@ -15,30 +24,29 @@
 		@extend %disabled;
 	}
 
-	@include m(discreet) {
+	@include bem.m(discreet) {
 		@extend %discreet;
 	}
 
-	@include m(hidden) {
-		@include visuallyhidden;
+	@include bem.m(hidden) {
+		@include mixin.visuallyhidden;
 
-		// Usually in a field-group and we want validation messages at the top
-		top: 0;
 		min-height: 0;
 		min-width: 0;
+		width: 100%;
 		padding: 0;
 	}
 
-	@include m(rich-text) {
+	@include bem.m(rich-text) {
 		min-height: auto;
 
 		> div {
-			min-height: rhythm(12);
+			min-height: func.rhythm(12);
 
 			p,
 			ul,
 			ol {
-				@include plumber(
+				@include plumber.plumber(
 					$font-size: 1.75,
 					$leading-bottom: 2
 				);
@@ -50,12 +58,12 @@
 		}
 	}
 
-	@include e(toolbar) {
+	@include bem.e(toolbar) {
 		button {
 			@extend %button-toolbar;
 
-			margin-right: rhythm(0.5);
-			margin-bottom: rhythm(1);
+			margin-right: func.rhythm(0.5);
+			margin-bottom: func.rhythm(1);
 		}
 	}
 }

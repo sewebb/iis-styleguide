@@ -1,40 +1,43 @@
-@charset 'UTF-8';
+@use "sass:map";
+@charset "UTF-8";
 
-@import '../configurations/colors/colors';
+@use '../configurations/colors/colors' as colors;
+@use '../configurations/mixins' as mixin;
+@use '../configurations/bem' as bem;
 
 :root {
-	--snow-color: #{$color-snow};
-	--cyberspace-color: #{$color-cyberspace};
-	--black-color: #{$color-black};
-	--ash-color: #{$color-ash};
-	--dark-color: #{$color-cyberspace};
-	--white-color: #{$color-snow};
-	--ocean-dark-color: #{$color-ocean-dark};
+	--snow-color: #{colors.$color-snow};
+	--cyberspace-color: #{colors.$color-cyberspace};
+	--black-color: #{colors.$color-black};
+	--ash-color: #{colors.$color-ash};
+	--dark-color: #{colors.$color-cyberspace};
+	--white-color: #{colors.$color-snow};
+	--ocean-dark-color: #{colors.$color-ocean-dark};
 }
 
 $namespace: '';
 
-// Theme palette
+/* Theme palette */
 $theme-palette: (
 	background: var(--ash-color)
 ) !default;
 
 @function theme_palette($key: 'background') {
-	@return map-get($theme-palette, $key);
+	@return map.get($theme-palette, $key);
 }
 
-@include b(site) {
+@include mixin.b(site) {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
 
-	@include e(header) {
+	@include bem.e(header) {
 		display: flex;
 		position: relative;
 		flex-direction: column;
 	}
 
-	@include e(main) {
+	@include bem.e(main) {
 		flex: 1 0 auto;
 		transition: opacity 0.2s ease-out, height 0.2s ease-out;
 		opacity: 1;
@@ -47,16 +50,16 @@ $theme-palette: (
 }
 
 :root {
-	--m-submenu-background-color: #{$color-ocean-light};
-	--m-submenu-icon-fill-color: #{$color-cyberspace};
-	--m-submenu-icon-background-hover-color: #{$color-ocean-light};
-	--m-info-box-border-color: #{$color-peacock};
-	--m-modal-button-primary-color: #{$color-peacock-light};
-	--m-modal-button-primary-hover-color: #{$color-peacock};
-	--m-modal-button-primary-border-color: #{$color-peacock};
-	--m-modal-button-primary-text-color: #{$color-cyberspace};
-	--m-modal-button-secondary-color: #{$color-ruby-light};
-	--m-modal-button-secondary-hover-color: #{$color-ruby};
-	--m-modal-button-secondary-border-color: #{$color-ruby};
-	--m-modal-button-secondary-text-color: #{$color-cyberspace};
+	--m-submenu-background-color: #{colors.$color-ocean-light};
+	--m-submenu-icon-fill-color: #{colors.$color-cyberspace};
+	--m-submenu-icon-background-hover-color: #{colors.$color-ocean-light};
+	--m-info-box-border-color: #{colors.$color-peacock};
+	--m-modal-button-primary-color: #{colors.$color-peacock-light};
+	--m-modal-button-primary-hover-color: #{colors.$color-peacock};
+	--m-modal-button-primary-border-color: #{colors.$color-peacock};
+	--m-modal-button-primary-text-color: #{colors.$color-cyberspace};
+	--m-modal-button-secondary-color: #{colors.$color-ruby-light};
+	--m-modal-button-secondary-hover-color: #{colors.$color-ruby};
+	--m-modal-button-secondary-border-color: #{colors.$color-ruby};
+	--m-modal-button-secondary-text-color: #{colors.$color-cyberspace};
 }

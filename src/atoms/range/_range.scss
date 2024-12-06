@@ -1,7 +1,14 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 @use "sass:color";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
 
-@include atom(range) {
+
+@include mixin.atom(range) {
 	-webkit-appearance: none;
 	appearance: none;
 	background: transparent;
@@ -10,38 +17,38 @@
 	position: relative;
 
 	&::-webkit-slider-runnable-track {
-		background-color: $color-concrete;
-		height: rhythm(1);
-		border-radius: $border-radius;
-		border-top: 1px solid color.adjust($color-granit, $lightness: 15%);
+		background-color: colors.$color-concrete;
+		height: func.rhythm(1);
+		border-radius: var.$border-radius;
+		border-top: 1px solid color.adjust(colors.$color-granit, $lightness: 15%);
 	}
 
 	&::-moz-range-track {
-		background-color: $color-concrete;
-		height: rhythm(1);
-		border-radius: $border-radius;
-		border-top: 1px solid $color-granit;
+		background-color: colors.$color-concrete;
+		height: func.rhythm(1);
+		border-radius: var.$border-radius;
+		border-top: 1px solid colors.$color-granit;
 	}
 
 	&::-webkit-slider-thumb {
 		-webkit-appearance: none;
 		appearance: none;
-		margin-top: -#{rhythm(1.125)};
-		background-color: $color-ash;
-		height: rhythm(3);
-		width: rhythm(1.5);
-		border: 1px solid $color-granit;
-		border-radius: $border-radius;
+		margin-top: -#{func.rhythm(1.125)};
+		background-color: colors.$color-ash;
+		height: func.rhythm(3);
+		width: func.rhythm(1.5);
+		border: 1px solid colors.$color-granit;
+		border-radius: var.$border-radius;
 	}
 
 	&::-moz-range-thumb {
-		background-color: $color-ash;
-		height: rhythm(3);
-		width: rhythm(1.5);
+		background-color: colors.$color-ash;
+		height: func.rhythm(3);
+		width: func.rhythm(1.5);
 		border-radius: 0;
 		border: 0;
-		border: 1px solid $color-granit;
-		border-radius: $border-radius;
+		border: 1px solid colors.$color-granit;
+		border-radius: var.$border-radius;
 	}
 
 	&:focus {
@@ -49,10 +56,10 @@
 		box-shadow: none !important;
 
 		& + output {
-			background-color: $color-ocean-light;
+			background-color: colors.$color-ocean-light;
 
 			&::after {
-				border-bottom-color: $color-ocean-light;
+				border-bottom-color: colors.$color-ocean-light;
 			}
 		}
 	}
@@ -68,31 +75,31 @@
 	}
 
 	&:focus::-webkit-slider-thumb {
-		background-color: $color-snow;
-		border-color: $color-ocean;
-		box-shadow: 0 0 0 inset rgba($color-cyberspace, 0.2), 0 1px 2px rgba($color-cyberspace, 0.2), 0 0 0 3px $color-ocean-light;
+		background-color: colors.$color-snow;
+		border-color: colors.$color-ocean;
+		box-shadow: 0 0 0 inset rgba(colors.$color-cyberspace, 0.2), 0 1px 2px rgba(colors.$color-cyberspace, 0.2), 0 0 0 3px colors.$color-ocean-light;
 	}
 
 	&:focus::-moz-range-thumb {
-		background-color: $color-snow;
-		border-color: $color-ocean;
-		box-shadow: 0 0 0 inset rgba($color-cyberspace, 0.2), 0 1px 2px rgba($color-cyberspace, 0.2), 0 0 0 3px $color-ocean-light;
+		background-color: colors.$color-snow;
+		border-color: colors.$color-ocean;
+		box-shadow: 0 0 0 inset rgba(colors.$color-cyberspace, 0.2), 0 1px 2px rgba(colors.$color-cyberspace, 0.2), 0 0 0 3px colors.$color-ocean-light;
 	}
 
-	@include m(no-preview) {
+	@include bem.m(no-preview) {
 		& + output {
 			display: none;
 		}
 	}
 
-	@include e(value){
-		background-color: $color-concrete;
-		padding: rhythm(0.5) rhythm(1);
+	@include bem.e(value){
+		background-color: colors.$color-concrete;
+		padding: func.rhythm(0.5) func.rhythm(1);
 		position: absolute;
-		border-radius: $border-radius;
+		border-radius: var.$border-radius;
 		left: 50%;
 		transform: translateX(-50%) translateY(calc(100% + 8px));
-		font-size: $size-medium;
+		font-size: var.$size-medium;
 
 		&::after {
 			bottom: 100%;
@@ -103,19 +110,19 @@
 			width: 0;
 			position: absolute;
 			pointer-events: none;
-			border-color: rgba($color-concrete, 0);
-			border-bottom-color: $color-concrete;
+			border-color: rgba(colors.$color-concrete, 0);
+			border-bottom-color: colors.$color-concrete;
 			border-width: 4px;
 			margin-left: -4px;
 		}
 	}
 }
 
-@include atom(range-input) {
+@include mixin.atom(range-input) {
 	position: absolute;
 	top: 0;
 	right: 0;
 	z-index: 0;
-	width: rhythm(5);
+	width: func.rhythm(5);
 }
 

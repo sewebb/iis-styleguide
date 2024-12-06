@@ -1,21 +1,29 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
-@include molecule(download) {
+@include mixin.molecule(download) {
 	position: relative;
-	padding: rhythm(2.5);
-	border: 1px solid $color-peacock;
-	border-radius: $border-radius;
+	padding: func.rhythm(2.5);
+	border: 1px solid colors.$color-peacock;
+	border-radius: var.$border-radius;
 	background-color: var(--snow-color);
 
-	@include e(link) {
+	@include bem.e(link) {
 		display: block;
-		margin-bottom: rhythm(1);
+		margin-bottom: func.rhythm(1);
 		color: currentcolor;
 		text-decoration: none;
 
 		&:hover,
 		&:focus {
-			color: $color-peacock;
+			color: colors.$color-peacock;
 			text-decoration: underline;
 		}
 
@@ -23,7 +31,7 @@
 			content: '';
 			display: block;
 			position: absolute;
-			z-index: z_index(background);
+			z-index: func.z_index(background);
 			top: 0;
 			right: 0;
 			bottom: 0;
@@ -31,52 +39,52 @@
 		}
 	}
 
-	@include e(icon-file) {
-		margin-bottom: rhythm(1);
+	@include bem.e(icon-file) {
+		margin-bottom: func.rhythm(1);
 		line-height: 0;
 
-		@include bp-up(sm) {
-			margin-right: rhythm(0.5);
+		@include breakpoint.bp-up(sm) {
+			margin-right: func.rhythm(0.5);
 			margin-bottom: 0;
 		}
 	}
 
-	@include e(icon-download) {
+	@include bem.e(icon-download) {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: rhythm(3.5);
-		height: rhythm(3.5);
-		margin-left: rhythm(1);
-		border-radius: $border-radius;
-		background-color: $color-peacock-light;
+		width: func.rhythm(3.5);
+		height: func.rhythm(3.5);
+		margin-left: func.rhythm(1);
+		border-radius: var.$border-radius;
+		background-color: colors.$color-peacock-light;
 	}
 
-	@include e(text) {
+	@include bem.e(text) {
 		white-space: nowrap;
 	}
 
-	@include b(icon) {
-		width: rem(57px);
-		height: rem(78px);
+	@include bem.b(icon) {
+		width: func.to_rem(57px);
+		height: func.to_rem(78px);
 		color: var(--cyberspace-color);
 		fill: currentColor;
 	}
 
-	@include e(trigger) {
-		margin-top: rhythm(1);
+	@include bem.e(trigger) {
+		margin-top: func.rhythm(1);
 		margin-left: 0;
 
-		@include b(icon) {
-			width: $icon-size-medium;
-			height: $icon-size-medium;
+		@include bem.b(icon) {
+			width: var.$icon-size-medium;
+			height: var.$icon-size-medium;
 			color: var(--dark-color);
 			fill: currentColor;
 		}
 
-		@include bp-up(sm) {
+		@include breakpoint.bp-up(sm) {
 			margin-top: 0;
-			margin-left: rhythm(1);
+			margin-left: func.rhythm(1);
 		}
 	}
 }

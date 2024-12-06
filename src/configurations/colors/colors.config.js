@@ -222,4 +222,4 @@ module.exports = {
 			},
 		]
 	}
-}
+};

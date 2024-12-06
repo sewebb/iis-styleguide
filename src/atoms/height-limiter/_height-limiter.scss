@@ -1,8 +1,15 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
 
-@include atom(height-limit) {
 
-	@include e(inner) {
+@include mixin.atom(height-limit) {
+
+	@include bem.e(inner) {
 		position: relative;
 
 		&.is-limited {
@@ -15,32 +22,32 @@
 				bottom: 0;
 				left: 0;
 				height: 50%;
-				background-image: linear-gradient(to bottom, rgba($color-ash, 0) 0%, rgba($color-ash, 1) 100%);
+				background-image: linear-gradient(to bottom, rgba(colors.$color-ash, 0) 0%, rgba(colors.$color-ash, 1) 100%);
 			}
 		}
 	}
 
-	@include m(white) {
-		@include e(inner) {
+	@include bem.m(white) {
+		@include bem.e(inner) {
 			&.is-limited {
 				&::after {
-					background-image: linear-gradient(to bottom, rgba($color-snow, 0) 0%, rgba($color-snow, 1) 100%);
+					background-image: linear-gradient(to bottom, rgba(colors.$color-snow, 0) 0%, rgba(colors.$color-snow, 1) 100%);
 				}
 			}
 		}
 	}
 
-	@include m(snow) {
-		@include e(inner) {
+	@include bem.m(snow) {
+		@include bem.e(inner) {
 			&.is-limited {
 				&::after {
-					background-image: linear-gradient(to bottom, rgba($color-snow, 0) 0%, rgba($color-snow, 1) 100%);
+					background-image: linear-gradient(to bottom, rgba(colors.$color-snow, 0) 0%, rgba(colors.$color-snow, 1) 100%);
 				}
 			}
 		}
 	}
 
-	@include e(btn) {
+	@include bem.e(btn) {
 		display: flex;
 		position: relative;
 		z-index: 2;
@@ -50,8 +57,8 @@
 		background-color: transparent;
 
 		> svg {
-			width: $icon-size;
-			height: $icon-size;
+			width: var.$icon-size;
+			height: var.$icon-size;
 		}
 
 		&.is-clicked {
@@ -62,7 +69,7 @@
 			}
 		}
 
-		@include e(text) {
+		@include bem.e(text) {
 			display: block;
 		}
 	}

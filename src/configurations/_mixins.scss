@@ -1,11 +1,15 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 
 /// Create an atom with the given name. Alias for the block mixin that autoprefixes the class with a-.
 ///@group General
 @use "sass:math";
+@use 'variables' as var;
+@use 'functions' as func;
+@use 'bem' as bem;
+@use 'colors/colors' as colors;
 
 @mixin atom($name) {
-	@include b(a-#{$name}) {
+	@include bem.b(a-#{$name}) {
 		@content;
 	}
 }
@@ -13,7 +17,7 @@
 /// Create a molecule with the given name. Alias for the block mixin that autoprefixes the class with m-.
 /// @group General
 @mixin molecule($name) {
-	@include b(m-#{$name}) {
+	@include bem.b(m-#{$name}) {
 		@content;
 	}
 }
@@ -21,7 +25,7 @@
 /// Create an organism with the given name. Alias for the block mixin that autoprefixes the class with o-.
 /// @group General
 @mixin organism($name) {
-	@include b(o-#{$name}) {
+	@include bem.b(o-#{$name}) {
 		@content;
 	}
 }
@@ -29,7 +33,7 @@
 /// Create a Block with the given name.
 /// @group General
 @mixin b($name) {
-	.#{$namespace}#{$name} {
+	.#{var.$namespace}#{$name} {
 		@content;
 	}
 }
@@ -49,11 +53,11 @@
 
 // Box shadows
 @mixin box-shadow($shadow-color, $color-opacity) {
-	box-shadow: 0 rhythm(math.div(1, 3)) rhythm(1 * 0.75) rgba($shadow-color, $color-opacity);
+	box-shadow: 0 func.rhythm(math.div(1, 3)) func.rhythm(1 * 0.75) rgba($shadow-color, $color-opacity);
 }
 
 @mixin card-shadow($shadow-color, $color-opacity) {
-	box-shadow: 0 rhythm(8) rhythm(12) rgba($color-cyberspace, 0.2);
+	box-shadow: 0 func.rhythm(8) func.rhythm(12) rgba(colors.$color-cyberspace, 0.2);
 }
 
 // Alerts
@@ -65,34 +69,34 @@
 
 // Tags
 @mixin tag {
-	border: 1px solid $color-granit;
-	border-radius: rem(17.5px);
-	color: $color-cyberspace;
+	border: 1px solid colors.$color-granit;
+	border-radius: func.to_rem(17.5px);
+	color: colors.$color-cyberspace;
 
 	&:hover,
 	&:focus {
-		border: 1px solid $color-granit;
-		border-radius: rem(17.5px);
-		background-color: $color-granit;
-		color: $color-snow;
+		border: 1px solid colors.$color-granit;
+		border-radius: func.to_rem(17.5px);
+		background-color: colors.$color-granit;
+		color: colors.$color-snow;
 
 		[class*=text] {
-			color: $color-snow;
+			color: colors.$color-snow;
 		}
 	}
 }
 
 @mixin tag-light {
-	border-color: $color-snow;
-	color: $color-snow;
+	border-color: colors.$color-snow;
+	color: colors.$color-snow;
 
 	&:hover,
 	&:focus {
 		border: 1px solid transparent;
-		background-color: rgba($color-snow, 0.5);
+		background-color: rgba(colors.$color-snow, 0.5);
 
 		[class*=text] {
-			color: $color-cyberspace;
+			color: colors.$color-cyberspace;
 		}
 	}
 }

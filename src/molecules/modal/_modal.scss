@@ -1,7 +1,19 @@
-@include molecule(modal) {
+@charset "UTF-8";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/extends';
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/grid/grid' as grid;
+
+@include mixin.molecule(modal) {
 	display: flex;
 	position: fixed;
-	z-index: z_index(foreground);
+	z-index: func.z_index(foreground);
 	top: 0;
 	right: 0;
 	bottom: 0;
@@ -14,11 +26,11 @@
 	}
 
 	// Adjust close button position
-	@include m(has-overlay) {
+	@include bem.m(has-overlay) {
 		&::after {
 			content: '';
 			position: absolute;
-			z-index: z_index(foregroundMinus);
+			z-index: func.z_index(foregroundMinus);
 			top: 0;
 			right: 0;
 			bottom: 0;
@@ -27,49 +39,49 @@
 		}
 	}
 
-	@include e(container) {
+	@include bem.e(container) {
 		display: flex;
 		position: relative;
-		z-index: z_index(foreground);
+		z-index: func.z_index(foreground);
 		flex-direction: column;
 		width: 100%;
-		max-height: calc(100vh - #{rhythm(2)});
-		margin: rhythm(1);
-		padding: rhythm(4) rhythm(2) rhythm(4) rhythm(2);
+		max-height: calc(100vh - #{func.rhythm(2)});
+		margin: func.rhythm(1);
+		padding: func.rhythm(4) func.rhythm(2) func.rhythm(4) func.rhythm(2);
 		overflow-y: auto;
-		border-radius: $border-radius;
+		border-radius: var.$border-radius;
 		background: var(--snow-color);
 
 		> button {
 			position: absolute;
-			z-index: z_index(background);
-			top: rhythm(1);
-			right: rhythm(1);
+			z-index: func.z_index(background);
+			top: func.rhythm(1);
+			right: func.rhythm(1);
 		}
 
-		@include bp-up(sm) {
-			padding: rhythm(4) rhythm(4) rhythm(6) rhythm(4);
+		@include breakpoint.bp-up(sm) {
+			padding: func.rhythm(4) func.rhythm(4) func.rhythm(6) func.rhythm(4);
 			width: auto;
-			min-width: rem(576px);
+			min-width: func.to_rem(576px);
 		}
 
-		@include bp-up(md) {
-			padding: rhythm(8) rhythm(8) rhythm(6) rhythm(8);
+		@include breakpoint.bp-up(md) {
+			padding: func.rhythm(8) func.rhythm(8) func.rhythm(6) func.rhythm(8);
 		}
 
-		@include bp-up(lg) {
-			max-width: rem(961px);
+		@include breakpoint.bp-up(lg) {
+			max-width: func.to_rem(961px);
 		}
 
-		@include m(no-max-width) {
+		@include bem.m(no-max-width) {
 			max-width: none;
 		}
 
-		@include m(dynamic-width) {
+		@include bem.m(dynamic-width) {
 			width: 100%;
 			max-width: calc(100vw);
 			min-width: 0;
-			max-height: calc(100% - #{rhythm(2)});
+			max-height: calc(100% - #{func.rhythm(2)});
 			padding: 0;
 			overflow: auto;
 
@@ -79,64 +91,64 @@
 		}
 	}
 
-	@include bp-up(md) {
-		@include e(input-wrapper) {
+	@include breakpoint.bp-up(md) {
+		@include bem.e(input-wrapper) {
 			display: flex;
 			justify-content: space-between;
-			margin-bottom: rhythm(2);
+			margin-bottom: func.rhythm(2);
 		}
 	}
 
-	@include e(content) {
+	@include bem.e(content) {
 		position: relative;
-		margin-right: rhythm(2);
+		margin-right: func.rhythm(2);
 
-		@include bp-up(sm) {
+		@include breakpoint.bp-up(sm) {
 			margin-right: 0;
 		}
 
-		@include m(form-name) {
+		@include bem.m(form-name) {
 			flex: 0 0 45%;
 		}
 
-		@include m(form-lname) {
+		@include bem.m(form-lname) {
 			flex: 0 0 45%;
 		}
 
-		@include e(input-wrapper) {
+		@include bem.e(input-wrapper) {
 			display: flex;
 			justify-content: space-between;
-			margin-bottom: rhythm(2);
+			margin-bottom: func.rhythm(2);
 		}
 
-		@include bp-up(md) {
+		@include breakpoint.bp-up(md) {
 
-			@include m(form-email) {
-				margin-bottom: rhythm(2);
+			@include bem.m(form-email) {
+				margin-bottom: func.rhythm(2);
 			}
 
-			@include m(form-username) {
-				margin-bottom: rhythm(2);
+			@include bem.m(form-username) {
+				margin-bottom: func.rhythm(2);
 			}
 		}
-		@include m(form-check) {
+		@include bem.m(form-check) {
 			display: flex;
 		}
 
-		@include m(form-text) {
+		@include bem.m(form-text) {
 			display: flex;
 			justify-content: center;
-			margin-top: rhythm(2);
+			margin-top: func.rhythm(2);
 		}
 	}
 
-	@include e(buttons) {
+	@include bem.e(buttons) {
 		display: flex;
 		flex-shrink: 0;
 		justify-content: flex-end;
 	}
 
-	@include e(button-primary) {
+	@include bem.e(button-primary) {
 		color: var(--m-modal-button-primary-color) !important;
 		box-shadow: 0 0 0 1px inset var(--m-modal-button-primary-border-color) !important;
 
@@ -150,7 +162,7 @@
 		}
 	}
 
-	@include e(button-secondary) {
+	@include bem.e(button-secondary) {
 		color: var(--m-modal-button-secondary-color) !important;
 		box-shadow: 0 0 0 1px inset var(--m-modal-button-secondary-border-color) !important;
 
@@ -164,7 +176,7 @@
 		}
 	}
 
-	@include e(graph-button) {
+	@include bem.e(graph-button) {
 		padding: 0;
 		position: relative;
 
@@ -175,49 +187,49 @@
 
 		&::after {
 			content: attr(data-zoom);
-			color: $color-snow;
-			padding: rhythm(1) rhythm(2) rhythm(1) rhythm(4);
+			color: colors.$color-snow;
+			padding: func.rhythm(1) func.rhythm(2) func.rhythm(1) func.rhythm(4);
 			display: block;
 			position: absolute;
 			top: 0;
 			left: 0;
-			border-top-left-radius: $border-radius;
-			border-bottom-right-radius: $border-radius;
+			border-top-left-radius: var.$border-radius;
+			border-bottom-right-radius: var.$border-radius;
 			width: auto;
 			line-height: 1;
-			height: $icon-size-large * 1.4;
-			background-color: rgba($color-cyberspace, 0.7);
+			height: var.$icon-size-large * 1.4;
+			background-color: rgba(colors.$color-cyberspace, 0.7);
 			background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-search' viewbox='0 0 32 32' width='32' height='32' fill='%23ffffff'%3E%3Cpath d='M24,21.8l8,8L29.9,32l-8-8c-5.9,4.6-14.3,3.6-19-2.2S-0.7,7.6,5.1,2.9S19.3-0.7,24,5.1C27.9,10,27.9,16.9,24,21.8L24,21.8z M13.4,23.9c5.8,0,10.5-4.7,10.5-10.5S19.2,3,13.4,3S3,7.7,3,13.4S7.7,23.9,13.4,23.9z'/%3E%3C/svg%3E");
-			background-position: rhythm(1) center;
-			background-size: $icon-size-medium $icon-size-medium;
+			background-position: func.rhythm(1) center;
+			background-size: var.$icon-size-medium var.$icon-size-medium;
 			background-repeat: no-repeat;
 
 		}
 	}
 
-	@include e(button-fixed) {
+	@include bem.e(button-fixed) {
 		position: fixed !important;
-		top: rhythm(2) !important;
-		right: rhythm(3) !important;
-		z-index: z_index(foreground) !important;
+		top: func.rhythm(2) !important;
+		right: func.rhythm(3) !important;
+		z-index: func.z_index(foreground) !important;
 	}
 
-	@include e(overlay-button) {
+	@include bem.e(overlay-button) {
 		position: fixed !important;
-		color: $color-snow;
+		color: colors.$color-snow;
 		display: flex;
 		align-items: center;
 		text-align: center;
 		justify-content: center;
 		padding: 0;
-		z-index: z_index(foregroundMinus) !important;
+		z-index: func.z_index(foregroundMinus) !important;
 		top: 0 !important;
 		right: 0 !important;
 		bottom: 0 !important;
 		left: 0 !important;
 		background: rgba(0, 0, 0, 0.5);
-		text-shadow: 0 0 rhythm(0.5) $color-cyberspace;
-		font-family: $font-family-headings;
+		text-shadow: 0 0 func.rhythm(0.5) colors.$color-cyberspace;
+		font-family: var.$font-family-headings;
 		border: 0;
 		width: 100vw;
 
@@ -225,12 +237,12 @@
 			display: none;
 		}
 
-		@include bp-up(xxl) {
+		@include breakpoint.bp-up(xxl) {
 			display: none;
 		}
 	}
 
-	@include b(field-group) {
-		margin-bottom: rhythm(1);
+	@include bem.b(field-group) {
+		margin-bottom: func.rhythm(1);
 	}
 }

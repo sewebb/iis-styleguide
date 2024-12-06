@@ -26,8 +26,6 @@ require('./molecules/natural-language-form/natural-language-form');
 
 require('./atoms/tooltip/tooltip');
 
-require('./atoms/toggle-high-contrast/toggle-high-contrast');
-
 require('./atoms/height-limiter/height-limiter');
 
 require('./atoms/file/file');
@@ -49,8 +47,6 @@ require('./molecules/glider/glider-hero');
 require('./molecules/context-menu/context-menu');
 
 require('./molecules/alert/alert');
-
-require('./molecules/modal/modal-graph');
 
 require('./molecules/continue-video-guide/continue-video-guide');
 

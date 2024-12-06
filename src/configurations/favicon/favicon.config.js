@@ -4,4 +4,4 @@ module.exports = {
 	context: {
 		url: 'https://static.internetstiftelsen.se/favicons/'
 	}
-}
+};

@@ -9,4 +9,4 @@ module.exports = {
 		url: 'http://www.google.se',
 		exerpt: 'Praesent tempus metus in arcu mollis, non convallis odio faucibus. Nullam lectus nulla, rutrum nec odio ut, mollis interdum enim. Proin tincidunt odio at quam eleifend imperdiet. Mauris sagittis nulla ipsum, consectetur efficitur libero dignissim in.'
 	}
-}
+};

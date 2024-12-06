@@ -1,4 +1,10 @@
 @charset "UTF-8";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
 // NOTE: this compnent is dependant on the glider.scss component
 // The Glider components is dependant on JS-classes and is therefore not namespaced
@@ -8,13 +14,13 @@
 	position: relative;
 	align-items: center;
 	margin-top: 0;
-	margin-bottom: rhythm(2);
+	margin-bottom: func.rhythm(2);
 	padding-left: 0;
 	padding-right: 0;
 }
 
 .glider-slide {
-	@include m(course) {
+	@include bem.m(course) {
 		margin-left: 0;
 		padding-left: 0;
 		padding-right: 0;
@@ -23,21 +29,21 @@
 			display: none;
 		}
 
-		@include e(navigation) {
+		@include bem.e(navigation) {
 			display: flex;
 			justify-content: space-between;
 
-			@include bp-up(lg) {
+			@include breakpoint.bp-up(lg) {
 				justify-content: flex-start;
 			}
 		}
 
-		@include e(media) {
+		@include bem.e(media) {
 
 			&.zoom {
 				pointer-events: none;
 
-				@include bp-up(lg) {
+				@include breakpoint.bp-up(lg) {
 					pointer-events: auto;
 					cursor: zoom-in;
 					transition: all 0.15s ease-out;
@@ -45,21 +51,21 @@
 
 					&::after {
 						content: 'Förstora bilden';
-						color: $color-snow;
-						padding: rhythm(1) rhythm(2) rhythm(1) rhythm(4);
+						color: colors.$color-snow;
+						padding: func.rhythm(1) func.rhythm(2) func.rhythm(1) func.rhythm(4);
 						display: block;
 						position: absolute;
 						top: 0;
 						left: 0;
-						border-top-left-radius: $border-radius;
-						border-bottom-right-radius: $border-radius;
+						border-top-left-radius: var.$border-radius;
+						border-bottom-right-radius: var.$border-radius;
 						width: auto;
 						line-height: 1;
-						height: $icon-size-large * 1.4;
-						background-color: rgba($color-cyberspace, 0.8);
+						height: var.$icon-size-large * 1.4;
+						background-color: rgba(colors.$color-cyberspace, 0.8);
 						background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-search' viewbox='0 0 32 32' width='32' height='32' fill='%23ffffff'%3E%3Cpath d='M24,21.8l8,8L29.9,32l-8-8c-5.9,4.6-14.3,3.6-19-2.2S-0.7,7.6,5.1,2.9S19.3-0.7,24,5.1C27.9,10,27.9,16.9,24,21.8L24,21.8z M13.4,23.9c5.8,0,10.5-4.7,10.5-10.5S19.2,3,13.4,3S3,7.7,3,13.4S7.7,23.9,13.4,23.9z'/%3E%3C/svg%3E");
-						background-position: rhythm(1) center;
-						background-size: $icon-size-medium $icon-size-medium;
+						background-position: func.rhythm(1) center;
+						background-size: var.$icon-size-medium var.$icon-size-medium;
 						background-repeat: no-repeat;
 
 					}
@@ -76,11 +82,11 @@
 						right: 0;
 						top: 0;
 						bottom: 0;
-						z-index: z_index(foreground);
+						z-index: func.z_index(foreground);
 						display: flex;
 						align-items: center;
 						justify-content: center;
-						background-color: rgba($color-cyberspace, 0.8);
+						background-color: rgba(colors.$color-cyberspace, 0.8);
 						flex-direction: column;
 
 						&::after {
@@ -91,16 +97,16 @@
 							cursor: zoom-out;
 							max-width: 100%;
 							max-height: 100vh;
-							padding: rhythm(1);
+							padding: func.rhythm(1);
 							height: auto;
 						}
 
 						figcaption {
-							max-width: rem(612px);
+							max-width: func.to_rem(612px);
 							text-align: center;
-							color: $color-snow;
-							padding-left: rhythm(2);
-							padding-right: rhythm(2);
+							color: colors.$color-snow;
+							padding-left: func.rhythm(2);
+							padding-right: func.rhythm(2);
 							margin-bottom: 0 !important;
 							padding-bottom: 0 !important;
 						}
@@ -109,9 +115,9 @@
 			}
 
 			figcaption {
-				margin-top: rhythm(1);
+				margin-top: func.rhythm(1);
 			}
-			@include bp-up(lg) {
+			@include breakpoint.bp-up(lg) {
 				display: flex;
 				flex-direction: column-reverse;
 				margin-top: 0;

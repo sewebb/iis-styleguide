@@ -1,30 +1,39 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/extends';
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
-@include molecule(teaser-news) {
+@include mixin.molecule(teaser-news) {
 	height: 100%;
-	padding: rhythm(2);
-	border-radius: $border-radius;
+	padding: func.rhythm(2);
+	border-radius: var.$border-radius;
 	background-color: var(--snow-color);
 
-	@include bp-up(md) {
-		padding: rhythm(2) rhythm(4);
+	@include breakpoint.bp-up(md) {
+		padding: func.rhythm(2) func.rhythm(4);
 	}
 
-	@include e(list) {
+	@include bem.e(list) {
 		margin: 0;
 		padding: 0;
 		list-style: none;
 	}
 
-	@include e(item) {
+	@include bem.e(item) {
 		position: relative;
 
 		&:not(:last-child) {
-			margin-bottom: rhythm(3);
+			margin-bottom: func.rhythm(3);
 		}
 	}
 
-	@include e(link) {
+	@include bem.e(link) {
 		@extend %normalize-links;
 
 		color: currentcolor;
@@ -32,7 +41,7 @@
 
 		&:hover,
 		&:focus {
-			color: $color-ruby;
+			color: colors.$color-ruby;
 			text-decoration: underline;
 		}
 

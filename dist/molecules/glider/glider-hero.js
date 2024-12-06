@@ -15,12 +15,11 @@ var _nodeAdded2 = _interopRequireDefault(_nodeAdded);
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
-// eslint-disable-next-line import/prefer-default-export
 function initHeroGlider(node) {
 	if (node.hasAttribute('data-glider-initialized')) {
 		return;
 	}
-	// eslint-disable-next-line no-underscore-dangle
+
 	var dataLayer = window._mtm || [];
 	var gliderLinks = document.querySelectorAll('.glider-slide a');
 

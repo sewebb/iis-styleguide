@@ -1,4 +1,5 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../configurations/functions' as func;
 
 .u-position-absolute {
 	position: absolute !important;
@@ -23,5 +24,5 @@
 
 .u-position-sticky-top-4 {
 	position: sticky !important;
-	top: rhythm(4) !important;
+	top: func.rhythm(4) !important;
 }

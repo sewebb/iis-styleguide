@@ -1,10 +1,11 @@
 @charset "UTF-8";
+@use 'colors-functions' as colorFunc;
 
 // Generate wordpress color classes e.g. .has-ruby-color
 /// @group Colors
 .has {
-	@include wordpress_color_classes (
-		$colors,
+	@include colorFunc.wordpress_color_classes (
+		colorFunc.$colors,
 		$attribute: 'color',
 		$separator: '-',
 		$suffix: '-color'

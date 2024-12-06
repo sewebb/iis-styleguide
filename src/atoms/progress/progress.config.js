@@ -8,4 +8,4 @@ module.exports = {
 		max_width: false,
 		additional_classes: false,
 	}
-}
+};

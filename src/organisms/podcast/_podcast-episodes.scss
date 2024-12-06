@@ -1,62 +1,72 @@
 @charset "UTF-8";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/grid/grid' as grid;
+@use '../../vendor/baseline/plumber' as plumber;
 
-@include organism(podcast-episodes) {
+@include mixin.organism(podcast-episodes) {
 
 	// Episode
-	@include e(episode) {
+	@include bem.e(episode) {
 		justify-content: center;
 		margin-right: 0;
 		margin-left: 0;
-		padding: rhythm(2);
-		border-radius: $border-radius;
-		background-color: $color-snow;
+		padding: func.rhythm(2);
+		border-radius: var.$border-radius;
+		background-color: colors.$color-snow;
 
-		@include bp-up(sm) {
-			padding-right: rhythm(2);
-			padding-left: rhythm(2);
+		@include breakpoint.bp-up(sm) {
+			padding-right: func.rhythm(2);
+			padding-left: func.rhythm(2);
 		}
 
-		@include bp-up(md) {
+		@include breakpoint.bp-up(md) {
 			justify-content: flex-start;
 		}
 
-		@include bp-up(md) {
-			padding: rhythm(3);
+		@include breakpoint.bp-up(md) {
+			padding: func.rhythm(3);
 		}
 
-		@include m(list) {
-			margin-bottom: rhythm(2);
+		@include bem.m(list) {
+			margin-bottom: func.rhythm(2);
 
-			@include e(image) {
+			@include bem.e(image) {
 				display: none;
 
-				@include bp-up(md) {
+				@include breakpoint.bp-up(md) {
 					display: block;
-					width: rem(170px);
-					height: rem(170px);
+					width: func.to_rem(170px);
+					height: func.to_rem(170px);
 				}
 			}
 		}
 
-		@include m(hero) {
+		@include bem.m(hero) {
 			padding-right: 0;
 			padding-left: 0;
 			border-radius: 0;
 			background-color: transparent;
 
-			@include bp-up(md) {
+			@include breakpoint.bp-up(md) {
 				flex-direction: row-reverse;
 				align-items: center;
 			}
 
-			@include e(image) {
-				width: rem(310px);
-				height: rem(310px);
+			@include bem.e(image) {
+				width: func.to_rem(310px);
+				height: func.to_rem(310px);
 				margin-right: 0;
-				margin-left: rhythm(4);
+				margin-left: func.rhythm(4);
 			}
 
-			@include e(info) {
+			@include bem.e(info) {
 				> p {
 					overflow: visible;
 					text-overflow: inherit;
@@ -64,45 +74,45 @@
 				}
 			}
 
-			@include e(link) {
+			@include bem.e(link) {
 				pointer-events: none;
 			}
 		}
 
-		@include e(image) {
-			margin-bottom: rhythm(2);
-			border-radius: $border-radius;
+		@include bem.e(image) {
+			margin-bottom: func.rhythm(2);
+			border-radius: var.$border-radius;
 
-			@include bp-down(sm) {
+			@include breakpoint.bp-down(sm) {
 				display: none;
 			}
 
-			@include bp-up(sm) {
+			@include breakpoint.bp-up(sm) {
 				display: block;
-				width: rem(255px);
-				height: rem(255px);
-				margin-right: rhythm(3);
+				width: func.to_rem(255px);
+				height: func.to_rem(255px);
+				margin-right: func.rhythm(3);
 			}
 		}
 
-		@include e(meta) {
+		@include bem.e(meta) {
 			display: flex;
-			margin-bottom: rhythm(1);
+			margin-bottom: func.rhythm(1);
 		}
 
-		@include e(info) {
+		@include bem.e(info) {
 			h1 span {
 				pointer-events: none;
 			}
 
 			h1 svg {
-				width: $icon-size-large * 1.5;
-				height: $icon-size-large * 1.5;
+				width: var.$icon-size-large * 1.5;
+				height: var.$icon-size-large * 1.5;
 			}
 
 			h2 svg {
-				width: $icon-size-large * 1.2;
-				height: $icon-size-large * 1.2;
+				width: var.$icon-size-large * 1.2;
+				height: var.$icon-size-large * 1.2;
 			}
 
 			> p {
@@ -110,7 +120,7 @@
 				text-overflow: ellipsis;
 				white-space: nowrap;
 
-				@include bp-up(sm-xs) {
+				@include breakpoint.bp-up(sm-xs) {
 					overflow: visible;
 					text-overflow: inherit;
 					white-space: normal;
@@ -118,8 +128,8 @@
 			}
 		}
 
-		@include e(link) {
-			color: $color-cyberspace;
+		@include bem.e(link) {
+			color: colors.$color-cyberspace;
 			text-decoration: none;
 
 			&:hover,
@@ -128,17 +138,17 @@
 			}
 		}
 
-		@include e(button) {
+		@include bem.e(button) {
 			display: flex;
 			align-items: center;
-			margin: 0 rhythm(1);
+			margin: 0 func.rhythm(1);
 			padding: 0;
 			border: 0;
 			background-color: transparent;
 
 			&:hover {
 				> svg {
-					fill: $color-ruby;
+					fill: colors.$color-ruby;
 				}
 			}
 
@@ -147,58 +157,58 @@
 			}
 		}
 
-		@include e(share) {
+		@include bem.e(share) {
 			display: flex;
 			flex-wrap: wrap;
 			align-items: center;
-			margin-top: rhythm(1);
+			margin-top: func.rhythm(1);
 
-			@include e(spacer) {
+			@include bem.e(spacer) {
 				display: none;
-				margin-bottom: rhythm(2);
+				margin-bottom: func.rhythm(2);
 
-				@include bp-up(lg) {
+				@include breakpoint.bp-up(lg) {
 					display: block;
-					margin-right: rhythm(2);
+					margin-right: func.rhythm(2);
 					margin-bottom: 0;
-					margin-left: rhythm(2);
+					margin-left: func.rhythm(2);
 					line-height: 1;
 				}
 			}
 
-			@include e(list) {
+			@include bem.e(list) {
 				display: flex;
 				flex-basis: 100%;
 
 				> dt {
-					margin-right: rhythm(2);
+					margin-right: func.rhythm(2);
 				}
 
 				> dd {
 					margin-left: 0;
 				}
 
-				@include bp-up(lg) {
+				@include breakpoint.bp-up(lg) {
 					flex-basis: auto;
 				}
 			}
 		}
 
-		@include e(listen-link) {
-			margin-right: rhythm(2);
-			color: $color-cyberspace;
+		@include bem.e(listen-link) {
+			margin-right: func.rhythm(2);
+			color: colors.$color-cyberspace;
 		}
 
-		@include e(download-link) {
+		@include bem.e(download-link) {
 			display: flex;
 			flex-basis: 100%;
 			flex-grow: 1;
-			margin-bottom: rhythm(2);
-			color: $color-cyberspace;
+			margin-bottom: func.rhythm(2);
+			color: colors.$color-cyberspace;
 
 			> span {
-				font-family: $font-family-base;
-				font-size: $size-base;
+				font-family: var.$font-family-base;
+				font-size: var.$size-base;
 				text-decoration: underline;
 			}
 
@@ -206,37 +216,37 @@
 				transform: translateY(3px);
 			}
 
-			@include bp-up(lg) {
+			@include breakpoint.bp-up(lg) {
 				margin-bottom: 0;
 			}
 
-			@include bp-up(md) {
+			@include breakpoint.bp-up(md) {
 				flex-basis: auto;
 				flex-grow: 0;
 			}
 		}
 
-		@include e(download-icon) {
-			width: $icon-size;
-			height: $icon-size;
-			margin-right: rhythm(1);
+		@include bem.e(download-icon) {
+			width: var.$icon-size;
+			height: var.$icon-size;
+			margin-right: func.rhythm(1);
 			padding: 3px;
-			border-radius: $border-radius;
+			border-radius: var.$border-radius;
 		}
 	}
 }
 
 // Track list (Prototype)
-@include organism(podcast-track-list) {
+@include mixin.organism(podcast-track-list) {
 	display: flex;
 	flex-direction: column;
 
 	> li {
 		display: flex;
-		padding: rhythm(1) rhythm(2);
+		padding: func.rhythm(1) func.rhythm(2);
 
 		+ li {
-			border-top: 1px solid $color-concrete;
+			border-top: 1px solid colors.$color-concrete;
 		}
 
 		> button {

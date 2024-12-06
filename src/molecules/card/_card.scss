@@ -1,25 +1,35 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use "sass:color";
+@use "sass:math";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
-@include molecule(card) {
+@include mixin.molecule(card) {
 	display: flex;
 	position: relative;
 	flex-direction: column;
 	height: 100%;
 	overflow: hidden;
-	border-radius: $border-radius;
+	border-radius: var.$border-radius;
 
-	@include e(image) {
+	@include bem.e(image) {
 		display: block;
 		width: 100%;
-		border-radius: $border-radius;
+		border-radius: var.$border-radius;
 	}
 
-	@include e(map) {
+	@include bem.e(map) {
 		display: block;
 		position: relative;
 		padding-top: 56.25%;
 		overflow: hidden;
-		border-radius: $border-radius;
+		border-radius: var.$border-radius;
 
 		> iframe {
 			position: absolute;
@@ -31,8 +41,8 @@
 			height: 100%;
 		}
 
-		@include bp-up(lg) {
-			min-height: rhythm(44);
+		@include breakpoint.bp-up(lg) {
+			min-height: func.rhythm(44);
 			padding-top: 0;
 
 			> iframe {
@@ -41,7 +51,7 @@
 		}
 	}
 
-	@include e(link) {
+	@include bem.e(link) {
 		color: var(---cyberspace-color);
 		text-decoration: none;
 
@@ -58,46 +68,46 @@
 
 		&:hover,
 		&:focus {
-			color: $color-ruby;
+			color: colors.$color-ruby;
 			text-decoration: underline;
 
 			> h1,
 			> h2 {
 				> span[class*='color'] {
-					color: $color-ruby !important;
+					color: colors.$color-ruby !important;
 					text-decoration: underline !important;
 				}
 			}
 		}
 	}
 
-	@include e(headline) {
-		@include e(icon) {
+	@include bem.e(headline) {
+		@include bem.e(icon) {
 			position: relative;
-			width: $icon-size-medium;
-			height: $icon-size-medium;
-			transform: translateY(rem(1px));
+			width: var.$icon-size-medium;
+			height: var.$icon-size-medium;
+			transform: translateY(func.to_rem(1px));
 			fill: currentColor;
 		}
 	}
 
-	@include e(meta) {
+	@include bem.e(meta) {
 		display: flex;
 		flex-wrap: nowrap;
 		align-items: flex-start;
 		justify-content: space-between;
-		margin-bottom: rhythm(1);
+		margin-bottom: func.rhythm(1);
 	}
 
-	@include e(content) {
+	@include bem.e(content) {
 
 		&:first-child {
-			padding: rhythm(3) 0;
+			padding: func.rhythm(3) 0;
 		}
 
 		&:not(:first-child) {
-			margin-top: rhythm(2);
-			padding-bottom: rhythm(3);
+			margin-top: func.rhythm(2);
+			padding-bottom: func.rhythm(3);
 		}
 
 		> :last-child {
@@ -105,18 +115,18 @@
 		}
 	}
 
-	@include e(text) {
-		margin-top: rhythm(1);
+	@include bem.e(text) {
+		margin-top: func.rhythm(1);
 	}
 
-	@include m(shadow) {
-		@include card-shadow($color-cyberspace, 0.2);
+	@include bem.m(shadow) {
+		@include mixin.card-shadow(colors.$color-cyberspace, 0.2);
 	}
 
-	@include m(padded) {
+	@include bem.m(padded) {
 		background-color: var(--snow-color);
 
-		@include e(media) {
+		@include bem.e(media) {
 			flex: 0 0 auto;
 			width: 100%;
 			max-width: 100%;
@@ -124,77 +134,77 @@
 			border-bottom-left-radius: 0;
 		}
 
-		@include e(content) {
-			padding-right: rhythm(2);
-			padding-left: rhythm(2);
+		@include bem.e(content) {
+			padding-right: func.rhythm(2);
+			padding-left: func.rhythm(2);
 
 			p {
-				margin-top: rhythm(1);
+				margin-top: func.rhythm(1);
 			}
 
-			@include bp-up(md) {
-				padding-right: rhythm(4);
-				padding-left: rhythm(4);
+			@include breakpoint.bp-up(md) {
+				padding-right: func.rhythm(4);
+				padding-left: func.rhythm(4);
 			}
 		}
 
 		&.wp-block-iis-visualization {
 			background-color: transparent;
 
-			@include e(content) {
+			@include bem.e(content) {
 				p {
 					margin-top: 0;
 				}
 			}
 
 			&--no-padding > {
-				@include e(content) {
+				@include bem.e(content) {
 					padding: 0;
 				}
 			}
 		}
 	}
 
-	@include m(bordered) {
-		border-top: rem(4px) solid $color-ocean;
+	@include bem.m(bordered) {
+		border-top: func.to_rem(4px) solid colors.$color-ocean;
 	}
 
-	@include e(bottom) {
-		margin-top: rhythm(2);
+	@include bem.e(bottom) {
+		margin-top: func.rhythm(2);
 	}
 
-	@include m(wide) {
+	@include bem.m(wide) {
 		height: auto;
 
-		@include bp-up(md) {
+		@include breakpoint.bp-up(md) {
 			flex-direction: row;
 			height: auto;
 
 			h1,
 			h2 {
-				font-size: rem(32px);
+				font-size: func.to_rem(32px);
 				line-height: 1.2;
 			}
 
-			@include e(content) {
+			@include bem.e(content) {
 				display: flex;
 				flex-basis: 50%;
 				flex-direction: column;
-				padding-top: rhythm(2);
+				padding-top: func.rhythm(2);
 			}
 
-			@include e(image) {
+			@include bem.e(image) {
 				display: block;
 				object-fit: cover;
 				object-position: 50% center;
 			}
 
-			@include e(media) {
+			@include bem.e(media) {
 				max-width: 50%;
 				margin-bottom: 0;
-				border-top-left-radius: $border-radius;
+				border-top-left-radius: var.$border-radius;
 				border-top-right-radius: 0;
-				border-bottom-left-radius: $border-radius;
+				border-bottom-left-radius: var.$border-radius;
 			}
 
 			picture {
@@ -202,33 +212,33 @@
 				width: 100%;
 				max-width: 50%;
 
-				@include e(media) {
+				@include bem.e(media) {
 					max-width: 100%;
 				}
 			}
 
-			@include e(bottom) {
+			@include bem.e(bottom) {
 				margin-top: 0;
 			}
 
-			@include m(flipped) {
+			@include bem.m(flipped) {
 				flex-direction: row-reverse;
 
-				@include e(media) {
-					border-top-right-radius: $border-radius;
+				@include bem.e(media) {
+					border-top-right-radius: var.$border-radius;
 					border-top-left-radius: 0;
 					border-bottom-left-radius: 0;
-					border-bottom-right-radius: $border-radius;
+					border-bottom-right-radius: var.$border-radius;
 				}
 			}
 
-			@include m(stretch) {
+			@include bem.m(stretch) {
 				height: 100%;
 			}
 		}
 	}
 
-	@include m(teaser) {
+	@include bem.m(teaser) {
 		display: block;
 		overflow: hidden;
 
@@ -242,17 +252,17 @@
 		&::after {
 			content: '';
 			position: absolute;
-			z-index: z_index(background);
+			z-index: func.z_index(background);
 			top: 0;
 			right: 0;
 			bottom: 0;
 			left: 0;
 			transition: opacity 0.75s ease-out;
-			border-radius: $border-radius;
-			background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba($color-cyberspace, 0) 35%, rgba($color-cyberspace, 1) 100%);
+			border-radius: var.$border-radius;
+			background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(colors.$color-cyberspace, 0) 35%, rgba(colors.$color-cyberspace, 1) 100%);
 		}
 
-		@include e(image) {
+		@include bem.e(image) {
 			width: 100%;
 			max-width: none;
 			height: 100%;
@@ -261,10 +271,10 @@
 			object-fit: cover;
 		}
 
-		@include e(content) {
+		@include bem.e(content) {
 			display: flex;
 			position: absolute;
-			z-index: z_index(middleground);
+			z-index: func.z_index(middleground);
 			top: 0;
 			right: 0;
 			bottom: 0;
@@ -272,25 +282,25 @@
 			flex-direction: column;
 			align-content: stretch;
 			justify-content: flex-end;
-			padding: rhythm(4);
+			padding: func.rhythm(4);
 			color: var(--snow-color);
-			text-shadow: $text-shadow;
+			text-shadow: config.$text-shadow;
 		}
 
-		@include e(link) {
+		@include bem.e(link) {
 			color: var(--snow-color);
 		}
 
-		@include e(text) {
+		@include bem.e(text) {
 			margin-top: 0;
 			color: var(--snow-color);
 		}
 
-		@include e(bottom) {
+		@include bem.e(bottom) {
 			margin-top: 0;
 		}
 
-		@include e(meta) {
+		@include bem.e(meta) {
 			* {
 				color: var(--snow-color);
 			}
@@ -301,12 +311,12 @@
 		}
 	}
 
-	@include m(mini) {
-		padding: rhythm(1) rhythm(2);
-		background-color: $color-snow;
+	@include bem.m(mini) {
+		padding: func.rhythm(1) func.rhythm(2);
+		background-color: colors.$color-snow;
 
-		@include bp-up(md) {
-			padding: rhythm(2) rhythm(3);
+		@include breakpoint.bp-up(md) {
+			padding: func.rhythm(2) func.rhythm(3);
 		}
 	}
 }

@@ -1,11 +1,12 @@
 @charset "UTF-8";
+@use "sass:math";
+@use "sass:meta";
+@use "sass:map";
 
 // PLUMBER - Easy baseline grids with SASS
 // https://jamonserrano.github.io/plumber-sass
 // Copyright 2016 Viktor Honti
 // MIT License
-
-@use "sass:math";
 
 @mixin plumber(
 	$font-size: null,
@@ -21,7 +22,7 @@
 	@if not $font-size {
 		$font-size: -plumber-get-default(font-size);
 	}
-	@if not unitless($font-size) or $font-size <= 0 {
+	@if not math.is-unitless($font-size) or $font-size <= 0 {
 		@error '$font-size parameter must be a positive unitless number, got #{$font-size} instead';
 	}
 
@@ -29,7 +30,7 @@
 	@if not $line-height {
 		$line-height: -plumber-get-default(line-height);
 	}
-	@if not unitless($line-height) or $line-height != round($line-height) or $line-height < 1 {
+	@if not math.is-unitless($line-height) or $line-height != math.round($line-height) or $line-height < 1 {
 		@error '$line-height parameter must be a positive unitless integer, got #{$line-height} instead';
 	}
 
@@ -53,7 +54,7 @@
 	@if not $grid-height {
 		$grid-height: -plumber-get-default(grid-height);
 	}
-	@if unitless($grid-height) or $grid-height < 0 {
+	@if math.is-unitless($grid-height) or $grid-height < 0 {
 		@error '$grid-height parameter must be a positive unit, got #{$grid-height} instead';
 	}
 
@@ -63,7 +64,7 @@
 	}
 	@if not $baseline {
 		@error '$baseline must be passed as a parameter or defined in defaults';
-	} @else if not (unitless($baseline) and $baseline >= 0 and $baseline < 1) {
+	} @else if not (math.is-unitless($baseline) and $baseline >= 0 and $baseline < 1) {
 		@error '$baseline parameter must be a unitless fraction between 0 and 1, got #{$baseline} instead';
 	}
 
@@ -71,7 +72,7 @@
 	@if not $use-baseline-origin {
 		$use-baseline-origin: -plumber-get-default(use-baseline-origin);
 	}
-	@if type-of($use-baseline-origin) != bool {
+	@if meta.type-of($use-baseline-origin) != bool {
 		@error '$use-baseline-origin parameter must be Boolean, got #{$use-baseline-origin} instead';
 	}
 
@@ -79,7 +80,7 @@
 	// the distance of the original baseline from the bottom
 	$baseline-from-bottom: math.div($line-height - $font-size, 2) + ($font-size * $baseline);
 	// the corrected baseline will be on the nearest gridline
-	$corrected-baseline: round($baseline-from-bottom);
+	$corrected-baseline: math.round($baseline-from-bottom);
 	// the difference between the original and the corrected baseline
 	$baseline-difference: $corrected-baseline - $baseline-from-bottom;
 
@@ -120,7 +121,7 @@
 	}
 
 	// round pixel values to decrease browser inconsistencies
-	@if unit($grid-height) == 'px' {
+	@if math.unit($grid-height) == 'px' {
 		$line-height: -plumber-round($line-height);
 		$margin-top: -plumber-round($margin-top);
 		$padding-top: -plumber-round($padding-top);
@@ -151,21 +152,21 @@ $-plumber-defaults: (
 
 // Merge provided settings into the defaults map
 @mixin plumber-set-defaults($defaults...) {
-	$-plumber-defaults: map-merge($-plumber-defaults, keywords($defaults)) !global;
+	$-plumber-defaults: map.merge($-plumber-defaults, meta.keywords($defaults)) !global;
 }
 
 // Get a default value
 @function -plumber-get-default($key) {
-	@return map-get($-plumber-defaults, $key);
+	@return map.get($-plumber-defaults, $key);
 }
 
 // Check if a value is a non-negative integer
 @function -plumber-is-integer($value) {
-	@return (unitless($value) and $value == round($value));
+	@return (math.is-unitless($value) and $value == math.round($value));
 }
 
 // Round value to the nearest quarter pixel
 // This provides reasonable precision and prevents grid creep (by fractions adding up) in most browsers
 @function -plumber-round($value) {
-	@return math.div(round($value * 4), 4);
+	@return math.div(math.round($value * 4), 4);
 }

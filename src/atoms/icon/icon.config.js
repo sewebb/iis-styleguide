@@ -1,6 +1,6 @@
 const fs = require('fs');
 let sprite = fs.readFileSync(__dirname + '/../../_icon-sprite.hbs');
-sprite = sprite.toString().replace(/\ /g, '').replace(/\n/g, '').split('id="');
+sprite = sprite.toString().replace(/ /g, '').replace(/\n/g, '').split('id="');
 const icons = [];
 
 for (let i = 0; i < sprite.length; i++) {
@@ -23,7 +23,7 @@ module.exports = {
 		if (item.isDefault) {
 			return ''; // Don't render default empty icon
 		}
-		return `<div class="icon-wrapper">${markup}</div>`
+		return `<div class="icon-wrapper">${markup}</div>`;
 	},
 
 	context: {

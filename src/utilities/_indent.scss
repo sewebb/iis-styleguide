@@ -1,19 +1,21 @@
 @charset "UTF-8";
-
+@use '../vendor/grid/breakpoints' as breakpoint;
+@use '../configurations/variables' as var;
+@use '../configurations/functions' as func;
 .u-indent-0 {
-	@include bp-up(lg) {
+	@include breakpoint.bp-up(lg) {
 		margin-left: 0;
 	}
 }
 
 .u-indent-1 {
-	@include bp-up(lg) {
-		margin-left: $indent;
+	@include breakpoint.bp-up(lg) {
+		margin-left: var.$indent;
 	}
 }
 
 .u-indent-2 {
-	@include bp-up(lg) {
-		margin-left: $indent * 2;
+	@include breakpoint.bp-up(lg) {
+		margin-left: var.$indent * 2;
 	}
 }

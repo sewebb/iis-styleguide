@@ -1,10 +1,10 @@
 // Inspired by https://github.com/fractures/fractures
-@include b(grid) {
+@include bem.b(grid) {
 	display: grid;
 
-	&-gap { grid-gap: $grid-gutter-width; }
-	&-gap-y { grid-row-gap: $grid-gutter-width; }
-	&-gap-x { grid-column-gap: $grid-gutter-width; }
+	&-gap { grid-gap: var.$grid-gutter-width; }
+	&-gap-y { grid-row-gap: var.$grid-gutter-width; }
+	&-gap-x { grid-column-gap: var.$grid-gutter-width; }
 
 	&-cols {
 		@for $i from 2 through $grid-columns {

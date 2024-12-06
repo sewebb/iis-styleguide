@@ -1,71 +1,73 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use 'sass:meta';
+@use 'colors' as colors;
 
 /// Get a shaded version of a color
 /// @group Colors
 @function shade($color, $percentage) {
-	@return mix(black, $color, $percentage);
+	@return mix(black, colors.$color, $percentage);
 }
 
 /// Get a tinted version of a color
 /// @group Colors
 @function tint($color, $percentage) {
-	@return mix(white, $color, $percentage);
+	@return mix(white, colors.$color, $percentage);
 }
 
 /// @group Colors
 $colors: (
-	black: $color-black,
-	snow: $color-snow,
-	cyberspace: $color-cyberspace,
-	dark: $color-dark,
-	granit: $color-granit,
-	concrete: $color-concrete,
-	ash: $color-ash,
+	black: colors.$color-black,
+	snow: colors.$color-snow,
+	cyberspace: colors.$color-cyberspace,
+	dark: colors.$color-dark,
+	granit: colors.$color-granit,
+	concrete: colors.$color-concrete,
+	ash: colors.$color-ash,
 	ruby: (
-		base: $color-ruby,
-		light: $color-ruby-light,
-		dark: $color-ruby-dark,
-		medium-dark: $color-ruby-medium-dark
+		base: colors.$color-ruby,
+		light: colors.$color-ruby-light,
+		dark: colors.$color-ruby-dark,
+		medium-dark: colors.$color-ruby-medium-dark
 	),
 	peacock: (
-		base: $color-peacock,
-		light: $color-peacock-light,
-		dark: $color-peacock-dark,
-		medium-dark: $color-peacock-medium-dark
+		base: colors.$color-peacock,
+		light: colors.$color-peacock-light,
+		dark: colors.$color-peacock-dark,
+		medium-dark: colors.$color-peacock-medium-dark
 	),
 	jade: (
-		base: $color-jade,
-		light: $color-jade-light,
-		dark: $color-jade-dark,
-		medium-dark: $color-jade-medium-dark
+		base: colors.$color-jade,
+		light: colors.$color-jade-light,
+		dark: colors.$color-jade-dark,
+		medium-dark: colors.$color-jade-medium-dark
 	),
 	sandstone: (
-		base: $color-sandstone,
-		light: $color-sandstone-light,
-		dark: $color-sandstone-dark,
-		medium-dark: $color-sandstone-medium-dark
+		base: colors.$color-sandstone,
+		light: colors.$color-sandstone-light,
+		dark: colors.$color-sandstone-dark,
+		medium-dark: colors.$color-sandstone-medium-dark
 	),
 	lemon: (
-		base: $color-lemon,
-		light: $color-lemon-light,
-		dark: $color-lemon-dark,
-		medium-dark: $color-lemon-medium-dark
+		base: colors.$color-lemon,
+		light: colors.$color-lemon-light,
+		dark: colors.$color-lemon-dark,
+		medium-dark: colors.$color-lemon-medium-dark
 	),
 	ocean: (
-		base: $color-ocean,
-		light: $color-ocean-light,
-		dark : $color-ocean-dark,
-		medium-dark: $color-ocean-medium-dark
+		base: colors.$color-ocean,
+		light: colors.$color-ocean-light,
+		dark : colors.$color-ocean-dark,
+		medium-dark: colors.$color-ocean-medium-dark
 	)
 );
 
-/// Generate color values on attributes e.g @include color_values($colors, 'color', $separator: '-');
+/// Generate color values on attributes e.g @include color_values(colors.$colors, 'color', $separator: '-');
 /// Generates this: color: color-name;
 /// @group Colors
 @mixin color_values($map, $attribute, $prefix: '-', $separator: '-', $base: 'base') {
 	@each $key, $value in $map {
 		&#{if($key != $base, #{$prefix}#{$key}, '')} {
-			@if type-of($value) == 'map' {
+			@if meta.type-of($value) == 'map' {
 				@include color_values($value, $attribute, $separator);
 			}
 			@else {
@@ -75,13 +77,13 @@ $colors: (
 	}
 }
 
-/// Generate color classes with attribute and value and pass optional nested element e.g @include color_classes ($map: $colors,$prefix: '-',$attribute: 'fill',$element: 'svg');
+/// Generate color classes with attribute and value and pass optional nested element e.g @include color_classes ($map: colors.$colors,$prefix: '-',$attribute: 'fill',$element: 'svg');
 /// Generates this: element.color-name element {fill: color-name}
 /// @group Colors
 @mixin color_classes($map, $attribute, $prefix: '', $separator: '.', $base: 'base', $element: '') {
 	@each $key, $value in $map {
 		&#{if($key != $base, #{$separator}#{$key}, '')} {
-			@if type-of($value) == 'map' {
+			@if meta.type-of($value) == 'map' {
 				@include color_classes($value, $attribute, $prefix: '.', $separator: '-', $element:  $element);
 			}
 			@else {
@@ -104,7 +106,7 @@ $colors: (
 /// @group Colors
 @mixin wordpress_color_classes($map, $attribute,  $separator: '-', $suffix: '', $base: 'base') {
 	@each $key, $value in $map {
-		@if type-of($value) == 'map' {
+		@if meta.type-of($value) == 'map' {
 			&#{if($key != $base, #{$separator}#{$key}, '')} {
 				@include wordpress_color_classes($value, $attribute, $separator, '-color');
 			}

@@ -1,45 +1,45 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 
 // Plumber baseline
-@import 'vendor/baseline/plumber';
+@use 'vendor/baseline/plumber';
 
 // Configurations
-@import 'configurations/functions';
-@import 'configurations/variables';
-@import 'configurations/config';
-@import 'configurations/bem';
-@import 'configurations/mixins';
+@use 'configurations/functions';
+@use 'configurations/variables';
+@use 'configurations/config';
+@use 'configurations/bem';
+@use 'configurations/mixins';
 
 // Grid
-@import 'vendor/grid/breakpoints';
-@import 'vendor/grid/grid-framework';
-@import 'vendor/grid/grid';
-@import 'vendor/grid/flex';
-@import 'vendor/grid/spacing';
-@import 'configurations/grid/grid';
+@use 'vendor/grid/breakpoints';
+@use 'vendor/grid/grid-framework';
+@use 'vendor/grid/grid';
+@use 'vendor/grid/flex';
+@use 'vendor/grid/spacing';
+@use 'configurations/grid/grid';
 
 // Theme
-@import 'theme/theme';
+@use 'theme/theme';
 
 // Utilities
-@import 'utilities/margin';
-@import 'utilities/padding';
-@import 'utilities/hide';
-@import 'utilities/lists';
+@use 'utilities/margin';
+@use 'utilities/padding';
+@use 'utilities/hide';
+@use 'utilities/lists';
 
 $namespace: '';
 
 // Configurations
-@import 'configurations/colors/colors';
-@import 'configurations/colors/colors-functions';
-@import 'configurations/extends';
+@use 'configurations/colors/colors';
+@use 'configurations/colors/colors-functions';
+@use 'configurations/extends';
 
 // Atoms
-@import 'atoms/button/button';
+@use 'atoms/button/button';
 
 // Molecules
-@import 'molecules/alert/alert';
-@import 'molecules/cookie-disclaimer/cookie-disclaimer';
+@use 'molecules/alert/alert';
+@use 'molecules/cookie-disclaimer/cookie-disclaimer';
 
 // Organisms
-@import 'organisms/footer/footer';
+@use 'organisms/footer/footer';

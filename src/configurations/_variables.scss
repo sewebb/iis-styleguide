@@ -1,42 +1,45 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 
 @use "sass:math";
+@use '../vendor/baseline/plumber' as plumber;
+@use '../vendor/grid/functions' as grid;
+@use '../configurations/functions' as func;
 
-@import '../vendor/grid/functions';
+$namespace: '' !default;
 
-// Typography
+/* Typography */
 $font-family-base: 'HK Grotesk', sans-serif !default;
 $font-family-headings: 'HK Grotesk Semibold', sans-serif !default;
 $font-family-medium: 'HK Grotesk Medium', sans-serif !default;
 $font-family-bold: 'HK Grotesk Bold', sans-serif !default;
 $font-family-mono: 'Roboto Mono Regular', monospace !default;
 
-$headings-baseline: 0.150 !default; // HK Semibold
-$body-baseline: 0.150 !default; // HK Regular
-$mono-baseline: 0.110 !default; // Roboto Mono Regular
+$headings-baseline: 0.150 !default; /* HK Semibold */
+$body-baseline: 0.150 !default; /* HK Regular */
+$mono-baseline: 0.110 !default; /* Roboto Mono Regular */
 
-// Size base
+/* Size base */
 $size-base: 18px !default;
 
-// Size medium plus
+/* Size medium plus */
 $size-medium-plus: 15.3px !default;
 
-// Size medium
+/* Size medium */
 $size-medium: 14px !default;
 
-// Size small
+/* Size small */
 $size-small: 12px !default;
 
-// Base units
+/* Base units */
 $base-unit: math.div($size-base, 2) !default;
-$rem-size: rem($base-unit) !default;
+$rem-size: func.to_rem($base-unit) !default;
 
-// Small size
-$small-text: rem($size-small);
+/* Small size */
+$small-text: func.to_rem($size-small);
 
-// Baseline defaults
-@include plumber-set-defaults(
-	$grid-height: rem($base-unit),
+/* Baseline defaults */
+@include plumber.plumber-set-defaults(
+	$grid-height: func.to_rem($base-unit), /* 9px based on 18px font size */
 	$baseline: $body-baseline,
 	$font-size: 2,
 	$line-height: 3,
@@ -46,10 +49,10 @@ $small-text: rem($size-small);
 
 $enable-grid-classes: true !default;
 
-// Grid breakpoints
+/* Grid breakpoints
 //
 // Define the minimum dimensions at which your layout will change,
-// adapting to different screen sizes, for use in media queries.
+// adapting to different screen sizes, for use in media queries. */
 
 $grid-breakpoints: (
 	xs: 0,
@@ -61,43 +64,34 @@ $grid-breakpoints: (
 	xxl: 1400px
 ) !default;
 
-@include _assert-ascending($grid-breakpoints, '$grid-breakpoints');
-@include _assert-starts-at-zero($grid-breakpoints);
+@include grid.assert-ascending($grid-breakpoints, '$grid-breakpoints');
+@include grid.assert-starts-at-zero($grid-breakpoints);
 
-// Grid columns
+/* Grid columns
 //
-// Set the number of columns and specify the width of the gutters.
+// Set the number of columns and specify the width of the gutters. */
 
 $grid-columns: 18 !default;
-$grid-gutter-width: rem(20px) !default;
+$grid-gutter-width: func.to_rem(20px) !default;
 
-// Grid containers
+/* Grid containers
 //
-// Define the maximum width of `.container` for different screen sizes.
+// Define the maximum width of `.container` for different screen sizes. */
 
 $container-max-widths: (
 	xl: 1360px
 ) !default;
 
-@include _assert-ascending($container-max-widths, '$container-max-widths');
+@include grid.assert-ascending($container-max-widths, '$container-max-widths');
 
-// Default border-radius
-$border-radius: rhythm(0.5);
+/* Default border-radius */
+$border-radius: func.rhythm(0.5);
 
-// Icons
-$icon-size: rem(24px);
-$icon-size-large: rem(28px);
-$icon-size-medium: rem(20px);
-$icon-size-small: rem(16px);
-$icon-size-smallest: rem(12px);
-
-// Z-indexes
-$z-index: (
-	'foreground': 1000,
-	'foregroundMinus': 999,
-	'middleground': 500,
-	'middlegroundImportant': 750,
-	'background': 1
-);
+/* Icons */
+$icon-size: func.to_rem(24px);
+$icon-size-large: func.to_rem(28px);
+$icon-size-medium: func.to_rem(20px);
+$icon-size-small: func.to_rem(16px);
+$icon-size-smallest: func.to_rem(12px);
 
 $indent: 3.78825%;

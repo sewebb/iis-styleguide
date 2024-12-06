@@ -6,4 +6,4 @@ module.exports = {
 		for: 'name',
 		labelClasses: 'is-required'
 	}
-}
+};

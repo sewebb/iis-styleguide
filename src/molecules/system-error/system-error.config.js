@@ -7,4 +7,4 @@ module.exports = {
 		suggestion: 'Försök <a href="#" class="js-history">backa i webbläsaren</a> eller gå till <a href="/">startsidan</a>.',
 		errorMessage: 'error - Sidan kan inte hittas'
 	}
-}
+};

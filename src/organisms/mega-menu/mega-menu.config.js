@@ -6,7 +6,7 @@ module.exports = {
 		id: 'megaMenu',
 		modifier:'',
 		columns: [
-			 {
+			{
 				headline: 'Domäner',
 				list_id: 'domains',
 				topics: [
@@ -59,7 +59,7 @@ module.exports = {
 						]
 					}
 				],
-			 },
+			},
 			{
 				headline: 'Kunskap',
 				list_id: 'kunskap',
@@ -207,4 +207,4 @@ module.exports = {
 			}
 		}
 	]
-}
+};

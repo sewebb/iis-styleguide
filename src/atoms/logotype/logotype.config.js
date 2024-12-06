@@ -1,6 +1,6 @@
 const fs = require('fs');
 let sprite = fs.readFileSync(__dirname + '/../../_logotype-sprite.hbs');
-sprite = sprite.toString().replace(/\ /g, '').replace(/\n/g, '').split('id="');
+sprite = sprite.toString().replace(/ /g, '').replace(/\n/g, '').split('id="');
 const logotypes = [];
 
 for (let i = 0; i < sprite.length; i++) {
@@ -19,8 +19,8 @@ module.exports = {
 
 	preview: '@layout-logotypes',
 
-	collator: function(markup, item) {
-		return `<div class="logotype-wrapper">${markup}</div>`
+	collator: function(markup) {
+		return `<div class="logotype-wrapper">${markup}</div>`;
 	},
 
 	context: {

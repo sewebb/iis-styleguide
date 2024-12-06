@@ -1,23 +1,31 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../variables' as var;
+@use '../functions' as func;
+@use '../extends';
+@use '../colors/colors' as colors;
+@use '../colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/baseline/plumber' as plumber;
+@use '../bem' as bem;
 
 h1,
 .alpha,
 %alpha {
-	@include plumber(
+	@include plumber.plumber(
 		$font-size: 3,
 		$line-height: 4,
 		$leading-bottom: 2,
-		$baseline: $headings-baseline
+		$baseline: var.$headings-baseline
 	);
 
-	font-family: $font-family-headings;
+	font-family: var.$font-family-headings;
 
-	@include bp-up(sm) {
-		@include plumber(
+	@include breakpoint.bp-up(sm) {
+		@include plumber.plumber(
 			$font-size: 4,
 			$line-height: 5,
 			$leading-bottom: 1,
-			$baseline: $headings-baseline
+			$baseline: var.$headings-baseline
 		);
 	}
 }
@@ -25,17 +33,17 @@ h1,
 h2,
 .beta,
 %beta {
-	@include plumber(
+	@include plumber.plumber(
 		$font-size: 2.44444,
 		$line-height: 3,
 		$leading-bottom: 1,
-		$baseline: $headings-baseline
+		$baseline: var.$headings-baseline
 	);
-	
-	font-family: $font-family-headings;
 
-	@include bp-up(sm) {
-		@include plumber(
+	font-family: var.$font-family-headings;
+
+	@include breakpoint.bp-up(sm) {
+		@include plumber.plumber(
 			$font-size: 2.666666,
 			$leading-bottom: 1
 		);
@@ -47,27 +55,27 @@ h2,
 h3,
 .gamma,
 %gamma {
-	@include plumber(
+	@include plumber.plumber(
 		$font-size: 2.22222,
 		$line-height: 3,
 		$leading-top: 0,
 		$leading-bottom: 1
 	);
 
-	font-family: $font-family-headings;
+	font-family: var.$font-family-headings;
 }
 
 h4,
 .delta,
 %delta {
-	@include plumber(
+	@include plumber.plumber(
 		$font-size: 1.888888,
 		$line-height: 3,
 		$leading-top: 0,
 		$leading-bottom: 1
 	);
 
-	font-family: $font-family-headings;
+	font-family: var.$font-family-headings;
 }
 
 %reset-link-style {
@@ -100,14 +108,14 @@ ol:not([class]) {
 }
 
 li {
-	padding-top: rhythm(0.25);
-	padding-bottom: rhythm(0.25);
+	padding-top: func.rhythm(0.25);
+	padding-bottom: func.rhythm(0.25);
 }
 
 li ul,
 li ol {
-	margin-top: rhythm(1);
-	margin-left: rhythm(4);
+	margin-top: func.rhythm(1);
+	margin-left: func.rhythm(4);
 	padding-top: 0;
 	padding-left: 0;
 }
@@ -124,7 +132,7 @@ p,
 ul,
 ol,
 dl {
-	@include plumber(
+	@include plumber.plumber(
 		$leading-bottom: 3
 	);
 }
@@ -134,13 +142,13 @@ ol,
 dl {
 	+ h2,
 	+ .beta {
-		margin-top: rhythm(5);
+		margin-top: func.rhythm(5);
 	}
 }
 
 .small,
 small {
-	@include plumber(
+	@include plumber.plumber(
 		$font-size: 1.5,
 		$line-height: 2,
 		$leading-bottom: 0
@@ -149,25 +157,25 @@ small {
 
 .supersize,
 %supersize {
-	@include plumber(
+	@include plumber.plumber(
 		$font-size: 3,
 		$line-height: 4,
 		$leading-bottom: 1,
-		$baseline: $headings-baseline
+		$baseline: var.$headings-baseline
 	);
 
-	font-family: $font-family-bold;
+	font-family: var.$font-family-bold;
 
-	@include bp-up(sm) {
-		@include plumber(
+	@include breakpoint.bp-up(sm) {
+		@include plumber.plumber(
 			$font-size: 4.5,
 			$line-height: 5,
 			$leading-bottom: 1
 		);
 	}
 
-	@include bp-up(md) {
-		@include plumber(
+	@include breakpoint.bp-up(md) {
+		@include plumber.plumber(
 			$font-size: 7,
 			$line-height: 8,
 			$leading-bottom: 2
@@ -179,17 +187,17 @@ small {
 		hyphenate-limit-chars: 13 3 4;
 		overflow-wrap: break-word;
 
-		@include plumber(
+		@include plumber.plumber(
 			$font-size: 4.5,
 			$line-height: 5,
 			$leading-bottom: 1
 		);
 
-		@include bp-up(md) {
+		@include breakpoint.bp-up(md) {
 			hyphens: initial;
 			overflow-wrap: normal;
 
-			@include plumber(
+			@include plumber.plumber(
 				$font-size: 7,
 				$line-height: 8,
 				$leading-bottom: 2
@@ -199,49 +207,49 @@ small {
 }
 
 .godzilla {
-	@include plumber(
+	@include plumber.plumber(
 		$leading-top: 0,
 		$leading-bottom: 0
 	);
 
 	line-height: 79px;
 	font-size: 120px;
-	font-family: $font-family-bold;
-	letter-spacing: -#{rem(5px)};
+	font-family: var.$font-family-bold;
+	letter-spacing: -#{func.to_rem(5px)};
 
-	@include bp-up(sm) {
+	@include breakpoint.bp-up(sm) {
 		line-height: 100px;
 		font-size: 150px;
 	}
 
-	@include bp-up(md) {
+	@include breakpoint.bp-up(md) {
 		line-height: 135px;
 		font-size: 200px;
-		letter-spacing: -#{rem(10px)};
+		letter-spacing: -#{func.to_rem(10px)};
 	}
 
-	@include bp-up(lg) {
+	@include breakpoint.bp-up(lg) {
 		line-height: 201px;
 		font-size: 295px;
-		letter-spacing: -#{rem(20px)};
+		letter-spacing: -#{func.to_rem(20px)};
 	}
 
-	@include bp-up(xl) {
+	@include breakpoint.bp-up(xl) {
 		line-height: 247px;
 		font-size: 360px;
 	}
 
 	// Special rule for decade starting with 1
-	@include m(19) {
+	@include bem.m(19) {
 		&::first-letter {
-			letter-spacing: -#{rem(20px)};
+			letter-spacing: -#{func.to_rem(20px)};
 
-			@include bp-up(lg) {
-				letter-spacing: -#{rem(40px)};
+			@include breakpoint.bp-up(lg) {
+				letter-spacing: -#{func.to_rem(40px)};
 			}
 
-			@include bp-up(xl) {
-				letter-spacing: -#{rem(45px)};
+			@include breakpoint.bp-up(xl) {
+				letter-spacing: -#{func.to_rem(45px)};
 			}
 		}
 	}
@@ -250,14 +258,14 @@ small {
 .preamble,
 %preamble {
 
-	@include plumber(
+	@include plumber.plumber(
 		$font-size: 2.55555,
 		$line-height: 4,
 		$leading-bottom: 4
 	);
 
-	@include bp-up(sm) {
-		@include plumber(
+	@include breakpoint.bp-up(sm) {
+		@include plumber.plumber(
 			$font-size: 3,
 			$line-height: 4,
 			$leading-bottom: 4
@@ -266,37 +274,37 @@ small {
 }
 
 .meta {
-	@include plumber(
+	@include plumber.plumber(
 		$font-size: 1.75,
-		$baseline: $mono-baseline
+		$baseline: var.$mono-baseline
 	);
 
-	font-family: $font-family-mono;
+	font-family: var.$font-family-mono;
 	font-weight: normal;
-	letter-spacing: rem(0.5px);
+	letter-spacing: func.to_rem(0.5px);
 	text-transform: uppercase;
 }
 
 .mono {
-	font-family: $font-family-mono;
+	font-family: var.$font-family-mono;
 	font-weight: normal;
-	letter-spacing: rem(0.5px);
+	letter-spacing: func.to_rem(0.5px);
 	text-decoration: none;
 	text-transform: uppercase;
 }
 
 ::selection {
-	background-color: $color-ruby-light;
+	background-color: colors.$color-ruby-light;
 }
 
 ::-moz-selection {
-	background-color: $color-ruby-light;
+	background-color: colors.$color-ruby-light;
 }
 
 blockquote {
 
-	@include color_classes (
-		$map: $colors,
+	@include colorFunc.color_classes (
+		$map: colorFunc.$colors,
 		$prefix: '-',
 		$attribute: 'fill',
 		$element: 'svg'
@@ -305,19 +313,19 @@ blockquote {
 	display: flex;
 	position: relative;
 	flex-direction: column;
-	margin-top: rhythm(6);
+	margin-top: func.rhythm(6);
 	margin-right: 0;
-	margin-bottom: rhythm(5);
+	margin-bottom: func.rhythm(5);
 	margin-left: 0;
-	padding-left: rem(40px);
+	padding-left: func.to_rem(40px);
 
 	p {
-		@include plumber(
+		@include plumber.plumber(
 			$font-size: 2.5,
 			$line-height: 3,
 			$leading-top: 1,
 			$leading-bottom: 0,
-			$baseline: $headings-baseline
+			$baseline: var.$headings-baseline
 		);
 	}
 
@@ -326,39 +334,39 @@ blockquote {
 		position: absolute;
 		top: 0;
 		left: 0;
-		width: rhythm(2);
-		height: rhythm(4);
-		fill: $color-black;
+		width: func.rhythm(2);
+		height: func.rhythm(4);
+		fill: colors.$color-black;
 
-		@include bp-up(md) {
-			width: rhythm(3);
-			height: rhythm(6);
+		@include breakpoint.bp-up(md) {
+			width: func.rhythm(3);
+			height: func.rhythm(6);
 		}
 	}
 
 	.meta {
-		@include plumber(
+		@include plumber.plumber(
 			$font-size: 1.75,
 			$leading-bottom: 0
 		);
 
-		margin-top: rhythm(1);
-		line-height: rhythm(2.5);
+		margin-top: func.rhythm(1);
+		line-height: func.rhythm(2.5);
 	}
 
-	@include bp-up(sm) {
-		padding-right: rhythm(3);
-		max-width: rem(613px);
+	@include breakpoint.bp-up(sm) {
+		padding-right: func.rhythm(3);
+		max-width: func.to_rem(613px);
 		margin-left: auto;
 		margin-right: auto;
 	}
 
-	@include bp-up(md) {
-		margin-top: rhythm(6.5);
-		padding-left: rem(52px);
+	@include breakpoint.bp-up(md) {
+		margin-top: func.rhythm(6.5);
+		padding-left: func.to_rem(52px);
 
 		p {
-			@include plumber(
+			@include plumber.plumber(
 				$font-size: 2.7,
 				$line-height: 4,
 				$leading-bottom: 0,
@@ -369,12 +377,12 @@ blockquote {
 		}
 
 		.meta {
-			margin-top: rhythm(0.5);
-			line-height: rhythm(3.5);
+			margin-top: func.rhythm(0.5);
+			line-height: func.rhythm(3.5);
 		}
 	}
 
-	@include bp-up(lg) {
+	@include breakpoint.bp-up(lg) {
 		margin-left: initial;
 		margin-right: initial;
 	}
@@ -383,6 +391,6 @@ blockquote {
 b,
 strong,
 legend {
-	font-family: $font-family-headings;
+	font-family: var.$font-family-headings;
 	font-weight: normal;
 }

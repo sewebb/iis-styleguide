@@ -11,4 +11,4 @@ module.exports = {
 		required: false,
 		disabled: false
 	}
-}
+};

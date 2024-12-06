@@ -1,6 +1,11 @@
-@each $breakpoint in map-keys($grid-breakpoints) {
-	@include bp-up($breakpoint) {
-		$infix: breakpoint-infix($breakpoint, $grid-breakpoints);
+@use "sass:map";
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use 'breakpoints' as breakpoint;
+
+@each $breakpoint in map.keys(var.$grid-breakpoints) {
+	@include breakpoint.bp-up($breakpoint) {
+		$infix: breakpoint.breakpoint-infix($breakpoint, var.$grid-breakpoints);
 
 		// Some special margin utils
 		.m#{$infix}-auto { margin: auto !important; }

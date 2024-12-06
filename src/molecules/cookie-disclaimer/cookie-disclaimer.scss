@@ -1,50 +1,59 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/grid/grid' as grid;
 
-@include molecule(cookie-disclaimer) {
+@include mixin.molecule(cookie-disclaimer) {
 	display: none;
 	position: relative;
-	z-index: z_index(foreground);
+	z-index: func.z_index(foreground);
 
 	&.is-visible {
 		display: block;
 	}
 
-	@include bp-up(lg) {
+	@include breakpoint.bp-up(lg) {
 		position: fixed;
 		right: 0;
 		bottom: 0;
 		left: 0;
 	}
 
-	@include e(wrapper) {
+	@include bem.e(wrapper) {
 		width: 100%;
 		margin-bottom: 0 !important;
-		padding: rhythm(2) 0;
+		padding: func.rhythm(2) 0;
 	}
 
-	@include e(inner) {
+	@include bem.e(inner) {
 		display: flex;
 		flex-wrap: wrap;
 		margin-right: auto;
 		margin-left: auto;
 
-		@include make-container-max-widths();
+		@include grid.make-container-max-widths();
 
-		@include bp-down(xl) {
-			padding-right: $grid-gutter-width;
-			padding-left: $grid-gutter-width;
+		@include breakpoint.bp-down(xl) {
+			padding-right: var.$grid-gutter-width;
+			padding-left: var.$grid-gutter-width;
 		}
 	}
 
-	@include e(inner-first) {
+	@include bem.e(inner-first) {
 		display: flex;
 		align-items: center;
 		width: 100%;
 
 		a {
 			padding: 0 0.25rem;
-			border-bottom: 0.11111rem solid $color-peacock;
-			color: $color-black;
+			border-bottom: 0.11111rem solid colors.$color-peacock;
+			color: colors.$color-black;
 			text-decoration: none;
 
 			&:hover,
@@ -53,32 +62,32 @@
 			}
 		}
 
-		@include bp-up(md) {
-			@include make-col(12);
+		@include breakpoint.bp-up(md) {
+			@include grid.make-col(12);
 
-			padding-right: rhythm(3);
+			padding-right: func.rhythm(3);
 		}
 	}
 
-	@include e(inner-second) {
+	@include bem.e(inner-second) {
 		display: flex;
 		align-items: center;
 		justify-content: flex-end;
 		width: 100%;
-		padding-top: rhythm(2);
+		padding-top: func.rhythm(2);
 
 		button {
 			font-size: 18px;
 		}
 
-		@include bp-up(md) {
-			@include make-col(6);
+		@include breakpoint.bp-up(md) {
+			@include grid.make-col(6);
 
 			padding-top: 0;
 		}
 	}
 
-	@include e(text) {
+	@include bem.e(text) {
 		margin-bottom: 0;
 	}
 }

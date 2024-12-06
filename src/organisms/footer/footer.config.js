@@ -27,4 +27,4 @@ module.exports = {
 		site_heading_8: 'Internetstiftelsen',
 		site_description_8: 'Internetstiftelsen verkar för ett internet som bidrar positivt till människan och samhället'
 	}
-}
+};

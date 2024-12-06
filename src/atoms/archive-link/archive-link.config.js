@@ -6,4 +6,4 @@ module.exports = {
 		url: '#',
 		icon: 'arrow-forwards'
 	}
-}
+};

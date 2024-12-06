@@ -1,5 +1,11 @@
 @charset "UTF-8";
 @use "sass:color";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
 // The Glider components is dependant on JS-classes and is therefore not namespaced
 
@@ -7,10 +13,10 @@
 	display: flex;
 	position: relative;
 	align-items: center;
-	margin-top: rhythm(2);
-	margin-bottom: rhythm(2);
-	padding-right: rhythm(8);
-	padding-left: rhythm(8);
+	margin-top: func.rhythm(2);
+	margin-bottom: func.rhythm(2);
+	padding-right: func.rhythm(8);
+	padding-left: func.rhythm(8);
 }
 
 .glider {
@@ -26,7 +32,7 @@
 		cursor: grab;
 		user-select: none;
 
-		@include b(glider-slide) {
+		@include bem.b(glider-slide) {
 			img {
 				pointer-events: none;
 				user-select: none;
@@ -55,31 +61,31 @@
 	width: 100%;
 	min-width: 150px;
 	margin-left: 1px;
-	padding: rhythm(2) 0;
+	padding: func.rhythm(2) 0;
 	overflow: hidden;
 
 	img:not([class]) {
 		display: block;
-		border-radius: $border-radius;
+		border-radius: var.$border-radius;
 		width: 100%;
 	}
 
-	@include bp-only(sm) {
-		padding-right: rhythm(2);
-		padding-left: rhythm(2);
+	@include breakpoint.bp-only(sm) {
+		padding-right: func.rhythm(2);
+		padding-left: func.rhythm(2);
 	}
 
-	@include bp-up(lg) {
-		padding-right: rhythm(3);
-		padding-left: rhythm(3);
+	@include breakpoint.bp-up(lg) {
+		padding-right: func.rhythm(3);
+		padding-left: func.rhythm(3);
 	}
 
-	@include m(stretch-items) {
+	@include bem.m(stretch-items) {
 		display: flex;
 		align-items: stretch;
 	}
 
-	@include bp-up(lg) {
+	@include breakpoint.bp-up(lg) {
 		&:not(.active) {
 			&::after {
 				content: '';
@@ -88,7 +94,7 @@
 				bottom: 0;
 				left: 0;
 				width: 1px;
-				background-color: $color-concrete;
+				background-color: colors.$color-concrete;
 			}
 		}
 	}
@@ -98,14 +104,14 @@
 	position: absolute;
 	top: 50%;
 	left: 0;
-	z-index: z_index(middleground);
+	z-index: func.z_index(middleground);
 	transform: translateY(-50%);
 	transition: background-color 0.25s ease-out;
 	user-select: none;
 	cursor: pointer;
 
 	&:focus {
-		background-color: $color-snow;
+		background-color: colors.$color-snow;
 	}
 
 	svg {
@@ -114,18 +120,18 @@
 	}
 
 	&.disabled {
-		background-color: $color-ash;
-		box-shadow: 0 2px 5px color.adjust($color-granit, $lightness: 25%);
+		background-color: colors.$color-ash;
+		box-shadow: 0 2px 5px color.adjust(colors.$color-granit, $lightness: 25%);
 		pointer-events: none;
 
 		svg {
 			opacity: 0.2;
-			fill: $color-cyberspace;
+			fill: colors.$color-cyberspace;
 		}
 	}
 
-	@include bp-up(sm) {
-		left: rhythm(1);
+	@include breakpoint.bp-up(sm) {
+		left: func.rhythm(1);
 	}
 }
 
@@ -133,8 +139,8 @@
 	right: 0;
 	left: auto;
 
-	@include bp-up(sm) {
-		right: rhythm(1);
+	@include breakpoint.bp-up(sm) {
+		right: func.rhythm(1);
 	}
 }
 
@@ -168,20 +174,20 @@
 
 .glider-dot {
 	display: block;
-	width: rem(14px);
-	height: rem(14px);
-	margin: rhythm(0.5);
+	width: func.to_rem(14px);
+	height: func.to_rem(14px);
+	margin: func.rhythm(0.5);
 	padding: 0;
 	border: 0;
 	border-radius: 50%;
 	outline: none;
-	background: $color-concrete;
+	background: colors.$color-concrete;
 	cursor: pointer;
 	user-select: none;
 
 	&:hover,
 	&:focus,
 	&.active {
-		background: $color-cyberspace;
+		background: colors.$color-cyberspace;
 	}
 }

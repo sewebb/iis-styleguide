@@ -13,7 +13,7 @@ module.exports = {
 
 	variants: [
 		{
-		name: 'Select with arrow',
+			name: 'Select with arrow',
 			context: {
 				select: true,
 				textElement: 'h1',
@@ -22,7 +22,7 @@ module.exports = {
 			}
 		},
 		{
-		name: 'Other text element',
+			name: 'Other text element',
 			context: {
 				select: true,
 				textElement: 'h2',
@@ -31,7 +31,7 @@ module.exports = {
 			}
 		},
 		{
-		name: 'Input',
+			name: 'Input',
 			context: {
 				select: false,
 				textElement: 'h1',
@@ -40,4 +40,4 @@ module.exports = {
 			}
 		}
 	]
-}
+};

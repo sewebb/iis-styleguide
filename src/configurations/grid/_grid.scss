@@ -1,6 +1,11 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 
 @use "sass:math";
+@use '../variables' as var;
+@use '../functions' as func;
+@use '../../vendor/grid/grid' as grid;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/grid/grid-framework' as gridFramework;
 
 // Grid only
 //
@@ -19,16 +24,16 @@
 //
 // Set the container width, and override it for fixed navbars in media queries.
 
-@if $enable-grid-classes {
+@if var.$enable-grid-classes {
 	.wrapper,
 	%wrapper {
-		@include make-container();
-		@include make-container-max-widths();
+		@include grid.make-container();
+		@include grid.make-container-max-widths();
 
 		// Specify bigger wrapper padding on smaller screens
-		@include bp-down(xl) {
-			padding-right: $grid-gutter-width;
-			padding-left: $grid-gutter-width;
+		@include breakpoint.bp-down(xl) {
+			padding-right: var.$grid-gutter-width;
+			padding-left: var.$grid-gutter-width;
 		}
 	}
 }
@@ -38,9 +43,9 @@
 // Utilizes the mixin meant for fixed width containers, but with 100% width for
 // fluid, full width layouts.
 
-@if $enable-grid-classes {
+@if var.$enable-grid-classes {
 	.wrapper-fluid {
-		@include make-container();
+		@include grid.make-container();
 	}
 }
 
@@ -58,12 +63,12 @@
 
 		> .grid,
 		> [class*='grid-']:nth-child(#{$i}) {
-			transform: translateY(rhythm($col-gap));
+			transform: translateY(func.rhythm($col-gap));
 		}
 
-		@include bp-only(sm) {
+		@include breakpoint.bp-only(sm) {
 			> [class*='grid-']:last-child {
-				transform: translateY(rhythm($gap));
+				transform: translateY(func.rhythm($gap));
 			}
 		}
 	}
@@ -74,7 +79,7 @@
 	$bp-gap: $gap;
 	$margin: 7;
 
-	margin: rhythm($margin) 0 0;
+	margin: func.rhythm($margin) 0 0;
 
 	&:not(.asymmetric-reversed) {
 		@include make-asymmetric-cols($bp-gap);
@@ -84,8 +89,8 @@
 		@include make-asymmetric-cols($bp-gap, true);
 	}
 
-	@include bp-up(sm) {
-		margin: rhythm($margin * 1.25) 0 0;
+	@include breakpoint.bp-up(sm) {
+		margin: func.rhythm($margin * 1.25) 0 0;
 
 		&:not(.asymmetric-reversed) {
 			$bp-gap: $gap * 1.25;
@@ -98,16 +103,16 @@
 		}
 	}
 
-	@include bp-up(md) {
+	@include breakpoint.bp-up(md) {
 		&.asymmetric-reversed {
 			margin-bottom: calc(100px);
 		}
 	}
 
-	@include bp-up(lg) {
+	@include breakpoint.bp-up(lg) {
 
 
-		margin: rhythm($margin * 1.5) 0 0;
+		margin: func.rhythm($margin * 1.5) 0 0;
 
 		&:not(.asymmetric-reversed) {
 			$bp-gap: $gap * 1.5;
@@ -121,8 +126,8 @@
 		}
 	}
 
-	@include bp-up(xl) {
-		margin: rhythm($margin * 2) 0 0;
+	@include breakpoint.bp-up(xl) {
+		margin: func.rhythm($margin * 2) 0 0;
 
 		&:not(.asymmetric-reversed) {
 			$bp-gap: $gap * 2;
@@ -137,33 +142,33 @@
 	}
 }
 
-@if $enable-grid-classes {
+@if var.$enable-grid-classes {
 	.row {
-		@include make-row();
+		@include grid.make-row();
 	}
 
 	.asymmetric {
 		@include make-asymmetric-row;
 
-		@include bp-up(sm) {
+		@include breakpoint.bp-up(sm) {
 			&-sm {
 				@include make-asymmetric-row;
 			}
 		}
 
-		@include bp-up(md) {
+		@include breakpoint.bp-up(md) {
 			&-md {
 				@include make-asymmetric-row;
 			}
 		}
 
-		@include bp-up(lg) {
+		@include breakpoint.bp-up(lg) {
 			&-lg {
 				@include make-asymmetric-row;
 			}
 		}
 
-		@include bp-up(xl) {
+		@include breakpoint.bp-up(xl) {
 			&-xl {
 				@include make-asymmetric-row;
 			}
@@ -192,6 +197,6 @@
 //
 // Common styles for small and large grid columns
 
-@if $enable-grid-classes {
-	@include make-grid-columns();
+@if var.$enable-grid-classes {
+	@include gridFramework.make-grid-columns();
 }

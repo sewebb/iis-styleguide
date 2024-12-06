@@ -1,4 +1,18 @@
-@include organism(mega-menu) {
+@charset "UTF-8";
+@use "sass:color";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/grid/grid' as grid;
+
+$border-color: color.adjust(colors.$color-jade, $lightness: -5%);
+
+@include mixin.organism(mega-menu) {
 	z-index: z_index(middlegroundImportant);
 	padding-right: 0;
 	padding-left: 0;
@@ -14,7 +28,7 @@
 		transform: translateY(0);
 
 		+ {
-			@include organism(domain-search) {
+			@include mixin.organism(domain-search) {
 				display: none;
 			}
 		}
@@ -28,36 +42,36 @@
 		}
 	}
 
-	@include e(wrapper) {
-		@include bp-down(md) {
-			padding-right: rhythm(1);
-			padding-left: rhythm(1);
+	@include bem.e(wrapper) {
+		@include breakpoint.bp-down(md) {
+			padding-right: func.rhythm(1);
+			padding-left: func.rhythm(1);
 			border-bottom: 1px solid currentColor;
 		}
 
-		@include bp-up(lg) {
-			padding-top: rhythm(3);
+		@include breakpoint.bp-up(lg) {
+			padding-top: func.rhythm(3);
 		}
 	}
 
-	@include e(column) {
-		padding-bottom: rhythm(2);
+	@include bem.e(column) {
+		padding-bottom: func.rhythm(2);
 
-		@include bp-down(md) {
+		@include breakpoint.bp-down(md) {
 			padding-left: 0;
 			padding-right: 0;
 			padding-bottom: 0;
 		}
 	}
 
-	@include e(buttons-list) {
+	@include bem.e(buttons-list) {
 		display: flex;
 		align-items: stretch;
 		margin: 0;
 		padding: 0;
 		list-style: none;
 
-		@include e(item) {
+		@include bem.e(item) {
 			width: 50%;
 			flex-grow: 1;
 			flex-shrink: 0;
@@ -69,16 +83,16 @@
 			}
 		}
 
-		@include e(link) {
+		@include bem.e(link) {
 			display: flex;
 			flex-direction: column;
 			align-items: center;
-			padding-top: rhythm(2);
-			padding-bottom: rhythm(2);
+			padding-top: func.rhythm(2);
+			padding-bottom: func.rhythm(2);
 			text-align: center;
-			color: $color-cyberspace;
+			color: colors.$color-cyberspace;
 			text-decoration: none;
-			font-family: $font-family-headings;
+			font-family: var.$font-family-headings;
 			border: 0;
 			background-color: transparent;
 			appearance: none;
@@ -90,9 +104,9 @@
 			}
 
 			svg {
-				width: $icon-size-large * 1.25;
-				height: $icon-size-large * 1.25;
-				margin-bottom: rhythm(1);
+				width: var.$icon-size-large * 1.25;
+				height: var.$icon-size-large * 1.25;
+				margin-bottom: func.rhythm(1);
 				pointer-events: none;
 			}
 
@@ -101,42 +115,42 @@
 			}
 		}
 
-		@include bp-up(lg) {
+		@include breakpoint.bp-up(lg) {
 			display: none;
 		}
 	}
 
-	@include e(search-container) {
+	@include bem.e(search-container) {
 		background-color: currentcolor;
-		padding-top: rhythm(2);
-		padding-bottom: rhythm(2);
+		padding-top: func.rhythm(2);
+		padding-bottom: func.rhythm(2);
 
 		&[aria-hidden='true'] {
 			display: none;
 		}
 	}
 
-	@include e(topic) {
+	@include bem.e(topic) {
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
 		border-top: 1px solid currentColor;
 
-		@include bp-up(lg) {
+		@include breakpoint.bp-up(lg) {
 			background-color: transparent;
 			border-top: 0;
-			margin-bottom: rhythm(1);
+			margin-bottom: func.rhythm(1);
 		}
 	}
 
-	@include e(topic-button) {
+	@include bem.e(topic-button) {
 		margin-left: auto;
 		align-self: stretch;
-		padding-left: rhythm(1.5);
-		padding-right: rhythm(1.5);
+		padding-left: func.rhythm(1.5);
+		padding-right: func.rhythm(1.5);
 		border-left: 1px solid currentColor;
 
-		@include bp-up(lg) {
+		@include breakpoint.bp-up(lg) {
 			display: none;
 			pointer-events: none;
 		}
@@ -150,7 +164,7 @@
 		}
 	}
 
-	@include e(list) {
+	@include bem.e(list) {
 		margin-top: 0;
 		background-color: currentColor;
 		margin-bottom: 0;
@@ -161,8 +175,8 @@
 			display: none;
 		}
 
-		@include bp-up(lg) {
-			margin-top: rhythm(1);
+		@include breakpoint.bp-up(lg) {
+			margin-top: func.rhythm(1);
 			background-color: transparent;
 			border-bottom: 0;
 
@@ -171,20 +185,20 @@
 			}
 		}
 
-		@include e(topic) {
+		@include bem.e(topic) {
 			margin-top: 0;
 			margin-bottom: 0;
 			border-bottom: 1px solid currentColor;
-			font-family: $font-family-headings;
+			font-family: var.$font-family-headings;
 
 			> a {
-				padding: rhythm(1) rhythm(3.5);
+				padding: func.rhythm(1) func.rhythm(3.5);
 			}
 
-			@include bp-up(lg) {
-				margin-top: rhythm(2);
-				margin-bottom: rhythm(0.5);
-				padding: rhythm(1) rhythm(1);
+			@include breakpoint.bp-up(lg) {
+				margin-top: func.rhythm(2);
+				margin-bottom: func.rhythm(0.5);
+				padding: func.rhythm(1) func.rhythm(1);
 				border-bottom: 0;
 
 				> a {
@@ -193,7 +207,7 @@
 			}
 		}
 
-		@include e(item) {
+		@include bem.e(item) {
 			margin: 0;
 			border-bottom: 1px solid currentColor;
 
@@ -201,22 +215,22 @@
 				border-bottom: 0;
 			}
 
-			@include bp-up(lg) {
-				padding: rhythm(1) rhythm(1);
-				margin-bottom: rhythm(0.5);
+			@include breakpoint.bp-up(lg) {
+				padding: func.rhythm(1) func.rhythm(1);
+				margin-bottom: func.rhythm(0.5);
 				border-bottom: 0;
 			}
 		}
 
-		@include bp-up(lg) {
+		@include breakpoint.bp-up(lg) {
 
-			@include e(topic) {
+			@include bem.e(topic) {
 				padding: 0;
 				border-bottom: 0;
 			}
 
-			@include e(item) {
-				margin-bottom: rhythm(1);
+			@include bem.e(item) {
+				margin-bottom: func.rhythm(1);
 				padding: 0;
 				line-height: 1.3;
 
@@ -227,16 +241,16 @@
 		}
 	}
 
-	@include e(link) {
+	@include bem.e(link) {
 		display: inline-flex;
 		align-items: baseline;
 		width: 100%;
-		color: $color-cyberspace;
+		color: colors.$color-cyberspace;
 		text-decoration: none;
-		padding: rhythm(1) rhythm(3.5);
+		padding: func.rhythm(1) func.rhythm(3.5);
 
-		@include m(sub-level) {
-			padding: rhythm(1) rhythm(5);
+		@include bem.m(sub-level) {
+			padding: func.rhythm(1) func.rhythm(5);
 		}
 
 		&:hover {
@@ -245,47 +259,47 @@
 			}
 		}
 
-		@include bp-up(lg) {
+		@include breakpoint.bp-up(lg) {
 			padding: 0;
 		}
 
-		@include m(large) {
+		@include bem.m(large) {
 			display: block;
 			width: 100%;
-			padding: rhythm(1.5) rhythm(2);
-			font-family: $font-family-headings;
+			padding: func.rhythm(1.5) func.rhythm(2);
+			font-family: var.$font-family-headings;
 			white-space: nowrap;
 
-			@include bp-up(lg) {
+			@include breakpoint.bp-up(lg) {
 				padding: 0;
-				font-size: rem(23px);
+				font-size: func.to_rem(23px);
 			}
 		}
 
-		@include e(icon) {
-			width: $icon-size-smallest;
-			height: $icon-size-smallest;
+		@include bem.e(icon) {
+			width: var.$icon-size-smallest;
+			height: var.$icon-size-smallest;
 			flex-shrink: 0;
-			margin-left: rhythm(0.5);
+			margin-left: func.rhythm(0.5);
 		}
 	}
 
-	@include bp-up(lg) {
+	@include breakpoint.bp-up(lg) {
 		padding-bottom: 0;
 
-		@include e(link) {
-			@include m(large) {
+		@include bem.e(link) {
+			@include bem.m(large) {
 				padding: 0;
 			}
 		}
 	}
 
-	@include e(search) {
-		@include e(wrapper) {
-			padding: rhythm(2) rhythm(1);
+	@include bem.e(search) {
+		@include bem.e(wrapper) {
+			padding: func.rhythm(2) func.rhythm(1);
 
-			@include bp-up(md) {
-				padding: rhythm(3) rhythm(2);
+			@include breakpoint.bp-up(md) {
+				padding: func.rhythm(3) func.rhythm(2);
 			}
 		}
 	}

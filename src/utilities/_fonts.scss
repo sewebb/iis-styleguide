@@ -1,16 +1,17 @@
-@charset 'UTF-8';
-
+@charset "UTF-8";
+@use '../configurations/variables' as var;
+@use '../configurations/functions' as func;
 .u-weight-normal {
-	font-family: $font-family-base !important;
+	font-family: var.$font-family-base !important;
 	font-weight: normal !important;
 }
 
 .u-weight-bold {
-	font-family: $font-family-headings !important;
+	font-family: var.$font-family-headings !important;
 	font-weight: normal !important;
 }
 
 .u-weight-bolder {
-	font-family: $font-family-bold !important;
+	font-family: var.$font-family-bold !important;
 	font-weight: normal !important;
 }

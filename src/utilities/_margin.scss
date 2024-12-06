@@ -1,6 +1,9 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../configurations/config' as config;
+@use '../configurations/variables' as var;
+@use '../configurations/functions' as func;
 
-/// @group Utilities
+/* @group Utilities */
 $class-m: u-m !default;
 $class-m-t: u-m-t !default;
 $class-m-r: u-m-r !default;
@@ -10,62 +13,62 @@ $class-m-x: u-m-x !default;
 $class-m-y: u-m-y !default;
 
 @for $i from 0 through 8 {
-	// Margin all
+	/* Margin all */
 	.#{$class-m}-#{$i} {
-		margin: rhythm($i) !important;
+		margin: func.rhythm($i) !important;
 	}
 
-	// Margin top
+	/* Margin top */
 	.#{$class-m-t}-#{$i} {
-		margin-top: rhythm($i) !important;
+		margin-top: func.rhythm($i) !important;
 	}
 
-	// Margin right
+	/* Margin right */
 	.#{$class-m-r}-#{$i} {
-		margin-right: rhythm($i) !important;
+		margin-right: func.rhythm($i) !important;
 	}
 
-	// Margin bottom
+	/* Margin bottom */
 	.#{$class-m-b}-#{$i} {
-		margin-bottom: rhythm($i) !important;
+		margin-bottom: func.rhythm($i) !important;
 	}
 
-	// Margin left
+	/* Margin left */
 	.#{$class-m-l}-#{$i} {
-		margin-left: rhythm($i) !important;
+		margin-left: func.rhythm($i) !important;
 	}
 
-	// Margin x (left and right)
+	/* Margin x (left and right) */
 	.#{$class-m-x}-#{$i} {
-		margin-right: rhythm($i) !important;
-		margin-left: rhythm($i) !important;
+		margin-right: func.rhythm($i) !important;
+		margin-left: func.rhythm($i) !important;
 	}
 
-	// Margin y (top and bottom)
+	/* Margin y (top and bottom) */
 	.#{$class-m-y}-#{$i} {
-		margin-top: rhythm($i) !important;
-		margin-bottom: rhythm($i) !important;
+		margin-top: func.rhythm($i) !important;
+		margin-bottom: func.rhythm($i) !important;
 	}
 }
 
 .u-m-default {
-	margin: $default-margin !important;
+	margin: config.$default-margin !important;
 }
 
 .u-m-t-default {
-	margin-top: $default-margin !important;
+	margin-top: config.$default-margin !important;
 }
 
 .u-m-b-default {
-	margin-bottom: $default-margin !important;
+	margin-bottom: config.$default-margin !important;
 }
 
 .u-m-l-default {
-	margin-left: $default-margin !important;
+	margin-left: config.$default-margin !important;
 }
 
 .u-m-r-default {
-	margin-right: $default-margin !important;
+	margin-right: config.$default-margin !important;
 }
 
 .u-m-offset-0 {
@@ -73,11 +76,11 @@ $class-m-y: u-m-y !default;
 }
 
 .u-m-offset-1 {
-	margin-left: $indent !important;
+	margin-left: var.$indent !important;
 }
 
 .u-m-offset-2 {
-	margin-left: $indent * 2 !important;
+	margin-left: var.$indent * 2 !important;
 }
 
 .u-m-l-auto {

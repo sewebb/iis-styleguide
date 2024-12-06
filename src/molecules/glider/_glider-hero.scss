@@ -1,4 +1,12 @@
 @charset "UTF-8";
+@use "sass:color";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/baseline/plumber' as plumber;
 
 // NOTE: this compnent is dependant on the glider.scss component
 // The Glider components is dependant on JS-classes and is therefore not namespaced
@@ -9,87 +17,87 @@
 	align-items: center;
 	margin: 0;
 
-	@include e(text) {
+	@include bem.e(text) {
 		position: absolute;
-		top: rhythm(2);
-		left: rhythm(2);
-		z-index: z_index(background);
-		padding-right: rhythm(2);
+		top: func.rhythm(2);
+		left: func.rhythm(2);
+		z-index: func.z_index(background);
+		padding-right: func.rhythm(2);
 		max-width: 95%;
 
-		@include bp-up(sm-xs) {
-			top: rhythm(3);
-			left: rhythm(3);
-			padding-right: rhythm(3);
+		@include breakpoint.bp-up(sm-xs) {
+			top: func.rhythm(3);
+			left: func.rhythm(3);
+			padding-right: func.rhythm(3);
 			max-width: 90%;
 		}
 
 
-		@include bp-up(sm) {
-			top: rhythm(4);
-			left: rhythm(4);
-			padding-right: rhythm(4);
+		@include breakpoint.bp-up(sm) {
+			top: func.rhythm(4);
+			left: func.rhythm(4);
+			padding-right: func.rhythm(4);
 			max-width: 80%;
 		}
 
-		@include bp-up(md) {
-			top: rhythm(6);
-			left: rhythm(6);
-			padding-right: rhythm(6);
+		@include breakpoint.bp-up(md) {
+			top: func.rhythm(6);
+			left: func.rhythm(6);
+			padding-right: func.rhythm(6);
 			max-width: 70%;
 		}
 
-		@include bp-up(lg) {
-			top: rhythm(7);
-			left: rhythm(7);
+		@include breakpoint.bp-up(lg) {
+			top: func.rhythm(7);
+			left: func.rhythm(7);
 			padding-right: 0;
 			max-width: 60%;
 		}
 
-		@include bp-up(xl) {
-			top: rhythm(8);
-			left: rhythm(8);
+		@include breakpoint.bp-up(xl) {
+			top: func.rhythm(8);
+			left: func.rhythm(8);
 		}
 
 		> h1 {
-			color: $color-snow;
+			color: colors.$color-snow;
 
 			> span {
 				background-color: rgba(0,0,0,0.6);
 			}
 
-			@include plumber(
+			@include plumber.plumber(
 				$font-size: 2,
 				$line-height: 3,
 				$leading-bottom: 1
 			);
 
-			@include bp-up(sm) {
-				@include plumber(
+			@include breakpoint.bp-up(sm) {
+				@include plumber.plumber(
 					$font-size: 2.3,
 					$line-height: 3,
 					$leading-bottom: 1
 				);
 			}
 
-			@include bp-up(md) {
-				@include plumber(
+			@include breakpoint.bp-up(md) {
+				@include plumber.plumber(
 					$font-size: 3,
 					$line-height: 4,
 					$leading-bottom: 2
 				);
 			}
 
-			@include bp-up(lg) {
-				@include plumber(
+			@include breakpoint.bp-up(lg) {
+				@include plumber.plumber(
 					$font-size: 4,
 					$line-height: 5,
 					$leading-bottom: 2
 				);
 			}
 
-			@include bp-up(xl) {
-				@include plumber(
+			@include breakpoint.bp-up(xl) {
+				@include plumber.plumber(
 					$font-size: 5,
 					$line-height: 6,
 					$leading-bottom: 3
@@ -98,33 +106,33 @@
 		}
 
 		> p {
-			color: $color-snow;
+			color: colors.$color-snow;
 
 			> span {
 				background-color: rgba(0,0,0,0.6);
 			}
 
-			@include plumber(
+			@include plumber.plumber(
 				$font-size: 1.5,
 				$line-height: 2,
 			);
 
-			@include bp-up(sm) {
-				@include plumber(
+			@include breakpoint.bp-up(sm) {
+				@include plumber.plumber(
 					$font-size: 2,
 					$line-height: 3,
 				);
 			}
 
-			@include bp-up(lg) {
-				@include plumber(
+			@include breakpoint.bp-up(lg) {
+				@include plumber.plumber(
 					$font-size: 2.5,
 					$line-height: 3,
 				);
 			}
 
-			@include bp-up(xl) {
-				@include plumber(
+			@include breakpoint.bp-up(xl) {
+				@include plumber.plumber(
 					$font-size: 3,
 					$line-height: 4,
 				);
@@ -144,7 +152,7 @@
 .glider-slide {
 	width: 100vw;
 
-	@include m(hero) {
+	@include bem.m(hero) {
 		margin: 0;
 		padding: 0;
 		position: relative;
@@ -157,30 +165,30 @@
 			right: 0;
 			bottom: 0;
 			left: 0;
-			background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba($color-black, 0) 35%, rgba($color-black, 1) 100%);
+			background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0) 0%, rgba(colors.$color-black, 0) 35%, rgba(colors.$color-black, 1) 100%);
 		}
 
-		@include e(image) {
+		@include bem.e(image) {
 			display: block;
 			object-fit: cover;
 			object-position: 50% 50%;
 			width: 100%;
 			height: 100%;
 
-			@include bp-up(sm) {
-				min-height: rem(500px);
+			@include breakpoint.bp-up(sm) {
+				min-height: func.to_rem(500px);
 				max-height: 75vh;
 			}
 		}
 
-		@include e(text) {
+		@include bem.e(text) {
 			position: absolute;
 			z-index: 1;
-			bottom: rhythm(2);
-			left: rhythm(2);
-			padding-right: rhythm(2);
-			color: $color-snow;
-			font-family: $font-family-bold;
+			bottom: func.rhythm(2);
+			left: func.rhythm(2);
+			padding-right: func.rhythm(2);
+			color: colors.$color-snow;
+			font-family: var.$font-family-bold;
 			max-width: 95%;
 
 			> span {
@@ -192,7 +200,7 @@
 
 					&:hover {
 						text-decoration: none;
-						color: $color-cyberspace !important;
+						color: colors.$color-cyberspace !important;
 						text-shadow: none;
 					}
 
@@ -202,7 +210,7 @@
 						z-index: -1;
 						width: 100%;
 						height: 100%;
-						background-color: $color-snow;
+						background-color: colors.$color-snow;
 						bottom: 0;
 						left: 0;
 						transform-origin: right;
@@ -217,20 +225,20 @@
 				}
 			}
 
-			@include plumber(
+			@include plumber.plumber(
 				$font-size: 2.3,
 				$line-height: 3,
 				$leading-bottom: 0,
-				$baseline: $headings-baseline
+				$baseline: var.$headings-baseline
 			);
 
-			@include bp-up(sm-xs) {
-				bottom: rhythm(3);
-				left: rhythm(3);
-				padding-right: rhythm(3);
+			@include breakpoint.bp-up(sm-xs) {
+				bottom: func.rhythm(3);
+				left: func.rhythm(3);
+				padding-right: func.rhythm(3);
 				max-width: 90%;
 
-				@include plumber(
+				@include plumber.plumber(
 					$font-size: 3,
 					$line-height: 4,
 					$leading-bottom: 0
@@ -238,50 +246,50 @@
 			}
 
 
-			@include bp-up(sm) {
-				bottom: rhythm(4);
-				left: rhythm(4);
-				padding-right: rhythm(4);
+			@include breakpoint.bp-up(sm) {
+				bottom: func.rhythm(4);
+				left: func.rhythm(4);
+				padding-right: func.rhythm(4);
 				max-width: 80%;
 
-				@include plumber(
+				@include plumber.plumber(
 					$font-size: 4,
 					$line-height: 5,
 					$leading-bottom: 0
 				);
 			}
 
-			@include bp-up(md) {
-				bottom: rhythm(6);
-				left: rhythm(6);
-				padding-right: rhythm(6);
+			@include breakpoint.bp-up(md) {
+				bottom: func.rhythm(6);
+				left: func.rhythm(6);
+				padding-right: func.rhythm(6);
 				max-width: 70%;
 
-				@include plumber(
+				@include plumber.plumber(
 					$font-size: 5,
 					$line-height: 6,
 					$leading-bottom: 0
 				);
 			}
 
-			@include bp-up(lg) {
-				bottom: rhythm(7);
-				left: rhythm(7);
+			@include breakpoint.bp-up(lg) {
+				bottom: func.rhythm(7);
+				left: func.rhythm(7);
 				padding-right: 0;
 				max-width: 60%;
 
-				@include plumber(
+				@include plumber.plumber(
 					$font-size: 6,
 					$line-height: 8,
 					$leading-bottom: 0
 				);
 			}
 
-			@include bp-up(xl) {
-				bottom: rhythm(8);
-				left: rhythm(8);
+			@include breakpoint.bp-up(xl) {
+				bottom: func.rhythm(8);
+				left: func.rhythm(8);
 
-				@include plumber(
+				@include plumber.plumber(
 					$font-size: 7,
 					$line-height: 9,
 					$leading-bottom: 0
@@ -294,11 +302,11 @@
 .glider-nav {
 	transform: scale(0.7) translateY(-100%);
 
-	@include bp-up(md) {
+	@include breakpoint.bp-up(md) {
 		transform: scale(1) translateY(-50%);
 	}
 
-	@include m(hero) {
+	@include bem.m(hero) {
 		&.disabled {
 			display: none;
 		}
@@ -306,24 +314,24 @@
 		&.glider-prev {
 			left: 0;
 
-			@include bp-up(md) {
-				left: rhythm(1);
+			@include breakpoint.bp-up(md) {
+				left: func.rhythm(1);
 			}
 
-			@include bp-up(lg) {
-				left: rhythm(2);
+			@include breakpoint.bp-up(lg) {
+				left: func.rhythm(2);
 			}
 		}
 
 		&.glider-next {
 			right: 0;
 
-			@include bp-up(md) {
-				right: rhythm(1);
+			@include breakpoint.bp-up(md) {
+				right: func.rhythm(1);
 			}
 
-			@include bp-up(lg) {
-				right: rhythm(2);
+			@include breakpoint.bp-up(lg) {
+				right: func.rhythm(2);
 			}
 		}
 	}

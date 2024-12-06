@@ -1,34 +1,45 @@
+@charset "UTF-8";
 @use "sass:math";
+@use '../configurations/mixins' as mixin;
+@use '../configurations/bem' as bem;
+@use '../configurations/config' as config;
+@use '../configurations/variables' as var;
+@use '../configurations/functions' as func;
+@use '../configurations/colors/colors' as colors;
+@use '../configurations/colors/colors-functions' as colorFunc;
+@use '../vendor/grid/breakpoints' as breakpoint;
+@use '../vendor/grid/grid' as grid;
+@use '../vendor/baseline/plumber' as plumber;
 
-@mixin indent($text-indent: $indent) {
+@mixin indent($text-indent: var.$indent) {
 
 }
 
-@include b(article) {
-	@include e(meta) {
-		margin: rhythm(4) 0 rhythm(4.5);
+@include bem.b(article) {
+	@include bem.e(meta) {
+		margin: func.rhythm(4) 0 func.rhythm(4.5);
 	}
 
-	@include e(content) {
+	@include bem.e(content) {
 		> div:not(.wp-block-iis-grid):not(.wp-block-iis-hero),
 		> figure {
-			margin-bottom: rhythm(3);
+			margin-bottom: func.rhythm(3);
 		}
 
 		> figure:not(.wp-block-iis-hero) img {
-			border-radius: $border-radius;
+			border-radius: var.$border-radius;
 		}
 	}
 
-	@include bp-up(lg) {
-		@include m(indent-basic) {
+	@include breakpoint.bp-up(lg) {
+		@include bem.m(indent-basic) {
 			> h1,
 			> p {
-				margin-left: rhythm(3);
+				margin-left: func.rhythm(3);
 			}
 		}
 
-		@include e(content) {
+		@include bem.e(content) {
 			> p:not(.preamble),
 			> h2,
 			> h3,
@@ -43,29 +54,29 @@
 			> figure,
 			> blockquote {
 				&:not(.alignfull):not(.alignleft):not(.alignright):not(.alignwide):not(.wp-block-iis-hero)  {
-					max-width: calc(#{rem(612px)} + #{($indent * 2)});
-					margin-right: math.div($grid-gutter-width, 2);
-					margin-left: $indent * 2;
+					max-width: calc(#{func.to_rem(612px)} + #{(var.$indent * 2)});
+					margin-right: math.div(var.$grid-gutter-width, 2);
+					margin-left: var.$indent * 2;
 				}
 			}
 
 			> [class*='meta'] {
-				margin-left: $indent;
+				margin-left: var.$indent;
 			}
 
 			> p.preamble {
-				max-width: rem(612px);
-				margin-left: $indent;
+				max-width: func.to_rem(612px);
+				margin-left: var.$indent;
 			}
 
 			> [class*='accordion'] {
-				@include bp-up(lg) {
+				@include breakpoint.bp-up(lg) {
 					max-width: none;
 					margin-left: 0;
 				}
 			}
 
-			@include m(full-width) {
+			@include bem.m(full-width) {
 				> p:not(.preamble),
 				> h2,
 				> h3,
@@ -84,13 +95,13 @@
 				}
 
 				> .wp-block-iis-info {
-					max-width: calc(46.364% + #{($indent * 2)});
-					margin-left: $indent;
+					max-width: calc(46.364% + #{(var.$indent * 2)});
+					margin-left: var.$indent;
 				}
 			}
 		}
 
-		@include e(indent) {
+		@include bem.e(indent) {
 			$grid-indent: 5.6703%;
 			$grid-margin-right: 20.335%;
 
@@ -127,14 +138,14 @@
 			}
 		}
 
-		@include m(no-title) {
-			@include e(content) {
+		@include bem.m(no-title) {
+			@include bem.e(content) {
 				margin-left: 0;
 			}
 		}
 	}
 
-	@include molecule(card) {
-		margin-bottom: rhythm(4);
+	@include mixin.molecule(card) {
+		margin-bottom: func.rhythm(4);
 	}
 }

@@ -1,38 +1,39 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../configurations/colors/colors' as colors;
 
 @mixin dark-mode {
 	& {
-		--cyberspace-color: #{$color-snow};
-		--snow-color: #{$color-cyberspace};
-		--ash-color: #{$color-black};
+		--cyberspace-color: #{colors.$color-snow};
+		--snow-color: #{colors.$color-cyberspace};
+		--ash-color: #{colors.$color-black};
 
-		--concrete-color: #{$color-granit};
-		--granit-color: #{$color-concrete};
-		--ocean-dark-color: #{$color-ocean};
+		--concrete-color: #{colors.$color-granit};
+		--granit-color: #{colors.$color-concrete};
+		--ocean-dark-color: #{colors.$color-ocean};
 	}
 
 	.background-snow {
-		background-color: $color-cyberspace !important;
+		background-color: colors.$color-cyberspace !important;
 	}
 
 	.background-ash {
-		background-color: $color-black !important;
+		background-color: colors.$color-black !important;
 	}
 
 	.u-border-top {
-		border-top: 1px solid $color-black;
+		border-top: 1px solid colors.$color-black;
 	}
 
 	.color-granit {
-		color: $color-concrete;
+		color: colors.$color-concrete;
 	}
 
 	.color-ocean-dark {
-		color: $color-ocean !important;
+		color: colors.$color-ocean !important;
 	}
 
 	svg {
-		fill: $color-snow;
+		fill: colors.$color-snow;
 	}
 }
 

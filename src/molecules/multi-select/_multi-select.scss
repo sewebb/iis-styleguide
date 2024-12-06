@@ -1,78 +1,89 @@
 @charset "UTF-8";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/extends';
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/grid/grid' as grid;
+@use '../../utilities/hide';
 
-@include molecule(multi-select) {
+@include mixin.molecule(multi-select) {
 	position: relative;
 
 	&::before {
 		@extend %u-visuallyhidden;
 
-		content: $namespace;
+		content: var.$namespace;
 	}
 
-	@include e(search) {
+	@include bem.e(search) {
 		position: relative;
 	}
 
-	@include e(suggestions-box) {
+	@include bem.e(suggestions-box) {
 		position: absolute;
 		border-top: none;
-		z-index: z_index(foreground);
+		z-index: func.z_index(foreground);
 		top: 100%;
 		left: 0;
 		right: 0;
-		background-color: $color-snow;
+		background-color: colors.$color-snow;
 		overflow-y: auto;
-		max-height: rhythm(15);
-		border-bottom-left-radius: $border-radius;
-		border-bottom-right-radius: $border-radius;
+		max-height: func.rhythm(15);
+		border-bottom-left-radius: var.$border-radius;
+		border-bottom-right-radius: var.$border-radius;
 
 		@extend %box-shadow;
 	}
 
-	@include e(suggestion-btn) {
-		padding: rhythm(1);
+	@include bem.e(suggestion-btn) {
+		padding: func.rhythm(1);
 		cursor: pointer;
-		background-color: $color-snow;
+		background-color: colors.$color-snow;
 		border: none;
-		border-bottom: 1px solid $color-concrete;
+		border-bottom: 1px solid colors.$color-concrete;
 		width: 100%;
 		text-align: left;
 
 		&:hover,
 		&.autocomplete-active {
-			background-color: $color-ocean-dark;
-			color: $color-snow;
+			background-color: colors.$color-ocean-dark;
+			color: colors.$color-snow;
 		}
 	}
 
-	@include e(tag){
-		margin-bottom: rhythm(1);
-		background-color: $color-ash;
+	@include bem.e(tag){
+		margin-bottom: func.rhythm(1);
+		background-color: colors.$color-ash;
 		text-transform: none;
-		font-size: $size-medium;
+		font-size: var.$size-medium;
 
 		&:hover,
 		&:focus {
-			background-color: $color-ash;
-			color: $color-cyberspace;
+			background-color: colors.$color-ash;
+			color: colors.$color-cyberspace;
 		}
 	}
 }
 
 /* Selected items container */
-@include molecule(multi-select-selected-items) {
-	margin-top: -#{rhythm(1)};
-	padding: rhythm(2) rhythm(1) 0 rhythm(1);
+@include mixin.molecule(multi-select-selected-items) {
+	margin-top: -#{func.rhythm(1)};
+	padding: func.rhythm(2) func.rhythm(1) 0 func.rhythm(1);
 	border: 1px solid #d4d4d4;
-	background-color: $color-concrete;
-	border-bottom-left-radius: $border-radius;
-	border-bottom-right-radius: $border-radius;
+	background-color: colors.$color-concrete;
+	border-bottom-left-radius: var.$border-radius;
+	border-bottom-right-radius: var.$border-radius;
 
 	&:empty {
 		display: none;
 	}
 
-	@include e(remove-btn) {
+	@include bem.e(remove-btn) {
 		margin-left: 5px;
 		border: none;
 		background-color: #d80000;
@@ -83,10 +94,10 @@
 		align-items: center;
 		justify-content: center;
 		line-height: 1;
-		width: $icon-size-small;
-		height: $icon-size-small;
+		width: var.$icon-size-small;
+		height: var.$icon-size-small;
 		position: relative;
-		transform: translateX(rhythm(0.5));
+		transform: translateX(func.rhythm(0.5));
 
 		&::after {
 			content: '';
@@ -101,12 +112,12 @@
 			background-image: url(data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0idXRmLTgiPz4KPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI4LjIuMCwgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDYuMDAgQnVpbGQgMCkgIC0tPgo8c3ZnIHZlcnNpb249IjEuMSIgaWQ9IkxheWVyXzEiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyIgeG1sbnM6eGxpbms9Imh0dHA6Ly93d3cudzMub3JnLzE5OTkveGxpbmsiIHg9IjBweCIgeT0iMHB4IgoJIHZpZXdCb3g9IjAgMCAxNiAxNiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMTYgMTY7IiB4bWw6c3BhY2U9InByZXNlcnZlIj4KPHN0eWxlIHR5cGU9InRleHQvY3NzIj4KCS5zdDB7ZmlsbC1ydWxlOmV2ZW5vZGQ7Y2xpcC1ydWxlOmV2ZW5vZGQ7ZmlsbDojRkZGRkZGO30KPC9zdHlsZT4KPHBvbHlnb24gY2xhc3M9InN0MCIgcG9pbnRzPSI4LDEwIDIsMTYgMCwxNCA2LDggMCwyIDIsMCA4LDYgMTQsMCAxNiwyIDEwLDggMTYsMTQgMTQsMTYgIi8+Cjwvc3ZnPgo=);
 			background-repeat: no-repeat;
 			background-position: center center;
-			background-size: calc($icon-size-small / 2) calc($icon-size-small / 2);
+			background-size: calc(var.$icon-size-small / 2) calc(var.$icon-size-small / 2);
 		}
 
 		&:hover,
 		&:focus {
-			background-color: $color-cyberspace;
+			background-color: colors.$color-cyberspace;
 		}
 	}
 }

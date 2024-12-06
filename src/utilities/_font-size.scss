@@ -1,20 +1,21 @@
 @charset "UTF-8";
-
+@use '../configurations/variables' as var;
+@use '../configurations/functions' as func;
 .u-font-size-small {
-	font-size: $size-small !important;
+	font-size: var.$size-small !important;
 	line-height: 1.5;
 }
 
 .u-font-size-medium {
-	font-size: $size-medium !important;
+	font-size: var.$size-medium !important;
 	line-height: 1.5;
 }
 
 .u-font-size-medium-plus {
-	font-size: $size-medium-plus !important;
+	font-size: var.$size-medium-plus !important;
 	line-height: 1.5;
 }
 
 .u-font-size-base {
-	font-size: $size-base !important;
+	font-size: var.$size-base !important;
 }

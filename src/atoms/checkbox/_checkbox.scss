@@ -1,28 +1,35 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 @use "sass:color";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/extends';
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
 
-@include atom(checkbox) {
+@include mixin.atom(checkbox) {
 	&[type='checkbox'] {
 		+ label {
 			display: inline-flex;
 			position: relative;
 			align-items: flex-start;
-			padding-top: rhythm(0.5);
-			padding-right: rhythm(2);
-			padding-bottom: rhythm(0.5);
-			font-family: $font-family-base;
+			padding-top: func.rhythm(0.5);
+			padding-right: func.rhythm(2);
+			padding-bottom: func.rhythm(0.5);
+			font-family: var.$font-family-base;
 
 			&::before {
 				content: '';
 				display: block;
 				flex-shrink: 0;
-				width: $icon-size-small;
-				height: $icon-size-small;
-				margin-top: rem(3px);
-				margin-right: rhythm(1);
-				border: 1px solid $color-cyberspace;
-				border-radius: $border-radius;
-				background-color: $color-snow;
+				width: var.$icon-size-small;
+				height: var.$icon-size-small;
+				margin-top: func.to_rem(3px);
+				margin-right: func.rhythm(1);
+				border: 1px solid colors.$color-cyberspace;
+				border-radius: var.$border-radius;
+				background-color: colors.$color-snow;
 			}
 		}
 
@@ -31,7 +38,7 @@
 			&:hover {
 				+ label {
 					&::before {
-						background-color: color.adjust($color-ash, $lightness: -5%);
+						background-color: color.adjust(colors.$color-ash, $lightness: -5%);
 					}
 				}
 			}
@@ -43,12 +50,12 @@
 					content: '';
 					display: block;
 					position: absolute;
-					top: rem(10.5px);
-					left: rem(6px);
-					width: rem(5px);
-					height: rem(9px);
+					top: func.to_rem(10.5px);
+					left: func.to_rem(6px);
+					width: func.to_rem(5px);
+					height: func.to_rem(9px);
 					transform: rotate(45deg);
-					border: solid $color-cyberspace;
+					border: solid colors.$color-cyberspace;
 					border-width: 0 2px 2px 0;
 				}
 			}
@@ -59,32 +66,32 @@
 				@extend %disabled;
 
 				&::before {
-					background-color: color.adjust($color-concrete, $lightness: -5%);
+					background-color: color.adjust(colors.$color-concrete, $lightness: -5%);
 				}
 			}
 		}
 	}
 }
 
-@include b(checkbox) {
+@include bem.b(checkbox) {
 	&.is-invalid {
 		[type='checkbox'] {
 			+ label {
 				&::before {
-					border-color: $color-ruby-dark;
-					background-color: $color-ruby-light;
+					border-color: colors.$color-ruby-dark;
+					background-color: colors.$color-ruby-light;
 				}
 			}
 		}
 	}
-	@include m(inline) {
+	@include bem.m(inline) {
 		padding-top: 0;
 		padding-bottom: 0;
 
 		input[type='checkbox'] {
 			+ label {
-				margin-top: rhythm(1);
-				margin-bottom: rhythm(1);
+				margin-top: func.rhythm(1);
+				margin-bottom: func.rhythm(1);
 			}
 		}
 	}

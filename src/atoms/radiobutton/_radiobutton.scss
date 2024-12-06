@@ -1,30 +1,37 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 @use "sass:color";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/extends';
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
 
-@include atom(radio) {
+@include mixin.atom(radio) {
 	&[type='radio'] {
 		+ label {
 			display: inline-flex;
 			position: relative;
 			align-items: flex-start;
-			padding-top: rhythm(0.5);
-			padding-right: rhythm(2);
-			padding-bottom: rhythm(0.5);
-			font-family: $font-family-base;
+			padding-top: func.rhythm(0.5);
+			padding-right: func.rhythm(2);
+			padding-bottom: func.rhythm(0.5);
+			font-family: var.$font-family-base;
 
 			&::before {
 				content: '';
 				display: block;
 				flex-shrink: 0;
-				width: rem(15px);
-				height: rem(15px);
-				margin-top: rem(3px);
-				margin-right: rhythm(1);
-				transform: translateX(rem(1px));
+				width: func.to_rem(15px);
+				height: func.to_rem(15px);
+				margin-top: func.to_rem(3px);
+				margin-right: func.rhythm(1);
+				transform: translateX(func.to_rem(1px));
 				border: 2px solid transparent;
 				border-radius: 50%;
-				background-color: $color-snow;
-				box-shadow: 0 0 0 1px $color-cyberspace;
+				background-color: colors.$color-snow;
+				box-shadow: 0 0 0 1px colors.$color-cyberspace;
 			}
 		}
 
@@ -32,7 +39,7 @@
 		&:hover {
 			+ label {
 				&::before {
-					background-color: color.adjust($color-snow, $lightness: -5%);
+					background-color: color.adjust(colors.$color-snow, $lightness: -5%);
 				}
 			}
 		}
@@ -40,8 +47,8 @@
 		&:checked {
 			+ label {
 				&::before {
-					border: 2px solid $color-ash;
-					background-color: $color-cyberspace;
+					border: 2px solid colors.$color-ash;
+					background-color: colors.$color-cyberspace;
 				}
 			}
 		}
@@ -51,14 +58,14 @@
 				@extend %disabled;
 
 				&::before {
-					background-color: color.adjust($color-concrete, $lightness: -5%);
+					background-color: color.adjust(colors.$color-concrete, $lightness: -5%);
 				}
 			}
 
 			&:checked {
 				+ label {
 					&::before {
-						background-color: $color-cyberspace;
+						background-color: colors.$color-cyberspace;
 					}
 				}
 			}
@@ -67,34 +74,34 @@
 		&:invalid {
 			+ label {
 				&::before {
-					background-color: $color-ruby-light;
-					box-shadow: 0 0 0 1px $color-ruby-dark;
+					background-color: colors.$color-ruby-light;
+					box-shadow: 0 0 0 1px colors.$color-ruby-dark;
 				}
 			}
 		}
 	}
 }
 
-@include b(radio) {
+@include bem.b(radio) {
 	&.is-invalid {
 		[type='radio'] {
 			+ label {
 				&::before {
-					background-color: $color-ruby-light;
-					box-shadow: 0 0 0 1px $color-ruby-dark;
+					background-color: colors.$color-ruby-light;
+					box-shadow: 0 0 0 1px colors.$color-ruby-dark;
 				}
 			}
 		}
 	}
 
-	@include m(inline) {
+	@include bem.m(inline) {
 		padding-top: 0;
 		padding-bottom: 0;
 
 		input[type='radio'] {
 			+ label {
-				margin-top: rhythm(1);
-				margin-bottom: rhythm(1);
+				margin-top: func.rhythm(1);
+				margin-bottom: func.rhythm(1);
 			}
 		}
 	}

@@ -1,4 +1,12 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
 @mixin table() {
 	width: 100%;
@@ -7,14 +15,14 @@
 	counter-reset: table-counter;
 
 	caption {
-		font-family: $font-family-headings;
-		padding-top: rhythm(1);
-		padding-bottom: rhythm(1);
+		font-family: var.$font-family-headings;
+		padding-top: func.rhythm(1);
+		padding-bottom: func.rhythm(1);
 	}
 
 	thead,
 	tfoot {
-		font-family: $font-family-mono;
+		font-family: var.$font-family-mono;
 		font-size: 85%;
 		text-transform: uppercase;
 	}
@@ -22,15 +30,15 @@
 	tfoot {
 		th,
 		td {
-			border-top: 2px solid $color-granit;
-			font-family: $font-family-headings;
+			border-top: 2px solid colors.$color-granit;
+			font-family: var.$font-family-headings;
 			font-size: 90%;
 
 			&::before {
 				display: none;
 			}
 
-			@include bp-up(lg) {
+			@include breakpoint.bp-up(lg) {
 				font-size: 100%;
 			}
 		}
@@ -54,11 +62,11 @@
 
 	th,
 	td {
-		padding-top: rhythm(1);
-		padding-right: rhythm(2);
-		padding-bottom: rhythm(1);
-		padding-left: rhythm(2);
-		border-bottom: 2px solid $color-granit;
+		padding-top: func.rhythm(1);
+		padding-right: func.rhythm(2);
+		padding-bottom: func.rhythm(1);
+		padding-left: func.rhythm(2);
+		border-bottom: 2px solid colors.$color-granit;
 		color: var(--cyberspace-color);
 		font-size: 90%;
 		text-align: left;
@@ -80,7 +88,7 @@
 			display: inline;
 		}
 
-		@include bp-up(lg) {
+		@include breakpoint.bp-up(lg) {
 			font-size: 100%;
 		}
 	}
@@ -90,7 +98,7 @@
 	}
 }
 
-@include b(table-container) {
+@include bem.b(table-container) {
 	position: relative;
 	width: 100%;
 	max-width: 1320px;
@@ -119,16 +127,16 @@
 	}
 }
 
-@include molecule(table) {
+@include mixin.molecule(table) {
 	@include table();
 
-	@include m(columns) {
+	@include bem.m(columns) {
 		th {
-			border-bottom: 2px solid $color-granit;
+			border-bottom: 2px solid colors.$color-granit;
 		}
 
 		td {
-			border-bottom: 1px solid $color-granit;
+			border-bottom: 1px solid colors.$color-granit;
 		}
 
 		th,
@@ -139,7 +147,7 @@
 		}
 	}
 
-	@include m(rows) {
+	@include bem.m(rows) {
 		thead {
 			th {
 				background-color: var(--ash-color);
@@ -163,7 +171,7 @@
 		}
 	}
 
-	@include m(align-text-center) {
+	@include bem.m(align-text-center) {
 		th,
 		td {
 			text-align: center;
@@ -174,7 +182,7 @@
 		}
 	}
 
-	@include m(increment) {
+	@include bem.m(increment) {
 		tbody {
 			tr:nth-child(odd) {
 				th,
@@ -192,8 +200,8 @@
 		}
 
 		th {
-			width: rhythm(4);
-			padding-right: rhythm(3);
+			width: func.rhythm(4);
+			padding-right: func.rhythm(3);
 
 			&::before {
 				content: counter(table-counter);
@@ -202,14 +210,14 @@
 		}
 	}
 
-	@include m(lines) {
+	@include bem.m(lines) {
 		tbody {
 			tr {
 				background-image:
 					linear-gradient(
 							to right,
-							$color-cyberspace,
-							$color-cyberspace 2px,
+							colors.$color-cyberspace,
+							colors.$color-cyberspace 2px,
 							transparent 2px,
 							transparent 6px
 					);
@@ -220,8 +228,8 @@
 
 			td,
 			th {
-				padding-top: rhythm(2);
-				padding-bottom: rhythm(2);
+				padding-top: func.rhythm(2);
+				padding-bottom: func.rhythm(2);
 				border: 0;
 			}
 		}
@@ -239,22 +247,22 @@
 	}
 }
 
-@include b(scroll-indicator) {
+@include bem.b(scroll-indicator) {
 	display: block;
 	position: relative;
 	width: 100%;
-	height: rhythm(3);
+	height: func.rhythm(3);
 
 	&::before {
 		content: 'Scroll';
 		position: absolute;
-		z-index: z_index(background);
+		z-index: func.z_index(background);
 		top: 0;
-		right: rhythm(3);
-		width: rhythm(7);
+		right: func.rhythm(3);
+		width: func.rhythm(7);
 		height: 0;
 		animation: xPulse 2s infinite;
-		font-family: $font-family-mono;
+		font-family: var.$font-family-mono;
 		font-size: 80%;
 		text-transform: uppercase;
 	}
@@ -262,24 +270,24 @@
 	&::after {
 		content: '›';
 		position: absolute;
-		z-index: z_index(background);
-		top: -#{rem(4px)};
+		z-index: func.z_index(background);
+		top: -#{func.to_rem(4px)};
 		right: 0;
 		animation: xPulse 2s infinite;
-		font-family: $font-family-mono;
+		font-family: var.$font-family-mono;
 	}
 }
 
-@include b(table-scroll-wrapper) {
+@include bem.b(table-scroll-wrapper) {
 
-	@include b(table-container) {
+	@include bem.b(table-container) {
 		overflow-x: auto;
 		overflow-y: hidden;
 		-webkit-overflow-scrolling: touch;
 	}
 
-	@include bp-up(sm) {
-		@include b(scroll-indicator) {
+	@include breakpoint.bp-up(sm) {
+		@include bem.b(scroll-indicator) {
 			display: none;
 		}
 	}

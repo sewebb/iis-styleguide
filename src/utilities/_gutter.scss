@@ -1,6 +1,7 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../configurations/functions' as func;
 
-$gutter-width: rhythm(3);
+$gutter-width: func.rhythm(3);
 
 .u-gutter {
 	display: flex;

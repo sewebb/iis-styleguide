@@ -1,34 +1,42 @@
 @charset "UTF-8";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
-@include atom(progress) {
+
+@include mixin.atom(progress) {
 	&[value] {
 		-webkit-appearance: none;
 		-moz-appearance: none;
 		appearance: none;
 		display: block;
-		color: $color-ocean;
-		background: $color-concrete;
+		color: colors.$color-ocean;
+		background: colors.$color-concrete;
 		border: none;
 		width: 100%;
 		border-radius: 0;
-		height: rhythm(1);
+		height: func.rhythm(1);
 
-		@include bp-up(md) {
-			height: rhythm(2);
+		@include breakpoint.bp-up(md) {
+			height: func.rhythm(2);
 		}
 	}
 	&[value]::-webkit-progress-bar {
 		border-radius: 0;
-		background: $color-concrete;
+		background: colors.$color-concrete;
 	}
 	&[value]::-webkit-progress-value {
 		border-radius: 0;
-		background: $color-ocean;
+		background: colors.$color-ocean;
 		transition: width 5s ease;
 	}
 	&[value]::-moz-progress-bar {
 		border-radius: 0;
-		background: $color-ocean;
+		background: colors.$color-ocean;
 		transition: padding-bottom 5s ease;
 		padding-left: 60px;
 		padding-bottom: var(--value);
@@ -38,11 +46,11 @@
 	}
 }
 
-@include atom(progress-label) {
+@include mixin.atom(progress-label) {
 	display: flex;
 	align-items: center;
 
 	> progress {
-		margin-left: rhythm(1);
+		margin-left: func.rhythm(1);
 	}
 }

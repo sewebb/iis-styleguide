@@ -1,28 +1,40 @@
-@include b(site) {
+@charset "UTF-8";
+@use '../configurations/mixins' as mixin;
+@use '../configurations/bem' as bem;
+@use '../configurations/config' as config;
+@use '../configurations/variables' as var;
+@use '../configurations/functions' as func;
+@use '../configurations/colors/colors' as colors;
+@use '../configurations/colors/colors-functions' as colorFunc;
+@use '../vendor/grid/breakpoints' as breakpoint;
+@use '../vendor/grid/grid' as grid;
+@use '../vendor/baseline/plumber' as plumber;
+
+@include bem.b(site) {
 	display: flex;
 	flex-direction: column;
 	min-height: 100vh;
 	overflow: hidden;
 
-	@include e(header) {
+	@include bem.e(header) {
 		display: flex;
 		position: relative;
 		flex-direction: column;
 
 		&[style] {
-			z-index: z_index(foreground);
+			z-index: func.z_index(foreground);
 
 			[class*="o-header"] {
-				z-index: z_index(foreground);
+				z-index: func.z_index(foreground);
 			}
 		}
 	}
 
-	@include e(main) {
+	@include bem.e(main) {
 		flex: 1 0 auto;
 
-		@include e(content) {
-			padding-bottom: rhythm(4);
+		@include bem.e(content) {
+			padding-bottom: func.rhythm(4);
 		}
 	}
 }

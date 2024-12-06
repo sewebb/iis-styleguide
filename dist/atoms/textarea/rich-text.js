@@ -197,7 +197,7 @@ function setupTextArea(el) {
 	editorEl.className = el.className;
 	editorEl.classList.add((0, _className2.default)('a-textarea--rich-text'));
 
-	el.style.display = 'none';
+	el.classList.add((0, _className2.default)('a-textarea--hidden'));
 	el.editor = editor;
 
 	el.parentNode.insertBefore(editorEl, el);

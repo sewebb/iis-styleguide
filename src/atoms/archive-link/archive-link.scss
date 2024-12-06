@@ -1,11 +1,18 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+
 
 /// @group Links
-@include b(archive-link-wrapper) {
-	padding: rhythm(2) 0;
-	border-bottom: 1px solid $color-cyberspace;
+@include bem.b(archive-link-wrapper) {
+	padding: func.rhythm(2) 0;
+	border-bottom: 1px solid colors.$color-cyberspace;
 }
-@include atom(archive-link) {
+@include mixin.atom(archive-link) {
 	display: inline-flex;
 	position: relative;
 	flex-wrap: nowrap;
@@ -13,7 +20,7 @@
 	justify-content: center;
 	border: 0;
 	color: currentColor;
-	font-family: $font-family-headings;
+	font-family: var.$font-family-headings;
 	text-decoration: none;
 	hyphens: auto;
 
@@ -22,24 +29,24 @@
 		text-decoration: underline;
 	}
 
-	@include e(text) {
+	@include bem.e(text) {
 		position: relative;
-		top: -#{rhythm(0.2)};
-		color: $color-cyberspace;
+		top: -#{func.rhythm(0.2)};
+		color: colors.$color-cyberspace;
 	}
 
-	@include m(icon) {
+	@include bem.m(icon) {
 		justify-content: space-between;
-		max-width: rhythm(50);
-		padding-right: rhythm(5);
+		max-width: func.rhythm(50);
+		padding-right: func.rhythm(5);
 		text-align: left;
 	}
 
-	@include e(icon) {
-		width: $icon-size-small;
-		height: $icon-size-small;
-		margin-top: rem(3px);
-		margin-left: rhythm(1);
+	@include bem.e(icon) {
+		width: var.$icon-size-small;
+		height: var.$icon-size-small;
+		margin-top: func.to_rem(3px);
+		margin-left: func.rhythm(1);
 		fill: currentColor;
 	}
 }

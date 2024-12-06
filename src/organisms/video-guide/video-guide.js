@@ -39,7 +39,7 @@ class VideoGuide {
 		this.timeline = new VideoGuideTimeline(this.element, this.video);
 
 		this.video.classList.remove('is-loading');
-	}
+	};
 
 	dispatchEvent = (eventName) => {
 		[this.playback, this.subtitles, this.timeline].forEach((instance) => {
@@ -47,7 +47,7 @@ class VideoGuide {
 				instance[eventName]();
 			}
 		});
-	}
+	};
 
 	onPlay = () => this.dispatchEvent('onPlay');
 

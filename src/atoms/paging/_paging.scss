@@ -1,57 +1,63 @@
-@charset 'UTF-8';
+@charset "UTF-8";
 @use "sass:color";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
 // Forwards / backwards
 /// @group Paging
-@include atom(paging-wrapper) {
+@include mixin.atom(paging-wrapper) {
 	display: flex;
 	position: relative;
 	width: 100%;
 	align-items: center;
 
-	@include e(text) {
+	@include bem.e(text) {
 		flex: 1;
-		font-family: $font-family-mono;
-		font-size: rem($size-medium-plus);
+		font-family: var.$font-family-mono;
+		font-size: func.to_rem(var.$size-medium-plus);
 		text-align: center;
 		text-transform: uppercase;
 	}
 }
 
-@include atom(paging) {
+@include mixin.atom(paging) {
 	display: inline-flex;
 	position: relative;
 	flex-grow: 0;
 	flex-shrink: 0;
 	align-items: center;
 	justify-content: center;
-	width: rhythm(4);
-	height: rhythm(4);
-	border: 1px solid $color-ash;
+	width: func.rhythm(4);
+	height: func.rhythm(4);
+	border: 1px solid colors.$color-ash;
 	border-radius: 50%;
-	background-color: $color-snow;
-	box-shadow: 0 3px 5px color.adjust($color-granit, $lightness: 15%);
+	background-color: colors.$color-snow;
+	box-shadow: 0 3px 5px color.adjust(colors.$color-granit, $lightness: 15%);
 
-	@include bp-up(sm) {
-		width: rhythm(6);
-		height: rhythm(6);
+	@include breakpoint.bp-up(sm) {
+		width: func.rhythm(6);
+		height: func.rhythm(6);
 	}
 
 	&:focus,
 	&:hover {
-		background-color: $color-ash;
+		background-color: colors.$color-ash;
 	}
 
-	@include e(icon) {
+	@include bem.e(icon) {
 		display: flex;
 		align-items: center;
 		justify-content: center;
-		width: $icon-size-small;
-		height: $icon-size-small;
+		width: var.$icon-size-small;
+		height: var.$icon-size-small;
 
-		@include bp-up(sm) {
-			width: $icon-size-medium;
-			height: $icon-size-medium;
+		@include breakpoint.bp-up(sm) {
+			width: var.$icon-size-medium;
+			height: var.$icon-size-medium;
 		}
 	}
 }

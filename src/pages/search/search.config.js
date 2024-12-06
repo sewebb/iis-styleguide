@@ -4,4 +4,4 @@ module.exports = {
 	context: {
 		label: 'sök på internetstiftelsen.se',
 	}
-}
+};

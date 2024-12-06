@@ -1,20 +1,30 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use "sass:meta";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/grid/grid' as grid;
 
-@include molecule(natural-language-form) {
+@include mixin.molecule(natural-language-form) {
 	display: inline-block;
 	position: relative;
 
-	@include m(arrow) {
-		@include e(label) {
-			padding-right: rhythm(4);
+	@include bem.m(arrow) {
+		@include bem.e(label) {
+			padding-right: func.rhythm(4);
 			border-bottom: 2px solid currentColor;
 			background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-arrow-down' viewBox='0 0 32 18.9' width='100%25' height='100%25'%3E%3Cpolygon points='32,2.9 16,18.9 0,2.9 2.9,0 16,13.1 29.1,0 '%3E%3C/polygon%3E%3C/svg%3E%0A");
 			background-repeat: no-repeat;
 			background-position: calc(95%) 60%;
-			background-size: $icon-size-medium $icon-size-medium;
+			background-size: var.$icon-size-medium var.$icon-size-medium;
 			text-decoration: none;
 
-			@if variable-exists(cyberspace-color) {
+			@if meta.variable-exists(cyberspace-color) {
 				@media (prefers-color-scheme: dark) {
 					background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-arrow-down' fill='%23ffffff' viewBox='0 0 32 18.9' width='100%25' height='100%25'%3E%3Cpolygon points='32,2.9 16,18.9 0,2.9 2.9,0 16,13.1 29.1,0 '%3E%3C/polygon%3E%3C/svg%3E%0A");
 				}
@@ -36,29 +46,29 @@
 				background-image: url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' id='icon-arrow-down' fill='%23f99963' viewBox='0 0 32 18.9' width='100%25' height='100%25'%3E%3Cpolygon points='32,2.9 16,18.9 0,2.9 2.9,0 16,13.1 29.1,0 '%3E%3C/polygon%3E%3C/svg%3E%0A");
 			}
 
-			@include bp-up(sm) {
+			@include breakpoint.bp-up(sm) {
 				border-bottom: 4px solid currentColor;
 				background-position: calc(100%) 60%;
 			}
 
-			@include bp-up(lg) {
+			@include breakpoint.bp-up(lg) {
 				border-bottom: 5px solid currentColor;
 			}
 		}
 	}
 
-	@include e(select) {
+	@include bem.e(select) {
 		position: absolute;
 		top: 0;
 		right: 0;
 		bottom: 0;
 		left: 0;
-		padding-right: rhythm(4);
+		padding-right: func.rhythm(4);
 		opacity: 0;
 		cursor: pointer;
 	}
 
-	@include e(label) {
+	@include bem.e(label) {
 		display: inline-block;
 		font-family: inherit;
 		font-size: inherit;
@@ -66,27 +76,27 @@
 		cursor: pointer;
 
 		option:not(:checked) {
-			color: $color-cyberspace;
+			color: colors.$color-cyberspace;
 		}
 
 		&[data-color='ocean'] {
-			color: $color-ocean;
+			color: colors.$color-ocean;
 		}
 
 		&[data-color='peacock'] {
-			color: $color-peacock;
+			color: colors.$color-peacock;
 		}
 
 		&[data-color='jade'] {
-			color: $color-jade;
+			color: colors.$color-jade;
 		}
 
 		&[data-color='sandstone'] {
-			color: $color-sandstone;
+			color: colors.$color-sandstone;
 		}
 	}
 
-	@include e(input) {
+	@include bem.e(input) {
 		position: relative;
 		z-index: 1;
 		top: 0;
@@ -101,19 +111,19 @@
 		cursor: pointer;
 
 		&[data-color='ocean'] {
-			color: $color-ocean;
+			color: colors.$color-ocean;
 		}
 
 		&[data-color='peacock'] {
-			color: $color-peacock;
+			color: colors.$color-peacock;
 		}
 
 		&[data-color='jade'] {
-			color: $color-jade;
+			color: colors.$color-jade;
 		}
 	}
 
-	@include e(temp-text) {
+	@include bem.e(temp-text) {
 		position: absolute;
 		z-index: -1;
 		top: 0;

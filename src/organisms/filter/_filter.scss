@@ -1,21 +1,26 @@
-@charset 'UTF-8';
+@charset "UTF-8";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/functions' as func;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
-@include organism(filter) {
-	@include e(title) {
-		padding: 0 0 0 rhythm(3);
+@include mixin.organism(filter) {
+	@include bem.e(title) {
+		padding: 0 0 0 func.rhythm(3);
 	}
 
-	@include e(column) {
-		margin-bottom: rhythm(4);
+	@include bem.e(column) {
+		margin-bottom: func.rhythm(4);
 
-		@include bp-up(lg) {
+		@include breakpoint.bp-up(lg) {
 			margin-bottom: 0;
 		}
 	}
 
-	@include e(clear) {
+	@include bem.e(clear) {
 		position: absolute;
-		top: -#{rem(50px)};
-		right: rhythm(3);
+		top: -#{func.to_rem(50px)};
+		right: func.rhythm(3);
 	}
 }

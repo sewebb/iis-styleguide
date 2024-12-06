@@ -37,6 +37,7 @@ function loadYoutubeAPI() {
 }
 
 function onPlayerStateChange(el, e) {
+	/* eslint-disable no-undef */
 	if (e.data === YT.PlayerState.PLAYING) {
 		el.getElementsByTagName('img')[0].style.zIndex = '-1';
 		el.getElementsByTagName('button')[0].style.display = 'none';
