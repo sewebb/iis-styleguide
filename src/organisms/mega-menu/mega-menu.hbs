@@ -1,4 +1,4 @@
-<div class="wrapper-fluid o-mega-menu{{#if modifier}} {{modifier}}{{/if}} color-jade-light" aria-hidden="{{hidden}}" id="{{id}}">
+<div class="js-menu-toggles wrapper-fluid o-mega-menu{{#if modifier}} {{modifier}}{{/if}} color-jade-light" aria-hidden="{{hidden}}" id="{{id}}">
 	<ul class="o-mega-menu__buttons-list js-search-toggles">
 		<li class="o-mega-menu__buttons-list__item color-jade">
 			<button type="button" data-a11y-toggle="domain-search" class="o-mega-menu__buttons-list__link color-jade">
@@ -108,7 +108,7 @@
 	}
 
 	var toggles = Array.prototype.slice.call(
-		document.querySelectorAll('.js-search-toggles [data-a11y-toggle]')
+		document.querySelectorAll('.js-menu-toggles [data-a11y-toggle]')
 	);
 
 	toggles.forEach(function (toggle) {
