@@ -220,3 +220,49 @@ if (megaMenuButton && megaMenu) {
 	megaMenuButton.addEventListener('click', toggleMegaMenu);
 	document.addEventListener('mouseup', handleMouseUp);
 }
+
+/**
+ * Toggle the mega menu submenus
+ */
+function collapse(toggle) {
+	var id = toggle.getAttribute('data-a11y-toggle');
+	var collapsibleBox = document.getElementById(id);
+	collapsibleBox.setAttribute('aria-hidden', true);
+	toggle.setAttribute('aria-expanded', false);
+}
+
+function collapseAll(event) {
+	if(toggles) {
+		toggles
+			.filter(function (toggle) {
+				return toggle !== event.target;
+			})
+			.forEach(collapse);
+	}
+}
+const toggles = Array.prototype.slice.call(
+	document.querySelectorAll('.js-menu-toggles [data-a11y-toggle]')
+);
+
+if(toggles) {
+	toggles.forEach(function(toggle) {
+		toggle.addEventListener('click', collapseAll);
+	});
+}
+
+/**
+ * Handle mega menu and ReadSpeaker when clicking ReadSpeaker button in mega menu
+ */
+const closeMegaMenuBtn = document.querySelector('.js-close-mega-menu');
+
+if(closeMegaMenuBtn) {
+	document.addEventListener('DOMContentLoaded', () => {
+		closeMegaMenuBtn.addEventListener('click', function() {
+			document.querySelector('.js-toggle-mega-menu').click();
+			document.getElementById('readspeakerMenuItem').classList.remove('u-hidden-mobile');
+			document.getElementById('readspeakerBtn').click();
+			document.querySelector('#readspeakerBtn .iis-a-main-menu__list__text').classList.add('u-hidden-mobile');
+			document.querySelector('#readspeakerBtn .iis-a-button--icon').classList.add('u-hidden-mobile');
+		});
+	});
+}
