@@ -22,7 +22,6 @@ $footer-font-size: 18px; /* To ensure all footers on all sites have the same fon
 	position: relative;
 	z-index: func.z_index(middleground);
 	transform: translateY(0);
-	border-top: 1px solid colors.$color-ash;
 	font-size: $footer-font-size;
 
 	&.is-animated {
