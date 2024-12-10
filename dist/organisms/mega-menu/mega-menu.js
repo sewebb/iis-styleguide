@@ -243,10 +243,10 @@ if (closeMegaMenuBtn) {
 	document.addEventListener('DOMContentLoaded', function () {
 		closeMegaMenuBtn.addEventListener('click', function () {
 			document.querySelector('.js-toggle-mega-menu').click();
-			document.getElementById('readspeakerMenuItem').classList.remove('u-hidden-mobile');
+			document.getElementById('readspeakerMenuItem').classList.remove('u-hide-md');
 			document.getElementById('readspeakerBtn').click();
-			document.querySelector('#readspeakerBtn .iis-a-main-menu__list__text').classList.add('u-hidden-mobile');
-			document.querySelector('#readspeakerBtn .iis-a-button--icon').classList.add('u-hidden-mobile');
+			document.querySelector('#readspeakerBtn .iis-a-main-menu__list__text').classList.add('u-hide-md');
+			document.querySelector('#readspeakerBtn .iis-a-button--icon').classList.add('u-hide-md');
 		});
 	});
 }
