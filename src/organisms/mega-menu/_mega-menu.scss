@@ -195,13 +195,14 @@ $border-color: color.adjust(colors.$color-jade, $lightness: -5%);
 			border-bottom: 1px solid currentColor;
 			font-family: var.$font-family-headings;
 
+
 			> a {
 				padding: func.rhythm(1) func.rhythm(3.5);
 			}
 
 			@include breakpoint.bp-up(lg) {
-				margin-top: func.rhythm(2);
-				margin-bottom: func.rhythm(0.5);
+				margin-top: func.to_rem(-2px);
+				margin-bottom: func.rhythm(1);
 				padding: func.rhythm(1) func.rhythm(1);
 				border-bottom: 0;
 
