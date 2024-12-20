@@ -1,0 +1,389 @@
+<div class="o-haveibeenpwned">
+	<form action="/" method="post" novalidate="novalidate" id="pwnedSearch">
+		<div class="o-search">
+			<div class="o-search__padded u-p-b-1">
+				<div class="row display-flex align-items-center">
+					<div class="grid-auto u-p-r-0">
+						<span class="o-search__icon">
+							<svg class="icon">
+								<use xlink:href="#icon-search"></use>
+							</svg>
+						</span>
+					</div>
+					<div class="grid u-p-l-0 display-flex">
+						<label for="account" class="u-visuallyhidden">Se om din e-post ha läckt</label>
+						<input name="account" type="search" placeholder="Ange din e-postadress" id="account" class="o-search__input js-search-domain-input">
+						<button id="o-search-result-submit" type="submit" class="a-button a-button--ocean-light a-button--large o-search__submit">
+							<span class="a-button__text">Sök</span>
+						</button>
+						<script>
+							document.querySelector('#o-search-result-submit').addEventListener('submit', function(e) {
+								e.preventDefault();
+								window._mtm.push({'event': 'check_email'});
+							});
+						</script>
+					</div>
+				</div>
+				<div class="row u-p-t-2">
+					<div class="grid-auto" style="margin-left:auto;">
+						<button type="button" class="a-button a-button--icon a-button--transparent u-p-l-0" data-a11y-toggle="haveibeenpwnedInfo" data-toggle-text="Hur fungerar tjänsten?|Stäng" data-toggle-icon="questionmark|close" data-toggle-target="haveibeenpwnedToggleText">
+							<span class="a-button__text" id="haveibeenpwnedToggleText">Hur fungerar tjänsten?</span>
+							<svg class="icon a-button__icon">
+								<use xlink:href="#icon-questionmark"></use>
+							</svg>
+						</button>
+					</div>
+					<div class="grid-18 o-haveibeenpwned__info" id="haveibeenpwnedInfo" aria-hidden="true">
+						<div class="m-alert m-alert--info u-m-b-2">
+							<h2>En "läcka" är en incident där data oavsiktligt har exponerats för allmänheten</h2>
+							<p>Donec mollis elementum porttitor. In hac habitasse platea dictumst. In non augue velit. Pellentesque luctus tellus sit amet libero fringilla, sit amet feugiat ex pellentesque. </p>
+							<h2>Vad gör jag om min e-post har läckt?</h2>
+							<p>Duis id leo nec urna semper viverra in non diam. Integer sagittis malesuada condimentum. Nullam tempus, libero sed suscipit malesuada, nisi mauris ullamcorper velit, a egestas urna mi in arcu. </p>
+							<p>Suspendisse accumsan a magna nec hendrerit. In id sapien et dolor pretium fringilla sed nec eros. Nullam elementum ipsum iaculis sapien consequat elementum. Sed imperdiet placerat bibendum. Phasellus sed nibh justo. Nullam fringilla tellus non tincidunt imperdiet. Donec feugiat feugiat mi, fermentum tincidunt nunc ultricies vel.</p>
+							<h2>Hur fungerar tjänsten?</h2>
+							<p>Nulla hendrerit lorem nec lectus auctor feugiat. Phasellus posuere lobortis mauris, eget feugiat massa consectetur sit amet.</p>
+							<p>Duis id leo nec urna semper viverra in non diam. Integer sagittis malesuada condimentum. Nullam tempus, libero sed suscipit malesuada, nisi mauris ullamcorper velit, a egestas urna mi in arcu. </p>
+							<h2>Vad betyder färgerna?</h2>
+							<p>Aenean ullamcorper semper metus, ut sodales erat cursus a. Integer quis dictum mi. Nullam euismod scelerisque porttitor. Mauris fermentum mollis magna, vitae eleifend est faucibus dapibus. Curabitur sit amet tincidunt erat, vel volutpat nisl. </p>
+						</div>
+					</div>
+				</div>
+			</div>
+			{{#if result}}
+			<div class="o-haveibeenpwned__result">
+				<hr class="u-m-t-1">
+				<h2 class="alpha u-align-center u-p-t-2{{#if hits}} color-ruby{{else}} color-jade{{/if}}">
+					{{#if hits}}
+					Ojdå! Din e-post har läckt!
+					{{else}}
+					Inga läckor! Skönt!
+					{{/if}}
+				</h2>
+				{{#if hits}}
+				<p class="u-align-center">Vi hittade 13 dataläckor och 2 <a href="#" target="_blank" rel="nofollow noreferrer">inklistringar</a></p>
+				<h3 class="beta">Dataläckor</h3>
+				<table id="haveibeenpwnd" class="u-m-b-4">
+					<thead>
+						<tr>
+							<th>Service</th>
+							<th>Läckor</th>
+							<th>Åtgärd</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--severe">
+							<td>
+								<a href="https://adobe.com" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+									<div class="o-haveibeenpwned__result__item__logo">
+										<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/Adobe.png">
+										Adobe
+									</div>
+								</a>
+							</td>
+							<td>
+								<time class="a-meta">Oktober 2013</time>
+								Email addresses, Password hints, Passwords, Usernames
+							</td>
+							<td>
+								<a href="#" class="u-link-normal u-decoration-underline display-flex align-items-center">
+									<span>Vad gör jag?</span>
+									<svg class="icon u-icon--medium u-m-l-1">
+										<use xlink:href="#icon-questionmark"></use>
+									</svg>
+								</a>
+							</td>
+						</tr>
+						<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--severe">
+							<td>
+								<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+									<div class="o-haveibeenpwned__result__item__logo">
+										<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/Hemmakvall.png">
+										Hemmakväll
+									</div>
+								</a>
+							<td>
+								<time class="a-meta">Juli 2015</time>
+								Email addresses, Names, Passwords, Phone numbers, Physical addresses
+							</td>
+							<td>
+								<a href="#" class="u-link-normal u-decoration-underline display-flex align-items-center">
+									<span>Vad gör jag?</span>
+									<svg class="icon u-icon--medium u-m-l-1">
+										<use xlink:href="#icon-questionmark"></use>
+									</svg>
+								</a>
+							</td>
+						</tr>
+						<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--severe">
+							<td>
+								<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+									<div class="o-haveibeenpwned__result__item__logo">
+										<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/LinkedIn.png">
+										LinkedIn
+									</div>
+								</a>
+							</td>
+							<td>
+								<time class="a-meta">Maj 2016</time>
+								Email addresses, Passwords
+							</td>
+							<td>
+								<a href="#" class="u-link-normal u-decoration-underline display-flex align-items-center">
+									<span>Vad gör jag?</span>
+									<svg class="icon u-icon--medium u-m-l-1">
+										<use xlink:href="#icon-questionmark"></use>
+									</svg>
+								</a>
+							</td>
+						</tr>
+						<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--severe">
+							<td>
+								<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+									<div class="o-haveibeenpwned__result__item__logo">
+										<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/MySpace.png">
+										MySpace
+									</div>
+								</a>
+							</td>
+							<td>
+								<time class="a-meta">2008</time>
+								Email addresses, Passwords, Usernames
+							</td>
+							<td>
+								<a href="#" class="u-link-normal u-decoration-underline display-flex align-items-center">
+									<span>Vad gör jag?</span>
+									<svg class="icon u-icon--medium u-m-l-1">
+										<use xlink:href="#icon-questionmark"></use>
+									</svg>
+								</a>
+							</td>
+						</tr>
+						<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--severe">
+							<td>
+								<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+									<div class="o-haveibeenpwned__result__item__logo">
+										<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/Lastfm.png">
+										Lastfm
+									</div>
+								</a>
+							</td>
+							<td>
+								<time class="a-meta">Mars 2012</time>
+								Email addresses, Passwords, Usernames, Website activity
+							</td>
+							<td>
+								<a href="#" class="u-link-normal u-decoration-underline display-flex align-items-center">
+									<span>Vad gör jag?</span>
+									<svg class="icon u-icon--medium u-m-l-1">
+										<use xlink:href="#icon-questionmark"></use>
+									</svg>
+								</a>
+							</td>
+						</tr>
+						<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--severe">
+							<td>
+								<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+									<div class="o-haveibeenpwned__result__item__logo">
+										<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/SweClockers.png">
+										SweClockers
+									</div>
+								</a>
+							</td>
+							<td>
+								<time class="a-meta">2015</time>
+								Email addresses, Passwords, Usernames
+							</td>
+							<td>
+								<a href="#" class="u-link-normal u-decoration-underline display-flex align-items-center">
+									<span>Vad gör jag?</span>
+									<svg class="icon u-icon--medium u-m-l-1">
+										<use xlink:href="#icon-questionmark"></use>
+									</svg>
+								</a>
+							</td>
+						</tr>
+						<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--severe">
+							<td>
+								<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+									<div class="o-haveibeenpwned__result__item__logo">
+										<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/imgur.png">
+										imgur
+									</div>
+								</a>
+							</td>
+							<td>
+								<time class="a-meta">September 2013</time>
+								Email addresses, Passwords
+							</td>
+							<td>
+								<a href="#" class="u-link-normal u-decoration-underline display-flex align-items-center">
+									<span>Vad gör jag?</span>
+									<svg class="icon u-icon--medium u-m-l-1">
+										<use xlink:href="#icon-questionmark"></use>
+									</svg>
+								</a>
+							</td>
+						</tr>
+						<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--medium">
+							<td>
+								<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+									<div class="o-haveibeenpwned__result__item__logo">
+										<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/VerificationsIO.png">
+										VerificationsIO
+									</div>
+								</a>
+							</td>
+							<td>
+								<time class="a-meta">Februari 2019</time>
+								Dates of birth, Email addresses, Employers, Genders, Geographic locations, IP addresses, Job titles, Names, Phone numbers, Physical addresses
+							</td>
+							<td>
+								<a href="#" class="u-link-normal u-decoration-underline display-flex align-items-center">
+									<span>Vad gör jag?</span>
+									<svg class="icon u-icon--medium u-m-l-1">
+										<use xlink:href="#icon-questionmark"></use>
+									</svg>
+								</a>
+							</td>
+						</tr>
+						<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--medium">
+							<td>
+								<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+									<div class="o-haveibeenpwned__result__item__logo">
+										<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/List.png">
+										PDL
+									</div>
+								</a>
+							</td>
+							<td>
+								<time class="a-meta">Oktober 2019</time>
+								Email addresses, Employers, Geographic locations, Job titles, Names, Phone numbers, Social media profiles
+							</td>
+							<td>
+								<a href="#" class="u-link-normal u-decoration-underline display-flex align-items-center">
+									<span>Vad gör jag?</span>
+									<svg class="icon u-icon--medium u-m-l-1">
+										<use xlink:href="#icon-questionmark"></use>
+									</svg>
+								</a>
+							</td>
+						</tr>
+						<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--medium">
+							<td>
+								<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+									<div class="o-haveibeenpwned__result__item__logo">
+										<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/LinkedIn.png">
+										LinkedInScrape
+									</div>
+								</a>
+							</td>
+							<td>
+								<time class="a-meta">2021</time>
+								Education levels, Email addresses, Genders, Geographic locations, Job titles, Names, Social media profiles
+							</td>
+							<td>
+								<a href="#" class="u-link-normal u-decoration-underline display-flex align-items-center">
+									<span>Vad gör jag?</span>
+									<svg class="icon u-icon--medium u-m-l-1">
+										<use xlink:href="#icon-questionmark"></use>
+									</svg>
+								</a>
+							</td>
+						</tr>
+						<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--medium">
+							<td>
+								<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+									<div class="o-haveibeenpwned__result__item__logo">
+										<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/Gravatar.png">
+										Gravatar
+									</div>
+								</a>
+							</td>
+							<td>
+								<time class="a-meta">Oktober 2020</time>
+								Email addresses, Names, Usernames
+							</td>
+							<td>
+								<a href="#" class="u-link-normal u-decoration-underline display-flex align-items-center">
+									<span>Vad gör jag?</span>
+									<svg class="icon u-icon--medium u-m-l-1">
+										<use xlink:href="#icon-questionmark"></use>
+									</svg>
+								</a>
+							</td>
+						</tr>
+						<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--medium">
+							<td>
+								<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+									<div class="o-haveibeenpwned__result__item__logo">
+										<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/Twitter.png">
+										Twitter
+									</div>
+								</a>
+							</td>
+							<td>
+								<time class="a-meta">2023</time>
+								Email addresses, Names, Social media profiles, Usernames
+							</td>
+							<td>
+								<a href="#" class="u-link-normal u-decoration-underline display-flex align-items-center">
+									<span>Vad gör jag?</span>
+									<svg class="icon u-icon--medium u-m-l-1">
+										<use xlink:href="#icon-questionmark"></use>
+									</svg>
+								</a>
+							</td>
+						</tr>
+						<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--low">
+							<td>
+								<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+									<div class="o-haveibeenpwned__result__item__logo">
+										<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/Luxottica.png"">
+										Luxottica
+									</div>
+								</a>
+							</td>
+							<td>
+								<time class="a-meta">Februari 2010</time>
+								IP addresses
+							</td>
+							<td>
+								<a href="#" class="u-link-normal u-decoration-underline display-flex align-items-center">
+									<span>Vad gör jag?</span>
+									<svg class="icon u-icon--medium u-m-l-1">
+										<use xlink:href="#icon-questionmark"></use>
+									</svg>
+								</a>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+				<h3 class="beta">Inklistringar</h3>
+				<table id="haveibeenpwnd">
+					<thead>
+						<tr>
+							<th>Titel</th>
+							<th>Datum</th>
+							<th>E-poster</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr class="o-haveibeenpwned__result__item">
+							<td>balockae.online</td>
+							<td>Unknown</td>
+							<td>24 000</td>
+						</tr>
+						<tr class="o-haveibeenpwned__result__item">
+							<td>underground-revolution.eu</td>
+							<td>Unknown</td>
+							<td>324 000</td>
+						</tr>
+					</tbody>
+				</table>
+				{{/if}}
+			</div>
+			{{/if}}
+		</div>
+		<p class="u-font-size-medium u-p-2">Tjänsten tillhandahålls av <a href="https://haveibeenpwned.com" target="_blank" rel="nofollow noreferrer" class="u-link-normal u-decoration-underline">haveibeenpwned.com</a> därför gäller deras <a href="https://haveibeenpwned.com/Privacy" target="_blank" rel="nofollow noreferrer" class="u-link-normal u-decoration-underline">användarvillkor</a> samt <a href="https://haveibeenpwned.com/TermsOfUse" target="_blank" rel="nofollow noreferrer" class="u-link-normal u-decoration-underline">integritetspolicy</a>. Här kan du läsa mer om hur <a href="https://internetstiftelsen.se/om-webbplatsen/integritetspolicy/" target="_blank" class="u-link-normal u-decoration-underline">Internetstiftelsen behandlar personuppgifter</a>.</p>
+	</form>
+</div>
