@@ -114,12 +114,18 @@
 				}
 			}
 		}
+
 	}
 
 	@include bem.e(info) {
-
 		&[aria-hidden="true"] {
 			display: none
+		}
+	}
+
+	@include bem.e(actions) {
+		&[aria-hidden="true"] {
+			display: none;
 		}
 	}
 }
