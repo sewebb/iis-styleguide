@@ -11,8 +11,6 @@
 
 @include mixin.organism(haveibeenpwned) {
 	@include bem.e(result) {
-		padding: 0 func.rhythm(3) func.rhythm(3) func.rhythm(3);
-
 		table {
 			th:first-child {
 				padding-right: 0;
