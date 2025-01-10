@@ -29,6 +29,11 @@
 		width: var.$icon-size;
 		height: var.$icon-size;
 		margin-right: func.rhythm(2);
+
+		> svg {
+			width: var.$icon-size;
+			height: var.$icon-size;
+		}
 	}
 
 	@include bem.e(status) {
@@ -89,6 +94,11 @@
 		@include bem.e(icon) {
 			width: var.$icon-size * 1.5;
 			height: var.$icon-size * 1.5;
+
+			> svg {
+				width: var.$icon-size * 1.5;
+				height: var.$icon-size * 1.5;
+			}
 		}
 
 		@include bem.e(input) {
@@ -111,6 +121,11 @@
 		@include bem.e(icon) {
 			width: var.$icon-size;
 			height: var.$icon-size;
+
+			> svg {
+				width: var.$icon-size;
+				height: var.$icon-size;
+			}
 		}
 
 		@include bem.e(input) {
