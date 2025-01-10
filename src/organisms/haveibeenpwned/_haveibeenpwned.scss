@@ -113,6 +113,13 @@
 			}
 		}
 
+		@include bem.e(first-col) {
+			width: 100px;
+
+			@include breakpoint.bp-up(md) {
+				width: 130px;
+			}
+		}
 	}
 
 	@include bem.e(info) {

@@ -17,7 +17,7 @@
 							<span class="a-button__text">Sök</span>
 						</button>
 						<script>
-							document.querySelector('#o-search-result-submit').addEventListener('submit', function(e) {
+							document.querySelector('#pwnedSearch').addEventListener('submit', function(e) {
 								e.preventDefault();
 								window._mtm.push({'event': 'check_email'});
 							});
@@ -89,13 +89,13 @@
 			<table id="haveibeenpwnd">
 				<thead>
 					<tr>
-						<th>Service</th>
-						<th>Läckor</th>
+						<th class="o-haveibeenpwned__result__first-col">Tjänster</th>
+						<th>Vad har läckt?</th>
 					</tr>
 				</thead>
 				<tbody>
 					<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--severe">
-						<td>
+						<td class="o-haveibeenpwned__result__first-col">
 							<a href="https://adobe.com" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
 								<div class="o-haveibeenpwned__result__item__logo">
 									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/Adobe.png">
@@ -194,7 +194,7 @@
 				</tbody>
 			</table>
 			<div class="display-flex align-items-baseline">
-				<h3 class="beta">
+				<h3 class="beta u-p-t-4">
 					Personuppgiftsläckor
 				</h3>
 				<button type="button"
@@ -219,13 +219,13 @@
 			<table>
 				<thead>
 				<tr>
-					<th>Service</th>
-					<th>Läckor</th>
+					<th class="o-haveibeenpwned__result__first-col">Tjänster</th>
+					<th>Vad har läckt?</th>
 				</tr>
 				</thead>
 				<tbody>
 					<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--medium">
-						<td>
+						<td class="o-haveibeenpwned__result__first-col">
 							<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
 								<div class="o-haveibeenpwned__result__item__logo">
 									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/VerificationsIO.png">
@@ -297,7 +297,7 @@
 				</tbody>
 			</table>
 				<div class="display-flex align-items-baseline">
-					<h3 class="beta">
+					<h3 class="beta u-p-t-4">
 						Övriga läckor
 					</h3>
 					<button type="button"
@@ -322,13 +322,13 @@
 			<table>
 				<thead>
 				<tr>
-					<th>Service</th>
-					<th>Läckor</th>
+					<th class="o-haveibeenpwned__result__first-col">Tjänster</th>
+					<th>Vad har läckt?</th>
 				</tr>
 				</thead>
 				<tbody>
 					<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--low">
-						<td>
+						<td class="o-haveibeenpwned__result__first-col">
 							<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
 								<div class="o-haveibeenpwned__result__item__logo">
 									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/Luxottica.png"">
