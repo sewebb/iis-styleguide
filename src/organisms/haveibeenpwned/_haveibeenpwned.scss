@@ -133,4 +133,11 @@
 			display: none;
 		}
 	}
+
+	@include bem.e(btn-icon) {
+		position: static;
+		padding-right: 0;
+		transform: none;
+		margin-left: func.rhythm(1);
+	}
 }
