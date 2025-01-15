@@ -245,8 +245,8 @@ if (closeMegaMenuBtn) {
 			document.querySelector('.js-toggle-mega-menu').click();
 			document.getElementById('readspeakerMenuItem').classList.remove('u-hide-md');
 			document.getElementById('readspeakerBtn').click();
-			document.querySelector('#readspeakerBtn .iis-a-main-menu__list__text').classList.add('u-hide-md');
-			document.querySelector('#readspeakerBtn .iis-a-button--icon').classList.add('u-hide-md');
+			document.querySelector('#readspeakerBtn [class*=a-main-menu__list__text]').classList.add('u-hide-md');
+			document.querySelector('#readspeakerBtn [class*=a-button--icon]').classList.add('u-hide-md');
 		});
 	});
 }
