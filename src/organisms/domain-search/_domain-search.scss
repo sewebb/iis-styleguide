@@ -11,75 +11,21 @@
 @use '../../vendor/grid/breakpoints' as breakpoint;
 
 @include mixin.organism(domain-search) {
-	padding: func.rhythm(2) 0 func.rhythm(1) 0;
-
-	&:not([class*='is-in-mega-menu']) {
-		display: none;
-		position: absolute;
-		z-index: func.z_index(middlegroundImportant);
-		bottom: 0;
-		transform: translateY(0);
-		transition: transform 0.25s ease-out;
-
-		&[aria-hidden='false'] {
-
-			@extend %box-shadow;
-
-			transform: translateY(100%);
-
-			a,
-			button,
-			input {
-				animation-direction: reverse;
-			}
-		}
-
-		@include breakpoint.bp-up(xl) {
-			display: flex;
-		}
-
-		&[aria-hidden='true'] {
-			a,
-			button,
-			input {
-				display: none;
-				animation: 0 ease-in 0s 2s reverse both paused fadeIn;
-			}
-		}
-	}
-
-	a {
-		color: colors.$color-cyberspace;
-		text-decoration: underline;
-
-		&:hover,
-		&:focus {
-			border-bottom: func.to_rem(2px) solid colors.$color-jade;
-			border-radius: 0;
-			background-color: transparent;
-			text-decoration: none;
-		}
-
-		[class*='icon'] {
-			transform: translateY(func.to_rem(2px));
-		}
-	}
 
 	@include breakpoint.bp-up(md) {
 		padding: func.rhythm(3) func.rhythm(1);
 	}
 
-	@include bem.e(list-container) {
-		padding: 0 func.rhythm(1) 0 func.rhythm(1);
+	@include bem.e(form-wrapper) {
+		gap: func.rhythm(2);
 	}
 
 	@include bem.e(input) {
 		display: block;
 		width: calc(100% - #{func.rhythm(2)});
-		margin-right: func.rhythm(2);
 		padding: func.rhythm(1) func.rhythm(2);
 		transition: padding 0.25s ease-out;
-		border: 0;
+		border: 1px solid colors.$color-granit;
 		border-radius: var.$border-radius;
 		background-color: color.adjust(colors.$color-ash, $lightness: 4%);
 		letter-spacing: -0.1px;
@@ -89,51 +35,6 @@
 			font-size: func.to_rem(32px);
 		}
 
-		@include bem.m(force-focus-look) {
-			background-color:  color.adjust(colors.$color-ash, $lightness: 4%);
-
-			&:focus {
-				background-color:  color.adjust(colors.$color-ash, $lightness: 4%);
-			}
-		}
-	}
-
-	@include bem.e(list) {
-		display: flex;
-		flex-wrap: wrap;
-		padding: func.rhythm(1) 0 0 0;
-
-		li {
-			padding: func.rhythm(1) 0;
-			white-space: nowrap;
-
-			+ li {
-				border-top: 1px solid colors.$color-concrete;
-
-				@include breakpoint.bp-up(md) {
-					padding-bottom: 0;
-					border-top: 0;
-				}
-			}
-
-			a {
-				padding: 0 func.rhythm(1);
-				border-bottom: 0;
-				font-size: func.to_rem(var.$size-medium-plus);
-				text-decoration: underline;
-
-				@include breakpoint.bp-up(md) {
-					padding: 0;
-				}
-			}
-		}
-	}
-
-	@include breakpoint.bp-up(md) {
-
-		@include bem.e(pretext) {
-			font-size: func.to_rem(32px);
-		}
 	}
 
 	@include bem.e(submit) {
@@ -152,24 +53,10 @@
 		}
 	}
 
-	@include breakpoint.bp-up(xl) {
-		display: none;
-	}
-}
-
-@keyframes fadeIn {
-	0% {
-		opacity: 0;
-		display: none;
-	}
-
-	1% {
-		opacity: 1;
-		display: block;
-	}
-
-	100% {
-		opacity: 1;
-		display: block;
+	@include bem.e(result) {
+		@include bem.e(button-wrapper) {
+			flex-wrap: wrap;
+			gap: func.rhythm(2);
+		}
 	}
 }

@@ -55,9 +55,9 @@ module.exports = {
 				url: false,
 				is_current: false,
 				icon: 'icon-arrow-down',
-				extra_class: 'js-toggle-domain-search',
+				extra_class: 'js-toggle-domain-search-page',
 				has_expandable: true,
-				controls: 'domain-search',
+				controls: 'domain-search-page',
 				hide_mobile: true
 			},
 			{

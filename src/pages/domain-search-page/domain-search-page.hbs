@@ -1,0 +1,55 @@
+<div class="site__main" id="siteMain">
+	<div class="site__main__content">
+		<section class="section u-m-t-0">
+			{{#unless result}}
+				{{render '@domain-search'}}
+			{{/unless}}
+			{{#if result}}
+				{{render '@domain-search--result'}}
+			{{/if}}
+			<div class="wrapper">
+				<div class="row">
+					<div class="grid-18">
+						<main role="main" class="article">
+
+							<h1 class="supersize u-m-t-4">Sök domän</h1>
+
+							<div id="article" class="article__content article__content--full-width">
+								<nav class="rs_skip u-m-t-2 alignright" id="pageSubmenu" aria-label="Submenu">
+									<dl class="m-submenu" data-responsive="xs:article,lg:pageSubmenu">
+										<dt class="m-submenu__title"><span class="m-submenu__title__link u-pointer-events-none"><span>Sök domän</span></span></dt>
+										<dd class="m-submenu__item"><a href="https://internetstiftelsen.se/sok-doman/utlamnande-av-uppgifter-ur-domannamnsregistret/" class="m-submenu__item__link"><span>Återförsäljare</span></a></dd>
+										<dd class="m-submenu__item"><a href="https://internetstiftelsen.se/sok-doman/utlamnande-av-uppgifter-ur-domannamnsregistret/" class="m-submenu__item__link"><span>Utlämnande av uppgifter ur domännamnsregistret</span></a></dd>
+									</dl>
+								</nav>
+								<p class="wp-block-preamble preamble">Här kan du söka efter lediga domännamn och se innehavare av domännamn. Vill du registrera ett domännamn så måste du vända dig till någon av våra återförsäljare.</p>
+
+								<div class="m-info-box">
+
+									<p><em>På grund av skyddet av personuppgifter döljs viss information vid en sökning. För innehavare som är privatpersoner/enskild firma visas inga kontaktuppgifter. Här kan du läsa mer om&nbsp;<a href="https://stage.internetstiftelsen.se/sok-doman/utlamnande-av-uppgifter-ur-domannamnsregistret/">hur du begär att ta del av den information som döljs</p>
+
+
+
+									<p><em>Här hittar du&nbsp;<a href="https://stage.internetstiftelsen.se/domaner/registrera-ett-domannamn/regler-och-beskrivning-av-domannamnssokningar/">regler och beskrivningar av domännamnssökningar
+										<svg class="icon o-mega-menu__link__icon">
+											<use xlink:href="#icon-external-link"></use>
+										</svg>
+									</a>.</em></p>
+
+
+
+									<p><em>Den här sidan skyddas av Friendly Captcha och du kan <a href="/om-webbplatsen/integritetspolicy-for-besokare-pa-internetstiftelsens-webbplatser/">läsa mer om personuppgiftsbehandlingen här</a>.</em></p>
+
+								</div>
+						</main>
+					</div>
+				</div>
+				<div class="row">
+					<div class="grid-18 u-m-t-4">
+						{{render '@share'}}
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+</div>

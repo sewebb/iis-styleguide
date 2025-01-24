@@ -3,9 +3,18 @@ module.exports = {
 
 	context: {
 		hidden: 'false',
-		id: 'domain-search',
-		addidional_classes: 'o-domain-search--narrow',
+		id: 'domain-search-page',
+		addidional_classes: 'o-domain-search-page--narrow',
 		label: 'sök en .se- eller .nu-domän',
-		white_background: true
-	}
+		white_background: true,
+		result: false
+	},
+	variants: [
+		{
+			name: 'result',
+			context: {
+				result: true
+			}
+		}
+	]
 };

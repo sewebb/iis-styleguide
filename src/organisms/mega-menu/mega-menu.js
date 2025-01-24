@@ -209,7 +209,7 @@ function toggleMegaMenu(e) {
 }
 
 function handleMouseUp(e) {
-	const button = e.target.closest('.js-toggle-domain-search');
+	const button = e.target.closest('.js-toggle-domain-search-page');
 
 	if (button && megaMenu.getAttribute('aria-hidden') === 'false') {
 		hideMegaMenu();

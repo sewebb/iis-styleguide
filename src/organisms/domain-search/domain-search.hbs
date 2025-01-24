@@ -1,13 +1,229 @@
-<div class="wrapper-fluid o-domain-search{{#if white_background}} background-snow{{/if}}{{#if addidional_classes}} {{addidional_classes}}{{/if}}" {{#if id}}id="{{id}}"{{/if}} aria-hidden="{{hidden}}">
-	<div class="wrapper u-p-x-0">
+<form action="" class="whois-form" target="_top" method="get" role="search" novalidate="">
+	<div class="o-domain-search display-flex align-items-center background-snow u-p-3 u-m-x-0">
+		<div class="o-domain-search__form-wrapper wrapper display-flex u-p-x-0">
+			<label for="{{input_id}}" class="u-visuallyhidden">{{#if label}}{{label}}{{/if}}</label>
+			<input type="search" class="o-domain-search__input js-search-domain-input" autocomplete="off" {{#if label}}placeholder="{{label}}"{{/if}} id="{{input_id}}" {{#if result}}value="dn.se"{{/if}}>
+			{{> @button el="button" button_type="submit" text="Sök" modifiers="secondary o-domain-search__submit" id="o-domain-search-page-submit"}}
+		</div>
+	</div>
+	{{#if result}}
+	<div class="row">
 		<div class="grid">
-			<div class="display-flex align-items-center">
-				<div class="grid display-flex u-p-x-0">
-					<label for="{{input_id}}" class="u-visuallyhidden">{{#if label}}{{label}}{{/if}}</label>
-					<input type="search" class="o-domain-search__input js-search-domain-input" autocomplete="off" {{#if label}}placeholder="{{label}}"{{/if}} id="{{input_id}}">
-					{{> @button el="button" button_type="submit" text="Sök domän" modifiers="secondary o-domain-search__submit" id="o-domain-search-submit"}}
+			<div data-whois-result="" aria-live="assertive">
+				<div class="table-scroll-wrapper u-m-b-2 u-m-t-4">
+					<div class="scroll-indicator"></div>
+					<div class="table-container">
+						<table class="data m-table m-table--lines">
+							<thead>
+							<tr>
+								<th colspan="2">
+									<h2 class="alpha u-m-b-2 color-ruby u-lowercase">dn.se <span class="u-weight-normal u-display-inline">är redan registrerad</span></h2>
+								</th>
+							</tr>
+							</thead>
+							<tbody>
+							<tr>
+								<td class="caption">Domännamn</td>
+								<td>dn.se</td>
+							</tr>
+							<tr>
+								<td class="caption">
+									<div class="display-flex align-items-center justify-content-between">
+										<span aria-describedby="holder-tooltip">Innehavare (kontakt-ID)</span>
+										<span tabindex="0" class="a-tooltip a-button a-button--standalone-icon a-button--icon" id="holder-tooltip" role="tooltip">
+                                 <span class="a-tooltip__text">Kontaktuppgifter för privatpersoner/enskild firma visas inte då dessa uppgifter är personuppgifter.</span>
+                                 <svg class="icon a-button__icon">
+                                    <use xlink:href="#icon-questionmark"></use>
+                                 </svg>
+                              </span>
+									</div>
+								</td>
+								<td>
+									<span class="display-flex align-items-center o-domain-search__result__button-wrapper">
+									95cHs55yRUgGzukH
+									<button type="button" data-whois-contact-details="dn.se:95cHs55yRUgGzukH" class="a-button a-button--lemon-light a-button--small a-button--icon whois-button u-nowrap">
+										<span class="a-button__text">Se kontaktinformation</span>
+										<svg class="icon a-button__icon">
+											<use xlink:href="#icon-arrow-forwards"></use>
+										</svg>
+									</button>
+									</span>
+								</td>
+							</tr>
+							<tr>
+								<td class="caption">Domänstatus</td>
+								<td>active</td>
+							</tr>
+							<tr>
+								<td class="caption">
+									<div class="display-flex align-items-center justify-content-between">
+										<span aria-describedby="created-tooltip">Skapad</span>
+										<span tabindex="0" class="a-tooltip a-button a-button--standalone-icon a-button--icon" id="created-tooltip" role="tooltip">
+                                 <span class="a-tooltip__text" data-tooltip="">Här visas datumet då domännamnet registrerades. Domänen kan ha bytt innehavare sedan dess.</span>
+                                 <svg class="icon a-button__icon">
+                                    <use xlink:href="#icon-questionmark"></use>
+                                 </svg>
+                              </span>
+									</div>
+								</td>
+								<td aria-describedby="created-tooltip">
+									1991-12-02
+								</td>
+							</tr>
+							<tr>
+								<td class="caption">
+									<div class="display-flex align-items-center justify-content-between">
+										<span aria-describedby="last-updated-tooltip">Senast ändrad</span>
+										<span tabindex="0" class="a-tooltip a-button a-button--standalone-icon a-button--icon" id="last-updated-tooltip" role="tooltip">
+                                 <span class="a-tooltip__text" data-tooltip="">Här visas datumet då den senaste ändringen kring domänen skedde i Internetstiftelsens register. Ändringen kan till exempel vara att man bytt registrar, namnserver, innehavare eller kontakter.</span>
+                                 <svg class="icon a-button__icon">
+                                    <use xlink:href="#icon-questionmark"></use>
+                                 </svg>
+                              </span>
+									</div>
+								</td>
+								<td aria-describedby="updated-tooltip">
+									2024-12-30
+								</td>
+							</tr>
+							<tr>
+								<td class="caption" aria-describedby="expire-date-tooltip">
+									<div class="display-flex align-items-center justify-content-between">
+										<span aria-describedby="expire-date-tooltip">Förfallodatum</span>
+										<span tabindex="0" class="a-tooltip a-button a-button--standalone-icon a-button--icon" id="expire-date-tooltip" role="tooltip">
+                                 <span class="a-tooltip__text" data-tooltip="">Ett .se eller .nu-domännamn kan registreras för en period mellan 12-120 månader. Efter att ett domännamn förfallit kommer den att få statusen "Expired" i tio dagar. Om domänen inte förnyas under dessa tio dagar ändras statusen på domänen till "Deactivated", vilket innebär att den inte kommer med i zonfilen. Domänen är därefter deaktiverad i 60 dagar om ingen förnyelse sker. Under deaktiveringsperioden har du möjlighet att förnya domänen.</span>
+                                 <svg class="icon a-button__icon">
+                                    <use xlink:href="#icon-questionmark"></use>
+                                 </svg>
+                              </span>
+									</div>
+								</td>
+								<td aria-describedby="expire-date-tooltip">
+									2025-12-31
+								</td>
+							</tr>
+							<tr>
+								<td class="caption" aria-describedby="deactivation-date-tooltip">
+									<div class="display-flex align-items-center justify-content-between">
+										<span aria-describedby="deactivation-date-tooltip">Deaktiveringsdatum</span>
+										<span tabindex="0" class="a-tooltip a-button a-button--standalone-icon a-button--icon" id="deactivation-date-tooltip" role="tooltip">
+                                 <span class="a-tooltip__text" data-tooltip="">Om registreringsavgiften inte betalas i tid deaktiveras domännamnet på detta datum. Det innebär att domänen slutar fungera på internet, men det är fortfarande registrerat på samma innehavare i Internetstiftelsens register. Fram till avregistreringsdatumet kan innehavaren fortfarande återta domännamnet och förnya sin registrering.</span>
+                                 <svg class="icon a-button__icon">
+                                    <use xlink:href="#icon-questionmark"></use>
+                                 </svg>
+                              </span>
+									</div>
+								</td>
+								<td aria-describedby="deactivation-date-tooltip">
+								</td>
+							</tr>
+							<tr>
+								<td class="caption" aria-describedby="transferred-date-tooltip">
+									<div class="display-flex align-items-center justify-content-between">
+										<span aria-describedby="transferred-date-tooltip">Överförd</span>
+										<span tabindex="0" class="a-tooltip a-button a-button--standalone-icon a-button--icon" id="transferred-date-tooltip" role="tooltip">
+                                 <span class="a-tooltip__text" data-tooltip="">Här visas datumet då domänen senast bytte registrar. Aktuell registrar visas i fältet Registrar nedan.</span>
+                                 <svg class="icon a-button__icon">
+                                    <use xlink:href="#icon-questionmark"></use>
+                                 </svg>
+                              </span>
+									</div>
+								</td>
+								<td>2023-02-13</td>
+							</tr>
+							<tr>
+								<td class="caption" aria-describedby="deletion-date-tooltip">
+									<div class="display-flex align-items-center justify-content-between">
+										<span aria-describedby="deletion-date-tooltip">Avregistreringsdatum</span>
+										<span tabindex="0" class="a-tooltip a-button a-button--standalone-icon a-button--icon" id="deletion-date-tooltip" role="tooltip">
+                                 <span class="a-tooltip__text" data-tooltip="">Om innehavaren inte återtar domännamnet efter att det har deaktiverats så avregistreras innehavaren på detta datum. Domännamnet placeras då i karantän hos Internetstiftelsen fram till datumet för dess frisläppande.</span>
+                                 <svg class="icon a-button__icon">
+                                    <use xlink:href="#icon-questionmark"></use>
+                                 </svg>
+                              </span>
+									</div>
+								</td>
+								<td aria-describedby="deletion-date-tooltip">
+								</td>
+							</tr>
+							<tr>
+								<td class="caption" aria-describedby="release-date-tooltip">
+									<div class="display-flex align-items-center justify-content-between">
+										<span aria-describedby="release-date-tooltip">Datum för frisläppande</span>
+										<span tabindex="0" class="a-tooltip a-button a-button--standalone-icon a-button--icon" id="release-date-tooltip" role="tooltip">
+                                 <span class="a-tooltip__text" data-tooltip="">På detta datum släpps domännamnet fritt och kan registreras av en ny innehavare. Det sker tidigast klockan 04.00 UTC (svensk tid klockan 05.00 vintertid, och klockan 06.00 under sommartid) på detta datum.</span>
+                                 <svg class="icon a-button__icon">
+                                    <use xlink:href="#icon-questionmark"></use>
+                                 </svg>
+                              </span>
+									</div>
+								</td>
+								<td aria-describedby="release-date-tooltip">
+								</td>
+							</tr>
+							<tr>
+								<td class="caption">
+									<div class="display-flex align-items-center justify-content-between">
+										<span aria-describedby="name-server-tooltip">Namnserver</span>
+										<span tabindex="0" class="a-tooltip a-button a-button--standalone-icon a-button--icon" id="name-server-tooltip" role="tooltip">
+                                 <span class="a-tooltip__text" data-tooltip="">När en domän byter namnservrar tar det ett tag innan uppdateringen slår igenom på internet. Vi uppdaterar zonfilerna följande tider:
+                                 .nu: en gång i timmen, vid halvtimme, 11.30, 12.30 osv.
+                                 .se: en gång i timmen, vid heltimme, 11.00, 12.00 osv.</span>
+                                 <svg class="icon a-button__icon">
+                                    <use xlink:href="#icon-questionmark"></use>
+                                 </svg>
+                              </span>
+									</div>
+								</td>
+								<td aria-describedby="name-server-tooltip">
+									ns-cloud-d1.googledomains.com<br>ns-cloud-d2.googledomains.com<br>ns-cloud-d3.googledomains.com<br>ns-cloud-d4.googledomains.com
+								</td>
+							</tr>
+							<tr>
+								<td class="caption">DNSSEC</td>
+								<td>unsigned delegation</td>
+							</tr>
+							<tr>
+								<td class="caption" aria-describedby="registry-lock-tooltip">
+									<div class="display-flex align-items-center justify-content-between">
+										<span aria-describedby="registry-lock-tooltip">Registry lock</span>
+										<span tabindex="0" class="a-tooltip a-button a-button--standalone-icon a-button--icon" id="registry-lock-tooltip" role="tooltip">
+                                 <span class="a-tooltip__text" data-tooltip="">När domänen är låst med Registry lock kan följande registreringstjänster inte utföras: uppdatering av domännamnet såsom ompekning, avregistrering av domännamnet, överlåtelse till ny innehavare, byte av registrar.</span>
+                                 <svg class="icon a-button__icon">
+                                    <use xlink:href="#icon-questionmark"></use>
+                                 </svg>
+                              </span>
+									</div>
+								</td>
+								<td>unlocked</td>
+							</tr>
+							<tr>
+								<td class="caption">Status</td>
+								<td>ok</td>
+							</tr>
+							<tr>
+								<td class="caption">Registrar</td>
+								<td>
+									<a href="https://abion.com/" target="_blank">
+										Abion AB
+										<svg class="icon o-mega-menu__link__icon">
+											<use xlink:href="#icon-external-link"></use>
+										</svg>
+									</a>
+								</td>
+							</tr>
+							<tr>
+								<td colspan="2" class="caption"><a href="/sok-doman?domain=dn.se">Länk till sökresultat</a></td>
+							</tr>
+							<tr>
+								<td colspan="2" class="caption"><a href="/kontakta-domaninnehavare/?domain=dn.se">Kontakta domäninnehavaren</a></td>
+							</tr>
+							</tbody>
+						</table>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
-</div>
+	{{/if}}
+</form>
