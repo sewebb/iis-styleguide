@@ -13,7 +13,25 @@ module.exports = {
 		{
 			name: 'result',
 			context: {
-				result: true
+				result: true,
+				wildcard: false,
+				duplicate: false,
+			}
+		},
+		{
+			name: 'result-wildcard',
+			context: {
+				result: true,
+				wildcard: true,
+				duplicate: false,
+			}
+		},
+		{
+			name: 'result-duplicate',
+			context: {
+				result: true,
+				wildcard: false,
+				duplicate: true,
 			}
 		}
 	]
