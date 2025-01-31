@@ -190,10 +190,6 @@
 					transform: rotate(-45deg);
 				}
 			}
-
-			@include breakpoint.bp-up(sm) {
-				font-size: var.$size-base;
-			}
 		}
 
 		@include bem.e(text) {
