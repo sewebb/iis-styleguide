@@ -5,7 +5,10 @@
 				{{render '@domain-search'}}
 			{{/if}}
 			{{#if singleResult}}
-				{{render '@domain-search--result'}}
+				{{render '@domain-search--result-unavailable'}}
+			{{/if}}
+			{{#if availableResult}}
+				{{render '@domain-search--result-available'}}
 			{{/if}}
 			{{#if wildcardResult}}
 				{{render '@domain-search--result-wildcard'}}

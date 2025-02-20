@@ -7,13 +7,24 @@ module.exports = {
 		addidional_classes: 'o-domain-search-page--narrow',
 		label: 'sök en .se- eller .nu-domän',
 		white_background: true,
-		result: false
+		result: false,
+		available: false,
 	},
 	variants: [
 		{
-			name: 'result',
+			name: 'result-available',
+			context: {
+				result: false,
+				available: true,
+				wildcard: false,
+				duplicate: false,
+			}
+		},
+		{
+			name: 'result-unavailable',
 			context: {
 				result: true,
+				available: false,
 				wildcard: false,
 				duplicate: false,
 			}
@@ -22,6 +33,7 @@ module.exports = {
 			name: 'result-wildcard',
 			context: {
 				result: true,
+				available: false,
 				wildcard: true,
 				duplicate: false,
 			}
@@ -30,6 +42,7 @@ module.exports = {
 			name: 'result-duplicate',
 			context: {
 				result: true,
+				available: false,
 				wildcard: false,
 				duplicate: true,
 			}
