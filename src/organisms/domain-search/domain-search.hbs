@@ -2,7 +2,7 @@
 	<div class="o-domain-search display-flex align-items-center background-snow u-p-3 u-m-x-0">
 		<div class="o-domain-search__form-wrapper wrapper display-flex u-p-x-0">
 			<label for="{{input_id}}" class="u-visuallyhidden">{{#if label}}{{label}}{{/if}}</label>
-			<input type="search" class="o-domain-search__input js-search-domain-input" autocomplete="off" {{#if label}}placeholder="{{label}}"{{/if}} id="{{input_id}}" {{#if duplicate}}value="dn"{{else if wildcard}}value="dn"{{else}}value="dn.se"{{/if}}>
+			<input type="search" class="o-domain-search__input js-search-domain-input" autocomplete="off" {{#if label}}placeholder="{{label}}"{{/if}} id="{{input_id}}" {{#if duplicate}}value="dn"{{else if wildcard}}value="dn"{{else if available}}value="ertert.se"{{else}}value="dn.se"{{/if}}>
 			{{> @button el="button" button_type="submit" text="Sök" modifiers="secondary o-domain-search__submit" id="o-domain-search-page-submit"}}
 		</div>
 	</div>
@@ -30,7 +30,6 @@
 							{{/if}}
 						</ul>
 					</div>
-
 					<section id="tab-1" class="o-tab-panel o-tab-panel--gray u-border-radius-none u-b-l-0 o-b-b-0 u-b-r-0" role="tabpanel" aria-labelledby="tab0" tabindex="-1">
 						<div class="table-scroll-wrapper u-m-b-2 u-m-t-4">
 							<div class="scroll-indicator"></div>
@@ -448,5 +447,18 @@
 				</div>
 		</div>
 	</div>
+	{{/if}}
+	{{#if available}}
+			<div class="row u-b u-b-b-1 u-b-solid u-b-concrete u-b-t-0 u-b-x-0">
+				<div class="grid">
+					<div data-whois-result="" aria-live="assertive">
+						<div data-tab-component="">
+							<div class="wrapper">
+									<h2 class="alpha u-m-y-2 color-jade u-lowercase">ertert.se är ledig</h2>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
 	{{/if}}
 </form>
