@@ -1,0 +1,451 @@
+<header class="o-header">
+	<div class="wrapper">
+		<div class="row justify-content-between align-items-center flex-nowrap">
+			<div class="grid-auto">
+				<a href="{{logo_link_href}}" class="o-header__logo-link">
+					<span class="o-header__logo">{{> @logotype id="digitala-lektioner"}}</span>
+					<span class="u-visuallyhidden">{{logo_link_text}}</span>
+				</a>
+			</div>
+			<div class="grid">
+				<nav class="a-main-menu" aria-label="Huvudmeny">
+					<ul class="a-main-menu__list">
+						<a href="{{url}}" class="a-main-menu__list__link">
+							<span class="a-main-menu__list__text">Logga ut</span>
+						</a>
+					</ul>
+				</nav>
+			</div>
+		</div>
+	</div>
+</header>
+
+<div class="wrapper u-p-y-2">
+	<div class="row justify-content-center u-p-t-2 u-p-b-3 u-p-x-3 background-snow u-border-radius u-border-top-left-radius-none">
+		<div class="grid-18 u-p-t-0 u-p-x-0">
+			<div id="lesson-search">
+				<div class="u-p-t-1 u-p-b-2">
+					<form class="search" method="get" action="https://digitalalektioner.se/sok/" role="search">
+						<h1 class="u-visuallyhidden"><label for="search">Sök efter lektioner</label></h1>
+						<div class="display-flex u-p-x-0">
+							<input type="search" id="search" aria-describedby="searchResultDescription" class="o-search__input background-ash" placeholder="Sök bland lektionerna" value="" name="search" title="Sök efter:">
+							<button type="submit" class="a-button a-button a-button--large background-peacock color-peacock o-domain-search__submit">
+								<span class="a-button__text color-cyberspace">Sök<span class="u-hide-sm"> lektioner</span></span>
+							</button>
+						</div>
+					</form>
+				</div>
+
+				<div aria-live="assertive" id="searchResultDescription" class="o-search__status o-search__padded background-peacock-light u-border-top-left-radius u-border-top-right-radius">
+					<span class="js-search-status">
+						162 lektioner och 39 lektionspaket
+					</span>
+				</div>
+				<div class="o-filter" id="filter-lessons">
+					<div class="js-o-accordion o-accordion u-border-bottom-left-radius u-border-bottom-right-radius">
+							<span class="js-accordion__header o-filter__title o-accordion__header--no-border o-accordion__header--inline o-accordion__title gamma">
+								Avgränsa sökningen							</span>
+						<div class="js-accordion__panel u-b-x-0 u-b-b-0">
+							<div class="o-accordion__panel__content background-ash-light u-p-b-0 u-border-bottom-left-radius u-border-bottom-right-radius">
+								<div class="o-filter__column">
+									<div class="omnibox-filter-content-wrapper">
+										<form id="searchFilter">
+											<div class="row">
+												<div class="grid-18 grid-md-auto">
+													<h2>Årskurs</h2>
+													<ul class="u-list-clean u-m-b-2">
+														<li>
+															<div class="checkbox">
+																<input type="checkbox"
+																	   aria-describedby="searchResultDescription"
+																	   id="arskurs-term-f-3"
+																	   name="arskurs"
+																	   value="f-3"
+																	   class="a-checkbox u-visuallyhidden term filter-term filter-term-enabled">
+																<label
+																	for="arskurs-term-f-3">åk F-3</label>
+															</div>
+														</li>
+														<li>
+															<div class="checkbox">
+																<input type="checkbox"
+																	   aria-describedby="searchResultDescription"
+																	   id="arskurs-term-4-6"
+																	   name="arskurs"
+																	   value="4-6"
+																	   class="a-checkbox u-visuallyhidden term filter-term filter-term-enabled">
+																<label
+																	for="arskurs-term-4-6">åk 4-6</label>
+															</div>
+														</li>
+														<li>
+															<div class="checkbox">
+																<input type="checkbox"
+																	   aria-describedby="searchResultDescription"
+																	   id="arskurs-term-7-9"
+																	   name="arskurs"
+																	   value="7-9"
+																	   class="a-checkbox u-visuallyhidden term filter-term filter-term-enabled">
+																<label
+																	for="arskurs-term-7-9">åk 7-9</label>
+															</div>
+														</li>
+													</ul>
+												</div>
+												<div class="grid-18 grid-md-auto">
+													<h2>Ämnesområde</h2>
+													<ul class="u-list-clean u-m-b-2">
+														<li>
+															<div class="checkbox">
+																<input type="checkbox"
+																	   aria-describedby="searchResultDescription"
+																	   id="amnesomrade-term-digital-kallkritik"
+																	   name="amnesomrade"
+																	   value="digital-kallkritik"
+																	   class="a-checkbox u-visuallyhidden term filter-term filter-term-enabled">
+																<label
+																	for="amnesomrade-term-digital-kallkritik">Källkritik</label>
+															</div>
+														</li>
+														<li>
+															<div class="checkbox">
+																<input type="checkbox"
+																	   aria-describedby="searchResultDescription"
+																	   id="amnesomrade-term-programmering"
+																	   name="amnesomrade"
+																	   value="programmering"
+																	   class="a-checkbox u-visuallyhidden term filter-term filter-term-enabled">
+																<label
+																	for="amnesomrade-term-programmering">Programmering</label>
+															</div>
+														</li>
+														<li>
+															<div class="checkbox">
+																<input type="checkbox"
+																	   aria-describedby="searchResultDescription"
+																	   id="amnesomrade-term-vardegrund"
+																	   name="amnesomrade"
+																	   value="vardegrund"
+																	   class="a-checkbox u-visuallyhidden term filter-term filter-term-enabled">
+																<label
+																	for="amnesomrade-term-vardegrund">Värdegrund</label>
+															</div>
+														</li>
+														<li>
+															<div class="checkbox">
+																<input type="checkbox"
+																	   aria-describedby="searchResultDescription"
+																	   id="amnesomrade-term-digitalisering"
+																	   name="amnesomrade"
+																	   value="digitalisering"
+																	   class="a-checkbox u-visuallyhidden term filter-term filter-term-enabled">
+																<label
+																	for="amnesomrade-term-digitalisering">Digitalisering</label>
+															</div>
+														</li>
+														<li>
+															<div class="checkbox">
+																<input type="checkbox"
+																	   aria-describedby="searchResultDescription"
+																	   id="amnesomrade-term-teknik"
+																	   name="amnesomrade"
+																	   value="teknik"
+																	   class="a-checkbox u-visuallyhidden term filter-term filter-term-enabled">
+																<label
+																	for="amnesomrade-term-teknik">Teknik</label>
+															</div>
+														</li>
+													</ul>
+												</div>
+												<div class="grid-18 grid-md-auto">
+													<h2>Skolämne</h2>
+													<ul class="u-list-clean u-m-b-2">
+														<li>
+															<div class="checkbox">
+																<input type="checkbox"
+																	   aria-describedby="searchResultDescription"
+																	   id="skolamne-term-bild"
+																	   name="skolamne"
+																	   value="bild"
+																	   class="a-checkbox u-visuallyhidden term filter-term filter-term-enabled">
+																<label
+																	for="skolamne-term-bild">Bild</label>
+															</div>
+														</li>
+														<li>
+															<div class="checkbox">
+																<input type="checkbox"
+																	   aria-describedby="searchResultDescription"
+																	   id="skolamne-term-biologi"
+																	   name="skolamne"
+																	   value="biologi"
+																	   class="a-checkbox u-visuallyhidden term filter-term filter-term-enabled">
+																<label
+																	for="skolamne-term-biologi">Biologi</label>
+															</div>
+														</li>
+														<li>
+															<div class="checkbox">
+																<input type="checkbox"
+																	   aria-describedby="searchResultDescription"
+																	   id="skolamne-term-idrott"
+																	   name="skolamne"
+																	   value="idrott"
+																	   class="a-checkbox u-visuallyhidden term filter-term filter-term-enabled">
+																<label
+																	for="skolamne-term-idrott">Idrott</label>
+															</div>
+														</li>
+														<li>
+															<div class="checkbox">
+																<input type="checkbox"
+																	   aria-describedby="searchResultDescription"
+																	   id="skolamne-term-matematik"
+																	   name="skolamne"
+																	   value="matematik"
+																	   class="a-checkbox u-visuallyhidden term filter-term filter-term-enabled">
+																<label
+																	for="skolamne-term-matematik">Matematik</label>
+															</div>
+														</li>
+														<li>
+															<div class="checkbox">
+																<input type="checkbox"
+																	   aria-describedby="searchResultDescription"
+																	   id="skolamne-term-samhallsorienterande-amnen"
+																	   name="skolamne"
+																	   value="samhallsorienterande-amnen"
+																	   class="a-checkbox u-visuallyhidden term filter-term filter-term-enabled">
+																<label
+																	for="skolamne-term-samhallsorienterande-amnen">Samhällsorienterande ämnen</label>
+															</div>
+														</li>
+														<li>
+															<div class="checkbox">
+																<input type="checkbox"
+																	   aria-describedby="searchResultDescription"
+																	   id="skolamne-term-svenska"
+																	   name="skolamne"
+																	   value="svenska"
+																	   class="a-checkbox u-visuallyhidden term filter-term filter-term-enabled">
+																<label
+																	for="skolamne-term-svenska">Svenska</label>
+															</div>
+														</li>
+														<li>
+															<div class="checkbox">
+																<input type="checkbox"
+																	   aria-describedby="searchResultDescription"
+																	   id="skolamne-term-teknik"
+																	   name="skolamne"
+																	   value="teknik"
+																	   class="a-checkbox u-visuallyhidden term filter-term filter-term-enabled">
+																<label
+																	for="skolamne-term-teknik">Teknik</label>
+															</div>
+														</li>
+														<li>
+															<div class="checkbox">
+																<input type="checkbox"
+																	   aria-describedby="searchResultDescription"
+																	   id="skolamne-term-vardegrund"
+																	   name="skolamne"
+																	   value="vardegrund"
+																	   class="a-checkbox u-visuallyhidden term filter-term filter-term-enabled">
+																<label
+																	for="skolamne-term-vardegrund">Värdegrund</label>
+															</div>
+														</li>
+													</ul>
+												</div>
+											</div>
+										</form>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+</div>
+
+<div class="wrapper u-p-b-4">
+	<div class="row">
+		<ul class="u-list-clean row align-content-stretch">
+			<li class="grid-18 grid-lg-9 display-flex align-items-stretch js-serie-list-item" id="serie-borja-forsta-kallkritik-f-3">
+				<div class="m-info-box u-b-0 u-m-b-0 u-b-solid u-b-ocean u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3  F-3">
+					<span class="a-meta">Lektionspaket</span>
+					<h2><a href="/lektionspaket/borja-forsta-kallkritik-f-3" class="u-link-normal color-cyberspace u-decoration-no-underline">Börja förstå källkritik | åk F-3</a></h2>
+					<p>Lektionerna introducerar begreppen källa och källkritik och uppmuntrar till samtal om att vad det innebär söka och värdera information på nätet.</p>
+
+					<div>
+						<p class="u-m-b-1 u-lower-case-capitalize-first"><em>Passar undervisning i Bild, Samhällsorienterande ämnen och Svenska.</em></p>
+						<strong>3 lektioner</strong>
+					</div>
+				</div>
+			</li>
+			<li class="grid-18 grid-lg-9 display-flex align-items-stretch js-serie-list-item" id="serie-koll-pa-kallkritik-4-6">
+				<div class="m-info-box u-b-0 u-m-b-0 u-b-solid u-b-jade u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3  4-6">
+					<span class="a-meta">Lektionspaket</span>
+					<h2><a href="/lektionspaket/koll-pa-kallkritik-4-6" class="u-link-normal color-cyberspace u-decoration-no-underline">Koll på källkritik | åk 4-6</a></h2>
+					<p>Lektioner där eleverna får fundera kring varför ett källkritiskt förhållningssätt är viktigt när man jämför, prövar och värderar trovärdigheten i olika källor.</p>
+
+					<div>
+						<p class="u-m-b-1 u-lower-case-capitalize-first"><em>Passar undervisning i Samhällsorienterande ämnen och Svenska.</em></p>
+						<strong>3 lektioner</strong>
+					</div>
+				</div>
+			</li>
+			<li class="grid-18 grid-lg-9 display-flex align-items-stretch js-serie-list-item" id="serie-introducera-kallkritik-7-9">
+				<div class="m-info-box u-b-0 u-m-b-0 u-b-solid u-b-peacock u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3  7-9">
+					<span class="a-meta">Lektionspaket</span>
+					<h2><a href="/lektionspaket/introducera-kallkritik-7-9" class="u-link-normal color-cyberspace u-decoration-no-underline">Introducera källkritik | åk 7-9</a></h2>
+					<p>Lektioner om digital källkritik där eleverna får träna sin förmåga att söka och värdera information från olika källor.</p>
+
+					<div>
+						<p class="u-m-b-1 u-lower-case-capitalize-first"><em>Passar undervisning i Bild, Samhällsorienterande ämnen, Svenska och Teknik.</em></p>
+						<strong>6 lektioner</strong>
+					</div>
+				</div>
+			</li>
+			<li class="grid-18 grid-lg-9 display-flex align-items-stretch js-serie-list-item" id="serie-nosa-pa-kallkritiska-fragor-f-3">
+				<div class="m-info-box u-b-0 u-m-b-0 u-b-solid u-b-ocean u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3  F-3">
+					<span class="a-meta">Lektionspaket</span>
+					<h2><a href="/lektionspaket/nosa-pa-kallkritiska-fragor-f-3" class="u-link-normal color-cyberspace u-decoration-no-underline">Nosa på källkritiska frågor | åk F-3</a></h2>
+					<p>Lektioner som introducerar eleverna för källkritiska frågor som vem, vad, när, hur och varför.</p>
+
+					<div>
+						<p class="u-m-b-1 u-lower-case-capitalize-first"><em>Passar undervisning i Bild, Samhällsorienterande ämnen och Svenska.</em></p>
+						<strong>4 lektioner</strong>
+					</div>
+				</div>
+			</li>
+			<li class="grid-18 grid-lg-9 display-flex align-items-stretch js-serie-list-item" id="serie-nosa-pa-kalltillit-f-3">
+				<div class="m-info-box u-b-0 u-m-b-0 u-b-solid u-b-ocean u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3  F-3">
+					<span class="a-meta">Lektionspaket</span>
+					<h2><a href="/lektionspaket/nosa-pa-kalltillit-f-3" class="u-link-normal color-cyberspace u-decoration-no-underline">Nosa på källtillit | åk F-3</a></h2>
+					<p>Lektioner som handlar om olika aspekter av källtillit. Om hur man kan förhålla sig till olika källor, vilka källor man litar på och varför.</p>
+
+					<div>
+						<p class="u-m-b-1 u-lower-case-capitalize-first"><em>Passar undervisning i Samhällsorienterande ämnen och Svenska.</em></p>
+						<strong>2 lektioner</strong>
+					</div>
+				</div>
+			</li>
+			<li class="grid-18 grid-lg-9 display-flex align-items-stretch js-serie-list-item" id="serie-grunderna-i-kallkritik-och-kalltillit-4-6">
+				<div class="m-info-box u-b-0 u-m-b-0 u-b-solid u-b-jade u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3  4-6">
+					<span class="a-meta">Lektionspaket</span>
+					<h2><a href="/lektionspaket/grunderna-i-kallkritik-och-kalltillit-4-6" class="u-link-normal color-cyberspace u-decoration-no-underline">Grunderna i källkritik och källtillit | åk 4-6</a></h2>
+					<p>Lektioner som ger förståelse för hur digitala källor snabbt kan förändras, om avsändare och budskap och om källtillit.</p>
+
+					<div>
+						<p class="u-m-b-1 u-lower-case-capitalize-first"><em>Passar undervisning i Bild, Samhällsorienterande ämnen och Svenska.</em></p>
+						<strong>3 lektioner</strong>
+					</div>
+				</div>
+			</li>
+			<li class="grid-18 grid-lg-9 display-flex align-items-stretch js-serie-list-item" id="serie-koll-pa-digitala-kallor-4-6">
+				<div class="m-info-box u-b-0 u-m-b-0 u-b-solid u-b-jade u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3  4-6">
+					<span class="a-meta">Lektionspaket</span>
+					<h2><a href="/lektionspaket/koll-pa-digitala-kallor-4-6" class="u-link-normal color-cyberspace u-decoration-no-underline">Koll på digitala källor | åk 4-6</a></h2>
+					<p>I ett källkritiskt förhållningssätt till digitala källor ingår att kunna granska och värdera både deras innehåll, format och i vilken kanal de presenteras.</p>
+
+					<div>
+						<p class="u-m-b-1 u-lower-case-capitalize-first"><em>Passar undervisning i Bild, Samhällsorienterande ämnen och Svenska.</em></p>
+						<strong>3 lektioner</strong>
+					</div>
+				</div>
+			</li>
+			<li class="grid-18 grid-lg-9 display-flex align-items-stretch js-serie-list-item" id="serie-fatta-fria-kallor-och-fejkade-sidor-7-9">
+				<div class="m-info-box u-b-0 u-m-b-0 u-b-solid u-b-peacock u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3  7-9">
+					<span class="a-meta">Lektionspaket</span>
+					<h2><a href="/lektionspaket/fatta-fria-kallor-och-fejkade-sidor-7-9" class="u-link-normal color-cyberspace u-decoration-no-underline">Fatta fria källor och fejkade sidor | åk 7-9</a></h2>
+					<p>Lektioner som utvecklar elevernas förmåga att kritiskt granska information och fakta från olika digitala källor, till exempel från konspirationsteorier.</p>
+
+					<div>
+						<p class="u-m-b-1 u-lower-case-capitalize-first"><em>Passar undervisning i Bild, Samhällsorienterande ämnen och Svenska.</em></p>
+						<strong>5 lektioner</strong>
+					</div>
+				</div>
+			</li>
+			<li class="grid-18 grid-lg-9 display-flex align-items-stretch js-serie-list-item" id="serie-introducera-kallkritik-och-kalltillit-7-9">
+				<div class="m-info-box u-b-0 u-m-b-0 u-b-solid u-b-peacock u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3  7-9">
+					<span class="a-meta">Lektionspaket</span>
+					<h2><a href="/lektionspaket/introducera-kallkritik-och-kalltillit-7-9" class="u-link-normal color-cyberspace u-decoration-no-underline">Introducera källkritik och källtillit | åk 7-9</a></h2>
+					<p>Informationsflödet på nätet är stort och föränderligt, ibland kan man snabbt behöva avgöra om en digital källa är trovärdig eller inte.</p>
+
+					<div>
+						<p class="u-m-b-1 u-lower-case-capitalize-first"><em>Passar undervisning i Samhällsorienterande ämnen, Svenska och Teknik.</em></p>
+						<strong>6 lektioner</strong>
+					</div>
+				</div>
+			</li>
+			<li class="grid-18 grid-lg-9 display-flex align-items-stretch js-serie-list-item" id="serie-undersok-granska-och-anvand-digitala-kallor-7-9">
+				<div class="m-info-box u-b-0 u-m-b-0 u-b-solid u-b-peacock u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3  7-9">
+					<span class="a-meta">Lektionspaket</span>
+					<h2><a href="/lektionspaket/undersok-granska-och-anvand-digitala-kallor-7-9" class="u-link-normal color-cyberspace u-decoration-no-underline">Undersök, granska och använd digitala källor | åk 7-9</a></h2>
+					<p>Källkritik som del av digitala kompetens handlar om ett kritiskt och ansvarsfullt förhållningssätt till digitala källor som både konsument och producent.</p>
+
+					<div>
+						<p class="u-m-b-1 u-lower-case-capitalize-first"><em>Passar undervisning i Bild, Samhällsorienterande ämnen och Svenska.</em></p>
+						<strong>4 lektioner</strong>
+					</div>
+				</div>
+			</li>
+		</ul>
+	</div>
+</div>
+
+<div class="wrapper-fluid">
+	<footer class="o-footer" id="siteFooter">
+		<div class="row">
+			<div class="grid-18 o-footer__info">
+				<div class="row">
+					<div class="grid-18 grid-lg-9 display-flex align-items-stretch o-footer__info__freetext">
+						<p>Digitala lektioner är en kostnadsfri lärresurs från <a href="https://internetstiftelsen.se/" class="u-decoration-underline">Internetstiftelsen</a> med lektioner och material som täcker allt som rör digital kompetens och programmering i grundskolan. Internetstiftelsen är en oberoende, affärsdriven och allmännyttig organisation. Vi verkar för ett internet som bidrar positivt till människan och samhället. Vi ansvarar för internets svenska toppdomän .se och sköter drift och administration av toppdomänen .nu. Intäkterna från affärsverksamheten finansierar en rad satsningar i syfte att möjliggöra att människor kan nyttja internet på bästa sätt, och stimulera kunskapsdelning och innovation med inriktning på internet.</p>
+					</div>
+					<div class="grid-18 grid-lg-9 display-flex align-items-stretch o-footer__info__contact">
+						<div class="row o-footer__info__contact__row-first">
+							<div class="grid-md-9 grid-lg-18 grid-xl-9 grid-18 o-footer__info__address1">
+								<ul class="u-list-clean o-footer__info__contact__address">
+									<li class="o-footer__info__contact__address__li">Internetstiftelsen</li>
+									<li class="o-footer__info__contact__address__li">Hammarby Kaj 10D</li>
+									<li class="o-footer__info__contact__address__li">Box 92073</li>
+									<li class="o-footer__info__contact__address__li">120 07 Stockholm</li>
+								</ul>
+							</div>
+							<div class="grid-md-9 grid-lg-18 grid-xl-9 grid-18 o-footer__info__address2">
+								<ul class="u-list-clean o-footer__info__contact__address">
+									<li class="o-footer__info__contact__address__li">E-post: <a class="o-footer__link" href="mailto:info@internetstiftelsen.se">info@internetstiftelsen.se</a></li>
+									<li class="o-footer__info__contact__address__li">Telefon: <a class="o-footer__link" href="tel:084523500">08-452 35 00</a></li>
+									<li class="o-footer__info__contact__address__li">Organisationsnummer: 802405-0190</li>
+								</ul>
+							</div>
+						</div>
+						<div class="row o-footer__info__contact__row-second">
+							<div class="grid-19 grid-md-9 o-footer__info__ISO">
+								<a href="https://internetstiftelsen.se/docs/Certifikat_27001_UKAS_sv.pdf" class="o-footer__link o-footer__external-link">
+									<img src="https://internetstiftelsen.se/app/themes/internetstiftelsen/images/ISO_27001_2013_black_TM.svg" class="o-footer__external-logo" alt="Certifierade enligt ISO/IEC 27001:2013">
+									<span>Certifierade enligt ISO/IEC<br>27001:2013</span>
+								</a>
+							</div>
+							<div class="grid-19 grid-md-9 o-footer__info__CC">
+								<a href="https://creativecommons.org/licenses/by-sa/4.0/deed.sv" class="o-footer__link o-footer__external-link" target="_blank" rel="noopener noreferrer">
+									<picture>
+										<source type="image/webp" srcset="https://digitalalektioner.se/app/uploads/2021/12/ccbysa.png.webp">
+										<img src="https://digitalalektioner.se/app/uploads/2021/12/ccbysa.png" alt="Erkännande-DelaLika<br>4.0 Internationell" class="o-footer__external-logo o-footer__external-logo--cc">
+									</picture>
+
+									<span>Erkännande-DelaLika<br>4.0 Internationell</span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</footer>
+</div>
