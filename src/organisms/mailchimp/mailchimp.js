@@ -1,4 +1,7 @@
 import debounce from '../../assets/js/debounce';
+import hasCookieConsent from '../../assets/js/hasCookieConsent';
+
+let consent = hasCookieConsent('C0003');
 
 const slidingForm = document.querySelector('[class*="--sliding"]');
 const staticForm = document.querySelector('[class*="--static"]');
@@ -79,7 +82,7 @@ function slideForm() {
 }
 
 const elementIsInViewport = debounce(() => {
-	if (slidingForm) {
+	if (consent && slidingForm) {
 		slideForm();
 	}
 }, throttle);
@@ -87,6 +90,8 @@ const elementIsInViewport = debounce(() => {
 window.addEventListener('scroll', () => {
 	elementIsInViewport();
 });
+
+
 function closeForm() {
 	setCookie(cookieName, 'YES', 7);
 	slidingForm.classList.remove(visibleClass);

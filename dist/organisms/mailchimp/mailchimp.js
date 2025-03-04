@@ -4,7 +4,13 @@ var _debounce = require('../../assets/js/debounce');
 
 var _debounce2 = _interopRequireDefault(_debounce);
 
+var _hasCookieConsent = require('../../assets/js/hasCookieConsent');
+
+var _hasCookieConsent2 = _interopRequireDefault(_hasCookieConsent);
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var consent = (0, _hasCookieConsent2.default)('C0003');
 
 var slidingForm = document.querySelector('[class*="--sliding"]');
 var staticForm = document.querySelector('[class*="--static"]');
@@ -82,7 +88,7 @@ function slideForm() {
 }
 
 var elementIsInViewport = (0, _debounce2.default)(function () {
-	if (slidingForm) {
+	if (consent && slidingForm) {
 		slideForm();
 	}
 }, throttle);
@@ -90,6 +96,7 @@ var elementIsInViewport = (0, _debounce2.default)(function () {
 window.addEventListener('scroll', function () {
 	elementIsInViewport();
 });
+
 function closeForm() {
 	setCookie(cookieName, 'YES', 7);
 	slidingForm.classList.remove(visibleClass);
