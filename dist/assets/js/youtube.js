@@ -18,6 +18,7 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
 
 // TODO: Should probably implement a way to localize texts in the styleguide
 var consent = (0, _hasCookieConsent2.default)('C0004');
+
 var missingConsentMessage = 'För att spela Youtubefilmer krävs att "Riktade kakor" tillåts. Tryck för att "Anpassa kakor"';
 
 function loadYoutubeAPI() {
@@ -71,6 +72,7 @@ function createConsentWarning(el) {
 }
 
 function destroyConsentWarning(el) {
+	loadYoutubeAPI();
 	var div = el.querySelector('[data-youtube-consent-warning]');
 
 	if (div) {
@@ -182,11 +184,9 @@ window.onYouTubeIframeAPIReady = function () {
 };
 
 setupPlayers(document);
-loadYoutubeAPI();
 
 window.addEventListener('consent.onetrust', function (e) {
 	consent = e.detail.includes('C0004');
 
 	setupPlayers(document);
-	loadYoutubeAPI();
 });
