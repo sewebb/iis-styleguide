@@ -1,5 +1,7 @@
 'use strict';
 
+require('./assets/js/readSpeakerHandling');
+
 require('./molecules/form');
 
 require('./atoms/textarea/rich-text');

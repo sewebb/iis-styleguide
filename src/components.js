@@ -1,3 +1,4 @@
+import './assets/js/readSpeakerHandling';
 import './molecules/form';
 import './atoms/textarea/rich-text';
 import './atoms/password-toggle/password-toggle';
