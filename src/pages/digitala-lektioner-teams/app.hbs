@@ -51,7 +51,7 @@
 									<div class="omnibox-filter-content-wrapper">
 										<form id="searchFilter">
 											<div class="row">
-												<div class="grid-18 grid-md-auto">
+												<div class="grid-18 grid-md-auto u-m-r-2">
 													<h2>Årskurs</h2>
 													<ul class="u-list-clean u-m-b-2">
 														<li>
@@ -92,7 +92,7 @@
 														</li>
 													</ul>
 												</div>
-												<div class="grid-18 grid-md-auto">
+												<div class="grid-18 grid-md-auto u-m-r-2">
 													<h2>Ämnesområde</h2>
 													<ul class="u-list-clean u-m-b-2">
 														<li>
@@ -157,7 +157,7 @@
 														</li>
 													</ul>
 												</div>
-												<div class="grid-18 grid-md-auto">
+												<div class="grid-18 grid-md-auto u-m-r-2">
 													<h2>Skolämne</h2>
 													<ul class="u-list-clean u-m-b-2">
 														<li>
@@ -220,6 +220,11 @@
 																	for="skolamne-term-samhallsorienterande-amnen">Samhällsorienterande ämnen</label>
 															</div>
 														</li>
+													</ul>
+												</div>
+												<div class="grid-18 grid-md-auto u-m-r-2">
+													<h2 class="u-visibility-hidden">Skolämne</h2>
+													<ul class="u-list-clean u-m-b-2">
 														<li>
 															<div class="checkbox">
 																<input type="checkbox"
@@ -271,128 +276,141 @@
 	</div>
 
 </div>
+<style>
+	[aria-hidden="true"] {
+		display: none;
+	}
 
+	[role="button"] {
+		cursor: pointer;
+	}
+</style>
 <div class="wrapper u-p-b-4">
 	<div class="row">
 		<ul class="u-list-clean row align-content-stretch">
-			<li class="grid-18 grid-lg-9 display-flex align-items-stretch">
-				<div class="m-info-box display-flex flex-column u-flex-grow-1 u-b-0 u-m-b-0 u-b-solid u-b-ocean u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3">
+			<li class="grid-18 grid-lg-9">
+				<div role="button" class="m-info-box display-flex flex-column u-flex-grow-1 u-b-0 u-m-b-0 u-b-solid u-b-ocean u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3" aria-expanded="false" data-toggle-icon-target="lektionspaket-1-icon" data-toggle-icon="arrow-down|close" data-a11y-toggle="lektionspaket-1" aria-controls="lektionspaket-1">
 					<span class="a-meta">Lektionspaket</span>
-					<h2><a href="/lektionspaket/borja-forsta-kallkritik-f-3" class="u-link-normal color-cyberspace u-decoration-no-underline">Börja förstå källkritik | åk F-3</a></h2>
+					<h2>Börja förstå källkritik | åk F-3</h2>
 					<p>Lektionerna introducerar begreppen källa och källkritik och uppmuntrar till samtal om att vad det innebär söka och värdera information på nätet.</p>
 
 					<div>
 						<p class="u-m-b-1 u-lower-case-capitalize-first"><em>Passar undervisning i Bild, Samhällsorienterande ämnen och Svenska.</em></p>
-						<strong>3 lektioner</strong>
+						<strong class="display-flex align-items-center">
+							<span class="u-m-r-1">3 lektioner</span>
+							<svg class="icon u-icon" id="lektionspaket-1-icon">
+								<use xlink:href="#icon-arrow-down"></use>
+							</svg>
+						</strong>
+					</div>
+					<div id="lektionspaket-1">
+						<div class="m-info-box display-flex flex-column u-flex-grow-1 u-box-shadow u-b-0 u-m-b-0 u-b-solid u-b-ocean u-m-b-2 u-m-t-2 u-b-t-4 u-p-y-2 u-p-x-3">
+							<span class="a-meta">Lektion</span>
+							<h2><a href="/lektionspaket/nosa-pa-kalltillit-f-3" class="u-link-normal color-cyberspace u-decoration-no-underline">Nosa på källkritik | åk F-3</a></h2>
+							<p>Lektioner som handlar om olika aspekter av källtillit. Om hur man kan förhålla sig till olika källor, vilka källor man litar på och varför.</p>
+						</div>
+						<div class="m-info-box display-flex flex-column u-flex-grow-1 u-box-shadow u-b-0 u-m-b-0 u-b-solid u-b-ocean u-m-b-2 u-m-t-2 u-b-t-4 u-p-y-2 u-p-x-3">
+							<span class="a-meta">Lektion</span>
+							<h2><a href="/lektionspaket/nosa-pa-kalltillit-f-3" class="u-link-normal color-cyberspace u-decoration-no-underline">Nosa på källkritiska frågor | åk F-3</a></h2>
+							<p>Lektioner som handlar om olika aspekter av källtillit. Om hur man kan förhålla sig till olika källor, vilka källor man litar på och varför.</p>
+						</div>
+						<div class="m-info-box display-flex flex-column u-flex-grow-1 u-box-shadow u-b-0 u-m-b-0 u-b-solid u-b-ocean u-m-b-2 u-m-t-2 u-b-t-4 u-p-y-2 u-p-x-3">
+							<span class="a-meta">Lektion</span>
+							<h2><a href="/lektionspaket/nosa-pa-kalltillit-f-3" class="u-link-normal color-cyberspace u-decoration-no-underline">Nosa på källtillit | åk F-3</a></h2>
+							<p>Lektioner som handlar om olika aspekter av källtillit. Om hur man kan förhålla sig till olika källor, vilka källor man litar på och varför.</p>
+						</div>
 					</div>
 				</div>
 			</li>
-			<li class="grid-18 grid-lg-9 display-flex align-items-stretch">
-				<div class="m-info-box display-flex flex-column u-flex-grow-1 u-b-0 u-m-b-0 u-b-solid u-b-jade u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3">
+			<li class="grid-18 grid-lg-9">
+				<div role="button" class="m-info-box display-flex flex-column u-flex-grow-1 u-b-0 u-m-b-0 u-b-solid u-b-jade u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3" aria-expanded="false" data-toggle-icon-target="lektionspaket-2-icon" data-toggle-icon="arrow-down|close" data-a11y-toggle="lektionspaket-2" aria-controls="lektionspaket-2">
 					<span class="a-meta">Lektionspaket</span>
 					<h2><a href="/lektionspaket/koll-pa-kallkritik-4-6" class="u-link-normal color-cyberspace u-decoration-no-underline">Koll på källkritik | åk 4-6</a></h2>
 					<p>Lektioner där eleverna får fundera kring varför ett källkritiskt förhållningssätt är viktigt när man jämför, prövar och värderar trovärdigheten i olika källor.</p>
 
 					<div>
 						<p class="u-m-b-1 u-lower-case-capitalize-first"><em>Passar undervisning i Samhällsorienterande ämnen och Svenska.</em></p>
-						<strong>3 lektioner</strong>
+						<strong class="display-flex align-items-center">
+							<span class="u-m-r-1">3 lektioner</span>
+							<svg class="icon u-icon" id="lektionspaket-2-icon">
+								<use xlink:href="#icon-arrow-down"></use>
+							</svg>
+						</strong>
+					</div>
+					<div id="lektionspaket-2">
+						<div class="m-info-box display-flex flex-column u-flex-grow-1 u-box-shadow u-b-0 u-m-b-0 u-b-solid u-b-jade u-m-b-2 u-m-t-2 u-b-t-4 u-p-y-2 u-p-x-3">
+							<span class="a-meta">Lektion</span>
+							<h2><a href="/lektionspaket/nosa-pa-kalltillit-f-3" class="u-link-normal color-cyberspace u-decoration-no-underline">Nosa på källkritik | åk 4-6</a></h2>
+							<p>Lektioner som handlar om olika aspekter av källtillit. Om hur man kan förhålla sig till olika källor, vilka källor man litar på och varför.</p>
+						</div>
+						<div class="m-info-box display-flex flex-column u-flex-grow-1 u-box-shadow u-b-0 u-m-b-0 u-b-solid u-b-jade u-m-b-2 u-m-t-2 u-b-t-4 u-p-y-2 u-p-x-3">
+							<span class="a-meta">Lektion</span>
+							<h2><a href="/lektionspaket/nosa-pa-kalltillit-f-3" class="u-link-normal color-cyberspace u-decoration-no-underline">Nosa på källkritiska frågor | åk 4-6</a></h2>
+							<p>Lektioner som handlar om olika aspekter av källtillit. Om hur man kan förhålla sig till olika källor, vilka källor man litar på och varför.</p>
+						</div>
+						<div class="m-info-box display-flex flex-column u-flex-grow-1 u-box-shadow u-b-0 u-m-b-0 u-b-solid u-b-jade u-m-b-2 u-m-t-2 u-b-t-4 u-p-y-2 u-p-x-3">
+							<span class="a-meta">Lektion</span>
+							<h2><a href="/lektionspaket/nosa-pa-kalltillit-f-3" class="u-link-normal color-cyberspace u-decoration-no-underline">Nosa på källtillit | åk 4-6</a></h2>
+							<p>Lektioner som handlar om olika aspekter av källtillit. Om hur man kan förhålla sig till olika källor, vilka källor man litar på och varför.</p>
+						</div>
 					</div>
 				</div>
 			</li>
-			<li class="grid-18 grid-lg-9 display-flex align-items-stretch">
+			<li class="grid-18 grid-lg-9">
 				<div class="m-info-box display-flex flex-column u-flex-grow-1 u-b-0 u-m-b-0 u-b-solid u-b-peacock u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3">
-					<span class="a-meta">Lektionspaket</span>
+					<span class="a-meta">Lektion</span>
 					<h2><a href="/lektionspaket/introducera-kallkritik-7-9" class="u-link-normal color-cyberspace u-decoration-no-underline">Introducera källkritik | åk 7-9</a></h2>
 					<p>Lektioner om digital källkritik där eleverna får träna sin förmåga att söka och värdera information från olika källor.</p>
-
-					<div>
-						<p class="u-m-b-1 u-lower-case-capitalize-first"><em>Passar undervisning i Bild, Samhällsorienterande ämnen, Svenska och Teknik.</em></p>
-						<strong>6 lektioner</strong>
-					</div>
 				</div>
 			</li>
-			<li class="grid-18 grid-lg-9 display-flex align-items-stretch">
+			<li class="grid-18 grid-lg-9">
 				<div class="m-info-box display-flex flex-column u-flex-grow-1 u-b-0 u-m-b-0 u-b-solid u-b-ocean u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3">
-					<span class="a-meta">Lektionspaket</span>
+					<span class="a-meta">Lektion</span>
 					<h2><a href="/lektionspaket/nosa-pa-kallkritiska-fragor-f-3" class="u-link-normal color-cyberspace u-decoration-no-underline">Nosa på källkritiska frågor | åk F-3</a></h2>
 					<p>Lektioner som introducerar eleverna för källkritiska frågor som vem, vad, när, hur och varför.</p>
-
-					<div>
-						<p class="u-m-b-1 u-lower-case-capitalize-first"><em>Passar undervisning i Bild, Samhällsorienterande ämnen och Svenska.</em></p>
-						<strong>4 lektioner</strong>
-					</div>
 				</div>
 			</li>
-			<li class="grid-18 grid-lg-9 display-flex align-items-stretch">
+			<li class="grid-18 grid-lg-9">
 				<div class="m-info-box display-flex flex-column u-flex-grow-1 u-b-0 u-m-b-0 u-b-solid u-b-ocean u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3">
-					<span class="a-meta">Lektionspaket</span>
+					<span class="a-meta">Lektion</span>
 					<h2><a href="/lektionspaket/nosa-pa-kalltillit-f-3" class="u-link-normal color-cyberspace u-decoration-no-underline">Nosa på källtillit | åk F-3</a></h2>
 					<p>Lektioner som handlar om olika aspekter av källtillit. Om hur man kan förhålla sig till olika källor, vilka källor man litar på och varför.</p>
-
-					<div>
-						<p class="u-m-b-1 u-lower-case-capitalize-first"><em>Passar undervisning i Samhällsorienterande ämnen och Svenska.</em></p>
-						<strong>2 lektioner</strong>
-					</div>
 				</div>
 			</li>
-			<li class="grid-18 grid-lg-9 display-flex align-items-stretch">
+			<li class="grid-18 grid-lg-9">
 				<div class="m-info-box display-flex flex-column u-flex-grow-1 u-b-0 u-m-b-0 u-b-solid u-b-jade u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3">
-					<span class="a-meta">Lektionspaket</span>
+					<span class="a-meta">Lektion</span>
 					<h2><a href="/lektionspaket/grunderna-i-kallkritik-och-kalltillit-4-6" class="u-link-normal color-cyberspace u-decoration-no-underline">Grunderna i källkritik och källtillit | åk 4-6</a></h2>
 					<p>Lektioner som ger förståelse för hur digitala källor snabbt kan förändras, om avsändare och budskap och om källtillit.</p>
-
-					<div>
-						<p class="u-m-b-1 u-lower-case-capitalize-first"><em>Passar undervisning i Bild, Samhällsorienterande ämnen och Svenska.</em></p>
-						<strong>3 lektioner</strong>
-					</div>
 				</div>
 			</li>
-			<li class="grid-18 grid-lg-9 display-flex align-items-stretch">
+			<li class="grid-18 grid-lg-9">
 				<div class="m-info-box display-flex flex-column u-flex-grow-1 u-b-0 u-m-b-0 u-b-solid u-b-jade u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3">
-					<span class="a-meta">Lektionspaket</span>
+					<span class="a-meta">Lektion</span>
 					<h2><a href="/lektionspaket/koll-pa-digitala-kallor-4-6" class="u-link-normal color-cyberspace u-decoration-no-underline">Koll på digitala källor | åk 4-6</a></h2>
 					<p>I ett källkritiskt förhållningssätt till digitala källor ingår att kunna granska och värdera både deras innehåll, format och i vilken kanal de presenteras.</p>
-
-					<div>
-						<p class="u-m-b-1 u-lower-case-capitalize-first"><em>Passar undervisning i Bild, Samhällsorienterande ämnen och Svenska.</em></p>
-						<strong>3 lektioner</strong>
-					</div>
 				</div>
 			</li>
-			<li class="grid-18 grid-lg-9 display-flex align-items-stretch">
+			<li class="grid-18 grid-lg-9">
 				<div class="m-info-box display-flex flex-column u-flex-grow-1 u-b-0 u-m-b-0 u-b-solid u-b-peacock u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3">
-					<span class="a-meta">Lektionspaket</span>
+					<span class="a-meta">Lektion</span>
 					<h2><a href="/lektionspaket/fatta-fria-kallor-och-fejkade-sidor-7-9" class="u-link-normal color-cyberspace u-decoration-no-underline">Fatta fria källor och fejkade sidor | åk 7-9</a></h2>
 					<p>Lektioner som utvecklar elevernas förmåga att kritiskt granska information och fakta från olika digitala källor, till exempel från konspirationsteorier.</p>
-
-					<div>
-						<p class="u-m-b-1 u-lower-case-capitalize-first"><em>Passar undervisning i Bild, Samhällsorienterande ämnen och Svenska.</em></p>
-						<strong>5 lektioner</strong>
-					</div>
 				</div>
 			</li>
-			<li class="grid-18 grid-lg-9 display-flex align-items-stretch">
+			<li class="grid-18 grid-lg-9">
 				<div class="m-info-box display-flex flex-column u-flex-grow-1 u-b-0 u-m-b-0 u-b-solid u-b-peacock u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3">
-					<span class="a-meta">Lektionspaket</span>
+					<span class="a-meta">Lektion</span>
 					<h2><a href="/lektionspaket/introducera-kallkritik-och-kalltillit-7-9" class="u-link-normal color-cyberspace u-decoration-no-underline">Introducera källkritik och källtillit | åk 7-9</a></h2>
 					<p>Informationsflödet på nätet är stort och föränderligt, ibland kan man snabbt behöva avgöra om en digital källa är trovärdig eller inte.</p>
-
-					<div>
-						<p class="u-m-b-1 u-lower-case-capitalize-first"><em>Passar undervisning i Samhällsorienterande ämnen, Svenska och Teknik.</em></p>
-						<strong>6 lektioner</strong>
-					</div>
 				</div>
 			</li>
-			<li class="grid-18 grid-lg-9 display-flex align-items-stretch">
+			<li class="grid-18 grid-lg-9">
 				<div class="m-info-box display-flex flex-column u-flex-grow-1 u-b-0 u-m-b-0 u-b-solid u-b-peacock u-m-b-2 u-m-t-0 u-b-t-4 u-p-y-2 u-p-x-3">
-					<span class="a-meta">Lektionspaket</span>
+					<span class="a-meta">Lektion</span>
 					<h2><a href="/lektionspaket/undersok-granska-och-anvand-digitala-kallor-7-9" class="u-link-normal color-cyberspace u-decoration-no-underline">Undersök, granska och använd digitala källor | åk 7-9</a></h2>
 					<p>Källkritik som del av digitala kompetens handlar om ett kritiskt och ansvarsfullt förhållningssätt till digitala källor som både konsument och producent.</p>
 
-					<div>
-						<p class="u-m-b-1 u-lower-case-capitalize-first"><em>Passar undervisning i Bild, Samhällsorienterande ämnen och Svenska.</em></p>
-						<strong>4 lektioner</strong>
-					</div>
 				</div>
 			</li>
 		</ul>
