@@ -123,5 +123,50 @@
 				margin-top: 0;
 			}
 		}
+
+		@include bem.e(info-box) {
+			height:calc( 100% - func.rhythm(4));
+			margin-top: 0;
+
+			@include breakpoint.bp-up(lg) {
+				margin-bottom: 0;
+			}
+
+			ol {
+				list-style-type: none;
+				counter-reset: list-counter;
+				padding-left: 0;
+
+				li {
+					padding-left: func.rhythm(5);
+					margin-bottom: func.rhythm(1);
+					position: relative;
+
+					* {
+						display: inline;
+					}
+
+					&::before {
+						content: counter(list-counter);
+						counter-increment: list-counter;
+						display: inline-flex;
+						margin-right: func.rhythm(2);
+						background-color: colors.$color-ruby;
+						color: colors.$color-snow;
+						width: var.$icon-size-large;
+						height: var.$icon-size-large;
+						flex-grow: 0;
+						flex-shrink: 0;
+						border-radius: 50%;
+						align-items: center;
+						justify-content: center;
+						line-height: 1;
+						position: absolute;
+						top: func.to_rem(4px);
+						left: 0;
+					}
+				}
+			}
+		}
 	}
 }
