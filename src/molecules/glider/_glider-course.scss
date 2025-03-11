@@ -125,7 +125,6 @@
 		}
 
 		@include bem.e(info-box) {
-			height:calc( 100% - func.rhythm(4));
 			margin-top: 0;
 
 			@include breakpoint.bp-up(lg) {
