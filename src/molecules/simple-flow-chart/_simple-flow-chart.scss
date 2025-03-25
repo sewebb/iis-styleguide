@@ -1,0 +1,60 @@
+@charset "UTF-8";
+@use "sass:math";
+@use "sass:color";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/config' as config;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../configurations/colors/colors-functions' as colorFunc;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/grid/grid' as grid;
+
+@include mixin.molecule(simple-flow-chart) {
+	list-style: none;
+	margin:0 ;
+	padding: 0;
+
+	@include bem.m(jade) {
+		background: rgb(45,137,122);
+		background: linear-gradient(180deg, rgba(45,137,122,1) 0%, rgba(208,240,234,1) 100%);
+	}
+
+	@include bem.e(item) {
+		padding: func.rhythm(3) func.rhythm(2);
+		position: relative;
+		text-align: center;
+		font-family: var.$font-family-headings;
+		font-size: calc(var.$size-base * 1.5);
+
+		& + & {
+			border-top: func.rhythm(1) solid colors.$color-snow;
+		}
+
+		&::after {
+			top: 100%;
+			left: 50%;
+			border: solid transparent;
+			content: '';
+			height: 0;
+			width: 0;
+			position: absolute;
+			pointer-events: none;
+			border-color: rgba(255, 255, 255, 0);
+			border-top-color: #ffffff;
+			border-width: func.rhythm(3) func.rhythm(5) 0 func.rhythm(5);
+			transform: translateX(-50%);
+		}
+
+		&:first-child {
+			color: colors.$color-snow;
+		}
+
+		&:last-child {
+			&::after {
+				display: none;
+			}
+		}
+	}
+}
