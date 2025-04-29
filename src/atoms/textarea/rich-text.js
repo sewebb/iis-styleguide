@@ -3,6 +3,8 @@ import Document from '@tiptap/extension-document';
 import Paragraph from '@tiptap/extension-paragraph';
 import Text from '@tiptap/extension-text';
 import BulletList from '@tiptap/extension-bullet-list';
+import OrderedList from '@tiptap/extension-ordered-list';
+import Heading from '@tiptap/extension-heading'
 import ListItem from '@tiptap/extension-list-item';
 import Bold from '@tiptap/extension-bold';
 import Italic from '@tiptap/extension-italic';
@@ -21,6 +23,26 @@ function kebabToCamel(str) {
 
 function kebabToPascal(str) {
 	return str.replace(/(^\w|-\w)/g, clearAndCapitalize);
+}
+
+function insertHeading(button, editor) {
+
+	const levelAttr = button.dataset.richTextControl;
+
+	const level = parseInt(levelAttr.replace('heading-', ''), 10);
+
+	editor.commands.toggleHeading({ level });
+
+	const toolbar = button.parentElement; // The toolbar div
+	const headingButtons = toolbar.querySelectorAll('button[data-rich-text-control^="heading-"]');
+
+	headingButtons.forEach(btn => {
+		btn.classList.remove('is-active');
+	});
+
+	if (editor.isActive('heading', { level })) {
+		button.classList.add('is-active');
+	}
 }
 
 function insertLink(el, editor) {
@@ -97,6 +119,8 @@ function createToolbarButton(el, control, editor) {
 
 		if (control === 'link') {
 			insertLink(el, editor);
+		} else if(control === 'heading-2' || control === 'heading-3') {
+			insertHeading(button, editor);
 		} else {
 			const method = `toggle${kebabToPascal(control)}`;
 
@@ -130,7 +154,7 @@ function createToolbar(el, editor) {
 
 	el.parentNode.insertBefore(toolbar, el);
 
-	['bold', 'italic', 'link', 'bullet-list'].forEach((control) => {
+	['heading-2', 'heading-3', 'bold', 'italic', 'link', 'bullet-list', 'ordered-list'].forEach((control) => {
 		createToolbarButton(toolbar, control, editor);
 	});
 }
@@ -153,6 +177,10 @@ export function setupTextArea(el, onChange = () => {}) {
 			Text,
 			ListItem,
 			BulletList,
+			OrderedList,
+			Heading.configure({
+				levels: [2, 3],
+			}),
 			Bold,
 			Italic,
 			Link.configure({
