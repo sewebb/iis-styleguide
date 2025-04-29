@@ -137,15 +137,6 @@ dl {
 	);
 }
 
-ul,
-ol,
-dl {
-	+ h2,
-	+ .beta {
-		margin-top: func.rhythm(2.5);
-	}
-}
-
 .small,
 small {
 	@include plumber.plumber(
