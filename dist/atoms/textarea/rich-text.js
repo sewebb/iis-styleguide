@@ -24,6 +24,14 @@ var _extensionBulletList = require('@tiptap/extension-bullet-list');
 
 var _extensionBulletList2 = _interopRequireDefault(_extensionBulletList);
 
+var _extensionOrderedList = require('@tiptap/extension-ordered-list');
+
+var _extensionOrderedList2 = _interopRequireDefault(_extensionOrderedList);
+
+var _extensionHeading = require('@tiptap/extension-heading');
+
+var _extensionHeading2 = _interopRequireDefault(_extensionHeading);
+
 var _extensionListItem = require('@tiptap/extension-list-item');
 
 var _extensionListItem2 = _interopRequireDefault(_extensionListItem);
@@ -60,6 +68,26 @@ function kebabToCamel(str) {
 
 function kebabToPascal(str) {
 	return str.replace(/(^\w|-\w)/g, clearAndCapitalize);
+}
+
+function insertHeading(button, editor) {
+
+	var levelAttr = button.dataset.richTextControl;
+
+	var level = parseInt(levelAttr.replace('heading-', ''), 10);
+
+	editor.commands.toggleHeading({ level: level });
+
+	var toolbar = button.parentElement; // The toolbar div
+	var headingButtons = toolbar.querySelectorAll('button[data-rich-text-control^="heading-"]');
+
+	headingButtons.forEach(function (btn) {
+		btn.classList.remove('is-active');
+	});
+
+	if (editor.isActive('heading', { level: level })) {
+		button.classList.add('is-active');
+	}
 }
 
 function insertLink(el, editor) {
@@ -126,6 +154,8 @@ function createToolbarButton(el, control, editor) {
 
 		if (control === 'link') {
 			insertLink(el, editor);
+		} else if (control === 'heading-2' || control === 'heading-3') {
+			insertHeading(button, editor);
 		} else {
 			var method = 'toggle' + kebabToPascal(control);
 
@@ -135,17 +165,33 @@ function createToolbarButton(el, control, editor) {
 }
 
 function toogleButtonState(editor, el) {
-	[].forEach.call(el.parentNode.querySelectorAll('[data-rich-text-control]'), function (control) {
-		if (editor.isActive(control.value)) {
-			control.classList.add('is-active');
-		} else {
-			control.classList.remove('is-active');
+	var buttons = el.parentNode.querySelectorAll('[data-rich-text-control]');
+
+	buttons.forEach(function (button) {
+		var control = button.getAttribute('data-rich-text-control');
+		var value = kebabToCamel(control);
+
+		// 🧠 Handle heading separately
+		if (control === 'heading-2' || control === 'heading-3') {
+			var level = parseInt(control.replace('heading-', ''), 10);
+			if (editor.isActive('heading', { level: level })) {
+				button.classList.add('is-active');
+			} else {
+				button.classList.remove('is-active');
+			}
+			return;
 		}
 
-		if (control.value === 'link' && editor.view.state.selection.empty) {
-			control.disabled = true;
-		} else if (control.value === 'link') {
-			control.disabled = false;
+		// 🔠 Handle all others like bold, italic, bullet-list, etc.
+		if (editor.isActive(value)) {
+			button.classList.add('is-active');
+		} else {
+			button.classList.remove('is-active');
+		}
+
+		// 🔗 Special logic for link
+		if (value === 'link') {
+			button.disabled = editor.view.state.selection.empty;
 		}
 	});
 }
@@ -157,7 +203,7 @@ function createToolbar(el, editor) {
 
 	el.parentNode.insertBefore(toolbar, el);
 
-	['bold', 'italic', 'link', 'bullet-list'].forEach(function (control) {
+	['heading-2', 'heading-3', 'bold', 'italic', 'link', 'bullet-list', 'ordered-list'].forEach(function (control) {
 		createToolbarButton(toolbar, control, editor);
 	});
 }
@@ -174,7 +220,9 @@ function setupTextArea(el) {
 	var editorEl = document.createElement('div');
 	var editor = new _core.Editor({
 		element: editorEl,
-		extensions: [_extensionDocument2.default, _extensionParagraph2.default, _extensionText2.default, _extensionListItem2.default, _extensionBulletList2.default, _extensionBold2.default, _extensionItalic2.default, _extensionLink.Link.configure({
+		extensions: [_extensionDocument2.default, _extensionParagraph2.default, _extensionText2.default, _extensionListItem2.default, _extensionBulletList2.default, _extensionOrderedList2.default, _extensionHeading2.default.configure({
+			levels: [2, 3]
+		}), _extensionBold2.default, _extensionItalic2.default, _extensionLink.Link.configure({
 			openOnClick: false,
 			HTMLAttributes: {
 				class: 'u-link'
