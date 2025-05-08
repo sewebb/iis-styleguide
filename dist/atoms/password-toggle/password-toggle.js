@@ -1,12 +1,10 @@
-'use strict';
-
-var elements = document.querySelectorAll('.js-toggle-input-type');
-
+"use strict";
+const elements = document.querySelectorAll('.js-toggle-input-type');
 if (elements) {
-	[].forEach.call(elements, function (element) {
-		element.addEventListener('click', function () {
-			var input = element.previousElementSibling;
-			input.type = input.type === 'password' ? 'text' : 'password';
-		});
-	});
+    [].forEach.call(elements, (element)=>{
+        element.addEventListener('click', ()=>{
+            const input = element.previousElementSibling;
+            input.type = input.type === 'password' ? 'text' : 'password';
+        });
+    });
 }

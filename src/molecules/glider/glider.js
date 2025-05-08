@@ -6,7 +6,8 @@ if (gliderWrappers) {
 	[].forEach.call(gliderWrappers, (gliderWrapper) => {
 		const gliderElement = gliderWrapper.querySelector('.js-glider');
 		const dots = gliderWrapper.classList.toString();
-		const glider = new Glider(gliderElement, {
+
+		gliderElement.glider = new Glider(gliderElement, {
 			scrollLock: true,
 			slidesToShow: 1,
 			slidesToScroll: 1,
@@ -39,6 +40,5 @@ if (gliderWrappers) {
 				},
 			],
 		});
-		module.exports = glider;
 	});
 }

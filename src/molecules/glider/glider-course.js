@@ -61,6 +61,4 @@ if (gliderElementCourse) {
 			});
 		});
 	}
-
-	module.exports = GliderCourse;
 }

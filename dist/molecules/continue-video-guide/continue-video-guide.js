@@ -1,109 +1,98 @@
-'use strict';
-
-var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
-
-var _className = require('../../assets/js/className');
-
-var _className2 = _interopRequireDefault(_className);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
-
-function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
-
-function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
-
-function _CustomElement() {
-	return Reflect.construct(HTMLElement, [], this.__proto__.constructor);
+"use strict";
+Object.defineProperty(exports, "__esModule", {
+    value: true
+});
+const _className = /*#__PURE__*/ _interop_require_default(require("../../assets/js/className"));
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
 }
+class ProgressRing extends HTMLElement {
+    setProgress(percent) {
+        const offset = this.circumference - percent / 100 * this.circumference;
+        const circle = this.root.querySelector('circle');
+        circle.style.strokeDashoffset = offset;
+    }
+    static get observedAttributes() {
+        return [
+            'progress'
+        ];
+    }
+    attributeChangedCallback(name, oldValue, newValue) {
+        if (name === 'progress') {
+            this.setProgress(newValue);
+        }
+    }
+    constructor(){
+        super();
+        const stroke = this.getAttribute('stroke');
+        const radius = this.getAttribute('radius');
+        const normalizedRadius = radius - stroke * 2;
+        this.circumference = normalizedRadius * 2 * Math.PI;
+        this.root = this.attachShadow({
+            mode: 'open'
+        });
+        this.root.innerHTML = `
+		<svg
+		height="${radius * 2}"
+		width="${radius * 2}"
+		>
+		<circle
+		stroke="white"
+		stroke-dasharray="${this.circumference} ${this.circumference}"
+		style="stroke-dashoffset:${this.circumference}"
+		stroke-width="${stroke}"
+		fill="transparent"
+		r="${normalizedRadius}"
+		cx="${radius}"
+		cy="${radius}"
+		/>
+		</svg>
 
-;
-Object.setPrototypeOf(_CustomElement.prototype, HTMLElement.prototype);
-Object.setPrototypeOf(_CustomElement, HTMLElement);
-
-var ProgressRing = function (_CustomElement2) {
-	_inherits(ProgressRing, _CustomElement2);
-
-	function ProgressRing() {
-		_classCallCheck(this, ProgressRing);
-
-		var _this = _possibleConstructorReturn(this, (ProgressRing.__proto__ || Object.getPrototypeOf(ProgressRing)).call(this));
-
-		var stroke = _this.getAttribute('stroke');
-		var radius = _this.getAttribute('radius');
-		var normalizedRadius = radius - stroke * 2;
-		_this.circumference = normalizedRadius * 2 * Math.PI;
-
-		_this.root = _this.attachShadow({ mode: 'open' });
-		_this.root.innerHTML = '\n\t\t<svg\n\t\theight="' + radius * 2 + '"\n\t\twidth="' + radius * 2 + '"\n\t\t>\n\t\t<circle\n\t\tstroke="white"\n\t\tstroke-dasharray="' + _this.circumference + ' ' + _this.circumference + '"\n\t\tstyle="stroke-dashoffset:' + _this.circumference + '"\n\t\tstroke-width="' + stroke + '"\n\t\tfill="transparent"\n\t\tr="' + normalizedRadius + '"\n\t\tcx="' + radius + '"\n\t\tcy="' + radius + '"\n\t\t/>\n\t\t</svg>\n\n\t\t<style>\n\t\tcircle {\n\t\t\ttransition: stroke-dashoffset 0.35s;\n\t\t\ttransform: rotate(-90deg);\n\t\t\ttransform-origin: 50% 50%;\n\t\t}\n\t\t</style>\n\t\t';
-		return _this;
-	}
-
-	_createClass(ProgressRing, [{
-		key: 'setProgress',
-		value: function setProgress(percent) {
-			var offset = this.circumference - percent / 100 * this.circumference;
-			var circle = this.root.querySelector('circle');
-			circle.style.strokeDashoffset = offset;
+		<style>
+		circle {
+			transition: stroke-dashoffset 0.35s;
+			transform: rotate(-90deg);
+			transform-origin: 50% 50%;
 		}
-	}, {
-		key: 'attributeChangedCallback',
-		value: function attributeChangedCallback(name, oldValue, newValue) {
-			if (name === 'progress') {
-				this.setProgress(newValue);
-			}
-		}
-	}], [{
-		key: 'observedAttributes',
-		get: function get() {
-			return ['progress'];
-		}
-	}]);
-
-	return ProgressRing;
-}(_CustomElement);
-
+		</style>
+		`;
+    }
+}
 window.customElements.define('progress-ring', ProgressRing);
-var continueElement = document.querySelector('.js-guide-continue');
-
+const continueElement = document.querySelector('.js-guide-continue');
 // Get value from sessionStorage if present
 if (sessionStorage.getItem('InmsCurrentTime')) {
-	var videoCurrentTime = sessionStorage.getItem('InmsCurrentTime');
-	var videoDuration = sessionStorage.getItem('InmsDuration');
-	var progressRing = document.querySelector('progress-ring');
-	var continueLink = document.querySelector('.js-guide-continue-link');
-	var guideURL = sessionStorage.getItem('InmsCurrentGuideURL');
-	var guideImage = sessionStorage.getItem('InmsCurrentGuideImage');
-
-	if (videoCurrentTime > 0 && progressRing && continueElement && guideImage && continueLink) {
-		var alternativeText = continueLink.dataset.altText;
-		var currentProgress = videoCurrentTime / videoDuration;
-		var currentGuideImage = document.querySelector('.js-guide-continue-image');
-
-		continueElement.classList.add((0, _className2.default)('m-continue-video-guide--has-progress'));
-		continueLink.setAttribute('href', guideURL);
-		currentGuideImage.src = guideImage;
-		continueLink.querySelector('span').innerText = alternativeText;
-		// Calculate percentage played
-		progressRing.setAttribute('progress', Math.floor(currentProgress * 100));
-	}
+    const videoCurrentTime = sessionStorage.getItem('InmsCurrentTime');
+    const videoDuration = sessionStorage.getItem('InmsDuration');
+    const progressRing = document.querySelector('progress-ring');
+    const continueLink = document.querySelector('.js-guide-continue-link');
+    const guideURL = sessionStorage.getItem('InmsCurrentGuideURL');
+    const guideImage = sessionStorage.getItem('InmsCurrentGuideImage');
+    if (videoCurrentTime > 0 && progressRing && continueElement && guideImage && continueLink) {
+        const alternativeText = continueLink.dataset.altText;
+        const currentProgress = videoCurrentTime / videoDuration;
+        const currentGuideImage = document.querySelector('.js-guide-continue-image');
+        continueElement.classList.add((0, _className.default)('m-continue-video-guide--has-progress'));
+        continueLink.setAttribute('href', guideURL);
+        currentGuideImage.src = guideImage;
+        continueLink.querySelector('span').innerText = alternativeText;
+        // Calculate percentage played
+        progressRing.setAttribute('progress', Math.floor(currentProgress * 100));
+    }
 }
-
 // Close Continue Component
-var closeButton = document.querySelector('.js-guide-close');
-
+const closeButton = document.querySelector('.js-guide-close');
 if (closeButton) {
-	closeButton.addEventListener('click', function () {
-		sessionStorage.setItem('InmsGuideClosed', true);
-		continueElement.classList.remove('is-visible');
-	});
-
-	if (!sessionStorage.getItem('InmsGuideClosed')) {
-		continueElement.classList.add('is-visible');
-	}
-
-	if (document.querySelector('.js-video-guide')) {
-		continueElement.classList.remove('is-visible');
-	}
+    closeButton.addEventListener('click', ()=>{
+        sessionStorage.setItem('InmsGuideClosed', true);
+        continueElement.classList.remove('is-visible');
+    });
+    if (!sessionStorage.getItem('InmsGuideClosed')) {
+        continueElement.classList.add('is-visible');
+    }
+    if (document.querySelector('.js-video-guide')) {
+        continueElement.classList.remove('is-visible');
+    }
 }

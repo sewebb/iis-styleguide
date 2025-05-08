@@ -60,6 +60,19 @@ fractal.web.set('server.syncOptions', {
 
 const handlebars = require('@frctl/handlebars')({
 	helpers: {
+		fileExists: function(path) {
+			return fs.existsSync(path);
+		},
+		read: function(path) {
+			return fs.existsSync(path) ? fs.readFileSync(path, 'utf8') : '';
+		},
+		jsonParse: function(string) {
+			try {
+				return JSON.parse(string);
+			} catch (e) {
+				return {};
+			}
+		},
 		attr: function(attr) {
 			let obj,
 				str = '';

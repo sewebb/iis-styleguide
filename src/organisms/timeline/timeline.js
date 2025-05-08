@@ -1,8 +1,7 @@
 import '../../assets/js/parallax';
+import offset from '../../assets/js/offset';
 
-const { offsetTop, offsetBottom, offsetLeft } = require('../../assets/js/offset');
-
-
+const { offsetTop, offsetBottom, offsetLeft } = offset;
 const dataLayer = window._mtm || [];
 const progressBar = document.querySelector('.js-progress-bar');
 const decadeContainer = document.querySelector('.js-decade-container');
