@@ -2,11 +2,10 @@ import 'a11y-toggle';
 import './focusTrap';
 import './assets/js/conditional';
 
-require('./atoms/grid-toggle/grid-toggle');
-require('./components');
-
-const Button = require('./atoms/button/Button');
-const { open } = require('./molecules/modal/modal');
+import './atoms/grid-toggle/grid-toggle';
+import './components';
+import Button from './atoms/button/Button';
+import { open} from './molecules/modal/modal';
 
 const demoButtons = document.querySelectorAll('button.a-button.has-loader');
 

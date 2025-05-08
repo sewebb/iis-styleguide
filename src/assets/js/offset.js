@@ -1,4 +1,4 @@
-module.exports = {
+export default {
 	// Get top of element relative to window
 	offsetTop(el) {
 		const rect = el.getBoundingClientRect();

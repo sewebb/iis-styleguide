@@ -1,4 +1,11 @@
-<script type="text/javascript" src="/assets/js/scripts.js"></script>
+{{#if (fileExists "public/hot")}}
+	<script type="module" src="{{read "public/hot"}}/src/app.js"></script>
+{{else}}
+	{{#with (jsonParse (read "public/assets/.vite/manifest.json"))}}
+		<script type="module" src="/assets/{{this.[src/app.js].file}}"></script>
+	{{/with}}
+{{/if}}
+
 
 <script>
 	// Function to toggle between class "light-theme" and "dark-theme"

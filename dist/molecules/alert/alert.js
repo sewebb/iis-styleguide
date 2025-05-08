@@ -1,23 +1,18 @@
-'use strict';
-
-var alerts = document.querySelectorAll('.js-dismiss-alert');
-
+"use strict";
+const alerts = document.querySelectorAll('.js-dismiss-alert');
 function dismiss(alert) {
-	var target = alert.querySelector('[data-a11y-toggle]');
-	var id = target.closest('[role]').getAttribute('id');
-	var idElement = document.getElementById(id);
-
-	if (sessionStorage.getItem(id) !== 'is-dismissed') {
-		window.addEventListener('DOMContentLoaded', function () {
-			idElement.setAttribute('aria-hidden', 'false');
-		});
-
-		target.addEventListener('click', function () {
-			sessionStorage.setItem(id, 'is-dismissed');
-		});
-	}
+    const target = alert.querySelector('[data-a11y-toggle]');
+    const id = target.closest('[role]').getAttribute('id');
+    const idElement = document.getElementById(id);
+    if (sessionStorage.getItem(id) !== 'is-dismissed') {
+        window.addEventListener('DOMContentLoaded', ()=>{
+            idElement.setAttribute('aria-hidden', 'false');
+        });
+        target.addEventListener('click', ()=>{
+            sessionStorage.setItem(id, 'is-dismissed');
+        });
+    }
 }
-
 if (alerts) {
-	[].forEach.call(alerts, dismiss);
+    [].forEach.call(alerts, dismiss);
 }

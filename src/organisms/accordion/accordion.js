@@ -1,6 +1,5 @@
 import debounce from '../../assets/js/debounce';
-
-require('van11y-accessible-accordion-aria');
+import 'van11y-accessible-accordion-aria';
 
 const className = 'o-accordion';
 const accordionElement = document.querySelector(`.js-${className}`);

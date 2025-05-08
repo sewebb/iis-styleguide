@@ -1,0 +1,22 @@
+{
+    "jsc": {
+        "target": "es2015",
+        "parser": {
+            "syntax": "ecmascript",
+            "dynamicImport": true
+        },
+        "transform": {
+            "optimizer": {
+                "globals": {
+                    "envs": {
+                        "NODE_ENV": "production"
+                    }
+                }
+            }
+        },
+        "loose": true
+    },
+    "module": {
+        "type": "commonjs"
+    }
+}

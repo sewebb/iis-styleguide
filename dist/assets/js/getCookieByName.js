@@ -1,15 +1,17 @@
 "use strict";
-
 Object.defineProperty(exports, "__esModule", {
-	value: true
+    value: true
 });
-exports.default = getCookieByName;
+Object.defineProperty(exports, "default", {
+    enumerable: true,
+    get: function() {
+        return getCookieByName;
+    }
+});
 function getCookieByName(name) {
-	var match = document.cookie.match(new RegExp("(^| )" + name + "=([^;]+)"));
-
-	if (match) {
-		return match[2];
-	}
-
-	return null;
+    const match = document.cookie.match(new RegExp(`(^| )${name}=([^;]+)`));
+    if (match) {
+        return match[2];
+    }
+    return null;
 }

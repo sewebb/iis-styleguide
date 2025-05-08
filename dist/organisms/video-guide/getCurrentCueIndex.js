@@ -1,13 +1,15 @@
 "use strict";
-
 Object.defineProperty(exports, "__esModule", {
-	value: true
+    value: true
 });
-exports.default = getCurrentCueIndex;
+Object.defineProperty(exports, "default", {
+    enumerable: true,
+    get: function() {
+        return getCurrentCueIndex;
+    }
+});
 function getCurrentCueIndex(target) {
-	var activeCue = target.activeCues[0];
-	var cues = target.cues;
-
-
-	return Math.max(Array.prototype.indexOf.call(cues, activeCue), 0);
+    const activeCue = target.activeCues[0];
+    const { cues } = target;
+    return Math.max(Array.prototype.indexOf.call(cues, activeCue), 0);
 }

@@ -2,7 +2,14 @@
 	<meta charset="utf-8" />
 	<title>Preview Layout</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="stylesheet" href="/assets/css/app.min.css">
+	{{#if (fileExists "public/hot")}}
+		<link rel="stylesheet" href="{{read "public/hot"}}/src/app.scss">
+	{{else}}
+		{{#with (jsonParse (read "public/assets/.vite/manifest.json"))}}
+			<link rel="stylesheet" href="/assets/{{this.[src/app.scss].file}}">
+		{{/with}}
+	{{/if}}
+
 	<link rel="shortcut icon" href="https://static.iis.se/favicons/favicon.ico">
 
 	<!-- Check for JS support -->
