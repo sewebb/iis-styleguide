@@ -135,16 +135,31 @@ function createToolbarButton(el, control, editor) {
     });
 }
 function toogleButtonState(editor, el) {
-    [].forEach.call(el.parentNode.querySelectorAll('[data-rich-text-control]'), (control)=>{
-        if (editor.isActive(control.value)) {
-            control.classList.add('is-active');
-        } else {
-            control.classList.remove('is-active');
+    const buttons = el.parentNode.querySelectorAll('[data-rich-text-control]');
+    buttons.forEach((button)=>{
+        const control = button.getAttribute('data-rich-text-control');
+        const value = kebabToCamel(control);
+        // 🧠 Handle heading separately
+        if (control === 'heading-2' || control === 'heading-3') {
+            const level = parseInt(control.replace('heading-', ''), 10);
+            if (editor.isActive('heading', {
+                level
+            })) {
+                button.classList.add('is-active');
+            } else {
+                button.classList.remove('is-active');
+            }
+            return;
         }
-        if (control.value === 'link' && editor.view.state.selection.empty) {
-            control.disabled = true;
-        } else if (control.value === 'link') {
-            control.disabled = false;
+        // 🔠 Handle all others like bold, italic, bullet-list, etc.
+        if (editor.isActive(value)) {
+            button.classList.add('is-active');
+        } else {
+            button.classList.remove('is-active');
+        }
+        // 🔗 Special logic for link
+        if (value === 'link') {
+            button.disabled = editor.view.state.selection.empty;
         }
     });
 }
