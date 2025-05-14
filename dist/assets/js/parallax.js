@@ -1,30 +1,30 @@
-'use strict';
-
+"use strict";
 Object.defineProperty(exports, "__esModule", {
-	value: true
+    value: true
 });
-exports.cache = cache;
+Object.defineProperty(exports, "cache", {
+    enumerable: true,
+    get: function() {
+        return cache;
+    }
+});
 function isInView(el) {
-	var box = el.getBoundingClientRect();
-	return box.top < window.innerHeight && box.bottom >= 0;
+    const box = el.getBoundingClientRect();
+    return box.top < window.innerHeight && box.bottom >= 0;
 }
-
-var parallaxes = [];
+let parallaxes = [];
 function cache() {
-	parallaxes = document.querySelectorAll('.js-parallax');
+    parallaxes = document.querySelectorAll('.js-parallax');
 }
-
 cache();
-
-window.addEventListener('scroll', function () {
-	[].forEach.call(parallaxes, function (parallax) {
-		if (parallax.classList.contains('animate')) {
-			return;
-		}
-
-		var visible = isInView(parallax);
-		if (visible) {
-			parallax.classList.add('animate');
-		}
-	});
+window.addEventListener('scroll', ()=>{
+    [].forEach.call(parallaxes, (parallax)=>{
+        if (parallax.classList.contains('animate')) {
+            return;
+        }
+        const visible = isInView(parallax);
+        if (visible) {
+            parallax.classList.add('animate');
+        }
+    });
 });

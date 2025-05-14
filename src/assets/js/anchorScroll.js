@@ -7,4 +7,4 @@ const anchorScroll = new SmoothScroll('a[href*="#"]', {
 	ignore: '[data-scroll-ignore]',
 });
 
-module.exports = anchorScroll;
+export default anchorScroll;
