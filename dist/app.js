@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
+require("./app.scss");
 require("a11y-toggle");
 require("./focusTrap");
 require("./assets/js/conditional");

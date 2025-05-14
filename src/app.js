@@ -1,3 +1,4 @@
+import './app.scss';
 import 'a11y-toggle';
 import './focusTrap';
 import './assets/js/conditional';

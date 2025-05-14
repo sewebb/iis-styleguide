@@ -3,10 +3,15 @@
 	<title>Preview Layout</title>
 	<meta name="viewport" content="width=device-width, initial-scale=1">
 	{{#if (fileExists "public/hot")}}
-		<link rel="stylesheet" href="{{read "public/hot"}}/src/app.scss">
+		<!-- CSS injected via hot module replacement in app.js -->
+		<style>
+			.vite-dev-hide {
+				visibility: hidden;
+			}
+		</style>
 	{{else}}
-		{{#with (jsonParse (read "public/assets/.vite/manifest.json"))}}
-			<link rel="stylesheet" href="/assets/{{this.[src/app.scss].file}}">
+		{{#with (jsonParse (read "public/assets/.vite/manifest.json")) as |manifest|}}
+			<link rel="stylesheet" href="/assets/{{manifestCss manifest "src/app.js"}}">
 		{{/with}}
 	{{/if}}
 

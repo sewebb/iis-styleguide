@@ -77,7 +77,7 @@ const internetstiftelsen = (config = {}) => [
 export default defineConfig({
 	plugins: [
 		internetstiftelsen({
-			input: ['/src/app.js', '/src/app.scss'],
+			input: ['/src/app.js'],
 		}),
 	],
 });

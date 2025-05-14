@@ -73,6 +73,9 @@ const handlebars = require('@frctl/handlebars')({
 				return {};
 			}
 		},
+		manifestCss: function(manifest, path) {
+			return manifest[path]?.css?.[0] || '';
+		},
 		attr: function(attr) {
 			let obj,
 				str = '';
