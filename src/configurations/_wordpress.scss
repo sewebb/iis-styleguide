@@ -110,17 +110,11 @@ div.aligncenter {
 }
 
 .wp-embed-aspect-16-9,
-.wp-embed-aspect-4-3 {
-	.embed-container,
-	[class*='wp-block-embed__wrapper'] {
-		padding-bottom: 56.25%;
-	}
-}
-
+.wp-embed-aspect-4-3,
 .wp-block-embed-spotify {
 	.embed-container,
 	[class*='wp-block-embed__wrapper'] {
-		padding-bottom: 113%;
+		padding-bottom: 56.25%;
 	}
 }
 
