@@ -141,6 +141,9 @@ html {
 	}
 
 	@include bem.e(item) {
+		container-name: card;
+		container-type: inline-size;
+
 		@include bem.e(content) {
 			display: none;
 			padding-bottom: 0;
@@ -359,12 +362,9 @@ html {
 	}
 
 	@include bem.e(card-text) {
-		font-size: 80%;
-		line-height: 1.3rem;
-
-		@include breakpoint.bp-up(lg) {
-			font-size: 100%;
-			line-height: 1.5rem;
+		@container card (max-width: 300px) {
+			font-size: 90%;
+			line-height: 1.3rem;
 		}
 	}
 }

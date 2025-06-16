@@ -9,6 +9,7 @@
 @use '../../configurations/colors/colors' as colors;
 @use '../../configurations/colors/colors-functions' as colorFunc;
 @use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../vendor/baseline/plumber' as plumber;
 
 @include mixin.molecule(card) {
 	display: flex;
@@ -22,6 +23,7 @@
 		display: block;
 		width: 100%;
 		border-radius: var.$border-radius;
+		aspect-ratio: 16 / 9;
 	}
 
 	@include bem.e(map) {
@@ -112,6 +114,26 @@
 
 		> :last-child {
 			margin-bottom: 0;
+		}
+
+		&:is(figcaption) {
+			@include plumber.plumber(
+				$font-size: 1.7,
+				$line-height: 2,
+				$leading-bottom: 0
+			);
+
+			margin-top: 0 !important;
+
+			p {
+				@include plumber.plumber(
+					$font-size: 1.7,
+					$line-height: 2,
+					$leading-bottom: 0
+				);
+
+				margin-top: 0 !important;
+			}
 		}
 	}
 
