@@ -1,0 +1,479 @@
+
+	<style>
+		:root{
+			--bg: #fafbff;
+			--surface: #ffffff;
+			--text: #1e2430;
+			--muted: #4e5b78;
+			--subtle: #6c7690;
+			--border: #e5e9f2;
+			--ring: rgba(55, 125, 255, .25);
+			--accent: #377dff;
+			--accent-2: #7b61ff;
+			--radius: 14px;
+			--shadow: 0 8px 24px rgba(20,30,55,.08);
+			--shadow-inset: inset 0 1px 0 rgba(255,255,255,.9);
+		}
+		*{box-sizing:border-box}
+		.wrap{
+			max-width: 1100px;
+			margin: 0 auto;
+			padding: 24px;
+		}
+		header{
+			margin: 8px 0 12px;
+		}
+		header h1{
+			margin:0 0 4px;
+			font-size: 22px;
+			letter-spacing:.2px;
+		}
+		header p{
+			margin:0;
+			color: var(--subtle);
+		}
+
+		/* Control bar */
+		.controls{
+			display:flex;
+			gap:12px;
+			align-items:end;
+			flex-wrap: wrap;
+			margin: 18px 0;
+			background: var(--surface);
+			border:1px solid var(--border);
+			border-radius: var(--radius);
+			padding: 14px;
+			box-shadow: var(--shadow);
+		}
+		.field{
+			display:grid;
+			gap:6px;
+			min-width: 260px;
+		}
+		label{
+			font-size: 13px;
+			color: var(--muted);
+		}
+		select{
+			appearance:none;
+			width: 100%;
+			padding: 10px 12px;
+			border: 1px solid var(--border);
+			border-radius: 10px;
+			background:
+				linear-gradient(180deg, #fff, #f9fbff);
+			color: var(--text);
+			box-shadow: var(--shadow-inset);
+			font-size: 15px;
+		}
+		select:focus-visible{
+			outline: none;
+			border-color: color-mix(in oklab, var(--accent) 60%, var(--border));
+			box-shadow: 0 0 0 3px var(--ring);
+		}
+		.btn{
+			appearance:none;
+			border:1px solid var(--border);
+			background: linear-gradient(180deg, #fff, #f6f9ff);
+			color: var(--text);
+			padding: 10px 12px;
+			border-radius: 10px;
+			cursor:pointer;
+			font-weight:600;
+			transition: border-color .15s, transform .06s;
+		}
+		.btn:hover{ border-color: color-mix(in oklab, var(--accent) 50%, var(--border)); transform: translateY(-1px) }
+		.btn:active{ transform: translateY(0) }
+
+		/* Panel */
+		.panel{
+			background: var(--surface);
+			border:1px solid var(--border);
+			border-radius: calc(var(--radius) + 2px);
+			box-shadow: var(--shadow);
+			padding: 18px;
+		}
+		.panel h2{
+			margin:0 0 4px;
+			font-size: 20px;
+		}
+		.panel p.desc{
+			margin: 0 0 12px;
+			color: var(--subtle);
+		}
+
+		/* Chart card */
+		.chart-card{
+			background: #ffffff;
+			border: 1px solid var(--border);
+			border-radius: 12px;
+			padding: 12px;
+		}
+		.legend{
+			display:flex; gap:16px; flex-wrap:wrap; margin:6px 0 4px;
+			color:var(--muted); font-size:12px;
+		}
+		.dot{
+			width:10px; height:10px; border-radius:999px; display:inline-block; margin-right:6px;
+			background: var(--accent);
+			box-shadow: 0 0 0 3px rgba(55,125,255,.18);
+		}
+		.dot.alt{ background: var(--accent-2); box-shadow: 0 0 0 3px rgba(123,97,255,.18) }
+
+		footer{
+			color: var(--muted);
+			font-size: 12px;
+			margin: 14px 2px 32px;
+		}
+		code.hash{ background:#f3f6ff; border:1px solid var(--border); padding:2px 6px; border-radius:6px }
+		.sr-only{
+			position:absolute !important; width:1px; height:1px; padding:0; margin:-1px; overflow:hidden; clip:rect(0,0,0,0); white-space:nowrap; border:0;
+		}
+
+		canvas {
+			width: 100% !important;
+			height: auto !important;
+		}
+	</style>
+<div class="wrap" id="top" role="application" aria-label="Interaktiv vy: välj ett tema i listan">
+	<header>
+		<h1>Riskteman – interaktiv översikt</h1>
+		<p>Välj ett tema i rullistan för att visa motsvarande diagram. Varje tema har en unik länk (hash i URL:en).</p>
+	</header>
+
+	<div class="controls" role="group" aria-label="Val för visning">
+		<div class="field">
+			<label for="topicSelect">Välj risktema</label>
+			<select id="topicSelect" aria-describedby="topicHelp">
+				<!-- options injected by JS -->
+			</select>
+			<div id="topicHelp" class="sr-only">Byt val för att uppdatera graf och direktlänk.</div>
+		</div>
+		<button class="btn" id="toggleViewBtn" title="Show all graphs">Visa alla</button>
+
+		<button class="btn" id="copyLinkBtn" title="Kopiera direktlänk">Kopiera länk</button>
+	</div>
+
+	<section class="panel" aria-live="polite" aria-atomic="true">
+		<h2 id="panelTitle">—</h2>
+		<p class="desc" id="panelDesc"></p>
+
+		<div class="chart-card">
+			<div class="legend">
+				<span><span class="dot" aria-hidden="true"></span>Värde</span>
+				<span><span class="dot alt" aria-hidden="true"></span>Medel</span>
+			</div>
+			<canvas id="chart" width="1100" height="420" role="img" aria-label="Diagram"></canvas>
+		</div>
+	</section>
+
+	<section id="allCharts" style="display:none; margin-top:20px;"></section>
+	
+</div>
+
+<script>
+	// --- Data model
+	const TOPICS = [
+		{ slug:'skarmberoende', title:'Innehåll som är konstruerat för att skapa skärmberoende', desc:'Exempeldata: uppskattade exponeringar per åldersgrupp (tusental).', data:[12,19,24,17,9], labels:['9–12','13–15','16–18','19–25','26+'] },
+		{ slug:'fejkade-nyheter', title:'Fejkade nyheter som ger en snedvriden verklighetsuppfattning', desc:'Andel som säger att de sett fejkade nyheter senaste veckan (%).', data:[18,25,31,29,22], labels:['9–12','13–15','16–18','19–25','26+'] },
+		{ slug:'nathat', title:'Näthat/grova kränkningar på nätet', desc:'Andel som upplevt kränkningar online det senaste året (%).', data:[9,14,21,16,7], labels:['9–12','13–15','16–18','19–25','26+'] },
+		{ slug:'utseendeideal', title:'Skeva utseende-/kroppsideal som ger sämre självkänsla', desc:'Självrapporterad påverkan (1–5).', data:[2.1,2.8,3.6,3.1,2.2], labels:['9–12','13–15','16–18','19–25','26+'] },
+		{ slug:'bedragerier', title:'Bedrägerier på nätet', desc:'Andel som blivit utsatta eller nästan utsatta (%).', data:[5,7,12,15,11], labels:['9–12','13–15','16–18','19–25','26+'] },
+		{ slug:'vald', title:'Våldsamt innehåll', desc:'Andel som ofta exponeras (%).', data:[8,13,18,14,9], labels:['9–12','13–15','16–18','19–25','26+'] },
+		{ slug:'grovt-porrinnehall', title:'Grovt pornografiskt innehåll', desc:'Andel som oavsiktligt stött på senaste månaden (%).', data:[3,7,15,12,5], labels:['9–12','13–15','16–18','19–25','26+'] },
+		{ slug:'grooming', title:'Grooming/sexuella övergrepp på nätet', desc:'Andel som fått olämpliga kontakter online (%).', data:[2,4,8,7,3], labels:['9–12','13–15','16–18','19–25','26+'] },
+		{ slug:'utpressning', title:'Utpressning på nätet', desc:'Andel som rapporterar hot/utpressning (%).', data:[1,2,4,5,3], labels:['9–12','13–15','16–18','19–25','26+'] },
+		{ slug:'sexbilder', title:'Lockas att dela sexuella bilder', desc:'Andel som blivit uppmanade att dela bilder (%).', data:[2,6,11,9,4], labels:['9–12','13–15','16–18','19–25','26+'] },
+		{ slug:'droger', title:'Lockas att köpa droger', desc:'Andel som exponerats för erbjudanden (%).', data:[1,3,7,8,5], labels:['9–12','13–15','16–18','19–25','26+'] },
+		{ slug:'gang', title:'Lockas in i gängkriminalitet', desc:'Andel som sett rekryteringsförsök (%).', data:[1,2,5,4,3], labels:['9–12','13–15','16–18','19–25','26+'] },
+		{ slug:'alkohol', title:'Lockas att köpa alkohol', desc:'Andel som sett köp-erbjudanden (%).', data:[2,5,10,12,9], labels:['9–12','13–15','16–18','19–25','26+'] },
+		{ slug:'extremism', title:'Lockas in i radikaliserande våldsbejakande extremism', desc:'Andel som exponerats för extremistiskt innehåll (%).', data:[1,2,4,5,3], labels:['9–12','13–15','16–18','19–25','26+'] },
+	];
+
+	// --- Elements
+	const selectEl = document.getElementById('topicSelect');
+	const titleEl  = document.getElementById('panelTitle');
+	const descEl   = document.getElementById('panelDesc');
+	const copyBtn  = document.getElementById('copyLinkBtn');
+	const canvas   = document.getElementById('chart');
+	const ctx      = canvas.getContext('2d');
+	const drawnFor = { slug: null }; // simple cache marker
+
+	// --- Populate dropdown with accessible, intuitive ordering (as given)
+	TOPICS.forEach(t => {
+		const opt = document.createElement('option');
+		opt.value = t.slug;
+		opt.textContent = t.title;
+		selectEl.appendChild(opt);
+	});
+
+	// --- Routing: keep URL hash <-> select in sync
+	function openBySlug(slug, push = false){
+		const topic = TOPICS.find(t => t.slug === slug) || TOPICS[0];
+		// Update form UI
+		selectEl.value = topic.slug;
+		// Update hash
+		if(push) history.pushState({slug: topic.slug}, '', `#${topic.slug}`);
+		else history.replaceState({slug: topic.slug}, '', `#${topic.slug}`);
+		// Update content
+		titleEl.textContent = topic.title;
+		descEl.textContent  = topic.desc;
+		drawChart(topic);
+	}
+
+	selectEl.addEventListener('change', () => {
+		openBySlug(selectEl.value, true);
+		selectEl.focus(); // keep focus after change
+	});
+
+	window.addEventListener('hashchange', () => {
+		const slug = (location.hash || '').replace('#','');
+		if(slug) openBySlug(slug, false);
+	});
+
+	// Initial load
+	const initial = (location.hash || '').replace('#','') || TOPICS[0].slug;
+	openBySlug(initial, false);
+
+	// Copy link
+	copyBtn.addEventListener('click', () => {
+		const allEl = document.getElementById('allCharts');
+		const isAllVisible = allEl && getComputedStyle(allEl).display !== 'none';
+
+		const base = `${location.origin}${location.pathname}${location.search}`;
+		const url = isAllVisible
+			? `${base}#top`                 // Show-all: link to the top of the UI
+			: `${base}#${selectEl.value}`;  // Single-view: link to the selected topic
+
+		navigator.clipboard.writeText(url).then(() => {
+			const prev = copyBtn.textContent;
+			copyBtn.textContent = 'Länk kopierad!';
+			setTimeout(() => (copyBtn.textContent = prev), 1200);
+		});
+	});
+
+	// --- Minimal Canvas Bar Chart (no libraries)
+	function drawChart(topic){
+		// Make canvas crisp on HiDPI
+		const DPR = window.devicePixelRatio || 1;
+		const cssW = canvas.width;
+		const cssH = canvas.height;
+		canvas.style.width = cssW + 'px';
+		canvas.style.height = cssH + 'px';
+		canvas.width = Math.floor(cssW * DPR);
+		canvas.height = Math.floor(cssH * DPR);
+		ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+
+		const P = {t:30, r:24, b:60, l:48};
+		const W = cssW - P.l - P.r;
+		const H = cssH - P.t - P.b;
+
+		const values = topic.data;
+		const labels = topic.labels;
+		const max = Math.max(...values, 1);
+		const mean = values.reduce((a,b)=>a+b,0)/values.length;
+
+		function x(i){ return P.l + (i+0.5) * (W/values.length); }
+		function y(v){ return P.t + H - (v/max)*H; }
+
+		// Clear
+		ctx.clearRect(0,0,cssW,cssH);
+
+		// Grid
+		ctx.lineWidth = 1;
+		ctx.strokeStyle = 'rgba(30,36,48,0.08)';
+		const steps = 4;
+		for(let s=0; s<=steps; s++){
+			const yy = P.t + (H/steps)*s;
+			ctx.beginPath(); ctx.moveTo(P.l, yy); ctx.lineTo(P.l+W, yy); ctx.stroke();
+		}
+
+		// Mean line
+		ctx.strokeStyle = 'rgba(123,97,255,0.9)';
+		ctx.setLineDash([6,6]);
+		ctx.lineWidth = 2;
+		ctx.beginPath(); ctx.moveTo(P.l, y(mean)); ctx.lineTo(P.l+W, y(mean)); ctx.stroke();
+		ctx.setLineDash([]);
+
+		// Bars
+		const barW = Math.min(60, (W/values.length)*0.6);
+		values.forEach((v, i) => {
+			const bx = x(i) - barW/2;
+			const by = y(v);
+			const bh = P.t + H - by;
+
+			const grad = ctx.createLinearGradient(0, by, 0, by+bh);
+			grad.addColorStop(0, 'rgba(55,125,255,0.95)');
+			grad.addColorStop(1, 'rgba(55,125,255,0.35)');
+			ctx.fillStyle = grad;
+
+			const r = Math.min(10, barW/2, bh/2);
+			roundRect(ctx, bx, by, barW, bh, r);
+			ctx.fill();
+
+			// value labels
+			ctx.fillStyle = 'rgba(30,36,48,0.9)';
+			ctx.font = '600 12px ui-sans-serif, system-ui';
+			ctx.textAlign = 'center';
+			ctx.fillText(formatValue(v), x(i), by - 6);
+		});
+
+		// Axes labels
+		ctx.fillStyle = 'rgba(78,91,120,0.95)';
+		ctx.font = '500 12px ui-sans-serif, system-ui';
+		ctx.textAlign = 'center';
+		labels.forEach((lab, i) => ctx.fillText(lab, x(i), P.t + H + 24));
+
+		// Y ticks
+		ctx.textAlign = 'right';
+		for(let s=0; s<=steps; s++){
+			const val = Math.round((max/steps) * (steps - s));
+			ctx.fillText(val.toString(), P.l - 8, P.t + (H/steps)*s + 4);
+		}
+
+		// Update ARIA label for SR users
+		canvas.setAttribute('aria-label', `Diagram: ${topic.title}. Värden: ${values.join(', ')}.`);
+
+		function roundRect(ctx, x, y, w, h, r){
+			ctx.beginPath();
+			ctx.moveTo(x+r, y);
+			ctx.arcTo(x+w, y, x+w, y+h, r);
+			ctx.arcTo(x+w, y+h, x, y+h, r);
+			ctx.arcTo(x, y+h, x, y, r);
+			ctx.arcTo(x, y, x+w, y, r);
+			ctx.closePath();
+		}
+		function formatValue(v){
+			const isDecimal = values.some(n => n % 1 !== 0);
+			return isDecimal ? v.toFixed(1) : v.toString();
+		}
+
+		// --- Simple Toggle for Showing All or One ---
+		const toggleViewBtn = document.getElementById('toggleViewBtn');
+		const allChartsContainer = document.getElementById('allCharts');
+		let showingAll = false;
+
+		toggleViewBtn.addEventListener('click', () => {
+			showingAll = !showingAll;
+
+			if (showingAll) {
+				// Switch to "show all" mode
+				allChartsContainer.innerHTML = '';
+				TOPICS.forEach(topic => {
+					const wrapper = document.createElement('div');
+					wrapper.className = 'panel';
+					wrapper.style.marginBottom = '24px';
+					wrapper.innerHTML = `
+        <h2>${topic.title}</h2>
+        <p class="desc">${topic.desc}</p>
+        <div class="chart-card">
+          <div class="legend">
+            <span><span class="dot" aria-hidden="true"></span>Värde</span>
+            <span><span class="dot alt" aria-hidden="true"></span>Medel</span>
+          </div>
+          <canvas id="chart-${topic.slug}-all" width="1100" height="420" role="img"></canvas>
+        </div>
+      `;
+					allChartsContainer.appendChild(wrapper);
+					// Use existing chart drawer for each graph
+					const canvasEl = wrapper.querySelector('canvas');
+					drawChartInto(topic, canvasEl);
+				});
+				allChartsContainer.style.display = 'block';
+				document.querySelector('.panel').style.display = 'none';
+				toggleViewBtn.textContent = 'Visa en i taget';
+			} else {
+				// Back to single-view mode
+				allChartsContainer.style.display = 'none';
+				document.querySelector('.panel').style.display = 'block';
+				toggleViewBtn.textContent = 'Visa alla';
+				openBySlug(selectEl.value, false);
+			}
+		});
+
+// Helper: Reuse drawChart logic for any canvas
+		function drawChartInto(topic, canvasEl) {
+			const ctx = canvasEl.getContext('2d');
+			const DPR = window.devicePixelRatio || 1;
+			const cssW = canvasEl.width;
+			const cssH = canvasEl.height;
+			canvasEl.style.width = cssW + 'px';
+			canvasEl.style.height = cssH + 'px';
+			canvasEl.width = Math.floor(cssW * DPR);
+			canvasEl.height = Math.floor(cssH * DPR);
+			ctx.setTransform(DPR, 0, 0, DPR, 0, 0);
+
+			const P = {t:30, r:24, b:60, l:48};
+			const W = cssW - P.l - P.r;
+			const H = cssH - P.t - P.b;
+
+			const values = topic.data;
+			const labels = topic.labels;
+			const max = Math.max(...values, 1);
+			const mean = values.reduce((a,b)=>a+b,0)/values.length;
+
+			function x(i){ return P.l + (i+0.5) * (W/values.length); }
+			function y(v){ return P.t + H - (v/max)*H; }
+
+			ctx.clearRect(0,0,cssW,cssH);
+
+			ctx.lineWidth = 1;
+			ctx.strokeStyle = 'rgba(30,36,48,0.08)';
+			const steps = 4;
+			for(let s=0; s<=steps; s++){
+				const yy = P.t + (H/steps)*s;
+				ctx.beginPath(); ctx.moveTo(P.l, yy); ctx.lineTo(P.l+W, yy); ctx.stroke();
+			}
+
+			ctx.strokeStyle = 'rgba(123,97,255,0.9)';
+			ctx.setLineDash([6,6]);
+			ctx.lineWidth = 2;
+			ctx.beginPath();
+			ctx.moveTo(P.l, y(mean));
+			ctx.lineTo(P.l+W, y(mean));
+			ctx.stroke();
+			ctx.setLineDash([]);
+
+			const barW = Math.min(60, (W/values.length)*0.6);
+			values.forEach((v, i) => {
+				const bx = x(i) - barW/2;
+				const by = y(v);
+				const bh = P.t + H - by;
+
+				const grad = ctx.createLinearGradient(0, by, 0, by+bh);
+				grad.addColorStop(0, 'rgba(55,125,255,0.95)');
+				grad.addColorStop(1, 'rgba(55,125,255,0.35)');
+				ctx.fillStyle = grad;
+
+				const r = Math.min(10, barW/2, bh/2);
+				ctx.beginPath();
+				ctx.moveTo(bx+r, by);
+				ctx.arcTo(bx+barW, by, bx+barW, by+bh, r);
+				ctx.arcTo(bx+barW, by+bh, bx, by+bh, r);
+				ctx.arcTo(bx, by+bh, bx, by, r);
+				ctx.arcTo(bx, by, bx+barW, by, r);
+				ctx.closePath();
+				ctx.fill();
+
+				ctx.fillStyle = 'rgba(30,36,48,0.9)';
+				ctx.font = '600 12px ui-sans-serif, system-ui';
+				ctx.textAlign = 'center';
+				ctx.fillText((values.some(n => n % 1 !== 0) ? v.toFixed(1) : v.toString()), x(i), by - 6);
+			});
+
+			ctx.fillStyle = 'rgba(78,91,120,0.95)';
+			ctx.font = '500 12px ui-sans-serif, system-ui';
+			ctx.textAlign = 'center';
+			labels.forEach((lab, i) => ctx.fillText(lab, x(i), P.t + H + 24));
+
+			ctx.textAlign = 'right';
+			for(let s=0; s<=steps; s++){
+				const val = Math.round((max/steps) * (steps - s));
+				ctx.fillText(val.toString(), P.l - 8, P.t + (H/steps)*s + 4);
+			}
+
+			canvasEl.setAttribute('aria-label', `Diagram: ${topic.title}. Värden: ${values.join(', ')}.`);
+		}
+	}
+</script>
