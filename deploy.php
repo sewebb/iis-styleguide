@@ -30,14 +30,14 @@ task(
 
 // Hosts
 host( 'stage' )
-	->setHostname( $_SERVER[ 'STAGE_HOSTNAME' ] )
+	->setHostname( $_SERVER[ 'STAGE_IP' ] )
 	->setRemoteUser( $_SERVER[ 'STAGE_REMOTE_USER' ]  )
 	->setDeployPath( $_SERVER[ 'STAGE_DEPLOY_PATH'] )
 	->set( 'branch', 'develop' )
 	->set( 'host', 'stage' );
 
 host( 'prod' )
-	->setHostname( $_SERVER[ 'PROD_HOSTNAME' ] )
+	->setHostname( $_SERVER[ 'PROD_IP' ] )
 	->setRemoteUser( $_SERVER[ 'PROD_REMOTE_USER' ]  )
 	->setDeployPath( $_SERVER[ 'PROD_DEPLOY_PATH'] )
 	->set( 'branch', 'master' )
