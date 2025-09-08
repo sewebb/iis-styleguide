@@ -25,12 +25,6 @@
 		border-radius: var.$border-radius;
 	}
 
-	&:not([class*='teaser']) {
-		img {
-			aspect-ratio: 16 / 9;
-		}
-	}
-
 	@include bem.e(map) {
 		display: block;
 		position: relative;
