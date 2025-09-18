@@ -355,6 +355,7 @@ div.aligncenter {
 hr.wp-block-separator {
 	display: flex;
 	border-top: 0;
+	color: colors.$color-cyberspace;
 	border-color: colors.$color-concrete;
 
 	&[class*=align] {
