@@ -57,11 +57,14 @@ module.exports = {
 			context: {
 				date: false,
 				youtube: 'n8hPhZwV8a0',
+				teaser: true,
 				read_time: false,
 				has_icon_overlay: true,
 				url: false,
 				img_url: false,
-				top_level: true
+				top_level: true,
+				title: "",
+				excerpt: ""
 			},
 		},
 		{

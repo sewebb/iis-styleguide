@@ -263,13 +263,6 @@
 		display: block;
 		overflow: hidden;
 
-		&:hover,
-		&:focus {
-			img {
-				opacity: 0.8;
-			}
-		}
-
 		&::after {
 			content: '';
 			position: absolute;
@@ -310,6 +303,14 @@
 
 		@include bem.e(link) {
 			color: var(--snow-color);
+
+			&:hover,
+			&:focus {
+				&::after {
+					background-color: colors.$color-snow;
+					opacity: 0.05;
+				}
+			}
 		}
 
 		@include bem.e(text) {

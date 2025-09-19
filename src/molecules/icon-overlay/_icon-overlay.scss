@@ -31,14 +31,14 @@
 
 	iframe {
 		position: absolute;
-		z-index: 1;
+		z-index: func.z_index(foreground);
 		top: 0;
 		left: 0;
 	}
 
 	@include bem.e(button) {
 		position: absolute;
-		z-index: 3;
+		z-index: func.z_index(foreground);
 		top: 50%;
 		left: 50%;
 		width: func.rhythm(7);
