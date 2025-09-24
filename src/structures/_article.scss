@@ -29,6 +29,13 @@
 		> figure:not(.wp-block-iis-hero) img {
 			border-radius: var.$border-radius;
 		}
+
+		@include bem.m(full-width) {
+			.wp-block-iis-info {
+				position: relative;
+				z-index: func.z_index(middleground);
+			}
+		}
 	}
 
 	@include breakpoint.bp-up(lg) {
@@ -94,7 +101,7 @@
 					}
 				}
 
-				> .wp-block-iis-info {
+				.wp-block-iis-info {
 					max-width: calc(46.364% + #{(var.$indent * 2)});
 					margin-left: var.$indent;
 				}
