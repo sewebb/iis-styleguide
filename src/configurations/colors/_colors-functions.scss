@@ -58,6 +58,10 @@ $colors: (
 		light: colors.$color-ocean-light,
 		dark : colors.$color-ocean-dark,
 		medium-dark: colors.$color-ocean-medium-dark
+	),
+	success: (
+		base: colors.$color-success,
+		dark: colors.$color-success-dark
 	)
 );
 

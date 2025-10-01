@@ -64,9 +64,14 @@
 		display: flex;
 		flex: 0 0 auto;
 		padding: 0;
+		font-size: var.$size-medium;
 
 		+ li {
 			margin-left: func.rhythm(1);
+		}
+
+		@include breakpoint.bp-up(md) {
+			font-size: var.$size-base;
 		}
 	}
 
@@ -76,7 +81,7 @@
 		display: inline-flex;
 		position: relative;
 		align-items: center;
-		padding: func.rhythm(1.5) func.rhythm(3);
+		padding: func.rhythm(1) func.rhythm(2);
 		border-top-left-radius: var.$border-radius;
 		border-top-right-radius: var.$border-radius;
 		background-color: colors.$color-concrete;
@@ -95,6 +100,10 @@
 
 		&:hover {
 			background-color: color.adjust(colors.$color-concrete, $lightness: -5%);
+		}
+
+		@include breakpoint.bp-up(md) {
+			padding: func.rhythm(1.5) func.rhythm(3);
 		}
 	}
 
@@ -118,7 +127,7 @@
 	position: relative;
 	top: -1px;
 	z-index: 2;
-	padding: func.rhythm(2) func.rhythm(3);
+	padding: func.rhythm(1) func.rhythm(2);
 	border-top-right-radius: var.$border-radius;
 	border-bottom-right-radius: var.$border-radius;
 	border-bottom-left-radius: var.$border-radius;
@@ -136,6 +145,10 @@
 	@include bem.m(gray) {
 		background-color: colors.$color-ash;
 		border-color: colors.$color-concrete;
+	}
+
+	@include breakpoint.bp-up(md) {
+		padding: func.rhythm(2) func.rhythm(3);
 	}
 }
 

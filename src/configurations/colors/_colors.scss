@@ -40,3 +40,7 @@ $color-jade-medium-dark: color.adjust($color-jade, $lightness: -10%);
 $color-sandstone-medium-dark: color.adjust($color-sandstone, $lightness: -10%);
 $color-lemon-medium-dark: color.adjust($color-lemon, $lightness: -10%);
 $color-ocean-medium-dark: color.adjust($color-ocean, $lightness: -10%);
+
+/* Special colors not ound in the graphic profile */
+$color-success: #25c279 !default;
+$color-success-dark: #198754 !default;
