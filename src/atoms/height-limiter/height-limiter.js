@@ -26,7 +26,8 @@ function setup(element) {
 
 	update(innerContainer, button, height);
 
-	button.addEventListener('click', () => {
+	button.addEventListener('click', (e) => {
+		e.stopPropagation();
 		innerContainer.classList.toggle('is-limited');
 		innerContainer.setAttribute('style',
 			(innerContainer.style.maxHeight === `${height}px`) ? 'max-height:none' : `max-height:${height}px`);
