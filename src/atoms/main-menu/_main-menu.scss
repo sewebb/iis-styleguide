@@ -259,6 +259,21 @@
 				}
 			}
 		}
+
+		@include bem.m(right-aligned) {
+			left: auto;
+			right: 0;
+
+			&::after,
+			&:before {
+				left: auto;
+				right: func.rhythm(3);
+			}
+
+			&:before {
+				margin-right: -1px;
+			}
+		}
 	}
 }
 
