@@ -23,7 +23,8 @@ function setup(element) {
     const toggleText = element.getAttribute('data-toggle-text');
     let topPosition;
     update(innerContainer, button, height);
-    button.addEventListener('click', ()=>{
+    button.addEventListener('click', (e)=>{
+        e.stopPropagation();
         innerContainer.classList.toggle('is-limited');
         innerContainer.setAttribute('style', innerContainer.style.maxHeight === `${height}px` ? 'max-height:none' : `max-height:${height}px`);
         buttonTextElement.innerText = buttonTextElement.innerText === buttonText ? toggleText : buttonText;

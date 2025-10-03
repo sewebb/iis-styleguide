@@ -5,23 +5,23 @@ Object.defineProperty(exports, "__esModule", {
 function _export(target, all) {
     for(var name in all)Object.defineProperty(target, name, {
         enumerable: true,
-        get: all[name]
+        get: Object.getOwnPropertyDescriptor(all, name).get
     });
 }
 _export(exports, {
-    clearQueue: function() {
+    get clearQueue () {
         return clearQueue;
     },
-    close: function() {
+    get close () {
         return close;
     },
-    onClose: function() {
+    get onClose () {
         return onClose;
     },
-    onOpen: function() {
+    get onOpen () {
         return onOpen;
     },
-    open: function() {
+    get open () {
         return open;
     }
 });
