@@ -48,7 +48,7 @@
 						</div>
 
 						<div class="grid u-hide-sm">
-							<h1 id="portal-title" data-default="Internetkollen" class="u-b-0 u-b-l-1 u-b-solid u-b-concrete display-flex u-p-y-1 u-p-x-2 u-m-y-1 u-font-size-medium u-weight-normal">Test för moderna internetstandarder</h1>
+							<h1 id="portal-title" data-default="Internetkollen" class="u-b-0 u-b-l-1 u-b-dashed u-b-concrete display-flex u-p-y-1 u-p-x-2 u-m-y-1 u-font-size-medium u-weight-normal">Test för moderna internetstandarder</h1>
 						</div>
 						<div class="grid">
 							<nav class="a-main-menu" aria-label="Huvudmeny">
@@ -60,12 +60,17 @@
 									</li>
 									<li class="u-hidden-mobile">
 										<a href="#" class="a-main-menu__list__link">
-											<span class="a-main-menu__list__text">Om testerna</span>
+											<span class="a-main-menu__list__text">Hälsoläget</span>
 										</a>
 									</li>
 									<li class="u-hidden-mobile">
 										<a href="#" class="a-main-menu__list__link">
-											<span class="a-main-menu__list__text">Hälsoläget</span>
+											<span class="a-main-menu__list__text">Om</span>
+										</a>
+									</li>
+									<li class="u-hidden-mobile">
+										<a href="#" class="a-main-menu__list__link">
+											<span class="a-main-menu__list__text">Hjälp</span>
 										</a>
 									</li>
 									<li class="u-hidden-mobile">
@@ -84,10 +89,13 @@
 												<a href="#">Testa själv</a>
 											</li>
 											<li class="a-main-menu__subnav__item">
-												<a href="#">Om testerna</a>
+												<a href="#">Hälsoläget</a>
 											</li>
 											<li class="a-main-menu__subnav__item">
-												<a href="#">Hälsoläget</a>
+												<a href="#">Om</a>
+											</li>
+											<li class="a-main-menu__subnav__item">
+												<a href="#">Hjälp</a>
 											</li>
 											<li class="a-main-menu__subnav__item">
 												<a href="#">Kontakt</a>
@@ -123,10 +131,6 @@
 								<section id="domain-test" class="o-tab-panel">
 									<div class="m-form-control">
 										<div class="row">
-											<div class="grid-18">
-											</div>
-										</div>
-										<div class="row">
 											<div class="grid u-p-r-0 u-m-b-1">
 												<label for="domain" class="a-label">Domännamn:</label>
 												<input type="text" id="domain" required placeholder="exempel.se" autocomplete="off" class="a-input has-icon">
@@ -137,7 +141,7 @@
 												</figure>
 											</div>
 											<div class="grid-auto display-flex align-items-end u-p-l-1 u-m-b-1">
-												<button type="button" class="a-button">
+												<button type="submit" class="a-button has-loader">
 													<span class="a-button__text">Starta</span>
 												</button>
 											</div>
@@ -165,7 +169,7 @@
 								</section>
 								<section id="email-test" class="o-tab-panel">
 									<div class="m-form-control">
-										<div class="row u-m-b-4">
+										<div class="row u-m-b-2">
 											<div class="grid u-p-r-0 u-m-b-1">
 												<label for="email" class="a-label">E-postadress:</label>
 												<input type="email" id="email" required placeholder="du@exempel.se" autocomplete="off" class="a-input has-icon">
@@ -176,7 +180,7 @@
 												</figure>
 											</div>
 											<div class="grid-auto display-flex align-items-end u-p-l-1 u-m-b-1">
-												<button type="button" class="a-button">
+												<button type="submit" class="a-button has-loader">
 													<span class="a-button__text">Starta</span>
 												</button>
 											</div>
@@ -187,11 +191,14 @@
 						</div>
 					</div>
 					<div class="row u-m-b-2">
-						<div class="grid-18">
+						<div class="grid-18 grid-lg-16">
 							<article class="article">
 								<div class="article__content">
-									<h1 class="u-m-b-4">Moderna internetstandarder gör nätet säkrare och starkare. Använder du dem?</h1>
-									<p class="preamble">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pharetra vel nulla a imperdiet. </p>
+									<h1 class="u-m-b-4">
+										<img src="https://stage.zonemaster.se//_astro/world_connected.GFKU4wj6_Z1XVNT2.svg" alt="Världen ihopkopplad i ett nätverk" loading="lazy" decoding="async" fetchpriority="auto" width="515" height="383" class="u-m-l-2 alignright u-hidden-mobile">
+										Moderna internetstandarder gör nätet säkrare och starkare. Använder du dem?
+									</h1>
+									<p class="preamble">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pharetra vel nulla a imperdiet.</p>
 									<p>Mauris eu eros a eros efficitur congue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum nec velit velit. Suspendisse mollis sodales justo, quis varius lorem ultrices at.</p>
 									<p>Aliquam erat volutpat. Nulla erat sem, viverra at placerat et, finibus quis est. Cras quis pellentesque magna, et venenatis tellus.</p>
 								</div>
@@ -200,52 +207,60 @@
 					</div>
 				</main>
 				<aside class="grid-18 grid-lg-6">
-					<div class="background-lemon-lighter u-border-radius u-p-y-2 u-p-x-3 u-m-b-2 u-b-solid u-b-lemon">
+					<div class="background-snow u-border-radius u-p-y-2 u-p-x-3 u-m-b-2 u-b-dashed u-b-concrete">
 						<lord-icon
 							src="https://cdn.lordicon.com/kwnsnjyg.json"
 							trigger="in"
 							delay="0"
 							state="in-analytics"
-							colors="primary:#ffce2e"
+							colors="primary:#0477ce"
 							style="width:80px;height:80px">
 						</lord-icon>
-						<h3 class="beta">Teststatistik</h3>
+						<h3 class="beta">Hur mår internetsverige?</h3>
 						<dl class="u-m-b-0">
 							<dt class="u-weight-bold u-m-b-1">
-								764933 unika webbdomäner
+								1200 samhällskritiska domäner
 							</dt>
-							<dd class="a-meta a-meta--responsive u-m-l-0 u-m-b-2 u-p-b-1 u-b-solid u-b-lemon u-b-x-0 u-b-t-0 u-b-b-1 display-flex flex-wrap u-font-size-base">
+							<dd class="a-meta a-meta--responsive u-m-l-0 u-m-b-2 u-p-b-1 u-b-dashed u-b-concrete u-b-x-0 u-b-t-0 u-b-b-1 display-flex flex-wrap u-font-size-base">
 								<svg class="icon u-icon--medium u-fill-success">
-									<use xlink:href="#icon-personal-data"></use>
+									<use xlink:href="#icon-security"></use>
 								</svg>
 								<span class="color-success">100%:</span>
-								<span>52579</span>
+								<span>97</span>
 							</dd>
-							<dd class="a-meta a-meta--responsive u-m-l-0 u-m-b-2 u-p-b-1 u-b-solid u-b-lemon u-b-x-0 u-b-t-0 u-b-b-1 display-flex flex-wrap u-font-size-base">
+							<dd class="a-meta a-meta--responsive u-m-l-0 u-m-b-2 u-p-b-1 u-b-dashed u-b-concrete u-b-x-0 u-b-t-0 u-b-b-1 display-flex flex-wrap u-font-size-base">
 								<svg class="icon u-icon--medium u-fill-ruby">
 									<use xlink:href="#icon-warning"></use>
 								</svg>
 								<span class="color-ruby">0-99%:</span>
-								<span>712354</span>
+								<span>1103</span>
 							</dd>
 							<dt class="u-weight-bold u-m-b-1">
-								364874 unika e-postdomäner
+								Hela .se-zonen
 							</dt>
-							<dd class="a-meta a-meta--responsive u-m-l-0 u-m-b-2 u-p-b-1 u-b-solid u-b-lemon u-b-x-0 u-b-t-0 u-b-b-1 display-flex flex-wrap u-font-size-base">
+							<dd class="a-meta a-meta--responsive u-m-l-0 u-m-b-2 u-p-b-1 u-b-dashed u-b-concrete u-b-x-0 u-b-t-0 u-b-b-1 display-flex flex-wrap u-font-size-base">
 								<svg class="icon u-icon--medium u-fill-success">
-									<use xlink:href="#icon-personal-data"></use>
+									<use xlink:href="#icon-security"></use>
 								</svg>
 								<span class="color-success">100%:</span>
 								<span>24478</span>
 							</dd>
-							<dd class="a-meta a-meta--responsive u-m-l-0 u-m-b-2 u-p-b-1 u-b-solid u-b-lemon u-b-x-0 u-b-t-0 u-b-b-1 display-flex flex-wrap u-font-size-base">
+							<dd class="a-meta a-meta--responsive u-m-l-0 u-m-b-2 u-p-b-1 u-b-dashed u-b-concrete u-b-x-0 u-b-t-0 u-b-b-1 display-flex flex-wrap u-font-size-base">
 								<svg class="icon u-icon--medium u-fill-ruby">
 									<use xlink:href="#icon-warning"></use>
 								</svg>
 								<span class="color-ruby">0-99%:</span>
-								<span>340396</span>
+								<span>1442158</span>
 							</dd>
 						</dl>
+						<div class="display-flex align-items-end">
+							<a href="" class="a-button a-button--icon u-m-l-auto">
+								<span class="a-button__text u-nowrap">Se statistik från testerna</span>
+								<svg class="icon a-button__icon">
+									<use xlink:href="#icon-arrow-forwards"></use>
+								</svg>
+							</a>
+						</div>
 					</div>
 					<div class="background-ocean-light u-border-radius u-p-t-2 u-p-b-1 u-p-x-3 u-m-b-2 u-b-1 u-b-solid u-b-ocean">
 						<lord-icon
@@ -269,7 +284,7 @@
 				<div class="wrapper o-section__content o-section__content--Ingen o-section__content--peacock">
 					<div class="row">
 						<div class="grid-18">
-							<h2>Mer från Internetstiftelsen</h2>
+							<h2>Artiklar</h2>
 						</div>
 					</div>
 

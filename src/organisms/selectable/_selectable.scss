@@ -1,0 +1,40 @@
+@charset "UTF-8";
+@use "sass:color";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/extends';
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+
+@include mixin.organism(selectable) {
+	background-color: colors.$color-snow;
+	padding: func.rhythm(1);
+
+	[aria-hidden="true"] {
+		display: none;
+	}
+
+	@include breakpoint.bp-up(md) {
+		padding: func.rhythm(2);
+	}
+
+	@include bem.e(item) {
+		border-top: 1px solid colors.$color-concrete;
+		padding-top: func.rhythm(2);
+		margin-top: func.rhythm(3);
+	}
+
+	@include bem.m(border-radius) {
+		border-radius: var.$border-radius;
+	}
+
+	@include bem.m(shadow-small) {
+		@include mixin.box-shadow(colors.$color-cyberspace, 0.2);
+	}
+
+	@include bem.m(shadow-large) {
+		@include mixin.card-shadow(colors.$color-cyberspace, 0.2);
+	}
+}

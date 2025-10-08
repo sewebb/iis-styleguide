@@ -25,6 +25,7 @@
 	mask-repeat: repeat-y;
 	mask-position: top right;
 	mask-size: 100% func.rhythm(6);
+	pointer-events: none;
 
 	&::-webkit-scrollbar {
 		position: absolute;
@@ -65,6 +66,7 @@
 		flex: 0 0 auto;
 		padding: 0;
 		font-size: var.$size-medium;
+		pointer-events: auto;
 
 		+ li {
 			margin-left: func.rhythm(1);
