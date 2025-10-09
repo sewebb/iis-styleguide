@@ -9,7 +9,6 @@
 @use '../../vendor/grid/breakpoints' as breakpoint;
 
 @include mixin.organism(selectable) {
-	background-color: colors.$color-snow;
 	padding: func.rhythm(1);
 
 	[aria-hidden="true"] {
