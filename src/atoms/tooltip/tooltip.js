@@ -19,7 +19,7 @@ function positionToolTip() {
 	}
 }
 
-if (toolTip) {
+if (toolTip && toolTipText) {
 	positionToolTip();
 	window.addEventListener('scroll', positionToolTip);
 }
