@@ -57,13 +57,21 @@ const hash = window.location.hash.replace(/^#/, '');
 if (hash) {
     const item = document.getElementById(hash);
     if (item) {
-        const selectable = item.closest('[data-selectable]');
-        if (selectable) {
-            const select = selectable.querySelector('[data-selectable-select]');
+        if (item.matches('[data-selectable]')) {
+            const select = item.querySelector('[data-selectable-select]');
             if (select) {
-                select.value = hash.replace(`${selectable.id}-`, '');
+                select.value = '';
             }
-            toggleItems(selectable, select.value);
+            toggleItems(item, null);
+        } else {
+            const selectable = item.closest('[data-selectable]');
+            if (selectable) {
+                const select = selectable.querySelector('[data-selectable-select]');
+                if (select) {
+                    select.value = hash.replace(`${selectable.id}-`, '');
+                }
+                toggleItems(selectable, select.value);
+            }
         }
     }
 }
