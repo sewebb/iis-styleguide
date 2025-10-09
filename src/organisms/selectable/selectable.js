@@ -72,3 +72,24 @@ selectables.forEach((selectable) => {
 
 	toggleItems(selectable, select.value);
 })
+
+// Read current hash and select item
+const hash = window.location.hash.replace(/^#/, '');
+
+if (hash) {
+	const item = document.getElementById(hash);
+
+	if (item) {
+		const selectable = item.closest('[data-selectable]');
+
+		if (selectable) {
+			const select = selectable.querySelector('[data-selectable-select]');
+
+			if (select) {
+				select.value = hash.replace(`${selectable.id}-`, '');
+			}
+
+			toggleItems(selectable, select.value);
+		}
+	}
+}
