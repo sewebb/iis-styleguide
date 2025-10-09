@@ -28,6 +28,7 @@ import './organisms/video-guide/video-guide';
 import './organisms/timeline/timeline';
 import './molecules/overview-navigation/overview-navigation';
 import './organisms/schedule/schedule-filter';
+import './organisms/selectable/selectable';
 import './assets/js/ot';
 import './assets/js/charCounter';
 import './atoms/range/range';
