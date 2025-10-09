@@ -5,7 +5,7 @@
 				<div class="grid u-m-b-1">
 					<legend>Välj risktema</legend>
 					<label for="selactable" class="u-visuallyhidden">Valt risktema</label>
-					<select name="selactable" id="selactable" class="a-select a-select--full-width" data-selectable-select>
+					<select name="selactable" id="selactable" class="a-select a-select--full-width" aria-controls="selectable-panel" data-selectable-select>
 						<option value="" disabled>Alla</option>
 						<option value="skarmberoende" selected>Innehåll som är konstruerat för att skapa skärmberoende</option>
 						<option value="fejkade-nyheter">Fejkade nyheter som ger en snedvriden verklighetsuppfattning</option>
@@ -44,7 +44,7 @@
 			</div>
 		</fieldset>
 	</div>
-	<div data-selectable-items>
+	<div id="selectable-panel" data-selectable-items>
 		<div class="o-selectable__item" data-selectable-item id="selectable-skarmberoende">
 			<div id="graph-3787" class="alignfull wp-block-graph ">
 				<div class="wrapper">
