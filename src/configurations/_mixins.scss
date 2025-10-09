@@ -100,3 +100,22 @@
 		}
 	}
 }
+
+@mixin value-range($from, $to) {
+	@for $i from $from through $to {
+		// main element
+		@at-root #{&}[value="#{$i}"] {
+			@content;
+		}
+
+		// WebKit progress bar (Chrome, Safari, Edge)
+		@at-root #{&}[value="#{$i}"]::-webkit-progress-value {
+			@content;
+		}
+
+		// Firefox progress bar
+		@at-root #{&}[value="#{$i}"]::-moz-progress-bar {
+			@content;
+		}
+	}
+}

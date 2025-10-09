@@ -20,6 +20,13 @@
 
 	&[disabled] {
 		@extend %disabled;
+
+		&[disabled] {
+			+ figure svg {
+				opacity: 0.3;
+				cursor: not-allowed;
+			}
+		}
 	}
 
 	@include bem.m(discreet) {

@@ -7,8 +7,14 @@
 @use '../../configurations/colors/colors-functions' as colorFunc;
 @use '../../vendor/grid/breakpoints' as breakpoint;
 
-
 @include mixin.atom(progress) {
+	-webkit-appearance: none;
+	-moz-appearance: none;
+	appearance: none;
+	padding: 0;
+	pointer-events: none;
+	cursor: none;
+
 	&[value] {
 		-webkit-appearance: none;
 		-moz-appearance: none;
@@ -20,21 +26,32 @@
 		width: 100%;
 		border-radius: 0;
 		height: func.rhythm(1);
+		position: relative;
 
 		@include breakpoint.bp-up(md) {
 			height: func.rhythm(2);
 		}
 	}
-	&[value]::-webkit-progress-bar {
+
+	&[value]::-webkit-progress-bar,
+	&[value]::-webkit-meter-bar {
 		border-radius: 0;
 		background: colors.$color-concrete;
-	}
-	&[value]::-webkit-progress-value {
-		border-radius: 0;
-		background: colors.$color-ocean;
 		transition: width 5s ease;
 	}
-	&[value]::-moz-progress-bar {
+
+	&[value]::-webkit-progress-value,
+	&[value]::-webkit-meter-optimum-value {
+		border-radius: 0;
+		//background: colors.$color-ocean;
+		transition: width 5s ease;
+		background-image: url(/assets/images/color-scale.png);
+		background-repeat: no-repeat;
+		background-size: 100% 100%;
+	}
+
+	&[value]::-moz-progress-value,
+	&[value]::-moz-meter-optimum {
 		border-radius: 0;
 		background: colors.$color-ocean;
 		transition: padding-bottom 5s ease;
@@ -43,6 +60,52 @@
 		height: 0;
 		transform-origin: 0 0;
 		transform: rotate(-90deg) translateX(-60px) ;
+	}
+
+	@include bem.m(large) {
+		&[value] {
+			height: func.rhythm(4);
+		}
+	}
+
+	@include bem.m(gradient) {
+		&[value^="90"],
+		&[value="100"] {
+			&::after {
+				color: colors.$color-snow;
+				text-shadow: 0 0 3px rgba(0,0,0,0.4);
+			}
+		}
+
+		@include mixin.value-range(0, 19) {
+			background: linear-gradient(90deg, colors.$color-ruby-dark 0%, colors.$color-ruby-dark 19.9%);
+		}
+
+		@include mixin.value-range(20, 39) {
+			background: linear-gradient(90deg, colors.$color-ruby-dark 0%, colors.$color-ruby-dark 49.9%, colors.$color-ruby 50%, colors.$color-ruby 100%);
+		}
+
+		@include mixin.value-range(40, 59) {
+			background: linear-gradient(90deg, colors.$color-ruby-dark 0%, colors.$color-ruby-dark 33.3%, colors.$color-ruby 33.4%, colors.$color-ruby 66.6%, colors.$color-sandstone 66.7%, colors.$color-sandstone 100%);
+		}
+
+		@include mixin.value-range(60, 89) {
+			background: linear-gradient(90deg, colors.$color-ruby-dark 0%, colors.$color-ruby-dark 24.9%, colors.$color-ruby 25%, colors.$color-ruby 49.9%, colors.$color-sandstone 50%, colors.$color-sandstone 74.9%, colors.$color-lemon 75%, colors.$color-lemon 100%);
+		}
+
+/*		&::-webkit-progress-inner-element,
+		&[value]::-webkit-meter-optimum-value {
+			background-image: url(/assets/images/color-scale.png);
+			background-repeat: no-repeat;
+			background-size: 100% 100%;
+		}
+
+
+		&[value]::-moz-progress-value,
+		&[value]::-moz-meter-optimum {
+			background-image: url(/assets/images/color-scale.png);
+			background-repeat: no-repeat;
+		}*/
 	}
 }
 

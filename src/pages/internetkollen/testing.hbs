@@ -1,0 +1,363 @@
+<script src="https://cdn.lordicon.com/lordicon-1.1.0.js"></script>
+
+<div class="site u-z-index-foreground" id="site">
+	<div class="site__header" id="siteHeader">
+		<div class="u-position-relative">
+			<header class="o-header">
+				<div class="wrapper">
+					<div class="row justify-content-between align-items-center flex-nowrap">
+						<div class="grid-auto">
+							<a href="/" class="o-header__logo-link">
+								<span class="o-header__logo">
+									<img class="logotype" src="https://static.internetstiftelsen.se/images/logotypes/internetkollen.svg" alt="logotyp">
+								</span>
+								<span class="u-visuallyhidden">Till startsidan</span>
+							</a>
+						</div>
+
+						<div class="grid u-hide-sm">
+							<h1 id="portal-title" data-default="Internetkollen" class="u-b-0 u-b-l-1 u-b-solid u-b-concrete display-flex u-p-y-1 u-p-x-2 u-m-y-1 u-font-size-medium u-weight-normal">Test för moderna internetstandarder</h1>
+						</div>
+						<div class="grid">
+							<nav class="a-main-menu" aria-label="Huvudmeny">
+								<ul class="a-main-menu__list">
+									<li class="u-hidden-mobile">
+										<a href="#" class="a-main-menu__list__link">
+											<span class="a-main-menu__list__text">Testa själv</span>
+										</a>
+									</li>
+									<li class="u-hidden-mobile">
+										<a href="#" class="a-main-menu__list__link">
+											<span class="a-main-menu__list__text">Hälsoläget</span>
+										</a>
+									</li>
+									<li class="u-hidden-mobile">
+										<a href="#" class="a-main-menu__list__link">
+											<span class="a-main-menu__list__text">Om</span>
+										</a>
+									</li>
+									<li class="u-hidden-mobile">
+										<a href="#" class="a-main-menu__list__link">
+											<span class="a-main-menu__list__text">Hjälp</span>
+										</a>
+									</li>
+									<li class="u-hidden-mobile">
+										<a href="#" class="a-main-menu__list__link">
+											<span class="a-main-menu__list__text">Kontakt</span>
+										</a>
+									</li>
+									<li class="u-hide-xl-up">
+										<button type="button" class="a-main-menu__list__link" aria-expanded="false" data-a11y-toggle="dropdown">
+											<span class="a-main-menu__list__text">Meny</span>
+											<div class="icon-arrow-down"></div>
+										</button>
+
+										<ul id="dropdown" class="a-main-menu__subnav a-main-menu__subnav--right-aligned u-box-shadow-card">
+											<li class="a-main-menu__subnav__item">
+												<a href="#">Testa själv</a>
+											</li>
+											<li class="a-main-menu__subnav__item">
+												<a href="#">Hälsoläget</a>
+											</li>
+											<li class="a-main-menu__subnav__item">
+												<a href="#">Om</a>
+											</li>
+											<li class="a-main-menu__subnav__item">
+												<a href="#">Hjälp</a>
+											</li>
+											<li class="a-main-menu__subnav__item">
+												<a href="#">Kontakt</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</nav>
+
+						</div>
+					</div>
+				</div>
+			</header>
+		</div>
+	</div>
+	<div class="site__main" id="siteMain">
+		<div class="wrapper u-p-t-2">
+			<div class="row">
+				<main class="grid-18 grid-lg-12">
+					<div class="row">
+						<div class="grid-18 grid-xl-18 u-m-b-6">
+							<div data-tab-component>
+
+								<ul class="o-tab-list js-o-tab-list" data-update-url="true">
+									<li class="o-tab-list__item">
+										<a class="o-tab-list__link" href="#domain-test" id="tab-domain">Testa webbplats</a>
+									</li>
+									<li class="o-tab-list__item">
+										<a class="o-tab-list__link" href="#email-test" id="tab-email">Testa e-post</a>
+									</li>
+								</ul>
+
+								<section id="domain-test" class="o-tab-panel">
+									<div class="m-form-control">
+										<div class="row">
+											<div class="grid u-p-r-0 u-m-b-1">
+												<label for="domain" class="a-label">Domännamn:</label>
+												<input type="text" id="domain" required placeholder="exempel.se" autocomplete="off" class="a-input has-icon" disabled>
+												<figure class="input-icon">
+													<svg class="icon">
+														<use xlink:href="#icon-search-domain"></use>
+													</svg>
+												</figure>
+											</div>
+											<div class="grid-auto display-flex align-items-end u-p-l-1 u-m-b-1">
+												<button type="submit" class="a-button has-loader is-loading">
+													<span class="a-button__text">Starta</span>
+												</button>
+											</div>
+										</div>
+										<div class="row">
+											<fieldset class="field-group u-p-x-1">
+												<legend class="label-legend u-visuallyhidden">Avancerat</legend>
+												<div class="checkbox checkbox--inline row no-gutters">
+													<div class="grid">
+														<input type="checkbox" id="advanced" name="advanced" value="advanced" class="a-checkbox u-visuallyhidden" disabled>
+														<label for="advanced" aria-describedby="advanced-tooltip">
+															Testa endast exakt den angivna domänen
+															<span tabindex="0" class="a-tooltip a-button a-button--standalone-icon a-button--icon" id="advanced-tooltip" role="tooltip">
+																<span class="a-tooltip__text" data-tooltip>Beskrivning vad vi menar med detta t.ex att vi då inte testar www eller andra subdomäner</span>
+																<svg class="icon a-button__icon">
+																	<use xlink:href="#icon-info"></use>
+																</svg>
+															</span>
+														</label>
+													</div>
+												</div>
+											</fieldset>
+										</div>
+									</div>
+								</section>
+								<section id="email-test" class="o-tab-panel">
+									<div class="m-form-control">
+										<div class="row u-m-b-2">
+											<div class="grid u-p-r-0 u-m-b-1">
+												<label for="email" class="a-label">E-postadress:</label>
+												<input type="email" id="email" required placeholder="du@exempel.se" autocomplete="off" class="a-input has-icon">
+												<figure class="input-icon">
+													<svg class="icon">
+														<use xlink:href="#icon-at"></use>
+													</svg>
+												</figure>
+											</div>
+											<div class="grid-auto display-flex align-items-end u-p-l-1 u-m-b-1">
+												<button type="submit" class="a-button has-loader">
+													<span class="a-button__text">Starta</span>
+												</button>
+											</div>
+										</div>
+									</div>
+								</section>
+							</div>
+						</div>
+					</div>
+					<div class="row u-m-b-2">
+						<div class="grid-18 grid-lg-16">
+							<article class="article">
+								<div class="article__content">
+									<h1 class="u-m-b-4">
+										<img src="/assets/images/undraw_server-status_7viz.svg" alt="Världen ihopkopplad i ett nätverk" loading="lazy" decoding="async" fetchpriority="auto" width="515" height="383" class="u-m-l-2 alignright u-hidden-mobile">
+										Moderna internetstandarder gör nätet säkrare och starkare. Använder du dem?
+									</h1>
+									<p class="preamble">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vivamus pharetra vel nulla a imperdiet.</p>
+									<p>Mauris eu eros a eros efficitur congue. Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum nec velit velit. Suspendisse mollis sodales justo, quis varius lorem ultrices at.</p>
+									<p>Aliquam erat volutpat. Nulla erat sem, viverra at placerat et, finibus quis est. Cras quis pellentesque magna, et venenatis tellus.</p>
+								</div>
+							</article>
+						</div>
+					</div>
+				</main>
+				<aside class="grid-18 grid-lg-6">
+					<div class="background-snow u-border-radius u-p-y-2 u-p-x-3 u-m-b-2 u-b-dashed u-b-concrete">
+						<lord-icon
+							src="https://cdn.lordicon.com/kwnsnjyg.json"
+							trigger="in"
+							delay="0"
+							state="in-analytics"
+							colors="primary:#0477ce"
+							style="width:80px;height:80px">
+						</lord-icon>
+						<h3 class="beta">Hur mår internetsverige?</h3>
+						<dl class="u-m-b-0">
+							<dt class="u-weight-bold u-m-b-1">
+								1200 samhällskritiska domäner
+							</dt>
+							<dd class="a-meta a-meta--responsive u-m-l-0 u-m-b-2 u-p-b-1 u-b-dashed u-b-concrete u-b-x-0 u-b-t-0 u-b-b-1 display-flex flex-wrap u-font-size-base">
+								<svg class="icon u-icon--medium u-fill-success">
+									<use xlink:href="#icon-security"></use>
+								</svg>
+								<span class="color-success">100%:</span>
+								<span>97</span>
+							</dd>
+							<dd class="a-meta a-meta--responsive u-m-l-0 u-m-b-2 u-p-b-1 u-b-dashed u-b-concrete u-b-x-0 u-b-t-0 u-b-b-1 display-flex flex-wrap u-font-size-base">
+								<svg class="icon u-icon--medium u-fill-ruby">
+									<use xlink:href="#icon-warning"></use>
+								</svg>
+								<span class="color-ruby">0-99%:</span>
+								<span>1103</span>
+							</dd>
+							<dt class="u-weight-bold u-m-b-1">
+								Hela .se-zonen
+							</dt>
+							<dd class="a-meta a-meta--responsive u-m-l-0 u-m-b-2 u-p-b-1 u-b-dashed u-b-concrete u-b-x-0 u-b-t-0 u-b-b-1 display-flex flex-wrap u-font-size-base">
+								<svg class="icon u-icon--medium u-fill-success">
+									<use xlink:href="#icon-security"></use>
+								</svg>
+								<span class="color-success">100%:</span>
+								<span>24478</span>
+							</dd>
+							<dd class="a-meta a-meta--responsive u-m-l-0 u-m-b-2 u-p-b-1 u-b-dashed u-b-concrete u-b-x-0 u-b-t-0 u-b-b-1 display-flex flex-wrap u-font-size-base">
+								<svg class="icon u-icon--medium u-fill-ruby">
+									<use xlink:href="#icon-warning"></use>
+								</svg>
+								<span class="color-ruby">0-99%:</span>
+								<span>1442158</span>
+							</dd>
+						</dl>
+						<div class="display-flex align-items-end">
+							<a href="" class="a-button a-button--icon u-m-l-auto">
+								<span class="a-button__text u-nowrap">Se statistik från testerna</span>
+								<svg class="icon a-button__icon">
+									<use xlink:href="#icon-arrow-forwards"></use>
+								</svg>
+							</a>
+						</div>
+					</div>
+					<div class="background-ocean-light u-border-radius u-p-t-2 u-p-b-1 u-p-x-3 u-m-b-2 u-b-1 u-b-solid u-b-ocean">
+						<lord-icon
+							src="https://cdn.lordicon.com/qawxkplz.json"
+							trigger="in"
+							delay=""
+							colors="primary:#50b2fc"
+							style="width:80px;height:80px">
+						</lord-icon>
+						<h3>Fler testverktyg från Internetstiftelsen</h3>
+						<ul>
+							<li><a href="">Zonemaster</a></li>
+							<li><a href="">Bredbandskollen</a></li>
+							<li><a href="">Har ditt lösenord läckt?</a></li>
+						</ul>
+					</div>
+				</aside>
+			</div>
+
+			<section class="o-section o-section--white alignfull">
+				<div class="wrapper o-section__content o-section__content--Ingen o-section__content--peacock">
+					<div class="row">
+						<div class="grid-18">
+							<h2>Artiklar</h2>
+						</div>
+					</div>
+
+					<div class="row u-m-b-2">
+						<div class="grid-18 grid-lg-6">
+							{{> @card is_padded="true"
+								modifier="u-m-b-2 m-card--shadow"
+								title="Snabbkurser – i förebyggande syfte"
+								url="#"
+								img_url="https://internetkunskap.se/app/uploads/2022/02/aldre-surfar-pa-smart-mobil-kpa-8949.jpg.webp"
+								excerpt="Ta någon av våra snabba kurser i källkritik och säkerhet på nätet. Lär dig att känna igen bedragare, granska information och bli en mer medveten internetanvändare."}}
+						</div>
+						<div class="grid-18 grid-lg-6">
+							{{> @card is_padded="true"
+								modifier="u-m-b-2 m-card--shadow"
+								title="Guider – om du blivit lurad på nätet"
+								url="#"
+								img_url="https://internetkunskap.se/app/uploads/2019/01/alx4622-editlosenord.jpg.webp"
+								excerpt="Misstänker du att du blivit utsatt för bedragare på nätet? Med hjälp av våra guider kan du som har blivit utsatt för bedragare på nätet få vägledning."}}
+						</div>
+						<div class="grid-18 grid-lg-6">
+							{{> @card is_padded="true"
+								modifier="u-m-b-2 m-card--shadow"
+								title="Ny version av Bredbandskollen för Android"
+								url="#"
+								img_url="/assets/images/bredbandskollen.jpg"
+								excerpt="Vi har i slutet av augusti släppt en uppdatering för att följa regelverket i Google Play. Appen är nu byggd för att bättre fungera på Android 13. Läs mer här.
+
+"}}
+						</div>
+					</div>
+					<div class="row u-m-b-2">
+						<div class="grid-18 grid-lg-6 u-m-b-2">
+							<div class="m-card m-card--padded wp-block-iis-visualization background-ocean-light">
+								<div class="m-card__content">
+									<lord-icon
+										src="https://cdn.lordicon.com/tnapqovl.json"
+										trigger="in"
+										delay=""
+										colors="primary:#50b2fc"
+										style="width:80px;height:80px">
+									</lord-icon>
+									<h2 class="wp-block-heading"><a href="#" class="u-link-area">Om testerna</a></h2>
+									<p>Hur fungerar testerna, vad mäter vi och hur skall man tolka resultatet?</p>
+								</div>
+							</div>
+						</div>
+						<div class="grid-18 grid-lg-6 u-m-b-2">
+							<div class="m-card m-card--padded wp-block-iis-visualization background-lemon-light">
+								<div class="m-card__content">
+									<lord-icon
+										src="https://cdn.lordicon.com/ojnjgkun.json"
+										trigger="in"
+										delay=""
+										colors="primary:#ffce2e"
+										style="width:80px;height:80px">
+									</lord-icon>
+									<h2 class="wp-block-heading"><a href="#" class="u-link-area">Hjälp?</a></h2>
+									<p>Har du frågor? Sök efter svaret på våra hjälpsidor.</p>
+								</div>
+							</div>
+						</div>
+						<div class="grid-18 grid-lg-6 u-m-b-2">
+							<div class="m-card m-card--padded wp-block-iis-visualization background-concrete">
+								<div class="m-card__content">
+									<lord-icon
+										src="https://cdn.lordicon.com/mdjanuie.json"
+										trigger="in"
+										delay=""
+										colors="primary:#8E9297"
+										style="width:80px;height:80px">
+									</lord-icon>
+									<h2 class="wp-block-heading"><a href="#" class="u-link-area">Integritetspolicy</a></h2>
+									<p>Internetstiftelsen ansvarar enligt gällande dataskyddslagstiftning för de personuppgifter som behandlas i Bredbandskollen.</p>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</section>
+		</div>
+	</div>
+	<div class="site__footer">
+		{{> @footer footer_text="Bredbandskollen är ett oberoende
+								konsumentverktyg som drivs av <a class='o-footer__link' href='https://internetstiftelsen.se'>Internetstiftelsen</a>.
+								Internetstiftelsen är en oberoende, affärsdriven och allmännyttig organisation. Vi verkar
+								för ett internet som bidrar positivt till människan och samhället. Vi ansvarar för internets
+								svenska toppdomän .se och sköter drift och administration av toppdomänen .nu. Intäkterna
+								från affärsverksamheten finansierar en rad satsningar i syfte att möjliggöra att människor
+								kan nyttja internet på bästa sätt, och stimulera kunskapsdelning och innovation med
+								inriktning på internet." ISO_text="Certifierade enligt ISO/IEC<br>27001:2013"
+			CC_license="Creative Commons licens<br>Erkännande 4.0 Internationell"
+			ISO_image="https://internetstiftelsen.se/app/themes/internetstiftelsen/images/ISO_27001_2013_black_TM.svg"
+			ISO_link="https://internetstiftelsen.se/docs/Certifikat_27001_UKAS_sv.pdf"
+			contact_1="<ul class='u-list-clean o-footer__info__contact__address'><li class='o-footer__info__contact__address__li'>Internetstiftelsen</li><li class='o-footer__info__contact__address__li'>Hammarby Kaj 10D</li><li class='o-footer__info__contact__address__li'>Box 92073</li><li class='o-footer__info__contact__address__li'>120 07 Stockholm</li></ul>"
+			contact_2="<ul class='u-list-clean o-footer__info__contact__address'><li class='o-footer__info__contact__address__li'>E-post: <a class='o-footer__link' href='mailto:info@bredbandskollen.se'>info@bredbandskollen.se</a></li><li class='o-footer__info__contact__address__li'>Telefon: <a class='o-footer__link' href='tel:084523500'>08-452 35 00</a></li><li class='o-footer__info__contact__address__li'>Organisationsnummer: 802405-0190</li></ul>"
+			site_description_1="'En årlig studie av svenska folkets internetvanor"
+			site_description_2="Internetdagarna är en konferens som arrangeras av Internetstiftelsen"
+			site_description_3="Goto 10 är en start- och mötesplats för internetrelaterade frågor som drivs av Internetstiftelsen"
+			site_description_4="Bredbandskollen är ett oberoende konsumentverktyg som drivs av Internetstiftelsen"
+			site_description_5="Ett digitalt museum som byggts, och kureras av Internetstiftelsen"
+			site_description_6="Öppen digital lärresurs med färdiga lektioner för alla stadier i grundskolan"
+			site_description_7="Samlad kunskap som hjälper dig att bli en säker och medveten internetanvändare"
+			site_description_8="Internetstiftelsen verkar för ett internet som bidrar positivt till människan och samhället"
+		}}
+	</div>
+</div>
+
