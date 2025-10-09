@@ -12,7 +12,7 @@ function positionToolTip() {
         toolTipText.classList.add('down');
     }
 }
-if (toolTip) {
+if (toolTip && toolTipText) {
     positionToolTip();
     window.addEventListener('scroll', positionToolTip);
 }

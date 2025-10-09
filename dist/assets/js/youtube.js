@@ -6,14 +6,14 @@ Object.defineProperty(exports, "__esModule", {
 function _export(target, all) {
     for(var name in all)Object.defineProperty(target, name, {
         enumerable: true,
-        get: Object.getOwnPropertyDescriptor(all, name).get
+        get: all[name]
     });
 }
 _export(exports, {
-    get destroyPlayer () {
+    destroyPlayer: function() {
         return destroyPlayer;
     },
-    get setupPlayers () {
+    setupPlayers: function() {
         return setupPlayers;
     }
 });

@@ -32,6 +32,7 @@ require("./organisms/video-guide/video-guide");
 require("./organisms/timeline/timeline");
 require("./molecules/overview-navigation/overview-navigation");
 require("./organisms/schedule/schedule-filter");
+require("./organisms/selectable/selectable");
 require("./assets/js/ot");
 require("./assets/js/charCounter");
 require("./atoms/range/range");
