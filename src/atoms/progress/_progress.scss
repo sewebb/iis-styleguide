@@ -14,6 +14,8 @@
 	padding: 0;
 	pointer-events: none;
 	cursor: none;
+	border-radius: var.$border-radius;
+	overflow: hidden;
 
 	&[value] {
 		-webkit-appearance: none;
@@ -24,30 +26,13 @@
 		background: colors.$color-concrete;
 		border: none;
 		width: 100%;
-		border-radius: 0;
+		border-radius: var.$border-radius;
 		height: func.rhythm(1);
 		position: relative;
 
 		@include breakpoint.bp-up(md) {
 			height: func.rhythm(2);
 		}
-	}
-
-	&[value]::-webkit-progress-bar,
-	&[value]::-webkit-meter-bar {
-		border-radius: 0;
-		background: colors.$color-concrete;
-		transition: width 5s ease;
-	}
-
-	&[value]::-webkit-progress-value,
-	&[value]::-webkit-meter-optimum-value {
-		border-radius: 0;
-		//background: colors.$color-ocean;
-		transition: width 5s ease;
-		background-image: url(/assets/images/color-scale.png);
-		background-repeat: no-repeat;
-		background-size: 100% 100%;
 	}
 
 	&[value]::-moz-progress-value,
@@ -62,50 +47,63 @@
 		transform: rotate(-90deg) translateX(-60px) ;
 	}
 
-	@include bem.m(large) {
-		&[value] {
-			height: func.rhythm(4);
+	&[value]::-webkit-progress-bar,
+	&[value]::-webkit-meter-bar,
+	&[value]::-webkit-meter-optimum-value
+	{
+		border-radius: 0;
+		background: colors.$color-concrete;
+		transition: width 5s ease;
+		block-size: func.rhythm(1);
+
+		@include breakpoint.bp-up(md) {
+			block-size: func.rhythm(2);
 		}
 	}
 
-	@include bem.m(gradient) {
-		&[value^="90"],
-		&[value="100"] {
-			&::after {
-				color: colors.$color-snow;
-				text-shadow: 0 0 3px rgba(0,0,0,0.4);
-			}
-		}
+	&[value]::-webkit-progress-value,
+	&[value]::-webkit-meter-optimum-value {
+		background: colors.$color-ocean;
+	}
 
-		@include mixin.value-range(0, 19) {
-			background: linear-gradient(90deg, colors.$color-ruby-dark 0%, colors.$color-ruby-dark 19.9%);
-		}
+	&::-moz-progress-bar {
+		background: colors.$color-ocean;
+	}
 
-		@include mixin.value-range(20, 39) {
-			background: linear-gradient(90deg, colors.$color-ruby-dark 0%, colors.$color-ruby-dark 49.9%, colors.$color-ruby 50%, colors.$color-ruby 100%);
-		}
+	&::-moz-meter-bar {
+		background: colors.$color-ocean;
+	}
 
-		@include mixin.value-range(40, 59) {
-			background: linear-gradient(90deg, colors.$color-ruby-dark 0%, colors.$color-ruby-dark 33.3%, colors.$color-ruby 33.4%, colors.$color-ruby 66.6%, colors.$color-sandstone 66.7%, colors.$color-sandstone 100%);
-		}
+	&:-moz-meter-optimum::slider-fill {
+		background: colors.$color-ocean;
+	}
 
-		@include mixin.value-range(60, 89) {
-			background: linear-gradient(90deg, colors.$color-ruby-dark 0%, colors.$color-ruby-dark 24.9%, colors.$color-ruby 25%, colors.$color-ruby 49.9%, colors.$color-sandstone 50%, colors.$color-sandstone 74.9%, colors.$color-lemon 75%, colors.$color-lemon 100%);
-		}
-
-/*		&::-webkit-progress-inner-element,
+	@include bem.m(large) {
+		&[value],
+		&[value]::-webkit-progress-bar,
+		&[value]::-webkit-meter-bar,
 		&[value]::-webkit-meter-optimum-value {
-			background-image: url(/assets/images/color-scale.png);
+			height: func.rhythm(4);
+			block-size: func.rhythm(4);
+		}
+	}
+
+	@include bem.m(heat) {
+		&[value]::-webkit-progress-value,
+		&[value]::-webkit-meter-optimum-value {
+			border-radius: 0;
+			transition: width 5s ease;
+			background: linear-gradient(90deg, rgba(217, 0, 47, 1) 0%, rgba(217, 0, 47, 1) 19.99%, rgba(255, 64, 105, 1) 20%, rgba(255, 64, 105, 1) 39.99%, rgba(249, 153, 99, 1) 40%, rgba(249, 153, 99, 1) 59.99%, rgba(255, 206, 46, 1) 60%, rgba(255, 206, 46, 1) 79.99%, rgba(37, 194, 121, 1) 80%, rgba(37, 194, 121, 1) 89.99%, rgba(25, 135, 84, 1) 90%, rgba(25, 135, 84, 1) 100%);
+			background-size: var(--progressbar-width) 100%; /* This is calculated by JS and set in the DOM */
 			background-repeat: no-repeat;
-			background-size: 100% 100%;
 		}
 
-
-		&[value]::-moz-progress-value,
-		&[value]::-moz-meter-optimum {
-			background-image: url(/assets/images/color-scale.png);
+		&::-moz-progress-bar {
+			transition: width 5s ease;
+			background: linear-gradient(90deg, rgba(217, 0, 47, 1) 0%, rgba(217, 0, 47, 1) 19.99%, rgba(255, 64, 105, 1) 20%, rgba(255, 64, 105, 1) 39.99%, rgba(249, 153, 99, 1) 40%, rgba(249, 153, 99, 1) 59.99%, rgba(255, 206, 46, 1) 60%, rgba(255, 206, 46, 1) 79.99%, rgba(37, 194, 121, 1) 80%, rgba(37, 194, 121, 1) 89.99%, rgba(25, 135, 84, 1) 90%, rgba(25, 135, 84, 1) 100%);
+			background-size: var(--progressbar-width) 100%; /* This is calculated by JS and set in the DOM */
 			background-repeat: no-repeat;
-		}*/
+		}
 	}
 }
 
@@ -113,7 +111,12 @@
 	display: flex;
 	align-items: center;
 
-	> progress {
+	> progress,
+	> meter {
 		margin-left: func.rhythm(1);
+	}
+
+	@include bem.m(large) {
+		font-size: var.$size-base * 1.5;
 	}
 }

@@ -11,6 +11,14 @@ module.exports = {
 	},
 	variants: [
 		{
+			name: 'Heat',
+			context: {
+				heat: true,
+				meter: false,
+				value: '100'
+			}
+		},
+		{
 			name: 'Meter',
 			context: {
 				meter: true

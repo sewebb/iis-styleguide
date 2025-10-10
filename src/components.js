@@ -37,3 +37,4 @@ import './assets/js/textToggle';
 import './assets/js/iconToggle';
 import './molecules/multi-select/multi-select';
 import './organisms/haveibeenpwned/haveibeenpwned';
+import './atoms/progress/progress';
