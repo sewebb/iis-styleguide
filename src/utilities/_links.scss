@@ -24,6 +24,26 @@
 	}
 }
 
+.u-link-default,
+.u-link-default * {
+	padding: 0 !important;
+	border: 0 !important;
+	border-radius: 0 !important;
+	word-wrap: normal !important;
+	word-break: normal !important;
+	hyphens: none !important;
+	overflow-wrap: normal !important;
+	text-decoration: underline !important;
+
+	&:hover,
+	&:focus {
+		border: 0 !important;
+		border-radius: 0 !important;
+		background-color: transparent !important;
+		text-decoration: none !important;
+	}
+}
+
 /* Force body text link link-styles */
 .u-link {
 	padding: func.rhythm(0) func.rhythm(0.5) !important;

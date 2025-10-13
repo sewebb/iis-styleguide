@@ -41,3 +41,4 @@ require("./assets/js/textToggle");
 require("./assets/js/iconToggle");
 require("./molecules/multi-select/multi-select");
 require("./organisms/haveibeenpwned/haveibeenpwned");
+require("./atoms/progress/progress");

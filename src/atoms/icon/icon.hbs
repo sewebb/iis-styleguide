@@ -1,4 +1,4 @@
-<svg class="icon{{#if additional_classes}} {{additional_classes}}{{/if}}"{{#if fill}} fill="{{fill}}"{{/if}}>
+<svg class="icon{{#if additional_classes}} {{additional_classes}}{{/if}}"{{#if fill}} fill="{{fill}}"{{/if}}{{#if role}} role="{{role}}"{{/if}}{{#if aria_labelledby}} aria-labelledby="{{aria_labelledby}}"{{/if}}>
 	{{#each id}}
 	<use xlink:href="#icon-{{ this }}"></use>
 	{{else}}

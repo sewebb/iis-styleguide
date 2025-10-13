@@ -90,3 +90,19 @@ $class-m-y: u-m-y !default;
 .u-m-r-auto {
 	margin-right: auto !important;
 }
+
+.u-m-t-05 {
+	margin-top: func.rhythm(.5) !important;
+}
+
+.u-m-r-05 {
+	margin-right: func.rhythm(.5) !important;
+}
+
+.u-m-b-05 {
+	margin-bottom: func.rhythm(.5) !important;
+}
+
+.u-m-l-05 {
+	margin-left: func.rhythm(.5) !important;
+}

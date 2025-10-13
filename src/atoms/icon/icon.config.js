@@ -28,7 +28,9 @@ module.exports = {
 
 	context: {
 		additional_classes: '',
-		fill: ''
+		fill: '',
+		aria_labelledby: '',
+		role: false
 	},
 
 	variants: icons.map((icon) => {

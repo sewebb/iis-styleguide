@@ -19,7 +19,7 @@
 							<h1 id="portal-title" data-default="Internetkollen" class="u-b-0 u-b-l-1 u-b-solid u-b-concrete display-flex u-p-y-1 u-p-x-2 u-m-y-1 u-font-size-medium u-weight-normal">Test för moderna internetstandarder</h1>
 						</div>
 						<div class="grid">
-							<nav class="a-main-menu" aria-label="Huvudmeny">
+							<nav class="a-main-menu" role="image" aria-label="Huvudmeny">
 								<ul class="a-main-menu__list">
 									<li class="u-hidden-mobile">
 										<a href="#" class="a-main-menu__list__link">
@@ -47,7 +47,7 @@
 										</a>
 									</li>
 									<li class="u-hide-xl-up">
-										<button type="button" class="a-main-menu__list__link" aria-expanded="false" data-a11y-toggle="dropdown">
+										<button type="button" class="a-main-menu__list__link" role="image" aria-expanded="false" data-a11y-toggle="dropdown">
 											<span class="a-main-menu__list__text">Meny</span>
 											<div class="icon-arrow-down"></div>
 										</button>
@@ -98,9 +98,386 @@
 
 								<section id="domain-test" class="o-tab-panel">
 									<div class="row">
-										<div class="grid-18">
-											<h2>Resultat för: <span class="color-ocean-dark u-weight-bolder">dn.se</span></h2>
-											{{> @progress has_label="true" max="100" value="95" id="progress" additional_classes="a-progress--large a-progress--heat"}}
+										<div class="grid-18 u-p-x-2">
+											<div class="u-m-b-4">
+												<h2>Resultat för: <span class="color-ocean-dark u-weight-bolder">dn.se</span></h2>
+												{{> @progress has_label="true" max="100" value="95" id="progress" additional_classes="a-progress--large a-progress--heat"}}
+											</div>
+											<ul class="u-list-clean u-m-b-4">
+												<li class="display-flex align-items-center">
+													{{>@icon id="close-variant" additional_classes="u-icon--medium u-m-r-1 u-flex-shrink-0" fill="#d9002f" role="image" aria_labelledby="test-result-definition-bad"}}
+													<a href="" class="u-link-default color-cyberspace">
+														Not reachable via modern internet address, or improvement possible (IPv6)
+													</a>
+												</li>
+												<li class="display-flex align-items-center">
+													{{>@icon id="info-variant" additional_classes="u-icon--medium u-m-r-1 u-flex-shrink-0" fill="#f99963" role="image" aria_labelledby="test-result-definition-warning"}}
+													<a href="" class="u-link-default color-cyberspace">
+														One or more recommended security options not set (Security options)
+													</a>
+												</li>
+												<li class="display-flex align-items-center">
+													{{>@icon id="check-variant" additional_classes="u-icon--medium u-m-r-1 u-flex-shrink-0" fill="#25c279" role="image" aria_labelledby="test-result-definition-good"}}
+													<a href="" class="u-link-default color-cyberspace">
+														Authorised route announcement (RPKI)
+													</a>
+												</li>
+											</ul>
+											<ul class="u-list-clean display-flex justify-content-end">
+												<li>
+													<a href="" class="a-button a-button--lemon-light a-button--icon a-button--small u-m-l-1">
+														<span class="a-button__text">Förklara testrapporten</span>
+														{{>@icon id="info" additional_classes="a-button__icon u-icon--medium" fill="#ffffff"}}
+													</a>
+												</li>
+												<li>
+													<a href="" class="a-button a-button--ocean-light a-button--icon a-button--small u-m-l-1">
+														<span class="a-button__text">Länka till resultatet</span>
+														{{>@icon id="link" additional_classes="a-button__icon u-icon--medium" fill="#ffffff"}}
+													</a>
+												</li>
+												<li>
+													<a href="" class="a-button a-button--icon a-button--small u-m-l-1">
+														<span class="a-button__text">Kör testet igen</span>
+														{{>@icon id="check" additional_classes="a-button__icon u-icon--medium" fill="#ffffff"}}
+													</a>
+												</li>
+											</ul>
+										</div>
+									</div>
+									<div class="row u-m-t-2">
+										<div class="grid-18 background-ash u-border-radius u-p-x-2 u-p-y-3 u-m-b-2">
+											<h2 class="display-flex">
+												{{>@icon id="close-variant" additional_classes="u-icon--large u-m-r-1" fill="#d9002f" role="image" role="image" aria_labelledby="test-result-definition-bad"}}
+												Modern address (IPv6)
+											</h2>
+											<p>Too bad! Your website is not reachable for visitors using a modern internet address (IPv6), or improvement is possible. Therefore your website is not part of the modern Internet yet. You should ask your hosting provider to fully enable IPv6.</p>
+											<h3 class="display-flex align-items-center">
+												Name servers of domain
+												<button class="a-button a-button--ocean-light a-button--small u-m-l-auto" type="button">
+													<span class="a-button__text">Expandera alla</span>
+												</button>
+											</h3>
+
+
+											<div class="js-o-accordion o-accordion u-m-b-2">
+												<h3 class="js-accordion__header">
+													<span class="display-flex align-items-center u-pointer-events-none">
+														{{>@icon id="security-variant" additional_classes="u-icon--medium u-m-r-1 u-flex-shrink-0" fill="#25c279" role="image" aria_labelledby="subtest-result-definition-good"}}
+														<span class="u-visuallyhidden">Passed: </span>
+														IPv6 addresses for name servers
+													</span>
+												</h3>
+												<div class="js-accordion__panel">
+													<div class="o-accordion__panel__content">
+														<h4> Verdict: </h4> <p> Two or more name servers of your domain have an IPv6 address. </p> <h4> Technical details: </h4> <div class="u-m-b-4"> <table> <thead> <tr> <th>Name server</th> <th>IPv6 address</th> <th>IPv4 address</th> </tr> </thead> <tbody> <tr> <td>ns-cloud-d3.googledomains.com.</td> <td>2001:4860:4802:36::6d</td> <td>216.239.36.109</td> </tr> <tr> <td>ns-cloud-d4.googledomains.com.</td> <td>2001:4860:4802:38::6d</td> <td>216.239.38.109</td> </tr> <tr> <td>ns-cloud-d1.googledomains.com.</td> <td>2001:4860:4802:32::6d</td> <td>216.239.32.109</td> </tr> <tr> <td>ns-cloud-d2.googledomains.com.</td> <td>2001:4860:4802:34::6d</td> <td>216.239.34.109</td> </tr> </tbody> </table> </div> <h4> Test explanation: </h4> <div><p>We check if your domain name has at least two name servers with an IPv6 address. </p> <p>This is consistent with the <a href="https://www.sidn.nl/downloads/KwpW_ORWRWetYuoBp5GeYA/7e91faddb53ad85b8c6a2fce15d764cb/Technical_requirements_for_the_registration_and_use_of_nl_domain_names.pdf">"Technical requirements for the registration and use of .nl domain names"</a> d.d. 13 November 2017 by SIDN (.nl TLD registry) that require each .nl domain to have at least two name servers.</p> <p>'IPv4-mapped IPv6 addresses' (<a href="https://www.rfc-editor.org/rfc/rfc4291">RFC 4291</a>, beginning with ::ffff:) will fail in this test, as they do <em>not</em> provide IPv6 connectivity.</p></div>
+													</div>
+												</div>
+
+												<h3 class="js-accordion__header">
+													<span class="display-flex align-items-center u-pointer-events-none">
+														{{>@icon id="security-variant" additional_classes="u-icon--medium u-m-r-1 u-flex-shrink-0" fill="#25c279" role="image" aria_labelledby="subtest-result-definition-good"}}
+														<span class="u-visuallyhidden">Passed: </span>
+														IPv6 reachability of name servers
+													</span>
+												</h3>
+												<div class="js-accordion__panel">
+													<div class="o-accordion__panel__content">
+														<h4> Verdict: </h4> <p> Two or more name servers of your domain have an IPv6 address. </p> <h4> Technical details: </h4> <div class="u-m-b-4"> <table> <thead> <tr> <th>Name server</th> <th>IPv6 address</th> <th>IPv4 address</th> </tr> </thead> <tbody> <tr> <td>ns-cloud-d3.googledomains.com.</td> <td>2001:4860:4802:36::6d</td> <td>216.239.36.109</td> </tr> <tr> <td>ns-cloud-d4.googledomains.com.</td> <td>2001:4860:4802:38::6d</td> <td>216.239.38.109</td> </tr> <tr> <td>ns-cloud-d1.googledomains.com.</td> <td>2001:4860:4802:32::6d</td> <td>216.239.32.109</td> </tr> <tr> <td>ns-cloud-d2.googledomains.com.</td> <td>2001:4860:4802:34::6d</td> <td>216.239.34.109</td> </tr> </tbody> </table> </div> <h4> Test explanation: </h4> <div><p>We check if your domain name has at least two name servers with an IPv6 address. </p> <p>This is consistent with the <a href="https://www.sidn.nl/downloads/KwpW_ORWRWetYuoBp5GeYA/7e91faddb53ad85b8c6a2fce15d764cb/Technical_requirements_for_the_registration_and_use_of_nl_domain_names.pdf">"Technical requirements for the registration and use of .nl domain names"</a> d.d. 13 November 2017 by SIDN (.nl TLD registry) that require each .nl domain to have at least two name servers.</p> <p>'IPv4-mapped IPv6 addresses' (<a href="https://www.rfc-editor.org/rfc/rfc4291">RFC 4291</a>, beginning with ::ffff:) will fail in this test, as they do <em>not</em> provide IPv6 connectivity.</p></div>
+													</div>
+												</div>
+											</div>
+
+											<h3>Web server</h3>
+
+											<div class="js-o-accordion o-accordion u-m-b-2">
+												<h3 class="js-accordion__header">
+													<span class="display-flex align-items-center u-pointer-events-none">
+														{{>@icon id="unsecure-variant" additional_classes="u-icon--medium u-m-r-1 u-flex-shrink-0" fill="#d9002f" role="image" aria_labelledby="subtest-result-definition-bad"}}
+														<span class="u-visuallyhidden">Failed: </span>
+														IPv6 addresses for web servers
+													</span>
+												</h3>
+												<div class="js-accordion__panel">
+													<div class="o-accordion__panel__content">
+														<h4> Verdict: </h4> <p> Two or more name servers of your domain have an IPv6 address. </p> <h4> Technical details: </h4> <div class="u-m-b-4"> <table> <thead> <tr> <th>Name server</th> <th>IPv6 address</th> <th>IPv4 address</th> </tr> </thead> <tbody> <tr> <td>ns-cloud-d3.googledomains.com.</td> <td>2001:4860:4802:36::6d</td> <td>216.239.36.109</td> </tr> <tr> <td>ns-cloud-d4.googledomains.com.</td> <td>2001:4860:4802:38::6d</td> <td>216.239.38.109</td> </tr> <tr> <td>ns-cloud-d1.googledomains.com.</td> <td>2001:4860:4802:32::6d</td> <td>216.239.32.109</td> </tr> <tr> <td>ns-cloud-d2.googledomains.com.</td> <td>2001:4860:4802:34::6d</td> <td>216.239.34.109</td> </tr> </tbody> </table> </div> <h4> Test explanation: </h4> <div><p>We check if your domain name has at least two name servers with an IPv6 address. </p> <p>This is consistent with the <a href="https://www.sidn.nl/downloads/KwpW_ORWRWetYuoBp5GeYA/7e91faddb53ad85b8c6a2fce15d764cb/Technical_requirements_for_the_registration_and_use_of_nl_domain_names.pdf">"Technical requirements for the registration and use of .nl domain names"</a> d.d. 13 November 2017 by SIDN (.nl TLD registry) that require each .nl domain to have at least two name servers.</p> <p>'IPv4-mapped IPv6 addresses' (<a href="https://www.rfc-editor.org/rfc/rfc4291">RFC 4291</a>, beginning with ::ffff:) will fail in this test, as they do <em>not</em> provide IPv6 connectivity.</p></div>
+													</div>
+												</div>
+
+												<h3 class="js-accordion__header">
+													<span class="display-flex align-items-center u-pointer-events-none">
+														{{>@icon id="unsecure-variant" additional_classes="u-icon--medium u-m-r-1 u-flex-shrink-0" fill="#d8d8d8" role="image" aria_labelledby="subtest-result-definition-untested"}}
+														<span class="u-visuallyhidden">Not tested: </span>
+														IPv6 reachability of web servers
+													</span>
+												</h3>
+												<div class="js-accordion__panel">
+													<div class="o-accordion__panel__content">
+														<h4> Verdict: </h4> <p> Two or more name servers of your domain have an IPv6 address. </p> <h4> Technical details: </h4> <div class="u-m-b-4"> <table> <thead> <tr> <th>Name server</th> <th>IPv6 address</th> <th>IPv4 address</th> </tr> </thead> <tbody> <tr> <td>ns-cloud-d3.googledomains.com.</td> <td>2001:4860:4802:36::6d</td> <td>216.239.36.109</td> </tr> <tr> <td>ns-cloud-d4.googledomains.com.</td> <td>2001:4860:4802:38::6d</td> <td>216.239.38.109</td> </tr> <tr> <td>ns-cloud-d1.googledomains.com.</td> <td>2001:4860:4802:32::6d</td> <td>216.239.32.109</td> </tr> <tr> <td>ns-cloud-d2.googledomains.com.</td> <td>2001:4860:4802:34::6d</td> <td>216.239.34.109</td> </tr> </tbody> </table> </div> <h4> Test explanation: </h4> <div><p>We check if your domain name has at least two name servers with an IPv6 address. </p> <p>This is consistent with the <a href="https://www.sidn.nl/downloads/KwpW_ORWRWetYuoBp5GeYA/7e91faddb53ad85b8c6a2fce15d764cb/Technical_requirements_for_the_registration_and_use_of_nl_domain_names.pdf">"Technical requirements for the registration and use of .nl domain names"</a> d.d. 13 November 2017 by SIDN (.nl TLD registry) that require each .nl domain to have at least two name servers.</p> <p>'IPv4-mapped IPv6 addresses' (<a href="https://www.rfc-editor.org/rfc/rfc4291">RFC 4291</a>, beginning with ::ffff:) will fail in this test, as they do <em>not</em> provide IPv6 connectivity.</p></div>
+													</div>
+												</div>
+
+												<h3 class="js-accordion__header">
+													<span class="display-flex align-items-center u-pointer-events-none">
+													{{>@icon id="unsecure-variant" additional_classes="u-icon--medium u-m-r-1 u-flex-shrink-0" fill="#d8d8d8" role="image" aria_labelledby="subtest-result-definition-untested"}}
+													<span class="u-visuallyhidden">Not tested: </span>
+													Same website on IPv6 and IPv4
+													</span>
+												</h3>
+												<div class="js-accordion__panel">
+													<div class="o-accordion__panel__content">
+														<h4> Verdict: </h4> <p> Two or more name servers of your domain have an IPv6 address. </p> <h4> Technical details: </h4> <div class="u-m-b-4"> <table> <thead> <tr> <th>Name server</th> <th>IPv6 address</th> <th>IPv4 address</th> </tr> </thead> <tbody> <tr> <td>ns-cloud-d3.googledomains.com.</td> <td>2001:4860:4802:36::6d</td> <td>216.239.36.109</td> </tr> <tr> <td>ns-cloud-d4.googledomains.com.</td> <td>2001:4860:4802:38::6d</td> <td>216.239.38.109</td> </tr> <tr> <td>ns-cloud-d1.googledomains.com.</td> <td>2001:4860:4802:32::6d</td> <td>216.239.32.109</td> </tr> <tr> <td>ns-cloud-d2.googledomains.com.</td> <td>2001:4860:4802:34::6d</td> <td>216.239.34.109</td> </tr> </tbody> </table> </div> <h4> Test explanation: </h4> <div><p>We check if your domain name has at least two name servers with an IPv6 address. </p> <p>This is consistent with the <a href="https://www.sidn.nl/downloads/KwpW_ORWRWetYuoBp5GeYA/7e91faddb53ad85b8c6a2fce15d764cb/Technical_requirements_for_the_registration_and_use_of_nl_domain_names.pdf">"Technical requirements for the registration and use of .nl domain names"</a> d.d. 13 November 2017 by SIDN (.nl TLD registry) that require each .nl domain to have at least two name servers.</p> <p>'IPv4-mapped IPv6 addresses' (<a href="https://www.rfc-editor.org/rfc/rfc4291">RFC 4291</a>, beginning with ::ffff:) will fail in this test, as they do <em>not</em> provide IPv6 connectivity.</p></div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="grid-18 background-ash u-border-radius u-p-x-2 u-p-y-3 u-m-b-2">
+											<h2 class="display-flex">
+												{{>@icon id="info-variant" additional_classes="u-icon--large u-m-r-1" fill="#f99963" role="image" role="image" aria_labelledby="test-result-definition-warning"}}
+												Security options
+											</h2>
+											<p>Warning: <em>Not</em> all recommended security options, , i.e. security headers and security.txt, are set for your website (<a href="/faqs/appsecpriv/">Security options</a>). With security headers you can activate browser mechanisms to protect visitors against attacks involving, for example, cross-site scripting (XSS) or framing. Security headers are also relevant for domains with HTTP response codes such as '301 Redirect' and '404 Not Found', because they create their own browsing context (MIME type 'text/html') that may be vulnerable to certain attacks. Through a security.txt file you can provide researchers who have found a vulnerability on your systems, with your contact information and your Coordinated Vulnerability Disclosure policy. Note that HTTPS is a prerequisite for all tested security options. </p>
+											<h3 class="display-flex align-items-center">
+												HTTP security headers
+												<button class="a-button a-button--ocean-light a-button--small u-m-l-auto" type="button">
+													<span class="a-button__text">Expandera alla</span>
+												</button>
+											</h3>
+
+
+											<div class="js-o-accordion o-accordion u-m-b-2">
+												<h3 class="js-accordion__header">
+													<span class="display-flex align-items-center u-pointer-events-none">
+														{{>@icon id="info-variant" additional_classes="u-icon--medium u-m-r-1 u-flex-shrink-0" fill="#50b2fc" role="image" aria_labelledby="subtest-result-definition-informational"}}
+														<span class="u-visuallyhidden">Information: </span>
+														X-Frame-Options
+													</span>
+												</h3>
+												<div class="js-accordion__panel">
+													<div class="o-accordion__panel__content">
+														<h4> Verdict: </h4> <p> Two or more name servers of your domain have an IPv6 address. </p> <h4> Technical details: </h4> <div class="u-m-b-4"> <table> <thead> <tr> <th>Name server</th> <th>IPv6 address</th> <th>IPv4 address</th> </tr> </thead> <tbody> <tr> <td>ns-cloud-d3.googledomains.com.</td> <td>2001:4860:4802:36::6d</td> <td>216.239.36.109</td> </tr> <tr> <td>ns-cloud-d4.googledomains.com.</td> <td>2001:4860:4802:38::6d</td> <td>216.239.38.109</td> </tr> <tr> <td>ns-cloud-d1.googledomains.com.</td> <td>2001:4860:4802:32::6d</td> <td>216.239.32.109</td> </tr> <tr> <td>ns-cloud-d2.googledomains.com.</td> <td>2001:4860:4802:34::6d</td> <td>216.239.34.109</td> </tr> </tbody> </table> </div> <h4> Test explanation: </h4> <div><p>We check if your domain name has at least two name servers with an IPv6 address. </p> <p>This is consistent with the <a href="https://www.sidn.nl/downloads/KwpW_ORWRWetYuoBp5GeYA/7e91faddb53ad85b8c6a2fce15d764cb/Technical_requirements_for_the_registration_and_use_of_nl_domain_names.pdf">"Technical requirements for the registration and use of .nl domain names"</a> d.d. 13 November 2017 by SIDN (.nl TLD registry) that require each .nl domain to have at least two name servers.</p> <p>'IPv4-mapped IPv6 addresses' (<a href="https://www.rfc-editor.org/rfc/rfc4291">RFC 4291</a>, beginning with ::ffff:) will fail in this test, as they do <em>not</em> provide IPv6 connectivity.</p></div>
+													</div>
+												</div>
+
+												<h3 class="js-accordion__header">
+													<span class="display-flex align-items-center u-pointer-events-none">
+														{{>@icon id="warning-variant" additional_classes="u-icon--medium u-m-r-1 u-flex-shrink-0" fill="#f99963" role="image" aria_labelledby="subtest-result-definition-warning"}}
+														<span class="u-visuallyhidden">Recommendation: </span>
+														X-Content-Type-Options
+													</span>
+												</h3>
+												<div class="js-accordion__panel">
+													<div class="o-accordion__panel__content">
+														<h4> Verdict: </h4> <p> Two or more name servers of your domain have an IPv6 address. </p> <h4> Technical details: </h4> <div class="u-m-b-4"> <table> <thead> <tr> <th>Name server</th> <th>IPv6 address</th> <th>IPv4 address</th> </tr> </thead> <tbody> <tr> <td>ns-cloud-d3.googledomains.com.</td> <td>2001:4860:4802:36::6d</td> <td>216.239.36.109</td> </tr> <tr> <td>ns-cloud-d4.googledomains.com.</td> <td>2001:4860:4802:38::6d</td> <td>216.239.38.109</td> </tr> <tr> <td>ns-cloud-d1.googledomains.com.</td> <td>2001:4860:4802:32::6d</td> <td>216.239.32.109</td> </tr> <tr> <td>ns-cloud-d2.googledomains.com.</td> <td>2001:4860:4802:34::6d</td> <td>216.239.34.109</td> </tr> </tbody> </table> </div> <h4> Test explanation: </h4> <div><p>We check if your domain name has at least two name servers with an IPv6 address. </p> <p>This is consistent with the <a href="https://www.sidn.nl/downloads/KwpW_ORWRWetYuoBp5GeYA/7e91faddb53ad85b8c6a2fce15d764cb/Technical_requirements_for_the_registration_and_use_of_nl_domain_names.pdf">"Technical requirements for the registration and use of .nl domain names"</a> d.d. 13 November 2017 by SIDN (.nl TLD registry) that require each .nl domain to have at least two name servers.</p> <p>'IPv4-mapped IPv6 addresses' (<a href="https://www.rfc-editor.org/rfc/rfc4291">RFC 4291</a>, beginning with ::ffff:) will fail in this test, as they do <em>not</em> provide IPv6 connectivity.</p></div>
+													</div>
+												</div>
+											</div>
+
+											<h3>Other security options</h3>
+
+											<div class="js-o-accordion o-accordion u-m-b-2">
+												<h3 class="js-accordion__header">
+													<span class="display-flex align-items-center u-pointer-events-none">
+														{{>@icon id="info-variant" additional_classes="u-icon--medium u-m-r-1 u-flex-shrink-0" fill="#50b2fc" role="image" aria_labelledby="subtest-result-definition-informational"}}
+														<span class="u-visuallyhidden">Information: </span>
+														Content-Security-Policy
+													</span>
+												</h3>
+												<div class="js-accordion__panel">
+													<div class="o-accordion__panel__content">
+														<h4> Verdict: </h4> <p> Two or more name servers of your domain have an IPv6 address. </p> <h4> Technical details: </h4> <div class="u-m-b-4"> <table> <thead> <tr> <th>Name server</th> <th>IPv6 address</th> <th>IPv4 address</th> </tr> </thead> <tbody> <tr> <td>ns-cloud-d3.googledomains.com.</td> <td>2001:4860:4802:36::6d</td> <td>216.239.36.109</td> </tr> <tr> <td>ns-cloud-d4.googledomains.com.</td> <td>2001:4860:4802:38::6d</td> <td>216.239.38.109</td> </tr> <tr> <td>ns-cloud-d1.googledomains.com.</td> <td>2001:4860:4802:32::6d</td> <td>216.239.32.109</td> </tr> <tr> <td>ns-cloud-d2.googledomains.com.</td> <td>2001:4860:4802:34::6d</td> <td>216.239.34.109</td> </tr> </tbody> </table> </div> <h4> Test explanation: </h4> <div><p>We check if your domain name has at least two name servers with an IPv6 address. </p> <p>This is consistent with the <a href="https://www.sidn.nl/downloads/KwpW_ORWRWetYuoBp5GeYA/7e91faddb53ad85b8c6a2fce15d764cb/Technical_requirements_for_the_registration_and_use_of_nl_domain_names.pdf">"Technical requirements for the registration and use of .nl domain names"</a> d.d. 13 November 2017 by SIDN (.nl TLD registry) that require each .nl domain to have at least two name servers.</p> <p>'IPv4-mapped IPv6 addresses' (<a href="https://www.rfc-editor.org/rfc/rfc4291">RFC 4291</a>, beginning with ::ffff:) will fail in this test, as they do <em>not</em> provide IPv6 connectivity.</p></div>
+													</div>
+												</div>
+
+												<h3 class="js-accordion__header">
+													<span class="display-flex align-items-center u-pointer-events-none">
+														{{>@icon id="warning-variant" additional_classes="u-icon--medium u-m-r-1 u-flex-shrink-0" fill="#f99963" role="image" aria_labelledby="subtest-result-definition-warning"}}
+														<span class="u-visuallyhidden">Recommendation: </span>
+														Referrer Policy
+													</span>
+												</h3>
+												<div class="js-accordion__panel">
+													<div class="o-accordion__panel__content">
+														<h4> Verdict: </h4> <p> Two or more name servers of your domain have an IPv6 address. </p> <h4> Technical details: </h4> <div class="u-m-b-4"> <table> <thead> <tr> <th>Name server</th> <th>IPv6 address</th> <th>IPv4 address</th> </tr> </thead> <tbody> <tr> <td>ns-cloud-d3.googledomains.com.</td> <td>2001:4860:4802:36::6d</td> <td>216.239.36.109</td> </tr> <tr> <td>ns-cloud-d4.googledomains.com.</td> <td>2001:4860:4802:38::6d</td> <td>216.239.38.109</td> </tr> <tr> <td>ns-cloud-d1.googledomains.com.</td> <td>2001:4860:4802:32::6d</td> <td>216.239.32.109</td> </tr> <tr> <td>ns-cloud-d2.googledomains.com.</td> <td>2001:4860:4802:34::6d</td> <td>216.239.34.109</td> </tr> </tbody> </table> </div> <h4> Test explanation: </h4> <div><p>We check if your domain name has at least two name servers with an IPv6 address. </p> <p>This is consistent with the <a href="https://www.sidn.nl/downloads/KwpW_ORWRWetYuoBp5GeYA/7e91faddb53ad85b8c6a2fce15d764cb/Technical_requirements_for_the_registration_and_use_of_nl_domain_names.pdf">"Technical requirements for the registration and use of .nl domain names"</a> d.d. 13 November 2017 by SIDN (.nl TLD registry) that require each .nl domain to have at least two name servers.</p> <p>'IPv4-mapped IPv6 addresses' (<a href="https://www.rfc-editor.org/rfc/rfc4291">RFC 4291</a>, beginning with ::ffff:) will fail in this test, as they do <em>not</em> provide IPv6 connectivity.</p></div>
+													</div>
+												</div>
+
+												<h3 class="js-accordion__header">
+													<span class="display-flex align-items-center u-pointer-events-none">
+													{{>@icon id="warning-variant" additional_classes="u-icon--medium u-m-r-1 u-flex-shrink-0" fill="#f99963" role="image" aria_labelledby="subtest-result-definition-warning"}}
+														<span class="u-visuallyhidden">Recommendation: </span>
+													Same website on IPv6 and IPv4
+													</span>
+												</h3>
+												<div class="js-accordion__panel">
+													<div class="o-accordion__panel__content">
+														<h4> Verdict: </h4> <p> Two or more name servers of your domain have an IPv6 address. </p> <h4> Technical details: </h4> <div class="u-m-b-4"> <table> <thead> <tr> <th>Name server</th> <th>IPv6 address</th> <th>IPv4 address</th> </tr> </thead> <tbody> <tr> <td>ns-cloud-d3.googledomains.com.</td> <td>2001:4860:4802:36::6d</td> <td>216.239.36.109</td> </tr> <tr> <td>ns-cloud-d4.googledomains.com.</td> <td>2001:4860:4802:38::6d</td> <td>216.239.38.109</td> </tr> <tr> <td>ns-cloud-d1.googledomains.com.</td> <td>2001:4860:4802:32::6d</td> <td>216.239.32.109</td> </tr> <tr> <td>ns-cloud-d2.googledomains.com.</td> <td>2001:4860:4802:34::6d</td> <td>216.239.34.109</td> </tr> </tbody> </table> </div> <h4> Test explanation: </h4> <div><p>We check if your domain name has at least two name servers with an IPv6 address. </p> <p>This is consistent with the <a href="https://www.sidn.nl/downloads/KwpW_ORWRWetYuoBp5GeYA/7e91faddb53ad85b8c6a2fce15d764cb/Technical_requirements_for_the_registration_and_use_of_nl_domain_names.pdf">"Technical requirements for the registration and use of .nl domain names"</a> d.d. 13 November 2017 by SIDN (.nl TLD registry) that require each .nl domain to have at least two name servers.</p> <p>'IPv4-mapped IPv6 addresses' (<a href="https://www.rfc-editor.org/rfc/rfc4291">RFC 4291</a>, beginning with ::ffff:) will fail in this test, as they do <em>not</em> provide IPv6 connectivity.</p></div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="grid-18 background-ash u-border-radius u-p-x-2 u-p-y-3 u-m-b-2">
+											<h2 class="display-flex">
+												{{>@icon id="check-variant" additional_classes="u-icon--large u-m-r-1" fill="#25c279" role="image" role="image" aria_labelledby="test-result-definition-good"}}
+												Route authorisation (RPKI)
+											</h2>
+											<p>Warning: <em>Not</em> all recommended security options, , i.e. security headers and security.txt, are set for your website (<a href="/faqs/appsecpriv/">Security options</a>). With security headers you can activate browser mechanisms to protect visitors against attacks involving, for example, cross-site scripting (XSS) or framing. Security headers are also relevant for domains with HTTP response codes such as '301 Redirect' and '404 Not Found', because they create their own browsing context (MIME type 'text/html') that may be vulnerable to certain attacks. Through a security.txt file you can provide researchers who have found a vulnerability on your systems, with your contact information and your Coordinated Vulnerability Disclosure policy. Note that HTTPS is a prerequisite for all tested security options. </p>
+											<h3 class="display-flex align-items-center">
+												Name servers of domain
+												<button class="a-button a-button--ocean-light a-button--small u-m-l-auto" type="button">
+													<span class="a-button__text">Expandera alla</span>
+												</button>
+											</h3>
+
+
+											<div class="js-o-accordion o-accordion u-m-b-2">
+												<h3 class="js-accordion__header">
+													<span class="display-flex align-items-center u-pointer-events-none">
+														{{>@icon id="security-variant" additional_classes="u-icon--medium u-m-r-1 u-flex-shrink-0" fill="#25c279"  role="image" role="image" aria_labelledby="subtest-result-definition-good"}}
+														<span class="u-visuallyhidden">Passed: </span>
+														Route Origin Authorisation existence
+													</span>
+												</h3>
+												<div class="js-accordion__panel">
+													<div class="o-accordion__panel__content">
+														<h4> Verdict: </h4> <p> Two or more name servers of your domain have an IPv6 address. </p> <h4> Technical details: </h4> <div class="u-m-b-4"> <table> <thead> <tr> <th>Name server</th> <th>IPv6 address</th> <th>IPv4 address</th> </tr> </thead> <tbody> <tr> <td>ns-cloud-d3.googledomains.com.</td> <td>2001:4860:4802:36::6d</td> <td>216.239.36.109</td> </tr> <tr> <td>ns-cloud-d4.googledomains.com.</td> <td>2001:4860:4802:38::6d</td> <td>216.239.38.109</td> </tr> <tr> <td>ns-cloud-d1.googledomains.com.</td> <td>2001:4860:4802:32::6d</td> <td>216.239.32.109</td> </tr> <tr> <td>ns-cloud-d2.googledomains.com.</td> <td>2001:4860:4802:34::6d</td> <td>216.239.34.109</td> </tr> </tbody> </table> </div> <h4> Test explanation: </h4> <div><p>We check if your domain name has at least two name servers with an IPv6 address. </p> <p>This is consistent with the <a href="https://www.sidn.nl/downloads/KwpW_ORWRWetYuoBp5GeYA/7e91faddb53ad85b8c6a2fce15d764cb/Technical_requirements_for_the_registration_and_use_of_nl_domain_names.pdf">"Technical requirements for the registration and use of .nl domain names"</a> d.d. 13 November 2017 by SIDN (.nl TLD registry) that require each .nl domain to have at least two name servers.</p> <p>'IPv4-mapped IPv6 addresses' (<a href="https://www.rfc-editor.org/rfc/rfc4291">RFC 4291</a>, beginning with ::ffff:) will fail in this test, as they do <em>not</em> provide IPv6 connectivity.</p></div>
+													</div>
+												</div>
+
+												<h3 class="js-accordion__header">
+													<span class="display-flex align-items-center u-pointer-events-none">
+														{{>@icon id="security-variant" additional_classes="u-icon--medium u-m-r-1 u-flex-shrink-0" fill="#25c279" role="image" aria_labelledby="subtest-result-definition-good"}}
+														<span class="u-visuallyhidden">Recommendation: </span>
+														Route announcement validity
+													</span>
+												</h3>
+												<div class="js-accordion__panel">
+													<div class="o-accordion__panel__content">
+														<h4> Verdict: </h4> <p> Two or more name servers of your domain have an IPv6 address. </p> <h4> Technical details: </h4> <div class="u-m-b-4"> <table> <thead> <tr> <th>Name server</th> <th>IPv6 address</th> <th>IPv4 address</th> </tr> </thead> <tbody> <tr> <td>ns-cloud-d3.googledomains.com.</td> <td>2001:4860:4802:36::6d</td> <td>216.239.36.109</td> </tr> <tr> <td>ns-cloud-d4.googledomains.com.</td> <td>2001:4860:4802:38::6d</td> <td>216.239.38.109</td> </tr> <tr> <td>ns-cloud-d1.googledomains.com.</td> <td>2001:4860:4802:32::6d</td> <td>216.239.32.109</td> </tr> <tr> <td>ns-cloud-d2.googledomains.com.</td> <td>2001:4860:4802:34::6d</td> <td>216.239.34.109</td> </tr> </tbody> </table> </div> <h4> Test explanation: </h4> <div><p>We check if your domain name has at least two name servers with an IPv6 address. </p> <p>This is consistent with the <a href="https://www.sidn.nl/downloads/KwpW_ORWRWetYuoBp5GeYA/7e91faddb53ad85b8c6a2fce15d764cb/Technical_requirements_for_the_registration_and_use_of_nl_domain_names.pdf">"Technical requirements for the registration and use of .nl domain names"</a> d.d. 13 November 2017 by SIDN (.nl TLD registry) that require each .nl domain to have at least two name servers.</p> <p>'IPv4-mapped IPv6 addresses' (<a href="https://www.rfc-editor.org/rfc/rfc4291">RFC 4291</a>, beginning with ::ffff:) will fail in this test, as they do <em>not</em> provide IPv6 connectivity.</p></div>
+													</div>
+												</div>
+											</div>
+
+											<h3>Web server</h3>
+
+											<div class="js-o-accordion o-accordion u-m-b-2">
+												<h3 class="js-accordion__header">
+													<span class="display-flex align-items-center u-pointer-events-none">
+														{{>@icon id="security-variant" additional_classes="u-icon--medium u-m-r-1 u-flex-shrink-0" fill="#25c279" role="image" aria_labelledby="subtest-result-definition-good"}}
+														<span class="u-visuallyhidden">Failed: </span>
+														Route Origin Authorisation existence
+													</span>
+												</h3>
+												<div class="js-accordion__panel">
+													<div class="o-accordion__panel__content">
+														<h4> Verdict: </h4> <p> Two or more name servers of your domain have an IPv6 address. </p> <h4> Technical details: </h4> <div class="u-m-b-4"> <table> <thead> <tr> <th>Name server</th> <th>IPv6 address</th> <th>IPv4 address</th> </tr> </thead> <tbody> <tr> <td>ns-cloud-d3.googledomains.com.</td> <td>2001:4860:4802:36::6d</td> <td>216.239.36.109</td> </tr> <tr> <td>ns-cloud-d4.googledomains.com.</td> <td>2001:4860:4802:38::6d</td> <td>216.239.38.109</td> </tr> <tr> <td>ns-cloud-d1.googledomains.com.</td> <td>2001:4860:4802:32::6d</td> <td>216.239.32.109</td> </tr> <tr> <td>ns-cloud-d2.googledomains.com.</td> <td>2001:4860:4802:34::6d</td> <td>216.239.34.109</td> </tr> </tbody> </table> </div> <h4> Test explanation: </h4> <div><p>We check if your domain name has at least two name servers with an IPv6 address. </p> <p>This is consistent with the <a href="https://www.sidn.nl/downloads/KwpW_ORWRWetYuoBp5GeYA/7e91faddb53ad85b8c6a2fce15d764cb/Technical_requirements_for_the_registration_and_use_of_nl_domain_names.pdf">"Technical requirements for the registration and use of .nl domain names"</a> d.d. 13 November 2017 by SIDN (.nl TLD registry) that require each .nl domain to have at least two name servers.</p> <p>'IPv4-mapped IPv6 addresses' (<a href="https://www.rfc-editor.org/rfc/rfc4291">RFC 4291</a>, beginning with ::ffff:) will fail in this test, as they do <em>not</em> provide IPv6 connectivity.</p></div>
+													</div>
+												</div>
+
+												<h3 class="js-accordion__header">
+													<span class="display-flex align-items-center u-pointer-events-none">
+														{{>@icon id="security-variant" additional_classes="u-icon--medium u-m-r-1 u-flex-shrink-0" fill="#25c279" role="image" aria_labelledby="subtest-result-definition-untested"}}
+														<span class="u-visuallyhidden">Not tested: </span>
+														Route announcement validity
+													</span>
+												</h3>
+												<div class="js-accordion__panel">
+													<div class="o-accordion__panel__content">
+														<h4> Verdict: </h4> <p> Two or more name servers of your domain have an IPv6 address. </p> <h4> Technical details: </h4> <div class="u-m-b-4"> <table> <thead> <tr> <th>Name server</th> <th>IPv6 address</th> <th>IPv4 address</th> </tr> </thead> <tbody> <tr> <td>ns-cloud-d3.googledomains.com.</td> <td>2001:4860:4802:36::6d</td> <td>216.239.36.109</td> </tr> <tr> <td>ns-cloud-d4.googledomains.com.</td> <td>2001:4860:4802:38::6d</td> <td>216.239.38.109</td> </tr> <tr> <td>ns-cloud-d1.googledomains.com.</td> <td>2001:4860:4802:32::6d</td> <td>216.239.32.109</td> </tr> <tr> <td>ns-cloud-d2.googledomains.com.</td> <td>2001:4860:4802:34::6d</td> <td>216.239.34.109</td> </tr> </tbody> </table> </div> <h4> Test explanation: </h4> <div><p>We check if your domain name has at least two name servers with an IPv6 address. </p> <p>This is consistent with the <a href="https://www.sidn.nl/downloads/KwpW_ORWRWetYuoBp5GeYA/7e91faddb53ad85b8c6a2fce15d764cb/Technical_requirements_for_the_registration_and_use_of_nl_domain_names.pdf">"Technical requirements for the registration and use of .nl domain names"</a> d.d. 13 November 2017 by SIDN (.nl TLD registry) that require each .nl domain to have at least two name servers.</p> <p>'IPv4-mapped IPv6 addresses' (<a href="https://www.rfc-editor.org/rfc/rfc4291">RFC 4291</a>, beginning with ::ffff:) will fail in this test, as they do <em>not</em> provide IPv6 connectivity.</p></div>
+													</div>
+												</div>
+
+												<h3 class="js-accordion__header">
+													<span class="display-flex align-items-center u-pointer-events-none">
+													{{>@icon id="security-variant" additional_classes="u-icon--medium u-m-r-1 u-flex-shrink-0" fill="#25c279" role="image" aria_labelledby="subtest-result-definition-untested"}}
+														<span class="u-visuallyhidden">Not tested: </span>
+													Same website on IPv6 and IPv4
+													</span>
+												</h3>
+												<div class="js-accordion__panel">
+													<div class="o-accordion__panel__content">
+														<h4> Verdict: </h4> <p> Two or more name servers of your domain have an IPv6 address. </p> <h4> Technical details: </h4> <div class="u-m-b-4"> <table> <thead> <tr> <th>Name server</th> <th>IPv6 address</th> <th>IPv4 address</th> </tr> </thead> <tbody> <tr> <td>ns-cloud-d3.googledomains.com.</td> <td>2001:4860:4802:36::6d</td> <td>216.239.36.109</td> </tr> <tr> <td>ns-cloud-d4.googledomains.com.</td> <td>2001:4860:4802:38::6d</td> <td>216.239.38.109</td> </tr> <tr> <td>ns-cloud-d1.googledomains.com.</td> <td>2001:4860:4802:32::6d</td> <td>216.239.32.109</td> </tr> <tr> <td>ns-cloud-d2.googledomains.com.</td> <td>2001:4860:4802:34::6d</td> <td>216.239.34.109</td> </tr> </tbody> </table> </div> <h4> Test explanation: </h4> <div><p>We check if your domain name has at least two name servers with an IPv6 address. </p> <p>This is consistent with the <a href="https://www.sidn.nl/downloads/KwpW_ORWRWetYuoBp5GeYA/7e91faddb53ad85b8c6a2fce15d764cb/Technical_requirements_for_the_registration_and_use_of_nl_domain_names.pdf">"Technical requirements for the registration and use of .nl domain names"</a> d.d. 13 November 2017 by SIDN (.nl TLD registry) that require each .nl domain to have at least two name servers.</p> <p>'IPv4-mapped IPv6 addresses' (<a href="https://www.rfc-editor.org/rfc/rfc4291">RFC 4291</a>, beginning with ::ffff:) will fail in this test, as they do <em>not</em> provide IPv6 connectivity.</p></div>
+													</div>
+												</div>
+											</div>
+										</div>
+
+										<div class="background-snow u-border-radius u-p-x-2 u-p-t-2 u-m-b-2">
+											<span class="a-meta">Ikonförklaringar</span>
+											<h3 class="beta u-m-b-0">Ikoner per textkategori</h3>
+											<ul class="u-list-clean u-m-b-3">
+												<li class="display-flex">
+													{{>@icon id="check-variant" additional_classes="u-icon--medium u-m-r-1 u-m-t-05 u-flex-shrink-0" fill="#25c279" role="image" aria_labelledby="test-result-definition-good"}}
+													<span id="test-result-definition-good">
+														<strong class="u-display-inline">Good</strong>: passed all subtests ⇒ full score in test category
+													</span>
+												</li>
+												<li class="display-flex">
+													{{>@icon id="close-variant" additional_classes="u-icon--medium u-m-r-1 u-m-t-05 u-flex-shrink-0" fill="#d9002f" role="image" aria_labelledby="test-result-definition-bad"}}
+													<span id="test-result-definition-bad">
+														<strong class="u-display-inline">Bad</strong>: failed at least one REQUIRED subtest ⇒ no full score in test category
+													</span>
+												</li>
+												<li class="display-flex">
+													{{>@icon id="info-variant" additional_classes="u-icon--medium u-m-r-1 u-m-t-05 u-flex-shrink-0" fill="#f99963" role="image" aria_labelledby="test-result-definition-warning"}}
+													<span id="test-result-definition-warning">
+														<strong class="u-display-inline">Warning</strong>: failed at least one RECOMMENDED subtest ⇒ full score in test category
+													</span>
+												</li>
+												<li class="display-flex">
+													{{>@icon id="info-variant" additional_classes="u-icon--medium u-m-r-1 u-m-t-05 u-flex-shrink-0" fill="#50b2fc" role="image" aria_labelledby="test-result-definition-informational"}}
+													<span id="test-result-definition-informational">
+														<strong class="u-display-inline">Informational</strong>: failed at least one OPTIONAL subtest ⇒ full score in test category
+													</span>
+												</li>
+												<li class="display-flex">
+													{{>@icon id="close-variant" additional_classes="u-icon--medium u-m-r-1 u-m-t-05 u-flex-shrink-0" fill="#8E9297" role="image" aria_labelledby="test-result-definition-error"}}
+													<span id="test-result-definition-error">
+														<strong class="u-display-inline">Test error</strong>: execution error for at least one subtest ⇒ no result in test category
+													</span>
+												</li>
+											</ul>
+											<h3 class="beta u-m-b-0">Ikoner per subtext</h3>
+											<ul class="u-list-clean u-m-b-3">
+												<li class="display-flex">
+													{{>@icon id="security-variant" additional_classes="u-icon--medium u-m-r-1 u-m-t-05 u-flex-shrink-0" fill="#25c279" role="image" aria_labelledby="subtest-result-definition-good"}}
+													<span id="subtest-result-definition-good">
+														<strong class="u-display-inline">Good</strong>: pass on REQUIRED, RECOMMENDED or OPTIONAL subtest ⇒ first: full score / latter two: no score impact
+													</span>
+												</li>
+												<li class="display-flex">
+													{{>@icon id="unsecure-variant" additional_classes="u-icon--medium u-m-r-1 u-m-t-05 u-flex-shrink-0" fill="#d9002f" role="image" aria_labelledby="subtest-result-definition-bad"}}
+													<span id="subtest-result-definition-bad">
+														<strong class="u-display-inline">Bad</strong>: failed at least one REQUIRED subtest ⇒ no full score in test category
+													</span>
+												</li>
+												<li class="display-flex">
+													{{>@icon id="warning-variant" additional_classes="u-icon--medium u-m-r-1 u-m-t-05 u-flex-shrink-0" fill="#f99963" role="image" aria_labelledby="subtest-result-definition-warning"}}
+													<span id="subtest-result-definition-warning">
+														<strong class="u-display-inline">Warning</strong>: failed at least one RECOMMENDED subtest ⇒ full score in test category
+													</span>
+												</li>
+												<li class="display-flex">
+													{{>@icon id="info-variant" additional_classes="u-icon--medium u-m-r-1 u-m-t-05 u-flex-shrink-0" fill="#50b2fc" role="image" aria_labelledby="subtest-result-definition-informational"}}
+													<span  id="subtest-result-definition-informational">
+														<strong class="u-display-inline">Informational</strong>: failed at least one OPTIONAL subtest ⇒ full score in test category
+													</span>
+												</li>
+												<li class="display-flex">
+													{{>@icon id="unsecure-variant" additional_classes="u-icon--medium u-m-r-1 u-m-t-05 u-flex-shrink-0" fill="#8E9297" role="image" aria_labelledby="subtest-result-definition-error"}}
+													<span id="subtest-result-definition-error">
+														<strong class="u-display-inline">Test error</strong>: execution error for at least one subtest ⇒ no result in test category
+													</span>
+												</li>
+												<li class="display-flex">
+													{{>@icon id="unsecure-variant" additional_classes="u-icon--medium u-m-r-1 u-m-t-05 u-flex-shrink-0" fill="#d8d8d8" role="image" aria_labelledby="subtest-result-definition-untested"}}
+													<span id="subtest-result-definition-untested">
+														<strong class="u-display-inline">Not tested</strong>, because already failed related parent subtest ⇒ null score
+													</span>
+												</li>
+											</ul>
 										</div>
 									</div>
 								</section>
@@ -129,75 +506,51 @@
 					</div>
 				</main>
 				<aside class="grid-18 grid-lg-6">
-					<div class="background-snow u-border-radius u-p-y-2 u-p-x-3 u-m-b-2 u-b-1 u-b-dashed u-b-concrete">
-						<lord-icon
-							src="https://cdn.lordicon.com/kwnsnjyg.json"
-							trigger="in"
-							delay="0"
-							state="in-analytics"
-							colors="primary:#0477ce"
-							style="width:80px;height:80px">
-						</lord-icon>
-						<h3 class="beta">Hur mår internetsverige?</h3>
-						<dl class="u-m-b-0">
-							<dt class="u-weight-bold u-m-b-1">
-								1200 samhällskritiska domäner
-							</dt>
-							<dd class="a-meta a-meta--responsive u-m-l-0 u-m-b-2 u-p-b-1 u-b-dashed u-b-concrete u-b-x-0 u-b-t-0 u-b-b-1 display-flex flex-wrap u-font-size-base">
-								<svg class="icon u-icon--medium u-fill-success">
-									<use xlink:href="#icon-security"></use>
-								</svg>
-								<span class="color-success">100%:</span>
-								<span>97</span>
-							</dd>
-							<dd class="a-meta a-meta--responsive u-m-l-0 u-m-b-2 u-p-b-1 u-b-dashed u-b-concrete u-b-x-0 u-b-t-0 u-b-b-1 display-flex flex-wrap u-font-size-base">
-								<svg class="icon u-icon--medium u-fill-ruby">
-									<use xlink:href="#icon-warning"></use>
-								</svg>
-								<span class="color-ruby">0-99%:</span>
-								<span>1103</span>
-							</dd>
-							<dt class="u-weight-bold u-m-b-1">
-								Hela .se-zonen
-							</dt>
-							<dd class="a-meta a-meta--responsive u-m-l-0 u-m-b-2 u-p-b-1 u-b-dashed u-b-concrete u-b-x-0 u-b-t-0 u-b-b-1 display-flex flex-wrap u-font-size-base">
-								<svg class="icon u-icon--medium u-fill-success">
-									<use xlink:href="#icon-security"></use>
-								</svg>
-								<span class="color-success">100%:</span>
-								<span>24478</span>
-							</dd>
-							<dd class="a-meta a-meta--responsive u-m-l-0 u-m-b-2 u-p-b-1 u-b-dashed u-b-concrete u-b-x-0 u-b-t-0 u-b-b-1 display-flex flex-wrap u-font-size-base">
-								<svg class="icon u-icon--medium u-fill-ruby">
-									<use xlink:href="#icon-warning"></use>
-								</svg>
-								<span class="color-ruby">0-99%:</span>
-								<span>1442158</span>
-							</dd>
-						</dl>
-						<div class="display-flex align-items-end">
-							<a href="" class="a-button a-button--icon u-m-l-auto">
-								<span class="a-button__text u-nowrap">Se statistik från testerna</span>
-								<svg class="icon a-button__icon">
-									<use xlink:href="#icon-arrow-forwards"></use>
-								</svg>
-							</a>
-						</div>
-					</div>
-					<div class="background-ocean-light u-border-radius u-p-t-2 u-p-b-1 u-p-x-3 u-m-b-2 u-b-1 u-b-solid u-b-ocean">
-						<lord-icon
-							src="https://cdn.lordicon.com/qawxkplz.json"
-							trigger="in"
-							delay=""
-							colors="primary:#50b2fc"
-							style="width:80px;height:80px">
-						</lord-icon>
-						<h3>Fler testverktyg från Internetstiftelsen</h3>
-						<ul>
-							<li><a href="">Zonemaster</a></li>
-							<li><a href="">Bredbandskollen</a></li>
-							<li><a href="">Har ditt lösenord läckt?</a></li>
-						</ul>
+					<div class="background-snow u-border-radius u-p-x-2 u-p-y-2 u-m-b-2">
+						<h3 class="beta">Mina tester</h3>
+						<table class="u-m-b-2">
+							<thead>
+								<tr>
+									<th>Domän</th>
+									<th>Resultat</th>
+								</tr>
+							</thead>
+							<tbody>
+								<tr>
+									<td><a href="" class="u-link-default">dn.se</a></td>
+									<td>
+										<span class="display-flex align-items-center">
+											<svg class="icon u-icon--medium u-fill-ruby-dark u-m-r-1" role="image" aria-label="bad">
+												<use xlink:href="#icon-warning-variant"></use>
+											</svg>
+											<span class="color-ruby-dark">95%:</span>
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td><a href="" class="u-link-default">internetstiftelsen.se</a></td>
+									<td>
+										<span class="display-flex align-items-center">
+											<svg class="icon u-icon--medium u-fill-success u-m-r-1" role="image" aria-label="good">
+												<use xlink:href="#icon-security-variant"></use>
+											</svg>
+											<span class="color-success">100%:</span>
+										</span>
+									</td>
+								</tr>
+								<tr>
+									<td><a href="" class="u-link-default">räksmörgås.se</a></td>
+									<td>
+										<span class="display-flex align-items-center">
+											<svg class="icon u-icon--medium u-fill-ruby-dark u-m-r-1" role="image" aria-label="bad">
+												<use xlink:href="#icon-warning-variant"></use>
+											</svg>
+											<span class="color-ruby-dark">47%:</span>
+										</span>
+									</td>
+								</tr>
+							</tbody>
+						</table>
 					</div>
 				</aside>
 			</div>
