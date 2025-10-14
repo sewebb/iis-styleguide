@@ -1,0 +1,2484 @@
+<script src="https://cdn.lordicon.com/lordicon-1.1.0.js"></script>
+
+<div class="site u-z-index-foreground" id="site">
+	<div class="site__header" id="siteHeader">
+		<div class="u-position-relative">
+			<header class="o-header">
+				<div class="wrapper">
+					<div class="row justify-content-between align-items-center flex-nowrap">
+						<div class="grid-auto">
+							<a href="/" class="o-header__logo-link">
+								<span class="o-header__logo">
+									<img class="logotype" src="https://static.internetstiftelsen.se/images/logotypes/internetkollen.svg" alt="logotyp">
+								</span>
+								<span class="u-visuallyhidden">Till startsidan</span>
+							</a>
+						</div>
+
+						<div class="grid u-hide-sm">
+							<h1 id="portal-title" data-default="Internetkollen" class="u-b-0 u-b-l-1 u-b-solid u-b-concrete display-flex u-p-y-1 u-p-x-2 u-m-y-1 u-font-size-medium u-weight-normal">Test för moderna internetstandarder</h1>
+						</div>
+						<div class="grid">
+							<nav class="a-main-menu" aria-label="Huvudmeny">
+								<ul class="a-main-menu__list">
+									<li class="u-hidden-mobile">
+										<a href="#" class="a-main-menu__list__link">
+											<span class="a-main-menu__list__text">Testa själv</span>
+										</a>
+									</li>
+									<li class="u-hidden-mobile">
+										<a href="#" class="a-main-menu__list__link is-current">
+											<span class="a-main-menu__list__text">Hälsoläget</span>
+										</a>
+									</li>
+									<li class="u-hidden-mobile">
+										<a href="#" class="a-main-menu__list__link">
+											<span class="a-main-menu__list__text">Om</span>
+										</a>
+									</li>
+									<li class="u-hidden-mobile">
+										<a href="#" class="a-main-menu__list__link">
+											<span class="a-main-menu__list__text">Hjälp</span>
+										</a>
+									</li>
+									<li class="u-hidden-mobile">
+										<a href="#" class="a-main-menu__list__link">
+											<span class="a-main-menu__list__text">Kontakt</span>
+										</a>
+									</li>
+									<li class="u-hide-xl-up">
+										<button type="button" class="a-main-menu__list__link" aria-expanded="false" data-a11y-toggle="dropdown">
+											<span class="a-main-menu__list__text">Meny</span>
+											<div class="icon-arrow-down"></div>
+										</button>
+
+										<ul id="dropdown" class="a-main-menu__subnav a-main-menu__subnav--right-aligned u-box-shadow-card">
+											<li class="a-main-menu__subnav__item">
+												<a href="#">Testa själv</a>
+											</li>
+											<li class="a-main-menu__subnav__item">
+												<a href="#">Hälsoläget</a>
+											</li>
+											<li class="a-main-menu__subnav__item">
+												<a href="#">Om</a>
+											</li>
+											<li class="a-main-menu__subnav__item">
+												<a href="#">Hjälp</a>
+											</li>
+											<li class="a-main-menu__subnav__item">
+												<a href="#">Kontakt</a>
+											</li>
+										</ul>
+									</li>
+								</ul>
+							</nav>
+
+						</div>
+					</div>
+				</div>
+			</header>
+		</div>
+	</div>
+	<div class="site__main" id="siteMain">
+		<div class="u-p-2 background-snow display-flex justify-content-end align-items-center u-b-solid u-b-b-1 u-b-x-0 u-b-t-0 u-b-concrete">
+			<label for="history" class="u-m-r-1">Historiska tester</label>
+			<select name="history" id="history" class="a-select">
+				<option value="0" disabled selected>Välj datum</option>
+				<option value="1">2025-10-01 (latest)</option>
+				<option value="1">2025-09-01</option>
+				<option value="1">2025-08-01</option>
+			</select>
+		</div>
+		<div class="wrapper u-p-t-2 u-p-b-8">
+			<div class="row">
+				<main class="grid-18">
+					<section class="row justify-content-center">
+						<div class="grid-18 grid-md-12 u-p-t-4 u-m-b-2">
+							<h1 class="supersize u-align-center">
+								Hälsoläget - 1200 samhällskritiska domäner
+							</h1>
+							<p class="preamble u-align-center">
+
+								Sveriges Hälsoläget övervakar webb- och e-postsäkerhetskonfigurationen för Sveriges främsta internettjänster. Tjänsten drivs av <a href="">Internetstiftelsen.</a>
+							</p>
+						</div>
+					</section>
+					<section>
+						<div class="row justify-content-center u-p-b-2">
+							<div class="grid-18 u-m-b-2">
+								<hr>
+								<h2 class="alpha u-align-center u-m-t-6">Infrastructure Configuration Overview</h2>
+								<p class="u-align-center">Key aspects of web application and email infrastructure configuration and security.</p>
+							</div>
+							<div class="grid-18 grid-md-6">
+								<div class="chart-container" id="container"></div>
+								<span class="a-meta u-display-block u-align-center u-m-b-2 u-m-t-1">Web Configuration</span>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites well-configured HTTPS", value: 507 },
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 366 },
+										{ name: "Sites whose HTTPS configuration has errors or lacks critical features", value: 169 },
+									];
+
+									const container = document.getElementById("container");
+									const containerWidth = container.clientWidth || window.innerWidth;
+									const size = Math.min(containerWidth, window.innerHeight, 600);
+									const width = size;
+									const height = size;
+									const radius = Math.min(width, height) / 2;
+									const innerRadius = radius * 0.6;
+									const fontScale = size / 320;
+									const title = `<div style="line-height: 1;display: flex; flex-direction: column; justify-content: center; align-items: center;"><strong style="font-size: ${65 * fontScale}px; font-weight: bold; margin: 0;">49%</strong><strong style="font-size: ${18 * fontScale}px; margin: 0; line-height:2;">Well configured</strong><span style="font-size: ${18 * fontScale}px; margin: 0;">507 av 1054</span></div>`;
+
+									const svg = d3.select("#container")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", "100%")
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "xMidYMid meet")
+										.append("g")
+										.attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#ffce2e", "#ff4069"]);
+
+									const pie = d3.pie()
+										.value(d => d.value)
+										.sort(null);
+
+									const arc = d3.arc()
+										.innerRadius(innerRadius)
+										.outerRadius(radius);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									const titleGroup = svg.append("foreignObject")
+										.attr("width", innerRadius * 2)
+										.attr("height", innerRadius * 2)
+										.attr("x", -innerRadius)
+										.attr("y", -innerRadius)
+										.append("xhtml:div")
+										.style('height', '100%')
+										.style('width', '100%')
+										.style('display', 'grid')
+										.style('place-items', 'center')
+										.style('pointer-events', 'none')
+										.html(title);
+
+									const arcs = svg.selectAll("path")
+										.data(pie(data))
+										.enter()
+										.append("path")
+										.attr("d", arc)
+										.attr("fill", d => color(d.data.name))
+										.attr("stroke", "white")
+										.attr("stroke-width", 2)
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.data.name}</strong><br>Value: ${d.data.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+							<div class="grid-18 grid-md-6">
+								<div class="chart-container" id="container2"></div>
+								<span class="a-meta u-display-block u-align-center u-m-b-2 u-m-t-1">E-mail Configuration</span>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites well-configured HTTPS", value: 635 },
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 75 },
+										{ name: "Sites whose HTTPS configuration has errors or lacks critical features", value: 150 },
+									];
+
+									const container = document.getElementById("container2");
+									const containerWidth = container.clientWidth || window.innerWidth;
+									const size = Math.min(containerWidth, window.innerHeight, 600);
+									const width = size;
+									const height = size;
+									const radius = Math.min(width, height) / 2;
+									const innerRadius = radius * 0.6;
+									const fontScale = size / 320;
+									const title = `<div style="line-height: 1;display: flex; flex-direction: column; justify-content: center; align-items: center;"><strong style="font-size: ${65 * fontScale}px; font-weight: bold; margin: 0;">62%</strong><strong style="font-size: ${18 * fontScale}px; margin: 0; line-height:2;">Well configured</strong><span style="font-size: ${18 * fontScale}px; margin: 0;">635 av 1030</span></div>`;
+
+									const svg = d3.select("#container2")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", "100%")
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "xMidYMid meet")
+										.append("g")
+										.attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#ffce2e", "#ff4069"]);
+
+									const pie = d3.pie()
+										.value(d => d.value)
+										.sort(null);
+
+									const arc = d3.arc()
+										.innerRadius(innerRadius)
+										.outerRadius(radius);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									const titleGroup = svg.append("foreignObject")
+										.attr("width", innerRadius * 2)
+										.attr("height", innerRadius * 2)
+										.attr("x", -innerRadius)
+										.attr("y", -innerRadius)
+										.append("xhtml:div")
+										.style('height', '100%')
+										.style('width', '100%')
+										.style('display', 'grid')
+										.style('place-items', 'center')
+										.style('pointer-events', 'none')
+										.html(title);
+
+									const arcs = svg.selectAll("path")
+										.data(pie(data))
+										.enter()
+										.append("path")
+										.attr("d", arc)
+										.attr("fill", d => color(d.data.name))
+										.attr("stroke", "white")
+										.attr("stroke-width", 2)
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.data.name}</strong><br>Value: ${d.data.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+						</div>
+						<div class="row justify-content-around u-p-b-2">
+							<div class="grid-18 u-m-b-2">
+								<hr>
+								<h2 class="alpha u-align-center u-m-t-6">Web Application Configuration</h2>
+								<p class="u-align-center">Key aspects of web application security of the hosts monitored by this dashboard.</p>
+							</div>
+							<div class="grid-18 grid-sm-9 grid-md-3">
+								<div class="chart-container" id="container3"></div>
+								<span class="a-meta u-display-block u-align-center u-m-b-2 u-m-t-1">HTTPS</span>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites well-configured HTTPS", value: 49 },
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 40 },
+										{ name: "Sites well-configured HTTP", value: 11 },
+									];
+
+									const container = document.getElementById("container3");
+									const containerWidth = container.clientWidth || window.innerWidth;
+									const size = Math.min(containerWidth, window.innerHeight, 600);
+									const width = size;
+									const height = size;
+									const radius = Math.min(width, height) / 2;
+									const innerRadius = radius * 0.6;
+									const fontScale = size / 320;
+									const title = `<div style="line-height: 1;display: flex; flex-direction: column; justify-content: center; align-items: center;"><strong style="font-size: ${65 * fontScale}px; font-weight: bold; margin: 0;">49%</strong></div>`;
+
+									const svg = d3.select("#container3")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", "100%")
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "xMidYMid meet")
+										.append("g")
+										.attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#d8d8d8", "#8E9297"]);
+
+									const pie = d3.pie()
+										.value(d => d.value)
+										.sort(null);
+
+									const arc = d3.arc()
+										.innerRadius(innerRadius)
+										.outerRadius(radius);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									const titleGroup = svg.append("foreignObject")
+										.attr("width", innerRadius * 2)
+										.attr("height", innerRadius * 2)
+										.attr("x", -innerRadius)
+										.attr("y", -innerRadius)
+										.append("xhtml:div")
+										.style('height', '100%')
+										.style('width', '100%')
+										.style('display', 'grid')
+										.style('place-items', 'center')
+										.style('pointer-events', 'none')
+										.html(title);
+
+									const arcs = svg.selectAll("path")
+										.data(pie(data))
+										.enter()
+										.append("path")
+										.attr("d", arc)
+										.attr("fill", d => color(d.data.name))
+										.attr("stroke", "white")
+										.attr("stroke-width", 2)
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.data.name}</strong><br>Value: ${d.data.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+							<div class="grid-18 grid-sm-9 grid-md-3">
+								<div class="chart-container" id="container4"></div>
+								<span class="a-meta u-display-block u-align-center u-m-b-2 u-m-t-1">HTTPS Redirection</span>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 22 },
+										{ name: "Sites whose HTTPS configuration has errors or lacks critical features", value: 33 },
+										{ name: "Sites whose HTTP configuration has errors or lacks critical features", value: 55 },
+									];
+
+									const container = document.getElementById("container4");
+									const containerWidth = container.clientWidth || window.innerWidth;
+									const size = Math.min(containerWidth, window.innerHeight, 600);
+									const width = size;
+									const height = size;
+									const radius = Math.min(width, height) / 2;
+									const innerRadius = radius * 0.6;
+									const fontScale = size / 320;
+									const title = `<div style="line-height: 1;display: flex; flex-direction: column; justify-content: center; align-items: center;"><strong style="font-size: ${65 * fontScale}px; font-weight: bold; margin: 0;">22%</strong></div>`;
+
+									const svg = d3.select("#container4")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", "100%")
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "xMidYMid meet")
+										.append("g")
+										.attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#d8d8d8", "#8E9297"]);
+
+									const pie = d3.pie()
+										.value(d => d.value)
+										.sort(null);
+
+									const arc = d3.arc()
+										.innerRadius(innerRadius)
+										.outerRadius(radius);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									const titleGroup = svg.append("foreignObject")
+										.attr("width", innerRadius * 2)
+										.attr("height", innerRadius * 2)
+										.attr("x", -innerRadius)
+										.attr("y", -innerRadius)
+										.append("xhtml:div")
+										.style('height', '100%')
+										.style('width', '100%')
+										.style('display', 'grid')
+										.style('place-items', 'center')
+										.style('pointer-events', 'none')
+										.html(title);
+
+									const arcs = svg.selectAll("path")
+										.data(pie(data))
+										.enter()
+										.append("path")
+										.attr("d", arc)
+										.attr("fill", d => color(d.data.name))
+										.attr("stroke", "white")
+										.attr("stroke-width", 2)
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.data.name}</strong><br>Value: ${d.data.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+							<div class="grid-18 grid-sm-9 grid-md-3">
+								<div class="chart-container" id="container5"></div>
+								<span class="a-meta u-display-block u-align-center u-m-b-2 u-m-t-1">HSTS</span>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 92 },
+										{ name: "Sites whose HTTPS configuration has errors or lacks critical features", value: 5 },
+										{ name: "Sites whose HTTP configuration has errors or lacks critical features", value: 3 },
+									];
+
+									const container = document.getElementById("container5");
+									const containerWidth = container.clientWidth || window.innerWidth;
+									const size = Math.min(containerWidth, window.innerHeight, 600);
+									const width = size;
+									const height = size;
+									const radius = Math.min(width, height) / 2;
+									const innerRadius = radius * 0.6;
+									const fontScale = size / 320;
+									const title = `<div style="line-height: 1;display: flex; flex-direction: column; justify-content: center; align-items: center;"><strong style="font-size: ${65 * fontScale}px; font-weight: bold; margin: 0;">92%</strong></div>`;
+
+									const svg = d3.select("#container5")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", "100%")
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "xMidYMid meet")
+										.append("g")
+										.attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#d8d8d8", "#8E9297"]);
+
+									const pie = d3.pie()
+										.value(d => d.value)
+										.sort(null);
+
+									const arc = d3.arc()
+										.innerRadius(innerRadius)
+										.outerRadius(radius);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									const titleGroup = svg.append("foreignObject")
+										.attr("width", innerRadius * 2)
+										.attr("height", innerRadius * 2)
+										.attr("x", -innerRadius)
+										.attr("y", -innerRadius)
+										.append("xhtml:div")
+										.style('height', '100%')
+										.style('width', '100%')
+										.style('display', 'grid')
+										.style('place-items', 'center')
+										.style('pointer-events', 'none')
+										.html(title);
+
+									const arcs = svg.selectAll("path")
+										.data(pie(data))
+										.enter()
+										.append("path")
+										.attr("d", arc)
+										.attr("fill", d => color(d.data.name))
+										.attr("stroke", "white")
+										.attr("stroke-width", 2)
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.data.name}</strong><br>Value: ${d.data.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+							<div class="grid-18 grid-sm-9 grid-md-3">
+								<div class="chart-container" id="container6"></div>
+								<span class="a-meta u-display-block u-align-center u-m-b-2 u-m-t-1">HSTS Preloaded</span>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 3 },
+										{ name: "Sites whose HTTPS configuration has errors or lacks critical features", value: 70 },
+										{ name: "Sites whose HTTP configuration has errors or lacks critical features", value: 27 },
+									];
+
+									const container = document.getElementById("container6");
+									const containerWidth = container.clientWidth || window.innerWidth;
+									const size = Math.min(containerWidth, window.innerHeight, 600);
+									const width = size;
+									const height = size;
+									const radius = Math.min(width, height) / 2;
+									const innerRadius = radius * 0.6;
+									const fontScale = size / 320;
+									const title = `<div style="line-height: 1;display: flex; flex-direction: column; justify-content: center; align-items: center;"><strong style="font-size: ${65 * fontScale}px; font-weight: bold; margin: 0;">3%</strong></div>`;
+
+									const svg = d3.select("#container6")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", "100%")
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "xMidYMid meet")
+										.append("g")
+										.attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#d8d8d8", "#8E9297"]);
+
+									const pie = d3.pie()
+										.value(d => d.value)
+										.sort(null);
+
+									const arc = d3.arc()
+										.innerRadius(innerRadius)
+										.outerRadius(radius);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									const titleGroup = svg.append("foreignObject")
+										.attr("width", innerRadius * 2)
+										.attr("height", innerRadius * 2)
+										.attr("x", -innerRadius)
+										.attr("y", -innerRadius)
+										.append("xhtml:div")
+										.style('height', '100%')
+										.style('width', '100%')
+										.style('display', 'grid')
+										.style('place-items', 'center')
+										.style('pointer-events', 'none')
+										.html(title);
+
+									const arcs = svg.selectAll("path")
+										.data(pie(data))
+										.enter()
+										.append("path")
+										.attr("d", arc)
+										.attr("fill", d => color(d.data.name))
+										.attr("stroke", "white")
+										.attr("stroke-width", 2)
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.data.name}</strong><br>Value: ${d.data.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+						</div>
+						<div class="row justify-content-around u-p-b-2">
+							<div class="grid-18 u-m-b-2">
+								<hr>
+								<h2 class="alpha u-align-center u-m-t-6">Email Infrastructure  Configuration</h2>
+								<p class="u-align-center">Key aspects of email security of the hosts monitored by this dashboard.</p>
+							</div>
+							<div class="grid-18 grid-sm-9 grid-md-3">
+								<div class="chart-container" id="container7"></div>
+								<span class="a-meta u-display-block u-align-center u-m-b-2 u-m-t-1">STARTTLS</span>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites well-configured HTTPS", value: 49 },
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 40 },
+										{ name: "Sites well-configured HTTP", value: 11 },
+									];
+
+									const container = document.getElementById("container7");
+									const containerWidth = container.clientWidth || window.innerWidth;
+									const size = Math.min(containerWidth, window.innerHeight, 600);
+									const width = size;
+									const height = size;
+									const radius = Math.min(width, height) / 2;
+									const innerRadius = radius * 0.6;
+									const fontScale = size / 320;
+									const title = `<div style="line-height: 1;display: flex; flex-direction: column; justify-content: center; align-items: center;"><strong style="font-size: ${65 * fontScale}px; font-weight: bold; margin: 0;">49%</strong></div>`;
+
+									const svg = d3.select("#container7")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", "100%")
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "xMidYMid meet")
+										.append("g")
+										.attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#d8d8d8", "#8E9297"]);
+
+									const pie = d3.pie()
+										.value(d => d.value)
+										.sort(null);
+
+									const arc = d3.arc()
+										.innerRadius(innerRadius)
+										.outerRadius(radius);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									const titleGroup = svg.append("foreignObject")
+										.attr("width", innerRadius * 2)
+										.attr("height", innerRadius * 2)
+										.attr("x", -innerRadius)
+										.attr("y", -innerRadius)
+										.append("xhtml:div")
+										.style('height', '100%')
+										.style('width', '100%')
+										.style('display', 'grid')
+										.style('place-items', 'center')
+										.style('pointer-events', 'none')
+										.html(title);
+
+									const arcs = svg.selectAll("path")
+										.data(pie(data))
+										.enter()
+										.append("path")
+										.attr("d", arc)
+										.attr("fill", d => color(d.data.name))
+										.attr("stroke", "white")
+										.attr("stroke-width", 2)
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.data.name}</strong><br>Value: ${d.data.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+							<div class="grid-18 grid-sm-9 grid-md-3">
+								<div class="chart-container" id="container8"></div>
+								<span class="a-meta u-display-block u-align-center u-m-b-2 u-m-t-1">DANE</span>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 22 },
+										{ name: "Sites whose HTTPS configuration has errors or lacks critical features", value: 33 },
+										{ name: "Sites whose HTTP configuration has errors or lacks critical features", value: 55 },
+									];
+
+									const container = document.getElementById("container8");
+									const containerWidth = container.clientWidth || window.innerWidth;
+									const size = Math.min(containerWidth, window.innerHeight, 600);
+									const width = size;
+									const height = size;
+									const radius = Math.min(width, height) / 2;
+									const innerRadius = radius * 0.6;
+									const fontScale = size / 320;
+									const title = `<div style="line-height: 1;display: flex; flex-direction: column; justify-content: center; align-items: center;"><strong style="font-size: ${65 * fontScale}px; font-weight: bold; margin: 0;">22%</strong></div>`;
+
+									const svg = d3.select("#container8")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", "100%")
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "xMidYMid meet")
+										.append("g")
+										.attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#d8d8d8", "#8E9297"]);
+
+									const pie = d3.pie()
+										.value(d => d.value)
+										.sort(null);
+
+									const arc = d3.arc()
+										.innerRadius(innerRadius)
+										.outerRadius(radius);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									const titleGroup = svg.append("foreignObject")
+										.attr("width", innerRadius * 2)
+										.attr("height", innerRadius * 2)
+										.attr("x", -innerRadius)
+										.attr("y", -innerRadius)
+										.append("xhtml:div")
+										.style('height', '100%')
+										.style('width', '100%')
+										.style('display', 'grid')
+										.style('place-items', 'center')
+										.style('pointer-events', 'none')
+										.html(title);
+
+									const arcs = svg.selectAll("path")
+										.data(pie(data))
+										.enter()
+										.append("path")
+										.attr("d", arc)
+										.attr("fill", d => color(d.data.name))
+										.attr("stroke", "white")
+										.attr("stroke-width", 2)
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.data.name}</strong><br>Value: ${d.data.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+							<div class="grid-18 grid-sm-9 grid-md-3">
+								<div class="chart-container" id="container9"></div>
+								<span class="a-meta u-display-block u-align-center u-m-b-2 u-m-t-1">SPF</span>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 92 },
+										{ name: "Sites whose HTTPS configuration has errors or lacks critical features", value: 5 },
+										{ name: "Sites whose HTTP configuration has errors or lacks critical features", value: 3 },
+									];
+
+									const container = document.getElementById("container9");
+									const containerWidth = container.clientWidth || window.innerWidth;
+									const size = Math.min(containerWidth, window.innerHeight, 600);
+									const width = size;
+									const height = size;
+									const radius = Math.min(width, height) / 2;
+									const innerRadius = radius * 0.6;
+									const fontScale = size / 320;
+									const title = `<div style="line-height: 1;display: flex; flex-direction: column; justify-content: center; align-items: center;"><strong style="font-size: ${65 * fontScale}px; font-weight: bold; margin: 0;">92%</strong></div>`;
+
+									const svg = d3.select("#container9")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", "100%")
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "xMidYMid meet")
+										.append("g")
+										.attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#d8d8d8", "#8E9297"]);
+
+									const pie = d3.pie()
+										.value(d => d.value)
+										.sort(null);
+
+									const arc = d3.arc()
+										.innerRadius(innerRadius)
+										.outerRadius(radius);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									const titleGroup = svg.append("foreignObject")
+										.attr("width", innerRadius * 2)
+										.attr("height", innerRadius * 2)
+										.attr("x", -innerRadius)
+										.attr("y", -innerRadius)
+										.append("xhtml:div")
+										.style('height', '100%')
+										.style('width', '100%')
+										.style('display', 'grid')
+										.style('place-items', 'center')
+										.style('pointer-events', 'none')
+										.html(title);
+
+									const arcs = svg.selectAll("path")
+										.data(pie(data))
+										.enter()
+										.append("path")
+										.attr("d", arc)
+										.attr("fill", d => color(d.data.name))
+										.attr("stroke", "white")
+										.attr("stroke-width", 2)
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.data.name}</strong><br>Value: ${d.data.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+							<div class="grid-18 grid-sm-9 grid-md-3">
+								<div class="chart-container" id="container10"></div>
+								<span class="a-meta u-display-block u-align-center u-m-b-2 u-m-t-1">DMARC</span>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 3 },
+										{ name: "Sites whose HTTPS configuration has errors or lacks critical features", value: 70 },
+										{ name: "Sites whose HTTP configuration has errors or lacks critical features", value: 27 },
+									];
+
+									const container = document.getElementById("container10");
+									const containerWidth = container.clientWidth || window.innerWidth;
+									const size = Math.min(containerWidth, window.innerHeight, 600);
+									const width = size;
+									const height = size;
+									const radius = Math.min(width, height) / 2;
+									const innerRadius = radius * 0.6;
+									const fontScale = size / 320;
+									const title = `<div style="line-height: 1;display: flex; flex-direction: column; justify-content: center; align-items: center;"><strong style="font-size: ${65 * fontScale}px; font-weight: bold; margin: 0;">3%</strong></div>`;
+
+									const svg = d3.select("#container10")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", "100%")
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "xMidYMid meet")
+										.append("g")
+										.attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#d8d8d8", "#8E9297"]);
+
+									const pie = d3.pie()
+										.value(d => d.value)
+										.sort(null);
+
+									const arc = d3.arc()
+										.innerRadius(innerRadius)
+										.outerRadius(radius);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									const titleGroup = svg.append("foreignObject")
+										.attr("width", innerRadius * 2)
+										.attr("height", innerRadius * 2)
+										.attr("x", -innerRadius)
+										.attr("y", -innerRadius)
+										.append("xhtml:div")
+										.style('height', '100%')
+										.style('width', '100%')
+										.style('display', 'grid')
+										.style('place-items', 'center')
+										.style('pointer-events', 'none')
+										.html(title);
+
+									const arcs = svg.selectAll("path")
+										.data(pie(data))
+										.enter()
+										.append("path")
+										.attr("d", arc)
+										.attr("fill", d => color(d.data.name))
+										.attr("stroke", "white")
+										.attr("stroke-width", 2)
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.data.name}</strong><br>Value: ${d.data.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+						</div>
+						<div class="row justify-content-around u-p-b-2">
+							<div class="grid-18 u-m-b-2">
+								<hr>
+								<h2 class="alpha u-align-center u-m-t-6">Domain Name Security Overview</h2>
+								<p class="u-align-center">Key aspects of DNS configuration and security; only DNSSEC at the moment.</p>
+							</div>
+							<div class="grid-18 grid-sm-9 grid-md-3">
+								<div class="chart-container" id="container11"></div>
+								<span class="a-meta u-display-block u-align-center u-m-b-2 u-m-t-1">DNSSEC</span>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites well-configured HTTPS", value: 49 },
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 40 },
+										{ name: "Sites well-configured HTTP", value: 11 },
+									];
+
+									const container = document.getElementById("container11");
+									const containerWidth = container.clientWidth || window.innerWidth;
+									const size = Math.min(containerWidth, window.innerHeight, 600);
+									const width = size;
+									const height = size;
+									const radius = Math.min(width, height) / 2;
+									const innerRadius = radius * 0.6;
+									const fontScale = size / 320;
+									const title = `<div style="line-height: 1;display: flex; flex-direction: column; justify-content: center; align-items: center;"><strong style="font-size: ${65 * fontScale}px; font-weight: bold; margin: 0;">49%</strong></div>`;
+
+									const svg = d3.select("#container11")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", "100%")
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "xMidYMid meet")
+										.append("g")
+										.attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#d8d8d8", "#8E9297"]);
+
+									const pie = d3.pie()
+										.value(d => d.value)
+										.sort(null);
+
+									const arc = d3.arc()
+										.innerRadius(innerRadius)
+										.outerRadius(radius);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									const titleGroup = svg.append("foreignObject")
+										.attr("width", innerRadius * 2)
+										.attr("height", innerRadius * 2)
+										.attr("x", -innerRadius)
+										.attr("y", -innerRadius)
+										.append("xhtml:div")
+										.style('height', '100%')
+										.style('width', '100%')
+										.style('display', 'grid')
+										.style('place-items', 'center')
+										.style('pointer-events', 'none')
+										.html(title);
+
+									const arcs = svg.selectAll("path")
+										.data(pie(data))
+										.enter()
+										.append("path")
+										.attr("d", arc)
+										.attr("fill", d => color(d.data.name))
+										.attr("stroke", "white")
+										.attr("stroke-width", 2)
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.data.name}</strong><br>Value: ${d.data.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+						</div>
+					</section>
+					<section>
+						<div class="row justify-content-around u-p-b-2">
+							<div class="grid-18 u-m-b-2">
+								<hr>
+								<h2 class="alpha u-align-center u-m-t-6">Web Configuration by Group</h2>
+								<p class="u-align-center">Key aspects of web application security, on per group basis.</p>
+							</div>
+						</div>
+						<div class="row align-items-center justify-content-between">
+							<div class="grid-18 grid-sm-9 grid-lg-2 u-align-center u-p-y-2">
+								<a href="" class="u-link-default u-display-inline-block"><h4 class="u-p-b-0 u-m-b-0">Banker</h4></a><br>
+								<span class="color-granit u-font-size-medium-plus">95 hosts</span>
+							</div>
+							<div class="grid-18 grid-sm-9 grid-lg-2 u-align-center u-p-y-2">
+								<div class="chart-container" id="container12"></div>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites well-configured HTTPS", value: 19 },
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 75 },
+										{ name: "Sites whose HTTPS configuration has errors or lacks critical features", value: 6 },
+									];
+
+									const container = document.getElementById("container12");
+									const containerWidth = container.clientWidth || window.innerWidth;
+									const size = Math.min(containerWidth, window.innerHeight, 600);
+									const width = size;
+									const height = size;
+									const radius = Math.min(width, height) / 2;
+									const innerRadius = radius * 0.6;
+									const fontScale = size / 320;
+									const title = `<div style="line-height: 1;display: flex; flex-direction: column; justify-content: center; align-items: center;"><strong style="font-size: ${65 * fontScale}px; font-weight: bold; margin: 0;">19%</strong><span style="text-align:center;font-size: ${30 * fontScale}px; margin: 0;">18 av 98</span></div>`;
+
+									const svg = d3.select("#container12")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", "100%")
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "xMidYMid meet")
+										.append("g")
+										.attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#ffce2e", "#ff4069"]);
+
+									const pie = d3.pie()
+										.value(d => d.value)
+										.sort(null);
+
+									const arc = d3.arc()
+										.innerRadius(innerRadius)
+										.outerRadius(radius);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									const titleGroup = svg.append("foreignObject")
+										.attr("width", innerRadius * 2)
+										.attr("height", innerRadius * 2)
+										.attr("x", -innerRadius)
+										.attr("y", -innerRadius)
+										.append("xhtml:div")
+										.style('height', '100%')
+										.style('width', '100%')
+										.style('display', 'grid')
+										.style('place-items', 'center')
+										.style('pointer-events', 'none')
+										.html(title);
+
+									const arcs = svg.selectAll("path")
+										.data(pie(data))
+										.enter()
+										.append("path")
+										.attr("d", arc)
+										.attr("fill", d => color(d.data.name))
+										.attr("stroke", "white")
+										.attr("stroke-width", 2)
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.data.name}</strong><br>Value: ${d.data.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+							<div class="grid-18 grid-sm-9 grid-lg-2 u-p-y-2">
+								<span class="u-font-size-medium">HTTPS</span>
+								<div id="chart" class="line-chart"></div>
+								<strong>49%</strong>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites well-configured HTTPS", value: 507 },
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 366 },
+										{ name: "Sites whose HTTPS configuration has errors or lacks critical features", value: 169 },
+									];
+
+									const width = 1000;
+									const height = 20;
+									const total = d3.sum(data, d => d.value);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#8E9297", "#d8d8d8"]);
+
+									const svg = d3.select("#chart")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", height)
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "none");
+
+									const x = d3.scaleLinear()
+										.domain([0, total])
+										.range([0, width]);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									let xOffset = 0;
+									svg.selectAll("rect")
+										.data(data)
+										.enter()
+										.append("rect")
+										.attr("x", d => {
+											const pos = xOffset;
+											xOffset += x(d.value);
+											return pos;
+										})
+										.attr("y", 0)
+										.attr("width", d => x(d.value))
+										.attr("height", height)
+										.attr("fill", d => color(d.name))
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.name}</strong><br>Value: ${d.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+							<div class="grid-18 grid-sm-9 grid-lg-2 u-p-y-2">
+								<span class="u-font-size-medium">HTTPS Redirection</span>
+								<div id="chart2" class="line-chart"></div>
+								<strong>68%</strong>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites well-configured HTTPS", value: 68 },
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 13 },
+										{ name: "Sites whose HTTPS configuration has errors or lacks critical features", value: 9 },
+									];
+
+									const width = 1000;
+									const height = 20;
+									const total = d3.sum(data, d => d.value);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#8E9297", "#d8d8d8"]);
+
+									const svg = d3.select("#chart2")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", height)
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "none");
+
+									const x = d3.scaleLinear()
+										.domain([0, total])
+										.range([0, width]);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									let xOffset = 0;
+									svg.selectAll("rect")
+										.data(data)
+										.enter()
+										.append("rect")
+										.attr("x", d => {
+											const pos = xOffset;
+											xOffset += x(d.value);
+											return pos;
+										})
+										.attr("y", 0)
+										.attr("width", d => x(d.value))
+										.attr("height", height)
+										.attr("fill", d => color(d.name))
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.name}</strong><br>Value: ${d.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+							<div class="grid-18 grid-sm-9 grid-lg-2 u-p-y-2">
+								<span class="u-font-size-medium">HSTS</span>
+								<div id="chart3" class="line-chart"></div>
+								<strong>37%</strong>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites well-configured HTTPS", value: 37 },
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 25 },
+										{ name: "Sites whose HTTPS configuration has errors or lacks critical features", value: 38 },
+									];
+
+									const width = 1000;
+									const height = 20;
+									const total = d3.sum(data, d => d.value);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#8E9297", "#d8d8d8"]);
+
+									const svg = d3.select("#chart3")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", height)
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "none");
+
+									const x = d3.scaleLinear()
+										.domain([0, total])
+										.range([0, width]);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									let xOffset = 0;
+									svg.selectAll("rect")
+										.data(data)
+										.enter()
+										.append("rect")
+										.attr("x", d => {
+											const pos = xOffset;
+											xOffset += x(d.value);
+											return pos;
+										})
+										.attr("y", 0)
+										.attr("width", d => x(d.value))
+										.attr("height", height)
+										.attr("fill", d => color(d.name))
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.name}</strong><br>Value: ${d.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+							<div class="grid-18 grid-sm-9 grid-lg-2 u-p-y-2">
+								<span class="u-font-size-medium">HTTPS Preloaded</span>
+								<div id="chart4" class="line-chart"></div>
+								<strong>4%</strong>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites well-configured HTTPS", value: 4 },
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 68 },
+										{ name: "Sites whose HTTPS configuration has errors or lacks critical features", value: 28 },
+									];
+
+									const width = 1000;
+									const height = 20;
+									const total = d3.sum(data, d => d.value);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#8E9297", "#d8d8d8"]);
+
+									const svg = d3.select("#chart4")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", height)
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "none");
+
+									const x = d3.scaleLinear()
+										.domain([0, total])
+										.range([0, width]);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									let xOffset = 0;
+									svg.selectAll("rect")
+										.data(data)
+										.enter()
+										.append("rect")
+										.attr("x", d => {
+											const pos = xOffset;
+											xOffset += x(d.value);
+											return pos;
+										})
+										.attr("y", 0)
+										.attr("width", d => x(d.value))
+										.attr("height", height)
+										.attr("fill", d => color(d.name))
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.name}</strong><br>Value: ${d.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+							<div class="grid-18 grid-sm-9 grid-lg-2 u-p-y-2">
+								<span class="u-font-size-medium">DNSEC</span>
+								<div id="chart5" class="line-chart"></div>
+								<strong>22%</strong>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites well-configured HTTPS", value: 22 },
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 40 },
+										{ name: "Sites whose HTTPS configuration has errors or lacks critical features", value: 38 },
+									];
+
+									const width = 1000;
+									const height = 20;
+									const total = d3.sum(data, d => d.value);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#8E9297", "#d8d8d8"]);
+
+									const svg = d3.select("#chart5")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", height)
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "none");
+
+									const x = d3.scaleLinear()
+										.domain([0, total])
+										.range([0, width]);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									let xOffset = 0;
+									svg.selectAll("rect")
+										.data(data)
+										.enter()
+										.append("rect")
+										.attr("x", d => {
+											const pos = xOffset;
+											xOffset += x(d.value);
+											return pos;
+										})
+										.attr("y", 0)
+										.attr("width", d => x(d.value))
+										.attr("height", height)
+										.attr("fill", d => color(d.name))
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.name}</strong><br>Value: ${d.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+						</div>
+						<div class="row">
+							<div class="grid-18">
+								<hr>
+							</div>
+						</div>
+						<div class="row align-items-center justify-content-between">
+							<div class="grid-18 grid-sm-9 grid-lg-2 u-align-center u-p-y-2">
+								<a href="" class="u-link-default u-display-inline-block"><h4 class="u-p-b-0 u-m-b-0">Försäkringsbolag</h4></a><br>
+								<span class="color-granit u-font-size-medium-plus">28 hosts</span>
+							</div>
+							<div class="grid-18 grid-sm-9 grid-lg-2 u-align-center u-p-y-2">
+								<div class="chart-container" id="container13"></div>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites well-configured HTTPS", value: 63 },
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 15 },
+										{ name: "Sites whose HTTPS configuration has errors or lacks critical features", value: 22 },
+									];
+
+									const container = document.getElementById("container12");
+									const containerWidth = container.clientWidth || window.innerWidth;
+									const size = Math.min(containerWidth, window.innerHeight, 600);
+									const width = size;
+									const height = size;
+									const radius = Math.min(width, height) / 2;
+									const innerRadius = radius * 0.6;
+									const fontScale = size / 320;
+									const title = `<div style="line-height: 1;display: flex; flex-direction: column; justify-content: center; align-items: center;"><strong style="font-size: ${65 * fontScale}px; font-weight: bold; margin: 0;">63%</strong><span style="text-align:center;font-size: ${30 * fontScale}px; margin: 0;">14 av 28</span></div>`;
+
+									const svg = d3.select("#container13")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", "100%")
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "xMidYMid meet")
+										.append("g")
+										.attr("transform", `translate(${width / 2}, ${height / 2})`);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#ffce2e", "#ff4069"]);
+
+									const pie = d3.pie()
+										.value(d => d.value)
+										.sort(null);
+
+									const arc = d3.arc()
+										.innerRadius(innerRadius)
+										.outerRadius(radius);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									const titleGroup = svg.append("foreignObject")
+										.attr("width", innerRadius * 2)
+										.attr("height", innerRadius * 2)
+										.attr("x", -innerRadius)
+										.attr("y", -innerRadius)
+										.append("xhtml:div")
+										.style('height', '100%')
+										.style('width', '100%')
+										.style('display', 'grid')
+										.style('place-items', 'center')
+										.style('pointer-events', 'none')
+										.html(title);
+
+									const arcs = svg.selectAll("path")
+										.data(pie(data))
+										.enter()
+										.append("path")
+										.attr("d", arc)
+										.attr("fill", d => color(d.data.name))
+										.attr("stroke", "white")
+										.attr("stroke-width", 2)
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.data.name}</strong><br>Value: ${d.data.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+							<div class="grid-18 grid-sm-9 grid-lg-2 u-p-y-2">
+								<span class="u-font-size-medium">HTTPS</span>
+								<div id="chart6" class="line-chart"></div>
+								<strong>49%</strong>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites well-configured HTTPS", value: 507 },
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 366 },
+										{ name: "Sites whose HTTPS configuration has errors or lacks critical features", value: 169 },
+									];
+
+									const width = 1000;
+									const height = 20;
+									const total = d3.sum(data, d => d.value);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#8E9297", "#d8d8d8"]);
+
+									const svg = d3.select("#chart6")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", height)
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "none");
+
+									const x = d3.scaleLinear()
+										.domain([0, total])
+										.range([0, width]);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									let xOffset = 0;
+									svg.selectAll("rect")
+										.data(data)
+										.enter()
+										.append("rect")
+										.attr("x", d => {
+											const pos = xOffset;
+											xOffset += x(d.value);
+											return pos;
+										})
+										.attr("y", 0)
+										.attr("width", d => x(d.value))
+										.attr("height", height)
+										.attr("fill", d => color(d.name))
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.name}</strong><br>Value: ${d.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+							<div class="grid-18 grid-sm-9 grid-lg-2 u-p-y-2">
+								<span class="u-font-size-medium">HTTPS Redirection</span>
+								<div id="chart7" class="line-chart"></div>
+								<strong>68%</strong>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites well-configured HTTPS", value: 68 },
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 13 },
+										{ name: "Sites whose HTTPS configuration has errors or lacks critical features", value: 9 },
+									];
+
+									const width = 1000;
+									const height = 20;
+									const total = d3.sum(data, d => d.value);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#8E9297", "#d8d8d8"]);
+
+									const svg = d3.select("#chart7")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", height)
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "none");
+
+									const x = d3.scaleLinear()
+										.domain([0, total])
+										.range([0, width]);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									let xOffset = 0;
+									svg.selectAll("rect")
+										.data(data)
+										.enter()
+										.append("rect")
+										.attr("x", d => {
+											const pos = xOffset;
+											xOffset += x(d.value);
+											return pos;
+										})
+										.attr("y", 0)
+										.attr("width", d => x(d.value))
+										.attr("height", height)
+										.attr("fill", d => color(d.name))
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.name}</strong><br>Value: ${d.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+							<div class="grid-18 grid-sm-9 grid-lg-2 u-p-y-2">
+								<span class="u-font-size-medium">HSTS</span>
+								<div id="chart8" class="line-chart"></div>
+								<strong>37%</strong>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites well-configured HTTPS", value: 37 },
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 25 },
+										{ name: "Sites whose HTTPS configuration has errors or lacks critical features", value: 38 },
+									];
+
+									const width = 1000;
+									const height = 20;
+									const total = d3.sum(data, d => d.value);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#8E9297", "#d8d8d8"]);
+
+									const svg = d3.select("#chart8")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", height)
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "none");
+
+									const x = d3.scaleLinear()
+										.domain([0, total])
+										.range([0, width]);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									let xOffset = 0;
+									svg.selectAll("rect")
+										.data(data)
+										.enter()
+										.append("rect")
+										.attr("x", d => {
+											const pos = xOffset;
+											xOffset += x(d.value);
+											return pos;
+										})
+										.attr("y", 0)
+										.attr("width", d => x(d.value))
+										.attr("height", height)
+										.attr("fill", d => color(d.name))
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.name}</strong><br>Value: ${d.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+							<div class="grid-18 grid-sm-9 grid-lg-2 u-p-y-2">
+								<span class="u-font-size-medium">HTTPS Preloaded</span>
+								<div id="chart9" class="line-chart"></div>
+								<strong>4%</strong>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites well-configured HTTPS", value: 4 },
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 68 },
+										{ name: "Sites whose HTTPS configuration has errors or lacks critical features", value: 28 },
+									];
+
+									const width = 1000;
+									const height = 20;
+									const total = d3.sum(data, d => d.value);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#8E9297", "#d8d8d8"]);
+
+									const svg = d3.select("#chart9")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", height)
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "none");
+
+									const x = d3.scaleLinear()
+										.domain([0, total])
+										.range([0, width]);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									let xOffset = 0;
+									svg.selectAll("rect")
+										.data(data)
+										.enter()
+										.append("rect")
+										.attr("x", d => {
+											const pos = xOffset;
+											xOffset += x(d.value);
+											return pos;
+										})
+										.attr("y", 0)
+										.attr("width", d => x(d.value))
+										.attr("height", height)
+										.attr("fill", d => color(d.name))
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.name}</strong><br>Value: ${d.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+							<div class="grid-18 grid-sm-9 grid-lg-2 u-p-y-2">
+								<span class="u-font-size-medium">DNSEC</span>
+								<div id="chart10" class="line-chart"></div>
+								<strong>22%</strong>
+								<script type="module">
+									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
+
+									const data = [
+										{ name: "Sites well-configured HTTPS", value: 22 },
+										{ name: "Sites whose HTTPS configuration has smaller problems or lacks important features", value: 40 },
+										{ name: "Sites whose HTTPS configuration has errors or lacks critical features", value: 38 },
+									];
+
+									const width = 1000;
+									const height = 20;
+									const total = d3.sum(data, d => d.value);
+
+									const color = d3.scaleOrdinal()
+										.domain(data.map(d => d.name))
+										.range(["#25c279", "#8E9297", "#d8d8d8"]);
+
+									const svg = d3.select("#chart10")
+										.append("svg")
+										.attr("width", "100%")
+										.attr("height", height)
+										.attr("viewBox", `0 0 ${width} ${height}`)
+										.attr("preserveAspectRatio", "none");
+
+									const x = d3.scaleLinear()
+										.domain([0, total])
+										.range([0, width]);
+
+									const tooltip = d3.select("body")
+										.append("div")
+										.style("position", "absolute")
+										.style("background", "rgba(0, 0, 0, 0.8)")
+										.style("color", "white")
+										.style("padding", "10px")
+										.style("border-radius", "5px")
+										.style("pointer-events", "none")
+										.style("opacity", 0)
+										.style("font-family", "Arial, sans-serif")
+										.style("font-size", "14px")
+										.style("max-width", "300px");
+
+									let xOffset = 0;
+									svg.selectAll("rect")
+										.data(data)
+										.enter()
+										.append("rect")
+										.attr("x", d => {
+											const pos = xOffset;
+											xOffset += x(d.value);
+											return pos;
+										})
+										.attr("y", 0)
+										.attr("width", d => x(d.value))
+										.attr("height", height)
+										.attr("fill", d => color(d.name))
+										.on("mouseover", function(event, d) {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 0.8);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 1);
+
+											tooltip.html(`<strong>${d.name}</strong><br>Value: ${d.value}`)
+												.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mousemove", function(event) {
+											tooltip.style("left", (event.pageX + 10) + "px")
+												.style("top", (event.pageY - 10) + "px");
+										})
+										.on("mouseout", function() {
+											d3.select(this)
+												.transition()
+												.duration(200)
+												.attr("opacity", 1);
+
+											tooltip.transition()
+												.duration(200)
+												.style("opacity", 0);
+										});
+								</script>
+							</div>
+						</div>
+						<div class="row">
+							<div class="grid-18">
+								<hr>
+							</div>
+						</div>
+					</section>
+				</main>
+			</div>
+		</div>
+	</div>
+	<div class="site__footer">
+		{{> @footer footer_text="Bredbandskollen är ett oberoende
+								konsumentverktyg som drivs av <a class='o-footer__link' href='https://internetstiftelsen.se'>Internetstiftelsen</a>.
+								Internetstiftelsen är en oberoende, affärsdriven och allmännyttig organisation. Vi verkar
+								för ett internet som bidrar positivt till människan och samhället. Vi ansvarar för internets
+								svenska toppdomän .se och sköter drift och administration av toppdomänen .nu. Intäkterna
+								från affärsverksamheten finansierar en rad satsningar i syfte att möjliggöra att människor
+								kan nyttja internet på bästa sätt, och stimulera kunskapsdelning och innovation med
+								inriktning på internet." ISO_text="Certifierade enligt ISO/IEC<br>27001:2013"
+			CC_license="Creative Commons licens<br>Erkännande 4.0 Internationell"
+			ISO_image="https://internetstiftelsen.se/app/themes/internetstiftelsen/images/ISO_27001_2013_black_TM.svg"
+			ISO_link="https://internetstiftelsen.se/docs/Certifikat_27001_UKAS_sv.pdf"
+			contact_1="<ul class='u-list-clean o-footer__info__contact__address'><li class='o-footer__info__contact__address__li'>Internetstiftelsen</li><li class='o-footer__info__contact__address__li'>Hammarby Kaj 10D</li><li class='o-footer__info__contact__address__li'>Box 92073</li><li class='o-footer__info__contact__address__li'>120 07 Stockholm</li></ul>"
+			contact_2="<ul class='u-list-clean o-footer__info__contact__address'><li class='o-footer__info__contact__address__li'>E-post: <a class='o-footer__link' href='mailto:info@bredbandskollen.se'>info@bredbandskollen.se</a></li><li class='o-footer__info__contact__address__li'>Telefon: <a class='o-footer__link' href='tel:084523500'>08-452 35 00</a></li><li class='o-footer__info__contact__address__li'>Organisationsnummer: 802405-0190</li></ul>"
+			site_description_1="'En årlig studie av svenska folkets internetvanor"
+			site_description_2="Internetdagarna är en konferens som arrangeras av Internetstiftelsen"
+			site_description_3="Goto 10 är en start- och mötesplats för internetrelaterade frågor som drivs av Internetstiftelsen"
+			site_description_4="Bredbandskollen är ett oberoende konsumentverktyg som drivs av Internetstiftelsen"
+			site_description_5="Ett digitalt museum som byggts, och kureras av Internetstiftelsen"
+			site_description_6="Öppen digital lärresurs med färdiga lektioner för alla stadier i grundskolan"
+			site_description_7="Samlad kunskap som hjälper dig att bli en säker och medveten internetanvändare"
+			site_description_8="Internetstiftelsen verkar för ett internet som bidrar positivt till människan och samhället"
+		}}
+	</div>
+</div>
+
+<style>
+	.chart-container {
+		max-width: 250px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+</style>
+
+
