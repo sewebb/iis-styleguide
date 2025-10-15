@@ -20,8 +20,17 @@ document.addEventListener('click', (e)=>{
         const selectable = button.closest('[data-selectable]');
         if (selectable) {
             const select = selectable.querySelector('[data-selectable-select]');
+            const text = button.querySelector('span');
+            const pressed = button.getAttribute('aria-pressed') === 'true';
             if (select) {
-                select.value = '';
+                select.value = pressed ? select.querySelector('option:not(:disabled)').value : '';
+            }
+            if (pressed) {
+                text.innerText = text.dataset.labelUnpressed;
+                button.setAttribute('aria-pressed', 'false');
+            } else {
+                text.innerText = text.dataset.labelPressed;
+                button.setAttribute('aria-pressed', 'true');
             }
             toggleItems(selectable, null);
         }
@@ -59,6 +68,12 @@ if (hash) {
     if (item) {
         if (item.matches('[data-selectable]')) {
             const select = item.querySelector('[data-selectable-select]');
+            const button = item.querySelector('[data-selectable-all]');
+            if (button) {
+                const text = button.querySelector('span');
+                button.setAttribute('aria-pressed', 'true');
+                text.innerText = text.dataset.labelPressed;
+            }
             if (select) {
                 select.value = '';
             }
@@ -67,6 +82,12 @@ if (hash) {
             const selectable = item.closest('[data-selectable]');
             if (selectable) {
                 const select = selectable.querySelector('[data-selectable-select]');
+                const button = item.querySelector('[data-selectable-all]');
+                if (button) {
+                    const text = button.querySelector('span');
+                    button.setAttribute('aria-pressed', 'false');
+                    text.innerText = text.dataset.labelUnpressed;
+                }
                 if (select) {
                     select.value = hash.replace(`${selectable.id}-`, '');
                 }
