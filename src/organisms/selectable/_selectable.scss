@@ -13,10 +13,6 @@
 		display: none;
 	}
 
-	@include breakpoint.bp-up(md) {
-		padding: func.rhythm(2);
-	}
-
 	@include bem.e(item) {
 		border-top: 1px solid colors.$color-concrete;
 		padding-top: func.rhythm(2);
@@ -29,6 +25,10 @@
 
 	@include bem.m(padded) {
 		padding: func.rhythm(1);
+
+		@include breakpoint.bp-up(md) {
+			padding: func.rhythm(2);
+		}
 	}
 
 	@include bem.m(border-radius) {
