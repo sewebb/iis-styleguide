@@ -9,8 +9,6 @@
 @use '../../vendor/grid/breakpoints' as breakpoint;
 
 @include mixin.organism(selectable) {
-	padding: func.rhythm(1);
-
 	[aria-hidden="true"] {
 		display: none;
 	}
@@ -27,6 +25,10 @@
 		.js &:not(:first-child):not([aria-hidden]) {
 			display: none;
 		}
+	}
+
+	@include bem.m(padded) {
+		padding: func.rhythm(1);
 	}
 
 	@include bem.m(border-radius) {
