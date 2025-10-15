@@ -28,20 +28,25 @@ document.addEventListener('click', (e) => {
 			const select = selectable.querySelector('[data-selectable-select]');
 			const text = button.querySelector('span');
 			const pressed = button.getAttribute('aria-pressed') === 'true';
+			let firstValue = null;
 
 			if (select) {
-				select.value = pressed ? select.querySelector('option:not(:disabled)').value : '';
+				firstValue = select.querySelector('option:not(:disabled)').value;
+
+				select.value = pressed ? firstValue : '';
 			}
 
 			if (pressed) {
 				text.innerText = text.dataset.labelUnpressed;
 				button.setAttribute('aria-pressed', 'false');
+
+				toggleItems(selectable, firstValue);
 			} else {
 				text.innerText = text.dataset.labelPressed;
 				button.setAttribute('aria-pressed', 'true');
-			}
 
-			toggleItems(selectable, null);
+				toggleItems(selectable, null);
+			}
 		}
 
 		return;
