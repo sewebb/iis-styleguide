@@ -15,7 +15,7 @@
 
 	@include bem.e(item) {
 		border-top: 1px solid colors.$color-concrete;
-		padding-top: func.rhythm(2);
+		padding-top: func.rhythm(4);
 		margin-top: func.rhythm(3);
 
 		.js &:not(:first-child):not([aria-hidden]) {
