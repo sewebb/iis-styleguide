@@ -1,10 +1,15 @@
-const progressbars = document.querySelectorAll('[data-width-progress]')
+const progressbars = document.querySelectorAll('[data-width-progress]');
 
-if (progressbars) {
+if (progressbars.length) {
 	function progressBarWidths() {
-		progressbars.forEach((container, index) => {
+		progressbars.forEach((container) => {
 			const width = container.offsetWidth;
-			document.documentElement.style.setProperty(`--progressbar-width`, width + 'px');
+			const value = +container.getAttribute('value') || 0;
+			const max = +container.getAttribute('max') || 100;
+			const percent = Math.round((value / max * 100) / 2) * 2;
+
+			document.documentElement.style.setProperty('--progressbar-width', width + 'px');
+			document.documentElement.style.setProperty('--progressbar-width-percent', percent + '%');
 		});
 	}
 

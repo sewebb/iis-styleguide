@@ -15,7 +15,8 @@ module.exports = {
 			context: {
 				heat: true,
 				meter: false,
-				value: '100'
+				value: '100',
+				hidden_label: true
 			}
 		},
 		{

@@ -68,6 +68,7 @@
         "@tiptap/extension-paragraph": "^3.4.4",
         "@tiptap/extension-text": "^3.4.4",
         "a11y-toggle": "^2.1.0",
+        "ag-grid-community": "^34.2.0",
         "focus-trap": "^7.6.5",
         "glider-js": "^1.7.9",
         "lodash": "^4.17.21",

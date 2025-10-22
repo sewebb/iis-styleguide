@@ -89,6 +89,8 @@
 	}
 
 	@include bem.m(heat) {
+		position: relative;
+
 		&[value]::-webkit-progress-value,
 		&[value]::-webkit-meter-optimum-value {
 			border-radius: 0;
@@ -104,6 +106,21 @@
 			background-size: var(--progressbar-width) 100%; /* The value is calculated by JS and set in the DOM */
 			background-repeat: no-repeat;
 		}
+
+		&::after {
+			position: absolute;
+			top: 50%;
+			left: var(--progressbar-width-percent);
+			content: attr(data-value) '%';
+			display: block;
+			color: colors.$color-cyberspace;
+			transform: translateX(-100%) translateY(-50%);
+			padding-right: func.rhythm(1);
+			color: colors.$color-snow;
+			text-shadow: 0 0 5px colors.$color-cyberspace;
+			font-size: var.$size-base * 1.2;
+			line-height: 1;
+		}
 	}
 }
 
@@ -118,5 +135,16 @@
 
 	@include bem.m(large) {
 		font-size: var.$size-base * 1.5;
+	}
+
+	@include bem.m(hidden) {
+		span {
+			@include mixin.visuallyhidden;
+		}
+
+		> progress,
+		> meter {
+			margin-left: 0;
+		}
 	}
 }

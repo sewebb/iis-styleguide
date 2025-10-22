@@ -286,7 +286,7 @@
 		-webkit-overflow-scrolling: touch;
 	}
 
-	@include breakpoint.bp-up(sm) {
+	@include breakpoint.bp-up(lg) {
 		@include bem.b(scroll-indicator) {
 			display: none;
 		}
