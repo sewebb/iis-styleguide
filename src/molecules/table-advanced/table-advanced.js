@@ -1,40 +1,44 @@
 import * as agGrid from "ag-grid-community";
 import {
 	ModuleRegistry,
-	AllCommunityModule,
+	AllCommunityModule
 } from 'ag-grid-community';
 
 ModuleRegistry.registerModules([
 	AllCommunityModule,
 ]);
 
-// Row Data Interface
-
-// Grid API: Access to Grid API methods
 let gridApi;
 
-// Grid Options: Contains all of the grid configurations
 const gridOptions = {
-	// Data to be displayed
-	rowData: [
-		{ make: "Tesla", model: "Model Y", price: 64950, electric: true },
-		{ make: "Ford", model: "F-Series", price: 33850, electric: false },
-		{ make: "Toyota", model: "Corolla", price: 29600, electric: false },
-		{ make: "Mercedes", model: "EQA", price: 48890, electric: true },
-		{ make: "Fiat", model: "500", price: 15774, electric: false },
-		{ make: "Nissan", model: "Juke", price: 20675, electric: false },
-	],
-	// Columns to be displayed (Should match rowData properties)
 	columnDefs: [
-		{ field: "make" },
-		{ field: "model" },
-		{ field: "price" },
-		{ field: "electric" },
+		{ field: "athlete", width: 150 },
+		{ field: "age", width: 90 },
+		{ field: "country", width: 150 },
+		{ field: "year", width: 90 },
+		{ field: "date", width: 150 },
+		{ field: "sport", width: 150 },
+		{ field: "gold", width: 100 },
+		{ field: "silver", width: 100 },
+		{ field: "bronze", width: 100 },
+		{ field: "total", width: 100 },
 	],
-	defaultColDef: {
-		flex: 1,
-	},
 };
-// Create Grid: Create new grid within the #myGrid div, using the Grid Options object
-gridApi = agGrid.createGrid(document.querySelector("#myGrid"), gridOptions);
 
+(function fillLarge() {
+	setWidthAndHeight("100%");
+})();
+
+
+function setWidthAndHeight(size) {
+	const eGridDiv = document.querySelector("#myGrid");
+	eGridDiv.style.setProperty("width", size);
+	eGridDiv.style.setProperty("height", size);
+}
+
+const gridDiv = document.querySelector("#myGrid");
+gridApi = agGrid.createGrid(gridDiv, gridOptions);
+
+fetch("https://www.ag-grid.com/example-assets/olympic-winners.json")
+	.then((response) => response.json())
+	.then((data) => gridApi.setGridOption("rowData", data));

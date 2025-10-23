@@ -1,0 +1,14 @@
+@charset "UTF-8";
+@use '../../configurations/variables' as var;
+
+body {
+	height: 100%;
+}
+
+:root {
+	--ag-header-font-family: 'Roboto Mono Regular', monospace;
+	--ag-font-family: 'HK Grotesk', sans-serif;
+	--ag-cell-font-family: 'HK Grotesk', sans-serif;
+	--ag-header-font-size: 15px;
+	--ag-font-size: 16px;
+}
