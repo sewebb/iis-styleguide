@@ -14,10 +14,23 @@
 		display: none;
 	}
 
+	fieldset button {
+		margin-bottom: func.rhythm(1);
+
+		@include breakpoint.bp-up(md) {
+			margin-bottom: 0;
+		}
+	}
+
 	@include bem.e(item) {
 		border-top: 1px solid colors.$color-concrete;
-		padding-top: func.rhythm(4);
-		margin-top: func.rhythm(3);
+		padding-top: func.rhythm(2);
+		margin-top: func.rhythm(1.5);
+
+		@include breakpoint.bp-up(lg) {
+			padding-top: func.rhythm(4);
+			margin-top: func.rhythm(3);
+		}
 
 		.js &:not(:first-child):not([aria-hidden]) {
 			display: none;
@@ -25,10 +38,13 @@
 	}
 
 	@include bem.m(padded) {
-		padding: func.rhythm(1);
+		padding: func.rhythm(2);
 
-		@include breakpoint.bp-up(md) {
-			padding: func.rhythm(2);
+		@include bem.e(item) {
+			.wp-block-graph .wrapper {
+				padding-left: 0;
+				padding-right: 0;
+			}
 		}
 	}
 
@@ -55,25 +71,28 @@
 				> h6,
 				> ul,
 				> ol,
-				> div:not(.wp-block-iis-info):not(.wp-block-image):not(.wp-block-iis-hero):not(.wp-block-iis-grid):not([class*='accordion']),
-				> .wp-block-iis-card,
 				> .wp-block-image > figure,
 				> figure,
 				> blockquote {
 					&:not(.alignfull):not(.alignleft):not(.alignright):not(.alignwide):not(.wp-block-iis-hero) {
-						max-width: calc(#{func.to_rem(612px)} + #{(var.$indent * 2)});
+						max-width: 46.364%;
 						margin-right: math.div(var.$grid-gutter-width, 2);
-						margin-left: var.$indent * 2;
+						margin-left: calc(var.$indent * 2 - func.rhythm(2));
 					}
 				}
 
 				> [class*='meta'] {
-					margin-left: var.$indent;
+					margin-left: calc(var.$indent * 2 - func.rhythm(2));
 				}
 
 				> p.preamble {
-					max-width: func.to_rem(612px);
-					margin-left: var.$indent;
+					max-width: 46.364%;
+					margin-left: calc(var.$indent * 2 - func.rhythm(2));
+				}
+
+				.wp-block-iis-info {
+					max-width: calc(46.364% + #{(var.$indent * 2)});
+					margin-left: calc(var.$indent * 2 - func.rhythm(2));
 				}
 			}
 		}

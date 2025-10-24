@@ -1,0 +1,246 @@
+// table-advanced.js (AG Grid Community, vanilla JS)
+
+import 'ag-grid-community/styles/ag-grid.css';
+import 'ag-grid-community/styles/ag-theme-quartz.css';
+
+import * as agGrid from "ag-grid-community";
+import { themeQuartz, iconSetMaterial } from "ag-grid-community";
+import { ModuleRegistry, AllCommunityModule } from "ag-grid-community";
+
+ModuleRegistry.registerModules([AllCommunityModule]);
+
+// THEME
+const iisTheme = themeQuartz
+	.withPart(iconSetMaterial)
+	.withParams({
+		accentColor: "#0477CE",
+		backgroundColor: "#FFFFFF",
+		borderRadius: 3,
+		browserColorScheme: "light",
+		cellTextColor: "#1F2A36",
+		chromeBackgroundColor: { ref: "foregroundColor", mix: 0.07, onto: "backgroundColor" },
+		fontFamily: "inherit",
+		fontSize: 16,
+		foregroundColor: "#1F2A36",
+		headerBackgroundColor: "#D8D8D8",
+		headerFontFamily: "inherit",
+		headerFontSize: 16,
+		headerFontWeight: 400,
+		headerTextColor: "#1F2A36",
+		oddRowBackgroundColor: "#EDEDED",
+		wrapperBorderRadius: 3,
+	});
+
+// RENDERERS
+const renderStatusIcon = (params) => {
+	const status = params.value;
+	if (!status) return "";
+
+	const map = {
+		passed:        { icon: "#icon-security-variant",   color: "#25c279", label: "Passed" },
+		failed:        { icon: "#icon-unsecure-variant",   color: "#d9002f", label: "Failed" },
+		warning:       { icon: "#icon-warning-variant",    color: "#f99963", label: "Warning" },
+		error:         { icon: "#icon-unsecure-variant",   color: "#8E9297", label: "Error" },
+		not_tested:    { icon: "#icon-unsecure-variant",   color: "#d8d8d8", label: "Not tested" },
+		informational: { icon: "#icon-info-variant",       color: "#50b2fc", label: "Informational" },
+	};
+
+	const { icon, color, label } = map[status] || {};
+	return icon
+		? `<span class="cell-center">
+         <svg class="status-icon" fill="${color}" width="20" height="20" aria-label="${label}">
+           <use xlink:href="${icon}"></use>
+         </svg>
+         <span class="status-text">${label}</span>
+       </span>`
+		: status;
+};
+
+// UTIL: pretty header from key
+const titleCase = (s) => s.replace(/[_\-\.]+/g, ' ').replace(/\b\w/g, c => c.toUpperCase());
+
+// Build columnDefs from data (handles your Internet.nl shape and a generic fallback)
+function buildColumnDefsFromData(data) {
+	if (!Array.isArray(data) || data.length === 0) {
+		return [{ headerName: 'No Data', field: 'noData' }];
+	}
+	const sample = data[0];
+
+	// Special case: your dataset (domain/score/report + results.{key}.status / .since)
+	if (sample && typeof sample === 'object' && sample.results && typeof sample.results === 'object') {
+		const base = [
+			{ headerName: 'Domain', field: 'domain', minWidth: 200 },
+			{ headerName: 'Score (%)', field: 'score_percent', filter: 'agNumberColumnFilter', minWidth: 140 },
+			{
+				headerName: 'Report',
+				field: 'report_url',
+				cellRenderer: (p) => p.value ? `<a href="${p.value}" target="_blank" rel="noopener">View</a>` : '',
+				maxWidth: 220,
+				flex: 0
+			}
+		];
+
+		const resultKeys = Object.keys(sample.results);
+		const children = resultKeys.map((k) => ({
+			headerName: titleCase(k),
+			field: `results.${k}.status`,
+			cellRenderer: renderStatusIcon,
+			tooltipValueGetter: p => {
+				const since = p?.data?.results?.[k]?.since;
+				return since ? `Since: ${since}` : '';
+			},
+			cellClass: (p) => `status-${p.value}`,
+			minWidth: 150,
+			sortable: true,
+			filter: true,
+		}));
+
+		base.push({ headerName: 'Results', children });
+		return base;
+	}
+
+	// Generic fallback: make columns for top-level primitives and one-level nested primitives
+	const cols = [];
+	for (const [key, val] of Object.entries(sample)) {
+		if (val && typeof val === 'object' && !Array.isArray(val)) {
+			for (const subKey of Object.keys(val)) {
+				if (val[subKey] !== null && typeof val[subKey] !== 'object') {
+					cols.push({
+						headerName: `${titleCase(key)} • ${titleCase(subKey)}`,
+						field: `${key}.${subKey}`,
+						sortable: true,
+						filter: true,
+						minWidth: 140
+					});
+				}
+			}
+		} else {
+			cols.push({
+				headerName: titleCase(key),
+				field: key,
+				sortable: true,
+				filter: true,
+				minWidth: 120
+			});
+		}
+	}
+	return cols;
+}
+
+// VERSION-SAFE COLUMN STATE HELPER
+function setColumnsState(params, { state = [], defaultState = { hide: false, pinned: null } }) {
+	const columnApi =
+		params.columnApi ||
+		(params.api && typeof params.api.getColumnApi === "function" ? params.api.getColumnApi() : null);
+
+	if (columnApi && typeof columnApi.applyColumnState === "function") {
+		columnApi.applyColumnState({ state, defaultState });
+		return;
+	}
+	if (params.api && typeof params.api.applyColumnState === "function") {
+		params.api.applyColumnState({ state, defaultState });
+		return;
+	}
+	if (columnApi && typeof columnApi.setColumnState === "function") {
+		if (typeof columnApi.resetColumnState === "function") columnApi.resetColumnState();
+		columnApi.setColumnState(state);
+		return;
+	}
+	console.warn("No applicable column state API found in this AG Grid version.");
+}
+
+// Responsive visibility (no api.getGridSize)
+function applyResponsiveVisibility(params, el) {
+	const w = el?.getBoundingClientRect().width || el?.clientWidth || 0;
+
+	if (w < 520) {
+		setColumnsState(params, {
+			state: [
+				{ colId: "domain", pinned: "left" },
+				{ colId: "results.rpki.status", hide: true },
+				{ colId: "results.security_options.status", hide: true },
+				{ colId: "results.ipv6.status", hide: true },
+			],
+		});
+	} else if (w < 760) {
+		setColumnsState(params, {
+			state: [
+				{ colId: "domain", pinned: null },
+				{ colId: "results.rpki.status", hide: true },
+			],
+		});
+	} else {
+		setColumnsState(params, { state: [] });
+	}
+}
+
+// GRID
+document.addEventListener('DOMContentLoaded', () => {
+	const gridDiv = document.querySelector("#myGrid");
+	if (!gridDiv) return;
+
+	// Theme class + real height before createGrid
+	gridDiv.classList.add('ag-theme-quartz');
+	if (!gridDiv.style.height) gridDiv.style.height = '600px';
+	if (!gridDiv.style.width)  gridDiv.style.width  = '100%';
+
+	const gridOptions = {
+		theme: iisTheme,
+		defaultColDef: {
+			resizable: true,
+			sortable: true,
+			filter: true,
+			flex: 1,
+			minWidth: 150,
+			unSortIcon: true, // show sort affordance when unsorted
+		},
+		columnDefs: [], // will be set after we inspect the JSON
+		async onGridReady(params) {
+			try {
+				// 1) Read the data-attribute (relative to THIS JS file)
+				//    Example in HTML: <div id="myGrid" data-json="./table.json"></div>
+				const attr = gridDiv.dataset.json || './table.json';
+				const jsonUrl = new URL(attr, import.meta.url).toString();
+
+				// 2) Dynamic JSON import (works in modern bundlers)
+				//    Some bundlers need the comment to skip pre-bundling the URL:
+				//    and some require the JSON import assertion (uncomment if needed).
+				let mod;
+				try {
+					mod = await import(/* @vite-ignore */ jsonUrl);
+				} catch (e1) {
+					// Fallback with JSON import assertion (enable if your bundler requires it)
+					// mod = await import(/* @vite-ignore */ jsonUrl, { assert: { type: 'json' } });
+					throw e1; // if you want to rely solely on the first form, keep this
+				}
+
+				const data = mod?.default ?? mod; // Vite/Webpack expose JSON on .default
+				const cols = buildColumnDefsFromData(data);
+
+				params.api.setGridOption('columnDefs', cols);
+				params.api.setGridOption('rowData', data);
+
+				params.api.sizeColumnsToFit();
+			} catch (err) {
+				console.error('Dynamic JSON import failed:', err);
+			}
+		},
+		onGridSizeChanged(params) {
+			applyResponsiveVisibility(params, gridDiv);
+			params.api.sizeColumnsToFit();
+		},
+		animateRows: true,
+	};
+
+	agGrid.createGrid(gridDiv, gridOptions);
+
+	// If the grid might be created while hidden, keep it healthy
+	const ro = new ResizeObserver(() => {
+		const api = gridOptions.api;
+		if (api) {
+			api.onGridSizeChanged();
+			api.sizeColumnsToFit();
+		}
+	});
+	ro.observe(gridDiv);
+});

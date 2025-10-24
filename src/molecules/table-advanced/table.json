@@ -1,0 +1,2027 @@
+[
+  {
+    "domain": "werkzoeken.nl",
+    "score_percent": 96,
+    "report_url": "http://batch.internet.nl/site/werkzoeken.nl/13491489/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "informational",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "error",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "wijzeroverdebasisschool.nl",
+    "score_percent": 96,
+    "report_url": "http://batch.internet.nl/site/wijzeroverdebasisschool.nl/13492665/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "informational",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "not_tested",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "winparts.nl",
+    "score_percent": 96,
+    "report_url": "http://batch.internet.nl/site/winparts.nl/13491977/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "not_tested",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "informational",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "wolfswinkel.nl",
+    "score_percent": 96,
+    "report_url": "http://batch.internet.nl/site/wolfswinkel.nl/13493744/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "error",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "informational",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "error",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "yoursurprise.nl",
+    "score_percent": 96,
+    "report_url": "http://batch.internet.nl/site/yoursurprise.nl/13493343/",
+    "results": {
+      "IPv6": {
+        "status": "error",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "error",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "ziggodome.nl",
+    "score_percent": 96,
+    "report_url": "http://batch.internet.nl/site/ziggodome.nl/13490819/",
+    "results": {
+      "IPv6": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "zwerfkei.nl",
+    "score_percent": 96,
+    "report_url": "http://batch.internet.nl/site/zwerfkei.nl/13492851/",
+    "results": {
+      "IPv6": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "50plusser.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/50plusser.nl/13490439/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "adscience.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/adscience.nl/13491033/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "ahoy.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/ahoy.nl/13492675/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "amac.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/amac.nl/13494671/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "athenaeum.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/athenaeum.nl/13492473/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "avrotros.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/avrotros.nl/13494147/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "betaalbarekralen.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/betaalbarekralen.nl/13492519/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "beursgenoten.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/beursgenoten.nl/13490654/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "bnr.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/bnr.nl/13490768/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "bookmatch.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/bookmatch.nl/13494752/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "casinonieuws.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/casinonieuws.nl/13494181/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "centralpoint.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/centralpoint.nl/13491313/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "conversationalsdevelopment.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/conversationalsdevelopment.nl/13492024/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "def-shop.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/def-shop.nl/13494553/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "deorkaan.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/deorkaan.nl/13490599/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "domeinenbank.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/domeinenbank.nl/13492040/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "dutchhealthcare.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/dutchhealthcare.nl/13492868/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "duurzaambedrijfsleven.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/duurzaambedrijfsleven.nl/13491218/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "duurzaamnieuws.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/duurzaamnieuws.nl/13492234/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "elektrototaalmarkt.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/elektrototaalmarkt.nl/13493921/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "flinders.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/flinders.nl/13493813/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "fonq.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/fonq.nl/13491020/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "fr-fans.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/fr-fans.nl/13491755/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "giro555.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/giro555.nl/13494813/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "goossenswonen.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/goossenswonen.nl/13491508/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "higherlevel.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/higherlevel.nl/13454985/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "huispedia.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/huispedia.nl/13494259/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "hvzeeland.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/hvzeeland.nl/13492298/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "ikea.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/ikea.nl/13490409/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "kakhiel.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/kakhiel.nl/13490594/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "kub.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/kub.nl/13491512/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "liteserver.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/liteserver.nl/13491710/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "logic4.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/logic4.nl/13494320/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "micazu.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/micazu.nl/13490470/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "micropia.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/micropia.nl/13490411/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "mooiedomeinnaam.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/mooiedomeinnaam.nl/13490603/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "nba.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/nba.nl/13456931/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "nha.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/nha.nl/13491252/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "npo3.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/npo3.nl/13492824/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "omroep.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/omroep.nl/13491423/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "omroepmax.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/omroepmax.nl/13492860/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "partijvoordedieren.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/partijvoordedieren.nl/13473159/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "patiencespelen.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/patiencespelen.nl/13492064/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "proshop.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/proshop.nl/13492855/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "psyned.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/psyned.nl/13492736/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "ptv-capca.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/ptv-capca.nl/13491343/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "pvv.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/pvv.nl/13473165/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "schrijfsucces.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/schrijfsucces.nl/13494284/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "sochicken.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/sochicken.nl/13493573/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "spellenrijk.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/spellenrijk.nl/13493580/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "startlijsten.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/startlijsten.nl/13490350/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "sublub.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/sublub.nl/13491915/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "supersaas.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/supersaas.nl/13490384/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "tuinmaximaal.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/tuinmaximaal.nl/13492016/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "uitzendinggemist.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/uitzendinggemist.nl/13493569/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "vakantiediscounter.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/vakantiediscounter.nl/13494652/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "vanmossel.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/vanmossel.nl/13470893/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "vijverbenodigdheden.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/vijverbenodigdheden.nl/13494291/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "voordekunst.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/voordekunst.nl/13493472/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "vvvcadeaukaarten.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/vvvcadeaukaarten.nl/13492489/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "wirelesstt.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/wirelesstt.nl/13492727/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "zapp.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/zapp.nl/13493790/",
+    "results": {
+      "IPv6": {
+        "status": "error",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "zorgvoorict.nl",
+    "score_percent": 94,
+    "report_url": "http://batch.internet.nl/site/zorgvoorict.nl/13491826/",
+    "results": {
+      "IPv6": {
+        "status": "error",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "brekz.nl",
+    "score_percent": 92,
+    "report_url": "http://batch.internet.nl/site/brekz.nl/13491668/",
+    "results": {
+      "IPv6": {
+        "status": "error",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "circus.nl",
+    "score_percent": 92,
+    "report_url": "http://batch.internet.nl/site/circus.nl/13491671/",
+    "results": {
+      "IPv6": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "expert.nl",
+    "score_percent": 92,
+    "report_url": "http://batch.internet.nl/site/expert.nl/13493678/",
+    "results": {
+      "IPv6": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "ikwilvanmijnautoaf.nl",
+    "score_percent": 92,
+    "report_url": "http://batch.internet.nl/site/ikwilvanmijnautoaf.nl/13490997/",
+    "results": {
+      "IPv6": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  },
+  {
+    "domain": "juistemakelaars.nl",
+    "score_percent": 92,
+    "report_url": "http://batch.internet.nl/site/juistemakelaars.nl/13491895/",
+    "results": {
+      "IPv6": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "DNSSEC": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "HTTPS": {
+        "status": "failed",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "security_options": {
+        "status": "warning",
+        "since": "Wednesday, 1 October 2025"
+      },
+      "RPKI": {
+        "status": "passed",
+        "since": "Wednesday, 1 October 2025"
+      }
+    }
+  }
+]

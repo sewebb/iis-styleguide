@@ -1,24 +1,5 @@
-<div class="ag-grid example-wrapper">
-	<div class="grid-wrapper">
-		<div id="myGrid"></div>
+<div class="ag-grid" style="min-height: {{minHeight}}">
+	<div class="ag-grid__wrapper">
+		<div class="ag-grid__inner js-ag-grid" data-json="{{json}}"></div>
 	</div>
 </div>
-<style>
-	body {
-		height: 100%;
-	}
-	.example-wrapper {
-		display: flex;
-		flex-direction: column;
-		height: 100%;
-	}
-
-	.grid-wrapper {
-		flex: 1 1 0px;
-		width: 100%;
-	}
-
-	#myGrid {
-		height: 100%;
-	}
-</style>

@@ -1,5 +1,8 @@
 @charset "UTF-8";
 @use '../../configurations/variables' as var;
+@use '../../configurations/extends';
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
 
 body {
 	height: 100%;
@@ -12,3 +15,73 @@ body {
 	--ag-header-font-size: 15px;
 	--ag-font-size: 16px;
 }
+
+.ag-header-cell,
+.ag-header-cell-comp-wrapper {
+	text-shadow: 0 1px 0 colors.$color-snow;
+}
+
+/* Always show sort icons in headers */
+.ag-header-cell .ag-sort-ascending-icon {
+	opacity: 1 !important;
+	visibility: visible !important;
+}
+
+/* Ensure the "unsorted" chevrons render when nothing is sorted yet */
+.ag-header-cell .ag-sort-none-icon {
+	display: inline-block !important;
+}
+
+.ag-grid {
+	display: flex;
+	flex-direction: column;
+}
+
+.ag-grid__wrapper {
+	flex: 1 1 0px;
+	width: 100%;
+}
+
+.ag-grid__inner {
+	height: 100%;
+}
+
+/*.ag-cell,
+.ag-header-cell,
+.ag-header-group-cell,
+.ag-row,
+.ag-spanned-cell-wrapper {
+	visibility: visible;
+}*/
+
+.ag-cell {
+	display: inline-flex;
+}
+
+.ag-cell span {
+	display: flex;
+	align-items: center;
+}
+
+.ag-cell span a {
+	@extend %link-styles;
+
+	line-height: initial;
+}
+
+.ag-cell svg {
+	margin-right: func.rhythm(1);
+}
+
+/* Vertically center any cells that render your icon+label markup */
+.ag-cell .cell-center {
+	display: inline-flex;
+	align-items: center;
+	gap: 6px;
+}
+
+/* Optional: make sort icons always visible a bit stronger */
+.ag-header-cell .ag-sort-indicator-icon { opacity: 1; }
+
+.ag-header-group-cell-label.expand-header { cursor: pointer; }
+.ag-header-group-cell-label.expand-header:hover { opacity: .9; }
