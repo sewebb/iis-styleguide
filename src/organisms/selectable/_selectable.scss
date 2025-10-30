@@ -10,10 +10,6 @@
 @use '../../vendor/grid/breakpoints' as breakpoint;
 
 @include mixin.organism(selectable) {
-	[aria-hidden="true"] {
-		display: none;
-	}
-
 	fieldset button {
 		margin-bottom: func.rhythm(1);
 
@@ -33,6 +29,10 @@
 		}
 
 		.js &:not(:first-child):not([aria-hidden]) {
+			display: none;
+		}
+
+		&[aria-hidden="true"] {
 			display: none;
 		}
 	}

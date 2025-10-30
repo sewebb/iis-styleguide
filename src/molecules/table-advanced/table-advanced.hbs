@@ -1,4 +1,10 @@
-<div class="ag-grid" style="min-height: {{minHeight}}">
+<div id="{{id}}" class="ag-grid js-ag-grid" style="min-height: {{minHeight}}">
+	<button data-ag-grid-fullscreen class="a-button a-button--icon a-button--transparent u-display-inline-flex align-self-end" type="button" data-toggle-icon-target="toggleGridIcon-{{id}}" data-toggle-target="toggleGridText-{{id}}" data-toggle-icon="fullscreen|exit-fullscreen" data-toggle-text="Expandera|Återgå">
+		<span class="a-button__text" id="toggleGridText-{{id}}">Expandera</span>
+		<svg class="icon a-button__icon" id="toggleGridIcon-{{id}}">
+			<use xlink:href="#icon-fullscreen"></use>
+		</svg>
+	</button>
 	<div class="ag-grid__wrapper">
 		<div class="ag-grid__inner js-ag-grid" data-json="{{json}}"></div>
 	</div>

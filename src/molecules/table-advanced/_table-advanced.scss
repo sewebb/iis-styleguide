@@ -35,6 +35,16 @@ body {
 .ag-grid {
 	display: flex;
 	flex-direction: column;
+
+	&.has-fullscreen {
+		position: fixed;
+		top: 0;
+		left: 0;
+		width: 100vw;
+		height: 100vh;
+		z-index: func.z_index(foreground);
+		background-color: colors.$color-ash;
+	}
 }
 
 .ag-grid__wrapper {
@@ -85,3 +95,4 @@ body {
 
 .ag-header-group-cell-label.expand-header { cursor: pointer; }
 .ag-header-group-cell-label.expand-header:hover { opacity: .9; }
+

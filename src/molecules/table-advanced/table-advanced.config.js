@@ -5,6 +5,7 @@ module.exports = {
 	context: {
 		json: './table-small.json',
 		minHeight: '345px',
+		id: 'tableSmall'
 	},
 	variants: [
 		{
@@ -12,6 +13,7 @@ module.exports = {
 			context: {
 				json: './table.json',
 				minHeight: '600px',
+				id: 'tableLarge'
 			}
 		},
 	],

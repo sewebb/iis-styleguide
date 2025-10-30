@@ -94,14 +94,14 @@
 		&[value]::-webkit-progress-value,
 		&[value]::-webkit-meter-optimum-value {
 			border-radius: 0;
-			transition: width 5s ease;
+			transition: width .25s ease-out;
 			background: linear-gradient(90deg, rgba(217, 0, 47, 1) 0%, rgba(217, 0, 47, 1) 19.99%, rgba(255, 64, 105, 1) 20%, rgba(255, 64, 105, 1) 39.99%, rgba(249, 153, 99, 1) 40%, rgba(249, 153, 99, 1) 59.99%, rgba(255, 206, 46, 1) 60%, rgba(255, 206, 46, 1) 79.99%, rgba(37, 194, 121, 1) 80%, rgba(37, 194, 121, 1) 89.99%, rgba(25, 135, 84, 1) 90%, rgba(25, 135, 84, 1) 100%);
 			background-size: var(--progressbar-width) 100%; /* The value is calculated by JS and set in the DOM */
 			background-repeat: no-repeat;
 		}
 
 		&::-moz-progress-bar {
-			transition: width 5s ease;
+			transition: width .25s ease-out;
 			background: linear-gradient(90deg, rgba(217, 0, 47, 1) 0%, rgba(217, 0, 47, 1) 19.99%, rgba(255, 64, 105, 1) 20%, rgba(255, 64, 105, 1) 39.99%, rgba(249, 153, 99, 1) 40%, rgba(249, 153, 99, 1) 59.99%, rgba(255, 206, 46, 1) 60%, rgba(255, 206, 46, 1) 79.99%, rgba(37, 194, 121, 1) 80%, rgba(37, 194, 121, 1) 89.99%, rgba(25, 135, 84, 1) 90%, rgba(25, 135, 84, 1) 100%);
 			background-size: var(--progressbar-width) 100%; /* The value is calculated by JS and set in the DOM */
 			background-repeat: no-repeat;

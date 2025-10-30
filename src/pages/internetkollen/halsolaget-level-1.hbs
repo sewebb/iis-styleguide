@@ -113,7 +113,7 @@
 							</div>
 							<div class="grid-18 grid-md-12">
 								<div class="chart-container chart-container--large" id="container"></div>
-								<span class="a-meta u-display-block u-align-center u-m-b-2 u-m-t-1">Web Configuration</span>
+								<span class="a-meta u-wrap u-display-block u-align-center u-m-b-2 u-m-t-1">Web Configuration</span>
 								<script type="module">
 									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
@@ -226,7 +226,7 @@
 							</div>
 							<div class="grid-18 grid-sm-9 grid-md-4 u-p-b-4">
 								<div class="chart-container" id="container3"></div>
-								<span class="a-meta u-display-block u-align-center u-m-b-2 u-m-t-1">Modern address (IPv6)</span>
+								<span class="a-meta u-wrap u-display-block u-align-center u-m-b-2 u-m-t-1">Modern address (IPv6)</span>
 								<script type="module">
 									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
@@ -333,7 +333,7 @@
 							</div>
 							<div class="grid-18 grid-sm-9 grid-md-4 u-p-b-4">
 								<div class="chart-container" id="container4"></div>
-								<span class="a-meta u-display-block u-align-center u-m-b-2 u-m-t-1">Signed domain name (DNSSEC)</span>
+								<span class="a-meta u-wrap u-display-block u-align-center u-m-b-2 u-m-t-1">Signed domain name (DNSSEC)</span>
 								<script type="module">
 									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
@@ -440,7 +440,7 @@
 							</div>
 							<div class="grid-18 grid-sm-9 grid-md-4 u-p-b-4">
 								<div class="chart-container" id="container5"></div>
-								<span class="a-meta u-display-block u-align-center u-m-b-2 u-m-t-1">Secure connection following NCSC requirements (HTTPS)</span>
+								<span class="a-meta u-wrap u-display-block u-align-center u-m-b-2 u-m-t-1">Secure connection following NCSC requirements (HTTPS)</span>
 								<script type="module">
 									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
@@ -547,7 +547,7 @@
 							</div>
 							<div class="grid-18 grid-sm-9 grid-md-4 u-p-b-4">
 								<div class="chart-container" id="container6"></div>
-								<span class="a-meta u-display-block u-align-center u-m-b-2 u-m-t-1">Security options</span>
+								<span class="a-meta u-wrap u-display-block u-align-center u-m-b-2 u-m-t-1">Security options</span>
 								<script type="module">
 									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
@@ -654,7 +654,7 @@
 							</div>
 							<div class="grid-18 grid-sm-9 grid-md-4 u-p-b-4">
 								<div class="chart-container" id="container66"></div>
-								<span class="a-meta u-display-block u-align-center u-m-b-2 u-m-t-1">Route authorisation (RPKI)</span>
+								<span class="a-meta u-wrap u-display-block u-align-center u-m-b-2 u-m-t-1">Route authorisation (RPKI)</span>
 								<script type="module">
 									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
@@ -761,7 +761,7 @@
 							</div>
 							<div class="grid-18 grid-sm-9 grid-md-4 u-p-b-4">
 								<div class="chart-container" id="container666"></div>
-								<span class="a-meta u-display-block u-align-center u-m-b-2 u-m-t-1">Extra Fields</span>
+								<span class="a-meta u-wrap u-display-block u-align-center u-m-b-2 u-m-t-1">Extra Fields</span>
 								<script type="module">
 									import * as d3 from "https://cdn.jsdelivr.net/npm/d3@7/+esm";
 
@@ -1147,7 +1147,7 @@
 						</div>
 						<div class="row">
 							<div class="grid-18">
-								{{render '@table-advanced'}}
+								{{render '@table-advanced' id="tableSmall"}}
 							</div>
 						</div>
 						<div class="row justify-content-center u-p-b-2 u-m-t-4">
@@ -3380,7 +3380,7 @@
 								<h2 class="alpha u-align-center u-m-t-6">Metrics table</h2>
 							</div>
 							<div class="grid-18 u-m-b-8">
-									{{render '@table-advanced--large-table'}}
+									{{render '@table-advanced--large-table' id="tableLarge"}}
 								</div>
 							</div>
 						</div>

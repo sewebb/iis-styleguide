@@ -298,3 +298,16 @@ document.addEventListener('DOMContentLoaded', () => {
 		ro.observe(el);
 	});
 });
+
+// ---- TOGGLE FULLSCREEN CLASS ON PARENT CONTAINER WHEN CLICKING FULLSCREEN BUTTON ----
+document.querySelectorAll('[data-ag-grid-fullscreen]').forEach((btn) => {
+	btn.addEventListener('click', (e) => {
+
+		// Find the nearest parent container for this button
+		const gridEl = btn.closest('.js-ag-grid');
+		if (!gridEl) return;
+
+		// Toggle fullscreen class only for this specific element
+		gridEl.classList.toggle('has-fullscreen');
+	});
+});
