@@ -28,7 +28,6 @@
 	}
 
 	@include bem.b(logotype) {
-		width: 100%;
 		max-width: func.rhythm(10);
 		height: func.rhythm(2.96);
 		overflow: visible;
