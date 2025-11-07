@@ -44,7 +44,14 @@ body {
 		height: 100vh;
 		z-index: func.z_index(foreground);
 		background-color: colors.$color-ash;
+		padding-left: func.rhythm(1);
+		padding-right: func.rhythm(1);
+		padding-bottom: func.rhythm(1);
 	}
+}
+
+.ag-root-wrapper {
+	border-top: 0;
 }
 
 .ag-grid__wrapper {
@@ -55,14 +62,6 @@ body {
 .ag-grid__inner {
 	height: 100%;
 }
-
-/*.ag-cell,
-.ag-header-cell,
-.ag-header-group-cell,
-.ag-row,
-.ag-spanned-cell-wrapper {
-	visibility: visible;
-}*/
 
 .ag-cell {
 	display: inline-flex;
