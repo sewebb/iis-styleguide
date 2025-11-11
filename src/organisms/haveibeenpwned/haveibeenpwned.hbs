@@ -65,17 +65,17 @@
 			<p class="u-align-center u-m-b-0">Vi hittade 13 dataläckor</p>
 			<div class="display-flex align-items-baseline">
 				<h3 class="beta u-p-t-4">
-					Lösenordsläckor
+					<span class="u-m-r-2">Lösenordsläckor</span>
 				</h3>
 				<button type="button"
-						class="a-button a-button--icon a-button--transparent"
+						class="a-button a-button--icon a-button--ocean-light"
 						data-a11y-toggle="seriousLeaks"
 						aria-controls="seriousLeaks"
 						data-toggle-icon-target="seriousLeaksIcon"
-						data-toggle-text="Vad kan jag göra?|Stäng"
+						data-toggle-text="Vidta dessa åtgärder!|Stäng"
 						data-toggle-icon="questionmark|close"
 						data-toggle-target="seriousLeaksText">
-					<span class="a-button__text" id="seriousLeaksText">Vad kan jag göra?</span>
+					<span class="a-button__text" id="seriousLeaksText">Vidta dessa åtgärder!</span>
 					<svg class="icon a-button__icon u-icon--medium" id="seriousLeaksIcon">
 						<use xlink:href="#icon-questionmark"></use>
 					</svg>
@@ -96,12 +96,12 @@
 				<tbody>
 					<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--severe">
 						<td class="o-haveibeenpwned__result__first-col">
-							<a href="https://adobe.com" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+							<button type="button" class="o-haveibeenpwned__result__item__link" role="tooltip" data-tooltip="SynthientCredentialStuffingThreatData">
 								<div class="o-haveibeenpwned__result__item__logo">
-									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/Adobe.png">
-									Adobe
+									<img loading="lazy" width="50" height="50" src="https://logos.haveibeenpwned.com/List.png" alt="SynthientCredentialStuffingThreatData">
+									<span class="o-haveibeenpwned__result__item__servicename">SynthientCredentialStuffingThreatData</span>
 								</div>
-							</a>
+							</button>
 						</td>
 						<td>
 							<time class="a-meta">Oktober 2013</time>
@@ -109,26 +109,40 @@
 						</td>
 					</tr>
 					<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--severe">
-						<td>
-							<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+						<td class="o-haveibeenpwned__result__first-col">
+							<button type="button" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link" role="tooltip" data-tooltip="Adobe">
 								<div class="o-haveibeenpwned__result__item__logo">
-									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/Hemmakvall.png">
-									Hemmakväll
+									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/Adobe.png" alt="Adobe">
+									<span class="o-haveibeenpwned__result__item__servicename">Adobe</span>
 								</div>
-							</a>
+							</button>
+						</td>
+						<td>
+							<time class="a-meta">Oktober 2013</time>
+							Email addresses, Password hints, Passwords, Usernames
+						</td>
+					</tr>
+					<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--severe">
+						<td class="o-haveibeenpwned__result__first-col">
+							<button type="button" class="o-haveibeenpwned__result__item__link" role="tooltip" data-tooltip="Hemmakväll">
+								<div class="o-haveibeenpwned__result__item__logo">
+									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/Hemmakvall.png" alt="Hemmakväll">
+									<span class="o-haveibeenpwned__result__item__servicename">Hemmakväll</span>
+								</div>
+							</button>
 						<td>
 							<time class="a-meta">Juli 2015</time>
 							Email addresses, Names, Passwords, Phone numbers, Physical addresses
 						</td>
 					</tr>
 					<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--severe">
-						<td>
-							<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+						<td class="o-haveibeenpwned__result__first-col">
+							<button type="button" class="o-haveibeenpwned__result__item__link" role="tooltip" data-tooltip="LinkedIn">
 								<div class="o-haveibeenpwned__result__item__logo">
-									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/LinkedIn.png">
-									LinkedIn
+									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/LinkedIn.png" alt="LinkedIn">
+									<span class="o-haveibeenpwned__result__item__servicename">LinkedIn</span>
 								</div>
-							</a>
+							</button>
 						</td>
 						<td>
 							<time class="a-meta">Maj 2016</time>
@@ -136,13 +150,13 @@
 						</td>
 					</tr>
 					<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--severe">
-						<td>
-							<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+						<td class="o-haveibeenpwned__result__first-col">
+							<button type="button" class="o-haveibeenpwned__result__item__link" role="tooltip" data-tooltip="MySpace">
 								<div class="o-haveibeenpwned__result__item__logo">
-									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/MySpace.png">
-									MySpace
+									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/MySpace.png" alt="MySpace">
+									<span class="o-haveibeenpwned__result__item__servicename">MySpace</span>
 								</div>
-							</a>
+							</button>
 						</td>
 						<td>
 							<time class="a-meta">2008</time>
@@ -150,13 +164,13 @@
 						</td>
 					</tr>
 					<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--severe">
-						<td>
-							<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+						<td class="o-haveibeenpwned__result__first-col">
+							<button type="button" class="o-haveibeenpwned__result__item__link" role="tooltip" data-tooltip="Lastfm">
 								<div class="o-haveibeenpwned__result__item__logo">
-									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/Lastfm.png">
-									Lastfm
+									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/Lastfm.png" alt="Lastfm">
+									<span class="o-haveibeenpwned__result__item__servicename">Lastfm</span>
 								</div>
-							</a>
+							</button>
 						</td>
 						<td>
 							<time class="a-meta">Mars 2012</time>
@@ -164,13 +178,13 @@
 						</td>
 					</tr>
 					<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--severe">
-						<td>
-							<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+						<td class="o-haveibeenpwned__result__first-col">
+							<button type="button" class="o-haveibeenpwned__result__item__link" role="tooltip" data-tooltip="SweClockers">
 								<div class="o-haveibeenpwned__result__item__logo">
-									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/SweClockers.png">
-									SweClockers
+									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/SweClockers.png" alt="SweClockers">
+									<span class="o-haveibeenpwned__result__item__servicename">SweClockers</span>
 								</div>
-							</a>
+							</button>
 						</td>
 						<td>
 							<time class="a-meta">2015</time>
@@ -178,13 +192,13 @@
 						</td>
 					</tr>
 					<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--severe">
-						<td>
-							<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+						<td class="o-haveibeenpwned__result__first-col">
+							<button type="button" class="o-haveibeenpwned__result__item__link" role="tooltip" data-tooltip="imgur">
 								<div class="o-haveibeenpwned__result__item__logo">
-									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/imgur.png">
-									imgur
+									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/imgur.png" alt="imgur">
+									<span class="o-haveibeenpwned__result__item__servicename">imgur</span>
 								</div>
-							</a>
+							</button>
 						</td>
 						<td>
 							<time class="a-meta">September 2013</time>
@@ -195,10 +209,10 @@
 			</table>
 			<div class="display-flex align-items-baseline">
 				<h3 class="beta u-p-t-4">
-					Personuppgiftsläckor
+					<span class="u-m-r-2">Personuppgiftsläckor</span>
 				</h3>
 				<button type="button"
-						class="a-button a-button--icon a-button--transparent"
+						class="a-button a-button--icon a-button--ocean-light"
 						data-a11y-toggle="moderateLeaks"
 						aria-controls="moderateLeaks"
 						data-toggle-icon-target="moderateLeaksIcon"
@@ -226,12 +240,13 @@
 				<tbody>
 					<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--medium">
 						<td class="o-haveibeenpwned__result__first-col">
-							<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+							<button type="button" class="o-haveibeenpwned__result__item__link" role="tooltip" data-tooltip="VerificationsIO">
+							<button type="button" class="o-haveibeenpwned__result__item__link" role="tooltip" data-tooltip="VerificationsIO">
 								<div class="o-haveibeenpwned__result__item__logo">
 									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/VerificationsIO.png">
-									VerificationsIO
+									<span class="o-haveibeenpwned__result__item__servicename">VerificationsIO</span>
 								</div>
-							</a>
+							</button>
 						</td>
 						<td>
 							<time class="a-meta">Februari 2019</time>
@@ -239,13 +254,13 @@
 						</td>
 					</tr>
 					<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--medium">
-						<td>
-							<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+						<td class="o-haveibeenpwned__result__first-col">
+							<button type="button" class="o-haveibeenpwned__result__item__link"  role="tooltip" data-tooltip="PDL">
 								<div class="o-haveibeenpwned__result__item__logo">
 									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/List.png">
-									PDL
+									<span class="o-haveibeenpwned__result__item__servicename">PDL</span>
 								</div>
-							</a>
+							</button>
 						</td>
 						<td>
 							<time class="a-meta">Oktober 2019</time>
@@ -253,13 +268,13 @@
 						</td>
 					</tr>
 					<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--medium">
-						<td>
-							<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+						<td class="o-haveibeenpwned__result__first-col">
+							<button type="button" class="o-haveibeenpwned__result__item__link" role="tooltip" data-tooltip="LinkedInScrape">
 								<div class="o-haveibeenpwned__result__item__logo">
 									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/LinkedIn.png">
-									LinkedInScrape
+									<span class="o-haveibeenpwned__result__item__servicename">LinkedInScrape</span>
 								</div>
-							</a>
+							</button>
 						</td>
 						<td>
 							<time class="a-meta">2021</time>
@@ -267,13 +282,13 @@
 						</td>
 					</tr>
 					<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--medium">
-						<td>
-							<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+						<td class="o-haveibeenpwned__result__first-col">
+							<button type="button" class="o-haveibeenpwned__result__item__link" role="tooltip" data-tooltip="Gravatar">
 								<div class="o-haveibeenpwned__result__item__logo">
 									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/Gravatar.png">
-									Gravatar
+									<span class="o-haveibeenpwned__result__item__servicename">Gravatar</span>
 								</div>
-							</a>
+							</button>
 						</td>
 						<td>
 							<time class="a-meta">Oktober 2020</time>
@@ -281,13 +296,13 @@
 						</td>
 					</tr>
 					<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--medium">
-						<td>
-							<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+						<td class="o-haveibeenpwned__result__first-col">
+							<button type="button" class="o-haveibeenpwned__result__item__link" role="tooltip" data-tooltip="Twitter">
 								<div class="o-haveibeenpwned__result__item__logo">
 									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/Twitter.png">
-									Twitter
+									<span class="o-haveibeenpwned__result__item__servicename">Twitter</span>
 								</div>
-							</a>
+							</button>
 						</td>
 						<td>
 							<time class="a-meta">2023</time>
@@ -298,10 +313,10 @@
 			</table>
 				<div class="display-flex align-items-baseline">
 					<h3 class="beta u-p-t-4">
-						Övriga läckor
+						<span class="u-m-r-2">Övriga läckor</span>
 					</h3>
 					<button type="button"
-							class="a-button a-button--icon a-button--transparent"
+							class="a-button a-button--icon a-button--ocean-light"
 							data-a11y-toggle="minorLeaks"
 							aria-controls="minorLeaks"
 							data-toggle-icon-target="minorLeaksIcon"
@@ -329,12 +344,12 @@
 				<tbody>
 					<tr class="o-haveibeenpwned__result__item o-haveibeenpwned__result__item--low">
 						<td class="o-haveibeenpwned__result__first-col">
-							<a href="#" target="_blank" rel="nofollow noreferrer" class="o-haveibeenpwned__result__item__link">
+							<button type="button" class="o-haveibeenpwned__result__item__link" role="tooltip" data-tooltip="Luxottica">
 								<div class="o-haveibeenpwned__result__item__logo">
 									<img loading="lazy" width="50" height="50" src="https://haveibeenpwned.com/Content/Images/PwnedLogos/Luxottica.png"">
-									Luxottica
+									<span class="o-haveibeenpwned__result__item__servicename">Luxottica</span>
 								</div>
-							</a>
+							</button>
 						</td>
 						<td>
 							<time class="a-meta">Februari 2010</time>

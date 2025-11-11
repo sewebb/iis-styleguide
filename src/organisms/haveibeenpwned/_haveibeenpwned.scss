@@ -76,12 +76,32 @@
 				word-break: normal !important;
 				hyphens: none !important;
 				overflow-wrap: normal !important;
+				background-color: transparent;
+				appearance: none;
+
+				&::after {
+					display: none;
+					content: attr(data-tooltip);
+				}
 
 				&:hover,
 				&:focus {
 					border: 0 !important;
 					background-color: transparent !important;
 					text-decoration: underline !important;
+
+					&::after {
+						display: block;
+						position: absolute;
+						background-color: colors.$color-cyberspace;
+						color: colors.$color-snow;
+						padding: func.rhythm(0.5) func.rhythm(1);
+						border-radius: var.$border-radius;
+						white-space: nowrap;
+						z-index: func.z_index(foreground);
+						font-size: var.$size-medium;
+						font-family: var.$font-family-base;
+					}
 				}
 			}
 
@@ -111,10 +131,18 @@
 					}
 				}
 			}
+
+			@include bem.e(servicename) {
+				max-width: 15ch;
+				text-overflow: ellipsis;
+				overflow:hidden;
+				white-space: nowrap;
+			}
 		}
 
 		@include bem.e(first-col) {
 			width: 100px;
+			text-align: center !important;
 
 			@include breakpoint.bp-up(md) {
 				width: 130px;
