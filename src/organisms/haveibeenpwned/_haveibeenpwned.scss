@@ -113,7 +113,6 @@
 
 				@include breakpoint.bp-up(md) {
 					hyphens: none;
-					padding-right: func.rhythm(2);
 				}
 
 				> img {
@@ -142,7 +141,10 @@
 
 		@include bem.e(first-col) {
 			width: 100px;
-			text-align: center !important;
+
+			&:is(td) {
+				text-align: center !important;
+			}
 
 			@include breakpoint.bp-up(md) {
 				width: 130px;
