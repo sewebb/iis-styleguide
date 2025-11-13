@@ -254,8 +254,8 @@ function makeGridOptionsFor(el) {
 				// dynamic JSON import based on *this* element's data attribute
 				const attr = el.dataset.json || './table.json';
 				const jsonUrl = new URL(attr, import.meta.url).toString();
-				const mod = await import(/* @vite-ignore */ jsonUrl);
-				const data = mod?.default ?? mod;
+				const mod = await fetch(jsonUrl);
+				const data = await mod.json();
 
 				const cols = buildColumnDefsFromData(data);
 				params.api.setGridOption('columnDefs', cols);
