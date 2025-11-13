@@ -1,0 +1,13 @@
+@charset "UTF-8";
+
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/colors/colors' as colors;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+
+@include mixin.organism(pre-footer) {
+	background-color: colors.$color-concrete;
+	padding: func.rhythm(4) 0;
+}

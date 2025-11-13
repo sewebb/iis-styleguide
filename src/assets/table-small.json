@@ -1,0 +1,72 @@
+[
+    {
+        "Category": "Modern address (IPv6)",
+        "passed": "43.11%",
+        "info": "0%",
+        "warning": "0%",
+        "failed": "56.89%",
+        "not testable": "0%",
+        "not applicable": "0%",
+        "test error": "0%"
+    },
+    {
+        "Category": "Signed domain name (DNSSEC)",
+        "passed": "52.96%",
+        "info": "0%",
+        "warning": "0%",
+        "failed": "47.04%",
+        "not testable": "0%",
+        "not applicable": "0%",
+        "test error": "0%"
+    },
+    {
+        "Category": "Secure connection following NCSC requirements (HTTPS)",
+        "passed": "19.22%",
+        "info": "0%",
+        "warning": "0%",
+        "failed": "76.6%",
+        "not testable": "0%",
+        "not applicable": "0%",
+        "test error": "4.17%"
+    },
+    {
+        "Category": "Security options",
+        "passed": "1.09%",
+        "info": "0%",
+        "warning": "98.91%",
+        "failed": "0%",
+        "not testable": "0%",
+        "not applicable": "0%",
+        "test error": "0%"
+    },
+    {
+        "Category": "Route authorisation (RPKI)",
+        "passed": "92%",
+        "info": "0%",
+        "warning": "0%",
+        "failed": "8%",
+        "not testable": "0%",
+        "not applicable": "0%",
+        "test error": "0%"
+    },
+    {
+        "Category": "Extra Fields",
+        "passed": "2.43%",
+        "info": "5.61%",
+        "warning": "0.99%",
+        "failed": "90.81%",
+        "not testable": "0%",
+        "not applicable": "0%",
+        "test error": "0.16%"
+    },
+    {
+        "Category": "A",
+        "passed": "42.16%",
+        "info": "1.12%",
+        "warning": "19.98%",
+        "failed": "55.87%",
+        "not testable": "0%",
+        "not applicable": "0%",
+        "test error": "0.87%"
+    }
+]
