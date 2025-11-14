@@ -123,7 +123,7 @@
 													</a>
 												</li>
 											</ul>
-											<ul class="u-list-clean display-flex justify-content-end">
+											<ul class="u-list-clean display-flex flex-wrap justify-content-xl-end">
 												<li>
 													<a href="" class="a-button a-button--lemon-light a-button--icon a-button--small u-m-l-1">
 														<span class="a-button__text">Förklara testrapporten</span>
@@ -139,7 +139,7 @@
 												<li>
 													<a href="" class="a-button a-button--icon a-button--small u-m-l-1">
 														<span class="a-button__text">Kör testet igen</span>
-														{{>@icon id="check" additional_classes="a-button__icon u-icon--medium" fill="#ffffff"}}
+														{{>@icon id="repeat" additional_classes="a-button__icon u-icon--medium" fill="#ffffff"}}
 													</a>
 												</li>
 											</ul>
@@ -642,6 +642,9 @@
 			</section>
 		</div>
 	</div>
+
+	{{> @pre-footer }}
+
 	<div class="site__footer">
 		{{> @footer footer_text="Bredbandskollen är ett oberoende
 								konsumentverktyg som drivs av <a class='o-footer__link' href='https://internetstiftelsen.se'>Internetstiftelsen</a>.
