@@ -16,7 +16,7 @@ module.exports = {
 				heat: true,
 				meter: false,
 				value: '100',
-				hidden_label: true
+				has_label: false
 			}
 		},
 		{
