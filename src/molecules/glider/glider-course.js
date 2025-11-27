@@ -9,6 +9,27 @@ if (gliderElementCourse) {
 		slidesToScroll: 1,
 	});
 
+	const readSpeakerSkipClass = 'RS_SKIP';
+	const slides = gliderElementCourse.querySelectorAll('.glider-slide');
+
+	const updateSlideClasses = (activeIndex) => {
+		slides.forEach((slide, i) => {
+			if (i === activeIndex) {
+				slide.classList.remove(readSpeakerSkipClass);
+			} else {
+				slide.classList.add(readSpeakerSkipClass);
+			}
+		});
+	};
+
+	// 👉 Apply classes immediately on page load
+	updateSlideClasses(GliderCourse.getCurrentSlide());
+
+	// 👉 Keep updating when slide changes
+	gliderElementCourse.addEventListener('glider-slide-visible', (event) => {
+		updateSlideClasses(event.detail.slide);
+	});
+
 	const nextBtns = document.querySelectorAll('.js-glider-next');
 	const prevBtns = document.querySelectorAll('.js-glider-prev');
 	const siteMain = document.querySelector('#siteMain');

@@ -375,9 +375,8 @@ function makeGridOptionsFor(el) {
                     // dynamic JSON import based on *this* element's data attribute
                     const attr = el.dataset.json || './table.json';
                     const jsonUrl = new URL(attr, require("url").pathToFileURL(__filename).toString()).toString();
-                    const mod = yield Promise.resolve(/* @vite-ignore */ jsonUrl).then((p)=>/*#__PURE__*/ _interop_require_wildcard(require(p)));
-                    var _mod_default;
-                    const data = (_mod_default = mod == null ? void 0 : mod.default) != null ? _mod_default : mod;
+                    const mod = yield fetch(jsonUrl);
+                    const data = yield mod.json();
                     const cols = buildColumnDefsFromData(data);
                     params.api.setGridOption('columnDefs', cols);
                     params.api.setGridOption('rowData', data);
