@@ -10,4 +10,10 @@
 @include mixin.organism(pre-footer) {
 	background-color: colors.$color-concrete;
 	padding: func.rhythm(4) 0;
+
+	@include bem.e(logo) {
+		width: 100%;
+		height: auto;
+		max-width: 295px;
+	}
 }
