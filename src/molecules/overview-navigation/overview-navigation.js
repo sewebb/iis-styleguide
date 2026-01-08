@@ -74,7 +74,7 @@ class OverviewNavigation {
 
 		this.button.style.transition = 'none';
 		this.updateButtonPosition();
-		 
+
 		this.element.offsetHeight; // force reflow
 		this.button.style.transition = 'right 0.25s ease-out, bottom 0.25s ease-out, opacity 0.25s ease-out';
 
@@ -96,7 +96,7 @@ class OverviewNavigation {
 		this.element.setAttribute('aria-hidden', 'false');
 		this.element.classList.remove('is-minimized');
 
-		 
+
 		this.element.offsetHeight; // force reflow
 
 		this.updateButtonPosition();

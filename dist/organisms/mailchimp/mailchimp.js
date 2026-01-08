@@ -88,6 +88,7 @@ function closeForm() {
 }
 if (closeButton) {
     closeButton.addEventListener('click', ()=>{
+        closeButton.blur();
         closeForm();
     });
 }
