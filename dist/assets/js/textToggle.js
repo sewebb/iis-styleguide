@@ -1,5 +1,5 @@
-// Usage: data-toggle-target="toggleButton" data-toggle-text="First|Second|Third"
 "use strict";
+// Usage: data-toggle-target="toggleButton" data-toggle-text="First|Second|Third"
 function toggleTextOnClick(e) {
     e.preventDefault();
     const el = e.target;

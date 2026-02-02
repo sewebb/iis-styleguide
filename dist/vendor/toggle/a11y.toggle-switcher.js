@@ -1,5 +1,5 @@
-// Only allow one panel to be opened at a time.
 "use strict";
+// Only allow one panel to be opened at a time.
 function collapse(toggle) {
     const id = toggle.getAttribute('data-a11y-toggle');
     const collapsibleBox = document.getElementById(id);

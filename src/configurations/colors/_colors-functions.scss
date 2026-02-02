@@ -76,7 +76,7 @@ $colors: (
 /// @group Colors
 @mixin color_values($map, $attribute, $prefix: '-', $separator: '-', $base: 'base') {
 	@each $key, $value in $map {
-		&#{if($key != $base, #{$prefix}#{$key}, '')} {
+		&#{if(sass($key != $base): #{$prefix}#{$key}; else: "")} {
 			@if meta.type-of($value) == 'map' {
 				@include color_values($value, $attribute, $separator);
 			}
@@ -92,7 +92,7 @@ $colors: (
 /// @group Colors
 @mixin color_classes($map, $attribute, $prefix: '', $separator: '.', $base: 'base', $element: '') {
 	@each $key, $value in $map {
-		&#{if($key != $base, #{$separator}#{$key}, '')} {
+		&#{if(sass($key != $base): #{$separator}#{$key}; else: "")} {
 			@if meta.type-of($value) == 'map' {
 				@include color_classes($value, $attribute, $prefix: '.', $separator: '-', $element:  $element);
 			}
@@ -114,15 +114,16 @@ $colors: (
 /// Generate wordpress color classes with attribute and value
 /// Generates this: .has-colorname-color
 /// @group Colors
-@mixin wordpress_color_classes($map, $attribute,  $separator: '-', $suffix: '', $base: 'base') {
+@mixin wordpress_color_classes($map, $attribute, $separator: '-', $suffix: '', $base: 'base') {
 	@each $key, $value in $map {
+		$segment: if(sass($key != $base): "#{$separator}#{$key}"; else: "");
+
 		@if meta.type-of($value) == 'map' {
-			&#{if($key != $base, #{$separator}#{$key}, '')} {
-				@include wordpress_color_classes($value, $attribute, $separator, '-color');
+			&#{$segment} {
+				@include wordpress_color_classes($value, $attribute, $separator, '-color', $base);
 			}
-		}
-		@else {
-			&#{if($key != $base, #{$separator}#{$key}, '')}#{$suffix} {
+		} @else {
+			&#{$segment}#{$suffix} {
 				#{$attribute}: $value;
 			}
 		}

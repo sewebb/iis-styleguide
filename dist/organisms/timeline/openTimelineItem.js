@@ -1,5 +1,5 @@
-// DUMMY TIMELINE ITEM OPEN/CLOSE
 "use strict";
+// DUMMY TIMELINE ITEM OPEN/CLOSE
 function wrap(el, wrapper) {
     el.parentNode.insertBefore(wrapper, el);
     wrapper.classList.add('wrapper');

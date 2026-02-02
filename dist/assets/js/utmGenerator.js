@@ -1,5 +1,5 @@
-// Show/hide target container when Radiobutton is selected
 "use strict";
+// Show/hide target container when Radiobutton is selected
 const radioButtons = document.querySelectorAll('[data-toggle="radio"]');
 // Hide all target containers on page load
 radioButtons.forEach((radio)=>{

@@ -308,6 +308,7 @@ function applyResponsiveVisibility(params, el) {
 // ---- EXPAND/COLLAPSE GROUP HEADER -----------------------------------
 class ExpandHeader {
     init(params) {
+        var _params_displayName;
         this.params = params;
         this.childColIds = params.childColIds || [];
         this.expanded = !!params.startExpanded;
@@ -317,7 +318,6 @@ class ExpandHeader {
         const e = document.createElement('div');
         e.className = 'expand-header';
         e.style.cssText = 'display:flex;align-items:center;gap:6px;cursor:pointer;width:100%;';
-        var _params_displayName;
         e.innerHTML = `
       <span class="expander" style="display:inline-block;transition:transform .15s">▶</span>
       <span class="title">${(_params_displayName = params.displayName) != null ? _params_displayName : 'Group'}</span>

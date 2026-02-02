@@ -1,6 +1,4 @@
-/**
- * Lightweight DOM sugar.
- */ "use strict";
+"use strict";
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
@@ -10,7 +8,9 @@ Object.defineProperty(exports, "default", {
         return _default;
     }
 });
-class Element {
+/**
+ * Lightweight DOM sugar.
+ */ class Element {
     onElement(elements, callback) {
         if (!elements) {
             return;

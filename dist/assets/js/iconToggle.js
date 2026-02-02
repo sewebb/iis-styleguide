@@ -1,5 +1,5 @@
-// Usage: data-toggle-icon-target="targetSvg" data-toggle-icon="copy|check"
 "use strict";
+// Usage: data-toggle-icon-target="targetSvg" data-toggle-icon="copy|check"
 function toggleIconOnClick(el) {
     const target = el.dataset.toggleIconTarget ? document.getElementById(el.dataset.toggleIconTarget) : el;
     const i = parseInt(el.dataset.iconIteration || 0, 10);

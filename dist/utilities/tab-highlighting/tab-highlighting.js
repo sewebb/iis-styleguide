@@ -1,5 +1,5 @@
-// Add class to html-element on tab click
 "use strict";
+// Add class to html-element on tab click
 const element = document.getElementsByTagName('html')[0];
 const highLightClass = 'tab-highlight';
 function onKeyDown(e) {
