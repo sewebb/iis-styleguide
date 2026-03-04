@@ -9,6 +9,7 @@ require("./atoms/password-toggle/password-toggle");
 require("./utilities/tab-highlighting/tab-highlighting");
 require("./molecules/system-error/system-error");
 require("./molecules/cookie-disclaimer/cookie-disclaimer");
+require("./molecules/pill-tabs/pill-tabs");
 require("./organisms/accordion/accordion");
 require("./organisms/tabs/tabs");
 require("./organisms/mailchimp/mailchimp");

@@ -1,0 +1,37 @@
+{{#if links}}
+<nav class="m-pill-tabs" aria-orientation="horizontal">
+	<a href="#overview" class="m-pill-tabs__item is-active">Overview</a>
+	<a href="#analytics" class="m-pill-tabs__item">Analytics</a>
+	<a href="#reports" class="m-pill-tabs__item">Reports</a>
+	<a href="#settings" class="m-pill-tabs__item">Settings</a>
+</nav>
+{{else}}
+<div class="js-pill-tabs m-pill-tabs" role="tablist" aria-orientation="horizontal" tabindex="0">
+	<button type="button" class="m-pill-tabs__item js-pill-tabs__tab is-active" role="tab" aria-selected="true" aria-controls=""
+			data-state="active" id=""
+			tabindex="-1" data-orientation="horizontal">Overview
+	</button>
+	<button type="button" class="m-pill-tabs__item js-pill-tabs__tab" role="tab" aria-selected="false" aria-controls=""
+			data-state="inactive" id=""
+			tabindex="-1" data-orientation="horizontal">Analytics
+	</button>
+	<button type="button" class="m-pill-tabs__item js-pill-tabs__tab" role="tab" aria-selected="false" aria-controls=""
+			data-state="inactive" id=""
+			tabindex="-1" data-orientation="horizontal">Reports
+	</button>
+	<button type="button" class="m-pill-tabs__item js-pill-tabs__tab" role="tab" aria-selected="false" aria-controls=""
+			data-state="inactive" id=""
+			tabindex="-1" data-orientation="horizontal">Settings
+	</button>
+</div>
+<div class="js-pill-tabs__panel" role="tabpanel">Overview content</div>
+<div class="js-pill-tabs__panel" role="tabpanel" hidden>Analytics content</div>
+<div class="js-pill-tabs__panel" role="tabpanel" hidden>Reports content</div>
+<div class="js-pill-tabs__panel" role="tabpanel" hidden>Settings content</div>
+{{/if}}
+
+<style>
+	body {
+		background-color: #fff;
+	}
+</style>

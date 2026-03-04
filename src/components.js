@@ -5,6 +5,7 @@ import './atoms/password-toggle/password-toggle';
 import './utilities/tab-highlighting/tab-highlighting';
 import './molecules/system-error/system-error';
 import './molecules/cookie-disclaimer/cookie-disclaimer';
+import './molecules/pill-tabs/pill-tabs';
 import './organisms/accordion/accordion';
 import './organisms/tabs/tabs';
 import './organisms/mailchimp/mailchimp';
