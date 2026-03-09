@@ -1,3 +1,5 @@
+import { animateAnchorScroll } from '../../assets/js/anchorScroll';
+
 const els = {
 	urlInput: document.getElementById('urlInput'),
 	analyzeBtn: document.getElementById('analyzeBtn'),
@@ -383,6 +385,7 @@ function computeDomainParts(hostname) {
 function parseMaybeURL(raw) {
 	const input = (raw || '').trim();
 	if (!input) return { ok: false, reason: 'empty' };
+	if (/\s/.test(input)) return { ok: false, reason: 'invalid' };
 
 	const hasScheme = /^[a-z][a-z0-9+.-]*:\/\//i.test(input);
 	const normalized = hasScheme ? input : `https://${input}`;
@@ -723,8 +726,8 @@ function render(rawInput) {
 		tld: displayTld,
 		registrable: displayRegistrable,
 	} = computeDomainParts(displayHost);
-	const isIpHost = looksLikeIPAddress(displayHost || u.hostname);
-	const hasTopDomain = Boolean(displayTld && displayTld !== '(IP)');
+	const isIpHost = looksLikeIPAddress(u.hostname);
+	const hasTopDomain = Boolean(tld && tld !== '(IP)');
 
 	if (!hasTopDomain && !isIpHost) {
 		setVisibleState({
@@ -868,14 +871,35 @@ function render(rawInput) {
 if (shouldInitUrlChecker) {
 	// Debounced live parsing
 	let t = null;
-	els.urlInput.addEventListener('input', () => {
-		clearTimeout(t);
-		t = setTimeout(() => render(els.urlInput.value), 150);
+	let shouldScrollToOverviewOnNextAnalyze = false;
+
+	const analyze = (value) => {
+		render(value);
+
+		if (!shouldScrollToOverviewOnNextAnalyze) return;
+		shouldScrollToOverviewOnNextAnalyze = false;
+		const overview = document.getElementById('overview');
+		if (!overview) return;
+		animateAnchorScroll(overview, null, { easing: 'easeOut' });
+	};
+
+	els.urlInput.addEventListener('paste', () => {
+		shouldScrollToOverviewOnNextAnalyze = true;
 	});
 
-	els.analyzeBtn.addEventListener('click', () => render(els.urlInput.value));
+	els.urlInput.addEventListener('input', () => {
+		clearTimeout(t);
+		if (shouldScrollToOverviewOnNextAnalyze) {
+			analyze(els.urlInput.value);
+			return;
+		}
+		t = setTimeout(() => analyze(els.urlInput.value), 150);
+	});
+
+	els.analyzeBtn.addEventListener('click', () => analyze(els.urlInput.value));
 
 	els.clearBtn.addEventListener('click', () => {
+		shouldScrollToOverviewOnNextAnalyze = false;
 		els.urlInput.value = '';
 		render('');
 		els.urlInput.focus();
