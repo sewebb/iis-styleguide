@@ -40,3 +40,4 @@ import './molecules/multi-select/multi-select';
 import './organisms/haveibeenpwned/haveibeenpwned';
 import './atoms/progress/progress';
 import './molecules/table-advanced/table-advanced';
+import './organisms/url-checker/url-checker';

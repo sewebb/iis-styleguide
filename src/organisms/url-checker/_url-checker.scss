@@ -1,0 +1,347 @@
+@charset "UTF-8";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/variables' as var;
+@use '../../configurations/functions' as func;
+@use '../../configurations/colors/colors' as colors;
+
+@include mixin.organism(url-checker) {
+	@include bem.e(preamble) {
+		max-width: 60ch;
+	}
+
+	@include bem.e(actions) {
+		display: flex;
+		gap: func.rhythm(1);
+		flex-wrap: wrap;
+	}
+
+	@include bem.e(details) {
+		display: grid;
+		gap: func.rhythm(1);
+	}
+
+	@include bem.e(box) {
+		border: 1px solid colors.$color-concrete;
+		border-radius: var.$border-radius;
+		background: colors.$color-snow;
+
+		@include bem.m(lemon) {
+			background: colors.$color-lemon-lighter;
+			border-color: colors.$color-lemon;
+		}
+
+		@include bem.m(ruby) {
+			background: colors.$color-ruby-lighter;
+			border-color: colors.$color-ruby;
+		}
+
+		@include bem.e(header) {
+			padding: func.rhythm(2) func.rhythm(2) 0 func.rhythm(2);
+		}
+
+		@include bem.e(body) {
+			padding: func.rhythm(2);
+		}
+	}
+
+	@include bem.e(kv) {
+		display: grid;
+		gap: func.rhythm(0.25);
+	}
+
+	@include bem.e(pillrow) {
+		display: flex;
+		flex-wrap: wrap;
+		gap: func.rhythm(0.5);
+		margin: func.rhythm(0.5) 0 0;
+	}
+
+	@include bem.e(pill) {
+		margin: 0;
+		text-transform: none;
+
+		@include bem.m(danger) {
+			background-color: colors.$color-ruby-lighter;
+			border-color: colors.$color-ruby;
+		}
+
+		@include bem.m(warn) {
+			background-color: colors.$color-lemon-lighter;
+			border-color: colors.$color-lemon-medium-dark;
+		}
+
+		@include bem.m(good) {
+			background-color: colors.$color-jade-light;
+			border-color: colors.$color-jade;
+		}
+	}
+
+	@include bem.e(muted) {
+		opacity: 0.85;
+	}
+
+	@include bem.e(message) {
+		border-radius: var.$border-radius;
+		padding: func.rhythm(0.5);
+		border-width: 1px;
+		border-style: solid;
+
+		&:empty {
+			display: none;
+		}
+
+		@include bem.m(danger) {
+			background-color: colors.$color-ruby-light;
+			border-color: colors.$color-ruby-dark;
+		}
+
+		@include bem.m(warn) {
+			background-color: colors.$color-lemon-lighter;
+			border-color: colors.$color-lemon-medium-dark;
+		}
+
+		@include bem.m(good) {
+			background-color: colors.$color-jade-light;
+			border-color: colors.$color-jade;
+		}
+	}
+
+	@include bem.e(inlinecode) {
+		font-family: var.$font-family-mono;
+		font-size: 0.95em;
+		word-break: break-word;
+	}
+
+	@include bem.e(surface) {
+		border: 1px solid colors.$color-concrete;
+		border-radius: var.$border-radius;
+		background: colors.$color-snow;
+		padding: func.rhythm(2);
+
+		@include bem.m(ash) {
+			background: colors.$color-ash;
+			text-shadow: 0 1px 0 colors.$color-snow;
+		}
+	}
+
+	@include bem.e(script-item) {
+		&.o-url-checker__breakdown__item {
+			flex-grow: 0;
+			cursor: default;
+			pointer-events: none;
+			border-color: colors.$color-ruby;
+			background: colors.$color-ruby-lighter;
+		}
+	}
+
+	@include bem.e(script-text) {
+		display: block;
+	}
+
+	@include bem.e(domain-focus) {
+		@include bem.e(hint) {
+			margin: 0;
+		}
+
+		@include bem.e(main) {
+			margin-bottom: func.rhythm(1);
+		}
+
+		@include bem.e(grid) {
+			display: grid;
+			gap: func.rhythm(1);
+		}
+
+		@include bem.e(label) {
+			display: block;
+			margin-bottom: func.rhythm(0.4);
+			text-transform: uppercase;
+			font-size: 0.75rem;
+			letter-spacing: 0.08em;
+			color: colors.$color-cyberspace;
+		}
+
+		@include bem.e(value) {
+			display: block;
+			font-family: var.$font-family-mono;
+			font-weight: 700;
+			letter-spacing: 0.1em;
+			line-height: 1.15;
+			word-break: break-all;
+			font-size: clamp(1.4rem, 3vw, 2.1rem);
+		}
+
+			@include bem.e(mono) {
+				display: block;
+				font-family: var.$font-family-mono;
+				font-weight: 700;
+				letter-spacing: 0.1em;
+				line-height: 1.15;
+				word-break: break-all;
+				font-size: clamp(1.1rem, 2.4vw, 1.5rem);
+
+				@include bem.m(small) {
+					font-size: clamp(0.95rem, 2vw, 1.2rem);
+				}
+			}
+
+			@include bem.e(host-segment) {
+				&.o-url-checker__breakdown__segment {
+					cursor: default;
+					margin-right: 0;
+					padding: func.rhythm(0.05) func.rhythm(0.12);
+					outline-width: 1px;
+				}
+
+				@include bem.m(special) {
+					&.o-url-checker__breakdown__segment {
+						background: colors.$color-ruby-lighter;
+						outline-color: colors.$color-ruby;
+						font-weight: 700;
+					}
+				}
+			}
+		}
+
+	@include bem.e(breakdown) {
+		position: relative;
+		overflow: visible;
+
+		@include bem.e(wrap) {
+			display: flex;
+			flex-direction: column;
+			flex-wrap: wrap;
+			position: relative;
+		}
+
+		@include bem.e(url) {
+			position: relative;
+			margin-bottom: func.rhythm(1);
+		}
+
+		@include bem.e(urlcode) {
+			font-family: var.$font-family-mono;
+			font-size: 0.95rem;
+			line-height: 1.5;
+			word-break: break-word;
+		}
+
+		@include bem.e(segment) {
+			position: relative;
+			border-radius: var.$border-radius;
+			padding: func.rhythm(0.08) func.rhythm(0.12);
+			margin-right: func.rhythm(0.5);
+			outline: 2px solid transparent;
+			outline-offset: 1px;
+			cursor: pointer;
+			background: rgba(colors.$color-cyberspace, 0.1);
+			text-shadow: 0 1px 0 colors.$color-snow;
+
+			&[data-active='true'],
+			&:focus,
+			&:focus-visible {
+				outline: 2px solid colors.$color-ruby;
+				outline-offset: 1px;
+				background-color: colors.$color-lemon-lighter;
+				box-shadow: none !important;
+			}
+
+			&[data-kind='credentials'] {
+				background: colors.$color-ruby-lighter;
+			}
+
+			&[data-kind='subdomain'],
+			&[data-kind='domain'],
+			&[data-kind='credentials'] {
+				white-space: nowrap;
+			}
+		}
+
+		@include bem.e(legend) {
+			position: relative;
+
+			h4 {
+				margin: 0 0 func.rhythm(0.5);
+			}
+		}
+
+		@include bem.e(items) {
+			display: flex;
+			gap: func.rhythm(1);
+			justify-items: stretch;
+			width: 100%;
+			flex-wrap: wrap;
+		}
+
+		@include bem.e(details) {
+			margin-top: func.rhythm(1);
+
+			.o-url-checker__box {
+				margin-bottom: 0 !important;
+			}
+		}
+
+		@include bem.e(item) {
+			display: flex;
+			align-items: center;
+			flex-grow: 1;
+			padding: func.rhythm(1);
+			border-radius: var.$border-radius;
+			border: 1px solid colors.$color-concrete;
+			background: colors.$color-snow;
+			cursor: pointer;
+
+			> span {
+				width: 100%;
+			}
+
+			&[data-active='true'] {
+				box-shadow: 0 0 func.rhythm(1.1) colors.$color-granit;
+				background-color: colors.$color-lemon-lighter;
+				border-color: transparent;
+				outline: 2px solid colors.$color-ruby !important;
+			}
+
+			&[data-active='true'][data-part='credentials'] {
+				background: colors.$color-ruby-lighter;
+			}
+		}
+
+		@include bem.e(svg) {
+			position: absolute;
+			top: 0;
+			left: 0;
+			width: 100%;
+			height: 100%;
+			pointer-events: none;
+			z-index: 1;
+		}
+
+		@include bem.e(line) {
+			stroke: colors.$color-ruby;
+			stroke-width: 2;
+		}
+
+		@include bem.e(dot) {
+			fill: colors.$color-ruby;
+		}
+
+		@include bem.e(hint) {
+			margin-top: func.rhythm(0.5);
+			opacity: 0.85;
+		}
+	}
+
+	code {
+		font-family: var.$font-family-mono;
+		background: colors.$color-snow;
+		border-radius: var.$border-radius;
+		padding: func.rhythm(0.25);
+		display: inline-block;
+		margin-bottom: func.rhythm(1);
+		width: auto;
+		border: 1px solid colors.$color-concrete;
+		word-break: break-word;
+	}
+}

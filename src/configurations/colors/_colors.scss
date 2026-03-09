@@ -47,6 +47,16 @@ $color-sandstone-medium-dark: color.adjust($color-sandstone, $lightness: -10%);
 $color-lemon-medium-dark: color.adjust($color-lemon, $lightness: -10%);
 $color-ocean-medium-dark: color.adjust($color-ocean, $lightness: -10%);
 
-/* Special colors not ound in the graphic profile */
+/* Lighter colors for decoration purposes like backgrounds */
+
+$color-ruby-lighter: color.adjust($color-ruby-light, $lightness: 10%);
+$background-ocean-lighter: color.adjust($color-ocean-light, $lightness: 10%);
+$background-lemon-lighter: color.adjust($color-lemon-light, $lightness: 10%);
+$background-sandstone-lighter: color.adjust($color-sandstone-light, $lightness: 10%);
+$background-jade-lighter: color.adjust($color-jade-light, $lightness: 10%);
+$background-peacock-lighter: color.adjust($color-peacock-light, $lightness: 10%);
+
+
+/* Special colors not found in the graphic profile */
 $color-success: #25c279 !default;
 $color-success-dark: #198754 !default;
