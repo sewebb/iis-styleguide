@@ -44,3 +44,4 @@ require("./molecules/multi-select/multi-select");
 require("./organisms/haveibeenpwned/haveibeenpwned");
 require("./atoms/progress/progress");
 require("./molecules/table-advanced/table-advanced");
+require("./organisms/url-checker/url-checker");

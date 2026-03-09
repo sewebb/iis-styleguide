@@ -893,7 +893,7 @@ if (shouldInitUrlChecker) {
 			analyze(els.urlInput.value);
 			return;
 		}
-		t = setTimeout(() => analyze(els.urlInput.value), 150);
+		t = setTimeout(() => analyze(els.urlInput.value), 1000);
 	});
 
 	els.analyzeBtn.addEventListener('click', () => analyze(els.urlInput.value));
