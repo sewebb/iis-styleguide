@@ -872,22 +872,38 @@ if (shouldInitUrlChecker) {
 	// Debounced live parsing
 	let t = null;
 	let shouldScrollToOverviewOnNextAnalyze = false;
+	let blockAutoScrollUntilManualAnalyze = false;
 
 	const analyze = (value) => {
 		render(value);
 
 		if (!shouldScrollToOverviewOnNextAnalyze) return;
+		if (blockAutoScrollUntilManualAnalyze) {
+			shouldScrollToOverviewOnNextAnalyze = false;
+			return;
+		}
 		shouldScrollToOverviewOnNextAnalyze = false;
 		const overview = document.getElementById('overview');
 		if (!overview) return;
-		animateAnchorScroll(overview, null, { easing: 'easeOut' });
+		animateAnchorScroll(overview, null, {
+			easing: 'easeOut',
+			speedAsDuration: false,
+		});
 	};
 
 	els.urlInput.addEventListener('paste', () => {
 		shouldScrollToOverviewOnNextAnalyze = true;
 	});
 
-	els.urlInput.addEventListener('input', () => {
+	els.urlInput.addEventListener('input', (event) => {
+		const inputType = event?.inputType || '';
+		const isPasteInput = inputType === 'insertFromPaste';
+
+		if (!isPasteInput) {
+			blockAutoScrollUntilManualAnalyze = true;
+			shouldScrollToOverviewOnNextAnalyze = false;
+		}
+
 		clearTimeout(t);
 		if (shouldScrollToOverviewOnNextAnalyze) {
 			analyze(els.urlInput.value);
@@ -896,10 +912,17 @@ if (shouldInitUrlChecker) {
 		t = setTimeout(() => analyze(els.urlInput.value), 1000);
 	});
 
-	els.analyzeBtn.addEventListener('click', () => analyze(els.urlInput.value));
+	els.analyzeBtn.addEventListener('click', () => {
+		blockAutoScrollUntilManualAnalyze = false;
+		shouldScrollToOverviewOnNextAnalyze = Boolean(
+			els.urlInput.value.trim(),
+		);
+		analyze(els.urlInput.value);
+	});
 
 	els.clearBtn.addEventListener('click', () => {
 		shouldScrollToOverviewOnNextAnalyze = false;
+		blockAutoScrollUntilManualAnalyze = false;
 		els.urlInput.value = '';
 		render('');
 		els.urlInput.focus();
