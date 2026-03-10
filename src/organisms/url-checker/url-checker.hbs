@@ -27,16 +27,19 @@
 		</div>
 
 		<div class="o-url-checker__box__body">
-			<label for="urlInput" class="u-visuallyhidden">Länk</label>
-			<textarea
-				id="urlInput"
-				class="a-textarea"
-				rows="5"
-				placeholder="Klistra in en URL här…"
-				autocomplete="off"
-				autocapitalize="off"
-				spellcheck="false"
-			></textarea>
+			<div class="field-group u-m-b-0" id="urlInputFieldGroup">
+				<label for="urlInput" class="u-visuallyhidden">Länk</label>
+				<textarea
+					id="urlInput"
+					class="a-textarea"
+					rows="5"
+					placeholder="Klistra in en URL här…"
+					autocomplete="off"
+					autocapitalize="off"
+					spellcheck="false"
+				></textarea>
+				<div id="urlInputHelp" class="input-help" aria-live="polite"></div>
+			</div>
 
 			<div class="u-m-t-default o-url-checker__actions">
 				<button id="analyzeBtn" class="a-button a-button--peacock" type="button">
@@ -51,13 +54,7 @@
 			<div id="inputHint" class="u-m-t-default o-url-checker__message o-url-checker__message--warn" aria-live="polite"></div>
 		</div>
 	</section>
-	<section id="results" class="u-m-b-default" hidden aria-live="polite" aria-atomic="true">
-
-		<div id="errorBox" class="u-m-b-default" hidden aria-live="polite">
-			<div class="m-alert m-alert--error">
-				<p class="u-m-b-0" id="errorText"></p>
-			</div>
-		</div>
+	<section id="results" class="u-m-b-default o-url-checker__results" hidden aria-live="polite" aria-atomic="true">
 
 		<div id="emptyState" class="o-url-checker__muted">
 			<p class="u-m-b-0">Klistra in en URL så visas delarna här.</p>

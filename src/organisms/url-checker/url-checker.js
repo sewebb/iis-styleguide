@@ -2,14 +2,14 @@ import { animateAnchorScroll } from '../../assets/js/anchorScroll';
 
 const els = {
 	urlInput: document.getElementById('urlInput'),
+	urlInputFieldGroup: document.getElementById('urlInputFieldGroup'),
+	urlInputHelp: document.getElementById('urlInputHelp'),
 	analyzeBtn: document.getElementById('analyzeBtn'),
 	clearBtn: document.getElementById('clearBtn'),
 	inputHint: document.getElementById('inputHint'),
 
 	results: document.getElementById('results'),
 	emptyState: document.getElementById('emptyState'),
-	errorBox: document.getElementById('errorBox'),
-	errorText: document.getElementById('errorText'),
 	signals: document.getElementById('signals'),
 	focusHost: document.getElementById('focusHost'),
 	focusHostBox: document.getElementById('focusHostBox'),
@@ -438,9 +438,12 @@ function setInputErrorAccessibility(hasError) {
 
 	if (hasError) els.urlInput.setAttribute('aria-invalid', 'true');
 	else els.urlInput.removeAttribute('aria-invalid');
+	if (els.urlInputFieldGroup) {
+		els.urlInputFieldGroup.classList.toggle('is-invalid', hasError);
+	}
 
 	setDescribedByToken(els.urlInput, 'results', true);
-	setDescribedByToken(els.urlInput, 'errorText', hasError);
+	setDescribedByToken(els.urlInput, 'urlInputHelp', hasError);
 }
 
 function setHostSpecialBoxesVisibility(show) {
@@ -451,12 +454,10 @@ function setHostSpecialBoxesVisibility(show) {
 function setVisibleState({ hasResults, errorMessage = '' }) {
 	const message = (errorMessage || '').trim();
 	const hasError = Boolean(message);
-	if (els.errorText) els.errorText.textContent = message;
-	if ('hidden' in els.errorBox) els.errorBox.hidden = !hasError;
-	else els.errorBox.style.display = message ? '' : 'none';
+	if (els.urlInputHelp) els.urlInputHelp.textContent = message;
 	setInputErrorAccessibility(hasError);
-	els.results.hidden = !(hasResults || hasError);
-	els.emptyState.style.display = hasResults || hasError ? 'none' : '';
+	els.results.hidden = !hasResults;
+	els.emptyState.style.display = hasResults ? 'none' : '';
 }
 
 // ===== NEW: visual markup rendering =====
@@ -882,10 +883,20 @@ if (shouldInitUrlChecker) {
 			shouldScrollToOverviewOnNextAnalyze = false;
 			return;
 		}
+
+		const errorIsVisible = Boolean(
+			els.urlInputFieldGroup
+			&& els.urlInputFieldGroup.classList.contains('is-invalid')
+			&& els.urlInputHelp
+			&& els.urlInputHelp.textContent.trim().length,
+		);
 		shouldScrollToOverviewOnNextAnalyze = false;
-		const overview = document.getElementById('overview');
-		if (!overview) return;
-		animateAnchorScroll(overview, null, {
+
+		const target = errorIsVisible
+			? els.urlInputHelp
+			: document.getElementById('overview');
+		if (!target) return;
+		animateAnchorScroll(target, null, {
 			easing: 'easeOut',
 			speedAsDuration: false,
 		});

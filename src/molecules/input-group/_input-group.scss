@@ -21,6 +21,8 @@
 		background: colors.$color-concrete;
 		border: 1px solid colors.$color-granit;
 		font-size: func.to_rem(16px);
+		position: relative;
+		z-index: 2;
 
 		&:first-child {
 			border-radius: var.$border-radius 0 0 var.$border-radius;

@@ -167,7 +167,6 @@
 			font-family: var.$font-family-mono;
 			font-weight: 700;
 			letter-spacing: 0.1em;
-			line-height: 1.15;
 			word-break: break-all;
 			font-size: clamp(1.4rem, 3vw, 2.1rem);
 		}
@@ -222,8 +221,7 @@
 
 		@include bem.e(urlcode) {
 			font-family: var.$font-family-mono;
-			font-size: 0.95rem;
-			line-height: 1.5;
+			line-height: 1.8;
 			word-break: break-word;
 		}
 
@@ -253,6 +251,7 @@
 
 			&[data-kind='subdomain'],
 			&[data-kind='domain'],
+			&[data-kind='tld'],
 			&[data-kind='credentials'] {
 				white-space: nowrap;
 			}
