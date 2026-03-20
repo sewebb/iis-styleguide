@@ -5,13 +5,13 @@ Object.defineProperty(exports, "__esModule", {
 const _anchorScroll = require("../../assets/js/anchorScroll");
 const els = {
     urlInput: document.getElementById('urlInput'),
+    urlInputFieldGroup: document.getElementById('urlInputFieldGroup'),
+    urlInputHelp: document.getElementById('urlInputHelp'),
     analyzeBtn: document.getElementById('analyzeBtn'),
     clearBtn: document.getElementById('clearBtn'),
     inputHint: document.getElementById('inputHint'),
     results: document.getElementById('results'),
     emptyState: document.getElementById('emptyState'),
-    errorBox: document.getElementById('errorBox'),
-    errorText: document.getElementById('errorText'),
     signals: document.getElementById('signals'),
     focusHost: document.getElementById('focusHost'),
     focusHostBox: document.getElementById('focusHostBox'),
@@ -425,8 +425,11 @@ function setInputErrorAccessibility(hasError) {
     if (!els.urlInput) return;
     if (hasError) els.urlInput.setAttribute('aria-invalid', 'true');
     else els.urlInput.removeAttribute('aria-invalid');
+    if (els.urlInputFieldGroup) {
+        els.urlInputFieldGroup.classList.toggle('is-invalid', hasError);
+    }
     setDescribedByToken(els.urlInput, 'results', true);
-    setDescribedByToken(els.urlInput, 'errorText', hasError);
+    setDescribedByToken(els.urlInput, 'urlInputHelp', hasError);
 }
 function setHostSpecialBoxesVisibility(show) {
     if (els.focusHostBox) els.focusHostBox.hidden = !show;
@@ -435,12 +438,10 @@ function setHostSpecialBoxesVisibility(show) {
 function setVisibleState({ hasResults, errorMessage = '' }) {
     const message = (errorMessage || '').trim();
     const hasError = Boolean(message);
-    if (els.errorText) els.errorText.textContent = message;
-    if ('hidden' in els.errorBox) els.errorBox.hidden = !hasError;
-    else els.errorBox.style.display = message ? '' : 'none';
+    if (els.urlInputHelp) els.urlInputHelp.textContent = message;
     setInputErrorAccessibility(hasError);
-    els.results.hidden = !(hasResults || hasError);
-    els.emptyState.style.display = hasResults || hasError ? 'none' : '';
+    els.results.hidden = !hasResults;
+    els.emptyState.style.display = hasResults ? 'none' : '';
 }
 // ===== NEW: visual markup rendering =====
 function escapeHTML(s) {
@@ -751,20 +752,33 @@ if (shouldInitUrlChecker) {
     // Debounced live parsing
     let t = null;
     let shouldScrollToOverviewOnNextAnalyze = false;
+    let blockAutoScrollUntilManualAnalyze = false;
     const analyze = (value)=>{
         render(value);
         if (!shouldScrollToOverviewOnNextAnalyze) return;
+        if (blockAutoScrollUntilManualAnalyze) {
+            shouldScrollToOverviewOnNextAnalyze = false;
+            return;
+        }
+        const errorIsVisible = Boolean(els.urlInputFieldGroup && els.urlInputFieldGroup.classList.contains('is-invalid') && els.urlInputHelp && els.urlInputHelp.textContent.trim().length);
         shouldScrollToOverviewOnNextAnalyze = false;
-        const overview = document.getElementById('overview');
-        if (!overview) return;
-        (0, _anchorScroll.animateAnchorScroll)(overview, null, {
-            easing: 'easeOut'
+        const target = errorIsVisible ? els.urlInputHelp : document.getElementById('overview');
+        if (!target) return;
+        (0, _anchorScroll.animateAnchorScroll)(target, null, {
+            easing: 'easeOut',
+            speedAsDuration: false
         });
     };
     els.urlInput.addEventListener('paste', ()=>{
         shouldScrollToOverviewOnNextAnalyze = true;
     });
-    els.urlInput.addEventListener('input', ()=>{
+    els.urlInput.addEventListener('input', (event)=>{
+        const inputType = (event == null ? void 0 : event.inputType) || '';
+        const isPasteInput = inputType === 'insertFromPaste';
+        if (!isPasteInput) {
+            blockAutoScrollUntilManualAnalyze = true;
+            shouldScrollToOverviewOnNextAnalyze = false;
+        }
         clearTimeout(t);
         if (shouldScrollToOverviewOnNextAnalyze) {
             analyze(els.urlInput.value);
@@ -772,9 +786,14 @@ if (shouldInitUrlChecker) {
         }
         t = setTimeout(()=>analyze(els.urlInput.value), 1000);
     });
-    els.analyzeBtn.addEventListener('click', ()=>analyze(els.urlInput.value));
+    els.analyzeBtn.addEventListener('click', ()=>{
+        blockAutoScrollUntilManualAnalyze = false;
+        shouldScrollToOverviewOnNextAnalyze = Boolean(els.urlInput.value.trim());
+        analyze(els.urlInput.value);
+    });
     els.clearBtn.addEventListener('click', ()=>{
         shouldScrollToOverviewOnNextAnalyze = false;
+        blockAutoScrollUntilManualAnalyze = false;
         els.urlInput.value = '';
         render('');
         els.urlInput.focus();
