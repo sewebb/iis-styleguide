@@ -79,7 +79,7 @@
 			text-align: left;
 		}
 
-		span:not(.block-icon) {
+		span:not(.block-icon):not(.a-tooltip__text) {
 			display: block;
 			font-weight: 400;
 		}

@@ -1,8 +1,11 @@
 module.exports = {
-	status: "ready",
+	status: 'ready',
 
 	context: {
-		name: "Tooltip",
-		text: "Ett .se-domännamn kan registreras för en period mellan 12-120 månader. Efter att ett domännamn förfallit kommer den att få statusen “Expired” i tio dagar. Om domänen inte förnyas under dessa tio dagar ändras statusen på domänen till “Deactivated”, vilket innebär att den inte kommer med i zonfilen. Domänen är därefter deaktiverad i 60 dagar om ingen förnyelse sker. Under deaktiveringsperioden har du möjlighet att förnya domänen."
-	}
+		label: 'Visa mer information om fältet Adress',
+		label2: 'Visa mer information om fältet Postnummer',
+		placement: 'top',
+		text: 'Ange en fullstandig adress. Verktyget flyttar automatiskt tooltipen om det inte finns plats ovanför, nedan, till vänster eller höger om triggern.',
+		postalCode: 'Ange postnummer, 5 siffror utan mellanslag',
+	},
 };

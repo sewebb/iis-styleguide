@@ -1,99 +1,168 @@
 @charset "UTF-8";
-@use "sass:color";
 @use '../../configurations/mixins' as mixin;
 @use '../../configurations/bem' as bem;
 @use '../../configurations/variables' as var;
 @use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
-@use '../../configurations/colors/colors-functions' as colorFunc;
 
 @include mixin.atom(tooltip) {
+	--tooltip-gap: #{func.rhythm(1)};
+	--tooltip-trigger-size: #{var.$icon-size};
+	--tooltip-trigger-icon-size: #{var.$icon-size};
+	--tooltip-trigger-margin: #{func.rhythm(1)};
+	--tooltip-trigger-padding: #{func.rhythm(1)};
+	--tooltip-focus-ring-size: #{func.to_rem(5px)};
 	position: relative;
-	width: var.$icon-size;
-	height: var.$icon-size;
-	margin-right: func.rhythm(1);
-	margin-left: func.rhythm(1);
-	padding: func.rhythm(1);
+	width: var(--tooltip-trigger-size);
+	height: var(--tooltip-trigger-size);
+	margin-right: var(--tooltip-trigger-margin);
+	margin-left: var(--tooltip-trigger-margin);
+	padding: var(--tooltip-trigger-padding);
 	border-radius: 50%;
-	box-shadow: 0 0 0 func.to_rem(5px) transparent;
+	box-shadow: 0 0 0 var(--tooltip-focus-ring-size) transparent;
 	overflow: visible;
+	transition: box-shadow 0.2s ease;
 
+	&:hover,
 	&:focus,
-	&:hover {
-		overflow: visible;
-		clip: auto;
-		box-shadow: 0 0 0 func.to_rem(5px) colors.$color-ocean-light;
+	&:focus-visible,
+	&[data-tooltip-visible='true'] {
+		box-shadow: 0 0 0 var(--tooltip-focus-ring-size) colors.$color-ocean-light;
+	}
 
-		[class*='text'] {
-			overflow: visible;
-			clip: auto;
-			transform: rotateX(0deg) scale(1) translateX(-50%);
-			opacity: 1;
-		}
+	@include bem.m(small) {
+		--tooltip-trigger-size: calc(#{var.$icon-size} / 1.5);
+		--tooltip-trigger-icon-size: calc(#{var.$icon-size} / 1.5);
+		--tooltip-trigger-margin: calc(#{func.rhythm(1)} / 1.5);
+		--tooltip-trigger-padding: calc(#{func.rhythm(1)} / 1.5);
+		--tooltip-focus-ring-size: calc(#{func.to_rem(5px)} / 1.5);
 	}
 
 	[class*='icon'] {
 		position: absolute;
 		top: 50%;
 		left: 50%;
-		overflow: visible;
+		width: var(--tooltip-trigger-icon-size);
+		height: var(--tooltip-trigger-icon-size);
 		transform: translateX(-50%) translateY(-50%);
-		transition: box-shadow 0.3s cubic-bezier(0.3, 0, 0, 1);
 		color: var(--cyberspace-color);
 		fill: currentColor;
 	}
 
 	@include bem.e(text) {
-		display: block;
-		position: absolute;
+		--tooltip-arrow-size: 10px;
+		--tooltip-top: 0px;
+		--tooltip-left: 0px;
+		--tooltip-arrow-x: 50%;
+		--tooltip-arrow-y: 50%;
+		--tooltip-shift-x: 0px;
+		--tooltip-shift-y: 0px;
+		position: fixed;
 		z-index: func.z_index(foreground);
-		top: auto;
-		bottom: 130%;
-		left: 50%;
-		width: func.to_rem(300px);
-		height: auto;
-		margin: 0 0 func.to_rem(5px) 0;
+		inset: auto;
+		margin: 0;
+		border: 0;
+		width: max-content;
+		max-width: min(func.to_rem(320px), calc(100vw - #{func.to_rem(24px)}));
 		padding: func.rhythm(1);
-		transform: rotateX(90deg) scale(0.2) translateX(-100%);
-		transform-origin: bottom center;
-		-webkit-backface-visibility: hidden;
-		transition: transform 0.3s cubic-bezier(0.3, 0, 0, 1);
 		border-radius: var.$border-radius;
-		opacity: 0;
 		background-color: colors.$color-cyberspace;
+		box-shadow: 0 func.rhythm(0.5) func.rhythm(1.5) rgba(colors.$color-cyberspace, 0.25);
 		color: colors.$color-snow;
 		font-family: var.$font-family-base;
-		font-size: var.$size-small;
+		font-size: var.$size-medium;
+		line-height: 1.45;
 		text-align: left;
-		user-select: none;
+		user-select: text;
+		cursor: text;
 
-		&::after {
-			content: ' ';
-			position: absolute;
-			top: calc(100% - 1px);
-			bottom: auto;
-			left: 50%;
-			width: 0;
-			height: 0;
-			margin-left: -15px;
-			border: solid transparent;
-			border-width: 15px;
-			border-color: rgba(31, 42, 54, 0);
-			border-top-color: colors.$color-cyberspace;
-			border-bottom-color: transparent;
-			pointer-events: none;
+		&::selection {
+			color: colors.$color-cyberspace;
+		}
+		pointer-events: none;
+		overflow: visible;
+
+		&[hidden] {
+			display: none;
 		}
 
-		&.down {
-			top: 130%;
-			bottom: auto;
-			transform-origin: top center;
+		&:popover-open {
+			display: block;
+			pointer-events: auto;
+		}
+
+		&::after {
+			content: '';
+			position: absolute;
+			width: 0;
+			height: 0;
+			border-style: solid;
+		}
+
+		&[data-placement='top'] {
+			bottom: calc(anchor(top) + var(--tooltip-gap));
+			left: anchor(center);
+			transform: translateX(calc(-50% + var(--tooltip-shift-x)));
 
 			&::after {
-				top: auto;
+				top: calc(100% - 1px);
+				left: var(--tooltip-arrow-x);
+				transform: translateX(-50%);
+				border-width: var(--tooltip-arrow-size) var(--tooltip-arrow-size) 0;
+				border-color: colors.$color-cyberspace transparent transparent;
+			}
+		}
+
+		&[data-placement='bottom'] {
+			top: calc(anchor(bottom) + var(--tooltip-gap));
+			left: anchor(center);
+			transform: translateX(calc(-50% + var(--tooltip-shift-x)));
+
+			&::after {
 				bottom: calc(100% - 1px);
-				border-top-color: transparent;
-				border-bottom-color: colors.$color-cyberspace;
+				left: var(--tooltip-arrow-x);
+				transform: translateX(-50%);
+				border-width: 0 var(--tooltip-arrow-size) var(--tooltip-arrow-size);
+				border-color: transparent transparent colors.$color-cyberspace;
+			}
+		}
+
+		&[data-placement='left'] {
+			top: anchor(center);
+			right: calc(anchor(left) + var(--tooltip-gap));
+			transform: translateY(calc(-50% + var(--tooltip-shift-y)));
+
+			&::after {
+				top: var(--tooltip-arrow-y);
+				left: calc(100% - 1px);
+				transform: translateY(-50%);
+				border-width: var(--tooltip-arrow-size) 0 var(--tooltip-arrow-size) var(--tooltip-arrow-size);
+				border-color: transparent transparent transparent colors.$color-cyberspace;
+			}
+		}
+
+		&[data-placement='right'] {
+			top: anchor(center);
+			left: calc(anchor(right) + var(--tooltip-gap));
+			transform: translateY(calc(-50% + var(--tooltip-shift-y)));
+
+			&::after {
+				top: var(--tooltip-arrow-y);
+				right: calc(100% - 1px);
+				transform: translateY(-50%);
+				border-width: var(--tooltip-arrow-size) var(--tooltip-arrow-size) var(--tooltip-arrow-size) 0;
+				border-color: transparent colors.$color-cyberspace transparent transparent;
+			}
+		}
+
+		&[data-positioning='manual'] {
+			top: var(--tooltip-top);
+			left: var(--tooltip-left);
+
+			&[data-placement] {
+				right: auto;
+				bottom: auto;
+				transform: none;
 			}
 		}
 	}

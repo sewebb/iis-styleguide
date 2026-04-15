@@ -1,13 +1,53 @@
-<div class="row no-gutters align-items-center">
-	<div class="grid-auto">
-		<input class="a-input" type="text" placeholder="Adress" aria-describedby="tooltip" />
+<div class="row no-gutters">
+	<div class="grid-auto u-m-b-2">
+		<label for="tooltip-example-address" class="u-m-r-1">Adress</label>
+		<div class="display-flex align-items-center">
+			<input
+				class="a-input"
+				id="tooltip-example-address"
+				type="text"
+				placeholder="Adress"
+				autocomplete="street-address"
+			/>
+			<button
+				type="button"
+				class="a-tooltip{{#if small}} a-tooltip--small{{/if}} a-button a-button--standalone-icon a-button--icon"
+				aria-label="{{label}}"
+				data-tooltip-placement="{{placement}}"
+			>
+				<span class="a-tooltip__text" hidden>{{{text}}}</span>
+				<svg class="icon a-button__icon" aria-hidden="true">
+					<use xlink:href="#icon-info"></use>
+				</svg>
+			</button>
+		</div>
 	</div>
-	<div class="grid-auto display-flex align-items-center">
-		<span tabindex="0" class="a-tooltip a-button a-button--standalone-icon a-button--icon" id="tooltip" role="tooltip">
-			<span class="a-tooltip__text" data-tooltip>{{{text}}}</span>
-			<svg class="icon a-button__icon">
-				<use xlink:href="#icon-link"></use>
-			</svg>
-		</span>
+</div>
+
+<div class="row no-gutters">
+	<div class="grid-auto u-m-b-2">
+		<label for="tooltip-example-address-2" class="u-m-r-1">
+			Postnummer
+			<button
+				type="button"
+				class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon"
+				aria-label="{{label2}}"
+				data-tooltip-placement="{{placement}}"
+			>
+				<span class="a-tooltip__text" hidden>{{{postalCode}}}</span>
+				<svg class="icon a-button__icon" aria-hidden="true">
+					<use xlink:href="#icon-info"></use>
+				</svg>
+			</button>
+		</label>
+		<div class="display-flex align-items-center">
+			<input
+				class="a-input"
+				id="tooltip-example-address-2"
+				type="text"
+				placeholder="Postnummer"
+				autocomplete="street-address"
+			/>
+		</div>
 	</div>
 </div>
