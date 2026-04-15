@@ -1,5 +1,5 @@
 module.exports = {
-	status: 'ready',
+	status: 'wip',
 
 	context: {
 		label: 'Visa mer information om fältet Adress',
