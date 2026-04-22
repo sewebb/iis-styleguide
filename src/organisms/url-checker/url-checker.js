@@ -1,4 +1,5 @@
 import { animateAnchorScroll } from '../../assets/js/anchorScroll';
+import className from '../../assets/js/className';
 
 const els = {
 	urlInput: document.getElementById('urlInput'),
@@ -51,7 +52,7 @@ const els = {
 	breakdownSvg: document.getElementById('breakdownSvg'),
 };
 const shouldInitUrlChecker = Boolean(
-	document.querySelector('.o-url-checker') &&
+	document.querySelector(`.${className('o-url-checker')}`) &&
 		els.urlInput &&
 		els.analyzeBtn &&
 		els.clearBtn,
@@ -236,17 +237,19 @@ const HOST_SUSPICIOUS_CHARACTER_PATTERNS = [
 ];
 
 const CLASS = {
-	pill: 'o-url-checker__pill',
-	pillGood: 'o-url-checker__pill--good',
-	pillWarn: 'o-url-checker__pill--warn',
-	pillDanger: 'o-url-checker__pill--danger',
-	muted: 'o-url-checker__muted',
-	breakdownSegment: 'o-url-checker__breakdown__segment',
-	breakdownItem: 'o-url-checker__breakdown__item',
-	breakdownLine: 'o-url-checker__breakdown__line',
-	breakdownDot: 'o-url-checker__breakdown__dot',
-	hostSegment: 'o-url-checker__domain-focus__host-segment',
-	hostSegmentSpecial: 'o-url-checker__domain-focus__host-segment--special',
+	pill: className('o-url-checker__pill'),
+	pillGood: className('o-url-checker__pill--good'),
+	pillWarn: className('o-url-checker__pill--warn'),
+	pillDanger: className('o-url-checker__pill--danger'),
+	muted: className('o-url-checker__muted'),
+	breakdownSegment: className('o-url-checker__breakdown__segment'),
+	breakdownItem: className('o-url-checker__breakdown__item'),
+	breakdownLine: className('o-url-checker__breakdown__line'),
+	breakdownDot: className('o-url-checker__breakdown__dot'),
+	hostSegment: className('o-url-checker__domain-focus__host-segment'),
+	hostSegmentSpecial: className(
+		'o-url-checker__domain-focus__host-segment--special',
+	),
 };
 
 const BREAKDOWN_SEGMENT_SELECTOR = `.${CLASS.breakdownSegment}`;
@@ -473,12 +476,13 @@ function renderScriptWarnings(findings) {
 		const desc = document.createElement('span');
 		const details = document.createElement('span');
 
-		item.className = `${CLASS.breakdownItem} o-url-checker__script-item`;
-		textWrap.className = 'o-url-checker__script-text';
+		item.className = `${CLASS.breakdownItem} ${className('o-url-checker__script-item')}`;
+		textWrap.className = className('o-url-checker__script-text');
 		title.textContent = finding.label;
 		desc.className = CLASS.muted;
 		desc.textContent = finding.summary || '';
-		details.className = finding.detailsClassName || 'o-url-checker__inlinecode';
+		details.className =
+			finding.detailsClassName || className('o-url-checker__inlinecode');
 		details.textContent = finding.details || '';
 
 		textWrap.appendChild(title);
@@ -559,8 +563,8 @@ function addSignal(text, kind = 'neutral') {
 	const pill = document.createElement('span');
 	const pillText = document.createElement('span');
 
-	pill.className = `a-tag ${CLASS.pill} u-pointer-events-none u-font-size-medium`;
-	pillText.className = 'a-tag__text';
+	pill.className = `${className('a-tag')} ${CLASS.pill} u-pointer-events-none u-font-size-medium`;
+	pillText.className = className('a-tag__text');
 
 	if (kind === 'good') pill.classList.add(CLASS.pillGood);
 	if (kind === 'warn') pill.classList.add(CLASS.pillWarn);

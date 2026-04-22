@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 const _anchorScroll = require("../../assets/js/anchorScroll");
+const _className = /*#__PURE__*/ _interop_require_default(require("../../assets/js/className"));
 function _extends() {
     _extends = Object.assign || function(target) {
         for(var i = 1; i < arguments.length; i++){
@@ -16,6 +17,11 @@ function _extends() {
         return target;
     };
     return _extends.apply(this, arguments);
+}
+function _interop_require_default(obj) {
+    return obj && obj.__esModule ? obj : {
+        default: obj
+    };
 }
 const els = {
     urlInput: document.getElementById('urlInput'),
@@ -64,7 +70,7 @@ const els = {
     breakdownLegend: document.getElementById('breakdownLegend'),
     breakdownSvg: document.getElementById('breakdownSvg')
 };
-const shouldInitUrlChecker = Boolean(document.querySelector('.o-url-checker') && els.urlInput && els.analyzeBtn && els.clearBtn);
+const shouldInitUrlChecker = Boolean(document.querySelector(`.${(0, _className.default)('o-url-checker')}`) && els.urlInput && els.analyzeBtn && els.clearBtn);
 const COMMON_2LEVEL_SUFFIXES = new Set([
     'co.uk',
     'org.uk',
@@ -353,17 +359,17 @@ const HOST_SUSPICIOUS_CHARACTER_PATTERNS = [
     ...SUSPICIOUS_SCRIPT_PATTERNS
 ];
 const CLASS = {
-    pill: 'o-url-checker__pill',
-    pillGood: 'o-url-checker__pill--good',
-    pillWarn: 'o-url-checker__pill--warn',
-    pillDanger: 'o-url-checker__pill--danger',
-    muted: 'o-url-checker__muted',
-    breakdownSegment: 'o-url-checker__breakdown__segment',
-    breakdownItem: 'o-url-checker__breakdown__item',
-    breakdownLine: 'o-url-checker__breakdown__line',
-    breakdownDot: 'o-url-checker__breakdown__dot',
-    hostSegment: 'o-url-checker__domain-focus__host-segment',
-    hostSegmentSpecial: 'o-url-checker__domain-focus__host-segment--special'
+    pill: (0, _className.default)('o-url-checker__pill'),
+    pillGood: (0, _className.default)('o-url-checker__pill--good'),
+    pillWarn: (0, _className.default)('o-url-checker__pill--warn'),
+    pillDanger: (0, _className.default)('o-url-checker__pill--danger'),
+    muted: (0, _className.default)('o-url-checker__muted'),
+    breakdownSegment: (0, _className.default)('o-url-checker__breakdown__segment'),
+    breakdownItem: (0, _className.default)('o-url-checker__breakdown__item'),
+    breakdownLine: (0, _className.default)('o-url-checker__breakdown__line'),
+    breakdownDot: (0, _className.default)('o-url-checker__breakdown__dot'),
+    hostSegment: (0, _className.default)('o-url-checker__domain-focus__host-segment'),
+    hostSegmentSpecial: (0, _className.default)('o-url-checker__domain-focus__host-segment--special')
 };
 const BREAKDOWN_SEGMENT_SELECTOR = `.${CLASS.breakdownSegment}`;
 const BREAKDOWN_ITEM_SELECTOR = `.${CLASS.breakdownItem}`;
@@ -521,12 +527,12 @@ function renderScriptWarnings(findings) {
         const title = document.createElement('strong');
         const desc = document.createElement('span');
         const details = document.createElement('span');
-        item.className = `${CLASS.breakdownItem} o-url-checker__script-item`;
-        textWrap.className = 'o-url-checker__script-text';
+        item.className = `${CLASS.breakdownItem} ${(0, _className.default)('o-url-checker__script-item')}`;
+        textWrap.className = (0, _className.default)('o-url-checker__script-text');
         title.textContent = finding.label;
         desc.className = CLASS.muted;
         desc.textContent = finding.summary || '';
-        details.className = finding.detailsClassName || 'o-url-checker__inlinecode';
+        details.className = finding.detailsClassName || (0, _className.default)('o-url-checker__inlinecode');
         details.textContent = finding.details || '';
         textWrap.appendChild(title);
         if (desc.textContent) {
@@ -615,8 +621,8 @@ function parseMaybeURL(raw) {
 function addSignal(text, kind = 'neutral') {
     const pill = document.createElement('span');
     const pillText = document.createElement('span');
-    pill.className = `a-tag ${CLASS.pill} u-pointer-events-none u-font-size-medium`;
-    pillText.className = 'a-tag__text';
+    pill.className = `${(0, _className.default)('a-tag')} ${CLASS.pill} u-pointer-events-none u-font-size-medium`;
+    pillText.className = (0, _className.default)('a-tag__text');
     if (kind === 'good') pill.classList.add(CLASS.pillGood);
     if (kind === 'warn') pill.classList.add(CLASS.pillWarn);
     if (kind === 'danger') pill.classList.add(CLASS.pillDanger);
