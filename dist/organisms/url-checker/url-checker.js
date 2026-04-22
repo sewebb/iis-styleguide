@@ -3,6 +3,20 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 const _anchorScroll = require("../../assets/js/anchorScroll");
+function _extends() {
+    _extends = Object.assign || function(target) {
+        for(var i = 1; i < arguments.length; i++){
+            var source = arguments[i];
+            for(var key in source){
+                if (Object.prototype.hasOwnProperty.call(source, key)) {
+                    target[key] = source[key];
+                }
+            }
+        }
+        return target;
+    };
+    return _extends.apply(this, arguments);
+}
 const els = {
     urlInput: document.getElementById('urlInput'),
     urlInputFieldGroup: document.getElementById('urlInputFieldGroup'),
@@ -196,6 +210,148 @@ const SUSPICIOUS_SCRIPT_PATTERNS = [
         ]
     }
 ];
+const INVISIBLE_CHARACTER_PATTERNS = [
+    {
+        label: 'Osynliga tecken',
+        ranges: [
+            [
+                0x00ad,
+                0x00ad
+            ],
+            [
+                0x200b,
+                0x200d
+            ],
+            [
+                0x2060,
+                0x2060
+            ],
+            [
+                0xfeff,
+                0xfeff
+            ]
+        ],
+        displayAsCodePoint: true,
+        summary: 'Osynliga tecken hittades:'
+    }
+];
+const BIDI_CONTROL_PATTERNS = [
+    {
+        label: 'Bidi-styrtecken',
+        ranges: [
+            [
+                0x061c,
+                0x061c
+            ],
+            [
+                0x200e,
+                0x200f
+            ],
+            [
+                0x202a,
+                0x202e
+            ],
+            [
+                0x2066,
+                0x2069
+            ]
+        ],
+        displayAsCodePoint: true,
+        summary: 'Bidi-styrtecken hittades:'
+    }
+];
+const FULLWIDTH_CHARACTER_PATTERNS = [
+    {
+        label: 'Fullbreddstecken',
+        ranges: [
+            [
+                0x3000,
+                0x3000
+            ],
+            [
+                0x3002,
+                0x3002
+            ],
+            [
+                0xff01,
+                0xff0f
+            ],
+            [
+                0xff10,
+                0xff19
+            ],
+            [
+                0xff1a,
+                0xff20
+            ],
+            [
+                0xff21,
+                0xff3a
+            ],
+            [
+                0xff3b,
+                0xff40
+            ],
+            [
+                0xff41,
+                0xff5a
+            ],
+            [
+                0xff5b,
+                0xff60
+            ],
+            [
+                0xffe0,
+                0xffe6
+            ]
+        ],
+        summary: 'Fullbreddstecken hittades:'
+    }
+];
+const LATIN_SCRIPT_RANGES = [
+    [
+        0x0041,
+        0x005a
+    ],
+    [
+        0x0061,
+        0x007a
+    ],
+    [
+        0x00c0,
+        0x00ff
+    ],
+    [
+        0x0100,
+        0x017f
+    ],
+    [
+        0x0180,
+        0x024f
+    ],
+    [
+        0x1e00,
+        0x1eff
+    ],
+    [
+        0x2c60,
+        0x2c7f
+    ],
+    [
+        0xa720,
+        0xa7ff
+    ],
+    [
+        0xab30,
+        0xab6f
+    ]
+];
+const HOST_SUSPICIOUS_CHARACTER_PATTERNS = [
+    ...INVISIBLE_CHARACTER_PATTERNS,
+    ...BIDI_CONTROL_PATTERNS,
+    ...FULLWIDTH_CHARACTER_PATTERNS,
+    ...SUSPICIOUS_SCRIPT_PATTERNS
+];
 const CLASS = {
     pill: 'o-url-checker__pill',
     pillGood: 'o-url-checker__pill--good',
@@ -223,12 +379,25 @@ function safeText(el, value) {
 function setSafeMarkup(el, markup) {
     el.innerHTML = markup;
 }
-function getScriptLabelByCodePoint(codePoint) {
-    for (const pattern of SUSPICIOUS_SCRIPT_PATTERNS){
-        const isWithinRange = pattern.ranges.some(([start, end])=>codePoint >= start && codePoint <= end);
-        if (isWithinRange) return pattern.label;
+function isCodePointInRanges(codePoint, ranges) {
+    return ranges.some(([start, end])=>codePoint >= start && codePoint <= end);
+}
+function formatCodePoint(codePoint) {
+    return `U+${codePoint.toString(16).toUpperCase().padStart(4, '0')}`;
+}
+function getPatternByCodePoint(codePoint, patterns) {
+    for (const pattern of patterns){
+        if (isCodePointInRanges(codePoint, pattern.ranges)) return pattern;
     }
-    return '';
+    return null;
+}
+function formatPatternDetail(char, codePoint, pattern) {
+    if (pattern == null ? void 0 : pattern.displayAsCodePoint) return formatCodePoint(codePoint);
+    return char;
+}
+function getScriptLabelByCodePoint(codePoint) {
+    const pattern = getPatternByCodePoint(codePoint, SUSPICIOUS_SCRIPT_PATTERNS);
+    return pattern ? pattern.label : '';
 }
 function extractInputHost(rawInput) {
     const input = String(rawInput || '').trim();
@@ -250,54 +419,94 @@ function buildHostVisualMarkup(hostname) {
     if (!host) return '—';
     const chunks = [];
     let buffer = '';
-    let activeLabel = '';
     const flushBuffer = ()=>{
         if (!buffer) return;
-        const escaped = escapeHTML(buffer);
-        if (activeLabel) {
-            const title = escapeHTML(activeLabel);
-            chunks.push(`<span class="${CLASS.breakdownSegment} ${CLASS.hostSegment} ${CLASS.hostSegmentSpecial}" title="${title}">${escaped}</span>`);
-        } else {
-            chunks.push(escaped);
-        }
+        chunks.push(escapeHTML(buffer));
         buffer = '';
-        activeLabel = '';
     };
     for (const char of host){
         const codePoint = char.codePointAt(0);
-        const label = codePoint === undefined ? '' : getScriptLabelByCodePoint(codePoint);
-        if (buffer && label !== activeLabel) flushBuffer();
-        if (!buffer) activeLabel = label;
-        buffer += char;
+        const pattern = codePoint === undefined ? null : getPatternByCodePoint(codePoint, HOST_SUSPICIOUS_CHARACTER_PATTERNS);
+        if (!pattern) {
+            buffer += char;
+            continue;
+        }
+        flushBuffer();
+        const title = escapeHTML(pattern.label);
+        const visibleChar = escapeHTML(formatPatternDetail(char, codePoint, pattern));
+        chunks.push(`<span class="${CLASS.breakdownSegment} ${CLASS.hostSegment} ${CLASS.hostSegmentSpecial}" title="${title}">${visibleChar}</span>`);
     }
     flushBuffer();
     return chunks.join('') || '—';
 }
-function detectSuspiciousScripts(text) {
-    const findings = SUSPICIOUS_SCRIPT_PATTERNS.map((pattern)=>({
-            label: pattern.label,
-            ranges: pattern.ranges,
-            count: 0,
-            chars: new Set()
-        }));
+function collectPatternFindings(text, patterns) {
+    const findingsByLabel = new Map(patterns.map((pattern)=>[
+            pattern.label,
+            _extends({}, pattern, {
+                count: 0,
+                details: new Set()
+            })
+        ]));
     for (const char of String(text || '')){
         const codePoint = char.codePointAt(0);
         if (codePoint === undefined) continue;
-        const scriptLabel = getScriptLabelByCodePoint(codePoint);
-        if (!scriptLabel) continue;
-        for (const finding of findings){
-            if (finding.label === scriptLabel) {
-                finding.count += 1;
-                finding.chars.add(char);
-                break;
-            }
+        const pattern = getPatternByCodePoint(codePoint, patterns);
+        if (!pattern) continue;
+        const finding = findingsByLabel.get(pattern.label);
+        if (!finding) continue;
+        finding.count += 1;
+        finding.details.add(formatPatternDetail(char, codePoint, pattern));
+    }
+    return Array.from(findingsByLabel.values()).filter((finding)=>finding.count > 0).map((finding)=>({
+            label: finding.label,
+            summary: finding.summary || `${finding.count} tecken hittades:`,
+            details: Array.from(finding.details).join(' ')
+        }));
+}
+function detectSuspiciousScripts(text) {
+    return collectPatternFindings(text, SUSPICIOUS_SCRIPT_PATTERNS);
+}
+function detectInvisibleCharacters(text) {
+    return collectPatternFindings(text, INVISIBLE_CHARACTER_PATTERNS);
+}
+function detectBidiControlCharacters(text) {
+    return collectPatternFindings(text, BIDI_CONTROL_PATTERNS);
+}
+function detectFullwidthCharacters(text) {
+    return collectPatternFindings(text, FULLWIDTH_CHARACTER_PATTERNS);
+}
+function getHostScriptLabelByCodePoint(codePoint) {
+    if (isCodePointInRanges(codePoint, LATIN_SCRIPT_RANGES)) return 'Latinska tecken';
+    return getScriptLabelByCodePoint(codePoint);
+}
+function detectMixedScriptHostname(hostname) {
+    const host = String(hostname || '').trim();
+    if (!host) return null;
+    const labels = host.split(/[.。｡．]/u).filter(Boolean);
+    const overallScripts = new Set();
+    const mixedLabels = [];
+    for (const label of labels){
+        const labelScripts = new Set();
+        for (const char of label){
+            if (/[\d-]/.test(char)) continue;
+            const codePoint = char.codePointAt(0);
+            if (codePoint === undefined) continue;
+            const scriptLabel = getHostScriptLabelByCodePoint(codePoint);
+            if (!scriptLabel) continue;
+            labelScripts.add(scriptLabel);
+            overallScripts.add(scriptLabel);
+        }
+        if (labelScripts.size > 1) {
+            mixedLabels.push(`${label}: ${Array.from(labelScripts).join(' + ')}`);
         }
     }
-    return findings.filter((finding)=>finding.count > 0).map((finding)=>({
-            label: finding.label,
-            count: finding.count,
-            chars: Array.from(finding.chars)
-        }));
+    if (overallScripts.size < 2) return null;
+    return {
+        label: 'Blandade alfabet i domänen',
+        summary: mixedLabels.length ? 'Ett eller flera domänled blandar flera alfabet:' : 'Domänen innehåller flera alfabet:',
+        details: mixedLabels.length ? mixedLabels.join(' | ') : Array.from(overallScripts).join(' + '),
+        detailsClassName: CLASS.muted
+    };
 }
 function renderScriptWarnings(findings) {
     if (!els.scriptWarningWrap || !els.scriptWarningList) return;
@@ -311,19 +520,23 @@ function renderScriptWarnings(findings) {
         const textWrap = document.createElement('span');
         const title = document.createElement('strong');
         const desc = document.createElement('span');
-        const chars = document.createElement('span');
+        const details = document.createElement('span');
         item.className = `${CLASS.breakdownItem} o-url-checker__script-item`;
         textWrap.className = 'o-url-checker__script-text';
         title.textContent = finding.label;
         desc.className = CLASS.muted;
-        desc.textContent = `${finding.count} tecken hittades:`;
-        chars.className = 'o-url-checker__inlinecode';
-        chars.textContent = finding.chars.join(' ');
+        desc.textContent = finding.summary || '';
+        details.className = finding.detailsClassName || 'o-url-checker__inlinecode';
+        details.textContent = finding.details || '';
         textWrap.appendChild(title);
-        textWrap.appendChild(document.createElement('br'));
-        textWrap.appendChild(desc);
-        textWrap.appendChild(document.createElement('br'));
-        textWrap.appendChild(chars);
+        if (desc.textContent) {
+            textWrap.appendChild(document.createElement('br'));
+            textWrap.appendChild(desc);
+        }
+        if (details.textContent) {
+            textWrap.appendChild(document.createElement('br'));
+            textWrap.appendChild(details);
+        }
         item.appendChild(textWrap);
         els.scriptWarningList.appendChild(item);
     }
@@ -648,9 +861,31 @@ function render(rawInput) {
         return;
     }
     const focusHost = displayDomain && displayTld && displayTld !== '(IP)' ? `${displayDomain}.${displayTld}` : displayRegistrable || '—';
-    const hostHasSpecialScripts = detectSuspiciousScripts(displayHost).length > 0;
-    setHostSpecialBoxesVisibility(hostHasSpecialScripts);
-    if (hostHasSpecialScripts) {
+    const invisibleWarnings = detectInvisibleCharacters(parsed.raw);
+    const bidiWarnings = detectBidiControlCharacters(parsed.raw);
+    const fullwidthWarnings = detectFullwidthCharacters(parsed.raw);
+    const suspiciousScripts = detectSuspiciousScripts(parsed.raw);
+    const mixedScriptHostWarning = detectMixedScriptHostname(displayHost);
+    const urlWarnings = [
+        ...invisibleWarnings,
+        ...bidiWarnings,
+        ...fullwidthWarnings,
+        ...suspiciousScripts,
+        ...mixedScriptHostWarning ? [
+            mixedScriptHostWarning
+        ] : []
+    ];
+    const hostWarnings = [
+        ...detectInvisibleCharacters(displayHost),
+        ...detectBidiControlCharacters(displayHost),
+        ...detectFullwidthCharacters(displayHost),
+        ...detectSuspiciousScripts(displayHost),
+        ...mixedScriptHostWarning ? [
+            mixedScriptHostWarning
+        ] : []
+    ];
+    setHostSpecialBoxesVisibility(hostWarnings.length > 0);
+    if (hostWarnings.length) {
         setSafeMarkup(els.focusHost, buildHostVisualMarkup(displayHost));
         safeText(els.focusHostNormalized, u.hostname || '—');
     }
@@ -684,9 +919,12 @@ function render(rawInput) {
     if (parsed.raw.includes('@') && !u.username && !u.password) addSignal('Innehåller @ (kan vara vilseledande)', 'warn');
     if (u.hostname.startsWith('xn--') || u.hostname.includes('.xn--')) addSignal('Punycode (IDN) i domän', 'warn');
     if (subdomain && subdomain.split('.').length >= 3) addSignal('Många subdomäner', 'warn');
-    const suspiciousScripts = detectSuspiciousScripts(parsed.raw);
-    renderScriptWarnings(suspiciousScripts);
+    renderScriptWarnings(urlWarnings);
+    if (invisibleWarnings.length) addSignal('Osynliga tecken i länken', 'danger');
+    if (bidiWarnings.length) addSignal('Bidi-styrtecken i länken', 'danger');
+    if (fullwidthWarnings.length) addSignal('Fullbreddstecken i länken', 'warn');
     if (suspiciousScripts.length) addSignal('Tecken från andra alfabet i URL:en', 'danger');
+    if (mixedScriptHostWarning) addSignal('Blandade alfabet i domänen', 'danger');
     const qp = new URLSearchParams(u.search);
     const qpCount = Array.from(qp.keys()).length;
     if (qpCount === 0) addSignal('Inga parametrar', 'good');
