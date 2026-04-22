@@ -112,12 +112,12 @@ const BREAKDOWN_PARTS = [
 	},
 	{
 		key: 'query',
-		label: 'Query',
+		label: 'Parametrar',
 		desc: '?a=b',
 	},
 	{
 		key: 'hash',
-		label: 'Fragment',
+		label: 'Ankare',
 		desc: '#sektion',
 	},
 ];
@@ -803,10 +803,10 @@ function render(rawInput) {
 
 	const qp = new URLSearchParams(u.search);
 	const qpCount = Array.from(qp.keys()).length;
-	if (qpCount === 0) addSignal('Inga query-parametrar', 'good');
+	if (qpCount === 0) addSignal('Inga parametrar', 'good');
 	else if (qpCount >= 6)
-		addSignal(`Många query-parametrar (${qpCount})`, 'warn');
-	else addSignal(`Query-parametrar: ${qpCount}`, 'neutral');
+		addSignal(`Många parametrar (${qpCount})`, 'warn');
+	else addSignal(`Parametrar: ${qpCount}`, 'neutral');
 
 	// Outputs
 	safeText(els.outProtocol, u.protocol ? `${u.protocol}//` : '—');

@@ -8,7 +8,7 @@
 	<h2>Så använder du detta mot bedrägerilänkar</h2>
 	<ul>
 		<li>
-			Kontrollera att <strong>domän + toppdomän</strong> stämmer (t.ex. <span class="o-url-checker__inlinecode">bank.se</span>).
+			Kontrollera att <strong>domän + toppdomän</strong> stämmer (t.ex. <strong>bank.se</strong>).
 		</li>
 		<li>
 			Var skeptisk om subdomänen innehåller <code>secure</code>, <code>login</code>, <code>verify</code> – det kan vara vilseledande.
@@ -22,7 +22,7 @@
 	<section class="o-url-checker__box u-m-b-default">
 		<div class="o-url-checker__box__header">
 			<p class="u-m-b-0 o-url-checker__muted">
-				Exempel: <span class="o-url-checker__inlinecode">https://microsoft.com/path/to/page?utm_source=x#newsletter</span>
+				Exempel: <strong>https://microsoft.com/path/to/page?utm_source=x#newsletter</strong>
 			</p>
 		</div>
 
@@ -120,7 +120,7 @@
 				<div class="o-url-checker__box__header">
 					<h3 class="u-m-b-0">Protokoll</h3>
 					<p class="u-m-b-0 o-url-checker__muted">
-						Anger hur din webbläsare ska ansluta. <span class="o-url-checker__inlinecode">https://</span> innebär
+						Anger hur din webbläsare ska ansluta. <strong>https://</strong> innebär
 						krypterad anslutning.
 					</p>
 				</div>
@@ -133,7 +133,7 @@
 				<div class="o-url-checker__box__header">
 					<h3 class="u-m-b-0">Inloggningsuppgifter</h3>
 					<p class="u-m-b-0 o-url-checker__muted">
-						Användarnamn och lösenord i URL:en (t.ex. <span class="o-url-checker__inlinecode">user:password@</span>).<br>
+						Användarnamn och lösenord i URL:en (t.ex. <strong>user:password@</strong>).<br>
 						<strong>Varning:</strong> Detta är osäkert och kan vara ett tecken på phishing.
 					</p>
 				</div>
@@ -147,7 +147,7 @@
 				<div class="o-url-checker__box__header">
 					<h3 class="u-m-b-0">Subdomän</h3>
 					<p class="u-m-b-0 o-url-checker__muted">
-						Del före domänen (t.ex. <span class="o-url-checker__inlinecode">www</span>,
+						Del före domänen (t.ex. <strong>www</strong>,
 						<span class="o-url-checker__inlinecode">login</span>). Kan användas vilseledande.
 					</p>
 				</div>
@@ -160,7 +160,7 @@
 				<div class="o-url-checker__box__header">
 					<h3 class="u-m-b-0">Domän</h3>
 					<p class="u-m-b-0 o-url-checker__muted">
-						Den registrerade "huvudadressen" (t.ex. <span class="o-url-checker__inlinecode">microsoft</span>). Ofta
+						Den registrerade "huvudadressen" (t.ex. <strong>microsoft</strong>). Ofta
 						viktigast för att se <em>vem</em> länken går till.
 					</p>
 				</div>
@@ -172,11 +172,9 @@
 
 			<div class="o-url-checker__box o-url-checker__box--lemon" id="tldBox">
 				<div class="o-url-checker__box__header">
-					<h3 class="u-m-b-0">Toppdomän (Top Level Domain)</h3>
+					<h3 class="u-m-b-0">Toppdomän <span class="u-weight-normal">(Top Level Domain)</span></h3>
 					<p class="u-m-b-0 o-url-checker__muted">
-						Sista delen av domänen (t.ex. <span class="o-url-checker__inlinecode">.se</span>, <span class="o-url-checker__inlinecode"
-					>.com</span
-					>).
+						Sista delen av domänen (t.ex. <strong>.se</strong>, <strong>.com</strong>).
 					</p>
 				</div>
 				<div class="o-url-checker__box__body o-url-checker__kv">
@@ -186,9 +184,9 @@
 
 			<div class="o-url-checker__box o-url-checker__box--lemon" id="pathBox">
 				<div class="o-url-checker__box__header">
-					<h3 class="u-m-b-0">Sökväg (/mapp/sida)</h3>
+					<h3 class="u-m-b-0">Sökväg <span class="u-weight-normal">(/mapp/sida)</span></h3>
 					<p class="u-m-b-0 o-url-checker__muted">
-						Delarna efter domänen (t.ex. <span class="o-url-checker__inlinecode">/konto/inloggning</span>).
+						Delarna efter domänen (t.ex. <strong>/konto/inloggning</strong>).
 					</p>
 				</div>
 				<div class="o-url-checker__box__body o-url-checker__kv">
@@ -199,10 +197,10 @@
 
 			<div class="o-url-checker__box o-url-checker__box--lemon" id="queryBox">
 				<div class="o-url-checker__box__header">
-					<h3 class="u-m-b-0">Query-parametrar</h3>
+					<h3 class="u-m-b-0">Parametrar</h3>
 					<p class="u-m-b-0 o-url-checker__muted">
-						Del efter <span class="o-url-checker__inlinecode">?</span> som skickar extra data (t.ex.
-						<span class="o-url-checker__inlinecode">utm_*</span>).
+						Del efter <strong>?</strong> som skickar extra data (t.ex.
+						<strong>utm_*</strong>). Kallas även <strong>query-parameter</strong>.
 					</p>
 				</div>
 				<div class="o-url-checker__box__body o-url-checker__kv">
@@ -216,9 +214,9 @@
 
 			<div class="o-url-checker__box o-url-checker__box--lemon" id="hashBox">
 				<div class="o-url-checker__box__header">
-					<h3 class="u-m-b-0">Fragment (#)</h3>
+					<h3 class="u-m-b-0">Ankare (#)</h3>
 					<p class="u-m-b-0 o-url-checker__muted">
-						Del efter <span class="o-url-checker__inlinecode">#</span> som ofta hoppar till en sektion på sidan.
+						Del efter <strong>#</strong> som ofta hoppar till en sektion på sidan.
 					</p>
 				</div>
 				<div class="o-url-checker__box__body o-url-checker__kv">
