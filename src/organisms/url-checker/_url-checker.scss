@@ -10,6 +10,11 @@
 		max-width: 60ch;
 	}
 
+	@include bem.e(fact) {
+		min-width: 433px;
+		margin-left: func.rhythm(2);
+	}
+
 	@include bem.e(actions) {
 		display: flex;
 		gap: func.rhythm(1);
