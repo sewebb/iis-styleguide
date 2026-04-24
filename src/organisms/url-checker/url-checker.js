@@ -529,10 +529,10 @@ function detectMixedScriptHostname(hostname) {
 	if (overallScripts.size < 2) return null;
 
 	return {
-		label: 'Blandade alfabet i domänen',
+		label: 'Blandade teckenuppsättningar i domänen',
 		summary: mixedLabels.length
-			? 'Ett eller flera domänled blandar flera alfabet:'
-			: 'Domänen innehåller flera alfabet:',
+			? 'Ett eller flera domänled blandar flera teckenuppsättningar:'
+			: 'Domänen innehåller flera teckenuppsättningar:',
 		details: mixedLabels.length
 			? mixedLabels.join(' | ')
 			: Array.from(overallScripts).join(' + '),
@@ -1077,9 +1077,9 @@ function render(rawInput) {
 	if (fullwidthWarnings.length)
 		addSignal('Fullbreddstecken i länken', 'warn');
 	if (suspiciousScripts.length)
-		addSignal('Tecken från andra alfabet i URL:en', 'danger');
+		addSignal('Tecken från andra teckenuppsättningar i URL:en', 'danger');
 	if (mixedScriptHostWarning)
-		addSignal('Blandade alfabet i domänen', 'danger');
+		addSignal('Blandade teckenuppsättningar i domänen', 'danger');
 
 	const qp = new URLSearchParams(u.search);
 	const qpCount = Array.from(qp.keys()).length;
