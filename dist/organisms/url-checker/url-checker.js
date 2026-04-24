@@ -638,6 +638,15 @@ function buildHostVisualMarkup(hostname) {
     flushBuffer();
     return chunks.join('') || '—';
 }
+function hasVisibleHostMarkup(hostname) {
+    const host = String(hostname || '').trim();
+    if (!host) return false;
+    return Array.from(host).some((char)=>{
+        const codePoint = char.codePointAt(0);
+        if (codePoint === undefined) return false;
+        return Boolean(getPatternByCodePoint(codePoint, HOST_ALWAYS_VISIBLE_CHARACTER_PATTERNS) || getPatternByCodePoint(codePoint, FULLWIDTH_CHARACTER_PATTERNS) || getLatinLookalikeCharacter(char));
+    });
+}
 function collectPatternFindings(text, patterns) {
     const findingsByLabel = new Map(patterns.map((pattern)=>[
             pattern.label,
@@ -841,9 +850,9 @@ function setInputErrorAccessibility(hasError) {
     setDescribedByToken(els.urlInput, 'results', true);
     setDescribedByToken(els.urlInput, 'urlInputHelp', hasError);
 }
-function setHostSpecialBoxesVisibility(show) {
-    if (els.focusHostBox) els.focusHostBox.hidden = !show;
-    if (els.focusHostNormalizedBox) els.focusHostNormalizedBox.hidden = !show;
+function setHostSpecialBoxesVisibility(showHostBox, showNormalizedBox = showHostBox) {
+    if (els.focusHostBox) els.focusHostBox.hidden = !showHostBox;
+    if (els.focusHostNormalizedBox) els.focusHostNormalizedBox.hidden = !showNormalizedBox;
 }
 function setVisibleState({ hasResults, errorMessage = '' }) {
     const message = (errorMessage || '').trim();
@@ -1195,9 +1204,13 @@ function render(rawInput) {
             mixedScriptHostWarning
         ] : []
     ];
-    setHostSpecialBoxesVisibility(hostWarnings.length > 0);
-    if (hostWarnings.length) {
+    const showHostMarkupBox = hasVisibleHostMarkup(displayHost);
+    const showNormalizedHostBox = hostWarnings.length > 0;
+    setHostSpecialBoxesVisibility(showHostMarkupBox, showNormalizedHostBox);
+    if (showHostMarkupBox) {
         setSafeMarkup(els.focusHost, buildHostVisualMarkup(displayHost));
+    }
+    if (showNormalizedHostBox) {
         safeText(els.focusHostNormalized, u.hostname || '—');
     }
     safeText(els.focusRegistrable, focusHost);
