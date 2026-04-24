@@ -148,6 +148,7 @@ const PART_BOX_MAP = {
 const SUSPICIOUS_SCRIPT_PATTERNS = [
 	{
 		label: 'Kyrilliska tecken',
+		tone: 'warn',
 		ranges: [
 			[0x0400, 0x04ff],
 			[0x0500, 0x052f],
@@ -158,10 +159,12 @@ const SUSPICIOUS_SCRIPT_PATTERNS = [
 	},
 	{
 		label: 'Armeniska tecken',
+		tone: 'warn',
 		ranges: [[0x0530, 0x058f]],
 	},
 	{
 		label: 'Grekiska tecken',
+		tone: 'warn',
 		ranges: [
 			[0x0370, 0x03ff],
 			[0x1f00, 0x1fff],
@@ -169,10 +172,12 @@ const SUSPICIOUS_SCRIPT_PATTERNS = [
 	},
 	{
 		label: 'Hebreiska tecken',
+		tone: 'warn',
 		ranges: [[0x0590, 0x05ff]],
 	},
 	{
 		label: 'Thailändska tecken',
+		tone: 'warn',
 		ranges: [[0x0e00, 0x0e7f]],
 	},
 ];
@@ -180,6 +185,7 @@ const SUSPICIOUS_SCRIPT_PATTERNS = [
 const INVISIBLE_CHARACTER_PATTERNS = [
 	{
 		label: 'Osynliga tecken',
+		tone: 'danger',
 		ranges: [
 			[0x00ad, 0x00ad],
 			[0x200b, 0x200d],
@@ -194,6 +200,7 @@ const INVISIBLE_CHARACTER_PATTERNS = [
 const BIDI_CONTROL_PATTERNS = [
 	{
 		label: 'Bidi-styrtecken',
+		tone: 'danger',
 		ranges: [
 			[0x061c, 0x061c],
 			[0x200e, 0x200f],
@@ -208,6 +215,7 @@ const BIDI_CONTROL_PATTERNS = [
 const FULLWIDTH_CHARACTER_PATTERNS = [
 	{
 		label: 'Fullbreddstecken',
+		tone: 'warn',
 		ranges: [
 			[0x3000, 0x3000],
 			[0x3002, 0x3002],
@@ -747,6 +755,7 @@ function collectPatternFindings(text, patterns) {
 			label: finding.label,
 			summary: finding.summary || `${finding.count} tecken hittades:`,
 			details: Array.from(finding.details).join(' '),
+			tone: finding.tone || 'danger',
 		}));
 }
 
@@ -810,6 +819,7 @@ function detectMixedScriptHostname(hostname) {
 			'Ett eller flera domänled blandar flera teckenuppsättningar, vilket kan göra tecken lättare att förväxla:',
 		details: mixedLabels.join(' | '),
 		detailsClassName: CLASS.muted,
+		tone: 'danger',
 	};
 }
 
@@ -831,6 +841,13 @@ function renderScriptWarnings(findings) {
 		const details = document.createElement('span');
 
 		item.className = `${CLASS.breakdownItem} ${className('o-url-checker__script-item')}`;
+		item.classList.add(
+			className(
+				finding.tone === 'danger'
+					? 'o-url-checker__script-item--danger'
+					: 'o-url-checker__script-item--warn',
+			),
+		);
 		textWrap.className = className('o-url-checker__script-text');
 		title.textContent = finding.label;
 		desc.className = CLASS.muted;
@@ -1474,7 +1491,7 @@ function render(rawInput) {
 	if (parsed.raw.includes('@') && !u.username && !u.password)
 		addSignal('Innehåller @ (kan vara vilseledande)', 'warn');
 	if (u.hostname.startsWith('xn--') || u.hostname.includes('.xn--'))
-		addSignal('Punycode (IDN) i domän', 'warn');
+		addSignal('IDN-domän', 'warn');
 	if (subdomain && subdomain.split('.').length >= 3)
 		addSignal('Många subdomäner', 'warn');
 	renderScriptWarnings(boxWarnings);
@@ -1485,7 +1502,7 @@ function render(rawInput) {
 	if (fullwidthWarnings.length)
 		addSignal('Fullbreddstecken i länken', 'warn');
 	if (nonLatinHostWarnings.length)
-		addSignal('Tecken från andra teckenuppsättningar i domänen', 'danger');
+		addSignal('Icke-latinska tecken i domänen', 'warn');
 	if (mixedScriptHostWarning)
 		addSignal('Blandade teckenuppsättningar i domänen', 'danger');
 

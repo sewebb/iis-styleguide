@@ -130,13 +130,25 @@
 		}
 	}
 
-		@include bem.e(script-item) {
+	@include bem.e(script-item) {
+		&.#{var.$namespace}o-url-checker__breakdown__item {
+			flex-grow: 0;
+			cursor: default;
+			pointer-events: none;
+		}
+
+		@include bem.m(warn) {
 			&.#{var.$namespace}o-url-checker__breakdown__item {
-				flex-grow: 0;
-				cursor: default;
-				pointer-events: none;
+				border-color: colors.$color-lemon-medium-dark;
+				background: colors.$color-lemon-lighter;
+			}
+		}
+
+		@include bem.m(danger) {
+			&.#{var.$namespace}o-url-checker__breakdown__item {
 				border-color: colors.$color-ruby;
 				background: colors.$color-ruby-lighter;
+			}
 		}
 	}
 

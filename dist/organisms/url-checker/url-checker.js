@@ -159,6 +159,7 @@ const PART_BOX_MAP = {
 const SUSPICIOUS_SCRIPT_PATTERNS = [
     {
         label: 'Kyrilliska tecken',
+        tone: 'warn',
         ranges: [
             [
                 0x0400,
@@ -184,6 +185,7 @@ const SUSPICIOUS_SCRIPT_PATTERNS = [
     },
     {
         label: 'Armeniska tecken',
+        tone: 'warn',
         ranges: [
             [
                 0x0530,
@@ -193,6 +195,7 @@ const SUSPICIOUS_SCRIPT_PATTERNS = [
     },
     {
         label: 'Grekiska tecken',
+        tone: 'warn',
         ranges: [
             [
                 0x0370,
@@ -206,6 +209,7 @@ const SUSPICIOUS_SCRIPT_PATTERNS = [
     },
     {
         label: 'Hebreiska tecken',
+        tone: 'warn',
         ranges: [
             [
                 0x0590,
@@ -215,6 +219,7 @@ const SUSPICIOUS_SCRIPT_PATTERNS = [
     },
     {
         label: 'Thailändska tecken',
+        tone: 'warn',
         ranges: [
             [
                 0x0e00,
@@ -226,6 +231,7 @@ const SUSPICIOUS_SCRIPT_PATTERNS = [
 const INVISIBLE_CHARACTER_PATTERNS = [
     {
         label: 'Osynliga tecken',
+        tone: 'danger',
         ranges: [
             [
                 0x00ad,
@@ -251,6 +257,7 @@ const INVISIBLE_CHARACTER_PATTERNS = [
 const BIDI_CONTROL_PATTERNS = [
     {
         label: 'Bidi-styrtecken',
+        tone: 'danger',
         ranges: [
             [
                 0x061c,
@@ -276,6 +283,7 @@ const BIDI_CONTROL_PATTERNS = [
 const FULLWIDTH_CHARACTER_PATTERNS = [
     {
         label: 'Fullbreddstecken',
+        tone: 'warn',
         ranges: [
             [
                 0x3000,
@@ -737,7 +745,8 @@ function collectPatternFindings(text, patterns) {
     return Array.from(findingsByLabel.values()).filter((finding)=>finding.count > 0).map((finding)=>({
             label: finding.label,
             summary: finding.summary || `${finding.count} tecken hittades:`,
-            details: Array.from(finding.details).join(' ')
+            details: Array.from(finding.details).join(' '),
+            tone: finding.tone || 'danger'
         }));
 }
 function detectSuspiciousScripts(text) {
@@ -780,7 +789,8 @@ function detectMixedScriptHostname(hostname) {
         label: 'Blandade teckenuppsättningar i domänen',
         summary: 'Ett eller flera domänled blandar flera teckenuppsättningar, vilket kan göra tecken lättare att förväxla:',
         details: mixedLabels.join(' | '),
-        detailsClassName: CLASS.muted
+        detailsClassName: CLASS.muted,
+        tone: 'danger'
     };
 }
 function renderScriptWarnings(findings) {
@@ -797,6 +807,7 @@ function renderScriptWarnings(findings) {
         const desc = document.createElement('span');
         const details = document.createElement('span');
         item.className = `${CLASS.breakdownItem} ${(0, _className.default)('o-url-checker__script-item')}`;
+        item.classList.add((0, _className.default)(finding.tone === 'danger' ? 'o-url-checker__script-item--danger' : 'o-url-checker__script-item--warn'));
         textWrap.className = (0, _className.default)('o-url-checker__script-text');
         title.textContent = finding.label;
         desc.className = CLASS.muted;
@@ -1306,7 +1317,7 @@ function render(rawInput) {
     if (invisibleWarnings.length) addSignal('Osynliga tecken i länken', 'danger');
     if (bidiWarnings.length) addSignal('Bidi-styrtecken i länken', 'danger');
     if (fullwidthWarnings.length) addSignal('Fullbreddstecken i länken', 'warn');
-    if (nonLatinHostWarnings.length) addSignal('Tecken från andra teckenuppsättningar i domänen', 'danger');
+    if (nonLatinHostWarnings.length) addSignal('Icke-latinska tecken i domänen', 'warn');
     if (mixedScriptHostWarning) addSignal('Blandade teckenuppsättningar i domänen', 'danger');
     const qp = new URLSearchParams(u.search);
     const qpCount = Array.from(qp.keys()).length;
