@@ -823,6 +823,15 @@ function detectMixedScriptHostname(hostname) {
 	};
 }
 
+function getSeverityAriaExplanation(tone) {
+	if (tone === 'good') return 'Bra. Inget uppenbart problem syns här.';
+	if (tone === 'warn')
+		return 'Information. Här kan det vara bra att vara uppmärksam.';
+	if (tone === 'danger')
+		return 'Varning. Det här kan vara vilseledande eller riskfyllt.';
+	return '';
+}
+
 function renderScriptWarnings(findings) {
 	if (!els.scriptWarningWrap || !els.scriptWarningList) return;
 
@@ -847,6 +856,11 @@ function renderScriptWarnings(findings) {
 					? 'o-url-checker__script-item--danger'
 					: 'o-url-checker__script-item--warn',
 			),
+		);
+		item.setAttribute('role', 'note');
+		item.setAttribute(
+			'aria-label',
+			`${finding.label}. ${getSeverityAriaExplanation(finding.tone)}`,
 		);
 		textWrap.className = className('o-url-checker__script-text');
 		title.textContent = finding.label;
@@ -940,6 +954,12 @@ function addSignal(text, kind = 'neutral') {
 	if (kind === 'good') pill.classList.add(CLASS.pillGood);
 	if (kind === 'warn') pill.classList.add(CLASS.pillWarn);
 	if (kind === 'danger') pill.classList.add(CLASS.pillDanger);
+	if (kind !== 'neutral') {
+		pill.setAttribute(
+			'aria-label',
+			`${text}. ${getSeverityAriaExplanation(kind)}`,
+		);
+	}
 
 	pillText.textContent = text;
 	pill.appendChild(pillText);
@@ -981,6 +1001,16 @@ function setVisibleState({ hasResults, errorMessage = '' }) {
 	const message = (errorMessage || '').trim();
 	const hasError = Boolean(message);
 	if (els.urlInputHelp) els.urlInputHelp.textContent = message;
+	if (els.inputHint) {
+		if (hasError) {
+			els.inputHint.setAttribute(
+				'aria-label',
+				`Varning. Kontrollera länken en gång till. ${message}`,
+			);
+		} else {
+			els.inputHint.removeAttribute('aria-label');
+		}
+	}
 	setInputErrorAccessibility(hasError);
 	els.results.hidden = !hasResults;
 	els.emptyState.style.display = hasResults ? 'none' : '';
@@ -1508,10 +1538,9 @@ function render(rawInput) {
 
 	const qp = new URLSearchParams(u.search);
 	const qpCount = Array.from(qp.keys()).length;
-	if (qpCount === 0) addSignal('Inga parametrar', 'good');
-	else if (qpCount >= 6)
+	if (qpCount >= 6)
 		addSignal(`Många parametrar (${qpCount})`, 'warn');
-	else addSignal(`Parametrar: ${qpCount}`, 'neutral');
+	else if (qpCount > 0) addSignal(`Parametrar: ${qpCount}`, 'neutral');
 
 	// Outputs
 	safeText(els.outProtocol, u.protocol ? `${u.protocol}//` : '—');

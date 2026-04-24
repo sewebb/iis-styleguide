@@ -793,6 +793,12 @@ function detectMixedScriptHostname(hostname) {
         tone: 'danger'
     };
 }
+function getSeverityAriaExplanation(tone) {
+    if (tone === 'good') return 'Bra. Inget uppenbart problem syns här.';
+    if (tone === 'warn') return 'Information. Här kan det vara bra att vara uppmärksam.';
+    if (tone === 'danger') return 'Varning. Det här kan vara vilseledande eller riskfyllt.';
+    return '';
+}
 function renderScriptWarnings(findings) {
     if (!els.scriptWarningWrap || !els.scriptWarningList) return;
     els.scriptWarningList.innerHTML = '';
@@ -808,6 +814,8 @@ function renderScriptWarnings(findings) {
         const details = document.createElement('span');
         item.className = `${CLASS.breakdownItem} ${(0, _className.default)('o-url-checker__script-item')}`;
         item.classList.add((0, _className.default)(finding.tone === 'danger' ? 'o-url-checker__script-item--danger' : 'o-url-checker__script-item--warn'));
+        item.setAttribute('role', 'note');
+        item.setAttribute('aria-label', `${finding.label}. ${getSeverityAriaExplanation(finding.tone)}`);
         textWrap.className = (0, _className.default)('o-url-checker__script-text');
         title.textContent = finding.label;
         desc.className = CLASS.muted;
@@ -906,6 +914,9 @@ function addSignal(text, kind = 'neutral') {
     if (kind === 'good') pill.classList.add(CLASS.pillGood);
     if (kind === 'warn') pill.classList.add(CLASS.pillWarn);
     if (kind === 'danger') pill.classList.add(CLASS.pillDanger);
+    if (kind !== 'neutral') {
+        pill.setAttribute('aria-label', `${text}. ${getSeverityAriaExplanation(kind)}`);
+    }
     pillText.textContent = text;
     pill.appendChild(pillText);
     els.signals.appendChild(pill);
@@ -937,6 +948,13 @@ function setVisibleState({ hasResults, errorMessage = '' }) {
     const message = (errorMessage || '').trim();
     const hasError = Boolean(message);
     if (els.urlInputHelp) els.urlInputHelp.textContent = message;
+    if (els.inputHint) {
+        if (hasError) {
+            els.inputHint.setAttribute('aria-label', `Varning. Kontrollera länken en gång till. ${message}`);
+        } else {
+            els.inputHint.removeAttribute('aria-label');
+        }
+    }
     setInputErrorAccessibility(hasError);
     els.results.hidden = !hasResults;
     els.emptyState.style.display = hasResults ? 'none' : '';
@@ -1311,7 +1329,7 @@ function render(rawInput) {
     if (ipAddressType === 'ipv6') addSignal('Värd är en IPv6-adress', 'warn');
     if (u.username || u.password) addSignal('Inloggningsdel i URL (user:pass@)', 'danger');
     if (parsed.raw.includes('@') && !u.username && !u.password) addSignal('Innehåller @ (kan vara vilseledande)', 'warn');
-    if (u.hostname.startsWith('xn--') || u.hostname.includes('.xn--')) addSignal('Punycode (IDN) i domän', 'warn');
+    if (u.hostname.startsWith('xn--') || u.hostname.includes('.xn--')) addSignal('IDN-domän', 'warn');
     if (subdomain && subdomain.split('.').length >= 3) addSignal('Många subdomäner', 'warn');
     renderScriptWarnings(boxWarnings);
     if (invisibleWarnings.length) addSignal('Osynliga tecken i länken', 'danger');
@@ -1321,9 +1339,8 @@ function render(rawInput) {
     if (mixedScriptHostWarning) addSignal('Blandade teckenuppsättningar i domänen', 'danger');
     const qp = new URLSearchParams(u.search);
     const qpCount = Array.from(qp.keys()).length;
-    if (qpCount === 0) addSignal('Inga parametrar', 'good');
-    else if (qpCount >= 6) addSignal(`Många parametrar (${qpCount})`, 'warn');
-    else addSignal(`Parametrar: ${qpCount}`, 'neutral');
+    if (qpCount >= 6) addSignal(`Många parametrar (${qpCount})`, 'warn');
+    else if (qpCount > 0) addSignal(`Parametrar: ${qpCount}`, 'neutral');
     // Outputs
     safeText(els.outProtocol, u.protocol ? `${u.protocol}//` : '—');
     safeText(els.outUsername, u.username || '—');
