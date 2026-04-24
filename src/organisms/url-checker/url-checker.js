@@ -14,8 +14,6 @@ const els = {
 	signals: document.getElementById('signals'),
 	focusHost: document.getElementById('focusHost'),
 	focusHostBox: document.getElementById('focusHostBox'),
-	focusHostNormalized: document.getElementById('focusHostNormalized'),
-	focusHostNormalizedBox: document.getElementById('focusHostNormalizedBox'),
 	focusRegistrable: document.getElementById('focusRegistrable'),
 	scriptWarningWrap: document.getElementById('scriptWarningWrap'),
 	scriptWarningList: document.getElementById('scriptWarningList'),
@@ -325,6 +323,17 @@ const CONTROL_CHARACTER_LABELS = {
 	0x007f: 'DELETE',
 };
 
+const PUNYCODE = {
+	base: 36,
+	tMin: 1,
+	tMax: 26,
+	skew: 38,
+	damp: 700,
+	initialBias: 72,
+	initialN: 128,
+	delimiter: '-',
+};
+
 const SPECIAL_CODE_POINT_LABELS = {
 	0x00ad: 'SOFT HYPHEN',
 	0x200b: 'ZERO WIDTH SPACE',
@@ -424,6 +433,102 @@ function getPatternByCodePoint(codePoint, patterns) {
 function formatPatternDetail(char, codePoint, pattern) {
 	if (pattern?.displayAsCodePoint) return formatCodePoint(codePoint);
 	return char;
+}
+
+function getPunycodeDigit(char) {
+	const codePoint = char.codePointAt(0);
+	if (codePoint === undefined) return PUNYCODE.base;
+	if (codePoint >= 0x30 && codePoint <= 0x39) return codePoint - 22;
+	if (codePoint >= 0x41 && codePoint <= 0x5a) return codePoint - 65;
+	if (codePoint >= 0x61 && codePoint <= 0x7a) return codePoint - 97;
+	return PUNYCODE.base;
+}
+
+function adaptPunycodeBias(delta, numPoints, firstTime) {
+	let nextDelta = firstTime
+		? Math.floor(delta / PUNYCODE.damp)
+		: Math.floor(delta / 2);
+
+	nextDelta += Math.floor(nextDelta / numPoints);
+
+	let k = 0;
+	const baseMinusTMin = PUNYCODE.base - PUNYCODE.tMin;
+	const threshold = Math.floor((baseMinusTMin * PUNYCODE.tMax) / 2);
+
+	while (nextDelta > threshold) {
+		nextDelta = Math.floor(nextDelta / baseMinusTMin);
+		k += PUNYCODE.base;
+	}
+
+	return (
+		k
+		+ Math.floor(
+			((baseMinusTMin + 1) * nextDelta) / (nextDelta + PUNYCODE.skew),
+		)
+	);
+}
+
+function decodePunycodeLabel(label) {
+	const input = String(label || '');
+	if (!/^xn--/i.test(input)) return input;
+
+	const encoded = input.slice(4);
+	const output = [];
+	let index = 0;
+	let i = 0;
+	let n = PUNYCODE.initialN;
+	let bias = PUNYCODE.initialBias;
+
+	const basicIndex = encoded.lastIndexOf(PUNYCODE.delimiter);
+	if (basicIndex >= 0) {
+		output.push(...encoded.slice(0, basicIndex));
+		index = basicIndex + 1;
+	}
+
+	while (index < encoded.length) {
+		const oldI = i;
+		let w = 1;
+
+		for (let k = PUNYCODE.base; ; k += PUNYCODE.base) {
+			if (index >= encoded.length) return input;
+
+			const digit = getPunycodeDigit(encoded[index]);
+			index += 1;
+
+			if (digit >= PUNYCODE.base) return input;
+			i += digit * w;
+
+			const t =
+				k <= bias
+					? PUNYCODE.tMin
+					: k >= bias + PUNYCODE.tMax
+						? PUNYCODE.tMax
+						: k - bias;
+
+			if (digit < t) break;
+			w *= PUNYCODE.base - t;
+		}
+
+		const outputLength = output.length + 1;
+		bias = adaptPunycodeBias(i - oldI, outputLength, oldI === 0);
+		n += Math.floor(i / outputLength);
+		i %= outputLength;
+		output.splice(i, 0, String.fromCodePoint(n));
+		i += 1;
+	}
+
+	return output.join('');
+}
+
+function toUnicodeHost(hostname) {
+	const host = String(hostname || '').trim();
+	if (!host || looksLikeIPAddress(host)) return formatIPAddress(host);
+
+	return host
+		.split(/[.。｡．]/u)
+		.filter(Boolean)
+		.map((label) => decodePunycodeLabel(label))
+		.join('.');
 }
 
 function getCodePointLabel(codePoint, fallbackLabel = '') {
@@ -851,9 +956,8 @@ function setInputErrorAccessibility(hasError) {
 	setDescribedByToken(els.urlInput, 'urlInputHelp', hasError);
 }
 
-function setHostSpecialBoxesVisibility(showHostBox, showNormalizedBox = showHostBox) {
+function setHostSpecialBoxesVisibility(showHostBox) {
 	if (els.focusHostBox) els.focusHostBox.hidden = !showHostBox;
-	if (els.focusHostNormalizedBox) els.focusHostNormalizedBox.hidden = !showNormalizedBox;
 }
 
 function setVisibleState({ hasResults, errorMessage = '' }) {
@@ -1276,7 +1380,8 @@ function render(rawInput) {
 		u.hostname,
 	);
 	const inputHost = extractInputHost(parsed.raw);
-	const displayHost = formatIPAddress(inputHost || u.hostname || '');
+	const rawDisplayHost = formatIPAddress(inputHost || u.hostname || '');
+	const displayHost = toUnicodeHost(rawDisplayHost);
 	const {
 		subdomain: displaySubdomain,
 		domain: displayDomain,
@@ -1319,22 +1424,11 @@ function render(rawInput) {
 		...nonLatinHostWarnings,
 		...(mixedScriptHostWarning ? [mixedScriptHostWarning] : []),
 	];
-	const hostWarnings = [
-		...detectInvisibleCharacters(displayHost),
-		...detectBidiControlCharacters(displayHost),
-		...detectFullwidthCharacters(displayHost),
-		...nonLatinHostWarnings,
-		...(mixedScriptHostWarning ? [mixedScriptHostWarning] : []),
-	];
 	const showHostMarkupBox = hasVisibleHostMarkup(displayHost);
-	const showNormalizedHostBox = hostWarnings.length > 0;
 
-	setHostSpecialBoxesVisibility(showHostMarkupBox, showNormalizedHostBox);
+	setHostSpecialBoxesVisibility(showHostMarkupBox);
 	if (showHostMarkupBox) {
 		setSafeMarkup(els.focusHost, buildHostVisualMarkup(displayHost));
-	}
-	if (showNormalizedHostBox) {
-		safeText(els.focusHostNormalized, u.hostname || '—');
 	}
 	safeText(els.focusRegistrable, focusHost);
 
@@ -1406,7 +1500,7 @@ function render(rawInput) {
 	safeText(els.outProtocol, u.protocol ? `${u.protocol}//` : '—');
 	safeText(els.outUsername, u.username || '—');
 	safeText(els.outPassword, u.password || '—');
-	safeText(els.outSubdomain, subdomain || '—');
+	safeText(els.outSubdomain, displaySubdomain || '—');
 	safeText(els.outIpAddress, isIpHost ? displayHost : '—');
 	safeText(
 		els.outIpVersion,
@@ -1416,9 +1510,9 @@ function render(rawInput) {
 				: 'IPv6'
 			: '—',
 	);
-	safeText(els.outDomain, domain || '—');
-	safeText(els.outRegistrable, registrable || '—');
-	safeText(els.outTld, tld || '—');
+	safeText(els.outDomain, displayDomain || '—');
+	safeText(els.outRegistrable, displayRegistrable || '—');
+	safeText(els.outTld, displayTld || '—');
 	safeText(els.outPath, shouldRenderPath ? u.pathname || '/' : '—');
 
 	const folders = (u.pathname || '/').split('/').filter(Boolean);
