@@ -47,6 +47,9 @@ const els = {
     outPassword: document.getElementById('outPassword'),
     subdomainBox: document.getElementById('subdomainBox'),
     outSubdomain: document.getElementById('outSubdomain'),
+    ipAddressBox: document.getElementById('ipAddressBox'),
+    outIpAddress: document.getElementById('outIpAddress'),
+    outIpVersion: document.getElementById('outIpVersion'),
     domainBox: document.getElementById('domainBox'),
     outDomain: document.getElementById('outDomain'),
     outRegistrable: document.getElementById('outRegistrable'),
@@ -109,6 +112,11 @@ const BREAKDOWN_PARTS = [
         desc: 't.ex. www / login'
     },
     {
+        key: 'ipAddress',
+        label: 'IP-adress',
+        desc: 'IPv4 / IPv6'
+    },
+    {
         key: 'domain',
         label: 'Domän',
         desc: 'huvudadressen'
@@ -143,6 +151,7 @@ const PART_BOX_MAP = {
     protocol: 'protocolBox',
     credentials: 'credentialsBox',
     subdomain: 'subdomainBox',
+    ipAddress: 'ipAddressBox',
     domain: 'domainBox',
     tld: 'tldBox',
     path: 'pathBox',
@@ -408,17 +417,66 @@ function getScriptLabelByCodePoint(codePoint) {
 function extractInputHost(rawInput) {
     const input = String(rawInput || '').trim();
     if (!input) return '';
-    const hasScheme = /^[a-z][a-z0-9+.-]*:\/\//i.test(input);
-    const normalized = hasScheme ? input : `https://${input}`;
+    const normalized = normalizeURLInput(input);
     const withoutScheme = normalized.replace(/^[a-z][a-z0-9+.-]*:\/\//i, '');
     const authority = withoutScheme.split(/[/?#]/, 1)[0] || '';
     const withoutAuth = authority.includes('@') ? authority.split('@').pop() || '' : authority;
     if (!withoutAuth) return '';
     if (withoutAuth.startsWith('[')) {
         const endBracket = withoutAuth.indexOf(']');
-        if (endBracket > 0) return withoutAuth.slice(1, endBracket);
+        if (endBracket > 0) return withoutAuth.slice(0, endBracket + 1);
     }
     return withoutAuth.split(':')[0];
+}
+function stripIPv6Brackets(hostname) {
+    const host = String(hostname || '').trim();
+    if (host.startsWith('[') && host.endsWith(']')) return host.slice(1, -1);
+    return host;
+}
+function isIPv4Address(hostname) {
+    const parts = String(hostname || '').trim().split('.');
+    return parts.length === 4 && parts.every((part)=>/^\d{1,3}$/.test(part) && Number(part) <= 255);
+}
+function getIPAddressType(hostname) {
+    const normalizedHost = stripIPv6Brackets(hostname).trim();
+    if (!normalizedHost) return '';
+    if (isIPv4Address(normalizedHost)) return 'ipv4';
+    if (normalizedHost.includes(':')) return 'ipv6';
+    return '';
+}
+function formatIPAddress(hostname) {
+    const host = String(hostname || '').trim();
+    const ipAddressType = getIPAddressType(host);
+    if (!ipAddressType) return host;
+    const normalizedHost = stripIPv6Brackets(host);
+    return ipAddressType === 'ipv6' ? `[${normalizedHost}]` : normalizedHost;
+}
+function normalizeURLInput(rawInput) {
+    const input = String(rawInput || '').trim();
+    if (!input) return '';
+    const hasScheme = /^[a-z][a-z0-9+.-]*:\/\//i.test(input);
+    if (!hasScheme) {
+        const authority = input.split(/[/?#]/, 1)[0] || '';
+        const rest = input.slice(authority.length);
+        const colonCount = (authority.match(/:/g) || []).length;
+        if (authority.startsWith('[')) return `https://${authority}${rest}`;
+        if (colonCount >= 2) return `https://[${stripIPv6Brackets(authority)}]${rest}`;
+        return `https://${authority}${rest}`;
+    }
+    return input.replace(/^([a-z][a-z0-9+.-]*:\/\/)([^/?#]*)/i, (match, scheme, authority)=>{
+        if (!authority || authority.startsWith('[')) return match;
+        let authPrefix = '';
+        let hostPort = authority;
+        if (authority.includes('@')) {
+            const atIndex = authority.lastIndexOf('@');
+            authPrefix = authority.slice(0, atIndex + 1);
+            hostPort = authority.slice(atIndex + 1);
+        }
+        if (hostPort.startsWith('[')) return match;
+        const colonCount = (hostPort.match(/:/g) || []).length;
+        if (colonCount < 2) return match;
+        return `${scheme}${authPrefix}[${stripIPv6Brackets(hostPort)}]`;
+    });
 }
 function buildHostVisualMarkup(hostname) {
     const host = String(hostname || '').trim();
@@ -549,10 +607,10 @@ function renderScriptWarnings(findings) {
     els.scriptWarningWrap.hidden = false;
 }
 function looksLikeIPAddress(hostname) {
-    return /^\d{1,3}(\.\d{1,3}){3}$/.test(hostname);
+    return Boolean(getIPAddressType(hostname));
 }
 function computeDomainParts(hostname) {
-    const host = (hostname || '').trim().toLowerCase();
+    const host = stripIPv6Brackets(hostname).trim().toLowerCase();
     if (!host) return {
         subdomain: '',
         domain: '',
@@ -562,9 +620,9 @@ function computeDomainParts(hostname) {
     if (looksLikeIPAddress(host)) {
         return {
             subdomain: '',
-            domain: host,
-            tld: '(IP)',
-            registrable: host
+            domain: '',
+            tld: '',
+            registrable: ''
         };
     }
     const labels = host.split('.').filter(Boolean);
@@ -602,7 +660,7 @@ function parseMaybeURL(raw) {
         reason: 'invalid'
     };
     const hasScheme = /^[a-z][a-z0-9+.-]*:\/\//i.test(input);
-    const normalized = hasScheme ? input : `https://${input}`;
+    const normalized = normalizeURLInput(input);
     try {
         const url = new URL(normalized);
         return {
@@ -672,6 +730,10 @@ function makeSegment(kind, text) {
     const partLabel = escapeHTML(BREAKDOWN_PART_LABELS[kind] || kind);
     return `<span class="${CLASS.breakdownSegment}" data-kind="${kind}" data-part="${kind}" role="button" tabindex="0" aria-label="Visa del: ${partLabel}">${safe}</span>`;
 }
+function shouldRenderPathPart(url, includeRootPathSegment = false) {
+    const hasExplicitPath = Boolean(url.pathname && url.pathname !== '/');
+    return hasExplicitPath || includeRootPathSegment;
+}
 function buildVisualURLParts(u, parts, fallbackHost = '', includeRootPathSegment = false) {
     // parts: {subdomain, domain, tld}
     const protocol = `${u.protocol}//`;
@@ -682,13 +744,16 @@ function buildVisualURLParts(u, parts, fallbackHost = '', includeRootPathSegment
         credentials = makeSegment('credentials', credStr);
     }
     const hostPieces = [];
-    if (parts.subdomain) hostPieces.push(makeSegment('subdomain', parts.subdomain + '.'));
+    if (parts.ipAddress) {
+        hostPieces.push(makeSegment('ipAddress', parts.ipAddress));
+    } else if (parts.subdomain) {
+        hostPieces.push(makeSegment('subdomain', parts.subdomain + '.'));
+    }
     if (parts.domain) hostPieces.push(makeSegment('domain', parts.domain));
     if (parts.tld) hostPieces.push(makeSegment('tld', '.' + parts.tld));
-    if (!parts.domain && fallbackHost) hostPieces.push(makeSegment('domain', fallbackHost)); // fallback
+    if (!parts.ipAddress && !parts.domain && fallbackHost) hostPieces.push(makeSegment('domain', fallbackHost)); // fallback
     const host = hostPieces.join('');
-    const hasExplicitPath = Boolean(u.pathname && u.pathname !== '/');
-    const shouldRenderPath = hasExplicitPath || includeRootPathSegment;
+    const shouldRenderPath = shouldRenderPathPart(u, includeRootPathSegment);
     const path = shouldRenderPath ? makeSegment('path', u.pathname || '/') : '';
     const query = makeSegment('query', u.search || '');
     const hash = makeSegment('hash', u.hash || '');
@@ -850,12 +915,15 @@ function render(rawInput) {
     }
     const u = parsed.url;
     els.inputHint.textContent = parsed.schemeMissing ? 'Tips: Länken saknade protokoll – jag antog https:// för att kunna analysera.' : '';
+    const ipAddressType = getIPAddressType(u.hostname);
+    const normalizedHost = stripIPv6Brackets(u.hostname);
     const { subdomain, domain, tld, registrable } = computeDomainParts(u.hostname);
     const inputHost = extractInputHost(parsed.raw);
-    const displayHost = inputHost || u.hostname || '';
+    const displayHost = formatIPAddress(inputHost || u.hostname || '');
     const { subdomain: displaySubdomain, domain: displayDomain, tld: displayTld, registrable: displayRegistrable } = computeDomainParts(displayHost);
-    const isIpHost = looksLikeIPAddress(u.hostname);
-    const hasTopDomain = Boolean(tld && tld !== '(IP)');
+    const isIpHost = Boolean(ipAddressType);
+    const hasTopDomain = Boolean(tld);
+    const shouldRenderPath = shouldRenderPathPart(u, Boolean(u.search || u.hash));
     if (!hasTopDomain && !isIpHost) {
         setVisibleState({
             hasResults: false,
@@ -866,7 +934,7 @@ function render(rawInput) {
         renderScriptWarnings([]);
         return;
     }
-    const focusHost = displayDomain && displayTld && displayTld !== '(IP)' ? `${displayDomain}.${displayTld}` : displayRegistrable || '—';
+    const focusHost = isIpHost ? displayHost || normalizedHost || '—' : displayDomain && displayTld ? `${displayDomain}.${displayTld}` : displayRegistrable || '—';
     const invisibleWarnings = detectInvisibleCharacters(parsed.raw);
     const bidiWarnings = detectBidiControlCharacters(parsed.raw);
     const fullwidthWarnings = detectFullwidthCharacters(parsed.raw);
@@ -901,26 +969,29 @@ function render(rawInput) {
         'protocol'
     ]); // protocol always present
     if (u.username || u.password) availableParts.add('credentials');
+    if (isIpHost) availableParts.add('ipAddress');
     if (displaySubdomain) availableParts.add('subdomain');
     if (displayDomain) availableParts.add('domain');
-    if (displayTld && displayTld !== '(IP)') availableParts.add('tld');
-    if (u.pathname && u.pathname !== '/') availableParts.add('path');
+    if (displayTld) availableParts.add('tld');
+    if (shouldRenderPath) availableParts.add('path');
     if (u.search) availableParts.add('query');
     if (u.hash) availableParts.add('hash');
     // NEW: visual URL and legend
     buildLegend(availableParts);
     els.breakdownUrl.innerHTML = buildVisualURLParts(u, {
         subdomain: displaySubdomain,
+        ipAddress: isIpHost ? displayHost : '',
         domain: displayDomain,
         tld: displayTld
-    }, displayHost || u.hostname || '', Boolean(u.search || u.hash));
+    }, displayHost || u.hostname || '', shouldRenderPath);
     syncBreakdownSegmentAriaDescribedBy();
     clearActive();
     // Signals
     if (u.protocol === 'https:') addSignal('HTTPS (krypterad anslutning)', 'good');
     else if (u.protocol === 'http:') addSignal('HTTP (inte krypterat)', 'warn');
     else addSignal(`Protokoll: ${u.protocol.replace(':', '')}`, 'neutral');
-    if (looksLikeIPAddress(u.hostname)) addSignal('Värd är en IP-adress', 'warn');
+    if (ipAddressType === 'ipv4') addSignal('Värd är en IPv4-adress', 'warn');
+    if (ipAddressType === 'ipv6') addSignal('Värd är en IPv6-adress', 'warn');
     if (u.username || u.password) addSignal('Inloggningsdel i URL (user:pass@)', 'danger');
     if (parsed.raw.includes('@') && !u.username && !u.password) addSignal('Innehåller @ (kan vara vilseledande)', 'warn');
     if (u.hostname.startsWith('xn--') || u.hostname.includes('.xn--')) addSignal('Punycode (IDN) i domän', 'warn');
@@ -941,12 +1012,14 @@ function render(rawInput) {
     safeText(els.outUsername, u.username || '—');
     safeText(els.outPassword, u.password || '—');
     safeText(els.outSubdomain, subdomain || '—');
+    safeText(els.outIpAddress, isIpHost ? displayHost : '—');
+    safeText(els.outIpVersion, ipAddressType ? ipAddressType === 'ipv4' ? 'IPv4' : 'IPv6' : '—');
     safeText(els.outDomain, domain || '—');
     safeText(els.outRegistrable, registrable || '—');
-    safeText(els.outTld, tld && tld !== '(IP)' ? tld : '—');
-    safeText(els.outPath, u.pathname && u.pathname !== '/' ? u.pathname : '—');
+    safeText(els.outTld, tld || '—');
+    safeText(els.outPath, shouldRenderPath ? u.pathname || '/' : '—');
     const folders = (u.pathname || '/').split('/').filter(Boolean);
-    safeText(els.outFolders, folders.length ? folders.join(' → ') : '—');
+    safeText(els.outFolders, shouldRenderPath ? folders.length ? folders.join(' → ') : '/' : '—');
     // Query
     if (u.search) {
         safeText(els.outQuery, u.search);
@@ -970,14 +1043,16 @@ function render(rawInput) {
         protocol: true,
         credentials: Boolean(u.username || u.password),
         subdomain: Boolean(subdomain),
+        ipAddress: isIpHost,
         domain: Boolean(domain),
-        tld: Boolean(tld && tld !== '(IP)'),
-        path: Boolean(u.pathname && u.pathname !== '/'),
+        tld: Boolean(tld),
+        path: shouldRenderPath,
         query: Boolean(u.search),
         hash: Boolean(u.hash)
     };
     const defaultPart = [
         'protocol',
+        'ipAddress',
         'domain',
         'tld',
         'subdomain',
