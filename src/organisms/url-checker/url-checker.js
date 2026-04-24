@@ -226,6 +226,62 @@ const FULLWIDTH_CHARACTER_PATTERNS = [
 	},
 ];
 
+const CONTROL_CHARACTER_LABELS = {
+	0x0000: 'NUL',
+	0x0001: 'SOH',
+	0x0002: 'STX',
+	0x0003: 'ETX',
+	0x0004: 'EOT',
+	0x0005: 'ENQ',
+	0x0006: 'ACK',
+	0x0007: 'BEL',
+	0x0008: 'BACKSPACE',
+	0x0009: 'TAB',
+	0x000a: 'LINE FEED',
+	0x000b: 'VERTICAL TAB',
+	0x000c: 'FORM FEED',
+	0x000d: 'CARRIAGE RETURN',
+	0x000e: 'SHIFT OUT',
+	0x000f: 'SHIFT IN',
+	0x0010: 'DATA LINK ESCAPE',
+	0x0011: 'DEVICE CONTROL 1',
+	0x0012: 'DEVICE CONTROL 2',
+	0x0013: 'DEVICE CONTROL 3',
+	0x0014: 'DEVICE CONTROL 4',
+	0x0015: 'NEGATIVE ACKNOWLEDGE',
+	0x0016: 'SYNCHRONOUS IDLE',
+	0x0017: 'END OF TRANSMISSION BLOCK',
+	0x0018: 'CANCEL',
+	0x0019: 'END OF MEDIUM',
+	0x001a: 'SUBSTITUTE',
+	0x001b: 'ESCAPE',
+	0x001c: 'FILE SEPARATOR',
+	0x001d: 'GROUP SEPARATOR',
+	0x001e: 'RECORD SEPARATOR',
+	0x001f: 'UNIT SEPARATOR',
+	0x007f: 'DELETE',
+};
+
+const SPECIAL_CODE_POINT_LABELS = {
+	0x00ad: 'SOFT HYPHEN',
+	0x200b: 'ZERO WIDTH SPACE',
+	0x200c: 'ZERO WIDTH NON-JOINER',
+	0x200d: 'ZERO WIDTH JOINER',
+	0x200e: 'LEFT-TO-RIGHT MARK',
+	0x200f: 'RIGHT-TO-LEFT MARK',
+	0x202a: 'LEFT-TO-RIGHT EMBEDDING',
+	0x202b: 'RIGHT-TO-LEFT EMBEDDING',
+	0x202c: 'POP DIRECTIONAL FORMATTING',
+	0x202d: 'LEFT-TO-RIGHT OVERRIDE',
+	0x202e: 'RIGHT-TO-LEFT OVERRIDE',
+	0x2060: 'WORD JOINER',
+	0x2066: 'LEFT-TO-RIGHT ISOLATE',
+	0x2067: 'RIGHT-TO-LEFT ISOLATE',
+	0x2068: 'FIRST STRONG ISOLATE',
+	0x2069: 'POP DIRECTIONAL ISOLATE',
+	0xfeff: 'ZERO WIDTH NO-BREAK SPACE',
+};
+
 const LATIN_SCRIPT_RANGES = [
 	[0x0041, 0x005a],
 	[0x0061, 0x007a],
@@ -300,6 +356,14 @@ function getPatternByCodePoint(codePoint, patterns) {
 function formatPatternDetail(char, codePoint, pattern) {
 	if (pattern?.displayAsCodePoint) return formatCodePoint(codePoint);
 	return char;
+}
+
+function getCodePointLabel(codePoint, fallbackLabel = '') {
+	return (
+		SPECIAL_CODE_POINT_LABELS[codePoint]
+		|| CONTROL_CHARACTER_LABELS[codePoint]
+		|| fallbackLabel
+	);
 }
 
 function getScriptLabelByCodePoint(codePoint) {
@@ -695,6 +759,148 @@ function setVisibleState({ hasResults, errorMessage = '' }) {
 	setInputErrorAccessibility(hasError);
 	els.results.hidden = !hasResults;
 	els.emptyState.style.display = hasResults ? 'none' : '';
+}
+
+function parseRawQueryEntries(search) {
+	const rawQuery = String(search || '').replace(/^\?/, '');
+	if (!rawQuery) return [];
+
+	return rawQuery.split('&').map((entry) => {
+		const separatorIndex = entry.indexOf('=');
+		if (separatorIndex === -1) {
+			return {
+				rawKey: entry,
+				rawValue: '',
+			};
+		}
+
+		return {
+			rawKey: entry.slice(0, separatorIndex),
+			rawValue: entry.slice(separatorIndex + 1),
+		};
+	});
+}
+
+function formatVisibleQueryText(text) {
+	const value = String(text ?? '');
+	if (!value.length) return '[tomt]';
+
+	const shouldRevealWhitespace = value.trim() !== value || !value.trim().length;
+	let hasVisibleSubstitution = false;
+
+	const formatted = Array.from(value, (char) => {
+		const codePoint = char.codePointAt(0);
+		if (codePoint === undefined) return char;
+
+		if (char === ' ' && shouldRevealWhitespace) {
+			hasVisibleSubstitution = true;
+			return '[mellanslag]';
+		}
+		if (char === '\t') {
+			hasVisibleSubstitution = true;
+			return '[tabb]';
+		}
+		if (char === '\n') {
+			hasVisibleSubstitution = true;
+			return '[radbrytning]';
+		}
+		if (char === '\r') {
+			hasVisibleSubstitution = true;
+			return '[vagnretur]';
+		}
+
+		const invisiblePattern = getPatternByCodePoint(
+			codePoint,
+			INVISIBLE_CHARACTER_PATTERNS,
+		);
+		if (invisiblePattern) {
+			hasVisibleSubstitution = true;
+			return `[${formatCodePoint(codePoint)} ${getCodePointLabel(codePoint, invisiblePattern.label)}]`;
+		}
+
+		const bidiPattern = getPatternByCodePoint(codePoint, BIDI_CONTROL_PATTERNS);
+		if (bidiPattern) {
+			hasVisibleSubstitution = true;
+			return `[${formatCodePoint(codePoint)} ${getCodePointLabel(codePoint, bidiPattern.label)}]`;
+		}
+
+		if ((codePoint >= 0x0000 && codePoint <= 0x001f) || codePoint === 0x007f) {
+			hasVisibleSubstitution = true;
+			return `[${formatCodePoint(codePoint)} ${getCodePointLabel(codePoint, 'KONTROLLTECKEN')}]`;
+		}
+
+		return char;
+	}).join('');
+
+	return hasVisibleSubstitution ? formatted : value;
+}
+
+function formatRawQueryPart(text, emptyLabel) {
+	return String(text ?? '').length ? String(text) : emptyLabel;
+}
+
+function appendQueryParamLine(container, label, rawValue, decodedValue, emptyLabel) {
+	const line = document.createElement('div');
+	const title = document.createElement('strong');
+	const rawCode = document.createElement('code');
+	const rawDisplay = formatRawQueryPart(rawValue, emptyLabel);
+	const interpreted = String(decodedValue ?? '').length
+		? formatVisibleQueryText(decodedValue)
+		: emptyLabel;
+	const shouldShowInterpretation = interpreted !== rawDisplay;
+
+	title.textContent = `${label}: `;
+	rawCode.textContent = rawDisplay;
+	line.appendChild(title);
+	line.appendChild(rawCode);
+
+	if (shouldShowInterpretation) {
+		const interpretedText = document.createElement('span');
+		const interpretedCode = document.createElement('code');
+
+		interpretedText.className = CLASS.muted;
+		interpretedText.appendChild(document.createTextNode(' tolkat som '));
+		interpretedCode.textContent = interpreted;
+		interpretedText.appendChild(interpretedCode);
+		line.appendChild(interpretedText);
+	}
+
+	container.appendChild(line);
+}
+
+function renderQueryParams(search) {
+	els.outParams.innerHTML = '';
+
+	const decodedEntries = Array.from(new URLSearchParams(search).entries());
+	if (!decodedEntries.length) {
+		els.outParamsWrap.hidden = true;
+		return;
+	}
+
+	const rawEntries = parseRawQueryEntries(search);
+	els.outParamsWrap.hidden = false;
+
+	decodedEntries.forEach(([decodedKey, decodedValue], index) => {
+		const li = document.createElement('li');
+		const rawEntry = rawEntries[index] || { rawKey: '', rawValue: '' };
+
+		appendQueryParamLine(
+			li,
+			'Nyckel',
+			rawEntry.rawKey,
+			decodedKey,
+			'[tom nyckel]',
+		);
+		appendQueryParamLine(
+			li,
+			'Värde',
+			rawEntry.rawValue,
+			decodedValue,
+			'[tomt värde]',
+		);
+
+		els.outParams.appendChild(li);
+	});
 }
 
 // ===== NEW: visual markup rendering =====
@@ -1116,19 +1322,10 @@ function render(rawInput) {
 	// Query
 	if (u.search) {
 		safeText(els.outQuery, u.search);
-		if (qpCount) {
-			els.outParamsWrap.hidden = false;
-			for (const [k, v] of qp.entries()) {
-				const li = document.createElement('li');
-				li.appendChild(document.createTextNode(`${k}: `));
-				const val = document.createElement('code');
-				val.textContent = v || '—';
-				li.appendChild(val);
-				els.outParams.appendChild(li);
-			}
-		}
+		renderQueryParams(u.search);
 	} else {
 		safeText(els.outQuery, '—');
+		els.outParams.innerHTML = '';
 		els.outParamsWrap.hidden = true;
 	}
 
