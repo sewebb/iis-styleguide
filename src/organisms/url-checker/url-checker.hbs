@@ -13,9 +13,9 @@
 												<h2 class="wp-block-heading">Så använder du detta mot bedrägerilänkar</h2>
 												<ul class="wp-block-list u-p-l-2 u-font-size-medium-plus">
 													<li>Kontrollera att&nbsp;<strong>domän + toppdomän</strong>&nbsp;stämmer (t.ex.&nbsp;<strong>bank.se</strong>).</li>
-													<li>Var skeptisk om subdomänen innehåller&nbsp;<code>secure</code>,&nbsp;<code>login</code>,&nbsp;<code>verify</code>&nbsp;– det kan vara vilseledande.</li>
+													<li>Var uppmärksam om subdomänen innehåller&nbsp;<code>secure</code>,&nbsp;<code>login</code>,&nbsp;<code>verify</code>&nbsp;– det kan vara vilseledande.</li>
 													<li>Var försiktig med väldigt långa länkar och många parametrar.</li>
-													<li>Var uppmärksam på specialtecken som efterliknar "vanliga" tecken.</li>
+													<li>Var uppmärksam på tecken som kan förväxlas med latinska tecken.</li>
 												</ul>
 											</div>
 										</div>
@@ -92,7 +92,7 @@
 						</div>
 							<div class="o-url-checker__domain-focus__grid">
 									<div class="o-url-checker__domain-focus__item o-url-checker__surface" id="focusHostBox">
-									<span class="o-url-checker__domain-focus__label">Domän (med markerade specialtecken)</span>
+									<span class="o-url-checker__domain-focus__label">Domän (röda markeringar visar tecken som kan förväxlas med latinska)</span>
 									<span class="o-url-checker__domain-focus__mono" id="focusHost">—</span>
 								</div>
 									<div class="o-url-checker__domain-focus__item o-url-checker__surface" id="focusHostNormalizedBox">
@@ -103,8 +103,8 @@
 						<h4 class="u-m-t-1">Länken innehåller</h4>
 						<div id="signals" class="o-url-checker__pillrow"></div>
 							<div class="o-url-checker__surface u-m-t-default" id="scriptWarningWrap" hidden>
-							<span class="o-url-checker__domain-focus__label">Tecken att vara extra uppmärksam på</span>
-							<p><strong>OBS!</strong> Osynliga tecken, styrtecken och blandade teckenuppsättningar kan göra att en länk ser trygg ut fast den leder någon annanstans.</p>
+							<span class="o-url-checker__domain-focus__label">Tecken att vara extra uppmärksam på i domänen</span>
+							<p><strong>OBS!</strong> Röda markeringar visar tecken som kan förväxlas med latinska tecken. Osynliga tecken, styrtecken och andra teckenuppsättningar i domänen kan också göra att en länk ser trygg ut fast den leder någon annanstans.</p>
 							<div class="o-url-checker__breakdown__items" id="scriptWarningList"></div>
 						</div>
 					</div>

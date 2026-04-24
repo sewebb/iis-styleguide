@@ -226,6 +226,69 @@ const FULLWIDTH_CHARACTER_PATTERNS = [
 	},
 ];
 
+const LATIN_LOOKALIKE_CHAR_MAP = {
+	'Α': 'A',
+	'Β': 'B',
+	'Ε': 'E',
+	'Ζ': 'Z',
+	'Η': 'H',
+	'Ι': 'I',
+	'Κ': 'K',
+	'Μ': 'M',
+	'Ν': 'N',
+	'Ο': 'O',
+	'Ρ': 'P',
+	'Τ': 'T',
+	'Υ': 'Y',
+	'Χ': 'X',
+	'Ϊ': 'Ï',
+	'Ϋ': 'Ü',
+	'α': 'a',
+	'ε': 'e',
+	'ι': 'i',
+	'κ': 'k',
+	'ο': 'o',
+	'ρ': 'p',
+	'τ': 't',
+	'χ': 'x',
+	'ϊ': 'ï',
+	'ϋ': 'ü',
+	'А': 'A',
+	'В': 'B',
+	'Е': 'E',
+	'Ё': 'Ë',
+	'К': 'K',
+	'М': 'M',
+	'Н': 'H',
+	'О': 'O',
+	'Р': 'P',
+	'С': 'C',
+	'Т': 'T',
+	'У': 'Y',
+	'Х': 'X',
+	'Ӓ': 'Ä',
+	'Ӧ': 'Ö',
+	'Ӱ': 'Ü',
+	'Ї': 'Ï',
+	'а': 'a',
+	'с': 'c',
+	'е': 'e',
+	'ё': 'ë',
+	'і': 'i',
+	'ј': 'j',
+	'о': 'o',
+	'р': 'p',
+	'ѕ': 's',
+	'у': 'y',
+	'х': 'x',
+	'ӓ': 'ä',
+	'ӧ': 'ö',
+	'ӱ': 'ü',
+	'ї': 'ï',
+	'ӏ': 'l',
+	'ԁ': 'd',
+};
+
 const CONTROL_CHARACTER_LABELS = {
 	0x0000: 'NUL',
 	0x0001: 'SOH',
@@ -301,6 +364,11 @@ const HOST_SUSPICIOUS_CHARACTER_PATTERNS = [
 	...SUSPICIOUS_SCRIPT_PATTERNS,
 ];
 
+const HOST_ALWAYS_VISIBLE_CHARACTER_PATTERNS = [
+	...INVISIBLE_CHARACTER_PATTERNS,
+	...BIDI_CONTROL_PATTERNS,
+];
+
 const CLASS = {
 	pill: className('o-url-checker__pill'),
 	pillGood: className('o-url-checker__pill--good'),
@@ -364,6 +432,10 @@ function getCodePointLabel(codePoint, fallbackLabel = '') {
 		|| CONTROL_CHARACTER_LABELS[codePoint]
 		|| fallbackLabel
 	);
+}
+
+function getLatinLookalikeCharacter(char) {
+	return LATIN_LOOKALIKE_CHAR_MAP[char] || '';
 }
 
 function getScriptLabelByCodePoint(codePoint) {
@@ -479,21 +551,42 @@ function buildHostVisualMarkup(hostname) {
 
 	for (const char of host) {
 		const codePoint = char.codePointAt(0);
-		const pattern =
-			codePoint === undefined
-				? null
-				: getPatternByCodePoint(codePoint, HOST_SUSPICIOUS_CHARACTER_PATTERNS);
+		if (codePoint === undefined) {
+			buffer += char;
+			continue;
+		}
 
-		if (!pattern) {
+		const alwaysVisiblePattern = getPatternByCodePoint(
+			codePoint,
+			HOST_ALWAYS_VISIBLE_CHARACTER_PATTERNS,
+		);
+		const fullwidthPattern = getPatternByCodePoint(
+			codePoint,
+			FULLWIDTH_CHARACTER_PATTERNS,
+		);
+		const latinLookalike = getLatinLookalikeCharacter(char);
+		const shouldHighlightAsLookalike = Boolean(fullwidthPattern || latinLookalike);
+
+		if (!alwaysVisiblePattern && !shouldHighlightAsLookalike) {
 			buffer += char;
 			continue;
 		}
 
 		flushBuffer();
-		const title = escapeHTML(pattern.label);
-		const visibleChar = escapeHTML(formatPatternDetail(char, codePoint, pattern));
+		const pattern = alwaysVisiblePattern || fullwidthPattern;
+		const title = escapeHTML(
+			latinLookalike
+				? `Kan förväxlas med latinskt tecken: ${latinLookalike}`
+				: pattern?.label || '',
+		);
+		const visibleChar = escapeHTML(
+			pattern ? formatPatternDetail(char, codePoint, pattern) : char,
+		);
+		const specialClass = shouldHighlightAsLookalike
+			? ` ${CLASS.hostSegmentSpecial}`
+			: '';
 		chunks.push(
-			`<span class="${CLASS.breakdownSegment} ${CLASS.hostSegment} ${CLASS.hostSegmentSpecial}" title="${title}">${visibleChar}</span>`,
+			`<span class="${CLASS.breakdownSegment} ${CLASS.hostSegment}${specialClass}" title="${title}">${visibleChar}</span>`,
 		);
 	}
 
@@ -564,7 +657,6 @@ function detectMixedScriptHostname(hostname) {
 	if (!host) return null;
 
 	const labels = host.split(/[.。｡．]/u).filter(Boolean);
-	const overallScripts = new Set();
 	const mixedLabels = [];
 
 	for (const label of labels) {
@@ -580,7 +672,6 @@ function detectMixedScriptHostname(hostname) {
 			if (!scriptLabel) continue;
 
 			labelScripts.add(scriptLabel);
-			overallScripts.add(scriptLabel);
 		}
 
 		if (labelScripts.size > 1) {
@@ -590,16 +681,13 @@ function detectMixedScriptHostname(hostname) {
 		}
 	}
 
-	if (overallScripts.size < 2) return null;
+	if (!mixedLabels.length) return null;
 
 	return {
 		label: 'Blandade teckenuppsättningar i domänen',
-		summary: mixedLabels.length
-			? 'Ett eller flera domänled blandar flera teckenuppsättningar:'
-			: 'Domänen innehåller flera teckenuppsättningar:',
-		details: mixedLabels.length
-			? mixedLabels.join(' | ')
-			: Array.from(overallScripts).join(' + '),
+		summary:
+			'Ett eller flera domänled blandar flera teckenuppsättningar, vilket kan göra tecken lättare att förväxla:',
+		details: mixedLabels.join(' | '),
 		detailsClassName: CLASS.muted,
 	};
 }
@@ -1206,20 +1294,20 @@ function render(rawInput) {
 	const invisibleWarnings = detectInvisibleCharacters(parsed.raw);
 	const bidiWarnings = detectBidiControlCharacters(parsed.raw);
 	const fullwidthWarnings = detectFullwidthCharacters(parsed.raw);
-	const suspiciousScripts = detectSuspiciousScripts(parsed.raw);
+	const nonLatinHostWarnings = detectSuspiciousScripts(displayHost);
 	const mixedScriptHostWarning = detectMixedScriptHostname(displayHost);
 	const urlWarnings = [
 		...invisibleWarnings,
 		...bidiWarnings,
 		...fullwidthWarnings,
-		...suspiciousScripts,
+		...nonLatinHostWarnings,
 		...(mixedScriptHostWarning ? [mixedScriptHostWarning] : []),
 	];
 	const hostWarnings = [
 		...detectInvisibleCharacters(displayHost),
 		...detectBidiControlCharacters(displayHost),
 		...detectFullwidthCharacters(displayHost),
-		...detectSuspiciousScripts(displayHost),
+		...nonLatinHostWarnings,
 		...(mixedScriptHostWarning ? [mixedScriptHostWarning] : []),
 	];
 
@@ -1282,8 +1370,8 @@ function render(rawInput) {
 		addSignal('Bidi-styrtecken i länken', 'danger');
 	if (fullwidthWarnings.length)
 		addSignal('Fullbreddstecken i länken', 'warn');
-	if (suspiciousScripts.length)
-		addSignal('Tecken från andra teckenuppsättningar i URL:en', 'danger');
+	if (nonLatinHostWarnings.length)
+		addSignal('Tecken från andra teckenuppsättningar i domänen', 'danger');
 	if (mixedScriptHostWarning)
 		addSignal('Blandade teckenuppsättningar i domänen', 'danger');
 
