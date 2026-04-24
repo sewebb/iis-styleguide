@@ -535,7 +535,7 @@ function toUnicodeHost(hostname) {
 	return host
 		.split(/[.。｡．]/u)
 		.filter(Boolean)
-		.map((label) => decodePunycodeLabel(label))
+		.map((label) => decodePunycodeLabel(label).toLowerCase())
 		.join('.');
 }
 

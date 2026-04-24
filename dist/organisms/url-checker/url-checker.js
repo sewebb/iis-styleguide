@@ -605,7 +605,7 @@ function decodePunycodeLabel(label) {
 function toUnicodeHost(hostname) {
     const host = String(hostname || '').trim();
     if (!host || looksLikeIPAddress(host)) return formatIPAddress(host);
-    return host.split(/[.。｡．]/u).filter(Boolean).map((label)=>decodePunycodeLabel(label)).join('.');
+    return host.split(/[.。｡．]/u).filter(Boolean).map((label)=>decodePunycodeLabel(label).toLowerCase()).join('.');
 }
 function getCodePointLabel(codePoint, fallbackLabel = '') {
     return SPECIAL_CODE_POINT_LABELS[codePoint] || CONTROL_CHARACTER_LABELS[codePoint] || fallbackLabel;
