@@ -825,6 +825,8 @@ function detectMixedScriptHostname(hostname) {
 
 function getSeverityAriaExplanation(tone) {
 	if (tone === 'good') return 'Bra. Inget uppenbart problem syns här.';
+	if (tone === 'neutral')
+		return 'Information. Detta är vanligt i länkar, men innehållet kan ibland vara värt att kontrollera.';
 	if (tone === 'warn')
 		return 'Information. Här kan det vara bra att vara uppmärksam.';
 	if (tone === 'danger')
@@ -954,12 +956,10 @@ function addSignal(text, kind = 'neutral') {
 	if (kind === 'good') pill.classList.add(CLASS.pillGood);
 	if (kind === 'warn') pill.classList.add(CLASS.pillWarn);
 	if (kind === 'danger') pill.classList.add(CLASS.pillDanger);
-	if (kind !== 'neutral') {
-		pill.setAttribute(
-			'aria-label',
-			`${text}. ${getSeverityAriaExplanation(kind)}`,
-		);
-	}
+	pill.setAttribute(
+		'aria-label',
+		`${text}. ${getSeverityAriaExplanation(kind)}`,
+	);
 
 	pillText.textContent = text;
 	pill.appendChild(pillText);
