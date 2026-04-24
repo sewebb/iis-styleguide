@@ -1417,14 +1417,14 @@ function render(rawInput) {
 	const fullwidthWarnings = detectFullwidthCharacters(parsed.raw);
 	const nonLatinHostWarnings = detectSuspiciousScripts(displayHost);
 	const mixedScriptHostWarning = detectMixedScriptHostname(displayHost);
-	const urlWarnings = [
+	const showHostMarkupBox = hasVisibleHostMarkup(displayHost);
+	const boxWarnings = [
 		...invisibleWarnings,
 		...bidiWarnings,
 		...fullwidthWarnings,
-		...nonLatinHostWarnings,
+		...(showHostMarkupBox ? nonLatinHostWarnings : []),
 		...(mixedScriptHostWarning ? [mixedScriptHostWarning] : []),
 	];
-	const showHostMarkupBox = hasVisibleHostMarkup(displayHost);
 
 	setHostSpecialBoxesVisibility(showHostMarkupBox);
 	if (showHostMarkupBox) {
@@ -1477,7 +1477,7 @@ function render(rawInput) {
 		addSignal('Punycode (IDN) i domän', 'warn');
 	if (subdomain && subdomain.split('.').length >= 3)
 		addSignal('Många subdomäner', 'warn');
-	renderScriptWarnings(urlWarnings);
+	renderScriptWarnings(boxWarnings);
 	if (invisibleWarnings.length)
 		addSignal('Osynliga tecken i länken', 'danger');
 	if (bidiWarnings.length)
