@@ -27,7 +27,7 @@
 					<h1 class="supersize u-m-t-4">Förstå en länk (URL)</h1>
 
 					<div class="article__content article__content--full-width">
-						<p class="wp-block-iis-preamble preamble">Klistra in en länk här nedan så delas den upp i sina byggstenar. Tanken är att göra det enklare att se&nbsp;<strong>vem</strong>&nbsp;länken faktiskt går till och&nbsp;<strong>hur</strong>&nbsp;den är uppbyggd – vilket hjälper mot bedrägerilänkar.</p>
+						<p class="wp-block-iis-preamble preamble">Klistra in en länk här nedan för att få hjälp med att förstå var den leder och hur en länk är uppbyggd. Tanken är att göra det enklare att se <strong>vem</strong> länken faktiskt går till och <strong>hur</strong> den är uppbyggd – vilket kan hjälpa dig att undvika bedrägerilänkar.</p>
 						<div style="height:1px" aria-hidden="true" class="wp-block-spacer u-m-b-0"></div>
 					</div>
 				</main>
@@ -39,7 +39,7 @@
 		<h2 class="u-m-b-0">1. Klistra in en länk</h2>
 		<section class="o-url-checker__box u-m-b-default">
 			<div class="o-url-checker__box__header">
-				<p class="u-m-b-0 o-url-checker__muted">
+				<p class="u-m-b-0">
 					Exempel: <strong>https://microsoft.com/path/to/page?utm_source=x#newsletter</strong>
 				</p>
 			</div>
@@ -79,12 +79,12 @@
 			</div>
 
 			<div class="u-m-b-4 u-p-t-2" id="overview">
-				<h2 class="u-m-b-0">2. Snabbkoll</h2>
+				<h2 class="u-m-b-0">2. Vem leder länken till?</h2>
 				<div class="o-url-checker__box o-url-checker__domain-focus u-m-b-default">
 					<div class="o-url-checker__box__body">
 						<div class="o-url-checker__domain-focus__hint u-m-b-1">
-							<h3 class="u-m-b-0">Detta är domänen du hamnar på om du klickar på denna länk.</h3>
-							Kontrollera tecken för tecken att domännamnet är exakt rätt.
+							<h3 class="u-m-b-0">Det här är domänen du faktiskt hamnar på om du klickar på länken.</h3>
+							Kontrollera tecken för tecken att domänen är exakt den du förväntar dig.
 						</div>
 							<div class="o-url-checker__domain-focus__main o-url-checker__surface o-url-checker__surface--ash">
 							<span class="o-url-checker__domain-focus__label">Domän + toppdomän</span>
@@ -107,12 +107,12 @@
 				</div>
 			</div>
 
-			<h2 class="u-m-b-0">3. Länkens delar</h2>
+			<h2 class="u-m-b-0">3. Hur är länken uppbyggd?</h2>
 			<div class="o-url-checker__box o-url-checker__breakdown">
 				<div class="o-url-checker__box__body" id="breakdownWrap">
 					<p class="u-m-b-2 o-url-checker__muted">
 						Tips: Titta extra noga på <strong>domän</strong> och <strong>toppdomän</strong>.<br>
-						Klicka på en markerad del i URL:en för att visa beskrivningen här.
+						Klicka på en markerad del i länken nedan för att visa beskrivningen här.
 					</p>
 					<svg class="o-url-checker__breakdown__svg" id="breakdownSvg" aria-hidden="true"></svg>
 						<div class="o-url-checker__breakdown__url o-url-checker__surface" id="breakdownUrlBox">
@@ -120,7 +120,7 @@
 					</div>
 
 						<div class="o-url-checker__breakdown__legend o-url-checker__surface">
-						<span class="o-url-checker__domain-focus__label">Etiketter</span>
+						<span class="o-url-checker__domain-focus__label">Del av länk</span>
 						<div class="o-url-checker__breakdown__wrap">
 							<div class="o-url-checker__breakdown__items" id="breakdownLegend"></div>
 						</div>
@@ -133,20 +133,21 @@
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="protocolBox">
 					<div class="o-url-checker__box__header">
 						<h3 class="u-m-b-0">Protokoll</h3>
-						<p class="u-m-b-0 o-url-checker__muted">
+						<p>
 							Anger hur din webbläsare ska ansluta. <strong>https://</strong> innebär
 							krypterad anslutning.
 						</p>
+						<p class="u-m-b-0">Läs mer om <a href="https://internetkunskap.se/artiklar/ordlista/protokoll/" target="_blank">protokoll</a> i vår ordlista</p>
 					</div>
 					<div class="o-url-checker__box__body o-url-checker__kv">
-						<div><strong>Värde:</strong> <code id="outProtocol"></code></div>
+						<div><strong>Den testade länken innehåller:</strong> <code id="outProtocol"></code></div>
 					</div>
 				</div>
 
 				<div class="o-url-checker__box o-url-checker__box--ruby" id="credentialsBox">
 					<div class="o-url-checker__box__header">
 						<h3 class="u-m-b-0">Inloggningsuppgifter</h3>
-						<p class="u-m-b-0 o-url-checker__muted">
+						<p class="u-m-b-0">
 							Användarnamn och lösenord i URL:en (t.ex. <strong>user:password@</strong>).<br>
 							<strong>Varning:</strong> Detta är osäkert och kan vara ett tecken på phishing.
 						</p>
@@ -160,26 +161,27 @@
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="subdomainBox">
 					<div class="o-url-checker__box__header">
 						<h3 class="u-m-b-0">Subdomän</h3>
-						<p class="u-m-b-0 o-url-checker__muted">
-							Del före domänen (t.ex. <strong>www</strong>,
-							<span class="o-url-checker__inlinecode">login</span>). Kan användas vilseledande.
+						<p>
+							Del före domänen (t.ex. www, login). <em>Den här delen används ofta av bedragare för att försöka lura dig att tro att deras tjänst har en koppling till ett mer välkänt varumärke. En subdomän kan innehålla vad som helst, utan någon kontroll, så det är enkelt för en bedragare att till exempel använda subdomänen "microsoft" utan att Microsoft vet om det</em>.<br>
+							Kan användas vilseledande.
 						</p>
+						<p class="u-m-b-0">Läs mer om <a href="https://internetkunskap.se/artiklar/ordlista/subdoman/" target="_blank">subdomäner</a> i vår ordlista</p>
 					</div>
 					<div class="o-url-checker__box__body o-url-checker__kv">
-						<div><strong>Värde:</strong> <code id="outSubdomain"></code></div>
+						<div><strong>Den testade länken innehåller:</strong> <code id="outSubdomain"></code></div>
 					</div>
 				</div>
 
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="ipAddressBox">
 					<div class="o-url-checker__box__header">
 						<h3 class="u-m-b-0">IP-adress</h3>
-						<p class="u-m-b-0 o-url-checker__muted">
+						<p class="u-m-b-0">
 							Här används en IP-adress direkt i stället för ett domännamn. Det gör det svårare att snabbt se
 							vem länken går till.
 						</p>
 					</div>
 					<div class="o-url-checker__box__body o-url-checker__kv">
-						<div><strong>Värde:</strong> <code id="outIpAddress"></code></div>
+						<div><strong>Den testade länken innehåller:</strong> <code id="outIpAddress"></code></div>
 						<div><strong>Typ:</strong> <code id="outIpVersion"></code></div>
 					</div>
 				</div>
@@ -187,38 +189,39 @@
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="domainBox">
 					<div class="o-url-checker__box__header">
 						<h3 class="u-m-b-0">Domän</h3>
-						<p class="u-m-b-0 o-url-checker__muted">
+						<p>
 							Den registrerade "huvudadressen" (t.ex. <strong>microsoft</strong>). Ofta
 							viktigast för att se <em>vem</em> länken går till.
 						</p>
+						<p class="u-m-b-0">Läs mer om <a href="https://internetkunskap.se/artiklar/ordlista/doman/" target="_blank">domäner</a> i vår ordlista</p>
 					</div>
 					<div class="o-url-checker__box__body o-url-checker__kv">
-						<div><strong>Värde:</strong> <code id="outDomain"></code></div>
-						<div><strong>Registrerbar del (förenklad):</strong> <code id="outRegistrable"></code></div>
+						<div><strong>Den testade länken innehåller:</strong> <code id="outDomain"></code></div>
 					</div>
 				</div>
 
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="tldBox">
 					<div class="o-url-checker__box__header">
 						<h3 class="u-m-b-0">Toppdomän <span class="u-weight-normal">(Top Level Domain)</span></h3>
-						<p class="u-m-b-0 o-url-checker__muted">
-							Sista delen av domänen (t.ex. <strong>.se</strong>, <strong>.com</strong>).
+						<p>
+							Sista delen av domänen (t.ex. <strong>.se</strong> eller <strong>.com</strong>).
 						</p>
+						<p class="u-m-b-0">Läs mer om <a href="https://internetkunskap.se/artiklar/ordlista/doman/toppdoman/" target="_blank">toppdomäner</a> i vår ordlista</p>
 					</div>
 					<div class="o-url-checker__box__body o-url-checker__kv">
-						<div><strong>Värde:</strong> <code id="outTld"></code></div>
+						<div><strong>Den testade länken innehåller:</strong> <code id="outTld"></code></div>
 					</div>
 				</div>
 
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="pathBox">
 					<div class="o-url-checker__box__header">
 						<h3 class="u-m-b-0">Sökväg <span class="u-weight-normal">(/mapp/sida)</span></h3>
-						<p class="u-m-b-0 o-url-checker__muted">
-							Delarna efter domänen (t.ex. <strong>/konto/inloggning</strong>).
+						<p class="u-m-b-0">
+							Den här delen av länken bestäms helt av den som driver sidan länken leder till och kan innehålla vilka ord som helst.
 						</p>
 					</div>
 					<div class="o-url-checker__box__body o-url-checker__kv">
-						<div><strong>Värde:</strong> <code id="outPath"></code></div>
+						<div><strong>Den testade länken innehåller:</strong> <code id="outPath"></code></div>
 						<div><strong>Mappar:</strong> <code id="outFolders"></code></div>
 					</div>
 				</div>
@@ -226,13 +229,12 @@
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="queryBox">
 					<div class="o-url-checker__box__header">
 						<h3 class="u-m-b-0">Parametrar</h3>
-						<p class="u-m-b-0 o-url-checker__muted">
-							Del efter <strong>?</strong> som skickar extra data (t.ex.
-							<strong>utm_*</strong>). Kallas även <strong>query-parameter</strong>.
+						<p class="u-m-b-0">
+							Del efter <strong>?</strong> som skickar extra data. Kallas även <strong>query-parameter</strong>.
 						</p>
 					</div>
 					<div class="o-url-checker__box__body o-url-checker__kv">
-						<div><strong>Värde:</strong> <code id="outQuery"></code></div>
+						<div><strong>Den testade länken innehåller:</strong> <code id="outQuery"></code></div>
 						<div id="outParamsWrap" class="u-m-t-2" hidden>
 							<strong>Nycklar och värden:</strong>
 							<ul id="outParams" clas s="u-m-b-0"></ul>
@@ -243,12 +245,12 @@
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="hashBox">
 					<div class="o-url-checker__box__header">
 						<h3 class="u-m-b-0">Ankare (#)</h3>
-						<p class="u-m-b-0 o-url-checker__muted">
-							Del efter <strong>#</strong> som ofta hoppar till en sektion på sidan.
+						<p class="u-m-b-0">
+							Del efter <strong>#</strong> som ofta hoppar till en specifik del på sidan.
 						</p>
 					</div>
 					<div class="o-url-checker__box__body o-url-checker__kv">
-						<div><strong>Värde:</strong> <code id="outHash"></code></div>
+						<div><strong>Den testade länken innehåller:</strong> <code id="outHash"></code></div>
 					</div>
 				</div>
 			</div>

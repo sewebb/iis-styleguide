@@ -4,6 +4,7 @@ Object.defineProperty(exports, "__esModule", {
 });
 const _anchorScroll = require("../../assets/js/anchorScroll");
 const _className = /*#__PURE__*/ _interop_require_default(require("../../assets/js/className"));
+const _track = /*#__PURE__*/ _interop_require_default(require("../../assets/js/track"));
 function _extends() {
     _extends = Object.assign || function(target) {
         for(var i = 1; i < arguments.length; i++){
@@ -50,7 +51,6 @@ const els = {
     outIpVersion: document.getElementById('outIpVersion'),
     domainBox: document.getElementById('domainBox'),
     outDomain: document.getElementById('outDomain'),
-    outRegistrable: document.getElementById('outRegistrable'),
     tldBox: document.getElementById('tldBox'),
     outTld: document.getElementById('outTld'),
     pathBox: document.getElementById('pathBox'),
@@ -890,7 +890,21 @@ function parseMaybeURL(raw) {
         ok: false,
         reason: 'invalid'
     };
-    const hasScheme = /^[a-z][a-z0-9+.-]*:\/\//i.test(input);
+    const schemeMatch = input.match(/^([a-z][a-z0-9+.-]*):\/\//i);
+    const explicitScheme = schemeMatch ? schemeMatch[1].toLowerCase() : '';
+    const hasScheme = Boolean(explicitScheme);
+    const allowedSchemes = new Set([
+        'http',
+        'https',
+        'ftp'
+    ]);
+    if (explicitScheme && !allowedSchemes.has(explicitScheme)) {
+        return {
+            ok: false,
+            reason: 'invalid_protocol',
+            protocol: explicitScheme
+        };
+    }
     const normalized = normalizeURLInput(input);
     try {
         const url = new URL(normalized);
@@ -957,6 +971,11 @@ function setVisibleState({ hasResults, errorMessage = '' }) {
     setInputErrorAccessibility(hasError);
     els.results.hidden = !hasResults;
     els.emptyState.style.display = hasResults ? 'none' : '';
+}
+function trackUrlAnalysis() {
+    (0, _track.default)({
+        event: 'check_url'
+    });
 }
 function parseRawQueryEntries(search) {
     const rawQuery = String(search || '').replace(/^\?/, '');
@@ -1243,17 +1262,17 @@ function render(rawInput) {
         els.inputHint.textContent = '';
         setHostSpecialBoxesVisibility(false);
         renderScriptWarnings([]);
-        return;
+        return false;
     }
     if (!parsed.ok) {
         setVisibleState({
             hasResults: false,
-            errorMessage: 'Kunde inte tolka länken. Kontrollera att den ser ut som en URL.'
+            errorMessage: parsed.reason === 'invalid_protocol' ? `Protokollet verkar vara fel eller felstavat (${parsed.protocol}://). Använd http://, https:// eller ftp://.` : 'Kunde inte tolka länken. Kontrollera att den ser ut som en URL.'
         });
         els.inputHint.textContent = '';
         setHostSpecialBoxesVisibility(false);
         renderScriptWarnings([]);
-        return;
+        return false;
     }
     const u = parsed.url;
     els.inputHint.textContent = parsed.schemeMissing ? 'Tips: Länken saknade protokoll – jag antog https:// för att kunna analysera.' : '';
@@ -1275,7 +1294,7 @@ function render(rawInput) {
         els.inputHint.textContent = '';
         setHostSpecialBoxesVisibility(false);
         renderScriptWarnings([]);
-        return;
+        return false;
     }
     const focusHost = isIpHost ? displayHost || normalizedHost || '—' : displayDomain && displayTld ? `${displayDomain}.${displayTld}` : displayRegistrable || '—';
     const invisibleWarnings = detectInvisibleCharacters(parsed.raw);
@@ -1348,7 +1367,6 @@ function render(rawInput) {
     safeText(els.outIpAddress, isIpHost ? displayHost : '—');
     safeText(els.outIpVersion, ipAddressType ? ipAddressType === 'ipv4' ? 'IPv4' : 'IPv6' : '—');
     safeText(els.outDomain, displayDomain || '—');
-    safeText(els.outRegistrable, displayRegistrable || '—');
     safeText(els.outTld, displayTld || '—');
     safeText(els.outPath, shouldRenderPath ? u.pathname || '/' : '—');
     const folders = (u.pathname || '/').split('/').filter(Boolean);
@@ -1390,6 +1408,7 @@ function render(rawInput) {
         hasResults: true,
         errorMessage: ''
     });
+    return true;
 }
 if (shouldInitUrlChecker) {
     // Debounced live parsing
@@ -1397,7 +1416,8 @@ if (shouldInitUrlChecker) {
     let shouldScrollToOverviewOnNextAnalyze = false;
     let blockAutoScrollUntilManualAnalyze = false;
     const analyze = (value)=>{
-        render(value);
+        const didPassValidation = render(value);
+        if (didPassValidation) trackUrlAnalysis();
         if (!shouldScrollToOverviewOnNextAnalyze) return;
         if (blockAutoScrollUntilManualAnalyze) {
             shouldScrollToOverviewOnNextAnalyze = false;

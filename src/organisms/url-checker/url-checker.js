@@ -1,5 +1,6 @@
 import { animateAnchorScroll } from '../../assets/js/anchorScroll';
 import className from '../../assets/js/className';
+import track from '../../assets/js/track';
 
 const els = {
 	urlInput: document.getElementById('urlInput'),
@@ -30,7 +31,6 @@ const els = {
 	outIpVersion: document.getElementById('outIpVersion'),
 	domainBox: document.getElementById('domainBox'),
 	outDomain: document.getElementById('outDomain'),
-	outRegistrable: document.getElementById('outRegistrable'),
 	tldBox: document.getElementById('tldBox'),
 	outTld: document.getElementById('outTld'),
 	pathBox: document.getElementById('pathBox'),
@@ -110,7 +110,7 @@ const BREAKDOWN_PARTS = [
 	{
 		key: 'tld',
 		label: 'Toppdomän',
-		desc: '.se / .com',
+		desc: 't.ex. .se',
 	},
 	{
 		key: 'path',
@@ -930,7 +930,17 @@ function parseMaybeURL(raw) {
 	if (!input) return { ok: false, reason: 'empty' };
 	if (/\s/.test(input)) return { ok: false, reason: 'invalid' };
 
-	const hasScheme = /^[a-z][a-z0-9+.-]*:\/\//i.test(input);
+	const schemeMatch = input.match(/^([a-z][a-z0-9+.-]*):\/\//i);
+	const explicitScheme = schemeMatch ? schemeMatch[1].toLowerCase() : '';
+	const hasScheme = Boolean(explicitScheme);
+	const allowedSchemes = new Set(['http', 'https', 'ftp']);
+	if (explicitScheme && !allowedSchemes.has(explicitScheme)) {
+		return {
+			ok: false,
+			reason: 'invalid_protocol',
+			protocol: explicitScheme,
+		};
+	}
 	const normalized = normalizeURLInput(input);
 
 	try {
@@ -1014,6 +1024,10 @@ function setVisibleState({ hasResults, errorMessage = '' }) {
 	setInputErrorAccessibility(hasError);
 	els.results.hidden = !hasResults;
 	els.emptyState.style.display = hasResults ? 'none' : '';
+}
+
+function trackUrlAnalysis() {
+	track({ event: 'check_url' });
 }
 
 function parseRawQueryEntries(search) {
@@ -1400,19 +1414,21 @@ function render(rawInput) {
 		els.inputHint.textContent = '';
 		setHostSpecialBoxesVisibility(false);
 		renderScriptWarnings([]);
-		return;
+		return false;
 	}
 
 	if (!parsed.ok) {
 		setVisibleState({
 			hasResults: false,
 			errorMessage:
-				'Kunde inte tolka länken. Kontrollera att den ser ut som en URL.',
+				parsed.reason === 'invalid_protocol'
+					? `Protokollet verkar vara fel eller felstavat (${parsed.protocol}://). Använd http://, https:// eller ftp://.`
+					: 'Kunde inte tolka länken. Kontrollera att den ser ut som en URL.',
 		});
 		els.inputHint.textContent = '';
 		setHostSpecialBoxesVisibility(false);
 		renderScriptWarnings([]);
-		return;
+		return false;
 	}
 
 	const u = parsed.url;
@@ -1451,7 +1467,7 @@ function render(rawInput) {
 		els.inputHint.textContent = '';
 		setHostSpecialBoxesVisibility(false);
 		renderScriptWarnings([]);
-		return;
+		return false;
 	}
 
 	const focusHost = isIpHost
@@ -1557,7 +1573,6 @@ function render(rawInput) {
 			: '—',
 	);
 	safeText(els.outDomain, displayDomain || '—');
-	safeText(els.outRegistrable, displayRegistrable || '—');
 	safeText(els.outTld, displayTld || '—');
 	safeText(els.outPath, shouldRenderPath ? u.pathname || '/' : '—');
 
@@ -1606,6 +1621,7 @@ function render(rawInput) {
 	setTimeout(() => activatePart(defaultPart), 0);
 
 	setVisibleState({ hasResults: true, errorMessage: '' });
+	return true;
 }
 
 if (shouldInitUrlChecker) {
@@ -1615,7 +1631,8 @@ if (shouldInitUrlChecker) {
 	let blockAutoScrollUntilManualAnalyze = false;
 
 	const analyze = (value) => {
-		render(value);
+		const didPassValidation = render(value);
+		if (didPassValidation) trackUrlAnalysis();
 
 		if (!shouldScrollToOverviewOnNextAnalyze) return;
 		if (blockAutoScrollUntilManualAnalyze) {
