@@ -1,230 +1,260 @@
-<div class="wrapper u-p-t-4 o-url-checker">
-	<h1 class="supersize">Förstå en länk (URL)</h1>
-	<p class="preamble o-url-checker__preamble">
-		Klistra in en länk här så delas den upp i sina byggstenar. Tanken är att göra det enklare att se
-		<strong>vem</strong> länken faktiskt går till och <strong>hur</strong> den är uppbyggd – vilket hjälper mot bedrägerilänkar.
-	</p>
-
-	<h2>Så använder du detta mot bedrägerilänkar</h2>
-	<ul>
-		<li>
-			Kontrollera att <strong>domän + toppdomän</strong> stämmer (t.ex. <span class="o-url-checker__inlinecode">bank.se</span>).
-		</li>
-		<li>
-			Var skeptisk om subdomänen innehåller <code>secure</code>, <code>login</code>, <code>verify</code> – det kan vara vilseledande.
-		</li>
-		<li>Var försiktig med väldigt långa länkar och många parametrar.</li>
-		<li>Var uppmärksam på specialtecken som efterliknar "vanliga" tecken.</li>
-	</ul>
-
-	<!-- LEFT: INPUT -->
-	<h2 class="u-m-b-0">1. Klistra in en länk</h2>
-	<section class="o-url-checker__box u-m-b-default">
-		<div class="o-url-checker__box__header">
-			<p class="u-m-b-0 o-url-checker__muted">
-				Exempel: <span class="o-url-checker__inlinecode">https://microsoft.com/path/to/page?utm_source=x#newsletter</span>
-			</p>
-		</div>
-
-		<div class="o-url-checker__box__body">
-			<div class="field-group u-m-b-0" id="urlInputFieldGroup">
-				<label for="urlInput" class="u-visuallyhidden">Länk</label>
-				<textarea
-					id="urlInput"
-					class="a-textarea"
-					rows="5"
-					placeholder="Klistra in en URL här…"
-					autocomplete="off"
-					autocapitalize="off"
-					spellcheck="false"
-				></textarea>
-				<div id="urlInputHelp" class="input-help" aria-live="polite"></div>
-			</div>
-
-			<div class="u-m-t-default o-url-checker__actions">
-				<button id="analyzeBtn" class="a-button a-button--peacock" type="button">
-					<span class="a-button__text">Analysera</span>
-				</button>
-
-				<button id="clearBtn" class="a-button a-button--transparent" type="button">
-					<span class="a-button__text">Rensa</span>
-				</button>
-			</div>
-
-			<div id="inputHint" class="u-m-t-default o-url-checker__message o-url-checker__message--warn" aria-live="polite"></div>
-		</div>
-	</section>
-	<section id="results" class="u-m-b-default o-url-checker__results" hidden aria-live="polite" aria-atomic="true">
-
-		<div id="emptyState" class="o-url-checker__muted">
-			<p class="u-m-b-0">Klistra in en URL så visas delarna här.</p>
-		</div>
-
-		<div class="u-m-b-4 u-p-t-2" id="overview">
-			<h2 class="u-m-b-0">2. Snabbkoll</h2>
-			<div class="o-url-checker__box o-url-checker__domain-focus u-m-b-default">
-				<div class="o-url-checker__box__body">
-					<div class="o-url-checker__domain-focus__hint u-m-b-1">
-						<h3 class="u-m-b-0">Detta är domänen du hamnar på om du klickar på denna länk.</h3>
-						Kontrollera tecken för tecken att domännamnet är exakt rätt.
-					</div>
-						<div class="o-url-checker__domain-focus__main o-url-checker__surface o-url-checker__surface--ash">
-						<span class="o-url-checker__domain-focus__label">Domän + toppdomän</span>
-						<span class="o-url-checker__domain-focus__value" id="focusRegistrable">—</span>
-					</div>
-						<div class="o-url-checker__domain-focus__grid">
-								<div class="o-url-checker__domain-focus__item o-url-checker__surface" id="focusHostBox">
-								<span class="o-url-checker__domain-focus__label">Domän (med markerade specialtecken)</span>
-								<span class="o-url-checker__domain-focus__mono" id="focusHost">—</span>
-							</div>
-								<div class="o-url-checker__domain-focus__item o-url-checker__surface" id="focusHostNormalizedBox">
-								<span class="o-url-checker__domain-focus__label">Normaliserad IDN-domän</span>
-								<span class="o-url-checker__domain-focus__mono o-url-checker__domain-focus__mono--small" id="focusHostNormalized">—</span>
+<div class="site__main">
+	<div class="site__main__content u-p-b-0" style="float:left; width: 100%;">
+		<div class="section u-m-t-0">
+			<div class="wrapper">
+				<main class="article">
+					<div id="locationRight" class="o-url-checker__fact alignright u-m-b-0">
+						<div data-responsive="xs:locationBelow,lg:locationRight">
+							<div class="wp-block-iis-grid">
+								<div class="row">
+									<div class="grid-18 ">
+										<div class="m-card m-card--padded wp-block-iis-visualization o-url-checker u-m-b-0 background-ocean-lighter u-b-1 u-b-solid u-b-ocean-light">
+											<div class="m-card__content">
+												<h2 class="wp-block-heading">Så använder du detta mot bedrägerilänkar</h2>
+												<ul class="wp-block-list u-p-l-2 u-font-size-medium-plus">
+													<li>Kontrollera att&nbsp;<strong>domän + toppdomän</strong>&nbsp;stämmer (t.ex.&nbsp;<strong>bank.se</strong>).</li>
+													<li>Var uppmärksam om subdomänen innehåller&nbsp;<code>secure</code>,&nbsp;<code>login</code>,&nbsp;<code>verify</code>&nbsp;– det kan vara vilseledande.</li>
+													<li>Var försiktig med väldigt långa länkar och många parametrar.</li>
+													<li>Var uppmärksam på tecken som kan förväxlas med latinska tecken.</li>
+												</ul>
+											</div>
+										</div>
+									</div>
+								</div>
 							</div>
 						</div>
-					<h4 class="u-m-t-1">Länken innehåller</h4>
-					<div id="signals" class="o-url-checker__pillrow"></div>
-						<div class="o-url-checker__surface u-m-t-default" id="scriptWarningWrap" hidden>
-						<span class="o-url-checker__domain-focus__label">Möjliga ersättningstecken i länken</span>
-						<p><strong>OBS!</strong> Var extra uppmärksam på detta, det kan göra att du hamnar på en annan adress än den du tänkt.</p>
-						<div class="o-url-checker__breakdown__items" id="scriptWarningList"></div>
 					</div>
-				</div>
+					<h1 class="supersize u-m-t-4">Förstå en länk (URL)</h1>
+
+					<div class="article__content article__content--full-width">
+						<p class="wp-block-iis-preamble preamble">Klistra in en länk här nedan för att få hjälp med att förstå var den leder och hur en länk är uppbyggd. Tanken är att göra det enklare att se <strong>vem</strong> länken faktiskt går till och <strong>hur</strong> den är uppbyggd – vilket kan hjälpa dig att undvika bedrägerilänkar.</p>
+						<div style="height:1px" aria-hidden="true" class="wp-block-spacer u-m-b-0"></div>
+					</div>
+				</main>
 			</div>
 		</div>
+	</div>
 
-		<h2 class="u-m-b-0">3. Länkens delar</h2>
-		<div class="o-url-checker__box o-url-checker__breakdown">
-			<div class="o-url-checker__box__body" id="breakdownWrap">
-				<p class="u-m-b-2 o-url-checker__muted">
-					Tips: Titta extra noga på <strong>domän</strong> och <strong>toppdomän</strong>.<br>
-					Klicka på en markerad del i URL:en för att visa beskrivningen här.
+	<div class="wrapper o-url-checker">
+		<h2 class="u-m-b-0">1. Klistra in en länk</h2>
+		<section class="o-url-checker__box u-m-b-default">
+			<div class="o-url-checker__box__header">
+				<p class="u-m-b-0">
+					Exempel: <strong>https://microsoft.com/path/to/page?utm_source=x#newsletter</strong>
 				</p>
-				<svg class="o-url-checker__breakdown__svg" id="breakdownSvg" aria-hidden="true"></svg>
-					<div class="o-url-checker__breakdown__url o-url-checker__surface" id="breakdownUrlBox">
-					<div class="o-url-checker__breakdown__urlcode" id="breakdownUrl"></div>
-				</div>
-
-					<div class="o-url-checker__breakdown__legend o-url-checker__surface">
-					<span class="o-url-checker__domain-focus__label">Etiketter</span>
-					<div class="o-url-checker__breakdown__wrap">
-						<div class="o-url-checker__breakdown__items" id="breakdownLegend"></div>
-					</div>
-					<div class="o-url-checker__breakdown__details" id="breakdownDetails"></div>
-				</div>
-			</div>
-		</div>
-
-		<div class="u-m-b-default o-url-checker__details" id="detailsSection">
-			<div class="o-url-checker__box o-url-checker__box--lemon" id="protocolBox">
-				<div class="o-url-checker__box__header">
-					<h3 class="u-m-b-0">Protokoll</h3>
-					<p class="u-m-b-0 o-url-checker__muted">
-						Anger hur din webbläsare ska ansluta. <span class="o-url-checker__inlinecode">https://</span> innebär
-						krypterad anslutning.
-					</p>
-				</div>
-				<div class="o-url-checker__box__body o-url-checker__kv">
-					<div><strong>Värde:</strong> <code id="outProtocol"></code></div>
-				</div>
 			</div>
 
-			<div class="o-url-checker__box o-url-checker__box--ruby" id="credentialsBox">
-				<div class="o-url-checker__box__header">
-					<h3 class="u-m-b-0">Inloggningsuppgifter</h3>
-					<p class="u-m-b-0 o-url-checker__muted">
-						Användarnamn och lösenord i URL:en (t.ex. <span class="o-url-checker__inlinecode">user:password@</span>).<br>
-						<strong>Varning:</strong> Detta är osäkert och kan vara ett tecken på phishing.
-					</p>
+			<div class="o-url-checker__box__body">
+				<div class="field-group u-m-b-0" id="urlInputFieldGroup">
+					<label for="urlInput" class="u-visuallyhidden">Länk</label>
+					<textarea
+						id="urlInput"
+						class="a-textarea"
+						rows="5"
+						placeholder="Klistra in en URL här…"
+						autocomplete="off"
+						autocapitalize="off"
+						spellcheck="false"
+					></textarea>
+					<div id="urlInputHelp" class="input-help" aria-live="polite"></div>
 				</div>
-				<div class="o-url-checker__box__body o-url-checker__kv">
-					<div><strong>Användarnamn:</strong> <code id="outUsername"></code></div>
-					<div><strong>Lösenord:</strong> <code id="outPassword"></code></div>
+
+				<div class="u-m-t-default o-url-checker__actions">
+					<button id="analyzeBtn" class="a-button a-button--peacock" type="button">
+						<span class="a-button__text">Analysera</span>
+					</button>
+
+					<button id="clearBtn" class="a-button a-button--transparent" type="button">
+						<span class="a-button__text">Rensa</span>
+					</button>
 				</div>
+
+				<div id="inputHint" class="u-m-t-default o-url-checker__message o-url-checker__message--warn" aria-live="polite"></div>
+			</div>
+		</section>
+		<section id="results" class="u-m-b-default o-url-checker__results" hidden aria-live="polite" aria-atomic="true">
+
+			<div id="emptyState" class="o-url-checker__muted">
+				<p class="u-m-b-0">Klistra in en URL så visas delarna här.</p>
 			</div>
 
-			<div class="o-url-checker__box o-url-checker__box--lemon" id="subdomainBox">
-				<div class="o-url-checker__box__header">
-					<h3 class="u-m-b-0">Subdomän</h3>
-					<p class="u-m-b-0 o-url-checker__muted">
-						Del före domänen (t.ex. <span class="o-url-checker__inlinecode">www</span>,
-						<span class="o-url-checker__inlinecode">login</span>). Kan användas vilseledande.
-					</p>
-				</div>
-				<div class="o-url-checker__box__body o-url-checker__kv">
-					<div><strong>Värde:</strong> <code id="outSubdomain"></code></div>
-				</div>
-			</div>
-
-			<div class="o-url-checker__box o-url-checker__box--lemon" id="domainBox">
-				<div class="o-url-checker__box__header">
-					<h3 class="u-m-b-0">Domän</h3>
-					<p class="u-m-b-0 o-url-checker__muted">
-						Den registrerade "huvudadressen" (t.ex. <span class="o-url-checker__inlinecode">microsoft</span>). Ofta
-						viktigast för att se <em>vem</em> länken går till.
-					</p>
-				</div>
-				<div class="o-url-checker__box__body o-url-checker__kv">
-					<div><strong>Värde:</strong> <code id="outDomain"></code></div>
-					<div><strong>Registrerbar del (förenklad):</strong> <code id="outRegistrable"></code></div>
-				</div>
-			</div>
-
-			<div class="o-url-checker__box o-url-checker__box--lemon" id="tldBox">
-				<div class="o-url-checker__box__header">
-					<h3 class="u-m-b-0">Toppdomän (Top Level Domain)</h3>
-					<p class="u-m-b-0 o-url-checker__muted">
-						Sista delen av domänen (t.ex. <span class="o-url-checker__inlinecode">.se</span>, <span class="o-url-checker__inlinecode"
-					>.com</span
-					>).
-					</p>
-				</div>
-				<div class="o-url-checker__box__body o-url-checker__kv">
-					<div><strong>Värde:</strong> <code id="outTld"></code></div>
-				</div>
-			</div>
-
-			<div class="o-url-checker__box o-url-checker__box--lemon" id="pathBox">
-				<div class="o-url-checker__box__header">
-					<h3 class="u-m-b-0">Sökväg (/mapp/sida)</h3>
-					<p class="u-m-b-0 o-url-checker__muted">
-						Delarna efter domänen (t.ex. <span class="o-url-checker__inlinecode">/konto/inloggning</span>).
-					</p>
-				</div>
-				<div class="o-url-checker__box__body o-url-checker__kv">
-					<div><strong>Värde:</strong> <code id="outPath"></code></div>
-					<div><strong>Mappar:</strong> <code id="outFolders"></code></div>
-				</div>
-			</div>
-
-			<div class="o-url-checker__box o-url-checker__box--lemon" id="queryBox">
-				<div class="o-url-checker__box__header">
-					<h3 class="u-m-b-0">Query-parametrar</h3>
-					<p class="u-m-b-0 o-url-checker__muted">
-						Del efter <span class="o-url-checker__inlinecode">?</span> som skickar extra data (t.ex.
-						<span class="o-url-checker__inlinecode">utm_*</span>).
-					</p>
-				</div>
-				<div class="o-url-checker__box__body o-url-checker__kv">
-					<div><strong>Värde:</strong> <code id="outQuery"></code></div>
-					<div id="outParamsWrap" hidden>
-						<strong>Nycklar och värden:</strong>
-						<ul id="outParams" class="u-m-t-1 u-m-b-0"></ul>
+			<div class="u-m-b-4 u-p-t-2" id="overview">
+				<h2 class="u-m-b-0">2. Vem leder länken till?</h2>
+				<div class="o-url-checker__box o-url-checker__domain-focus u-m-b-default">
+					<div class="o-url-checker__box__body">
+						<div class="o-url-checker__domain-focus__hint u-m-b-1">
+							<h3 class="u-m-b-0">Det här är domänen du faktiskt hamnar på om du klickar på länken.</h3>
+							Kontrollera tecken för tecken att domänen är exakt den du förväntar dig.
+						</div>
+							<div class="o-url-checker__domain-focus__main o-url-checker__surface o-url-checker__surface--ash">
+							<span class="o-url-checker__domain-focus__label">Domän + toppdomän</span>
+							<span class="o-url-checker__domain-focus__value" id="focusRegistrable">—</span>
+						</div>
+							<div class="o-url-checker__domain-focus__grid">
+									<div class="o-url-checker__domain-focus__item o-url-checker__surface" id="focusHostBox">
+									<span class="o-url-checker__domain-focus__label">Domän (röda markeringar visar tecken som kan förväxlas med latinska)</span>
+									<span class="o-url-checker__domain-focus__mono" id="focusHost">—</span>
+								</div>
+							</div>
+						<h4 class="u-m-t-1">Länken innehåller</h4>
+						<div id="signals" class="o-url-checker__pillrow"></div>
+							<div class="o-url-checker__surface u-m-t-default" id="scriptWarningWrap" hidden>
+							<span class="o-url-checker__domain-focus__label">Tecken att vara extra uppmärksam på i domänen</span>
+							<p><strong>OBS!</strong> Röda markeringar visar tecken som kan förväxlas med latinska tecken. Osynliga tecken, styrtecken och andra teckenuppsättningar i domänen kan också göra att en länk ser trygg ut fast den leder någon annanstans.</p>
+							<div class="o-url-checker__breakdown__items" id="scriptWarningList"></div>
+						</div>
 					</div>
 				</div>
 			</div>
 
-			<div class="o-url-checker__box o-url-checker__box--lemon" id="hashBox">
-				<div class="o-url-checker__box__header">
-					<h3 class="u-m-b-0">Fragment (#)</h3>
-					<p class="u-m-b-0 o-url-checker__muted">
-						Del efter <span class="o-url-checker__inlinecode">#</span> som ofta hoppar till en sektion på sidan.
+			<h2 class="u-m-b-0">3. Hur är länken uppbyggd?</h2>
+			<div class="o-url-checker__box o-url-checker__breakdown">
+				<div class="o-url-checker__box__body" id="breakdownWrap">
+					<p class="u-m-b-2 o-url-checker__muted">
+						Tips: Titta extra noga på <strong>domän</strong> och <strong>toppdomän</strong>.<br>
+						Klicka på en markerad del i länken nedan för att visa beskrivningen här.
 					</p>
-				</div>
-				<div class="o-url-checker__box__body o-url-checker__kv">
-					<div><strong>Värde:</strong> <code id="outHash"></code></div>
+					<svg class="o-url-checker__breakdown__svg" id="breakdownSvg" aria-hidden="true"></svg>
+						<div class="o-url-checker__breakdown__url o-url-checker__surface" id="breakdownUrlBox">
+						<div class="o-url-checker__breakdown__urlcode" id="breakdownUrl"></div>
+					</div>
+
+						<div class="o-url-checker__breakdown__legend o-url-checker__surface">
+						<span class="o-url-checker__domain-focus__label">Del av länk</span>
+						<div class="o-url-checker__breakdown__wrap">
+							<div class="o-url-checker__breakdown__items" id="breakdownLegend"></div>
+						</div>
+						<div class="o-url-checker__breakdown__details" id="breakdownDetails"></div>
+					</div>
 				</div>
 			</div>
-		</div>
-	</section>
+
+			<div class="u-m-b-default o-url-checker__details" id="detailsSection">
+				<div class="o-url-checker__box o-url-checker__box--lemon" id="protocolBox">
+					<div class="o-url-checker__box__header">
+						<h3 class="u-m-b-0">Protokoll</h3>
+						<p>
+							Anger hur din webbläsare ska ansluta. <strong>https://</strong> innebär
+							krypterad anslutning.
+						</p>
+						<p class="u-m-b-0">Läs mer om <a href="https://internetkunskap.se/artiklar/ordlista/protokoll/" target="_blank">protokoll</a> i vår ordlista</p>
+					</div>
+					<div class="o-url-checker__box__body o-url-checker__kv">
+						<div><strong>Den testade länken innehåller:</strong> <code id="outProtocol"></code></div>
+					</div>
+				</div>
+
+				<div class="o-url-checker__box o-url-checker__box--ruby" id="credentialsBox">
+					<div class="o-url-checker__box__header">
+						<h3 class="u-m-b-0">Inloggningsuppgifter</h3>
+						<p class="u-m-b-0">
+							Användarnamn och lösenord i URL:en (t.ex. <strong>user:password@</strong>).<br>
+							<strong>Varning:</strong> Detta är osäkert och kan vara ett tecken på phishing.
+						</p>
+					</div>
+					<div class="o-url-checker__box__body o-url-checker__kv">
+						<div><strong>Användarnamn:</strong> <code id="outUsername"></code></div>
+						<div><strong>Lösenord:</strong> <code id="outPassword"></code></div>
+					</div>
+				</div>
+
+				<div class="o-url-checker__box o-url-checker__box--lemon" id="subdomainBox">
+					<div class="o-url-checker__box__header">
+						<h3 class="u-m-b-0">Subdomän</h3>
+						<p>
+							Del före domänen (t.ex. www, login). <em>Den här delen används ofta av bedragare för att försöka lura dig att tro att deras tjänst har en koppling till ett mer välkänt varumärke. En subdomän kan innehålla vad som helst, utan någon kontroll, så det är enkelt för en bedragare att till exempel använda subdomänen "microsoft" utan att Microsoft vet om det</em>.<br>
+							Kan användas vilseledande.
+						</p>
+						<p class="u-m-b-0">Läs mer om <a href="https://internetkunskap.se/artiklar/ordlista/subdoman/" target="_blank">subdomäner</a> i vår ordlista</p>
+					</div>
+					<div class="o-url-checker__box__body o-url-checker__kv">
+						<div><strong>Den testade länken innehåller:</strong> <code id="outSubdomain"></code></div>
+					</div>
+				</div>
+
+				<div class="o-url-checker__box o-url-checker__box--lemon" id="ipAddressBox">
+					<div class="o-url-checker__box__header">
+						<h3 class="u-m-b-0">IP-adress</h3>
+						<p class="u-m-b-0">
+							Här används en IP-adress direkt i stället för ett domännamn. Det gör det svårare att snabbt se
+							vem länken går till.
+						</p>
+					</div>
+					<div class="o-url-checker__box__body o-url-checker__kv">
+						<div><strong>Den testade länken innehåller:</strong> <code id="outIpAddress"></code></div>
+						<div><strong>Typ:</strong> <code id="outIpVersion"></code></div>
+					</div>
+				</div>
+
+				<div class="o-url-checker__box o-url-checker__box--lemon" id="domainBox">
+					<div class="o-url-checker__box__header">
+						<h3 class="u-m-b-0">Domän</h3>
+						<p>
+							Den registrerade "huvudadressen" (t.ex. <strong>microsoft</strong>). Ofta
+							viktigast för att se <em>vem</em> länken går till.
+						</p>
+						<p class="u-m-b-0">Läs mer om <a href="https://internetkunskap.se/artiklar/ordlista/doman/" target="_blank">domäner</a> i vår ordlista</p>
+					</div>
+					<div class="o-url-checker__box__body o-url-checker__kv">
+						<div><strong>Den testade länken innehåller:</strong> <code id="outDomain"></code></div>
+					</div>
+				</div>
+
+				<div class="o-url-checker__box o-url-checker__box--lemon" id="tldBox">
+					<div class="o-url-checker__box__header">
+						<h3 class="u-m-b-0">Toppdomän <span class="u-weight-normal">(Top Level Domain)</span></h3>
+						<p>
+							Sista delen av domänen (t.ex. <strong>.se</strong> eller <strong>.com</strong>).
+						</p>
+						<p class="u-m-b-0">Läs mer om <a href="https://internetkunskap.se/artiklar/ordlista/doman/toppdoman/" target="_blank">toppdomäner</a> i vår ordlista</p>
+					</div>
+					<div class="o-url-checker__box__body o-url-checker__kv">
+						<div><strong>Den testade länken innehåller:</strong> <code id="outTld"></code></div>
+					</div>
+				</div>
+
+				<div class="o-url-checker__box o-url-checker__box--lemon" id="pathBox">
+					<div class="o-url-checker__box__header">
+						<h3 class="u-m-b-0">Sökväg <span class="u-weight-normal">(/mapp/sida)</span></h3>
+						<p class="u-m-b-0">
+							Den här delen av länken bestäms helt av den som driver sidan länken leder till och kan innehålla vilka ord som helst.
+						</p>
+					</div>
+					<div class="o-url-checker__box__body o-url-checker__kv">
+						<div><strong>Den testade länken innehåller:</strong> <code id="outPath"></code></div>
+						<div><strong>Mappar:</strong> <code id="outFolders"></code></div>
+					</div>
+				</div>
+
+				<div class="o-url-checker__box o-url-checker__box--lemon" id="queryBox">
+					<div class="o-url-checker__box__header">
+						<h3 class="u-m-b-0">Parametrar</h3>
+						<p class="u-m-b-0">
+							Del efter <strong>?</strong> som skickar extra data. Kallas även <strong>query-parameter</strong>.
+						</p>
+					</div>
+					<div class="o-url-checker__box__body o-url-checker__kv">
+						<div><strong>Den testade länken innehåller:</strong> <code id="outQuery"></code></div>
+						<div id="outParamsWrap" class="u-m-t-2" hidden>
+							<strong>Nycklar och värden:</strong>
+							<ul id="outParams" clas s="u-m-b-0"></ul>
+						</div>
+					</div>
+				</div>
+
+				<div class="o-url-checker__box o-url-checker__box--lemon" id="hashBox">
+					<div class="o-url-checker__box__header">
+						<h3 class="u-m-b-0">Ankare (#)</h3>
+						<p class="u-m-b-0">
+							Del efter <strong>#</strong> som ofta hoppar till en specifik del på sidan.
+						</p>
+					</div>
+					<div class="o-url-checker__box__body o-url-checker__kv">
+						<div><strong>Den testade länken innehåller:</strong> <code id="outHash"></code></div>
+					</div>
+				</div>
+			</div>
+		</section>
+	</div>
+	<div class="wrapper" id="locationBelow"></div>
 </div>

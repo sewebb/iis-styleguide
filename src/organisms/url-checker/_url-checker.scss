@@ -10,6 +10,11 @@
 		max-width: 60ch;
 	}
 
+	@include bem.e(fact) {
+		min-width: 433px;
+		margin-left: func.rhythm(2);
+	}
+
 	@include bem.e(actions) {
 		display: flex;
 		gap: func.rhythm(1);
@@ -126,12 +131,24 @@
 	}
 
 	@include bem.e(script-item) {
-		&.o-url-checker__breakdown__item {
+		&.#{var.$namespace}o-url-checker__breakdown__item {
 			flex-grow: 0;
 			cursor: default;
 			pointer-events: none;
-			border-color: colors.$color-ruby;
-			background: colors.$color-ruby-lighter;
+		}
+
+		@include bem.m(warn) {
+			&.#{var.$namespace}o-url-checker__breakdown__item {
+				border-color: colors.$color-lemon-medium-dark;
+				background: colors.$color-lemon-lighter;
+			}
+		}
+
+		@include bem.m(danger) {
+			&.#{var.$namespace}o-url-checker__breakdown__item {
+				border-color: colors.$color-ruby;
+				background: colors.$color-ruby-lighter;
+			}
 		}
 	}
 
@@ -185,21 +202,21 @@
 				}
 			}
 
-			@include bem.e(host-segment) {
-				&.o-url-checker__breakdown__segment {
-					cursor: default;
-					margin-right: 0;
-					padding: func.rhythm(0.05) func.rhythm(0.12);
-					outline-width: 1px;
-				}
-
-				@include bem.m(special) {
-					&.o-url-checker__breakdown__segment {
-						background: colors.$color-ruby-lighter;
-						outline-color: colors.$color-ruby;
-						font-weight: 700;
+				@include bem.e(host-segment) {
+					&.#{var.$namespace}o-url-checker__breakdown__segment {
+						cursor: default;
+						margin-right: 0;
+						padding: func.rhythm(0.05) func.rhythm(0.12);
+						outline-width: 1px;
 					}
-				}
+
+					@include bem.m(special) {
+						&.#{var.$namespace}o-url-checker__breakdown__segment {
+							background: colors.$color-ruby-lighter;
+							outline-color: colors.$color-ruby;
+							font-weight: 700;
+						}
+					}
 			}
 		}
 
@@ -273,13 +290,13 @@
 			flex-wrap: wrap;
 		}
 
-		@include bem.e(details) {
-			margin-top: func.rhythm(1);
+			@include bem.e(details) {
+				margin-top: func.rhythm(1);
 
-			.o-url-checker__box {
-				margin-bottom: 0 !important;
+				.#{var.$namespace}o-url-checker__box {
+					margin-bottom: 0 !important;
+				}
 			}
-		}
 
 		@include bem.e(item) {
 			display: flex;
@@ -338,7 +355,6 @@
 		border-radius: var.$border-radius;
 		padding: func.rhythm(0.25);
 		display: inline-block;
-		margin-bottom: func.rhythm(1);
 		width: auto;
 		border: 1px solid colors.$color-concrete;
 		word-break: break-word;
