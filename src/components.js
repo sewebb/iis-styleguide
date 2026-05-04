@@ -33,6 +33,7 @@ import './organisms/selectable/selectable';
 import './assets/js/ot';
 import './assets/js/charCounter';
 import './atoms/range/range';
+import './atoms/radiobutton-advanced/radiobutton-advanced';
 import './assets/js/utmGenerator';
 import './assets/js/textToggle';
 import './assets/js/iconToggle';
