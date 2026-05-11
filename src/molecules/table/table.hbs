@@ -1,75 +1,115 @@
-<div class="row no-gutters">
-	<div class="grid">
-		{{#if scrollable}}
-		<div class="table-scroll-wrapper scroll-on-large u-m-b-double">
-			<div class="scroll-indicator"></div>
-		{{/if}}
-				<div class="table-container">
-					<table class="m-table{{#if modifier}} {{modifier}}{{/if}}" {{#if scrollable}}style="min-width:1360px"{{/if}}>
-						{{#unless increment}}
-						{{#if caption}}
-							<caption>Caption for the table</caption>
-						{{/if}}
+{{#if scrollable}}
+<div class="table-scroll-wrapper scroll-on-large u-m-b-double">
+	<div class="scroll-indicator"></div>
+{{/if}}
+		<div class="table-container">
+			<table class="m-table{{#if modifier}} {{modifier}}{{/if}}" {{#if scrollable}}style="min-width:1360px"{{/if}}>
+				{{#if captionText}}
+					<caption>{{captionText}}</caption>
+				{{else}}
+					{{#if caption}}
+						<caption>Caption for the table</caption>
+					{{/if}}
+				{{/if}}
+				{{#if headerRows}}
+					<thead>
+						{{#each headerRows}}
+							<tr>
+								{{#each cells}}
+									<th{{#if className}} class="{{className}}"{{/if}}{{#if scope}} scope="{{scope}}"{{/if}}{{#if colspan}} colspan="{{colspan}}"{{/if}}>{{{label}}}</th>
+								{{/each}}
+							</tr>
+						{{/each}}
+					</thead>
+				{{else}}
+					{{#if headers}}
 						<thead>
 							<tr>
-								<th>{{th}}</th>
-								<th>{{th}}</th>
-								<th>{{th}}</th>
-								<th>{{th}}</th>
-								<th>{{th}}</th>
+								{{#each headers}}
+									<th{{#if className}} class="{{className}}"{{/if}}{{#if scope}} scope="{{scope}}"{{/if}}{{#if colspan}} colspan="{{colspan}}"{{/if}}>{{{label}}}</th>
+								{{/each}}
 							</tr>
 						</thead>
+					{{else}}
+						{{#unless rows}}
+							{{#unless increment}}
+								<thead>
+									<tr>
+										<th>{{th}}</th>
+										<th>{{th}}</th>
+										<th>{{th}}</th>
+										<th>{{th}}</th>
+										<th>{{th}}</th>
+									</tr>
+								</thead>
+							{{/unless}}
 						{{/unless}}
-						<tbody>
-							<tr>
-								{{#if increment}}<th>&nbsp;</th>{{/if}}
-								<td><a href="#">{{td}}</a></td>
-								<td>{{td_num1}} <small>{{td_unit1}}</small></td>
-								<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
-								<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
-								<td>{{td_num4}} <small>{{td_unit4}}</small> </td>
+					{{/if}}
+				{{/if}}
+				<tbody>
+					{{#if rows}}
+						{{#each rows}}
+							<tr{{#if className}} class="{{className}}"{{/if}}>
+								{{#each cells}}
+									{{#if isHeader}}
+										<th{{#if className}} class="{{className}}"{{/if}}{{#if scope}} scope="{{scope}}"{{/if}}{{#if colspan}} colspan="{{colspan}}"{{/if}}>{{{content}}}</th>
+									{{else}}
+										<td{{#if className}} class="{{className}}"{{/if}}{{#if colspan}} colspan="{{colspan}}"{{/if}}>{{{content}}}</td>
+									{{/if}}
+								{{/each}}
 							</tr>
-							<tr>
-								{{#if increment}}<th>&nbsp;</th>{{/if}}
-								<td><a href="#">{{td}}</a></td>
-								<td>{{td_num1}} <small>{{td_unit1}}</small></td>
-								<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
-								<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
-								<td>{{td_num4}} <small>{{td_unit4}}</small> </td>
-							</tr>
-							<tr>
-								{{#if increment}}<th>&nbsp;</th>{{/if}}
-								<td><a href="#">{{td}}</a></td>
-								<td>{{td_num1}} <small>{{td_unit1}}</small></td>
-								<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
-								<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
-								<td>{{td_num4}} <small>{{td_unit4}}</small> </td>
-							</tr>
-							<tr>
-								{{#if increment}}<th>&nbsp;</th>{{/if}}
-								<td><a href="#">{{td}}</a></td>
-								<td>{{td_num1}} <small>{{td_unit1}}</small></td>
-								<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
-								<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
-								<td>{{td_num4}} <small>{{td_unit4}}</small> </td>
-							</tr>
-						</tbody>
-						{{#unless increment}}
-						<tfoot>
-							<tr>
-								<td>{{tfoot}}</td>
-								<td>{{tfoot}}</td>
-								<td>{{tfoot}}</td>
-								<td>{{tfoot}}</td>
-								<td>{{tfoot}}</td>
-							</tr>
-						</tfoot>
-						{{/unless}}
-					</table>
-				</div>
-		{{#if scrollable}}
-			</div>
+						{{/each}}
+					{{else}}
+						<tr>
+							{{#if increment}}<th>&nbsp;</th>{{/if}}
+							<td><a href="#">{{td}}</a></td>
+							<td>{{td_num1}} <small>{{td_unit1}}</small></td>
+							<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
+							<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
+							<td>{{td_num4}} <small>{{td_unit4}}</small> </td>
+						</tr>
+						<tr>
+							{{#if increment}}<th>&nbsp;</th>{{/if}}
+							<td><a href="#">{{td}}</a></td>
+							<td>{{td_num1}} <small>{{td_unit1}}</small></td>
+							<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
+							<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
+							<td>{{td_num4}} <small>{{td_unit4}}</small> </td>
+						</tr>
+						<tr>
+							{{#if increment}}<th>&nbsp;</th>{{/if}}
+							<td><a href="#">{{td}}</a></td>
+							<td>{{td_num1}} <small>{{td_unit1}}</small></td>
+							<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
+							<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
+							<td>{{td_num4}} <small>{{td_unit4}}</small> </td>
+						</tr>
+						<tr>
+							{{#if increment}}<th>&nbsp;</th>{{/if}}
+							<td><a href="#">{{td}}</a></td>
+							<td>{{td_num1}} <small>{{td_unit1}}</small></td>
+							<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
+							<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
+							<td>{{td_num4}} <small>{{td_unit4}}</small> </td>
+						</tr>
+					{{/if}}
+				</tbody>
+				{{#unless increment}}
+					{{#unless rows}}
+					<tfoot>
+						<tr>
+							<td>{{tfoot}}</td>
+							<td>{{tfoot}}</td>
+							<td>{{tfoot}}</td>
+							<td>{{tfoot}}</td>
+							<td>{{tfoot}}</td>
+						</tr>
+					</tfoot>
+					{{/unless}}
+				{{/unless}}
+			</table>
 		</div>
-		{{/if}}
+{{#if scrollable}}
 	</div>
 </div>
+{{/if}}

@@ -1,0 +1,23 @@
+<fieldset class="field-group m-form-control m-form-control--large m-radiobutton-advanced js-radiobutton-advanced{{#if is_invalid}} is-invalid{{/if}}">
+	<legend class="label-legend" id="{{name}}-legend">{{legend}}</legend>
+	<p class="u-visuallyhidden" id="{{name}}-help">På mindre skärmar visas bara valt alternativ. Aktivera det synliga alternativet för att visa alla alternativ. Tryck Enter eller Escape för att stänga listan.</p>
+	<p class="u-visuallyhidden js-radiobutton-advanced__status" id="{{name}}-status" aria-live="polite" aria-atomic="true"></p>
+	<div class="m-radiobutton-advanced__options js-radiobutton-advanced__options" id="{{name}}-options" aria-labelledby="{{name}}-legend" aria-describedby="{{name}}-help {{name}}-status" aria-expanded="false">
+		{{#each options}}
+			<div class="radio m-radiobutton-advanced__option js-radiobutton-advanced__option{{#if ../is_invalid}} is-invalid{{/if}}">
+				<input type="radio" id="{{id}}" name="{{../name}}" value="{{value}}" class="a-radio u-visuallyhidden js-radiobutton-advanced__input"{{#if placeholder}} data-placeholder="{{placeholder}}"{{/if}}{{#if description}} aria-describedby="{{id}}-description"{{/if}}{{#if is_checked}} checked{{/if}}{{#ifequals value ../selected_value}} checked{{/ifequals}}{{#if ../is_disabled}} disabled{{else}}{{#if is_disabled}} disabled{{/if}}{{/if}}{{#if ../is_required}} required{{else}}{{#if is_required}} required{{/if}}{{/if}}{{#if ../is_invalid}} aria-invalid="true"{{else}}{{#if is_invalid}} aria-invalid="true"{{/if}}{{/if}}>
+				<label for="{{id}}">
+					<span class="m-radiobutton-advanced__content">
+						<span class="m-radiobutton-advanced__label">{{label}}</span>
+						{{#if description}}<span class="m-radiobutton-advanced__description" id="{{id}}-description">{{description}}</span>{{/if}}
+					</span>
+					<span class="m-radiobutton-advanced__icon" aria-hidden="true">
+						<span></span>
+						<span></span>
+						<span></span>
+					</span>
+				</label>
+			</div>
+		{{/each}}
+	</div>
+</fieldset>

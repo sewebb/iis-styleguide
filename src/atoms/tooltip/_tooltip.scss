@@ -75,6 +75,7 @@
 		text-align: left;
 		user-select: text;
 		cursor: text;
+		white-space: wrap;
 
 		&::selection {
 			color: colors.$color-cyberspace;

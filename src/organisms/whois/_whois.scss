@@ -1,0 +1,24 @@
+@charset "UTF-8";
+@use '../../configurations/mixins' as mixin;
+@use '../../configurations/bem' as bem;
+@use '../../configurations/functions' as func;
+@use '../../vendor/grid/breakpoints' as breakpoint;
+
+@include mixin.organism(whois) {
+	@include bem.e(contact-row) {
+		row-gap: func.rhythm(1);
+	}
+
+	@include breakpoint.bp-down(sm) {
+		@include bem.e(contact-primary) {
+			flex: 0 0 100%;
+			max-width: 100%;
+		}
+
+		@include bem.e(contact-secondary) {
+			flex: 0 0 100%;
+			max-width: 100%;
+			text-align: left !important;
+		}
+	}
+}

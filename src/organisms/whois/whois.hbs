@@ -1,3 +1,208 @@
-<div class="wrapper">
-	Foo
+<div class="wrapper display-flex justify-content-center">
+	<div class="grid-18 grid-md-12 u-p-t-4 u-m-b-2 u-align-center">
+		<h1 class="supersize">Domänsök</h1>
+		<p class="preamble">Här kan du söka efter lediga domännamn och se innehavare av domännamn samt hitta återförsäljare av domäner.</p>
+	</div>
+</div>
+
+<div class="wrapper js-whois o-whois">
+	{{render '@radiobutton-advanced' radio_context merge=true}}
+
+	<fieldset>
+		<div class="m-form-control m-form-control--large">
+				<div class="field-group">
+					<label for="domainSearch" class="u-visuallyhidden">Sök ledig domän</label>
+					<div class="row u-m-b-2">
+						<div class="grid">
+							<input id="domainSearch" type="text" class="a-input js-whois-input" placeholder=""{{#if search_value}} value="{{search_value}}"{{else}} disabled{{/if}}>
+						</div>
+						<div class="grid-auto">
+							<button type="submit" class="a-button js-whois-submit"{{#unless search_value}} disabled{{/unless}}>
+								<span class="a-button__text">Sök</span>
+							</button>
+						</div>
+					</div>
+				</div>
+			</div>
+	</fieldset>
+
+	{{#if result}}
+		<div data-whois-result aria-live="polite" class="u-p-b-2">
+			{{#if result_keyword}}
+				<h2 class="alpha u-m-t-2 u-m-b-1"><span class="u-weight-normal">Sökresultat för nyckelordet <strong>{{search_value}}</strong></span></h2>
+			{{else if result_organisation}}
+				<h2 class="alpha u-m-t-2 u-m-b-1"><span class="u-weight-normal">Sökresultat för organisationsnummer <strong>{{search_value}}</strong></span></h2>
+			{{else}}
+				<h2 class="alpha u-m-t-2 u-m-b-1">{{search_value}} <span class="u-weight-normal">{{result_heading}}</span></h2>
+			{{/if}}
+			<p>{{result_text}}</p>
+
+			{{#if result_keyword}}
+				<div class="row">
+					{{#each keyword_registrar_tables}}
+						<div class="grid-18 grid-xl-6 u-m-b-4">
+							{{render '@table' table_context merge=true}}
+						</div>
+					{{/each}}
+				</div>
+			{{else if result_available}}
+				<a href="{{register_url}}" class="a-button a-button--lemon-light">
+					<span class="a-button__text">Registrera domänen</span>
+				</a>
+			{{else if result_organisation}}
+				<h2>Företagsinformation</h2>
+				<div class="o-whois__contact u-p-2 u-m-b-4 u-b-t-2 u-b-b-0 u-b-x-0 u-b-solid u-b-granit">
+					<div class="row o-whois__contact-row">
+						<div class="grid o-whois__contact-primary">
+							<p class="u-m-b-1"><strong>Företag</strong></p>
+							<h2 class="u-m-b-0">{{organisation_company_name}}</h2>
+						</div>
+						<div class="grid-auto u-align-right o-whois__contact-secondary">
+							<p><strong>Organisationsnummer</strong><br>
+								{{search_value}}</p>
+						</div>
+					</div>
+				</div>
+				<h2>Registrerade domäner per registrar</h2>
+				<div class="row">
+					{{#each organisation_registrar_tables}}
+						<div class="grid-18 grid-xl-6 u-m-b-4">
+							{{render '@table' table_context merge=true}}
+						</div>
+					{{/each}}
+				</div>
+			{{else}}
+				<h2>Domäninformation</h2>
+				<div class="o-whois__contact u-p-2 u-m-b-4 u-b-t-2 u-b-b-0 u-b-x-0 u-b-solid u-b-granit">
+					<div class="row o-whois__contact-row">
+						<div class="grid o-whois__contact-primary">
+							<p><strong>Domän</strong><br>
+							volvo.se</p>
+						</div>
+						<div class="grid-auto u-align-right o-whois__contact-secondary">
+							<p>
+								<span class="u-display-inline-flex align-items-center">
+									<strong class="u-m-r-05">Skapad</strong>
+									<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Skapad" data-tooltip-placement="top">
+										<span class="a-tooltip__text" hidden>Här visas datumet då domännamnet registrerades. Domänen kan ha bytt innehavare sedan dess.</span>
+										<svg class="icon a-button__icon" aria-hidden="true">
+											<use xlink:href="#icon-info"></use>
+										</svg>
+									</button>
+								</span><br>
+							2003-09-25<br>
+								<span class="u-display-inline-flex align-items-center">
+									<strong class="u-m-r-05">Senast ändrad</strong>
+									<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Senast ändrad" data-tooltip-placement="top">
+										<span class="a-tooltip__text" hidden>Här visas datumet då den senaste ändringen kring domänen skedde i Internetstiftelsens register. Ändringen kan till exempel vara att man bytt registrar, namnserver, innehavare eller kontakter.</span>
+										<svg class="icon a-button__icon" aria-hidden="true">
+											<use xlink:href="#icon-info"></use>
+										</svg>
+									</button>
+								</span><br>
+							2025-09-16</p>
+						</div>
+					</div>
+					<div class="row o-whois__contact-row">
+						<div class="grid o-whois__contact-primary">
+							<p class="u-m-b-1"><strong>Företag</strong></p>
+							<h2 class="u-m-b-0">AB VOLVO</h2>
+						</div>
+						<div class="grid-auto u-align-right o-whois__contact-secondary">
+							<p><strong>Organisationsnummer</strong><br>
+								<a href="#">[SE]556012-5790</a></p>
+						</div>
+					</div>
+					<div class="row o-whois__contact-row">
+						<div class="grid o-whois__contact-primary">
+							<p><strong>Innehavare (kontakt-ID)</strong><br>
+							domabv9823-00001</p>
+						</div>
+						<div class="grid-auto u-align-right o-whois__contact-secondary">
+							<p><strong>Land</strong><br>
+							SE</p>
+						</div>
+					</div>
+					<div class="row o-whois__contact-row">
+						<div class="grid o-whois__contact-primary">
+							<p>
+								<span class="u-display-inline-flex align-items-center">
+									<strong class="u-m-r-05">Namn</strong>
+									<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Namn" data-tooltip-placement="top">
+										<span class="a-tooltip__text" hidden>Kontaktperson för juridiska personer visas inte då dessa uppgifter kan innehålla personuppgifter.</span>
+										<svg class="icon a-button__icon" aria-hidden="true">
+											<use xlink:href="#icon-info"></use>
+										</svg>
+									</button>
+								</span><br>
+							(not shown)</p>
+						</div>
+						<div class="grid-auto u-align-right o-whois__contact-secondary">
+							<p><strong>Registrar</strong><br>
+							<a href="https://www.cscdbs.com/" target="_blank" rel="noopener">CSC Corp Domains <svg class="icon o-mega-menu__link__icon"><use xlink:href="#icon-external-link"></use></svg></a></p>
+						</div>
+					</div>
+					<div class="row o-whois__contact-row">
+						<div class="grid o-whois__contact-primary">
+							<p>
+								<span class="u-display-inline-flex align-items-center">
+									<strong class="u-m-r-05">Innehavarens e-postadress</strong>
+									<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Innehavarens e-postadress" data-tooltip-placement="top">
+										<span class="a-tooltip__text" hidden>E-post för juridiska personer visas inte då dessa uppgifter kan innehålla personuppgifter.</span>
+										<svg class="icon a-button__icon" aria-hidden="true">
+											<use xlink:href="#icon-info"></use>
+										</svg>
+									</button>
+								</span><br>
+							(not shown)</p>
+						</div>
+						<div class="grid-auto u-align-right o-whois__contact-secondary">
+							<p>
+								<span class="u-display-inline-flex align-items-center">
+									<strong class="u-m-r-05">Telefon</strong>
+									<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Telefon" data-tooltip-placement="top">
+										<span class="a-tooltip__text" hidden>Telefonnummer för juridiska personer visas inte då dessa uppgifter kan innehålla personuppgifter.</span>
+										<svg class="icon a-button__icon" aria-hidden="true">
+											<use xlink:href="#icon-info"></use>
+										</svg>
+									</button>
+								</span><br>
+								(not shown)</p>
+						</div>
+					</div>
+					<div class="row o-whois__contact-row">
+						<div class="grid o-whois__contact-primary">
+							<p>
+								<span class="u-display-inline-flex align-items-center">
+									<strong class="u-m-r-05">Fax</strong>
+									<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Fax" data-tooltip-placement="top">
+										<span class="a-tooltip__text" hidden>Faxnummer för juridiska personer visas inte då dessa uppgifter kan innehålla personuppgifter.</span>
+										<svg class="icon a-button__icon" aria-hidden="true">
+											<use xlink:href="#icon-info"></use>
+										</svg>
+									</button>
+								</span><br>
+							(not shown)</p>
+						</div>
+						<div class="grid-auto u-align-right o-whois__contact-secondary">
+							<p><a href="/sok-doman?domain=volvo.se">Länk till sökresultat</a><br>
+							<a href="/kontakta-domaninnehavare/?domain=volvo.se">Kontakta domäninnehavaren</a></p>
+						</div>
+					</div>
+				</div>
+
+				{{#if result_taken}}
+					<div class="row">
+						<div class="grid-18 grid-md-9 grid-lg-8 u-m-b-2">
+							{{render '@table' domain_dates_table_context merge=true}}
+						</div>
+						<div class="grid-lg-2 u-hide-md"></div>
+						<div class="grid-18 grid-md-9 grid-lg-8 u-m-b-2">
+							{{render '@table' domain_other_table_context merge=true}}
+						</div>
+					</div>
+				{{/if}}
+			{{/if}}
+		</div>
+	{{/if}}
 </div>

@@ -1,0 +1,102 @@
+[
+	{
+		"field": {
+			"label": "Kontakt skapad"
+		},
+		"value": {
+			"text": "2016-01-26"
+		}
+	},
+	{
+		"field": {
+			"label": "Kontakt senast ändrad"
+		},
+		"value": {
+			"text": "2016-02-16"
+		}
+	},
+	{
+		"field": {
+			"label": "Skapad",
+			"tooltip": {
+				"label": "Visa mer information om skapad",
+				"text": "Här visas datumet då domännamnet registrerades. Domänen kan ha bytt innehavare sedan dess."
+			}
+		},
+		"value": {
+			"text": "2003-09-25"
+		}
+	},
+	{
+		"field": {
+			"label": "Senast ändrad",
+			"tooltip": {
+				"label": "Visa mer information om senast ändrad",
+				"text": "Här visas datumet då den senaste ändringen kring domänen skedde i Internetstiftelsens register. Ändringen kan till exempel vara att man bytt registrar, namnserver, innehavare eller kontakter."
+			}
+		},
+		"value": {
+			"text": "2025-09-16"
+		}
+	},
+	{
+		"field": {
+			"label": "Förfallodatum",
+			"tooltip": {
+				"label": "Visa mer information om förfallodatum",
+				"text": "Ett .se eller .nu-domännamn kan registreras för en period mellan 12-120 månader. Efter att ett domännamn förfallit kommer den att få statusen \"Expired\" i tio dagar. Om domänen inte förnyas under dessa tio dagar ändras statusen på domänen till \"Deactivated\", vilket innebär att den inte kommer med i zonfilen. Domänen är därefter deaktiverad i 60 dagar om ingen förnyelse sker. Under deaktiveringsperioden har du möjlighet att förnya domänen."
+			}
+		},
+		"value": {
+			"text": "2026-09-25"
+		}
+	},
+	{
+		"field": {
+			"label": "Deaktiveringsdatum",
+			"tooltip": {
+				"label": "Visa mer information om deaktiveringsdatum",
+				"text": "Om registreringsavgiften inte betalas i tid deaktiveras domännamnet på detta datum. Det innebär att domänen slutar fungera på internet, men det är fortfarande registrerat på samma innehavare i Internetstiftelsens register. Fram till avregistreringsdatumet kan innehavaren fortfarande återta domännamnet och förnya sin registrering."
+			}
+		},
+		"value": {
+			"text": ""
+		}
+	},
+	{
+		"field": {
+			"label": "Överförd",
+			"tooltip": {
+				"label": "Visa mer information om överförd",
+				"text": "Här visas datumet då domänen senast bytte registrar. Aktuell registrar visas i fältet Registrar nedan."
+			}
+		},
+		"value": {
+			"text": "2016-01-26"
+		}
+	},
+	{
+		"field": {
+			"label": "Avregistreringsdatum",
+			"tooltip": {
+				"label": "Visa mer information om avregistreringsdatum",
+				"text": "Om innehavaren inte återtar domännamnet efter att det har deaktiverats så avregistreras innehavaren på detta datum. Domännamnet placeras då i karantän hos Internetstiftelsen fram till datumet för dess frisläppande."
+			}
+		},
+		"value": {
+			"text": ""
+		}
+	},
+	{
+		"field": {
+			"label": "Datum för frisläppande",
+			"tooltip": {
+				"label": "Visa mer information om datum för frisläppande",
+				"text": "På detta datum släpps domännamnet fritt och kan registreras av en ny innehavare. Det sker tidigast klockan 04.00 UTC (svensk tid klockan 05.00 vintertid, och klockan 06.00 under sommartid) på detta datum."
+			}
+		},
+		"value": {
+			"text": ""
+		}
+	}
+]

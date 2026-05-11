@@ -12,88 +12,95 @@
 
 	// Modifier for large form fields
 	@include bem.m(large) {
-		// Inputs
-		@include mixin.atom(input) {
-			padding-top: func.rhythm(1.85);
-			padding-bottom: func.rhythm(1.85);
-			padding-left: func.rhythm(2);
-			font-size: func.to_rem(20px);
-
-			&.has-icon {
-				padding-right: func.rhythm(6);
-			}
-		}
-
-		// Input icon
-		@include bem.b(input-icon) {
-			> svg {
-				transform: translateY(-#{func.rhythm(4.6)}) translateX(-#{func.rhythm(2)});
-			}
-		}
-
-		// Buttons
-		@include mixin.atom(button) {
-			padding: func.rhythm(1.6) func.rhythm(4);
-
-			@include bem.b(a-button__text) {
-				font-size: func.to_rem(24px);
-			}
-		}
-
-		// Checkbox
-		@include mixin.atom(checkbox) {
-			+ label {
+		@include breakpoint.bp-up(md) {
+			// Inputs
+			@include mixin.atom(input) {
+				padding-top: func.rhythm(1.85);
+				padding-bottom: func.rhythm(1.85);
+				padding-left: func.rhythm(2);
 				font-size: func.to_rem(20px);
 
-				&::before {
-					width: var.$icon-size;
-					height: var.$icon-size;
-					margin-top: func.to_rem(3px);
+				&.has-icon {
+					padding-right: func.rhythm(6);
 				}
 			}
 
-			&:checked {
-				+ label {
-					&::after {
-						top: func.to_rem(10px);
-						left: func.to_rem(8px);
-						width: func.to_rem(8px);
-						height: func.to_rem(15px);
-						border-width: 0 4px 4px 0;
-					}
+			// Input icon
+			@include bem.b(input-icon) {
+				> svg {
+					transform: translateY(-#{func.rhythm(4.6)}) translateX(-#{func.rhythm(2)});
 				}
 			}
-		}
 
-		// Radiobutton
-		@include mixin.atom(radio) {
-			&[type='radio'] {
+			// Legend
+			legend {
+				font-size: func.to_rem(20px);
+			}
+
+			// Buttons
+			@include mixin.atom(button) {
+				padding: func.rhythm(1.6) func.rhythm(4);
+
+				@include bem.b(a-button__text) {
+					font-size: func.to_rem(24px);
+				}
+			}
+
+			// Checkbox
+			@include mixin.atom(checkbox) {
 				+ label {
 					font-size: func.to_rem(20px);
 
 					&::before {
 						width: var.$icon-size;
 						height: var.$icon-size;
-						border-width: 3px;
+						margin-top: func.to_rem(3px);
+					}
+				}
+
+				&:checked {
+					+ label {
+						&::after {
+							top: func.to_rem(10px);
+							left: func.to_rem(8px);
+							width: func.to_rem(8px);
+							height: func.to_rem(15px);
+							border-width: 0 4px 4px 0;
+						}
 					}
 				}
 			}
-		}
 
-		// Select
-		@include mixin.atom(select) {
-			padding-top: func.rhythm(1.85);
-			padding-bottom: func.rhythm(1.85);
-			padding-left: func.rhythm(2);
-			background-position: calc(100% - #{func.rhythm(2)}) 50%;
-			background-size: var.$icon-size var.$icon-size;
-			font-size: func.to_rem(20px);
-		}
+			// Radiobutton
+			@include mixin.atom(radio) {
+				&[type='radio'] {
+					+ label {
+						font-size: func.to_rem(20px);
 
-		// Textarea
-		@include mixin.atom(textarea) {
-			height: func.rhythm(15);
-			font-size: func.to_rem(20px);
+						&::before {
+							width: var.$icon-size;
+							height: var.$icon-size;
+							border-width: 3px;
+						}
+					}
+				}
+			}
+
+			// Select
+			@include mixin.atom(select) {
+				padding-top: func.rhythm(1.85);
+				padding-bottom: func.rhythm(1.85);
+				padding-left: func.rhythm(2);
+				background-position: calc(100% - #{func.rhythm(2)}) 50%;
+				background-size: var.$icon-size var.$icon-size;
+				font-size: func.to_rem(20px);
+			}
+
+			// Textarea
+			@include mixin.atom(textarea) {
+				height: func.rhythm(15);
+				font-size: func.to_rem(20px);
+			}
 		}
 	}
 

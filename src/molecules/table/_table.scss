@@ -36,14 +36,9 @@
 		td {
 			border-top: 2px solid colors.$color-granit;
 			font-family: var.$font-family-headings;
-			font-size: 90%;
 
 			&::before {
 				display: none;
-			}
-
-			@include breakpoint.bp-up(lg) {
-				font-size: 100%;
 			}
 		}
 
@@ -97,8 +92,18 @@
 		}
 	}
 
+	th {
+		font-size: 90%;
+
+		@include breakpoint.bp-up(lg) {
+			font-size: 100%;
+		}
+	}
+
 	td {
 		border-bottom-width: 1px;
+		font-size: var.$size-table-cell;
+		line-height: 1.5;
 	}
 }
 

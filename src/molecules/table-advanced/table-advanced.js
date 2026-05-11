@@ -50,7 +50,7 @@ const renderStatusIcon = (params) => {
 };
 
 // ---- HELPERS ---------------------------------------------------------
-const titleCase = (s) => s.replace(/[_\-\.]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
+const titleCase = (s) => s.replace(/[_\-.]+/g, ' ').replace(/\b\w/g, (c) => c.toUpperCase());
 
 function buildColumnDefsFromData(data) {
 	if (!Array.isArray(data) || data.length === 0) return [{ headerName: 'No Data', field: 'noData' }];
@@ -133,8 +133,6 @@ function buildColumnDefsFromData(data) {
 	return cols;
 }
 
-
-
 // Version-safe column state helper
 function setColumnsState(params, { state = [], defaultState = { hide: false, pinned: null } }) {
 	const columnApi =
@@ -179,6 +177,50 @@ function applyResponsiveVisibility(params, el) {
 	} else {
 		setColumnsState(params, { state: [] });
 	}
+}
+
+function createTableExtensionContext(el, data, params) {
+	const context = {
+		el,
+		data,
+		params,
+		columnDefs: buildColumnDefsFromData(data),
+		rowData: data,
+		gridOptions: {},
+		applyResponsiveVisibility: null,
+		onReady: [],
+		onGridSizeChanged: [],
+		onFirstDataRendered: [],
+		onModelUpdated: [],
+	};
+
+	el.dispatchEvent(new CustomEvent('tableAdvanced:configure', {
+		bubbles: true,
+		detail: context,
+	}));
+
+	return context;
+}
+
+function applyGridOptions(api, gridOptions = {}) {
+	Object.entries(gridOptions).forEach(([key, value]) => {
+		api.setGridOption(key, value);
+	});
+}
+
+function runExtensionCallbacks(callbacks = [], params, el) {
+	callbacks.forEach((callback) => {
+		callback(params, el);
+	});
+}
+
+function applyTableResponsiveVisibility(extensionContext, params, el) {
+	if (extensionContext?.applyResponsiveVisibility) {
+		extensionContext.applyResponsiveVisibility(params, el);
+		return;
+	}
+
+	applyResponsiveVisibility(params, el);
 }
 
 
@@ -236,8 +278,12 @@ function toggleChildColumnsVisibility(params, colIds, makeVisible) {
 
 // Factory to create per-grid options with the correct closures
 function makeGridOptionsFor(el) {
+	const autoHeight = el.dataset.autoHeight === 'true';
+	let extensionContext = null;
+
 	return {
 		theme: iisTheme,
+		domLayout: autoHeight ? 'autoHeight' : 'normal',
 		components: { ExpandHeader },
 		defaultColDef: {
 			resizable: true,
@@ -256,20 +302,35 @@ function makeGridOptionsFor(el) {
 				const jsonUrl = new URL(attr, import.meta.url).toString();
 				const mod = await fetch(jsonUrl);
 				const data = await mod.json();
+				extensionContext = createTableExtensionContext(el, data, params);
 
-				const cols = buildColumnDefsFromData(data);
-				params.api.setGridOption('columnDefs', cols);
-				params.api.setGridOption('rowData', data);
+				applyGridOptions(params.api, extensionContext.gridOptions);
+				params.api.setGridOption('columnDefs', extensionContext.columnDefs);
+				params.api.setGridOption('rowData', extensionContext.rowData);
 
-				applyResponsiveVisibility(params, el);
-				params.api.sizeColumnsToFit();
+				applyTableResponsiveVisibility(extensionContext, params, el);
+				runExtensionCallbacks(extensionContext.onReady, params, el);
+
+				if (!extensionContext.applyResponsiveVisibility) {
+					params.api.sizeColumnsToFit();
+				}
 			} catch (e) {
 				console.error('Dynamic JSON import failed for grid:', el, e);
 			}
 		},
 		onGridSizeChanged(params) {
-			applyResponsiveVisibility(params, el);
-			params.api.sizeColumnsToFit();
+			applyTableResponsiveVisibility(extensionContext, params, el);
+			runExtensionCallbacks(extensionContext?.onGridSizeChanged, params, el);
+
+			if (!extensionContext?.applyResponsiveVisibility) {
+				params.api.sizeColumnsToFit();
+			}
+		},
+		onFirstDataRendered(params) {
+			runExtensionCallbacks(extensionContext?.onFirstDataRendered, params, el);
+		},
+		onModelUpdated(params) {
+			runExtensionCallbacks(extensionContext?.onModelUpdated, params, el);
 		},
 		animateRows: true,
 	};
@@ -282,18 +343,21 @@ document.addEventListener('DOMContentLoaded', () => {
 	const containers = document.querySelectorAll('.js-ag-grid');
 
 	containers.forEach((el) => {
+		if (!el.dataset.json) {
+			return;
+		}
+
 		// Ensure theme class + measurable size BEFORE createGrid (each grid separately)
 		if (!el.classList.contains('ag-theme-quartz')) el.classList.add('ag-theme-quartz');
 		//if (!el.style.height) el.style.height = '600px';
 		if (!el.style.width)  el.style.width  = '100%';
 
 		const gridOptions = makeGridOptionsFor(el);
-		const api = agGrid.createGrid(el, gridOptions);
+		agGrid.createGrid(el, gridOptions);
 
 		// Per-grid ResizeObserver (don’t reuse one global API)
 		const ro = new ResizeObserver(() => {
 			gridOptions.api?.onGridSizeChanged();
-			gridOptions.api?.sizeColumnsToFit();
 		});
 		ro.observe(el);
 	});
@@ -301,7 +365,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // ---- TOGGLE FULLSCREEN CLASS ON PARENT CONTAINER WHEN CLICKING FULLSCREEN BUTTON ----
 document.querySelectorAll('[data-ag-grid-fullscreen]').forEach((btn) => {
-	btn.addEventListener('click', (e) => {
+	btn.addEventListener('click', () => {
 
 		// Find the nearest parent container for this button
 		const gridEl = btn.closest('.js-ag-grid');

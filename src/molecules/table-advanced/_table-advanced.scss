@@ -3,6 +3,7 @@
 @use '../../configurations/extends';
 @use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
+@use '../../vendor/grid/breakpoints' as breakpoint;
 
 body {
 	height: 100%;
@@ -36,6 +37,10 @@ body {
 	display: flex;
 	flex-direction: column;
 
+	&.ag-grid--auto-height {
+		min-height: 0;
+	}
+
 	&.has-fullscreen {
 		position: fixed;
 		top: 0;
@@ -61,8 +66,27 @@ body {
 	width: 100%;
 }
 
+.ag-grid--auto-height .ag-grid__wrapper {
+	flex: 0 1 auto;
+}
+
 .ag-grid__inner {
 	height: 100%;
+}
+
+.ag-grid__inner[data-auto-height='true'] {
+	height: auto;
+}
+
+.ag-grid__inner[data-whois-table='true'] .ag-layout-auto-height .ag-center-cols-viewport,
+.ag-grid__inner[data-whois-table='true'] .ag-layout-auto-height .ag-center-cols-container {
+	min-height: 0 !important;
+}
+
+@include breakpoint.bp-down(sm) {
+	.ag-grid__inner[data-whois-table='true'] .ag-cell {
+		font-size: func.to_rem(var.$size-medium-plus);
+	}
 }
 
 .ag-cell {
@@ -72,6 +96,73 @@ body {
 .ag-cell span {
 	display: flex;
 	align-items: center;
+}
+
+.ag-cell.whois-cell--label {
+	align-items: center;
+	gap: func.rhythm(0.5);
+	line-height: 1.25;
+	padding-top: 8px;
+	padding-bottom: 8px;
+	white-space: normal;
+}
+
+.ag-cell.whois-cell--label span {
+	overflow-wrap: anywhere;
+	white-space: normal;
+}
+
+.ag-cell.whois-cell--label .whois-cell__inline-tooltip {
+	display: inline-flex;
+	flex: 0 0 auto;
+	overflow-wrap: normal;
+}
+
+.ag-cell.whois-cell--wrap {
+	white-space: normal;
+	line-height: 1.4;
+	display: block;
+	padding-top: 8px;
+	padding-bottom: 8px;
+}
+
+.ag-cell.whois-cell--wrap span {
+	display: block;
+}
+
+.whois-table-switcher {
+	display: none;
+	gap: func.rhythm(0.5);
+	margin-bottom: func.rhythm(1);
+}
+
+@include breakpoint.bp-down(sm) {
+	.whois-table-switcher {
+		display: flex;
+	}
+}
+
+.whois-table-switcher__button {
+	display: inline-flex;
+	align-items: center;
+	justify-content: center;
+	flex: 1 1 0;
+	padding: func.rhythm(0.5);
+	border: 1px solid colors.$color-concrete;
+	border-radius: var.$border-radius;
+	background: colors.$color-snow;
+	color: inherit;
+	font-family: inherit;
+	font-size: func.to_rem(var.$size-medium-plus);
+	line-height: 1.2;
+	text-align: center;
+	cursor: pointer;
+}
+
+.whois-table-switcher__button[aria-pressed='true'] {
+	border-color: colors.$color-ocean;
+	background: colors.$color-ocean-lighter;
+	font-weight: 700;
 }
 
 .ag-cell span a {
@@ -96,4 +187,3 @@ body {
 
 .ag-header-group-cell-label.expand-header { cursor: pointer; }
 .ag-header-group-cell-label.expand-header:hover { opacity: .9; }
-

@@ -38,7 +38,7 @@
 			&:hover {
 				+ label {
 					&::before {
-						background-color: color.adjust(colors.$color-ash, $lightness: -5%);
+						background-color: color.adjust(colors.$color-snow);
 					}
 				}
 			}
@@ -50,13 +50,13 @@
 					content: '';
 					display: block;
 					position: absolute;
-					top: func.to_rem(10.5px);
-					left: func.to_rem(6px);
-					width: func.to_rem(5px);
-					height: func.to_rem(9px);
+					top: func.to_rem(9px);
+					left: func.to_rem(5px);
+					width: func.to_rem(6px);
+					height: func.to_rem(11px);
 					transform: rotate(45deg);
-					border: solid colors.$color-cyberspace;
-					border-width: 0 2px 2px 0;
+					border: solid colors.$color-ocean-dark;
+					border-width: 0 3px 3px 0;
 				}
 			}
 		}

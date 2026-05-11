@@ -29,7 +29,6 @@
 @use 'atoms/input/input';
 @use 'atoms/password-toggle/password-toggle';
 @use 'atoms/radiobutton/radiobutton';
-@use 'atoms/radiobutton-advanced/radiobutton-advanced';
 @use 'atoms/checkbox/checkbox';
 @use 'atoms/textarea/textarea';
 @use 'atoms/select/select';
@@ -45,6 +44,7 @@
 
 // Molecules
 @use 'molecules/breadcrumb/breadcrumb';
+@use 'molecules/radiobutton-advanced/radiobutton-advanced';
 @use 'molecules/card/card';
 @use 'molecules/download/download';
 @use 'molecules/teaser-news-list/teaser-news-list';
@@ -99,6 +99,7 @@
 @use 'organisms/selectable/selectable';
 @use 'organisms/pre-footer/pre-footer';
 @use 'organisms/url-checker/url-checker';
+@use 'organisms/whois/whois';
 
 // Structures
 @use 'structures/manifest';
