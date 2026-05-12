@@ -33,5 +33,16 @@ module.exports = {
 				multipleInputs: true,
 			},
 		},
+		{
+			name: 'With button',
+			context: {
+				type: 'url',
+				placeholder: 'Website',
+				before: 'https://',
+				after: null,
+				multipleInputs: false,
+				button: true
+			},
+		},
 	],
 };

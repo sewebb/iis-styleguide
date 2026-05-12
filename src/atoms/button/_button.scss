@@ -148,6 +148,13 @@
 		}
 	}
 
+	@include bem.m(input-group) {
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
+		margin-left: -1px;
+		white-space: nowrap;
+	}
+
 	@include bem.m(icon) {
 		justify-content: space-between;
 		max-width: func.rhythm(50);
