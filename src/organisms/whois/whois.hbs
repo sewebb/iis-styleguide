@@ -10,18 +10,15 @@
 
 	<fieldset>
 		<div class="m-form-control m-form-control--large">
-				<div class="field-group">
+				<div class="field-group js-whois-field-group">
 					<label for="domainSearch" class="u-visuallyhidden">Sök ledig domän</label>
-					<div class="row u-m-b-2">
-						<div class="grid">
-							<input id="domainSearch" type="text" class="a-input js-whois-input" placeholder=""{{#if search_value}} value="{{search_value}}"{{else}} disabled{{/if}}>
-						</div>
-						<div class="grid-auto">
-							<button type="submit" class="a-button js-whois-submit"{{#unless search_value}} disabled{{/unless}}>
-								<span class="a-button__text">Sök</span>
-							</button>
-						</div>
+					<div class="m-input-group">
+						<input id="domainSearch" type="text" class="a-input js-whois-input" placeholder=""{{#if search_value}} value="{{search_value}}"{{else}} disabled{{/if}}>
+						<button type="submit" class="a-button a-button--ocean-light a-button--input-group js-whois-submit"{{#unless search_value}} disabled{{/unless}}>
+							<span class="a-button__text">Sök</span>
+						</button>
 					</div>
+					<div class="input-help js-whois-error" role="alert" aria-live="polite"></div>
 				</div>
 			</div>
 	</fieldset>
@@ -38,9 +35,9 @@
 			<p>{{result_text}}</p>
 
 			{{#if result_keyword}}
-				<div class="row">
+				<div class="row justify-content-between">
 					{{#each keyword_registrar_tables}}
-						<div class="grid-18 grid-xl-6 u-m-b-4">
+						<div class="grid-18 grid-xl-5 u-m-b-4">
 							{{render '@table' table_context merge=true}}
 						</div>
 					{{/each}}
@@ -64,9 +61,9 @@
 					</div>
 				</div>
 				<h2>Registrerade domäner per registrar</h2>
-				<div class="row">
+				<div class="row justify-content-between">
 					{{#each organisation_registrar_tables}}
-						<div class="grid-18 grid-xl-6 u-m-b-4">
+						<div class="grid-18 grid-xl-5 u-m-b-4">
 							{{render '@table' table_context merge=true}}
 						</div>
 					{{/each}}
@@ -103,6 +100,7 @@
 							2025-09-16</p>
 						</div>
 					</div>
+					{{#unless result_quarantine}}
 					<div class="row o-whois__contact-row">
 						<div class="grid o-whois__contact-primary">
 							<p class="u-m-b-1"><strong>Företag</strong></p>
@@ -189,6 +187,7 @@
 							<a href="/kontakta-domaninnehavare/?domain=volvo.se">Kontakta domäninnehavaren</a></p>
 						</div>
 					</div>
+					{{/unless}}
 				</div>
 
 				{{#if result_taken}}

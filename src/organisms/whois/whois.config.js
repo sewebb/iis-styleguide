@@ -78,6 +78,16 @@ const mapRowsToTableContext = (rows) => ({
 	})),
 });
 
+const withSectionHeader = (label, rows) => ({
+	...mapRowsToTableContext(rows),
+	headers: [
+		{
+			label,
+			colspan: 2,
+		},
+	],
+});
+
 const datesTableRows = datesRows.filter(({ field }) => ![
 	'Skapad',
 	'Senast ändrad',
@@ -87,6 +97,61 @@ const otherTableRows = otherRows.filter(({ field }) => ![
 	'Länk till sökresultat',
 	'Kontakta domäninnehavaren',
 ].includes(field?.label));
+
+const updateRowValue = (rows, label, text) => rows.map((row) => (
+	row.field?.label === label
+		? {
+			...row,
+			value: {
+				...row.value,
+				text,
+			},
+		}
+		: row
+));
+
+const replaceRowValue = (rows, label, value) => rows.map((row) => (
+	row.field?.label === label
+		? {
+			...row,
+			value,
+		}
+		: row
+));
+
+const quarantineDatesTableRows = updateRowValue(
+	updateRowValue(
+		updateRowValue(
+			datesTableRows,
+			'Deaktiveringsdatum',
+			'2026-10-25',
+		),
+		'Avregistreringsdatum',
+		'2026-12-25',
+	),
+	'Datum för frisläppande',
+	'2027-01-25',
+);
+
+const quarantineOtherTableRows = replaceRowValue(
+	updateRowValue(
+		updateRowValue(
+			updateRowValue(
+				otherTableRows,
+				'Domänstatus',
+				'Quarantine',
+			),
+			'DNSSEC',
+			'',
+		),
+		'Registry lock',
+		'',
+	),
+	'Namnserver',
+	{
+		text: '',
+	},
+);
 
 const keywordRegistrarGroups = [
 	{
@@ -259,24 +324,25 @@ module.exports = {
 				result_heading: 'är redan registrerad',
 				result_text:
 					'Information om domänens innehavare och registrering visas här.',
-				domain_dates_table_context: {
-					...mapRowsToTableContext(datesTableRows),
-					headers: [
-						{
-							label: 'Datum',
-							colspan: 2,
-						},
-					],
+				domain_dates_table_context: withSectionHeader('Datum', datesTableRows),
+				domain_other_table_context: withSectionHeader('Övrigt', otherTableRows),
+			},
+		},
+		{
+			name: 'domain-in-quarantine',
+			context: {
+				result: true,
+				result_quarantine: true,
+				result_taken: true,
+				radio_context: {
+					selected_value: 'first',
 				},
-				domain_other_table_context: {
-					...mapRowsToTableContext(otherTableRows),
-					headers: [
-						{
-							label: 'Övrigt',
-							colspan: 2,
-						},
-					],
-				},
+				search_value: 'volvo.se',
+				result_heading: 'blir ledig 2027-01-25',
+				result_text:
+					'Information om domänens innehavare och registrering visas här.',
+				domain_dates_table_context: withSectionHeader('Datum', quarantineDatesTableRows),
+				domain_other_table_context: withSectionHeader('Övrigt', quarantineOtherTableRows),
 			},
 		},
 		{
