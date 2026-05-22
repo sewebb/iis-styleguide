@@ -2,9 +2,324 @@
 @use '../../configurations/mixins' as mixin;
 @use '../../configurations/bem' as bem;
 @use '../../configurations/functions' as func;
+@use '../../configurations/variables' as var;
+@use '../../configurations/colors/colors' as colors;
 @use '../../vendor/grid/breakpoints' as breakpoint;
 
 @include mixin.organism(whois) {
+	.js-whois-input[disabled]::placeholder {
+		color: colors.$color-dark;
+		opacity: 1;
+	}
+
+	@include bem.e(retailers-status) {
+		width: 100%;
+		flex: 1 1 auto;
+		min-width: 0;
+	}
+
+	@include bem.e(retailer-toolbar) {
+		display: grid;
+	}
+
+	@include bem.e(retailer-toolbar-header) {
+		display: flex;
+		flex-direction: column-reverse;
+		gap: func.rhythm(1);
+		width: 100%;
+		padding-bottom: func.rhythm(1);
+		border-bottom: 2px solid colors.$color-granit;
+
+		@include breakpoint.bp-up(md) {
+			flex-direction: row;
+			align-items: flex-end;
+			justify-content: space-between;
+		}
+	}
+
+	@include bem.e(retailer-filter) {
+		@include breakpoint.bp-up(md) {
+			margin-left: auto;
+			align-self: flex-end;
+			transform: translateY(25%);
+		}
+	}
+
+	@include bem.e(retailer-filter-panel) {
+		position: relative;
+		border-bottom-left-radius: var.$border-radius;
+		border-bottom-right-radius: var.$border-radius;
+	}
+
+	@include bem.e(retailer-filter-toggle) {
+		white-space: nowrap;
+		padding-left: 0;
+
+		.a-button__text {
+			white-space: nowrap;
+		}
+
+		.a-button__icon {
+			right: 0;
+		}
+	}
+
+	@include bem.e(retailer-filter-actions) {
+		display: flex;
+		align-items: center;
+		justify-content: space-between;
+		gap: func.rhythm(1);
+		width: 100%;
+		margin-bottom: func.rhythm(1.5);
+
+		.beta {
+			margin-bottom: 0;
+		}
+	}
+
+	@include bem.e(retailer-filter-column) {
+		margin-bottom: func.rhythm(2);
+
+		@include breakpoint.bp-up(lg) {
+			margin-bottom: 0;
+		}
+	}
+
+	@include bem.e(retailer-directory) {
+		display: grid;
+		gap: func.rhythm(1.5);
+	}
+
+	@include bem.e(retailer-card) {
+		position: relative;
+		padding-top: func.rhythm(3);
+		padding-bottom: func.rhythm(3);
+		background-color: transparent;
+		border-bottom: 1px dashed colors.$color-granit;
+
+		@include breakpoint.bp-up(md) {
+			padding-top: func.rhythm(3);
+			padding-bottom: func.rhythm(3);
+		}
+	}
+
+	@include bem.e(retailer-card__main) {
+		display: grid;
+		gap: func.rhythm(3);
+
+		@include breakpoint.bp-up(md) {
+			grid-template-columns: func.to_rem(140px) minmax(0, 1fr);
+			align-items: start;
+		}
+	}
+
+	@include bem.e(retailer-main-content) {
+		min-width: 0;
+	}
+
+	@include bem.e(retailer-main-top) {
+		display: grid;
+		gap: func.rhythm(1.5);
+
+		@include breakpoint.bp-up(md) {
+			grid-template-columns: minmax(0, 1fr) minmax(func.to_rem(200px), func.to_rem(280px));
+			align-items: start;
+		}
+	}
+
+	@include bem.e(retailer-logo-wrap) {
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		padding: func.rhythm(1);
+		border: 1px solid colors.$color-concrete;
+		border-radius: var.$border-radius;
+		background-color: colors.$color-snow;
+		aspect-ratio: 4 / 3;
+
+		@include breakpoint.bp-only(sm) {
+			width: clamp(#{func.to_rem(128px)}, 30vw, #{func.to_rem(160px)});
+			max-width: 100%;
+			justify-self: start;
+		}
+	}
+
+	@include bem.e(retailer-logo) {
+		max-width: 100%;
+		max-height: func.to_rem(72px);
+		object-fit: contain;
+	}
+
+	@include bem.e(retailer-body) {
+		min-width: 0;
+	}
+
+	@include bem.e(retailer-head) {
+		margin-bottom: func.rhythm(1);
+	}
+
+	@include bem.e(retailer-meta) {
+		display: flex;
+		flex-wrap: wrap;
+		gap: func.rhythm(0.5);
+		align-items: center;
+		color: colors.$color-dark;
+	}
+
+	@include bem.e(retailer-flag) {
+		display: inline-block;
+		margin-right: func.to_rem(4px);
+		font-size: 1.5em;
+		line-height: 1;
+		vertical-align: middle;
+	}
+
+	@include bem.e(retailer-tags-group) {
+		margin-bottom: func.rhythm(1);
+	}
+
+	@include bem.e(retailer-tags-heading) {
+		margin-bottom: func.rhythm(0.5);
+		font-family: var.$font-family-headings;
+
+		@include breakpoint.bp-up(md) {
+			text-align: right;
+		}
+	}
+
+	@include bem.e(retailer-tags) {
+		display: flex;
+		flex-wrap: wrap;
+		gap: func.rhythm(0.5);
+		align-items: center;
+
+		@include breakpoint.bp-up(md) {
+			justify-content: end;
+		}
+	}
+
+	@include bem.e(retailer-tag) {
+		margin-right: 0;
+		margin-bottom: 0;
+		pointer-events: none;
+	}
+
+	@include bem.e(retailer-contact) {
+		margin: 0 0 func.rhythm(1);
+		padding-top: 0;
+
+		@include breakpoint.bp-up(md) {
+			display: flex;
+			flex-wrap: wrap;
+			align-items: flex-start;
+			justify-content: flex-start;
+			column-gap: 4rem;
+			row-gap: func.rhythm(1);
+		}
+
+		dt {
+			font-family: var.$font-family-headings;
+		}
+
+		dd {
+			margin: 0;
+			overflow-wrap: anywhere;
+		}
+
+		> div {
+			flex: 0 1 auto;
+		}
+	}
+
+	@include bem.e(retailer-details) {
+		padding-top: func.rhythm(1);
+		border-top: 1px solid colors.$color-concrete;
+	}
+
+	@include bem.e(retailer-details-actions) {
+		display: flex;
+		flex-wrap: wrap;
+		gap: func.rhythm(0.75);
+		align-items: center;
+		justify-content: space-between;
+	}
+
+	@include bem.e(retailer-details-toggle) {
+		max-width: none;
+		order: 2;
+		padding-left: 0;
+
+		@include breakpoint.bp-up(sm) {
+			order: 1;
+		}
+	}
+
+	@include bem.e(retailer-select-button) {
+		max-width: none;
+		order: 1;
+
+		@include breakpoint.bp-up(sm) {
+			order: 2;
+		}
+	}
+
+	@include bem.e(retailer-details-panel) {
+		margin-top: func.rhythm(1);
+	}
+
+	@include bem.e(retailer-features) {
+		display: grid;
+		gap: func.rhythm(1);
+		margin: func.rhythm(1) 0 0;
+		padding: 0;
+	}
+
+	@include bem.e(retailer-feature-section) {
+		display: grid;
+		gap: func.rhythm(0.5);
+		margin-bottom: func.rhythm(1);
+	}
+
+	@include bem.e(retailer-feature-heading) {
+		margin: 0;
+	}
+
+	@include bem.e(retailer-feature-tags) {
+		display: flex;
+		flex-wrap: wrap;
+		gap: func.rhythm(0.5);
+	}
+
+	@include bem.e(retailer-feature-tag) {
+		display: inline-flex;
+		gap: func.to_rem(8px);
+		align-items: center;
+		margin-right: 0;
+		margin-bottom: 0;
+		padding-right: func.rhythm(1);
+		padding-left: func.rhythm(1);
+		background-color: transparent;
+		text-transform: none;
+		pointer-events: none;
+
+		.a-tag__text {
+			font-size: var.$size-medium;
+			letter-spacing: 0;
+			text-transform: none;
+
+			&::first-letter {
+				text-transform: uppercase;
+			}
+		}
+	}
+
+	@include bem.e(retailer-feature-icon) {
+		width: func.to_rem(24px);
+		height: func.to_rem(24px);
+		margin-top: func.to_rem(2px);
+		flex-shrink: 0;
+	}
+
 	@include bem.e(contact-row) {
 		row-gap: func.rhythm(1);
 	}

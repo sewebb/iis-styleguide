@@ -1,14 +1,51 @@
+const LORDICON_SCRIPT_SRC = 'https://cdn.lordicon.com/lordicon-1.1.0.js';
 const whoisComponents = document.querySelectorAll('.js-whois');
 const DOMAIN_SEARCH_VALUE = 'first';
 const KEYWORD_SEARCH_VALUE = 'second';
 const ORGANISATION_SEARCH_VALUE = 'third';
-const EMPTY_SEARCH_ERROR = 'Du måste ange en sökning.';
-const DOMAIN_SEARCH_ERROR = 'Sökningen måste sluta med .se eller .nu.';
-const DOMAIN_SEARCH_CHARACTERS_ERROR = 'Domännamn får bara innehålla bokstäver, siffror, bindestreck och punkt.';
-const KEYWORD_SEARCH_CHARACTERS_ERROR = 'Nyckelordet får bara innehålla bokstäver och siffror.';
-const KEYWORD_SEARCH_LENGTH_ERROR = 'Sökordet måste innehålla minst 3 tecken.';
-const ORGANISATION_SEARCH_ERROR = 'Organisationsnumret måste anges i formatet XXXXXX-XXXX.';
 const VALIDATION_DELAY = 1500;
+const DEFAULT_I18N = {
+	selectSearchTypePlaceholder: 'Välj först vad du vill söka efter...',
+	emptySearchError: 'Du måste ange en sökning.',
+	domainSearchError: 'Sökningen måste sluta med .se eller .nu.',
+	domainSearchCharactersError: 'Domännamn får bara innehålla bokstäver, siffror, bindestreck och punkt.',
+	keywordSearchCharactersError: 'Nyckelordet får bara innehålla bokstäver och siffror.',
+	keywordSearchLengthError: 'Sökordet måste innehålla minst 3 tecken.',
+	organisationSearchError: 'Organisationsnumret måste anges i formatet XXXXXX-XXXX.',
+};
+
+function getWhoisI18n() {
+	return window.internetstiftelsen?.i18n?.whois || {};
+}
+
+function getTranslation(key) {
+	const translation = getWhoisI18n()[key];
+
+	return typeof translation === 'string' && translation.length
+		? translation
+		: DEFAULT_I18N[key];
+}
+
+function ensureLordIconScript() {
+	if (!document.querySelector('lord-icon')) {
+		return;
+	}
+
+	if (window.customElements?.get('lord-icon')) {
+		return;
+	}
+
+	if (document.querySelector(`script[src="${LORDICON_SCRIPT_SRC}"]`)) {
+		return;
+	}
+
+	const script = document.createElement('script');
+
+	script.src = LORDICON_SCRIPT_SRC;
+	script.async = true;
+	script.setAttribute('data-lordicon-script', 'true');
+	document.head.appendChild(script);
+}
 
 function getSelectedOption(component) {
 	return component.querySelector('.js-radiobutton-advanced__input:checked');
@@ -150,7 +187,7 @@ function validateSearch(component, { report = false } = {}) {
 
 	if (!value.length) {
 		if (report) {
-			showValidationError(component, EMPTY_SEARCH_ERROR);
+			showValidationError(component, getTranslation('emptySearchError'));
 			return false;
 		}
 
@@ -161,10 +198,10 @@ function validateSearch(component, { report = false } = {}) {
 	if (isDomainSearchSelected(selectedOption)) {
 		if (!hasValidDomainCharacters(value)) {
 			if (report) {
-				showValidationError(component, DOMAIN_SEARCH_CHARACTERS_ERROR);
+				showValidationError(component, getTranslation('domainSearchCharactersError'));
 			} else {
 				clearValidationError(component);
-				scheduleValidationError(component, DOMAIN_SEARCH_CHARACTERS_ERROR);
+				scheduleValidationError(component, getTranslation('domainSearchCharactersError'));
 			}
 
 			return false;
@@ -176,10 +213,10 @@ function validateSearch(component, { report = false } = {}) {
 		}
 
 		if (report) {
-			showValidationError(component, DOMAIN_SEARCH_ERROR);
+			showValidationError(component, getTranslation('domainSearchError'));
 		} else {
 			clearValidationError(component);
-			scheduleValidationError(component, DOMAIN_SEARCH_ERROR);
+			scheduleValidationError(component, getTranslation('domainSearchError'));
 		}
 
 		return false;
@@ -188,10 +225,10 @@ function validateSearch(component, { report = false } = {}) {
 	if (isKeywordSearchSelected(selectedOption)) {
 		if (!hasValidKeywordCharacters(value)) {
 			if (report) {
-				showValidationError(component, KEYWORD_SEARCH_CHARACTERS_ERROR);
+				showValidationError(component, getTranslation('keywordSearchCharactersError'));
 			} else {
 				clearValidationError(component);
-				scheduleValidationError(component, KEYWORD_SEARCH_CHARACTERS_ERROR);
+				scheduleValidationError(component, getTranslation('keywordSearchCharactersError'));
 			}
 
 			return false;
@@ -203,10 +240,10 @@ function validateSearch(component, { report = false } = {}) {
 		}
 
 		if (report) {
-			showValidationError(component, KEYWORD_SEARCH_LENGTH_ERROR);
+			showValidationError(component, getTranslation('keywordSearchLengthError'));
 		} else {
 			clearValidationError(component);
-			scheduleValidationError(component, KEYWORD_SEARCH_LENGTH_ERROR);
+			scheduleValidationError(component, getTranslation('keywordSearchLengthError'));
 		}
 
 		return false;
@@ -219,10 +256,10 @@ function validateSearch(component, { report = false } = {}) {
 		}
 
 		if (report) {
-			showValidationError(component, ORGANISATION_SEARCH_ERROR);
+			showValidationError(component, getTranslation('organisationSearchError'));
 		} else {
 			clearValidationError(component);
-			scheduleValidationError(component, ORGANISATION_SEARCH_ERROR);
+			scheduleValidationError(component, getTranslation('organisationSearchError'));
 		}
 
 		return false;
@@ -242,7 +279,7 @@ function updateSearchState(component) {
 	}
 
 	if (!selectedOption) {
-		input.setAttribute('placeholder', '');
+		input.setAttribute('placeholder', getTranslation('selectSearchTypePlaceholder'));
 		input.disabled = true;
 		submit.disabled = true;
 		clearValidationError(component);
@@ -255,6 +292,8 @@ function updateSearchState(component) {
 	clearValidationError(component);
 	updateSubmitState(component);
 }
+
+ensureLordIconScript();
 
 whoisComponents.forEach((component) => {
 	component.addEventListener('change', (event) => {

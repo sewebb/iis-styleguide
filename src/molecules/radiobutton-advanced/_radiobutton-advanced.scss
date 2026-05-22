@@ -6,6 +6,23 @@
 @use '../../configurations/colors/colors' as colors;
 @use '../../vendor/grid/breakpoints' as breakpoint;
 
+@keyframes radiobutton-advanced-icon-pulse {
+	0% {
+		transform: scale(1);
+		opacity: 0.8;
+	}
+
+	45% {
+		transform: scale(1.65);
+		opacity: 0;
+	}
+
+	100% {
+		transform: scale(1.65);
+		opacity: 0;
+	}
+}
+
 @include mixin.molecule(radiobutton-advanced) {
 	@include breakpoint.bp-down(sm) {
 		&.is-expanded {
@@ -42,6 +59,18 @@
 
 				.m-radiobutton-advanced__icon {
 					display: inline-flex;
+				}
+			}
+		}
+
+		&.is-collapsed:not(.is-expanded):not(.has-selection) {
+			.m-radiobutton-advanced__option.is-visible {
+				.m-radiobutton-advanced__icon {
+					background-color: colors.$color-ocean-lighter;
+
+					&::after {
+						animation: radiobutton-advanced-icon-pulse 2.8s ease-out infinite;
+					}
 				}
 			}
 		}
@@ -128,12 +157,29 @@
 
 	@include bem.e(icon) {
 		display: none;
+		position: relative;
 		flex-direction: column;
+		justify-content: center;
+		align-items: center;
 		flex-shrink: 0;
 		gap: func.to_rem(3px);
 		align-self: center;
 		margin-left: func.rhythm(1);
 		padding: func.rhythm(0.5);
+		width: func.to_rem(28px);
+		height: func.to_rem(28px);
+		border-radius: 50%;
+		background-color: colors.$color-snow;
+
+		&::after {
+			position: absolute;
+			inset: 0;
+			border-radius: 50%;
+			box-shadow: 0 0 0 2px colors.$color-ocean;
+			content: '';
+			opacity: 0;
+			pointer-events: none;
+		}
 
 		> span {
 			width: func.to_rem(4px);

@@ -32,6 +32,7 @@ function getOptionLabel(option) {
 
 function setCheckedState(group) {
 	const options = getOptions(group);
+	let hasCheckedOption = false;
 
 	options.forEach((option) => {
 		const input = getInput(option);
@@ -41,7 +42,10 @@ function setCheckedState(group) {
 		}
 
 		option.classList.toggle('is-checked', input.checked);
+		hasCheckedOption = hasCheckedOption || input.checked;
 	});
+
+	group.classList.toggle('has-selection', hasCheckedOption);
 }
 
 function setVisibleState(group) {

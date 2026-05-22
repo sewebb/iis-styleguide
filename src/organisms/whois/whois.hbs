@@ -1,40 +1,297 @@
 <div class="wrapper display-flex justify-content-center">
 	<div class="grid-18 grid-md-12 u-p-t-4 u-m-b-2 u-align-center">
-		<h1 class="supersize">Domänsök</h1>
-		<p class="preamble">Här kan du söka efter lediga domännamn och se innehavare av domännamn samt hitta återförsäljare av domäner.</p>
+		<h1 class="supersize">{{#if page_title}}{{page_title}}{{else}}Domänsök{{/if}}</h1>
+		<p class="preamble">{{#if page_preamble}}{{page_preamble}} <strong>{{page_domain}}</strong> {{page_preamble2}}{{else}}Här kan du söka efter lediga domännamn och se innehavare av domännamn samt hitta återförsäljare av domäner.{{/if}}</p>
 	</div>
 </div>
 
-<div class="wrapper js-whois o-whois">
-	{{render '@radiobutton-advanced' radio_context merge=true}}
+<script>
+	window.internetstiftelsen = window.internetstiftelsen || {};
+	window.internetstiftelsen.i18n = window.internetstiftelsen.i18n || {};
+	window.internetstiftelsen.i18n.whois = Object.assign(
+		{},
+		window.internetstiftelsen.i18n.whois || {},
+		{{{whois_i18n_json}}}
+	);
+</script>
 
-	<fieldset>
-		<div class="m-form-control m-form-control--large">
-				<div class="field-group js-whois-field-group">
-					<label for="domainSearch" class="u-visuallyhidden">Sök ledig domän</label>
-					<div class="m-input-group">
-						<input id="domainSearch" type="text" class="a-input js-whois-input" placeholder=""{{#if search_value}} value="{{search_value}}"{{else}} disabled{{/if}}>
-						<button type="submit" class="a-button a-button--ocean-light a-button--input-group js-whois-submit"{{#unless search_value}} disabled{{/unless}}>
-							<span class="a-button__text">Sök</span>
-						</button>
+<div class="wrapper js-whois o-whois">
+	{{#unless hide_search_form}}
+		{{render '@radiobutton-advanced' radio_context merge=true}}
+
+		<fieldset>
+			<div class="m-form-control m-form-control--large">
+					<div class="field-group js-whois-field-group">
+						<label for="domainSearch" class="u-visuallyhidden">Sök ledig domän</label>
+						<div class="m-input-group">
+							<input id="domainSearch" type="text" class="a-input js-whois-input" placeholder="{{#if search_value}}{{else}}{{whois_initial_placeholder}}{{/if}}"{{#if search_value}} value="{{search_value}}"{{else}} disabled{{/if}}>
+							<button type="submit" class="a-button a-button--ocean-light a-button--input-group js-whois-submit"{{#unless search_value}} disabled{{/unless}}>
+								<span class="a-button__text">Sök</span>
+							</button>
+						</div>
+						<div class="input-help js-whois-error" role="alert" aria-live="polite"></div>
 					</div>
-					<div class="input-help js-whois-error" role="alert" aria-live="polite"></div>
 				</div>
-			</div>
-	</fieldset>
+		</fieldset>
+	{{/unless}}
 
 	{{#if result}}
 		<div data-whois-result aria-live="polite" class="u-p-b-2">
-			{{#if result_keyword}}
+			{{#if result_retailers}}
+				<div class="o-whois__retailer-toolbar u-m-b-2">
+					<div class="o-whois__retailer-toolbar-header">
+						<div class="o-whois__retailers-status">
+							Antal återförsäljare i listan: <strong>{{retailer_total_count}}</strong>
+						</div>
+						<div class="o-whois__retailer-filter">
+							<button
+								type="button"
+								class="a-button a-button--transparent a-button--icon o-whois__retailer-filter-toggle"
+								aria-expanded="false"
+								aria-controls="whoisRetailerFilterPanel"
+								data-a11y-toggle="whoisRetailerFilterPanel"
+								data-toggle-target="whoisRetailerFilterText"
+								data-toggle-text="Filtrera|Stäng filter"
+								data-toggle-icon-target="whoisRetailerFilterIcon"
+								data-toggle-icon="filter|close">
+								<span class="a-button__text" id="whoisRetailerFilterText">Filtrera</span>
+								<svg class="icon a-button__icon" id="whoisRetailerFilterIcon" aria-hidden="true">
+									<use xlink:href="#icon-filter"></use>
+								</svg>
+							</button>
+						</div>
+					</div>
+					<div id="whoisRetailerFilterPanel" class="o-whois__retailer-filter-panel background-snow u-p-2 u-aria-hidden" data-focus-trap="false" aria-hidden="true" aria-labelledby="whoisRetailerFilterText">
+						<form class="o-whois__retailer-filter-form" data-registrarlist-filter>
+							<div class="o-whois__retailer-filter-actions">
+								<span class="beta">Filtrera</span>
+								<button type="reset" class="a-button a-button--ruby-light a-button--small">
+									<span class="a-button__text">Rensa</span>
+								</button>
+							</div>
+							<div class="row">
+								<div class="grid-lg-6 grid-md-9 grid-18 o-whois__retailer-filter-column">
+									<div class="m-form-control">
+										<fieldset class="field-group u-m-b-2">
+											<legend class="label-legend">Välj toppdomän</legend>
+											<div class="checkbox">
+												<input type="checkbox" id="tld_se" name="tld" value="se" class="a-checkbox u-visuallyhidden">
+												<label for="tld_se"><span>Återförsäljare av .se-domäner</span></label>
+											</div>
+											<div class="checkbox">
+												<input type="checkbox" id="tld_nu" name="tld" value="nu" class="a-checkbox u-visuallyhidden">
+												<label for="tld_nu"><span>Återförsäljare av .nu-domäner</span></label>
+											</div>
+										</fieldset>
+									</div>
+									<div class="m-form-control">
+										<fieldset class="field-group u-m-b-2">
+											<legend class="label-legend">Intresseorganisationer</legend>
+											<div class="checkbox">
+												<input type="checkbox" id="associations_registrars_se_member" name="associations" value="registrars_se_member" class="a-checkbox u-visuallyhidden">
+												<label for="associations_registrars_se_member"><span>Medlem i <a href="https://registrars.se" class="color-cyberspace" target="_blank" rel="noopener">Registrars.se</a></span></label>
+											</div>
+										</fieldset>
+									</div>
+									<div class="m-form-control">
+										<fieldset class="field-group">
+											<legend class="label-legend">Återförsäljare från alla länder</legend>
+											<select name="country" class="a-select">
+												<option value="">Välj land</option>
+												<option value="be">🇧🇪 BE</option>
+												<option value="bg">🇧🇬 BG</option>
+												<option value="cn">🇨🇳 CN</option>
+												<option value="cz">🇨🇿 CZ</option>
+												<option value="de">🇩🇪 DE</option>
+												<option value="dk">🇩🇰 DK</option>
+												<option value="es">🇪🇸 ES</option>
+												<option value="fi">🇫🇮 FI</option>
+												<option value="fr">🇫🇷 FR</option>
+												<option value="gb">🇬🇧 GB</option>
+												<option value="ie">🇮🇪 IE</option>
+												<option value="lu">🇱🇺 LU</option>
+												<option value="nl">🇳🇱 NL</option>
+												<option value="no">🇳🇴 NO</option>
+												<option value="se">🇸🇪 SE</option>
+												<option value="us">🇺🇸 US</option>
+											</select>
+										</fieldset>
+									</div>
+								</div>
+								<div class="grid-lg-6 grid-md-9 grid-18 o-whois__retailer-filter-column">
+									<div class="m-form-control">
+										<fieldset class="field-group u-m-b-2">
+											<legend class="label-legend">Registreringstjänster</legend>
+											<div class="checkbox">
+												<input type="checkbox" id="registration_reg_idn" name="registration" value="reg_idn" class="a-checkbox u-visuallyhidden">
+												<label for="registration_reg_idn"><span>Erbjuder registrering av IDN-domännamn</span></label>
+											</div>
+											<div class="checkbox">
+												<input type="checkbox" id="registration_reg_private" name="registration" value="reg_private" class="a-checkbox u-visuallyhidden">
+												<label for="registration_reg_private"><span>Erbjuder registrering till privatpersoner</span></label>
+											</div>
+											<div class="checkbox">
+												<input type="checkbox" id="registration_domain_only" name="registration" value="domain_only" class="a-checkbox u-visuallyhidden">
+												<label for="registration_domain_only"><span>Erbjuder registrering av domännamn utan krav på avtal om andra tjänster</span></label>
+											</div>
+											<div class="checkbox">
+												<input type="checkbox" id="registration_domain_multiyear" name="registration" value="domain_multiyear" class="a-checkbox u-visuallyhidden">
+												<label for="registration_domain_multiyear"><span>Erbjuder nyregistrering och förnyelse av domännamn med mer än 1 år i taget</span></label>
+											</div>
+											<div class="checkbox">
+												<input type="checkbox" id="registration_is_reseller" name="registration" value="is_reseller" class="a-checkbox u-visuallyhidden">
+												<label for="registration_is_reseller"><span>Erbjuder registreringstjänster via underåterförsäljare.</span></label>
+											</div>
+										</fieldset>
+									</div>
+								</div>
+								<div class="grid-lg-6 grid-md-9 grid-18 o-whois__retailer-filter-column">
+									<div class="m-form-control">
+										<fieldset class="field-group u-m-b-2">
+											<legend class="label-legend">Tekniska tjänster</legend>
+											<div class="checkbox">
+												<input type="checkbox" id="technical_serv_dns" name="technical" value="serv_dns" class="a-checkbox u-visuallyhidden">
+												<label for="technical_serv_dns"><span>Erbjuder DNS-tjänster</span></label>
+											</div>
+											<div class="checkbox">
+												<input type="checkbox" id="technical_serv_dnssec" name="technical" value="serv_dnssec" class="a-checkbox u-visuallyhidden">
+												<label for="technical_serv_dnssec"><span>Erbjuder DNSSEC</span></label>
+											</div>
+											<div class="checkbox">
+												<input type="checkbox" id="technical_serv_web" name="technical" value="serv_web" class="a-checkbox u-visuallyhidden">
+												<label for="technical_serv_web"><span>Erbjuder webbhotell</span></label>
+											</div>
+											<div class="checkbox">
+												<input type="checkbox" id="technical_serv_email" name="technical" value="serv_email" class="a-checkbox u-visuallyhidden">
+												<label for="technical_serv_email"><span>Erbjuder e-posttjänst</span></label>
+											</div>
+											<div class="checkbox">
+												<input type="checkbox" id="technical_reg_lock" name="technical" value="reg_lock" class="a-checkbox u-visuallyhidden">
+												<label for="technical_reg_lock"><span>Erbjuder Registry lock</span></label>
+											</div>
+										</fieldset>
+									</div>
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			{{else if result_keyword}}
 				<h2 class="alpha u-m-t-2 u-m-b-1"><span class="u-weight-normal">Sökresultat för nyckelordet <strong>{{search_value}}</strong></span></h2>
 			{{else if result_organisation}}
 				<h2 class="alpha u-m-t-2 u-m-b-1"><span class="u-weight-normal">Sökresultat för organisationsnummer <strong>{{search_value}}</strong></span></h2>
 			{{else}}
 				<h2 class="alpha u-m-t-2 u-m-b-1">{{search_value}} <span class="u-weight-normal">{{result_heading}}</span></h2>
 			{{/if}}
-			<p>{{result_text}}</p>
+			{{#unless result_retailers}}
+				<p>{{result_text}}</p>
+			{{/unless}}
 
-			{{#if result_keyword}}
+			{{#if result_retailers}}
+				<div class="o-whois__retailer-directory">
+					{{#each retailer_items}}
+						<article class="o-whois__retailer-card" data-retailer="{{tag_string}}">
+							<div class="o-whois__retailer-card__main">
+								<div class="o-whois__retailer-logo-wrap">
+									{{#if logo}}
+										<img class="o-whois__retailer-logo" src="{{logo.src}}" alt="{{logo.alt}}">
+									{{/if}}
+								</div>
+								<div class="o-whois__retailer-main-content">
+									<div class="o-whois__retailer-main-top">
+										<div class="o-whois__retailer-body">
+											<div class="o-whois__retailer-head">
+												<h2>{{name}}</h2>
+												<div class="o-whois__retailer-meta">
+													<span><span class="o-whois__retailer-flag">{{countryFlag}}</span> {{location}}</span>
+												</div>
+											</div>
+										</div>
+										<div class="o-whois__retailer-tags-group">
+											<div class="o-whois__retailer-tags-heading">Säljer</div>
+											<div class="o-whois__retailer-tags">
+												{{#each tlds}}
+													<span class="a-tag u-b-solid u-b-concrete background-snow o-whois__retailer-tag u-lowercase u-font-size-medium-plus">
+															<span class="a-tag__text">{{this}}</span>
+														</span>
+												{{/each}}
+											</div>
+										</div>
+									</div>
+									<div class="o-whois__retailer-details">
+										<div class="o-whois__retailer-details-actions">
+											<button
+												type="button"
+												class="a-button a-button--transparent a-button--icon o-whois__retailer-details-toggle"
+												aria-expanded="false"
+												aria-controls="whois-retailer-services-{{@index}}"
+												data-a11y-toggle="whois-retailer-services-{{@index}}"
+												data-toggle-target="whois-retailer-services-text-{{@index}}"
+												data-toggle-text="Mer info|Göm info"
+												data-toggle-icon-target="whois-retailer-services-icon-{{@index}}"
+												data-toggle-icon="info|close">
+												<span class="a-button__text" id="whois-retailer-services-text-{{@index}}">Mer info</span>
+												<svg class="icon a-button__icon o-whois__retailer-details-icon" id="whois-retailer-services-icon-{{@index}}" aria-hidden="true">
+													<use xlink:href="#icon-info"></use>
+												</svg>
+											</button>
+											<a href="{{website}}" target="_blank" rel="noopener" class="a-button a-button--lemon-light a-button--icon o-whois__retailer-select-button">
+												<span class="a-button__text">Välj denna återförsäljare</span>
+												<svg class="icon a-button__icon" aria-hidden="true">
+													<use xlink:href="#icon-external-link"></use>
+												</svg>
+											</a>
+										</div>
+										<div
+											class="o-whois__retailer-details-panel u-aria-hidden"
+											id="whois-retailer-services-{{@index}}"
+											data-focus-trap="false"
+											aria-hidden="true"
+											aria-labelledby="whois-retailer-services-text-{{@index}}">
+											<div class="o-whois__retailer-features">
+												{{#each feature_sections}}
+													<div class="o-whois__retailer-feature-section">
+														<h3 class="o-whois__retailer-feature-heading">{{heading}}</h3>
+														<div class="o-whois__retailer-feature-tags">
+															{{#each items}}
+																<span class="a-tag o-whois__retailer-feature-tag{{#if available}} is-available{{else}} is-unavailable{{/if}}">
+																	<svg class="icon o-whois__retailer-feature-icon" style="fill: {{#if available}}#25c279{{else}}#d9002f{{/if}};" aria-hidden="true">
+																		<use xlink:href="{{#if available}}#icon-check-variant{{else}}#icon-close-variant{{/if}}"></use>
+																	</svg>
+																	<span class="a-tag__text">{{label}}</span>
+																</span>
+															{{/each}}
+														</div>
+													</div>
+												{{/each}}
+												<h3 class="u-m-t-05 u-m-b-0">Kontaktinformation</h3>
+												<dl class="o-whois__retailer-contact">
+													<div>
+														<dt>Webbplats</dt>
+														<dd><a href="{{website}}" target="_blank" rel="noopener" class="color-cyberspace">{{website}} <svg class="icon o-mega-menu__link__icon"><use xlink:href="#icon-external-link"></use></svg></a></dd>
+													</div>
+													{{#if email}}
+														<div>
+															<dt>E-post</dt>
+															<dd><a href="mailto:{{email}}" class="color-cyberspace">{{email}}</a></dd>
+														</div>
+													{{/if}}
+													{{#if phone}}
+														<div>
+															<dt>Telefon</dt>
+															<dd><a href="tel:{{phone}}" class="color-cyberspace">{{phone}}</a></dd>
+														</div>
+													{{/if}}
+												</dl>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</article>
+					{{/each}}
+				</div>
+			{{else if result_keyword}}
 				<div class="row justify-content-between">
 					{{#each keyword_registrar_tables}}
 						<div class="grid-18 grid-xl-5 u-m-b-4">
@@ -117,7 +374,16 @@
 							domabv9823-00001</p>
 						</div>
 						<div class="grid-auto u-align-right o-whois__contact-secondary">
-							<p><strong>Land</strong><br>
+							<p>
+								<span class="u-display-inline-flex align-items-center">
+									<strong class="u-m-r-05">Land</strong>
+									<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Land" data-tooltip-placement="top">
+										<span class="a-tooltip__text" hidden>Här visas innehavarens land</span>
+										<svg class="icon a-button__icon" aria-hidden="true">
+											<use xlink:href="#icon-info"></use>
+										</svg>
+									</button>
+								</span><br>
 							SE</p>
 						</div>
 					</div>
@@ -204,4 +470,26 @@
 			{{/if}}
 		</div>
 	{{/if}}
+
+	{{#unless hide_info_boxes}}
+		<div class="row u-m-t-8 u-m-b-2">
+			{{#each whois_info_boxes}}
+				<div class="grid-18 grid-lg-6 u-m-b-2">
+					<div class="m-card m-card--padded wp-block-iis-visualization {{backgroundClass}} {{#if hasBorder}}u-b-1 u-b-dashed u-b-granit{{/if}}">
+						<div class="m-card__content">
+							<lord-icon
+								src="{{iconSrc}}"
+								trigger="in"
+								delay=""
+								colors="primary:{{iconColor}}"
+								style="width:80px;height:80px">
+							</lord-icon>
+							<h2 class="wp-block-heading"><a href="{{url}}" class="u-link-area">{{title}}</a></h2>
+							<p>{{{bodyHtml}}}</p>
+						</div>
+					</div>
+				</div>
+			{{/each}}
+		</div>
+	{{/unless}}
 </div>
