@@ -3,7 +3,7 @@ Object.defineProperty(exports, "__esModule", {
     value: true
 });
 require("./app.scss");
-require("a11y-toggle");
+require("./vendor/toggle/a11y-toggle");
 require("./focusTrap");
 require("./assets/js/conditional");
 require("./atoms/grid-toggle/grid-toggle");
