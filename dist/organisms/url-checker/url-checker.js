@@ -122,7 +122,7 @@ const BREAKDOWN_PARTS = [
     {
         key: 'tld',
         label: 'Toppdomän',
-        desc: '.se / .com'
+        desc: 't.ex. .se'
     },
     {
         key: 'path',
