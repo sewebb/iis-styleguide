@@ -10,6 +10,7 @@ const whoisI18n = {
 	keywordSearchCharactersError: 'Nyckelordet får bara innehålla bokstäver och siffror.',
 	keywordSearchLengthError: 'Sökordet måste innehålla minst 3 tecken.',
 	organisationSearchError: 'Organisationsnumret måste anges i formatet XXXXXX-XXXX.',
+	organisationPersonalNumberError: 'Du kan inte söka med ett personnummer här. Ange ett organisationsnummer i stället.',
 };
 
 const whoisInfoBoxes = [
@@ -469,6 +470,62 @@ module.exports = {
 			},
 		},
 		{
+			name: 'domain-taken-hidden-contact',
+			context: {
+				result: true,
+				result_taken: true,
+				result_hidden_contact: true,
+				radio_context: {
+					selected_value: 'first',
+				},
+				search_value: 'volvo.se',
+				result_heading: 'är redan registrerad',
+				result_text:
+					'Information om domänens innehavare och registrering visas här.',
+				hidden_contact_note:
+					'Kontaktuppgifter för juridiska personer visas inte då dessa uppgifter kan innehålla personuppgifter.',
+				domain_dates_table_context: withSectionHeader('Datum', datesTableRows),
+				domain_other_table_context: withSectionHeader('Övrigt', otherTableRows),
+			},
+		},
+		{
+			name: 'domain-taken-person',
+			context: {
+				result: true,
+				result_taken: true,
+				result_private_registrant: true,
+				radio_context: {
+					selected_value: 'first',
+				},
+				search_value: 'johndoe.se',
+				result_heading: 'är redan registrerad',
+				result_text:
+					'Information om domänens innehavare och registrering visas här.',
+				domain_dates_table_context: withSectionHeader('Datum', datesTableRows),
+				domain_other_table_context: withSectionHeader('Övrigt', otherTableRows),
+			},
+		},
+		{
+			name: 'domain-taken-person-hidden-contact',
+			context: {
+				result: true,
+				result_taken: true,
+				result_private_registrant: true,
+				result_hidden_contact: true,
+				radio_context: {
+					selected_value: 'first',
+				},
+				search_value: 'johndoe.se',
+				result_heading: 'är redan registrerad',
+				result_text:
+					'Information om domänens innehavare och registrering visas här.',
+				hidden_contact_note:
+					'Kontaktuppgifter för privatpersoner/enskild firma visas inte då dessa uppgifter är personuppgifter.',
+				domain_dates_table_context: withSectionHeader('Datum', datesTableRows),
+				domain_other_table_context: withSectionHeader('Övrigt', otherTableRows),
+			},
+		},
+		{
 			name: 'domain-in-quarantine',
 			context: {
 				result: true,
@@ -480,7 +537,7 @@ module.exports = {
 				search_value: 'volvo.se',
 				result_heading: 'blir ledig 2027-01-25',
 				result_text:
-					'Information om domänens innehavare och registrering visas här.',
+					'Domänen är i karantän. Här visas information om status, avregistrering och när domänen kan bli tillgänglig igen.',
 				domain_dates_table_context: withSectionHeader('Datum', quarantineDatesTableRows),
 				domain_other_table_context: withSectionHeader('Övrigt', quarantineOtherTableRows),
 			},

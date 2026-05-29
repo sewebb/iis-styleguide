@@ -324,6 +324,11 @@
 		row-gap: func.rhythm(1);
 	}
 
+	@include bem.e(contact-note) {
+		max-width: 60ch;
+		font-style: italic;
+	}
+
 	@include breakpoint.bp-down(sm) {
 		@include bem.e(contact-primary) {
 			flex: 0 0 100%;

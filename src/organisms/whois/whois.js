@@ -4,6 +4,9 @@ const DOMAIN_SEARCH_VALUE = 'first';
 const KEYWORD_SEARCH_VALUE = 'second';
 const ORGANISATION_SEARCH_VALUE = 'third';
 const VALIDATION_DELAY = 1500;
+const DESKTOP_DEFAULT_SELECTION = window.matchMedia('(min-width: 769px)');
+const PERSONAL_IDENTITY_NUMBER_REGEX = /^(18|19|20)?\d{2}(0[1-9]|1[0-2])(0[1-9]|[12]\d|3[01])[-+]?\d{4}$/;
+const ORGANISATION_NUMBER_REGEX = /^\d{2}[2-9]\d{7}$/;
 const DEFAULT_I18N = {
 	selectSearchTypePlaceholder: 'Välj först vad du vill söka efter...',
 	emptySearchError: 'Du måste ange en sökning.',
@@ -12,6 +15,7 @@ const DEFAULT_I18N = {
 	keywordSearchCharactersError: 'Nyckelordet får bara innehålla bokstäver och siffror.',
 	keywordSearchLengthError: 'Sökordet måste innehålla minst 3 tecken.',
 	organisationSearchError: 'Organisationsnumret måste anges i formatet XXXXXX-XXXX.',
+	organisationPersonalNumberError: 'Du kan inte söka med ett personnummer här. Ange ett organisationsnummer i stället.',
 };
 
 function getWhoisI18n() {
@@ -51,6 +55,10 @@ function getSelectedOption(component) {
 	return component.querySelector('.js-radiobutton-advanced__input:checked');
 }
 
+function getSearchTypeOptions(component) {
+	return Array.from(component.querySelectorAll('.js-radiobutton-advanced__input'));
+}
+
 function getErrorElement(component) {
 	return component.querySelector('.js-whois-error');
 }
@@ -83,8 +91,100 @@ function hasValidKeywordCharacters(value) {
 	return /^[\p{L}\p{N}]+$/u.test((value || '').trim());
 }
 
+function normalizeDigits(value) {
+	return (value || '').trim().replace(/[^\d]/g, '');
+}
+
+function passesLuhn(value) {
+	const digits = String(value || '');
+
+	if (!/^\d+$/.test(digits)) {
+		return false;
+	}
+
+	const sum = digits
+		.split('')
+		.reduce((total, digit, index) => {
+			let current = Number(digit);
+
+			if (index % 2 === 0) {
+				current *= 2;
+				current = current > 9 ? current - 9 : current;
+			}
+
+			return total + current;
+		}, 0);
+
+	return sum % 10 === 0;
+}
+
+function isValidDate(year, month, day) {
+	const date = new Date(year, month - 1, day);
+
+	return date.getFullYear() === year
+		&& date.getMonth() === month - 1
+		&& date.getDate() === day;
+}
+
+function inferFullYear(twoDigitYear, month, day, separator) {
+	const now = new Date();
+	const currentCentury = Math.floor(now.getFullYear() / 100) * 100;
+	const currentYearShort = now.getFullYear() % 100;
+	const currentMonth = now.getMonth() + 1;
+	const currentDay = now.getDate();
+	const inputDateValue = (twoDigitYear * 10000) + (month * 100) + day;
+	const currentDateValue = (currentYearShort * 10000) + (currentMonth * 100) + currentDay;
+	let year = currentCentury + twoDigitYear;
+
+	if (separator === '+' || inputDateValue > currentDateValue) {
+		year -= 100;
+	}
+
+	return year;
+}
+
+function getPersonalIdentityNumberParts(value) {
+	const rawValue = (value || '').trim();
+	const digits = normalizeDigits(rawValue);
+
+	if (!PERSONAL_IDENTITY_NUMBER_REGEX.test(rawValue) || (digits.length !== 10 && digits.length !== 12)) {
+		return null;
+	}
+
+	const separator = rawValue.includes('+') ? '+' : '-';
+	const normalizedTenDigits = digits.slice(-10);
+	const month = Number(normalizedTenDigits.slice(2, 4));
+	const day = Number(normalizedTenDigits.slice(4, 6));
+	const year = digits.length === 12
+		? Number(digits.slice(0, 4))
+		: inferFullYear(Number(normalizedTenDigits.slice(0, 2)), month, day, separator);
+
+	return {
+		year,
+		month,
+		day,
+		normalizedTenDigits,
+	};
+}
+
+function isPersonalIdentityNumber(value) {
+	const parts = getPersonalIdentityNumberParts(value);
+
+	if (!parts) {
+		return false;
+	}
+
+	return isValidDate(parts.year, parts.month, parts.day)
+		&& passesLuhn(parts.normalizedTenDigits);
+}
+
 function isValidOrganisationSearch(value) {
-	return /^\d{6}-\d{4}$/.test((value || '').trim());
+	const trimmedValue = (value || '').trim();
+	const normalizedValue = normalizeDigits(value);
+
+	return /^\d{2}[2-9]\d{3}-?\d{4}$/.test(trimmedValue)
+		&& ORGANISATION_NUMBER_REGEX.test(normalizedValue)
+		&& passesLuhn(normalizedValue);
 }
 
 function hasVisibleError(component) {
@@ -250,6 +350,17 @@ function validateSearch(component, { report = false } = {}) {
 	}
 
 	if (isOrganisationSearchSelected(selectedOption)) {
+		if (isPersonalIdentityNumber(value)) {
+			if (report) {
+				showValidationError(component, getTranslation('organisationPersonalNumberError'));
+			} else {
+				clearValidationError(component);
+				scheduleValidationError(component, getTranslation('organisationPersonalNumberError'));
+			}
+
+			return false;
+		}
+
 		if (isValidOrganisationSearch(value)) {
 			clearValidationError(component);
 			return true;
@@ -293,6 +404,50 @@ function updateSearchState(component) {
 	updateSubmitState(component);
 }
 
+function syncResponsiveSearchTypeSelection(component) {
+	if (component.dataset.responsiveDefaultSearchType !== 'true' || component.dataset.userSelectedSearchType === 'true') {
+		return;
+	}
+
+	const options = getSearchTypeOptions(component);
+	const firstOption = options.find((option) => option.value === DOMAIN_SEARCH_VALUE) || options[0];
+	const selectedOption = getSelectedOption(component);
+	const input = component.querySelector('.js-whois-input');
+
+	if (!firstOption) {
+		return;
+	}
+
+	if (DESKTOP_DEFAULT_SELECTION.matches) {
+		if (!selectedOption) {
+			firstOption.checked = true;
+			component.dataset.autoSelectedSearchType = 'true';
+			component.dataset.syncingResponsiveDefault = 'true';
+			firstOption.dispatchEvent(new Event('change', { bubbles: true }));
+			delete component.dataset.syncingResponsiveDefault;
+		}
+
+		return;
+	}
+
+	if (component.dataset.autoSelectedSearchType !== 'true') {
+		return;
+	}
+
+	options.forEach((option) => {
+		option.checked = false;
+	});
+
+	if (input?.value) {
+		input.value = '';
+	}
+
+	delete component.dataset.autoSelectedSearchType;
+	component.dataset.syncingResponsiveDefault = 'true';
+	firstOption.dispatchEvent(new Event('change', { bubbles: true }));
+	delete component.dataset.syncingResponsiveDefault;
+}
+
 ensureLordIconScript();
 
 whoisComponents.forEach((component) => {
@@ -305,6 +460,15 @@ whoisComponents.forEach((component) => {
 
 		if (input?.value) {
 			input.value = '';
+		}
+
+		if (component.dataset.responsiveDefaultSearchType === 'true' && component.dataset.syncingResponsiveDefault !== 'true') {
+			if (component.dataset.autoSelectedSearchType === 'true' && event.target.value === DOMAIN_SEARCH_VALUE && DESKTOP_DEFAULT_SELECTION.matches) {
+				component.dataset.autoSelectedSearchType = 'true';
+			} else {
+				component.dataset.userSelectedSearchType = 'true';
+				delete component.dataset.autoSelectedSearchType;
+			}
 		}
 
 		updateSearchState(component);
@@ -330,5 +494,19 @@ whoisComponents.forEach((component) => {
 		}
 	});
 
+	syncResponsiveSearchTypeSelection(component);
 	updateSearchState(component);
 });
+
+function syncResponsiveWhoisDefaults() {
+	whoisComponents.forEach((component) => {
+		syncResponsiveSearchTypeSelection(component);
+		updateSearchState(component);
+	});
+}
+
+if (DESKTOP_DEFAULT_SELECTION.addEventListener) {
+	DESKTOP_DEFAULT_SELECTION.addEventListener('change', syncResponsiveWhoisDefaults);
+} else {
+	DESKTOP_DEFAULT_SELECTION.addListener(syncResponsiveWhoisDefaults);
+}

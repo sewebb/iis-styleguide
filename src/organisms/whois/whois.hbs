@@ -15,7 +15,7 @@
 	);
 </script>
 
-<div class="wrapper js-whois o-whois">
+<div class="wrapper js-whois o-whois"{{#unless result}} data-responsive-default-search-type="true"{{/unless}}>
 	{{#unless hide_search_form}}
 		{{render '@radiobutton-advanced' radio_context merge=true}}
 
@@ -331,7 +331,7 @@
 					<div class="row o-whois__contact-row">
 						<div class="grid o-whois__contact-primary">
 							<p><strong>Domän</strong><br>
-							volvo.se</p>
+							{{search_value}}</p>
 						</div>
 						<div class="grid-auto u-align-right o-whois__contact-secondary">
 							<p>
@@ -360,99 +360,191 @@
 					{{#unless result_quarantine}}
 					<div class="row o-whois__contact-row">
 						<div class="grid o-whois__contact-primary">
-							<p class="u-m-b-1"><strong>Företag</strong></p>
-							<h2 class="u-m-b-0">AB VOLVO</h2>
+							{{#if result_private_registrant}}
+								<p><strong>Domäninnehavare</strong><br>
+								Innehavaren är en privatperson</p>
+							{{else}}
+								<p class="u-m-b-1"><strong>Företag</strong></p>
+								<h2 class="u-m-b-0">AB VOLVO</h2>
+							{{/if}}
 						</div>
 						<div class="grid-auto u-align-right o-whois__contact-secondary">
-							<p><strong>Organisationsnummer</strong><br>
-								<a href="#">[SE]556012-5790</a></p>
+							{{#if result_private_registrant}}
+								<p>
+									<span class="u-display-inline-flex align-items-center">
+										<strong class="u-m-r-05">Land</strong>
+										<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Land" data-tooltip-placement="top">
+											<span class="a-tooltip__text" hidden>Här visas innehavarens land</span>
+											<svg class="icon a-button__icon" aria-hidden="true">
+												<use xlink:href="#icon-info"></use>
+											</svg>
+										</button>
+									</span><br>
+								SE</p>
+							{{else}}
+								<p><strong>Organisationsnummer</strong><br>
+									<a href="#">[SE]556012-5790</a></p>
+							{{/if}}
 						</div>
 					</div>
-					<div class="row o-whois__contact-row">
-						<div class="grid o-whois__contact-primary">
-							<p><strong>Innehavare (kontakt-ID)</strong><br>
-							domabv9823-00001</p>
+					{{#unless result_hidden_contact}}
+						<div class="row o-whois__contact-row">
+							<div class="grid o-whois__contact-primary">
+								<p><strong>Innehavare (kontakt-ID)</strong><br>
+								{{#if result_private_registrant}}(not shown){{else}}domabv9823-00001{{/if}}</p>
+							</div>
+							<div class="grid-auto u-align-right o-whois__contact-secondary">
+								{{#if result_private_registrant}}
+									<p><strong>Registrar</strong><br>
+									<a href="https://www.cscdbs.com/" target="_blank" rel="noopener">CSC Corp Domains <svg class="icon o-mega-menu__link__icon"><use xlink:href="#icon-external-link"></use></svg></a></p>
+								{{else}}
+									<p>
+										<span class="u-display-inline-flex align-items-center">
+											<strong class="u-m-r-05">Land</strong>
+											<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Land" data-tooltip-placement="top">
+												<span class="a-tooltip__text" hidden>Här visas innehavarens land</span>
+												<svg class="icon a-button__icon" aria-hidden="true">
+													<use xlink:href="#icon-info"></use>
+												</svg>
+											</button>
+										</span><br>
+									SE</p>
+								{{/if}}
+							</div>
 						</div>
-						<div class="grid-auto u-align-right o-whois__contact-secondary">
-							<p>
+					{{/unless}}
+					{{#if result_hidden_contact}}
+						<div class="row o-whois__contact-row">
+							<div class="grid o-whois__contact-primary">
+								<p class="o-whois__contact-note">{{hidden_contact_note}}</p>
+							</div>
+							<div class="grid-auto u-align-right o-whois__contact-secondary">
+								{{#unless result_private_registrant}}
+									<p><strong>Registrar</strong><br>
+									<a href="https://www.cscdbs.com/" target="_blank" rel="noopener">CSC Corp Domains <svg class="icon o-mega-menu__link__icon"><use xlink:href="#icon-external-link"></use></svg></a></p>
+								{{/unless}}
+							</div>
+						</div>
+						<div class="row o-whois__contact-row">
+							<div class="grid o-whois__contact-primary">
+								<p><a href="/sok-doman?domain={{search_value}}">Länk till sökresultat</a><br>
 								<span class="u-display-inline-flex align-items-center">
-									<strong class="u-m-r-05">Land</strong>
-									<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Land" data-tooltip-placement="top">
-										<span class="a-tooltip__text" hidden>Här visas innehavarens land</span>
+									<a href="/kontakta-domaninnehavare/?domain={{search_value}}">Kontakta domäninnehavaren</a>
+									<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Kontakta domäninnehavaren" data-tooltip-placement="top">
+										<span class="a-tooltip__text" hidden>Internetstiftelsen kan inte garantera att det meddelande som skickas kommer fram till innehavaren eller att denna väljer att besvara detta.</span>
 										<svg class="icon a-button__icon" aria-hidden="true">
 											<use xlink:href="#icon-info"></use>
 										</svg>
 									</button>
-								</span><br>
-							SE</p>
+								</span></p>
+							</div>
 						</div>
-					</div>
-					<div class="row o-whois__contact-row">
-						<div class="grid o-whois__contact-primary">
-							<p>
-								<span class="u-display-inline-flex align-items-center">
-									<strong class="u-m-r-05">Namn</strong>
-									<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Namn" data-tooltip-placement="top">
-										<span class="a-tooltip__text" hidden>Kontaktperson för juridiska personer visas inte då dessa uppgifter kan innehålla personuppgifter.</span>
-										<svg class="icon a-button__icon" aria-hidden="true">
-											<use xlink:href="#icon-info"></use>
-										</svg>
-									</button>
-								</span><br>
-							(not shown)</p>
-						</div>
-						<div class="grid-auto u-align-right o-whois__contact-secondary">
-							<p><strong>Registrar</strong><br>
-							<a href="https://www.cscdbs.com/" target="_blank" rel="noopener">CSC Corp Domains <svg class="icon o-mega-menu__link__icon"><use xlink:href="#icon-external-link"></use></svg></a></p>
-						</div>
-					</div>
-					<div class="row o-whois__contact-row">
-						<div class="grid o-whois__contact-primary">
-							<p>
-								<span class="u-display-inline-flex align-items-center">
-									<strong class="u-m-r-05">Innehavarens e-postadress</strong>
-									<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Innehavarens e-postadress" data-tooltip-placement="top">
-										<span class="a-tooltip__text" hidden>E-post för juridiska personer visas inte då dessa uppgifter kan innehålla personuppgifter.</span>
-										<svg class="icon a-button__icon" aria-hidden="true">
-											<use xlink:href="#icon-info"></use>
-										</svg>
-									</button>
-								</span><br>
-							(not shown)</p>
-						</div>
-						<div class="grid-auto u-align-right o-whois__contact-secondary">
-							<p>
-								<span class="u-display-inline-flex align-items-center">
-									<strong class="u-m-r-05">Telefon</strong>
-									<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Telefon" data-tooltip-placement="top">
-										<span class="a-tooltip__text" hidden>Telefonnummer för juridiska personer visas inte då dessa uppgifter kan innehålla personuppgifter.</span>
-										<svg class="icon a-button__icon" aria-hidden="true">
-											<use xlink:href="#icon-info"></use>
-										</svg>
-									</button>
-								</span><br>
+					{{else}}
+						<div class="row o-whois__contact-row">
+							<div class="grid o-whois__contact-primary">
+								<p>
+									<span class="u-display-inline-flex align-items-center">
+										<strong class="u-m-r-05">Namn</strong>
+										<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Namn" data-tooltip-placement="top">
+											<span class="a-tooltip__text" hidden>Kontaktperson för juridiska personer visas inte då dessa uppgifter kan innehålla personuppgifter.</span>
+											<svg class="icon a-button__icon" aria-hidden="true">
+												<use xlink:href="#icon-info"></use>
+											</svg>
+										</button>
+									</span><br>
 								(not shown)</p>
+							</div>
+							<div class="grid-auto u-align-right o-whois__contact-secondary">
+								{{#if result_private_registrant}}
+									<p>
+										<span class="u-display-inline-flex align-items-center">
+											<strong class="u-m-r-05">Telefon</strong>
+											<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Telefon" data-tooltip-placement="top">
+												<span class="a-tooltip__text" hidden>Telefonnummer för juridiska personer visas inte då dessa uppgifter kan innehålla personuppgifter.</span>
+												<svg class="icon a-button__icon" aria-hidden="true">
+													<use xlink:href="#icon-info"></use>
+												</svg>
+											</button>
+										</span><br>
+										(not shown)</p>
+								{{else}}
+									<p><strong>Registrar</strong><br>
+									<a href="https://www.cscdbs.com/" target="_blank" rel="noopener">CSC Corp Domains <svg class="icon o-mega-menu__link__icon"><use xlink:href="#icon-external-link"></use></svg></a></p>
+								{{/if}}
+							</div>
 						</div>
-					</div>
-					<div class="row o-whois__contact-row">
-						<div class="grid o-whois__contact-primary">
-							<p>
+						<div class="row o-whois__contact-row">
+							<div class="grid o-whois__contact-primary">
+								<p>
+									<span class="u-display-inline-flex align-items-center">
+										<strong class="u-m-r-05">Innehavarens e-postadress</strong>
+										<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Innehavarens e-postadress" data-tooltip-placement="top">
+											<span class="a-tooltip__text" hidden>E-post för juridiska personer visas inte då dessa uppgifter kan innehålla personuppgifter.</span>
+											<svg class="icon a-button__icon" aria-hidden="true">
+												<use xlink:href="#icon-info"></use>
+											</svg>
+										</button>
+									</span><br>
+								(not shown)</p>
+							</div>
+							<div class="grid-auto u-align-right o-whois__contact-secondary">
+								{{#if result_private_registrant}}
+									<p>
+										<span class="u-display-inline-flex align-items-center">
+											<strong class="u-m-r-05">Fax</strong>
+											<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Fax" data-tooltip-placement="top">
+												<span class="a-tooltip__text" hidden>Faxnummer för juridiska personer visas inte då dessa uppgifter kan innehålla personuppgifter.</span>
+												<svg class="icon a-button__icon" aria-hidden="true">
+													<use xlink:href="#icon-info"></use>
+												</svg>
+											</button>
+										</span><br>
+									(not shown)</p>
+								{{else}}
+									<p>
+										<span class="u-display-inline-flex align-items-center">
+											<strong class="u-m-r-05">Telefon</strong>
+											<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Telefon" data-tooltip-placement="top">
+												<span class="a-tooltip__text" hidden>Telefonnummer för juridiska personer visas inte då dessa uppgifter kan innehålla personuppgifter.</span>
+												<svg class="icon a-button__icon" aria-hidden="true">
+													<use xlink:href="#icon-info"></use>
+												</svg>
+											</button>
+										</span><br>
+										(not shown)</p>
+								{{/if}}
+							</div>
+						</div>
+						<div class="row o-whois__contact-row">
+							<div class="grid o-whois__contact-primary">
+								<p><a href="/sok-doman?domain={{search_value}}">Länk till sökresultat</a><br>
 								<span class="u-display-inline-flex align-items-center">
-									<strong class="u-m-r-05">Fax</strong>
-									<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Fax" data-tooltip-placement="top">
-										<span class="a-tooltip__text" hidden>Faxnummer för juridiska personer visas inte då dessa uppgifter kan innehålla personuppgifter.</span>
+									<a href="/kontakta-domaninnehavare/?domain={{search_value}}">Kontakta domäninnehavaren</a>
+									<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Kontakta domäninnehavaren" data-tooltip-placement="top">
+										<span class="a-tooltip__text" hidden>Internetstiftelsen kan inte garantera att det meddelande som skickas kommer fram till innehavaren eller att denna väljer att besvara detta.</span>
 										<svg class="icon a-button__icon" aria-hidden="true">
 											<use xlink:href="#icon-info"></use>
 										</svg>
 									</button>
-								</span><br>
-							(not shown)</p>
+								</span></p>
+							</div>
+							{{#unless result_private_registrant}}
+								<div class="grid-auto u-align-right o-whois__contact-secondary">
+									<p>
+										<span class="u-display-inline-flex align-items-center">
+											<strong class="u-m-r-05">Fax</strong>
+											<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Fax" data-tooltip-placement="top">
+												<span class="a-tooltip__text" hidden>Faxnummer för juridiska personer visas inte då dessa uppgifter kan innehålla personuppgifter.</span>
+												<svg class="icon a-button__icon" aria-hidden="true">
+													<use xlink:href="#icon-info"></use>
+												</svg>
+											</button>
+										</span><br>
+									(not shown)</p>
+								</div>
+							{{/unless}}
 						</div>
-						<div class="grid-auto u-align-right o-whois__contact-secondary">
-							<p><a href="/sok-doman?domain=volvo.se">Länk till sökresultat</a><br>
-							<a href="/kontakta-domaninnehavare/?domain=volvo.se">Kontakta domäninnehavaren</a></p>
-						</div>
-					</div>
+					{{/if}}
 					{{/unless}}
 				</div>
 
