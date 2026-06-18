@@ -1,67 +1,46 @@
 <div class="row no-gutters">
 	<div class="grid">
 		{{#if scrollable}}
-		<div class="table-scroll-wrapper scroll-on-large u-m-b-double">
+		<div class="table-scroll-wrapper js-table-scroll-wrapper scroll-on-large u-m-b-double">
 			<div class="scroll-indicator"></div>
 		{{/if}}
-				<div class="table-container">
-					<table class="m-table{{#if modifier}} {{modifier}}{{/if}}" {{#if scrollable}}style="min-width:1360px"{{/if}}>
+				<div class="table-container js-table-container">
+					<table class="m-table js-table{{#if modifier}} {{modifier}}{{/if}}">
 						{{#unless increment}}
 						{{#if caption}}
-							<caption>Caption for the table</caption>
+							<caption>{{caption}}</caption>
 						{{/if}}
 						<thead>
 							<tr>
-								<th>{{th}}</th>
-								<th>{{th}}</th>
-								<th>{{th}}</th>
-								<th>{{th}}</th>
-								<th>{{th}}</th>
+								{{#each headers}}
+								<th>{{this}}</th>
+								{{/each}}
 							</tr>
 						</thead>
 						{{/unless}}
 						<tbody>
+							{{#each rows}}
 							<tr>
-								{{#if increment}}<th>&nbsp;</th>{{/if}}
-								<td><a href="#">{{td}}</a></td>
-								<td>{{td_num1}} <small>{{td_unit1}}</small></td>
-								<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
-								<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
-								<td>{{td_num4}} <small>{{td_unit4}}</small> </td>
+								{{#if ../increment}}<th>&nbsp;</th>{{/if}}
+								<td data-row-header="true">
+									{{#if href}}
+									<a href="{{href}}">{{title}}</a>
+									{{else}}
+									{{title}}
+									{{/if}}
+								</td>
+								{{#each cells}}
+								<td>{{{this}}}</td>
+								{{/each}}
 							</tr>
-							<tr>
-								{{#if increment}}<th>&nbsp;</th>{{/if}}
-								<td><a href="#">{{td}}</a></td>
-								<td>{{td_num1}} <small>{{td_unit1}}</small></td>
-								<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
-								<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
-								<td>{{td_num4}} <small>{{td_unit4}}</small> </td>
-							</tr>
-							<tr>
-								{{#if increment}}<th>&nbsp;</th>{{/if}}
-								<td><a href="#">{{td}}</a></td>
-								<td>{{td_num1}} <small>{{td_unit1}}</small></td>
-								<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
-								<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
-								<td>{{td_num4}} <small>{{td_unit4}}</small> </td>
-							</tr>
-							<tr>
-								{{#if increment}}<th>&nbsp;</th>{{/if}}
-								<td><a href="#">{{td}}</a></td>
-								<td>{{td_num1}} <small>{{td_unit1}}</small></td>
-								<td>{{td_num2}} <small>{{td_unit2}}</small> </td>
-								<td>{{td_num3}} <small>{{td_unit3}}</small> </td>
-								<td>{{td_num4}} <small>{{td_unit4}}</small> </td>
-							</tr>
+							{{/each}}
 						</tbody>
 						{{#unless increment}}
 						<tfoot>
 							<tr>
-								<td>{{tfoot}}</td>
-								<td>{{tfoot}}</td>
-								<td>{{tfoot}}</td>
-								<td>{{tfoot}}</td>
-								<td>{{tfoot}}</td>
+								{{#each footer}}
+								<td>{{this}}</td>
+								{{/each}}
 							</tr>
 						</tfoot>
 						{{/unless}}

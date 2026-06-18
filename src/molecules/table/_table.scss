@@ -116,17 +116,17 @@
 
 @keyframes xPulse {
 	0% {
-		right: 0;
+		transform: translateX(0);
 		opacity: 1;
 	}
 
 	50% {
-		right: 10px;
-		opacity: 0.3;
+		transform: translateX(#{func.to_rem(6px)});
+		opacity: 0.55;
 	}
 
 	100% {
-		right: 0;
+		transform: translateX(0);
 		opacity: 1;
 	}
 }
@@ -249,50 +249,205 @@
 			}
 		}
 	}
+
+	@include bem.m(stacked) {
+		@include breakpoint.bp-down(sm) {
+			thead,
+			tfoot {
+				display: none;
+			}
+
+			tbody {
+				display: grid;
+			}
+
+			tr {
+				display: block;
+				background-color: var(--snow-color);
+			}
+
+			td,
+			th {
+				display: block;
+				padding-top: func.rhythm(1.25);
+				padding-right: func.rhythm(1.5);
+				padding-bottom: func.rhythm(1.25);
+				padding-left: func.rhythm(1.5);
+				border-bottom-width: 1px;
+			}
+
+			td::before,
+			th::before {
+				content: attr(data-label);
+				display: block;
+				margin-bottom: func.to_rem(4px);
+				font-family: var.$font-family-mono;
+				font-size: 75%;
+				letter-spacing: 0.04em;
+				text-transform: uppercase;
+				opacity: 0.75;
+			}
+
+			[data-row-header="true"] {
+				padding-top: func.rhythm(1.5);
+				padding-bottom: func.rhythm(1.5);
+				border-bottom-width: 2px;
+				background-color: var(--ash-color);
+				font-family: var.$font-family-headings;
+				font-size: 100%;
+
+				&::before {
+					margin-bottom: func.to_rem(6px);
+				}
+			}
+
+			a {
+				white-space: normal;
+				overflow-wrap: anywhere;
+			}
+
+			span:not(.block-icon) {
+				display: inline;
+			}
+		}
+	}
+
+	@include bem.m(sticky-first) {
+		border-collapse: separate;
+		border-spacing: 0;
+
+		thead,
+		tbody,
+		tfoot {
+			> tr > :first-child {
+				position: sticky;
+				left: 0;
+				z-index: func.z_index(background);
+				background-color: var(--snow-color);
+			}
+		}
+
+		thead {
+			> tr > :first-child {
+				z-index: func.z_index(foreground);
+				background-color: var(--ash-color);
+			}
+		}
+
+		tbody {
+			tr:nth-child(odd) > :first-child {
+				background-color: var(--snow-color);
+			}
+
+			tr:nth-child(even) > :first-child {
+				background-color: var(--ash-color);
+			}
+		}
+	}
 }
 
 @include bem.b(scroll-indicator) {
-	display: block;
-	position: relative;
-	width: 100%;
-	height: func.rhythm(3);
+	display: none;
+	position: absolute;
+	z-index: func.z_index(foreground);
+	top: func.to_rem(4px);
+	right: func.to_rem(4px);
+	align-items: center;
+	gap: func.to_rem(4px);
+	padding: func.to_rem(4px) func.to_rem(8px);
+	border-radius: func.rhythm(2);
+	background-color: rgba(colors.$color-cyberspace, 0.92);
+	color: colors.$color-snow;
+	pointer-events: none;
+	white-space: nowrap;
 
 	&::before {
 		content: 'Scroll';
-		position: absolute;
-		z-index: func.z_index(background);
-		top: 0;
-		right: func.rhythm(3);
-		width: func.rhythm(7);
-		height: 0;
-		animation: xPulse 2s infinite;
 		font-family: var.$font-family-mono;
-		font-size: 80%;
+		font-size: 70%;
 		text-transform: uppercase;
 	}
 
 	&::after {
 		content: '›';
-		position: absolute;
-		z-index: func.z_index(background);
-		top: -#{func.to_rem(4px)};
-		right: 0;
 		animation: xPulse 2s infinite;
 		font-family: var.$font-family-mono;
+		font-size: 100%;
+		line-height: 1;
+		position: relative;
+		top: -2px;
 	}
 }
 
 @include bem.b(table-scroll-wrapper) {
+	position: relative;
+	max-width: 100%;
+
+	&::before,
+	&::after {
+		content: '';
+		position: absolute;
+		z-index: func.z_index(background);
+		top: 0;
+		bottom: 0;
+		width: func.rhythm(2.5);
+		opacity: 0;
+		pointer-events: none;
+		transition: opacity 0.2s ease;
+	}
+
+	&::before {
+		left: 0;
+		background: linear-gradient(to right, rgba(colors.$color-cyberspace, 0.12), transparent);
+	}
+
+	&::after {
+		right: 0;
+		background: linear-gradient(to left, rgba(colors.$color-cyberspace, 0.12), transparent);
+	}
 
 	@include bem.b(table-container) {
 		overflow-x: auto;
 		overflow-y: hidden;
 		-webkit-overflow-scrolling: touch;
+		overscroll-behavior-x: contain;
+		scrollbar-width: thin;
 	}
 
-	@include breakpoint.bp-up(lg) {
+	.m-table {
+		min-width: 100%;
+		width: max-content;
+	}
+
+	.m-table--sticky-first {
+		min-width: 48rem;
+	}
+
+	&[data-overflowing="true"][data-scroll-start="false"] {
+		&::before {
+			opacity: 1;
+		}
+
+		.m-table--sticky-first {
+			thead,
+			tbody,
+			tfoot {
+				> tr > :first-child {
+					box-shadow: func.to_rem(6px) 0 func.to_rem(10px) rgba(colors.$color-cyberspace, 0.06);
+				}
+			}
+		}
+	}
+
+	&[data-overflowing="true"][data-scroll-end="false"] {
+		&::after {
+			opacity: 1;
+		}
+	}
+
+	&[data-overflowing="true"][data-scroll-start="true"] {
 		@include bem.b(scroll-indicator) {
-			display: none;
+			display: inline-flex;
 		}
 	}
 }
