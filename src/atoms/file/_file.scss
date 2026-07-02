@@ -42,7 +42,7 @@
 	@include mixin.atom(file-preview) {
 		position: relative;
 		width: 100%;
-		height: func.to_rem(169px);
+		aspect-ratio: 300 / 169;
 		margin-bottom: func.rhythm(1);
 		overflow: hidden;
 		border-radius: var.$border-radius;
