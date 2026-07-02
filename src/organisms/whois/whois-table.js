@@ -229,7 +229,7 @@ function applyWhoisResponsiveVisibility(params, groups, activeGroupId) {
 }
 
 function updateSwitcherState(switcher, activeGroupId) {
-	switcher.querySelectorAll('[data-whois-table-group]').forEach((button) => {
+	switcher.querySelectorAll('.js-whois-table-group').forEach((button) => {
 		const isActive = button.dataset.whoisTableGroup === activeGroupId;
 
 		button.setAttribute('aria-pressed', isActive ? 'true' : 'false');
@@ -237,21 +237,21 @@ function updateSwitcherState(switcher, activeGroupId) {
 }
 
 function createGroupSwitcher(el, groups, activeGroup, onChange) {
-	const wrapper = el.closest('.ag-grid__wrapper');
+	const wrapper = el.closest('.js-ag-grid-wrapper');
 
-	if (!wrapper || wrapper.previousElementSibling?.classList.contains('whois-table-switcher')) {
+	if (!wrapper || wrapper.previousElementSibling?.classList.contains('js-whois-table-switcher')) {
 		return wrapper?.previousElementSibling || null;
 	}
 
 	const switcher = document.createElement('div');
-	switcher.className = 'whois-table-switcher';
+	switcher.className = 'whois-table-switcher js-whois-table-switcher';
 	switcher.setAttribute('aria-label', 'Välj grupp');
 	switcher.innerHTML = groups.map((group) => (
-		`<button type="button" class="whois-table-switcher__button" data-whois-table-group="${escapeHtml(group.id)}" aria-pressed="${group.id === activeGroup.id ? 'true' : 'false'}">${escapeHtml(group.label)}</button>`
+		`<button type="button" class="whois-table-switcher__button js-whois-table-group" data-whois-table-group="${escapeHtml(group.id)}" aria-pressed="${group.id === activeGroup.id ? 'true' : 'false'}">${escapeHtml(group.label)}</button>`
 	)).join('');
 
 	switcher.addEventListener('click', (event) => {
-		const button = event.target.closest('[data-whois-table-group]');
+		const button = event.target.closest('.js-whois-table-group');
 
 		if (!button) {
 			return;

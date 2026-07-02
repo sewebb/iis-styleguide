@@ -21,15 +21,31 @@
 
 		<fieldset>
 			<div class="m-form-control m-form-control--large">
-					<div class="field-group js-whois-field-group">
+					<div class="field-group">
 						<label for="domainSearch" class="u-visuallyhidden">Sök ledig domän</label>
-						<div class="m-input-group">
-							<input id="domainSearch" type="text" class="a-input js-whois-input" placeholder="{{#if search_value}}{{else}}{{whois_initial_placeholder}}{{/if}}"{{#if search_value}} value="{{search_value}}"{{else}} disabled{{/if}}>
-							<button type="submit" class="a-button a-button--ocean-light a-button--input-group js-whois-submit"{{#unless search_value}} disabled{{/unless}}>
-								<span class="a-button__text">Sök</span>
-							</button>
+						<div class="o-whois__search-row">
+							<div class="o-whois__organisation-country js-whois-country-group" hidden>
+								<label for="organisationCountry" class="u-visuallyhidden">Land</label>
+								<select id="organisationCountry" name="organisationCountry" class="a-select js-whois-country" aria-label="Land" disabled>
+									{{#each organisation_country_options}}
+										{{#if is_heading}}
+											<option value="" disabled>{{label}}</option>
+										{{else}}
+										<option value="{{value}}" title="{{title}}" data-short-label="{{short_label}}" data-full-label="{{label}}"{{#if is_selected}} selected{{/if}}>{{label}}</option>
+										{{/if}}
+									{{/each}}
+								</select>
+							</div>
+							<div class="field-group o-whois__search-input-wrap js-whois-field-group">
+								<div class="m-input-group o-whois__search-input-group">
+									<input id="domainSearch" type="text" class="a-input js-whois-input" placeholder="{{#if search_value}}{{else}}{{whois_initial_placeholder}}{{/if}}"{{#if search_value}} value="{{search_value}}"{{else}} disabled{{/if}}>
+									<button type="submit" class="a-button a-button--ocean-light a-button--input-group js-whois-submit"{{#unless search_value}} disabled{{/unless}}>
+										<span class="a-button__text">Sök</span>
+									</button>
+								</div>
+								<div class="input-help js-whois-error" role="alert" aria-live="polite"></div>
+							</div>
 						</div>
-						<div class="input-help js-whois-error" role="alert" aria-live="polite"></div>
 					</div>
 				</div>
 		</fieldset>
@@ -179,7 +195,7 @@
 			{{else if result_keyword}}
 				<h2 class="alpha u-m-t-2 u-m-b-1"><span class="u-weight-normal">Sökresultat för nyckelordet <strong>{{search_value}}</strong></span></h2>
 			{{else if result_organisation}}
-				<h2 class="alpha u-m-t-2 u-m-b-1"><span class="u-weight-normal">Sökresultat för organisationsnummer <strong>{{search_value}}</strong></span></h2>
+				<h2 class="alpha u-m-t-2 u-m-b-1"><span class="u-weight-normal">Sökresultat för organisationsnummer <strong>{{organisation_number_display}}</strong></span></h2>
 			{{else}}
 				<h2 class="alpha u-m-t-2 u-m-b-1">{{search_value}} <span class="u-weight-normal">{{result_heading}}</span></h2>
 			{{/if}}
@@ -293,7 +309,7 @@
 				</div>
 			{{else if result_keyword}}
 				<div class="row justify-content-between">
-					{{#each keyword_registrar_tables}}
+					{{#each keyword_domain_tables}}
 						<div class="grid-18 grid-xl-5 u-m-b-4">
 							{{render '@table' table_context merge=true}}
 						</div>
@@ -313,7 +329,7 @@
 						</div>
 						<div class="grid-auto u-align-right o-whois__contact-secondary">
 							<p><strong>Organisationsnummer</strong><br>
-								{{search_value}}</p>
+								{{organisation_number_display}}</p>
 						</div>
 					</div>
 				</div>
@@ -416,7 +432,17 @@
 					{{#if result_hidden_contact}}
 						<div class="row o-whois__contact-row">
 							<div class="grid o-whois__contact-primary">
-								<p class="o-whois__contact-note">{{hidden_contact_note}}</p>
+								<p class="o-whois__contact-note">
+									<span>{{hidden_contact_note}}</span>
+									{{#if hidden_contact_note_tooltip}}
+										<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon o-whois__contact-note-tooltip" aria-label="{{hidden_contact_note_tooltip.label}}" data-tooltip-placement="{{#if hidden_contact_note_tooltip.placement}}{{hidden_contact_note_tooltip.placement}}{{else}}top{{/if}}">
+											<span class="a-tooltip__text u-style-no-italic" hidden>{{hidden_contact_note_tooltip.text}}</span>
+											<svg class="icon a-button__icon" aria-hidden="true">
+												<use xlink:href="#icon-info"></use>
+											</svg>
+										</button>
+									{{/if}}
+								</p>
 							</div>
 							<div class="grid-auto u-align-right o-whois__contact-secondary">
 								{{#unless result_private_registrant}}

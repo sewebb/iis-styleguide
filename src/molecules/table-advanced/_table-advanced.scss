@@ -41,7 +41,7 @@ body {
 		min-height: 0;
 	}
 
-	&.has-fullscreen {
+	&[data-fullscreen-active='true'] {
 		position: fixed;
 		top: 0;
 		left: 0;

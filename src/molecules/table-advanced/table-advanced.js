@@ -239,7 +239,7 @@ class ExpandHeader {
 		e.className = 'expand-header';
 		e.style.cssText = 'display:flex;align-items:center;gap:6px;cursor:pointer;width:100%;';
 		e.innerHTML = `
-      <span class="expander" style="display:inline-block;transition:transform .15s">▶</span>
+      <span class="expander js-table-advanced-expander" style="display:inline-block;transition:transform .15s">▶</span>
       <span class="title">${params.displayName ?? 'Group'}</span>
     `;
 
@@ -258,7 +258,7 @@ class ExpandHeader {
 		}
 	}
 	updateIcon() {
-		const icon = this.eGui.querySelector('.expander');
+		const icon = this.eGui.querySelector('.js-table-advanced-expander');
 		if (icon) icon.style.transform = this.expanded ? 'rotate(90deg)' : 'rotate(0deg)';
 	}
 	getGui() { return this.eGui; }
@@ -338,8 +338,7 @@ function makeGridOptionsFor(el) {
 
 // ---- INIT ALL GRIDS --------------------------------------------------
 document.addEventListener('DOMContentLoaded', () => {
-	// Use a class selector so you can have multiple grids;
-	// make sure your HTML uses: <div class="ag-theme-quartz js-ag-grid" data-json="./table1.json"></div>
+	// Use a class selector so you can have multiple grids.
 	const containers = document.querySelectorAll('.js-ag-grid');
 
 	containers.forEach((el) => {
@@ -347,8 +346,6 @@ document.addEventListener('DOMContentLoaded', () => {
 			return;
 		}
 
-		// Ensure theme class + measurable size BEFORE createGrid (each grid separately)
-		if (!el.classList.contains('ag-theme-quartz')) el.classList.add('ag-theme-quartz');
 		//if (!el.style.height) el.style.height = '600px';
 		if (!el.style.width)  el.style.width  = '100%';
 
@@ -363,15 +360,15 @@ document.addEventListener('DOMContentLoaded', () => {
 	});
 });
 
-// ---- TOGGLE FULLSCREEN CLASS ON PARENT CONTAINER WHEN CLICKING FULLSCREEN BUTTON ----
-document.querySelectorAll('[data-ag-grid-fullscreen]').forEach((btn) => {
+// ---- TOGGLE FULLSCREEN STATE ON PARENT CONTAINER WHEN CLICKING FULLSCREEN BUTTON ----
+document.querySelectorAll('.js-ag-grid-fullscreen').forEach((btn) => {
 	btn.addEventListener('click', () => {
 
 		// Find the nearest parent container for this button
 		const gridEl = btn.closest('.js-ag-grid');
 		if (!gridEl) return;
 
-		// Toggle fullscreen class only for this specific element
-		gridEl.classList.toggle('has-fullscreen');
+		// Toggle fullscreen state only for this specific element
+		gridEl.dataset.fullscreenActive = gridEl.dataset.fullscreenActive === 'true' ? 'false' : 'true';
 	});
 });

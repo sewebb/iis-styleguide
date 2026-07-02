@@ -16,6 +16,7 @@ const DEFAULT_I18N = {
 	keywordSearchLengthError: 'Sökordet måste innehålla minst 3 tecken.',
 	organisationSearchError: 'Organisationsnumret måste anges i formatet XXXXXX-XXXX.',
 	organisationPersonalNumberError: 'Du kan inte söka med ett personnummer här. Ange ett organisationsnummer i stället.',
+	organisationInternationalSearchError: 'Ange organisationsnummer med 2-30 tecken. Endast bokstäver, siffror, mellanslag, punkt, snedstreck och bindestreck är tillåtna.',
 };
 
 function getWhoisI18n() {
@@ -67,6 +68,44 @@ function getFieldGroup(component) {
 	return component.querySelector('.js-whois-field-group');
 }
 
+function getOrganisationCountryField(component) {
+	return component.querySelector('.js-whois-country-group');
+}
+
+function getOrganisationCountrySelect(component) {
+	return component.querySelector('.js-whois-country');
+}
+
+function syncOrganisationCountrySelectLabels(component, { expanded = false } = {}) {
+	const select = getOrganisationCountrySelect(component);
+
+	if (!select) {
+		return;
+	}
+
+	Array.from(select.options).forEach((option) => {
+		const fullLabel = option.dataset.fullLabel;
+
+		if (!fullLabel) {
+			return;
+		}
+
+		option.textContent = fullLabel;
+	});
+
+	const selectedOption = select.options?.[select.selectedIndex];
+
+	if (!selectedOption || selectedOption.disabled) {
+		return;
+	}
+
+	select.title = selectedOption.dataset.fullLabel || selectedOption.textContent.trim();
+
+	if (!expanded) {
+		selectedOption.textContent = selectedOption.dataset.shortLabel || selectedOption.value || '';
+	}
+}
+
 function isDomainSearchSelected(selectedOption) {
 	return selectedOption?.value === DOMAIN_SEARCH_VALUE;
 }
@@ -77,6 +116,10 @@ function isKeywordSearchSelected(selectedOption) {
 
 function isOrganisationSearchSelected(selectedOption) {
 	return selectedOption?.value === ORGANISATION_SEARCH_VALUE;
+}
+
+function getSelectedOrganisationCountry(component) {
+	return getOrganisationCountrySelect(component)?.value || 'SE';
 }
 
 function isValidDomainSearch(value) {
@@ -185,6 +228,34 @@ function isValidOrganisationSearch(value) {
 	return /^\d{2}[2-9]\d{3}-?\d{4}$/.test(trimmedValue)
 		&& ORGANISATION_NUMBER_REGEX.test(normalizedValue)
 		&& passesLuhn(normalizedValue);
+}
+
+function isValidInternationalOrganisationSearch(value) {
+	const trimmedValue = String(value || '').trim().replace(/\s+/g, ' ');
+
+	if (trimmedValue.length < 2 || trimmedValue.length > 30) {
+		return false;
+	}
+
+	return /^(?:[\p{L}\p{N}]{2}|[\p{L}\p{N}][\p{L}\p{N} ./-]{0,28}[\p{L}\p{N}])$/u.test(trimmedValue);
+}
+
+function getOrganisationValidationErrorKey(component, value) {
+	const selectedCountry = getSelectedOrganisationCountry(component);
+
+	if (selectedCountry === 'SE') {
+		if (isPersonalIdentityNumber(value)) {
+			return 'organisationPersonalNumberError';
+		}
+
+		return isValidOrganisationSearch(value)
+			? null
+			: 'organisationSearchError';
+	}
+
+	return isValidInternationalOrganisationSearch(value)
+		? null
+		: 'organisationInternationalSearchError';
 }
 
 function hasVisibleError(component) {
@@ -350,27 +421,18 @@ function validateSearch(component, { report = false } = {}) {
 	}
 
 	if (isOrganisationSearchSelected(selectedOption)) {
-		if (isPersonalIdentityNumber(value)) {
-			if (report) {
-				showValidationError(component, getTranslation('organisationPersonalNumberError'));
-			} else {
-				clearValidationError(component);
-				scheduleValidationError(component, getTranslation('organisationPersonalNumberError'));
-			}
+		const errorKey = getOrganisationValidationErrorKey(component, value);
 
-			return false;
-		}
-
-		if (isValidOrganisationSearch(value)) {
+		if (!errorKey) {
 			clearValidationError(component);
 			return true;
 		}
 
 		if (report) {
-			showValidationError(component, getTranslation('organisationSearchError'));
+			showValidationError(component, getTranslation(errorKey));
 		} else {
 			clearValidationError(component);
-			scheduleValidationError(component, getTranslation('organisationSearchError'));
+			scheduleValidationError(component, getTranslation(errorKey));
 		}
 
 		return false;
@@ -384,6 +446,8 @@ function updateSearchState(component) {
 	const input = component.querySelector('.js-whois-input');
 	const submit = component.querySelector('.js-whois-submit');
 	const selectedOption = getSelectedOption(component);
+	const organisationCountryField = getOrganisationCountryField(component);
+	const organisationCountrySelect = getOrganisationCountrySelect(component);
 
 	if (!input || !submit) {
 		return;
@@ -393,10 +457,26 @@ function updateSearchState(component) {
 		input.setAttribute('placeholder', getTranslation('selectSearchTypePlaceholder'));
 		input.disabled = true;
 		submit.disabled = true;
+		if (organisationCountryField) {
+			organisationCountryField.hidden = true;
+		}
+		if (organisationCountrySelect) {
+			organisationCountrySelect.disabled = true;
+		}
 		clearValidationError(component);
 
 		return;
 	}
+
+	if (organisationCountryField) {
+		organisationCountryField.hidden = !isOrganisationSearchSelected(selectedOption);
+	}
+
+	if (organisationCountrySelect) {
+		organisationCountrySelect.disabled = !isOrganisationSearchSelected(selectedOption);
+	}
+
+	syncOrganisationCountrySelectLabels(component);
 
 	input.setAttribute('placeholder', selectedOption.dataset.placeholder || '');
 	input.disabled = false;
@@ -483,6 +563,32 @@ whoisComponents.forEach((component) => {
 		updateSubmitState(component);
 	});
 
+	component.addEventListener('change', (event) => {
+		if (!event.target.matches('.js-whois-country')) {
+			return;
+		}
+
+		syncOrganisationCountrySelectLabels(component);
+		validateSearch(component);
+		updateSubmitState(component);
+	});
+
+	component.addEventListener('focusin', (event) => {
+		if (!event.target.matches('.js-whois-country')) {
+			return;
+		}
+
+		syncOrganisationCountrySelectLabels(component, { expanded: true });
+	});
+
+	component.addEventListener('focusout', (event) => {
+		if (!event.target.matches('.js-whois-country')) {
+			return;
+		}
+
+		syncOrganisationCountrySelectLabels(component);
+	});
+
 	component.addEventListener('click', (event) => {
 		if (!event.target.closest('.js-whois-submit')) {
 			return;
@@ -496,12 +602,14 @@ whoisComponents.forEach((component) => {
 
 	syncResponsiveSearchTypeSelection(component);
 	updateSearchState(component);
+	syncOrganisationCountrySelectLabels(component);
 });
 
 function syncResponsiveWhoisDefaults() {
 	whoisComponents.forEach((component) => {
 		syncResponsiveSearchTypeSelection(component);
 		updateSearchState(component);
+		syncOrganisationCountrySelectLabels(component);
 	});
 }
 

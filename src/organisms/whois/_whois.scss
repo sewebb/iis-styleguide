@@ -12,6 +12,34 @@
 		opacity: 1;
 	}
 
+	@include bem.e(search-row) {
+		display: flex;
+		align-items: stretch;
+		gap: func.rhythm(1);
+	}
+
+	@include bem.e(organisation-country) {
+		flex: 0 0 auto;
+
+		.a-select {
+			width: func.to_rem(104px);
+			max-width: func.to_rem(104px);
+			min-width: 0;
+			overflow: hidden;
+			text-overflow: clip;
+			white-space: nowrap;
+		}
+	}
+
+	@include bem.e(search-input-group) {
+		width: 100%;
+	}
+
+	@include bem.e(search-input-wrap) {
+		flex: 1 1 auto;
+		min-width: 0;
+	}
+
 	@include bem.e(retailers-status) {
 		width: 100%;
 		flex: 1 1 auto;
@@ -327,6 +355,12 @@
 	@include bem.e(contact-note) {
 		max-width: 60ch;
 		font-style: italic;
+	}
+
+	@include bem.e(contact-note-tooltip) {
+		margin-left: func.to_rem(2px);
+		margin-right: 0;
+		vertical-align: middle;
 	}
 
 	@include breakpoint.bp-down(sm) {
