@@ -74,7 +74,7 @@
 			text-align: left;
 		}
 
-		span:not(.block-icon):not(.a-tooltip__text) {
+		span:not(.block-icon):not([class*="a-tooltip__text"]) {
 			display: block;
 			font-weight: 400;
 		}

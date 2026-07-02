@@ -7,7 +7,7 @@
 @use '../../vendor/grid/breakpoints' as breakpoint;
 
 @include mixin.organism(whois) {
-	.js-whois-input[disabled]::placeholder {
+	[class*='js-whois-input'][disabled]::placeholder {
 		color: colors.$color-dark;
 		opacity: 1;
 	}
@@ -21,7 +21,7 @@
 	@include bem.e(organisation-country) {
 		flex: 0 0 auto;
 
-		.a-select {
+		[class*='a-select'] {
 			width: func.to_rem(104px);
 			max-width: func.to_rem(104px);
 			min-width: 0;
@@ -83,11 +83,11 @@
 		white-space: nowrap;
 		padding-left: 0;
 
-		.a-button__text {
+		[class*='a-button__text'] {
 			white-space: nowrap;
 		}
 
-		.a-button__icon {
+		[class*='a-button__icon'] {
 			right: 0;
 		}
 	}
@@ -100,7 +100,7 @@
 		width: 100%;
 		margin-bottom: func.rhythm(1.5);
 
-		.beta {
+		[class*='beta'] {
 			margin-bottom: 0;
 		}
 	}
@@ -330,7 +330,7 @@
 		text-transform: none;
 		pointer-events: none;
 
-		.a-tag__text {
+		[class*='a-tag__text'] {
 			font-size: var.$size-medium;
 			letter-spacing: 0;
 			text-transform: none;

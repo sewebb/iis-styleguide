@@ -315,6 +315,7 @@ const renderValue = (value) => {
 
 const mapRowsToTableContext = (rows) => ({
 	modifier: 'm-table--lines',
+	footer: false,
 	rows: rows.map(({ field, value }) => ({
 		cells: [
 			{
@@ -445,6 +446,8 @@ const keywordDomainColumns = splitIntoColumns(keywordDomains, 3);
 
 const mapKeywordDomainTableContext = (domains) => ({
 	modifier: 'm-table--lines',
+	headers: false,
+	footer: false,
 	rows: domains.map((domain) => ({
 		cells: [
 			{
@@ -492,6 +495,7 @@ const organisationRegistrarGroups = [
 
 const mapOrganisationRegistrarTableContext = ({ name, domains }) => ({
 	modifier: 'm-table--lines',
+	footer: false,
 	headerRows: [
 		{
 			cells: [
