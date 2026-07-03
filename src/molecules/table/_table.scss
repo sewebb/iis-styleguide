@@ -419,12 +419,12 @@
 		scrollbar-width: thin;
 	}
 
-	.m-table {
+	[data-table-layout~="scroll-target"] {
 		min-width: 100%;
 		width: max-content;
 	}
 
-	.m-table--sticky-first {
+	[data-table-layout~="sticky-first"] {
 		min-width: 48rem;
 	}
 
@@ -433,7 +433,7 @@
 			opacity: 1;
 		}
 
-		.m-table--sticky-first {
+		[data-table-layout~="sticky-first"] {
 			thead,
 			tbody,
 			tfoot {

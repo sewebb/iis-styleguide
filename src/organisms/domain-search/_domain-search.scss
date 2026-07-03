@@ -1,23 +1,19 @@
 @charset "UTF-8";
 @use "sass:color";
 @use '../../configurations/mixins' as mixin;
-@use '../../configurations/extends';
 @use '../../configurations/bem' as bem;
-@use '../../configurations/config' as config;
 @use '../../configurations/variables' as var;
 @use '../../configurations/functions' as func;
 @use '../../configurations/colors/colors' as colors;
-@use '../../configurations/colors/colors-functions' as colorFunc;
 @use '../../vendor/grid/breakpoints' as breakpoint;
 
 @include mixin.organism(domain-search) {
-
 	@include breakpoint.bp-up(md) {
 		padding: func.rhythm(3) func.rhythm(1);
 	}
 
-	@include bem.e(form-wrapper) {
-		gap: func.rhythm(2);
+	@include bem.e(form) {
+		width: 100%;
 	}
 
 	@include bem.e(input) {
@@ -26,15 +22,15 @@
 		padding: func.rhythm(1) func.rhythm(2);
 		transition: padding 0.25s ease-out;
 		border: 1px solid colors.$color-granit;
-		border-radius: var.$border-radius;
+		border-top-left-radius: var.$border-radius;
+		border-bottom-left-radius: var.$border-radius;
 		background-color: color.adjust(colors.$color-ash, $lightness: 4%);
 		letter-spacing: -0.1px;
 		-webkit-appearance: none;
 
-		@include breakpoint.bp-up(md) {
+		@include breakpoint.bp-up(lg) {
 			font-size: func.to_rem(32px);
 		}
-
 	}
 
 	@include bem.e(submit) {
@@ -42,21 +38,16 @@
 		padding-right: func.rhythm(4);
 		padding-left: func.rhythm(4);
 		font-size: func.to_rem(24px);
+		border-top-left-radius: 0;
+		border-bottom-left-radius: 0;
 
 		@include breakpoint.bp-down(md) {
 			font-size: func.to_rem(var.$size-base);
 		}
 
-		@include breakpoint.bp-down(sm) {
+		@include breakpoint.bp-down(xs) {
 			padding: func.rhythm(0.6) func.rhythm(1);
-			font-size: func.to_rem(var.$size-small);
-		}
-	}
-
-	@include bem.e(result) {
-		@include bem.e(button-wrapper) {
-			flex-wrap: wrap;
-			gap: func.rhythm(2);
+			font-size: func.to_rem(var.$size-medium);
 		}
 	}
 }

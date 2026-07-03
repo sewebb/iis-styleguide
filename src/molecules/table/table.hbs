@@ -3,7 +3,7 @@
 	<div class="scroll-indicator"></div>
 {{/if}}
 		<div class="table-container js-table-container">
-			<table class="m-table js-table{{#if modifier}} {{modifier}}{{/if}}">
+			<table class="m-table js-table{{#if modifier}} {{modifier}}{{/if}}" data-table-layout="scroll-target{{#if stickyFirst}} sticky-first{{/if}}">
 				{{#if captionText}}
 					<caption>{{captionText}}</caption>
 				{{else}}
