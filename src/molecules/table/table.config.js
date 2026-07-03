@@ -107,6 +107,7 @@ module.exports = {
 		{
 			name: 'sticky first column',
 			context: {
+				stickyFirst: true,
 				modifier: 'm-table--rows m-table--sticky-first',
 				scrollable: true
 			}
