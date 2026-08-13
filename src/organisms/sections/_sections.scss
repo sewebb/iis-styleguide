@@ -125,12 +125,6 @@ $spacing: func.rhythm(6);
 				transform-origin: right bottom;
 				background-color: colors.$color-peacock;
 			}
-
-			// Hide in IE11
-			*::-ms-backdrop,
-			&::after {
-				display: none;
-			}
 		}
 
 		@include bem.m(rectangle-right) {
@@ -145,12 +139,6 @@ $spacing: func.rhythm(6);
 				transform: translate(calc(100% + #{func.to_rem(20px)}), 50%) rotate(20deg);
 				transform-origin: left bottom;
 				background-color: colors.$color-ruby;
-			}
-
-			// Hide in IE11
-			*::-ms-backdrop,
-			&::after {
-				display: none;
 			}
 		}
 	}
