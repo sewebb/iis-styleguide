@@ -266,6 +266,16 @@
 				background: colors.$color-ruby-lighter;
 			}
 
+			@include bem.m(danger) {
+				background: colors.$color-ruby-lighter;
+
+				&[data-active='true'],
+				&:focus,
+				&:focus-visible {
+					background: colors.$color-ruby-lighter;
+				}
+			}
+
 			&[data-kind='subdomain'],
 			&[data-kind='domain'],
 			&[data-kind='tld'],
@@ -321,6 +331,12 @@
 
 			&[data-active='true'][data-part='credentials'] {
 				background: colors.$color-ruby-lighter;
+			}
+
+			@include bem.m(danger) {
+				&[data-active='true'] {
+					background: colors.$color-ruby-lighter;
+				}
 			}
 		}
 

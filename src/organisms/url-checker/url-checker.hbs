@@ -133,9 +133,16 @@
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="protocolBox">
 					<div class="o-url-checker__box__header">
 						<h3 class="u-m-b-0">Protokoll</h3>
-						<p>
+						<p id="protocolDescriptionHttps">
 							Anger hur din webbläsare ska ansluta. <strong>https://</strong> innebär
 							krypterad anslutning.
+						</p>
+						<p id="protocolDescriptionHttp" hidden>
+							Anger hur din webbläsare ska ansluta.<br>
+							<strong>Varning:</strong> <strong>http://</strong> är inte krypterat. Information som skickas kan läsas eller ändras på vägen.
+						</p>
+						<p id="protocolDescriptionOther" hidden>
+							Anger hur din webbläsare ska ansluta. Kontrollera att du känner igen protokollet och förstår hur det används.
 						</p>
 						<p class="u-m-b-0">Läs mer om <a href="https://internetkunskap.se/artiklar/ordlista/protokoll/" target="_blank">protokoll</a> i vår ordlista</p>
 					</div>
