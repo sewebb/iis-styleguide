@@ -144,7 +144,7 @@ const renderStatusIcon = (params)=>{
        </span>` : status;
 };
 // ---- HELPERS ---------------------------------------------------------
-const titleCase = (s)=>s.replace(/[_\-\.]+/g, ' ').replace(/\b\w/g, (c)=>c.toUpperCase());
+const titleCase = (s)=>s.replace(/[_\-.]+/g, ' ').replace(/\b\w/g, (c)=>c.toUpperCase());
 function buildColumnDefsFromData(data) {
     if (!Array.isArray(data) || data.length === 0) return [
         {
@@ -305,6 +305,43 @@ function applyResponsiveVisibility(params, el) {
         });
     }
 }
+function createTableExtensionContext(el, data, params) {
+    const context = {
+        el,
+        data,
+        params,
+        columnDefs: buildColumnDefsFromData(data),
+        rowData: data,
+        gridOptions: {},
+        applyResponsiveVisibility: null,
+        onReady: [],
+        onGridSizeChanged: [],
+        onFirstDataRendered: [],
+        onModelUpdated: []
+    };
+    el.dispatchEvent(new CustomEvent('tableAdvanced:configure', {
+        bubbles: true,
+        detail: context
+    }));
+    return context;
+}
+function applyGridOptions(api, gridOptions = {}) {
+    Object.entries(gridOptions).forEach(([key, value])=>{
+        api.setGridOption(key, value);
+    });
+}
+function runExtensionCallbacks(callbacks = [], params, el) {
+    callbacks.forEach((callback)=>{
+        callback(params, el);
+    });
+}
+function applyTableResponsiveVisibility(extensionContext, params, el) {
+    if (extensionContext == null ? void 0 : extensionContext.applyResponsiveVisibility) {
+        extensionContext.applyResponsiveVisibility(params, el);
+        return;
+    }
+    applyResponsiveVisibility(params, el);
+}
 // ---- EXPAND/COLLAPSE GROUP HEADER -----------------------------------
 class ExpandHeader {
     init(params) {
@@ -319,7 +356,7 @@ class ExpandHeader {
         e.className = 'expand-header';
         e.style.cssText = 'display:flex;align-items:center;gap:6px;cursor:pointer;width:100%;';
         e.innerHTML = `
-      <span class="expander" style="display:inline-block;transition:transform .15s">▶</span>
+      <span class="expander js-table-advanced-expander" style="display:inline-block;transition:transform .15s">▶</span>
       <span class="title">${(_params_displayName = params.displayName) != null ? _params_displayName : 'Group'}</span>
     `;
         e.addEventListener('click', ()=>{
@@ -335,7 +372,7 @@ class ExpandHeader {
         }
     }
     updateIcon() {
-        const icon = this.eGui.querySelector('.expander');
+        const icon = this.eGui.querySelector('.js-table-advanced-expander');
         if (icon) icon.style.transform = this.expanded ? 'rotate(90deg)' : 'rotate(0deg)';
     }
     getGui() {
@@ -354,8 +391,11 @@ function toggleChildColumnsVisibility(params, colIds, makeVisible) {
 }
 // Factory to create per-grid options with the correct closures
 function makeGridOptionsFor(el) {
+    const autoHeight = el.dataset.autoHeight === 'true';
+    let extensionContext = null;
     return {
         theme: iisTheme,
+        domLayout: autoHeight ? 'autoHeight' : 'normal',
         components: {
             ExpandHeader
         },
@@ -377,51 +417,63 @@ function makeGridOptionsFor(el) {
                     const jsonUrl = new URL(attr, require("url").pathToFileURL(__filename).toString()).toString();
                     const mod = yield fetch(jsonUrl);
                     const data = yield mod.json();
-                    const cols = buildColumnDefsFromData(data);
-                    params.api.setGridOption('columnDefs', cols);
-                    params.api.setGridOption('rowData', data);
-                    applyResponsiveVisibility(params, el);
-                    params.api.sizeColumnsToFit();
+                    extensionContext = createTableExtensionContext(el, data, params);
+                    applyGridOptions(params.api, extensionContext.gridOptions);
+                    params.api.setGridOption('columnDefs', extensionContext.columnDefs);
+                    params.api.setGridOption('rowData', extensionContext.rowData);
+                    applyTableResponsiveVisibility(extensionContext, params, el);
+                    runExtensionCallbacks(extensionContext.onReady, params, el);
+                    if (!extensionContext.applyResponsiveVisibility) {
+                        params.api.sizeColumnsToFit();
+                    }
                 } catch (e) {
                     console.error('Dynamic JSON import failed for grid:', el, e);
                 }
             })();
         },
         onGridSizeChanged (params) {
-            applyResponsiveVisibility(params, el);
-            params.api.sizeColumnsToFit();
+            applyTableResponsiveVisibility(extensionContext, params, el);
+            runExtensionCallbacks(extensionContext == null ? void 0 : extensionContext.onGridSizeChanged, params, el);
+            if (!(extensionContext == null ? void 0 : extensionContext.applyResponsiveVisibility)) {
+                params.api.sizeColumnsToFit();
+            }
+        },
+        onFirstDataRendered (params) {
+            runExtensionCallbacks(extensionContext == null ? void 0 : extensionContext.onFirstDataRendered, params, el);
+        },
+        onModelUpdated (params) {
+            runExtensionCallbacks(extensionContext == null ? void 0 : extensionContext.onModelUpdated, params, el);
         },
         animateRows: true
     };
 }
 // ---- INIT ALL GRIDS --------------------------------------------------
 document.addEventListener('DOMContentLoaded', ()=>{
-    // Use a class selector so you can have multiple grids;
-    // make sure your HTML uses: <div class="ag-theme-quartz js-ag-grid" data-json="./table1.json"></div>
+    // Use a class selector so you can have multiple grids.
     const containers = document.querySelectorAll('.js-ag-grid');
     containers.forEach((el)=>{
-        // Ensure theme class + measurable size BEFORE createGrid (each grid separately)
-        if (!el.classList.contains('ag-theme-quartz')) el.classList.add('ag-theme-quartz');
+        if (!el.dataset.json) {
+            return;
+        }
         //if (!el.style.height) el.style.height = '600px';
         if (!el.style.width) el.style.width = '100%';
         const gridOptions = makeGridOptionsFor(el);
-        const api = _aggridcommunity.createGrid(el, gridOptions);
+        _aggridcommunity.createGrid(el, gridOptions);
         // Per-grid ResizeObserver (don’t reuse one global API)
         const ro = new ResizeObserver(()=>{
-            var _gridOptions_api, _gridOptions_api1;
+            var _gridOptions_api;
             (_gridOptions_api = gridOptions.api) == null ? void 0 : _gridOptions_api.onGridSizeChanged();
-            (_gridOptions_api1 = gridOptions.api) == null ? void 0 : _gridOptions_api1.sizeColumnsToFit();
         });
         ro.observe(el);
     });
 });
-// ---- TOGGLE FULLSCREEN CLASS ON PARENT CONTAINER WHEN CLICKING FULLSCREEN BUTTON ----
-document.querySelectorAll('[data-ag-grid-fullscreen]').forEach((btn)=>{
-    btn.addEventListener('click', (e)=>{
+// ---- TOGGLE FULLSCREEN STATE ON PARENT CONTAINER WHEN CLICKING FULLSCREEN BUTTON ----
+document.querySelectorAll('.js-ag-grid-fullscreen').forEach((btn)=>{
+    btn.addEventListener('click', ()=>{
         // Find the nearest parent container for this button
         const gridEl = btn.closest('.js-ag-grid');
         if (!gridEl) return;
-        // Toggle fullscreen class only for this specific element
-        gridEl.classList.toggle('has-fullscreen');
+        // Toggle fullscreen state only for this specific element
+        gridEl.dataset.fullscreenActive = gridEl.dataset.fullscreenActive === 'true' ? 'false' : 'true';
     });
 });

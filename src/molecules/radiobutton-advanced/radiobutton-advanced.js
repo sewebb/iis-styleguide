@@ -1,8 +1,11 @@
+import className from '../../assets/js/className';
+
 const radiobuttonAdvancedGroups = document.querySelectorAll('.js-radiobutton-advanced');
 const optionsSelector = '.js-radiobutton-advanced__options';
 const optionSelector = '.js-radiobutton-advanced__option';
 const inputSelector = '.js-radiobutton-advanced__input';
 const statusSelector = '.js-radiobutton-advanced__status';
+const labelSelector = `.${className('m-radiobutton-advanced__label')}`;
 const collapsedLayout = window.matchMedia('(max-width: 768px)');
 const keyboardInteractionGroups = new WeakSet();
 const keyboardExpandKeys = ['Enter', ' ', 'Spacebar'];
@@ -25,7 +28,7 @@ function getVisibleOption(options) {
 }
 
 function getOptionLabel(option) {
-	const label = option.querySelector('.m-radiobutton-advanced__label');
+	const label = option.querySelector(labelSelector);
 
 	return label ? label.textContent.trim() : '';
 }

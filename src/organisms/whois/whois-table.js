@@ -1,4 +1,5 @@
 import { initTooltips } from '../../atoms/tooltip/tooltip';
+import className from '../../assets/js/className';
 
 const WHOIS_PIN_BREAKPOINT = 760;
 
@@ -15,9 +16,9 @@ const renderTooltip = (tooltip) => {
 	const label = tooltip.label || 'Visa mer information';
 	const placement = tooltip.placement || 'top';
 
-	return `<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="${escapeHtml(label)}" data-tooltip-placement="${escapeHtml(placement)}">
-		<span class="a-tooltip__text" hidden>${escapeHtml(tooltip.text)}</span>
-		<svg class="icon a-button__icon" aria-hidden="true">
+	return `<button type="button" class="${className('a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon')}" aria-label="${escapeHtml(label)}" data-tooltip-placement="${escapeHtml(placement)}">
+		<span class="${className('a-tooltip__text')}" hidden>${escapeHtml(tooltip.text)}</span>
+		<svg class="icon ${className('a-button__icon')}" aria-hidden="true">
 			<use xlink:href="#icon-info"></use>
 		</svg>
 	</button>`;
@@ -28,7 +29,7 @@ const renderLink = (link) => {
 
 	const target = link.external ? ' target="_blank" rel="noopener"' : '';
 	const icon = link.external
-		? '<svg class="icon o-mega-menu__link__icon"><use xlink:href="#icon-external-link"></use></svg>'
+		? `<svg class="icon ${className('o-mega-menu__link__icon')}"><use xlink:href="#icon-external-link"></use></svg>`
 		: '';
 
 	return `<a href="${escapeHtml(link.href)}"${target}>${escapeHtml(link.text)}${icon}</a>`;
@@ -41,11 +42,11 @@ const renderButton = (button) => {
 		.map(([key, value]) => ` data-${escapeHtml(key)}="${escapeHtml(value)}"`)
 		.join('');
 	const icon = button.icon
-		? `<svg class="icon a-button__icon" aria-hidden="true"><use xlink:href="${escapeHtml(button.icon)}"></use></svg>`
+		? `<svg class="icon ${className('a-button__icon')}" aria-hidden="true"><use xlink:href="${escapeHtml(button.icon)}"></use></svg>`
 		: '';
 
-	return `<button type="button"${dataAttrs} class="a-button a-button--lemon-light a-button--small a-button--icon whois-button u-nowrap">
-		<span class="a-button__text">${escapeHtml(button.text)}</span>
+	return `<button type="button"${dataAttrs} class="${className('a-button a-button--lemon-light a-button--small a-button--icon')} whois-button u-nowrap">
+		<span class="${className('a-button__text')}">${escapeHtml(button.text)}</span>
 		${icon}
 	</button>`;
 };

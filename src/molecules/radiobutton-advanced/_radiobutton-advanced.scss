@@ -28,7 +28,7 @@
 		&.is-expanded {
 			padding-bottom: var(--radiobutton-advanced-collapsed-height, 0);
 
-			.m-radiobutton-advanced__options {
+			[class*='m-radiobutton-advanced__options'] {
 				position: absolute;
 				right: 0;
 				left: 0;
@@ -41,7 +41,7 @@
 		}
 
 		&.is-collapsed:not(.is-expanded) {
-			.m-radiobutton-advanced__option {
+			[class*='m-radiobutton-advanced__options'] > [class*='m-radiobutton-advanced__option'] {
 				@include mixin.visuallyhidden;
 
 				&.is-visible {
@@ -54,18 +54,18 @@
 				}
 			}
 
-			.m-radiobutton-advanced__option.is-visible {
+			[class*='m-radiobutton-advanced__options'] > [class*='m-radiobutton-advanced__option'].is-visible {
 				cursor: pointer;
 
-				.m-radiobutton-advanced__icon {
+				[class*='m-radiobutton-advanced__icon'] {
 					display: inline-flex;
 				}
 			}
 		}
 
 		&.is-collapsed:not(.is-expanded):not(.has-selection) {
-			.m-radiobutton-advanced__option.is-visible {
-				.m-radiobutton-advanced__icon {
+			[class*='m-radiobutton-advanced__options'] > [class*='m-radiobutton-advanced__option'].is-visible {
+				[class*='m-radiobutton-advanced__icon'] {
 					background-color: colors.$color-ocean-lighter;
 
 					&::after {
