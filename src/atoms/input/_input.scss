@@ -12,6 +12,10 @@
 
 	&:focus {
 		@extend %input-focus;
+
+		&::placeholder {
+			color: transparent;
+		}
 	}
 
 	&.has-icon {

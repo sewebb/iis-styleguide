@@ -1,0 +1,78 @@
+[
+	{
+		"field": {
+			"label": "Namnserver",
+			"tooltip": {
+				"label": "Visa mer information om namnserver",
+				"text": "När en domän byter namnservrar tar det ett tag innan uppdateringen slår igenom på internet. Vi uppdaterar zonfilerna följande tider: .nu: en gång i timmen, vid halvtimme, 11.30, 12.30 osv. .se: en gång i timmen, vid heltimme, 11.00, 12.00 osv."
+			}
+		},
+		"value": {
+			"wrapText": true,
+			"lines": [
+				"gate.volvo.se",
+				"gatekeeper.volvo.se",
+				"goalkeeper.volvo.com",
+				"gatekeeper.volvo.com"
+			]
+		}
+	},
+	{
+		"field": {
+			"label": "DNSSEC"
+		},
+		"value": {
+			"text": "unsigned delegation"
+		}
+	},
+	{
+		"field": {
+			"label": "Domänstatus"
+		},
+		"value": {
+			"text": "active"
+		}
+	},
+	{
+		"field": {
+			"label": "Registry lock",
+			"tooltip": {
+				"label": "Visa mer information om Registry lock",
+				"text": "När domänen är låst med Registry lock kan följande registreringstjänster inte utföras: uppdatering av domännamnet såsom ompekning, avregistrering av domännamnet, överlåtelse till ny innehavare, byte av registrar."
+			}
+		},
+		"value": {
+			"text": "unlocked"
+		}
+	},
+	{
+		"field": {
+			"label": "Status"
+		},
+		"value": {
+			"text": "ok"
+		}
+	},
+	{
+		"field": {
+			"label": "Länk till sökresultat"
+		},
+		"value": {
+			"link": {
+				"text": "Länk till sökresultat",
+				"href": "/sok-doman?domain=volvo.se"
+			}
+		}
+	},
+	{
+		"field": {
+			"label": "Kontakta domäninnehavaren"
+		},
+		"value": {
+			"link": {
+				"text": "Kontakta domäninnehavaren",
+				"href": "/kontakta-domaninnehavare/?domain=volvo.se"
+			}
+		}
+	}
+]

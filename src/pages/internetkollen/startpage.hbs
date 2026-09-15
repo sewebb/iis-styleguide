@@ -122,15 +122,13 @@
 												<div class="checkbox checkbox--inline row no-gutters">
 													<div class="grid">
 														<input type="checkbox" id="advanced" name="advanced" value="advanced" class="a-checkbox u-visuallyhidden">
-														<label for="advanced" aria-describedby="advanced-tooltip">
-															Testa endast exakt den angivna domänen
-															<span tabindex="0" class="a-tooltip a-button a-button--standalone-icon a-button--icon" id="advanced-tooltip" role="tooltip">
-																<span class="a-tooltip__text" data-tooltip>Beskrivning vad vi menar med detta t.ex att vi då inte testar www eller andra subdomäner</span>
-																<svg class="icon a-button__icon">
-																	<use xlink:href="#icon-info"></use>
-																</svg>
-															</span>
-														</label>
+														<label for="advanced" aria-describedby="advanced-tooltip">Testa endast exakt den angivna domänen</label>
+														<button type="button" class="a-tooltip a-button a-button--standalone-icon a-button--icon" id="advanced-tooltip" aria-label="Visa mer information">
+															<span class="a-tooltip__text" hidden data-tooltip>Beskrivning vad vi menar med detta t.ex att vi då inte testar www eller andra subdomäner</span>
+															<svg class="icon a-button__icon">
+																<use xlink:href="#icon-info"></use>
+															</svg>
+														</button>
 													</div>
 												</div>
 											</fieldset>
@@ -367,4 +365,3 @@
 		}}
 	</div>
 </div>
-

@@ -39,7 +39,7 @@
 		&:hover {
 			+ label {
 				&::before {
-					background-color: color.adjust(colors.$color-snow, $lightness: -5%);
+					background-color: color.adjust(colors.$color-snow);
 				}
 			}
 		}
@@ -47,8 +47,8 @@
 		&:checked {
 			+ label {
 				&::before {
-					border: 2px solid colors.$color-ash;
-					background-color: colors.$color-cyberspace;
+					border: 2px solid colors.$color-snow;
+					background-color: colors.$color-ocean-dark;
 				}
 			}
 		}
@@ -65,7 +65,7 @@
 			&:checked {
 				+ label {
 					&::before {
-						background-color: colors.$color-cyberspace;
+						background-color: colors.$color-ocean-dark;
 					}
 				}
 			}

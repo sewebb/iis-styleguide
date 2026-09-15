@@ -1,21 +1,7 @@
 <div class="site__main" id="siteMain">
 	<div class="site__main__content">
 		<section class="section u-m-t-0">
-			{{#if noResult}}
-				{{render '@domain-search'}}
-			{{/if}}
-			{{#if singleResult}}
-				{{render '@domain-search--result-unavailable'}}
-			{{/if}}
-			{{#if availableResult}}
-				{{render '@domain-search--result-available'}}
-			{{/if}}
-			{{#if wildcardResult}}
-				{{render '@domain-search--result-wildcard'}}
-			{{/if}}
-			{{#if duplicateResult}}
-				{{render '@domain-search--result-duplicate'}}
-			{{/if}}
+			{{render '@domain-search'}}
 			<div class="wrapper">
 				<div class="row">
 					<div class="grid-18">

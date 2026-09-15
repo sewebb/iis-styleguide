@@ -24,6 +24,11 @@ $color-tab-highlight: colors.$color-ruby !default;
 		}
 	}
 
+	&,
+	+ button[class*=a-tooltip][data-tooltip-visible='true'] {
+		box-shadow: 0 0 0 1px inset colors.$color-snow, 0 0 0 2px colors.$color-snow, 0 0 0 5px $color-tab-highlight !important;
+	}
+
 	&::-webkit-slider-thumb {
 		box-shadow: 0 0 0 inset rgba(colors.$color-cyberspace, 0.2), 0 1px 2px rgba(colors.$color-cyberspace, 0.2), 0 0 0 3px inset $color-tab-highlight !important;
 	}

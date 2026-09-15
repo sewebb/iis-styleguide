@@ -1,0 +1,2534 @@
+[
+  {
+    "name": "Odibo AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/odiboab.jpg",
+      "alt": "Odibo AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Mörbylånga",
+    "website": "http://www.odibo.se/",
+    "email": "registry@odibo.se",
+    "phone": "+46.485662995",
+    "features": []
+  },
+  {
+    "name": "Beebyte AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/beebyteab.jpg",
+      "alt": "Beebyte AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Karlstad",
+    "website": "https://www.beebyte.se/",
+    "email": "support@beebyte.se",
+    "phone": "+46.542033331",
+    "features": []
+  },
+  {
+    "name": "Excedo Networks AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_email",
+      "technical__reg_lock",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/35b195a5-932d-4d61-87df-2441cb076b4d.jpg",
+      "alt": "Excedo Networks AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "KISTA",
+    "website": "https://www.excedo.se",
+    "email": "registry@excedo.se",
+    "phone": "+46.850161200",
+    "features": []
+  },
+  {
+    "name": "Webb.se",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/05b6d2ef-8636-453d-930d-960caa5d5aba.jpg",
+      "alt": "Webb.se logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Göteborg",
+    "website": "http://www.webb.se/toppdoman/se/",
+    "email": "info@perfectsense.se",
+    "phone": "",
+    "features": []
+  },
+  {
+    "name": "Realtime Register B.V.",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__nl",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__reg_lock",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/realtimeregister.jpg",
+      "alt": "Realtime Register B.V. logotyp"
+    },
+    "countryFlag": "🇳🇱",
+    "location": "Zwolle",
+    "website": "https://www.realtimeregister.com/domains/se",
+    "email": "support@realtimeregister.com",
+    "phone": "+31.384530759",
+    "features": []
+  },
+  {
+    "name": "Lexsynergy Limited",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__gb",
+      "registration__reg_idn",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__reg_lock"
+    ],
+    "logo": null,
+    "countryFlag": "🇬🇧",
+    "location": "London",
+    "website": "https://www.lexsynergy.com",
+    "email": "support@lexsynergy.com",
+    "phone": "+44.2031370459",
+    "features": []
+  },
+  {
+    "name": "Domeneshop AS",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__no",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/458642e7-e684-429b-b5fb-696f0e047364.jpg",
+      "alt": "Domeneshop AS logotyp"
+    },
+    "countryFlag": "🇳🇴",
+    "location": "+46.855936753",
+    "website": "https://domanshop.se/se",
+    "email": "kundservice@domanshop.se",
+    "phone": "+46.855936752",
+    "features": []
+  },
+  {
+    "name": "Hostup AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/f97215f7-441f-467d-9356-b5afb154e757.jpg",
+      "alt": "Hostup AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Linköping",
+    "website": "https://hostup.se/doman/",
+    "email": "info@hostup.se",
+    "phone": "",
+    "features": []
+  },
+  {
+    "name": "Abion AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/8be4ca05-f9f5-49fe-b772-652702692c8a.jpg",
+      "alt": "Abion AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Göteborg",
+    "website": "https://abion.com/",
+    "email": "support@abion.com",
+    "phone": "+46.317202000",
+    "features": []
+  },
+  {
+    "name": "team.blue Denmark A/S",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__dk",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/6046400b-d4e6-4804-94b0-b54846b6d12c.jpg",
+      "alt": "team.blue Denmark A/S logotyp"
+    },
+    "countryFlag": "🇩🇰",
+    "location": "Skanderborg",
+    "website": "https://dkcareers.team.blue/pages/brands",
+    "email": "dk-hostmaster@team.blue",
+    "phone": "+45.70400000",
+    "features": []
+  },
+  {
+    "name": "The Registrar Company B.V.",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__nl",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock"
+    ],
+    "logo": null,
+    "countryFlag": "🇳🇱",
+    "location": "Spijkenisse",
+    "website": "https://www.oxxa.com",
+    "email": "info@theregistrarcompany.com",
+    "phone": "+31.887507020",
+    "features": []
+  },
+  {
+    "name": "Svenska Domäner",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/3cd738ba-a4ba-448b-931a-255bf83dc2fa.jpg",
+      "alt": "Svenska Domäner logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Stockholm",
+    "website": "https://www.svenskadomaner.se/seregistrar",
+    "email": "support@svenskadomaner.se",
+    "phone": "+46.857033900",
+    "features": []
+  },
+  {
+    "name": "Simply.com",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__dk",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/f3d9a847-cbd8-4c07-a25e-603133abd1a6.jpg",
+      "alt": "Simply.com logotyp"
+    },
+    "countryFlag": "🇩🇰",
+    "location": "Skanderborg",
+    "website": "https://www.simply.com/se/",
+    "email": "",
+    "phone": "",
+    "features": []
+  },
+  {
+    "name": "Web Solutions A/S",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__dk",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/9db5edda-e173-4fbc-88ff-d023a2785b28.jpg",
+      "alt": "Web Solutions A/S logotyp"
+    },
+    "countryFlag": "🇩🇰",
+    "location": "Odense",
+    "website": "https://web-solutions.eu/",
+    "email": "support@web-solutions.eu",
+    "phone": "+45.70262025",
+    "features": []
+  },
+  {
+    "name": "INWX GmbH",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__de",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/inwxgmbhcokg.jpg",
+      "alt": "INWX GmbH logotyp"
+    },
+    "countryFlag": "🇩🇪",
+    "location": "Berlin",
+    "website": "https://www.inwx.com/",
+    "email": "info@inwx.com",
+    "phone": "+49.309832120",
+    "features": []
+  },
+  {
+    "name": "We Connect Nordic AB",
+    "tags": [
+      "tld__se",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/weconnectitstrom.jpg",
+      "alt": "We Connect Nordic AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Strömstad",
+    "website": "https://www.webhotellet.net/se.php",
+    "email": "info@weconnect.se",
+    "phone": "+46.52666066",
+    "features": []
+  },
+  {
+    "name": "Egensajt.se",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/web20ab.jpg",
+      "alt": "Egensajt.se logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Göteborg",
+    "website": "https://www.egensajt.se/toppdoman-se/",
+    "email": "support@egensajt.se",
+    "phone": "+46.317877050",
+    "features": []
+  },
+  {
+    "name": "Nom-IQ Limited",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__gb",
+      "registration__reg_idn",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__reg_lock"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/a4bacc41-3de2-4887-b1ae-2220d05ed1f7.jpg",
+      "alt": "Nom-IQ Limited logotyp"
+    },
+    "countryFlag": "🇬🇧",
+    "location": "London",
+    "website": "https://www.comlaude.com/registry/se-sweden/",
+    "email": "admin@comlaude.com",
+    "phone": "+44.2074218250",
+    "features": []
+  },
+  {
+    "name": "NAMESHIELD",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__fr",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_email",
+      "technical__reg_lock"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/nameshield.jpg",
+      "alt": "NAMESHIELD logotyp"
+    },
+    "countryFlag": "🇫🇷",
+    "location": "Angers",
+    "website": "https://secure.nameshield.net/conditions/se",
+    "email": "registrar@nameshield.net",
+    "phone": "+33.241182828",
+    "features": []
+  },
+  {
+    "name": "123domain",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__de",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/ingenitgmbhcokg.jpg",
+      "alt": "123domain logotyp"
+    },
+    "countryFlag": "🇩🇪",
+    "location": "Dortmund",
+    "website": "https://www.123domain.eu/nc/en/domain-details.html?tld=se",
+    "email": "support@123domain.eu",
+    "phone": "+49.23158698123",
+    "features": []
+  },
+  {
+    "name": "Nordisk Media Utveckling AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/417687ef-89cc-41f4-8f6f-3ab0ba64a4a9.jpg",
+      "alt": "Nordisk Media Utveckling AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Malmö",
+    "website": "https://www.nmugroup.com/",
+    "email": "registry@nmugroup.com",
+    "phone": "+46.40304770",
+    "features": []
+  },
+  {
+    "name": "Rymdweb AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/39831988-232d-4533-93c8-1a1471be4b67.jpg",
+      "alt": "Rymdweb AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Malmö",
+    "website": "https://www.rymdweb.com",
+    "email": "roomservice@rymdweb.com",
+    "phone": "+46.8994000",
+    "features": []
+  },
+  {
+    "name": "lopnet.se",
+    "tags": [
+      "tld__se",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/lopigoteborgab.jpg",
+      "alt": "lopnet.se logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Göteborg",
+    "website": "http://www.lopnet.se/ombud",
+    "email": "information@lopnet.se",
+    "phone": "+46.313088220",
+    "features": []
+  },
+  {
+    "name": "BuildIT AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/builditimalmoab.jpg",
+      "alt": "BuildIT AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Malmö",
+    "website": "http://www.buildit.se/doman/ackrediterade/",
+    "email": "domain@buildit.net",
+    "phone": "+46.40258580",
+    "features": []
+  },
+  {
+    "name": "Telia Sverige AB",
+    "tags": [
+      "tld__se",
+      "country__se",
+      "registration__reg_idn",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/teliasverigeab.jpg",
+      "alt": "Telia Sverige AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Solna",
+    "website": "http://www.telia.se/doman",
+    "email": "support.doman@telia.se",
+    "phone": "+46.90400",
+    "features": []
+  },
+  {
+    "name": "GetGeek",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_email",
+      "technical__reg_lock"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/d78765a9-5a5a-4ffe-8f98-4cbd06b93036.jpg",
+      "alt": "GetGeek logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Stockholm",
+    "website": "https://www.getgeek.se",
+    "email": "hej@getgeek.se",
+    "phone": "+46.105504000",
+    "features": []
+  },
+  {
+    "name": "InterNetX GmbH",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__de",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/internetxgmbh.jpg",
+      "alt": "InterNetX GmbH logotyp"
+    },
+    "countryFlag": "🇩🇪",
+    "location": "Germany",
+    "website": "https://www.internetx.com/en/tld-registration-conditions/",
+    "email": "info@internetx.de",
+    "phone": "+49.941595590",
+    "features": []
+  },
+  {
+    "name": "One.com",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__dk",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/25c1ca5f-8419-4277-8653-9f38f8585a16.jpg",
+      "alt": "One.com logotyp"
+    },
+    "countryFlag": "🇩🇰",
+    "location": "Copenhagen",
+    "website": "https://www.one.com",
+    "email": "support@se.one.com",
+    "phone": "+45.46907100",
+    "features": []
+  },
+  {
+    "name": "Crossnet",
+    "tags": [
+      "tld__se",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/a50aff86-d308-4907-b578-5ffa232da673.jpg",
+      "alt": "Crossnet logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Stockholm",
+    "website": "https://www.crossnet.se",
+    "email": "registry@crossnet.se",
+    "phone": "+46.850304500",
+    "features": []
+  },
+  {
+    "name": "Inleed",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/yellesab.jpg",
+      "alt": "Inleed logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Hallstahammar",
+    "website": "https://inleed.se",
+    "email": "support@inleed.se",
+    "phone": "+46.851970666",
+    "features": []
+  },
+  {
+    "name": "EuroDNS S.A",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__lu",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/eurodnssa.jpg",
+      "alt": "EuroDNS S.A logotyp"
+    },
+    "countryFlag": "🇱🇺",
+    "location": "Leudelange",
+    "website": "http://www.eurodns.com/",
+    "email": "sales@eurodns.com",
+    "phone": "+352.263725200",
+    "features": []
+  },
+  {
+    "name": "Forss IT AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_web",
+      "technical__serv_email",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/b9ca0483-edf4-4aae-b608-245a39a97913.jpg",
+      "alt": "Forss IT AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Katrineholm",
+    "website": "https://www.forss.se/domannamn/se-domannamn/",
+    "email": "info@forss.se",
+    "phone": "+46.150662600",
+    "features": []
+  },
+  {
+    "name": "cHosting",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__dk",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock"
+    ],
+    "logo": null,
+    "countryFlag": "🇩🇰",
+    "location": "Odense C",
+    "website": "https://chosting.dk",
+    "email": "support@chosting.dk",
+    "phone": "",
+    "features": []
+  },
+  {
+    "name": "Netnod",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__reg_lock"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/c6fc469f-140e-4ba1-ad73-3c7bc468b1e7.jpg",
+      "alt": "Netnod logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Solna",
+    "website": "https://www.netnod.se",
+    "email": "noc@netnod.se",
+    "phone": "+46.856286000",
+    "features": []
+  },
+  {
+    "name": "MarkMonitor Inc.",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__us",
+      "registration__reg_idn",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__reg_lock",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/markmonitorinc.jpg",
+      "alt": "MarkMonitor Inc. logotyp"
+    },
+    "countryFlag": "🇺🇸",
+    "location": "Meridian, Idaho",
+    "website": "http://www.markmonitor.com/",
+    "email": "info@markmonitor.com",
+    "phone": "+1.8003377520",
+    "features": []
+  },
+  {
+    "name": "OpusDNS GmbH",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__de",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__reg_lock",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/37a8dda4-5f4d-4854-bc8c-fe2bff857b1a.jpg",
+      "alt": "OpusDNS GmbH logotyp"
+    },
+    "countryFlag": "🇩🇪",
+    "location": "Regensburg",
+    "website": "https://www.opusdns.com",
+    "email": "hello@opusdns.com",
+    "phone": "+49.941569565050",
+    "features": []
+  },
+  {
+    "name": "Loopia AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/4a5ac373-7208-4939-a271-2a42d89f96ed.jpg",
+      "alt": "Loopia AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Västerås",
+    "website": "http://www.loopia.se/",
+    "email": "registry@loopia.se",
+    "phone": "+46.21128222",
+    "features": []
+  },
+  {
+    "name": "Domanregister.se WBS Webbhotell AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/wbswirelessbusin.jpg",
+      "alt": "Domanregister.se WBS Webbhotell AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Borås",
+    "website": "https://www.domanregister.se/se-registrar/",
+    "email": "support@domanregister.se",
+    "phone": "+46.101605585",
+    "features": []
+  },
+  {
+    "name": "SpaceDump IT AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock",
+      "associations__registrars_se_member"
+    ],
+    "logo": null,
+    "countryFlag": "🇸🇪",
+    "location": "Tidaholm",
+    "website": "https://www.spacedump.se/se-registrar.html",
+    "email": "registry@spacedump.net",
+    "phone": "+46.502653100",
+    "features": []
+  },
+  {
+    "name": "SE.Sverige.nu FL-Net AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/c4a64de7-cd6a-457f-84f3-5044bc2ec22b.jpg",
+      "alt": "SE.Sverige.nu FL-Net AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Kalmar",
+    "website": "https://se.sverige.nu/",
+    "email": "registry@fl-net.se",
+    "phone": "+46.480421840",
+    "features": []
+  },
+  {
+    "name": "Loopia Group AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "associations__registrars_se_member"
+    ],
+    "logo": null,
+    "countryFlag": "🇸🇪",
+    "location": "Västerås",
+    "website": "https://websupport.se",
+    "email": "registry@websupport.se",
+    "phone": "+46.771240800",
+    "features": []
+  },
+  {
+    "name": "Leissner Data AB",
+    "tags": [
+      "tld__se",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/leissnerdataab.jpg",
+      "alt": "Leissner Data AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Trollhättan",
+    "website": "http://www.gotanet.se/foretag/tjanster/domaner/#Information-om-domaner",
+    "email": "registry@leissner.se",
+    "phone": "+46.52030000",
+    "features": []
+  },
+  {
+    "name": "Griffel AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "technical__serv_dns",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/fd11e0ec-e924-45b5-8c5f-07b3345ac940.jpg",
+      "alt": "Griffel AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Växjö",
+    "website": "https://www.griffel.se/registrera-doman",
+    "email": "registry@griffel.se",
+    "phone": "+46.470723040",
+    "features": []
+  },
+  {
+    "name": "101domain GRS Ltd.",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__ie",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock"
+    ],
+    "logo": null,
+    "countryFlag": "🇮🇪",
+    "location": "Dublin",
+    "website": "http://www.101domain.com/se.htm",
+    "email": "registrar@101domain.com",
+    "phone": "+1.7604448674",
+    "features": []
+  },
+  {
+    "name": "Name SRS AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_email",
+      "technical__reg_lock",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/b13a817c-9c00-4d2a-9dfe-3cd9cd82494e.jpg",
+      "alt": "Name SRS AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Göteborg",
+    "website": "https://www.namesrs.com",
+    "email": "internetstiftelsen@namesrs.com",
+    "phone": "+46.102228600",
+    "features": []
+  },
+  {
+    "name": "ODERLAND Webbhotell AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/bd732d0b-5b50-43c2-b226-e587c07170f6.jpg",
+      "alt": "ODERLAND Webbhotell AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Göteborg",
+    "website": "https://www.oderland.se/villkor-policies/se-registrar-info/",
+    "email": "support@oderland.se",
+    "phone": "+46.313616161",
+    "features": []
+  },
+  {
+    "name": "Ember AB",
+    "tags": [
+      "tld__se",
+      "country__se",
+      "registration__reg_idn",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email",
+      "technical__reg_lock"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/emberab.jpg",
+      "alt": "Ember AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Lidköping",
+    "website": "http://ember.se/domannamn/registrar/",
+    "email": "registry@ember.se",
+    "phone": "+46.51060660",
+    "features": []
+  },
+  {
+    "name": "Dotkeeper AB",
+    "tags": [
+      "tld__se",
+      "country__se",
+      "registration__reg_idn",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__reg_lock",
+      "associations__registrars_se_member"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/dotkeeperab.jpg",
+      "alt": "Dotkeeper AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Malmö",
+    "website": "https://www.dotkeeper.com",
+    "email": "info@dotkeeper.com",
+    "phone": "+46.406310900",
+    "features": []
+  },
+  {
+    "name": "CSC Corporate Domains, Inc",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__us",
+      "registration__reg_idn",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__reg_lock"
+    ],
+    "logo": null,
+    "countryFlag": "🇺🇸",
+    "location": "Wilmington",
+    "website": "https://www.cscdbs.com/",
+    "email": "contactus@cscglobal.com",
+    "phone": "+1.3026365400",
+    "features": []
+  },
+  {
+    "name": "NordName",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__fi",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/3411be9b-39c4-4eb6-8909-3330d09b556f.jpg",
+      "alt": "NordName logotyp"
+    },
+    "countryFlag": "🇫🇮",
+    "location": "Oulunsalo",
+    "website": "https://nordname.com",
+    "email": "registrar@nordname.net",
+    "phone": "+358.841541544",
+    "features": []
+  },
+  {
+    "name": "Key-Systems GmbH",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__de",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": null,
+    "countryFlag": "🇩🇪",
+    "location": "St. Ingbert, Tyskland",
+    "website": "https://www.domaindiscount24.com/en/domains/domains-by-region/europe/se",
+    "email": "info@key-systems.net",
+    "phone": "+49.68949396850",
+    "features": []
+  },
+  {
+    "name": "1 Api GmbH",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__de",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/1apigmbh.jpg",
+      "alt": "1 Api GmbH logotyp"
+    },
+    "countryFlag": "🇩🇪",
+    "location": "St. Ingbert / Germany",
+    "website": "https://www.1api.net/",
+    "email": "info@1api.net",
+    "phone": "+49.68949396250",
+    "features": []
+  },
+  {
+    "name": "DonDominio/MrDomain",
+    "tags": [
+      "tld__se",
+      "country__es",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/solucionescorpor.jpg",
+      "alt": "DonDominio/MrDomain logotyp"
+    },
+    "countryFlag": "🇪🇸",
+    "location": "Manacor",
+    "website": "https://www.dondominio.com",
+    "email": "info@dondominio.com",
+    "phone": "+34.871986600",
+    "features": []
+  },
+  {
+    "name": "CPS-Datensysteme GmbH",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__de",
+      "registration__reg_idn",
+      "registration__domain_only",
+      "technical__serv_dns"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/cpsdatensystemeg.jpg",
+      "alt": "CPS-Datensysteme GmbH logotyp"
+    },
+    "countryFlag": "🇩🇪",
+    "location": "Vallendar",
+    "website": "https://www.cps-datensysteme.de",
+    "email": "en.info@cps-datensysteme.de",
+    "phone": "+49.26150081081",
+    "features": []
+  },
+  {
+    "name": "Indukon",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/industrikonstruk.jpg",
+      "alt": "Indukon logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Karlstad",
+    "website": "http://indukon.se/domanregistrering/",
+    "email": "info@indukon.se",
+    "phone": "",
+    "features": []
+  },
+  {
+    "name": "Domänsverige AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dnssec"
+    ],
+    "logo": null,
+    "countryFlag": "🇸🇪",
+    "location": "Uppsala",
+    "website": "http://www.domänsverige.se",
+    "email": "78jensnilsson@gmail.com",
+    "phone": "",
+    "features": []
+  },
+  {
+    "name": "COREhub secretariat",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__es",
+      "registration__reg_idn",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec"
+    ],
+    "logo": null,
+    "countryFlag": "🇪🇸",
+    "location": "Barcelona",
+    "website": "https://corehub.net/",
+    "email": "support@corehub.net",
+    "phone": "+34.935275235",
+    "features": []
+  },
+  {
+    "name": "nicsell",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__de",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": null,
+    "countryFlag": "🇩🇪",
+    "location": "Osnabrück",
+    "website": "http://www.nicsell.com",
+    "email": "info@nicsell.com",
+    "phone": "+49.54196380754",
+    "features": []
+  },
+  {
+    "name": "Gandi SAS",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__fr",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/4a519e71-e6ae-4274-a436-d38d74776717.jpg",
+      "alt": "Gandi SAS logotyp"
+    },
+    "countryFlag": "🇫🇷",
+    "location": "Paris",
+    "website": "https://www.gandi.net/domain/tld/se",
+    "email": "support-en@support.gandi.net",
+    "phone": "",
+    "features": []
+  },
+  {
+    "name": "Joker.com",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__de",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_email"
+    ],
+    "logo": null,
+    "countryFlag": "🇩🇪",
+    "location": "Duesseldorf",
+    "website": "https://joker.com",
+    "email": "info@joker.com",
+    "phone": "+49.21186767447",
+    "features": []
+  },
+  {
+    "name": "eDomains",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__us",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/d7a02e8d-43a2-4875-be25-ea5e274a6aa6.jpg",
+      "alt": "eDomains logotyp"
+    },
+    "countryFlag": "🇺🇸",
+    "location": "Sheridan",
+    "website": "http://www.edomains.com/",
+    "email": "admin@edomains.com",
+    "phone": "+1.3072744655",
+    "features": []
+  },
+  {
+    "name": "SeaArea Group Limited",
+    "tags": [
+      "tld__se",
+      "country__cn",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": null,
+    "countryFlag": "🇨🇳",
+    "location": "HONG KONG",
+    "website": "http://www.Seaarea.com",
+    "email": "domain@Seaarea.com",
+    "phone": "+86.18126103415",
+    "features": []
+  },
+  {
+    "name": "Svenska Export Media",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_email"
+    ],
+    "logo": null,
+    "countryFlag": "🇸🇪",
+    "location": "Malmö",
+    "website": "http://www.svenskaexportmedia.com/sem/seregistrar.html",
+    "email": "info@svenskaexportmedia.com",
+    "phone": "",
+    "features": []
+  },
+  {
+    "name": "NEware AB",
+    "tags": [
+      "tld__se",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": null,
+    "countryFlag": "🇸🇪",
+    "location": "Stockholm",
+    "website": "http://www.neware.se/index.aspx?action=se",
+    "email": "info@neware.se",
+    "phone": "",
+    "features": []
+  },
+  {
+    "name": "Wopsa Webbhotell",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/19a0577e-4786-445e-8ea2-f7e32fb29c6f.jpg",
+      "alt": "Wopsa Webbhotell logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Bro",
+    "website": "https://wopsa.se",
+    "email": "support@wopsa.se",
+    "phone": "+46.103002950",
+    "features": []
+  },
+  {
+    "name": "Variomedia AG",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__de",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/variomediaag.jpg",
+      "alt": "Variomedia AG logotyp"
+    },
+    "countryFlag": "🇩🇪",
+    "location": "Potsdam",
+    "website": "https://www.variomedia.de/domains/tlds/se",
+    "email": "lehmann@variomedia.de",
+    "phone": "+49.331237890",
+    "features": []
+  },
+  {
+    "name": "Nordic Hosting AS",
+    "tags": [
+      "tld__se",
+      "country__no",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/55a75a0c-f1d9-480e-9818-1d1418e2e384.jpg",
+      "alt": "Nordic Hosting AS logotyp"
+    },
+    "countryFlag": "🇳🇴",
+    "location": "Bø i Telemark",
+    "website": "https://www.nordic.hosting",
+    "email": "support@nordic.hosting",
+    "phone": "+47.40003328",
+    "features": []
+  },
+  {
+    "name": "VMI Internet Services AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/4f6175ec-8ade-43ec-a714-d01e6e73cb6a.jpg",
+      "alt": "VMI Internet Services AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Norrtälje",
+    "website": "https://www.vmi.se/tjanster/domaner/",
+    "email": "kundservice@vmi.se",
+    "phone": "+46.176208900",
+    "features": []
+  },
+  {
+    "name": "Yamito AB",
+    "tags": [
+      "tld__se",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/yamitoab.jpg",
+      "alt": "Yamito AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Borås",
+    "website": "https://www.yamito.se/se-registrar/",
+    "email": "info@yamito.se",
+    "phone": "+46.101605560",
+    "features": []
+  },
+  {
+    "name": "Sircon Norge AS",
+    "tags": [
+      "tld__se",
+      "country__no",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": null,
+    "countryFlag": "🇳🇴",
+    "location": "Trondheim",
+    "website": "https://www.sircon.no/",
+    "email": "support@sircon.no",
+    "phone": "+47.92034702",
+    "features": []
+  },
+  {
+    "name": "nunames",
+    "tags": [
+      "tld__nu",
+      "country__us",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/worldnamesinc.jpg",
+      "alt": "nunames logotyp"
+    },
+    "countryFlag": "🇺🇸",
+    "location": "Boston",
+    "website": "https://nunames.nu/",
+    "email": "support@nunames.nu",
+    "phone": "+1.5084448855",
+    "features": []
+  },
+  {
+    "name": "Dynadot",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__us",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": null,
+    "countryFlag": "🇺🇸",
+    "location": "USA",
+    "website": "https://www.dynadot.com",
+    "email": "info@dynadot.com",
+    "phone": "",
+    "features": []
+  },
+  {
+    "name": "Peek-A-Boo",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/1be9c459-b838-4a3f-9fef-17be04de5b5c.jpg",
+      "alt": "Peek-A-Boo logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Visby",
+    "website": "https://peekaboo.se",
+    "email": "info@peekaboo.se",
+    "phone": "+46.498205880",
+    "features": []
+  },
+  {
+    "name": "Hostnet bv",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__nl",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": null,
+    "countryFlag": "🇳🇱",
+    "location": "Amsterdam",
+    "website": "https://www.hostnet.nl",
+    "email": "sales@hostnet.nl",
+    "phone": "+31.207500800",
+    "features": []
+  },
+  {
+    "name": "Registrar Proxy",
+    "tags": [
+      "tld__nu",
+      "country__nl",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/6a0698f2-9c6b-41cd-ab13-8e13e5f25395.jpg",
+      "alt": "Registrar Proxy logotyp"
+    },
+    "countryFlag": "🇳🇱",
+    "location": "Boekel",
+    "website": "https://www.registrar-proxy.nl",
+    "email": "hostmaster@registrar-proxy.nl",
+    "phone": "",
+    "features": []
+  },
+  {
+    "name": "NETIM",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__fr",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/c9085640-9317-424b-a82c-d4c7bb6c8c0a.jpg",
+      "alt": "NETIM logotyp"
+    },
+    "countryFlag": "🇫🇷",
+    "location": "LILLE",
+    "website": "https://www.netim.com/en/domain-name/se-domain",
+    "email": "sales@netim.com",
+    "phone": "",
+    "features": []
+  },
+  {
+    "name": "Safenames LTD",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__gb"
+    ],
+    "logo": null,
+    "countryFlag": "🇬🇧",
+    "location": "Milton Keynes",
+    "website": "http://www.safenames.net/DomainNames/Regulations/SE.aspx",
+    "email": "hostmaster@safenames.net",
+    "phone": "",
+    "features": []
+  },
+  {
+    "name": "Internet Vikings International AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__ie",
+      "registration__reg_idn"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/fab22281-66c4-4083-b798-b1c03210579c.jpg",
+      "alt": "Internet Vikings International AB logotyp"
+    },
+    "countryFlag": "🇮🇪",
+    "location": "Drogheda",
+    "website": "https://ilkari.tech",
+    "email": "registry@ilkari.tech",
+    "phone": "+46.84414499",
+    "features": []
+  },
+  {
+    "name": "Scandinavian Hosting AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/56746027-0038-42eb-83e1-7d3036be1a65.jpg",
+      "alt": "Scandinavian Hosting AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Karlskrona",
+    "website": "https://www.scandinavianhosting.se/",
+    "email": "registry@scandinavianhosting.se",
+    "phone": "+46.841061064",
+    "features": []
+  },
+  {
+    "name": "ITKoncept",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": null,
+    "countryFlag": "🇸🇪",
+    "location": "Stockholm",
+    "website": "http://www.itkoncept.se/",
+    "email": "helpdesk@itkoncept.se",
+    "phone": "+46.200567898",
+    "features": []
+  },
+  {
+    "name": "Metaregistrar",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__nl",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_email"
+    ],
+    "logo": null,
+    "countryFlag": "🇳🇱",
+    "location": "Gouda",
+    "website": "http://www.metaregistrar.com/",
+    "email": "support@metaregistrar.com",
+    "phone": "+31.708900654",
+    "features": []
+  },
+  {
+    "name": "Rackfish AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/rackfishab.jpg",
+      "alt": "Rackfish AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Uppsala",
+    "website": "https://www.rackfish.com/tjanster/domaner/",
+    "email": "registry@rackfish.com",
+    "phone": "+46.18181800",
+    "features": []
+  },
+  {
+    "name": "Webbkonsulterna AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/webbkonsulternai.jpg",
+      "alt": "Webbkonsulterna AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Östersund",
+    "website": "http://www.wk.se/",
+    "email": "support@wk.se",
+    "phone": "+46.63180888",
+    "features": []
+  },
+  {
+    "name": "Web Lovers",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "technical__serv_dns"
+    ],
+    "logo": null,
+    "countryFlag": "🇸🇪",
+    "location": "Stockholm",
+    "website": "https://www.weblovers.com/",
+    "email": "support@weblovers.se",
+    "phone": "",
+    "features": []
+  },
+  {
+    "name": "united-domains GmbH",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__de",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/uniteddomainsag.jpg",
+      "alt": "united-domains GmbH logotyp"
+    },
+    "countryFlag": "🇩🇪",
+    "location": "Starnberg",
+    "website": "https://www.united-domains.de",
+    "email": "support@united-domains.de",
+    "phone": "+49.81513686725",
+    "features": []
+  },
+  {
+    "name": "Name.com LLC",
+    "tags": [
+      "tld__se",
+      "country__us",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/namecomllc.jpg",
+      "alt": "Name.com LLC logotyp"
+    },
+    "countryFlag": "🇺🇸",
+    "location": "Denver, Colorado",
+    "website": "http://www.name.com/domains/se",
+    "email": "support@name.com",
+    "phone": "+1.7202492374",
+    "features": []
+  },
+  {
+    "name": "ITCONNECT AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/51ccf335-b03b-472f-b36b-7b6fb4e8606a.jpg",
+      "alt": "ITCONNECT AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Uddevalla",
+    "website": "http://www.itconnect.se",
+    "email": "",
+    "phone": "",
+    "features": []
+  },
+  {
+    "name": "100 procent media",
+    "tags": [
+      "tld__se",
+      "country__se",
+      "registration__reg_idn",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/100procentmedias.jpg",
+      "alt": "100 procent media logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Sandviken",
+    "website": "http://www.100procent.com/Domannamn",
+    "email": "registry@100procent.com",
+    "phone": "+46.26255500",
+    "features": []
+  },
+  {
+    "name": "eNOM, Inc",
+    "tags": [
+      "tld__nu",
+      "country__us",
+      "registration__is_reseller"
+    ],
+    "logo": null,
+    "countryFlag": "🇺🇸",
+    "location": "Bellevue",
+    "website": "http://www.enom.com/",
+    "email": "customercare@enom.com",
+    "phone": "+1.4252744500",
+    "features": []
+  },
+  {
+    "name": "EPAG Domainservices GmbH",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__de",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns"
+    ],
+    "logo": null,
+    "countryFlag": "🇩🇪",
+    "location": "Bonn",
+    "website": "https://www.epag.de/",
+    "email": "support@epag.de",
+    "phone": "+49.2283296840",
+    "features": []
+  },
+  {
+    "name": "Registrar.eu",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__nl",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/hostingconceptsb.jpg",
+      "alt": "Registrar.eu logotyp"
+    },
+    "countryFlag": "🇳🇱",
+    "location": "Rotterdam",
+    "website": "https://www.openprovider.com",
+    "email": "sales@openprovider.com",
+    "phone": "+31.104482296",
+    "features": []
+  },
+  {
+    "name": "Red Snapper",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/c407b31b-cd41-494f-888d-ea657e15ac93.jpg",
+      "alt": "Red Snapper logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Vara",
+    "website": "http://redsnapper.nu/",
+    "email": "info@redsnapper.nu",
+    "phone": "+46.702617396",
+    "features": []
+  },
+  {
+    "name": "Ikasp Nätverkslösningar AB",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/696e2bb4-b2d3-4cf6-ac73-2189b1a1eb9d.jpg",
+      "alt": "Ikasp Nätverkslösningar AB logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Tyresö",
+    "website": "http://registrera-doman.se/se.php",
+    "email": "info@registrera-doman.se",
+    "phone": "+46.8255702",
+    "features": []
+  },
+  {
+    "name": "Mono Solutions ApS",
+    "tags": [
+      "tld__se",
+      "country__dk",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": null,
+    "countryFlag": "🇩🇰",
+    "location": "Copenhagen",
+    "website": "https://www.monosolutions.com/end-user-license-agreement/se-information",
+    "email": "domains@mono.net",
+    "phone": "+45.31247344",
+    "features": []
+  },
+  {
+    "name": "Ascio Technologies Inc",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__dk",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec"
+    ],
+    "logo": null,
+    "countryFlag": "🇩🇰",
+    "location": "Hellerup",
+    "website": "http://www.ascio.com/nic-se",
+    "email": "sales@ascio.com",
+    "phone": "+45.33886100",
+    "features": []
+  },
+  {
+    "name": "BB-ONLINE UK LIMITED",
+    "tags": [
+      "tld__se",
+      "country__gb",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/bbonlineuklimite.jpg",
+      "alt": "BB-ONLINE UK LIMITED logotyp"
+    },
+    "countryFlag": "🇬🇧",
+    "location": "England",
+    "website": "http://www.nominate.com/terms/seterms.shtml",
+    "email": "info@bb-online.com",
+    "phone": "+44.1582572148",
+    "features": []
+  },
+  {
+    "name": "OVH",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__fr",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": null,
+    "countryFlag": "🇫🇷",
+    "location": "+33.320200958",
+    "website": "http://www.ovhcloud.com/",
+    "email": "abuse@ovh.net",
+    "phone": "+48.538244444",
+    "features": []
+  },
+  {
+    "name": "Costrar EOOD",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__bg",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear"
+    ],
+    "logo": null,
+    "countryFlag": "🇧🇬",
+    "location": "Sofia",
+    "website": "https://costrar.com/",
+    "email": "team@costrar.com",
+    "phone": "+359.877526303",
+    "features": []
+  },
+  {
+    "name": "gransy.com",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__cz",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": null,
+    "countryFlag": "🇨🇿",
+    "location": "Praha",
+    "website": "http://www.gransy.com/",
+    "email": "info@gransy.com",
+    "phone": "+420.734463373",
+    "features": []
+  },
+  {
+    "name": "Svenska Standardbolag",
+    "tags": [
+      "tld__se",
+      "country__se",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/16ba367f-525c-4b41-8775-2cb52c9d84bc.jpg",
+      "alt": "Svenska Standardbolag logotyp"
+    },
+    "countryFlag": "🇸🇪",
+    "location": "Falun",
+    "website": "https://www.standardbolaginternet.se/tjanster/domannamn/",
+    "email": "info@standardbolaginternet.se",
+    "phone": "+46.23792300",
+    "features": []
+  },
+  {
+    "name": "NameWeb BVBA",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__be",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_email"
+    ],
+    "logo": null,
+    "countryFlag": "🇧🇪",
+    "location": "Ranst",
+    "website": "http://www.nameweb.biz/",
+    "email": "info@nameweb.biz",
+    "phone": "+32.33699772",
+    "features": []
+  },
+  {
+    "name": "Registrar.nl",
+    "tags": [
+      "tld__se",
+      "tld__nu",
+      "country__nl",
+      "registration__reg_idn",
+      "registration__reg_private",
+      "registration__domain_only",
+      "registration__domain_multiyear",
+      "registration__is_reseller",
+      "technical__serv_dns",
+      "technical__serv_dnssec",
+      "technical__serv_web",
+      "technical__serv_email"
+    ],
+    "logo": {
+      "src": "https://s3-eu-north-1.amazonaws.com/registrar-logo-eu-north-1-prod/totaalnetinterne.jpg",
+      "alt": "Registrar.nl logotyp"
+    },
+    "countryFlag": "🇳🇱",
+    "location": "Duiven",
+    "website": "https://www.registrar.nl",
+    "email": "support@tiw.nl",
+    "phone": "+31.263844944",
+    "features": []
+  }
+]

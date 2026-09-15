@@ -80,7 +80,9 @@ module.exports = {
 			name: 'Auto increment',
 			context: {
 				modifier: 'm-table--increment',
-				increment: true
+				increment: true,
+				headers: false,
+				footer: false
 			}
 		},
 		{

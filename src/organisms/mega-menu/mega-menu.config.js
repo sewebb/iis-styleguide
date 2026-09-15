@@ -184,27 +184,5 @@ module.exports = {
 				],
 			}
 		]
-	},
-	variants: [
-		{
-			name: 'With search',
-			context: {
-				search: true
-			}
-		},
-		{
-			name: 'With domain search',
-			context: {
-				domain_search: true
-			}
-		},
-		{
-			name: 'With both searches',
-			context: {
-				domain_search: true,
-				search: true,
-				hidden: true
-			}
-		}
-	]
+	}
 };

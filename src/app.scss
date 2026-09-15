@@ -44,6 +44,7 @@
 
 // Molecules
 @use 'molecules/breadcrumb/breadcrumb';
+@use 'molecules/radiobutton-advanced/radiobutton-advanced';
 @use 'molecules/card/card';
 @use 'molecules/download/download';
 @use 'molecules/teaser-news-list/teaser-news-list';
@@ -98,6 +99,7 @@
 @use 'organisms/selectable/selectable';
 @use 'organisms/pre-footer/pre-footer';
 @use 'organisms/url-checker/url-checker';
+@use 'organisms/whois/whois';
 
 // Structures
 @use 'structures/manifest';
