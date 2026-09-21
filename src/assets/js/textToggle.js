@@ -1,13 +1,6 @@
 // Usage: data-toggle-target="toggleButton" data-toggle-text="First|Second|Third"
-function toggleTextOnClick(e) {
+function toggleTextOnClick(e, el) {
 	e.preventDefault();
-
-	const el = e.target;
-
-	if (!el.dataset.toggleText) {
-		console.warn('No data-toggle-text attribute found on element', el);
-		return;
-	}
 
 	const target = (el.dataset.toggleTarget) ? document.getElementById(el.dataset.toggleTarget) : el;
 	const i = parseInt(el.dataset.iteration || 0, 10);
@@ -25,8 +18,11 @@ function toggleTextOnClick(e) {
 
 
 document.addEventListener('click', (e) => {
-	if (e.target.closest('[data-toggle-text]')) {
-		toggleTextOnClick(e);
-		return false;
+	const el = e.target.closest('button, a, [role="button"]');
+
+	if (!el || !el.dataset.toggleText) {
+		return;
 	}
+
+	toggleTextOnClick(e, el);
 });
