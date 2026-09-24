@@ -349,6 +349,58 @@
 			}
 		}
 	}
+
+	// Colored-cell tables use a neutral body so highlighted results remain clear.
+	@include bem.m(colored-cells) {
+		thead {
+			th {
+				background-color: var(--ash-color);
+			}
+		}
+
+		tbody {
+			tr:nth-child(odd),
+			tr:nth-child(even) {
+				> th,
+				> td {
+					background-color: var(--snow-color);
+				}
+			}
+
+			.background-ruby-light {
+				background-color: colors.$color-ruby-light;
+			}
+
+			.background-jade-light {
+				background-color: colors.$color-jade-light;
+			}
+		}
+
+		tfoot {
+			th,
+			td {
+				background-color: var(--snow-color);
+			}
+		}
+
+		&.m-table--sticky-first {
+			tbody {
+				tr:nth-child(odd),
+				tr:nth-child(even) {
+					> :first-child {
+						background-color: var(--snow-color);
+					}
+				}
+			}
+		}
+
+		th,
+		td {
+			&:not(:last-child) {
+				border-right: 1px solid colors.$color-granit;
+			}
+		}
+	}
 }
 
 @include bem.b(scroll-indicator) {

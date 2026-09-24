@@ -122,5 +122,69 @@ module.exports = {
 				caption: 'Pricing plans overview'
 			}
 		},
+		{
+			name: 'Colored Cells',
+			context: {
+				modifier: 'm-table--sticky-first m-table--colored-cells',
+				scrollable: true,
+				stickyFirst: true,
+				footer: false,
+				columnWidths: [
+					{ width: '10rem' },
+					{ span: 9 }
+				],
+				headerRows: [
+					{
+						cells: [
+							{ label: 'Internetanvändare 8+ år. Andel användare (varje dag/vecka/senaste 12 mån)', rowspan: 2 },
+							{ label: 'Generation:', colspan: 9, className: 'u-nowrap' }
+						]
+					},
+					{
+						cells: [
+							{ label: 'Total' },
+							{ label: '20-/30-/40-talister', className: 'u-nowrap' },
+							{ label: '50-talister', className: 'u-nowrap' },
+							{ label: '60-talister', className: 'u-nowrap' },
+							{ label: '70-talister', className: 'u-nowrap' },
+							{ label: '80-talister', className: 'u-nowrap' },
+							{ label: '90-talister', className: 'u-nowrap' },
+							{ label: '00-talister', className: 'u-nowrap' },
+							{ label: '10-talister', className: 'u-nowrap' }
+						]
+					}
+				],
+				rows: [
+					{
+						cells: [
+							{ content: 'Youtube', isHeader: true, scope: 'row' },
+							{ content: '77%' },
+							{ content: '38%', className: 'background-ruby-light' },
+							{ content: '62%', className: 'background-ruby-light' },
+							{ content: '73%', className: 'background-ruby-light' },
+							{ content: '80%' },
+							{ content: '83%', className: 'background-jade-light' },
+							{ content: '93%', className: 'background-jade-light' },
+							{ content: '93%', className: 'background-jade-light' },
+							{ content: '81%' }
+						]
+					},
+					{
+						cells: [
+							{ content: 'Facebook', isHeader: true, scope: 'row' },
+							{ content: '69%' },
+							{ content: '58%', className: 'background-ruby-light' },
+							{ content: '70%' },
+							{ content: '77%', className: 'background-jade-light' },
+							{ content: '82%', className: 'background-jade-light' },
+							{ content: '83%', className: 'background-jade-light' },
+							{ content: '85%', className: 'background-jade-light' },
+							{ content: '68%' },
+							{ content: '9%', className: 'background-ruby-light' }
+						]
+					}
+				]
+			}
+		}
 	]
 };

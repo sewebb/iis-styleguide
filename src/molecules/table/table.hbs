@@ -6,6 +6,13 @@
 		{{/if}}
 				<div class="table-container js-table-container">
 					<table class="m-table js-table{{#if modifier}} {{modifier}}{{/if}}" data-table-layout="scroll-target{{#if stickyFirst}} sticky-first{{/if}}">
+						{{#if columnWidths}}
+							<colgroup>
+								{{#each columnWidths}}
+									<col{{#if width}} style="width: {{width}}"{{/if}}{{#if span}} span="{{span}}"{{/if}}>
+								{{/each}}
+							</colgroup>
+						{{/if}}
 						{{#if captionText}}
 							<caption>{{captionText}}</caption>
 						{{else}}
@@ -19,7 +26,7 @@
 								{{#each headerRows}}
 									<tr>
 										{{#each cells}}
-											<th{{#if className}} class="{{className}}"{{/if}}{{#if scope}} scope="{{scope}}"{{/if}}{{#if colspan}} colspan="{{colspan}}"{{/if}}>{{{label}}}</th>
+											<th{{#if className}} class="{{className}}"{{/if}}{{#if scope}} scope="{{scope}}"{{/if}}{{#if colspan}} colspan="{{colspan}}"{{/if}}{{#if rowspan}} rowspan="{{rowspan}}"{{/if}}>{{{label}}}</th>
 										{{/each}}
 									</tr>
 								{{/each}}
