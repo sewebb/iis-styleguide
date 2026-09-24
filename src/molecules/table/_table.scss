@@ -384,6 +384,11 @@
 		}
 
 		&.m-table--sticky-first {
+			thead > tr:not(:first-child) > :first-child {
+				/* The first header cell spans two rows, so this cell starts column two. */
+				position: static;
+			}
+
 			tbody {
 				tr:nth-child(odd),
 				tr:nth-child(even) {

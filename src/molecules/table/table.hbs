@@ -1,7 +1,7 @@
 <div class="row no-gutters">
 	<div class="grid">
 		{{#if scrollable}}
-		<div class="table-scroll-wrapper js-table-scroll-wrapper scroll-on-large u-m-b-double">
+		<div class="table-scroll-wrapper js-table-scroll-wrapper scroll-on-large u-m-b-double{{#if scrollWrapperClass}} {{scrollWrapperClass}}{{/if}}">
 			<div class="scroll-indicator"></div>
 		{{/if}}
 				<div class="table-container js-table-container">
@@ -82,9 +82,9 @@
 										<tr{{#if className}} class="{{className}}"{{/if}}>
 											{{#each cells}}
 												{{#if isHeader}}
-													<th{{#if className}} class="{{className}}"{{/if}}{{#if scope}} scope="{{scope}}"{{/if}}{{#if colspan}} colspan="{{colspan}}"{{/if}}>{{{content}}}</th>
-												{{else}}
-													<td{{#if className}} class="{{className}}"{{/if}}{{#if colspan}} colspan="{{colspan}}"{{/if}}>{{{content}}}</td>
+											<th{{#if className}} class="{{className}}"{{/if}}{{#if scope}} scope="{{scope}}"{{/if}}{{#if colspan}} colspan="{{colspan}}"{{/if}}{{#if dataLabel}} data-label="{{dataLabel}}"{{/if}}>{{{content}}}</th>
+										{{else}}
+											<td{{#if className}} class="{{className}}"{{/if}}{{#if colspan}} colspan="{{colspan}}"{{/if}}{{#if dataLabel}} data-label="{{dataLabel}}"{{/if}}>{{{content}}}</td>
 												{{/if}}
 											{{/each}}
 										</tr>

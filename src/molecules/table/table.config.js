@@ -1,3 +1,28 @@
+const coloredCellsRowHeaderLabel = 'Internetanvändare 8+ år. Andel användare (varje dag/vecka/senaste 12 mån)';
+
+const coloredCellsRows = [
+	[['Youtube'], ['77%'], ['38%', 'background-ruby-light'], ['62%', 'background-ruby-light'], ['73%', 'background-ruby-light'], ['80%'], ['83%', 'background-jade-light'], ['93%', 'background-jade-light'], ['93%', 'background-jade-light'], ['81%']],
+	[['Facebook'], ['69%'], ['58%', 'background-ruby-light'], ['70%'], ['77%', 'background-jade-light'], ['82%', 'background-jade-light'], ['83%', 'background-jade-light'], ['85%', 'background-jade-light'], ['68%'], ['9%', 'background-ruby-light']],
+	[['Instagram'], ['66%'], ['40%', 'background-ruby-light'], ['50%', 'background-ruby-light'], ['67%'], ['76%', 'background-jade-light'], ['75%', 'background-jade-light'], ['82%', 'background-jade-light'], ['87%', 'background-jade-light'], ['31%', 'background-ruby-light']],
+	[['Snapchat'], ['38%'], ['6%', 'background-ruby-light'], ['9%', 'background-ruby-light'], ['20%', 'background-ruby-light'], ['33%', 'background-ruby-light'], ['30%', 'background-ruby-light'], ['58%'], ['89%', 'background-jade-light'], ['47%', 'background-jade-light']],
+	[['Linkedin'], ['27%'], ['5%', 'background-ruby-light'], ['13%', 'background-ruby-light'], ['31%', 'background-jade-light'], ['41%', 'background-jade-light'], ['42%', 'background-jade-light'], ['45%', 'background-jade-light'], ['23%', 'background-ruby-light'], ['0%', 'background-ruby-light']],
+	[['Tiktok'], ['22%'], ['2%', 'background-ruby-light'], ['5%', 'background-ruby-light'], ['7%', 'background-ruby-light'], ['12%', 'background-ruby-light'], ['10%', 'background-ruby-light'], ['27%'], ['69%', 'background-jade-light'], ['35%', 'background-jade-light']],
+	[['Flashback'], ['20%'], ['5%', 'background-ruby-light'], ['15%', 'background-ruby-light'], ['22%'], ['33%', 'background-jade-light'], ['29%', 'background-jade-light'], ['31%', 'background-jade-light'], ['13%', 'background-ruby-light'], ['1%', 'background-ruby-light']],
+	[['Pinterest'], ['18%'], ['3%', 'background-ruby-light'], ['13%', 'background-ruby-light'], ['14%'], ['17%'], ['15%'], ['26%', 'background-jade-light'], ['31%', 'background-jade-light'], ['15%']],
+	[['Reddit'], ['16%'], ['0%', 'background-ruby-light'], ['1%', 'background-ruby-light'], ['3%', 'background-ruby-light'], ['10%', 'background-ruby-light'], ['22%'], ['36%', 'background-jade-light'], ['37%', 'background-jade-light'], ['4%', 'background-ruby-light']],
+	[['X/Twitter'], ['13%'], ['3%', 'background-ruby-light'], ['5%', 'background-ruby-light'], ['11%'], ['11%'], ['16%', 'background-jade-light'], ['23%', 'background-jade-light'], ['25%', 'background-jade-light'], ['2%', 'background-ruby-light']],
+	[['Roblox'], ['9%'], ['0%', 'background-ruby-light'], ['0%', 'background-ruby-light'], ['0%', 'background-ruby-light'], ['1%', 'background-ruby-light'], ['1%', 'background-ruby-light'], ['1%', 'background-ruby-light'], ['15%', 'background-jade-light'], ['62%', 'background-jade-light']],
+	[['Threads'], ['7%'], ['2%', 'background-ruby-light'], ['6%', 'background-ruby-light'], ['7%', 'background-ruby-light'], ['8%'], ['11%', 'background-jade-light'], ['10%', 'background-jade-light'], ['9%'], ['0%', 'background-ruby-light']],
+	[['Twitch'], ['6%'], ['0%', 'background-ruby-light'], ['0%', 'background-ruby-light'], ['0%', 'background-ruby-light'], ['2%', 'background-ruby-light'], ['6%'], ['14%', 'background-jade-light'], ['16%', 'background-jade-light'], ['4%', 'background-ruby-light']],
+	[['Bluesky'], ['2%'], ['1%', 'background-ruby-light'], ['1%', 'background-ruby-light'], ['2%'], ['3%'], ['5%', 'background-jade-light'], ['3%'], ['2%'], ['0%', 'background-ruby-light']]
+].map((cells) => ({
+	cells: cells.map(([content, className], index) => ({
+		content,
+		...(index === 0 ? { isHeader: true, scope: 'row', dataLabel: coloredCellsRowHeaderLabel } : {}),
+		...(className ? { className } : {})
+	}))
+}));
+
 module.exports = {
 	status: 'ready',
 
@@ -129,6 +154,7 @@ module.exports = {
 				scrollable: true,
 				stickyFirst: true,
 				footer: false,
+				scrollWrapperClass: 'table-scroll-wrapper--report-upload alignwide',
 				columnWidths: [
 					{ width: '10rem' },
 					{ span: 9 }
@@ -154,36 +180,7 @@ module.exports = {
 						]
 					}
 				],
-				rows: [
-					{
-						cells: [
-							{ content: 'Youtube', isHeader: true, scope: 'row' },
-							{ content: '77%' },
-							{ content: '38%', className: 'background-ruby-light' },
-							{ content: '62%', className: 'background-ruby-light' },
-							{ content: '73%', className: 'background-ruby-light' },
-							{ content: '80%' },
-							{ content: '83%', className: 'background-jade-light' },
-							{ content: '93%', className: 'background-jade-light' },
-							{ content: '93%', className: 'background-jade-light' },
-							{ content: '81%' }
-						]
-					},
-					{
-						cells: [
-							{ content: 'Facebook', isHeader: true, scope: 'row' },
-							{ content: '69%' },
-							{ content: '58%', className: 'background-ruby-light' },
-							{ content: '70%' },
-							{ content: '77%', className: 'background-jade-light' },
-							{ content: '82%', className: 'background-jade-light' },
-							{ content: '83%', className: 'background-jade-light' },
-							{ content: '85%', className: 'background-jade-light' },
-							{ content: '68%' },
-							{ content: '9%', className: 'background-ruby-light' }
-						]
-					}
-				]
+				rows: coloredCellsRows
 			}
 		}
 	]
