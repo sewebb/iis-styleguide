@@ -383,7 +383,7 @@
 			}
 		}
 
-		&.m-table--sticky-first {
+		&[class*='sticky-first'] {
 			thead > tr:not(:first-child) > :first-child {
 				/* The first header cell spans two rows, so this cell starts column two. */
 				position: static;
