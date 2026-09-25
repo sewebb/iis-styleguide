@@ -352,6 +352,10 @@
 
 	// Colored-cell tables use a neutral body so highlighted results remain clear.
 	@include bem.m(colored-cells) {
+		border: 1px solid colors.$color-granit;
+		border-radius: var.$border-radius;
+		overflow: hidden;
+
 		thead {
 			th {
 				background-color: var(--ash-color);
@@ -365,6 +369,14 @@
 				> td {
 					background-color: var(--snow-color);
 				}
+			}
+
+			> tr > td {
+				text-align: center;
+			}
+
+			> tr > td[data-row-header='true'] {
+				text-align: left;
 			}
 
 			.background-ruby-light {
