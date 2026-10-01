@@ -100,48 +100,39 @@ const COMMON_2LEVEL_SUFFIXES = new Set([
 const BREAKDOWN_PARTS = [
     {
         key: 'protocol',
-        label: 'Protokoll',
-        desc: 'http / https'
+        label: 'Protokoll'
     },
     {
         key: 'credentials',
-        label: 'Inloggning',
-        desc: 'user:pass@'
+        label: 'Inloggning'
     },
     {
         key: 'subdomain',
-        label: 'Subdomän',
-        desc: 't.ex. www / login'
+        label: 'Subdomän'
     },
     {
         key: 'ipAddress',
-        label: 'IP-adress',
-        desc: 'IPv4 / IPv6'
+        label: 'IP-adress'
     },
     {
         key: 'domain',
-        label: 'Domän',
-        desc: 'huvudadressen'
+        label: 'Domän'
     },
     {
         key: 'tld',
-        label: 'Toppdomän',
-        desc: 't.ex. .se'
+        label: 'Toppdomän'
     },
     {
         key: 'path',
-        label: 'Sökväg',
-        desc: '/mapp/sida'
+        label: 'Sökväg'
     },
     {
         key: 'query',
-        label: 'Parametrar',
-        desc: '?a=b'
+        label: 'Parametrar'
     },
     {
         key: 'hash',
-        label: 'Ankare',
-        desc: '#sektion'
+        label: 'Ankare'
     }
 ];
 const BREAKDOWN_PART_LABELS = Object.fromEntries(BREAKDOWN_PARTS.map((part)=>[
@@ -1724,12 +1715,11 @@ function buildVisualURLParts(u, parts, fallbackHost = '', includeRootPathSegment
     const hash = makeSegment('hash', u.hash || '');
     return makeSegment('protocol', protocol, u.protocol === 'http:' ? 'danger' : '') + credentials + host + path + query + hash;
 }
-function buildLegend(availableParts, partTones = {}, partDescriptions = {}) {
+function buildLegend(availableParts, partTones = {}) {
     els.breakdownLegend.innerHTML = '';
     for (const p of BREAKDOWN_PARTS){
         // Only show buttons for parts that exist in the URL
         if (!availableParts.has(p.key)) continue;
-        const description = partDescriptions[p.key] || p.desc;
         const item = document.createElement('button');
         item.type = 'button';
         item.className = CLASS.breakdownItem;
@@ -1738,9 +1728,9 @@ function buildLegend(availableParts, partTones = {}, partDescriptions = {}) {
         }
         item.id = `${BREAKDOWN_ARIA_ID_PREFIX}-${p.key}`;
         item.setAttribute('data-part', p.key);
-        item.setAttribute('aria-label', `${p.label} – ${description}`);
+        item.setAttribute('aria-label', p.label);
         const txt = document.createElement('span');
-        txt.innerHTML = `<strong>${p.label}</strong><br/><span class="${CLASS.muted}">${escapeHTML(description)}</span>`;
+        txt.innerHTML = `<strong>${p.label}</strong>`;
         item.appendChild(txt);
         els.breakdownLegend.appendChild(item);
     }
@@ -1875,8 +1865,8 @@ function render(rawInput) {
     if (!parsed.ok) {
         setVisibleState({
             hasResults: false,
-            errorMessage: parsed.reason === 'invalid_protocol' ? `Protokollet verkar vara fel eller felstavat (${parsed.protocol}://). Använd http://, https:// eller ftp://.` : 'Kunde inte tolka länken. Den verkar vara felaktig.',
-            errorMarkup: parsed.reason === 'invalid_protocol' ? `Protokollet verkar vara fel eller felstavat (<strong>${escapeHTML(parsed.protocol)}://</strong>). Använd <strong>http://</strong>, <strong>https://</strong> eller <strong>ftp://</strong>.` : ''
+            errorMessage: parsed.reason === 'invalid_protocol' ? `Protokollet verkar vara fel eller felstavat (${parsed.protocol}://). Använd https://, http:// eller ftp://.` : 'Kunde inte tolka länken. Den verkar vara felaktig.',
+            errorMarkup: parsed.reason === 'invalid_protocol' ? `Protokollet verkar vara fel eller felstavat (<strong>${escapeHTML(parsed.protocol)}://</strong>). Använd <strong>https://</strong>, <strong>http://</strong> eller <strong>ftp://</strong>.` : ''
         });
         els.inputHint.textContent = '';
         setHostSpecialBoxesVisibility(false);
@@ -1900,8 +1890,8 @@ function render(rawInput) {
     if (!hasTopDomain && !isIpHost) {
         setVisibleState({
             hasResults: false,
-            errorMessage: 'Domänen saknar toppdomän (t.ex. .se eller .com). Kontrollera att länken är komplett.',
-            errorMarkup: 'Domänen saknar toppdomän (t.ex. <strong>.se</strong> eller <strong>.com</strong>). Kontrollera att länken är komplett.'
+            errorMessage: 'Adressen saknar toppdomän (t.ex. .se eller .com). Kontrollera att länken är komplett.',
+            errorMarkup: 'Adressen saknar toppdomän (t.ex. <strong>.se</strong> eller <strong>.com</strong>). Kontrollera att länken är komplett.'
         });
         els.inputHint.textContent = '';
         setHostSpecialBoxesVisibility(false);
@@ -1944,8 +1934,6 @@ function render(rawInput) {
     // NEW: visual URL and legend
     buildLegend(availableParts, {
         protocol: u.protocol === 'http:' ? 'danger' : ''
-    }, {
-        protocol: `${u.protocol}//`
     });
     els.breakdownUrl.innerHTML = buildVisualURLParts(u, {
         subdomain: displaySubdomain,

@@ -89,47 +89,38 @@ const BREAKDOWN_PARTS = [
 	{
 		key: 'protocol',
 		label: 'Protokoll',
-		desc: 'http / https',
 	},
 	{
 		key: 'credentials',
 		label: 'Inloggning',
-		desc: 'user:pass@',
 	},
 	{
 		key: 'subdomain',
 		label: 'Subdomän',
-		desc: 't.ex. www / login',
 	},
 	{
 		key: 'ipAddress',
 		label: 'IP-adress',
-		desc: 'IPv4 / IPv6',
 	},
 	{
 		key: 'domain',
 		label: 'Domän',
-		desc: 'huvudadressen',
 	},
 	{
 		key: 'tld',
 		label: 'Toppdomän',
-		desc: 't.ex. .se',
 	},
 	{
 		key: 'path',
 		label: 'Sökväg',
-		desc: '/mapp/sida',
 	},
 	{
 		key: 'query',
 		label: 'Parametrar',
-		desc: '?a=b',
 	},
 	{
 		key: 'hash',
 		label: 'Ankare',
-		desc: '#sektion',
 	},
 ];
 const BREAKDOWN_PART_LABELS = Object.fromEntries(
@@ -1383,12 +1374,11 @@ function buildVisualURLParts(
 	);
 }
 
-function buildLegend(availableParts, partTones = {}, partDescriptions = {}) {
+function buildLegend(availableParts, partTones = {}) {
 	els.breakdownLegend.innerHTML = '';
 	for (const p of BREAKDOWN_PARTS) {
 		// Only show buttons for parts that exist in the URL
 		if (!availableParts.has(p.key)) continue;
-		const description = partDescriptions[p.key] || p.desc;
 
 		const item = document.createElement('button');
 		item.type = 'button';
@@ -1398,10 +1388,10 @@ function buildLegend(availableParts, partTones = {}, partDescriptions = {}) {
 		}
 		item.id = `${BREAKDOWN_ARIA_ID_PREFIX}-${p.key}`;
 		item.setAttribute('data-part', p.key);
-		item.setAttribute('aria-label', `${p.label} – ${description}`);
+		item.setAttribute('aria-label', p.label);
 
 		const txt = document.createElement('span');
-		txt.innerHTML = `<strong>${p.label}</strong><br/><span class="${CLASS.muted}">${escapeHTML(description)}</span>`;
+		txt.innerHTML = `<strong>${p.label}</strong>`;
 
 		item.appendChild(txt);
 		els.breakdownLegend.appendChild(item);
@@ -1679,8 +1669,6 @@ function render(rawInput) {
 	// NEW: visual URL and legend
 	buildLegend(availableParts, {
 		protocol: u.protocol === 'http:' ? 'danger' : '',
-	}, {
-		protocol: `${u.protocol}//`,
 	});
 	els.breakdownUrl.innerHTML = buildVisualURLParts(
 		u,
