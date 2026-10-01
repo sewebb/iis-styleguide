@@ -34,6 +34,7 @@ const els = {
     results: document.getElementById('results'),
     emptyState: document.getElementById('emptyState'),
     signals: document.getElementById('signals'),
+    focusDestinationHeading: document.getElementById('focusDestinationHeading'),
     focusHost: document.getElementById('focusHost'),
     focusHostBox: document.getElementById('focusHostBox'),
     focusRegistrable: document.getElementById('focusRegistrable'),
@@ -1556,10 +1557,13 @@ function setInputErrorAccessibility(hasError) {
 function setHostSpecialBoxesVisibility(showHostBox) {
     if (els.focusHostBox) els.focusHostBox.hidden = !showHostBox;
 }
-function setVisibleState({ hasResults, errorMessage = '' }) {
+function setVisibleState({ hasResults, errorMessage = '', errorMarkup = '' }) {
     const message = (errorMessage || '').trim();
     const hasError = Boolean(message);
-    if (els.urlInputHelp) els.urlInputHelp.textContent = message;
+    if (els.urlInputHelp) {
+        if (errorMarkup) setSafeMarkup(els.urlInputHelp, errorMarkup);
+        else els.urlInputHelp.textContent = message;
+    }
     if (els.inputHint) {
         if (hasError) {
             els.inputHint.setAttribute('aria-label', `Varning. Kontrollera länken en gång till. ${message}`);
@@ -1720,11 +1724,12 @@ function buildVisualURLParts(u, parts, fallbackHost = '', includeRootPathSegment
     const hash = makeSegment('hash', u.hash || '');
     return makeSegment('protocol', protocol, u.protocol === 'http:' ? 'danger' : '') + credentials + host + path + query + hash;
 }
-function buildLegend(availableParts, partTones = {}) {
+function buildLegend(availableParts, partTones = {}, partDescriptions = {}) {
     els.breakdownLegend.innerHTML = '';
     for (const p of BREAKDOWN_PARTS){
         // Only show buttons for parts that exist in the URL
         if (!availableParts.has(p.key)) continue;
+        const description = partDescriptions[p.key] || p.desc;
         const item = document.createElement('button');
         item.type = 'button';
         item.className = CLASS.breakdownItem;
@@ -1733,9 +1738,9 @@ function buildLegend(availableParts, partTones = {}) {
         }
         item.id = `${BREAKDOWN_ARIA_ID_PREFIX}-${p.key}`;
         item.setAttribute('data-part', p.key);
-        item.setAttribute('aria-label', `${p.label} – ${p.desc}`);
+        item.setAttribute('aria-label', `${p.label} – ${description}`);
         const txt = document.createElement('span');
-        txt.innerHTML = `<strong>${p.label}</strong><br/><span class="${CLASS.muted}">${p.desc}</span>`;
+        txt.innerHTML = `<strong>${p.label}</strong><br/><span class="${CLASS.muted}">${escapeHTML(description)}</span>`;
         item.appendChild(txt);
         els.breakdownLegend.appendChild(item);
     }
@@ -1870,7 +1875,8 @@ function render(rawInput) {
     if (!parsed.ok) {
         setVisibleState({
             hasResults: false,
-            errorMessage: parsed.reason === 'invalid_protocol' ? `Protokollet verkar vara fel eller felstavat (${parsed.protocol}://). Använd http://, https:// eller ftp://.` : 'Kunde inte tolka länken. Kontrollera att den ser ut som en URL.'
+            errorMessage: parsed.reason === 'invalid_protocol' ? `Protokollet verkar vara fel eller felstavat (${parsed.protocol}://). Använd http://, https:// eller ftp://.` : 'Kunde inte tolka länken. Den verkar vara felaktig.',
+            errorMarkup: parsed.reason === 'invalid_protocol' ? `Protokollet verkar vara fel eller felstavat (<strong>${escapeHTML(parsed.protocol)}://</strong>). Använd <strong>http://</strong>, <strong>https://</strong> eller <strong>ftp://</strong>.` : ''
         });
         els.inputHint.textContent = '';
         setHostSpecialBoxesVisibility(false);
@@ -1879,7 +1885,7 @@ function render(rawInput) {
     }
     const u = parsed.url;
     setProtocolDetails(u.protocol);
-    els.inputHint.textContent = parsed.schemeMissing ? 'Tips: Länken saknade protokoll – jag antog https:// för att kunna analysera.' : '';
+    setSafeMarkup(els.inputHint, parsed.schemeMissing ? 'Tips: Länken saknade protokoll – antog <strong>https://</strong> för att kunna analysera.' : '');
     const ipAddressType = getIPAddressType(u.hostname);
     const normalizedHost = stripIPv6Brackets(u.hostname);
     const { subdomain, domain, tld, registrable } = computeDomainParts(u.hostname);
@@ -1888,12 +1894,14 @@ function render(rawInput) {
     const displayHost = toUnicodeHost(rawDisplayHost);
     const { subdomain: displaySubdomain, domain: displayDomain, tld: displayTld, registrable: displayRegistrable } = computeDomainParts(displayHost);
     const isIpHost = Boolean(ipAddressType);
+    safeText(els.focusDestinationHeading, isIpHost ? 'Det här är adressen du faktiskt hamnar på om du klickar på länken.' : 'Det här är domänen du faktiskt hamnar på om du klickar på länken.');
     const hasTopDomain = Boolean(tld);
     const shouldRenderPath = shouldRenderPathPart(u, Boolean(u.search || u.hash));
     if (!hasTopDomain && !isIpHost) {
         setVisibleState({
             hasResults: false,
-            errorMessage: 'Domänen saknar toppdomän (t.ex. .se eller .com). Kontrollera att länken är komplett.'
+            errorMessage: 'Domänen saknar toppdomän (t.ex. .se eller .com). Kontrollera att länken är komplett.',
+            errorMarkup: 'Domänen saknar toppdomän (t.ex. <strong>.se</strong> eller <strong>.com</strong>). Kontrollera att länken är komplett.'
         });
         els.inputHint.textContent = '';
         setHostSpecialBoxesVisibility(false);
@@ -1936,6 +1944,8 @@ function render(rawInput) {
     // NEW: visual URL and legend
     buildLegend(availableParts, {
         protocol: u.protocol === 'http:' ? 'danger' : ''
+    }, {
+        protocol: `${u.protocol}//`
     });
     els.breakdownUrl.innerHTML = buildVisualURLParts(u, {
         subdomain: displaySubdomain,
@@ -1951,7 +1961,7 @@ function render(rawInput) {
     else addSignal(`Protokoll: ${u.protocol.replace(':', '')}`, 'neutral');
     if (ipAddressType === 'ipv4') addSignal('Värd är en IPv4-adress', 'warn');
     if (ipAddressType === 'ipv6') addSignal('Värd är en IPv6-adress', 'warn');
-    if (u.username || u.password) addSignal('Inloggningsdel i URL (user:pass@)', 'danger');
+    if (u.username || u.password) addSignal('Inloggningsdel i URL (user:password@)', 'danger');
     if (parsed.raw.includes('@') && !u.username && !u.password) addSignal('Innehåller @ (kan vara vilseledande)', 'warn');
     if (u.hostname.startsWith('xn--') || u.hostname.includes('.xn--')) addSignal('IDN-domän', 'warn');
     if (subdomain && subdomain.split('.').length >= 3) addSignal('Många subdomäner', 'warn');

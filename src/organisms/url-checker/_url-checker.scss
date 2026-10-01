@@ -47,6 +47,15 @@
 
 		@include bem.e(body) {
 			padding: func.rhythm(2);
+
+			@include bem.m(with-footer) {
+				padding-top: 0;
+				padding-bottom: 0;
+			}
+		}
+
+		@include bem.e(footer) {
+			padding: 0 func.rhythm(2) func.rhythm(2);
 		}
 	}
 
