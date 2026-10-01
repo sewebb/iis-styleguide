@@ -134,14 +134,14 @@
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="protocolBox">
 					<div class="o-url-checker__box__header">
 						<h3 class="u-m-b-0">Protokoll</h3>
-						<p class="u-m-b-1" id="protocolDescriptionHttps">
-							Protokollet är det som står först i länken och visar hur din webbläsare kommunicerar med webbplatsens server. Protokollet är ofta <strong>https</strong> eller <strong>httpgit status</strong> för webbsidor.
+						<p id="protocolDescriptionHttps">
+							Protokollet är det som står först i länken och visar hur din webbläsare kommunicerar med webbplatsens server. Protokollet är ofta <strong>https</strong> eller <strong>http</strong> för webbsidor.
 						</p>
-						<p class="u-m-b-1" id="protocolDescriptionHttp" hidden>
+						<p id="protocolDescriptionHttp" hidden>
 							Anger hur din webbläsare ska ansluta.<br>
 							<strong>Varning:</strong> <strong>http://</strong> är inte krypterat. Information som skickas kan läsas eller ändras på vägen.
 						</p>
-						<p class="u-m-b-1" id="protocolDescriptionOther" hidden>
+						<p id="protocolDescriptionOther" hidden>
 							Anger hur din webbläsare ska ansluta. Kontrollera att du känner igen protokollet och förstår hur det används.
 						</p>
 					</div>
@@ -168,8 +168,8 @@
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="subdomainBox">
 					<div class="o-url-checker__box__header">
 						<h3 class="u-m-b-0">Subdomän</h3>
-						<p class="u-m-b-1">
-							En subdomän är den del av länken som står före domänen. En adress kan ha en, flera eller inga subdomäner alls.
+						<p>
+							En subdomän är den del av länken som står före domänen. En adress kan ha en, flera eller inga subdomäner alls. Vanliga exempel på subdomäner är <strong>www</strong> och <strong>login</strong>, men den som kontrollerar domänen väljer själv vad subdomänerna ska heta.
 						</p>
 					</div>
 					<div class="o-url-checker__box__body o-url-checker__box__body--with-footer o-url-checker__kv">
@@ -181,7 +181,7 @@
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="ipAddressBox">
 					<div class="o-url-checker__box__header">
 						<h3 class="u-m-b-0">IP-adress</h3>
-						<p class="u-m-b-1">
+						<p>
 							Den här länken visar en IP-adress i stället för ett domännamn. Domännamn används i de flesta länkar eftersom de är lättare att känna igen och komma ihåg, men varje domännamn är också kopplat till en eller flera IP-adresser.
 						</p>
 					</div>
@@ -197,9 +197,10 @@
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="domainBox">
 					<div class="o-url-checker__box__header">
 						<h3 class="u-m-b-0">Domän</h3>
-						<p class="u-m-b-1">
+						<p>
 							Domänen är den del av länken som står direkt före toppdomänen. I exemplet <strong>internetkunskap.se</strong> är <strong>internetkunskap</strong> domänen och <strong>.se</strong> toppdomänen. Det är domänen och toppdomänen som tillsammans registreras som en webbadress.
 						</p>
+						<p>Tillsammans är domän och toppdomän ofta den viktigaste delen för att bedöma vem vad länken går leder till. Kontrollera därför att de stämmer med webbplatsen du vill besöka. En bedragare kan exempelvis till exempel registrera ett välkänt företagsnamn som domän under en annan toppdomän för att få länken att se trovärdig ut. Till exempel skulle internetstiftelsen.se och internetstiftelsen.com kunna leda till två helt olika webbplatser. </p>
 					</div>
 					<div class="o-url-checker__box__body o-url-checker__box__body--with-footer o-url-checker__kv">
 						<p class="u-p-t-0"><strong>Den testade länken innehåller:</strong> <code id="outDomain"></code></p>
@@ -210,9 +211,11 @@
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="tldBox">
 					<div class="o-url-checker__box__header">
 						<h3 class="u-m-b-0">Toppdomän</h3>
-						<p class="u-m-b-1">
-							En toppdomän är den del av länken som står direkt efter domänen. I <strong>internetkunskap.se</strong> är <strong>.se</strong> toppdomänen. Vanliga exempel är <strong>.se</strong>, <strong>.com och <strong>.org</strong>.
+						<p>
+							En toppdomän är den del av länken som står direkt efter domänen. I <strong>internetkunskap.se</strong> är <strong>.se</strong> toppdomänen. Vanliga exempel är <strong>.se</strong>, <strong>.com</strong> och <strong>.org</strong>.
 						</p>
+						<p>Toppdomänen kan ge viss information om adressen. .se är till exempel kopplad till Sverige, medan .com är en allmän toppdomän som används internationellt. Toppdomänen visar däremot inte säkert vem som står bakom webbplatsen.</p>
+						<p>Kom ihåg att två olika toppdomäner kan använda en likadan domän – exempelvis internetstiftelsen.se och internetstiftelsen.com. Det är inte säkert att de leder till samma webbplats,</p>
 					</div>
 					<div class="o-url-checker__box__body o-url-checker__box__body--with-footer o-url-checker__kv">
 						<p class="u-p-t-0"><strong>Den testade länken innehåller:</strong> <code id="outTld"></code></p>
@@ -223,8 +226,8 @@
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="pathBox">
 					<div class="o-url-checker__box__header">
 						<h3 class="u-m-b-0">Sökväg</h3>
-						<p class="u-m-b-1">
-							Sökvägen är den del av länken som kommer efter domänen och toppdomänen. Den börjar vanligtvis med / och kan visa en viss sida eller del av webbplatsen. Delarna i sökvägen kallas ibland mappar.
+						<p>
+							Sökvägen är den del av länken som kommer efter domänen och toppdomänen. Den börjar vanligtvis med <strong>/</strong> och kan visa en viss sida eller del av webbplatsen. Delarna i sökvägen kallas ibland mappar.
 						</p>
 						<p>Den som driver webbplatsen bestämmer hur sökvägen ska se ut. Den kan därför innehålla nästan vilka ord som helst.</p>
 					</div>
