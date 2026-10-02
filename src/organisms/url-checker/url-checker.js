@@ -93,7 +93,7 @@ const BREAKDOWN_PARTS = [
 	},
 	{
 		key: 'subdomain',
-		label: 'Underdomän',
+		label: 'Subdomän',
 	},
 	{
 		key: 'ipAddress',
@@ -1694,7 +1694,7 @@ function render(rawInput) {
 	if (u.hostname.startsWith('xn--') || u.hostname.includes('.xn--'))
 		addSignal('IDN-domän', 'warn');
 	if (subdomain && subdomain.split('.').length >= 3)
-		addSignal('Många underdomäner', 'warn');
+		addSignal('Många subdomäner', 'warn');
 	renderScriptWarnings(boxWarnings);
 	if (invisibleWarnings.length)
 		addSignal('Osynliga tecken i länken', 'danger');
