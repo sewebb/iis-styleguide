@@ -105,7 +105,7 @@ const BREAKDOWN_PARTS = [
     },
     {
         key: 'subdomain',
-        label: 'Subdomän'
+        label: 'Underdomän'
     },
     {
         key: 'ipAddress',
@@ -1945,7 +1945,7 @@ function render(rawInput) {
     if (u.username || u.password) addSignal('Inloggningsdel i URL (user:password@)', 'danger');
     if (parsed.raw.includes('@') && !u.username && !u.password) addSignal('Innehåller @ (kan vara vilseledande)', 'warn');
     if (u.hostname.startsWith('xn--') || u.hostname.includes('.xn--')) addSignal('IDN-domän', 'warn');
-    if (subdomain && subdomain.split('.').length >= 3) addSignal('Många subdomäner', 'warn');
+    if (subdomain && subdomain.split('.').length >= 3) addSignal('Många underdomäner', 'warn');
     renderScriptWarnings(boxWarnings);
     if (invisibleWarnings.length) addSignal('Osynliga tecken i länken', 'danger');
     if (bidiWarnings.length) addSignal('Bidi-styrtecken i länken', 'danger');

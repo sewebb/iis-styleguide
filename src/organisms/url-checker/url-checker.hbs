@@ -13,7 +13,7 @@
 												<h2 class="wp-block-heading">Så använder du detta mot bedrägerilänkar</h2>
 												<ul class="wp-block-list u-p-l-2 u-font-size-medium-plus">
 													<li>Kontrollera att <strong>domän och toppdomän</strong> stämmer – tillsammans bildar de den registrerade adressen och visar vilken webbplats länken tillhör</li>
-													<li>Var uppmärksam på subdomäner – de kan användas för att vilseleda och efterlikna riktiga webbplatser</li>
+													<li>Var uppmärksam på underdomäner – de kan användas för att vilseleda och efterlikna riktiga webbplatser</li>
 													<li>Se upp för ovanligt långa eller svåröverskådliga länkar</li>
 													<li>Leta efter stavfel och tecken som kan förväxlas med latinska bokstäver.</li>
 													<li>När du använder verktyget får du mer fördjupande förklaringar</li>
@@ -138,13 +138,13 @@
 							Protokollet är det som står först i länken och visar hur din webbläsare kommunicerar med webbplatsens server. Protokollet är ofta <strong>HTTPS</strong> eller <strong>HTTP</strong> för webbsidor.
 						</p>
 						<p>
-							<strong>HTTP</strong> innebär att anslutningen är okrypterad. Informationen som skickas mellan dig och webbplatsen kan då lättare läsas eller ändras av obehöriga under överföringen
+							<strong>HTTPS</strong> innebär att anslutningen är krypterad. Informationen som skickas mellan dig och webbplatsen är då bättre skyddad, men det garanterar inte att webbplatsen är pålitlig.
+						</p>
+						<p>
+							<strong>HTTP</strong> innebär att anslutningen är okrypterad. Informationen som skickas mellan dig och webbplatsen kan då lättare läsas eller ändras av obehöriga under överföringen.
 						</p>
 						<p>
 							Det finns även andra protokoll och typer av länkar. <strong>FTP</strong> används för filöverföring, file öppnar en lokal fil och mailto öppnar ett e-postprogram.
-						</p>
-						<p>
-							<strong>HTTPS</strong> innebär att anslutningen är krypterad. Informationen som skickas mellan dig och webbplatsen är då bättre skyddad, men det garanterar inte att webbplatsen är pålitlig.
 						</p>
 					</div>
 					<div class="o-url-checker__box__body o-url-checker__box__body--with-footer o-url-checker__kv">
@@ -158,6 +158,8 @@
 						<h3 class="u-m-b-0">Inloggningsuppgifter</h3>
 						<p>
 							Länken innehåller ett användarnamn och lösenord före <strong>@</strong>, till exempel <strong>user:password@</strong>.
+						</p>
+						<p>
 							<strong>Varning:</strong> Detta kan innebära en säkerhetsrisk och användas vid nätfiske för att få länken att se trovärdig ut.
 						</p>
 					</div>
@@ -169,18 +171,18 @@
 
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="subdomainBox">
 					<div class="o-url-checker__box__header">
-						<h3 class="u-m-b-0">Subdomän</h3>
+						<h3 class="u-m-b-0">Underdomän</h3>
 						<p>
-							En subdomän är den del av länken som står före domänen. En adress kan ha en, flera eller inga subdomäner alls. Vanliga exempel på subdomäner är <strong>WWW</strong> och <strong>login</strong>, men den som kontrollerar domänen väljer själv vad subdomänerna ska heta.
+							En underdomän är den del av länken som står före domänen. En adress kan ha en, flera eller inga underdomäner alls. Vanliga exempel på underdomäner är <strong>www</strong> och <strong>login</strong>, men den som kontrollerar domänen väljer själv vad underdomänerna ska heta.
 						</p>
 						<p>
-							Subdomäner används ofta av legitima webbplatser, men kan också användas för att vilseleda. En bedragare kan exempelvis använda ett välkänt företagsnamn i en subdomän för att få länken att se trovärdig ut. Det betyder inte att webbplatsen tillhör eller har en koppling till företaget.
+							Underdomäner används ofta av legitima webbplatser, men kan också användas för att vilseleda. En bedragare kan exempelvis använda ett välkänt företagsnamn i en underdomän för att få länken att se trovärdig ut. Det betyder inte att webbplatsen tillhör eller har en koppling till företaget.
 						</p>
 					</div>
 					<div class="o-url-checker__box__body o-url-checker__box__body--with-footer o-url-checker__kv">
 						<p class="u-p-t-0"><strong>Den testade länken innehåller:</strong> <code id="outSubdomain"></code></p>
 					</div>
-					<p class="u-m-b-1 o-url-checker__box__footer">Läs mer om <a href="https://internetkunskap.se/artiklar/ordlista/subdoman/" target="_blank">subdomäner</a> i vår ordlista</p>
+					<p class="u-m-b-1 o-url-checker__box__footer">Läs mer om <a href="https://internetkunskap.se/artiklar/ordlista/subdoman/" target="_blank">underdomäner</a> i vår ordlista</p>
 				</div>
 
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="ipAddressBox">
@@ -223,7 +225,7 @@
 							En toppdomän är den del av länken som står direkt efter domänen. I <strong>internetkunskap.se</strong> är <strong>.se</strong> toppdomänen. Vanliga exempel är <strong>.se</strong>, <strong>.com</strong> och <strong>.org</strong>.
 						</p>
 						<p>Toppdomänen kan ge viss information om adressen. .se är till exempel kopplad till Sverige, medan .com är en allmän toppdomän som används internationellt. Toppdomänen visar däremot inte säkert vem som står bakom webbplatsen.</p>
-						<p>Kom ihåg att två olika toppdomäner kan använda en likadan domän – exempelvis internetstiftelsen.se och internetstiftelsen.com. Det är inte säkert att de leder till samma webbplats,</p>
+						<p>Kom ihåg att två olika toppdomäner kan använda en likadan domän – exempelvis internetstiftelsen.se och internetstiftelsen.com. Det är inte säkert att de leder till samma webbplats.</p>
 					</div>
 					<div class="o-url-checker__box__body o-url-checker__box__body--with-footer o-url-checker__kv">
 						<p class="u-p-t-0"><strong>Den testade länken innehåller:</strong> <code id="outTld"></code></p>
