@@ -2,9 +2,9 @@
 Object.defineProperty(exports, "__esModule", {
     value: true
 });
-const _anchorScroll = require("../../assets/js/anchorScroll");
 const _className = /*#__PURE__*/ _interop_require_default(require("../../assets/js/className"));
 const _track = /*#__PURE__*/ _interop_require_default(require("../../assets/js/track"));
+const _Button = /*#__PURE__*/ _interop_require_default(require("../../atoms/button/Button"));
 function _extends() {
     _extends = Object.assign || function(target) {
         for(var i = 1; i < arguments.length; i++){
@@ -41,9 +41,6 @@ const els = {
     scriptWarningWrap: document.getElementById('scriptWarningWrap'),
     scriptWarningList: document.getElementById('scriptWarningList'),
     protocolBox: document.getElementById('protocolBox'),
-    protocolDescriptionHttps: document.getElementById('protocolDescriptionHttps'),
-    protocolDescriptionHttp: document.getElementById('protocolDescriptionHttp'),
-    protocolDescriptionOther: document.getElementById('protocolDescriptionOther'),
     outProtocol: document.getElementById('outProtocol'),
     credentialsBox: document.getElementById('credentialsBox'),
     outUsername: document.getElementById('outUsername'),
@@ -1102,12 +1099,8 @@ function safeText(el, value) {
 }
 function setProtocolDetails(protocol) {
     const isHttp = protocol === 'http:';
-    const isHttps = protocol === 'https:';
     els.protocolBox.classList.toggle(CLASS.boxRuby, isHttp);
     els.protocolBox.classList.toggle(CLASS.boxLemon, !isHttp);
-    els.protocolDescriptionHttp.hidden = !isHttp;
-    els.protocolDescriptionHttps.hidden = !isHttps;
-    els.protocolDescriptionOther.hidden = isHttp || isHttps;
 }
 function setSafeMarkup(el, markup) {
     el.innerHTML = markup;
@@ -2015,52 +2008,37 @@ function render(rawInput) {
     return true;
 }
 if (shouldInitUrlChecker) {
-    // Debounced live parsing
-    let t = null;
-    let shouldScrollToOverviewOnNextAnalyze = false;
-    let blockAutoScrollUntilManualAnalyze = false;
+    const ANALYSIS_DELAY_MS = 800;
+    const analyzeButton = new _Button.default(els.analyzeBtn);
+    let analysisTimer = null;
     const analyze = (value)=>{
         const didPassValidation = render(value);
         if (didPassValidation) trackUrlAnalysis();
-        if (!shouldScrollToOverviewOnNextAnalyze) return;
-        if (blockAutoScrollUntilManualAnalyze) {
-            shouldScrollToOverviewOnNextAnalyze = false;
-            return;
-        }
-        const errorIsVisible = Boolean(els.urlInputFieldGroup && els.urlInputFieldGroup.classList.contains('is-invalid') && els.urlInputHelp && els.urlInputHelp.textContent.trim().length);
-        shouldScrollToOverviewOnNextAnalyze = false;
-        const target = errorIsVisible ? els.urlInputHelp : document.getElementById('overview');
+        if (!didPassValidation) return;
+        const target = document.getElementById('overview');
         if (!target) return;
-        (0, _anchorScroll.animateAnchorScroll)(target, null, {
-            easing: 'easeOut',
-            speedAsDuration: false
+        requestAnimationFrame(()=>{
+            requestAnimationFrame(()=>{
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
         });
     };
-    els.urlInput.addEventListener('paste', ()=>{
-        shouldScrollToOverviewOnNextAnalyze = true;
-    });
-    els.urlInput.addEventListener('input', (event)=>{
-        const inputType = (event == null ? void 0 : event.inputType) || '';
-        const isPasteInput = inputType === 'insertFromPaste';
-        if (!isPasteInput) {
-            blockAutoScrollUntilManualAnalyze = true;
-            shouldScrollToOverviewOnNextAnalyze = false;
-        }
-        clearTimeout(t);
-        if (shouldScrollToOverviewOnNextAnalyze) {
-            analyze(els.urlInput.value);
-            return;
-        }
-        t = setTimeout(()=>analyze(els.urlInput.value), 1000);
-    });
     els.analyzeBtn.addEventListener('click', ()=>{
-        blockAutoScrollUntilManualAnalyze = false;
-        shouldScrollToOverviewOnNextAnalyze = Boolean(els.urlInput.value.trim());
-        analyze(els.urlInput.value);
+        if (analyzeButton.isLoading()) return;
+        analyzeButton.start();
+        analysisTimer = setTimeout(()=>{
+            analysisTimer = null;
+            analyzeButton.stop();
+            analyze(els.urlInput.value);
+        }, ANALYSIS_DELAY_MS);
     });
     els.clearBtn.addEventListener('click', ()=>{
-        shouldScrollToOverviewOnNextAnalyze = false;
-        blockAutoScrollUntilManualAnalyze = false;
+        clearTimeout(analysisTimer);
+        analysisTimer = null;
+        analyzeButton.stop();
         els.urlInput.value = '';
         render('');
         els.urlInput.focus();

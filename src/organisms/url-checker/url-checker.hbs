@@ -41,7 +41,7 @@
 		<section class="o-url-checker__box u-m-b-default">
 			<div class="o-url-checker__box__header">
 				<p class="u-m-b-0">
-					Exempel: <strong>https://internetkunskap.se/artiklar/kategori/artikel?utm_source=x#nyhetsbrev</strong>
+					Exempel: <strong class="u-wrap">https://www.internetkunskap.se/artiklar/kategori/artikel?utm_source=x#nyhetsbrev</strong>
 				</p>
 			</div>
 
@@ -134,27 +134,29 @@
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="protocolBox">
 					<div class="o-url-checker__box__header">
 						<h3 class="u-m-b-0">Protokoll</h3>
-						<p id="protocolDescriptionHttps">
-							Protokollet är det som står först i länken och visar hur din webbläsare kommunicerar med webbplatsens server. Protokollet är ofta <strong>https</strong> eller <strong>http</strong> för webbsidor.
+						<p>
+							Protokollet är det som står först i länken och visar hur din webbläsare kommunicerar med webbplatsens server. Protokollet är ofta <strong>HTTPS</strong> eller <strong>HTTP</strong> för webbsidor.
 						</p>
-						<p id="protocolDescriptionHttp" hidden>
-							Anger hur din webbläsare ska ansluta.<br>
-							<strong>Varning:</strong> <strong>http://</strong> är inte krypterat. Information som skickas kan läsas eller ändras på vägen.
+						<p>
+							<strong>HTTP</strong> innebär att anslutningen är okrypterad. Informationen som skickas mellan dig och webbplatsen kan då lättare läsas eller ändras av obehöriga under överföringen
 						</p>
-						<p id="protocolDescriptionOther" hidden>
-							Anger hur din webbläsare ska ansluta. Kontrollera att du känner igen protokollet och förstår hur det används.
+						<p>
+							Det finns även andra protokoll och typer av länkar. <strong>FTP</strong> används för filöverföring, file öppnar en lokal fil och mailto öppnar ett e-postprogram.
+						</p>
+						<p>
+							<strong>HTTPS</strong> innebär att anslutningen är krypterad. Informationen som skickas mellan dig och webbplatsen är då bättre skyddad, men det garanterar inte att webbplatsen är pålitlig.
 						</p>
 					</div>
 					<div class="o-url-checker__box__body o-url-checker__box__body--with-footer o-url-checker__kv">
 						<p class="u-p-t-0"><strong>Den testade länken innehåller:</strong> <code id="outProtocol"></code></p>
 					</div>
-					<p class="u-m-b-0 o-url-checker__box__footer">Läs mer om <a href="https://internetkunskap.se/artiklar/ordlista/protokoll/" target="_blank">protokoll</a> i vår ordlista</p>
+					<p class="u-m-b-1 o-url-checker__box__footer">Läs mer om <a href="https://internetkunskap.se/artiklar/ordlista/protokoll/" target="_blank">protokoll</a> i vår ordlista</p>
 				</div>
 
 				<div class="o-url-checker__box o-url-checker__box--ruby" id="credentialsBox">
 					<div class="o-url-checker__box__header">
 						<h3 class="u-m-b-0">Inloggningsuppgifter</h3>
-						<p class="u-m-b-0">
+						<p>
 							Länken innehåller ett användarnamn och lösenord före <strong>@</strong>, till exempel <strong>user:password@</strong>.
 							<strong>Varning:</strong> Detta kan innebära en säkerhetsrisk och användas vid nätfiske för att få länken att se trovärdig ut.
 						</p>
@@ -169,13 +171,16 @@
 					<div class="o-url-checker__box__header">
 						<h3 class="u-m-b-0">Subdomän</h3>
 						<p>
-							En subdomän är den del av länken som står före domänen. En adress kan ha en, flera eller inga subdomäner alls. Vanliga exempel på subdomäner är <strong>www</strong> och <strong>login</strong>, men den som kontrollerar domänen väljer själv vad subdomänerna ska heta.
+							En subdomän är den del av länken som står före domänen. En adress kan ha en, flera eller inga subdomäner alls. Vanliga exempel på subdomäner är <strong>WWW</strong> och <strong>login</strong>, men den som kontrollerar domänen väljer själv vad subdomänerna ska heta.
+						</p>
+						<p>
+							Subdomäner används ofta av legitima webbplatser, men kan också användas för att vilseleda. En bedragare kan exempelvis använda ett välkänt företagsnamn i en subdomän för att få länken att se trovärdig ut. Det betyder inte att webbplatsen tillhör eller har en koppling till företaget.
 						</p>
 					</div>
 					<div class="o-url-checker__box__body o-url-checker__box__body--with-footer o-url-checker__kv">
 						<p class="u-p-t-0"><strong>Den testade länken innehåller:</strong> <code id="outSubdomain"></code></p>
 					</div>
-					<p class="u-m-b-0 o-url-checker__box__footer">Läs mer om <a href="https://internetkunskap.se/artiklar/ordlista/subdoman/" target="_blank">subdomäner</a> i vår ordlista</p>
+					<p class="u-m-b-1 o-url-checker__box__footer">Läs mer om <a href="https://internetkunskap.se/artiklar/ordlista/subdoman/" target="_blank">subdomäner</a> i vår ordlista</p>
 				</div>
 
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="ipAddressBox">
@@ -184,6 +189,9 @@
 						<p>
 							Den här länken visar en IP-adress i stället för ett domännamn. Domännamn används i de flesta länkar eftersom de är lättare att känna igen och komma ihåg, men varje domännamn är också kopplat till en eller flera IP-adresser.
 						</p>
+						<p>IP-adressen kan vara IPv4 eller IPv6. IPv4 består av fyra tal med punkter emellan, till exempel 192.168.1.1. IPv6 är längre och består av grupper med siffror och bokstäver, åtskilda med kolon.</p>
+						<p>En IP-adress i en länk behöver inte vara farlig, men gör det svårare att snabbt bedöma vilken webbplats länken går till.</p>
+
 					</div>
 					<div class="o-url-checker__box__body o-url-checker__box__body--with-footer o-url-checker__kv">
 						<p class="u-p-t-0">
@@ -191,7 +199,7 @@
 							<span class="u-display-block"><strong>Typ:</strong> <code id="outIpVersion"></code></span>
 						</p>
 					</div>
-					<p class="u-m-b-0 o-url-checker__box__footer">Läs mer om <a href="https://internetkunskap.se/artiklar/ordlista/ip-adress/" target="_blank">IP-adresser</a> i vår ordlista</p>
+					<p class="u-m-b-1 o-url-checker__box__footer">Läs mer om <a href="https://internetkunskap.se/artiklar/ordlista/ip-adress/" target="_blank">IP-adresser</a> i vår ordlista</p>
 				</div>
 
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="domainBox">
@@ -205,7 +213,7 @@
 					<div class="o-url-checker__box__body o-url-checker__box__body--with-footer o-url-checker__kv">
 						<p class="u-p-t-0"><strong>Den testade länken innehåller:</strong> <code id="outDomain"></code></p>
 					</div>
-					<p class="u-m-b-0 o-url-checker__box__footer">Läs mer om <a href="https://internetkunskap.se/artiklar/ordlista/doman/" target="_blank">domäner</a> i vår ordlista</p>
+					<p class="u-m-b-1 o-url-checker__box__footer">Läs mer om <a href="https://internetkunskap.se/artiklar/ordlista/doman/" target="_blank">domäner</a> i vår ordlista</p>
 				</div>
 
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="tldBox">
@@ -220,7 +228,7 @@
 					<div class="o-url-checker__box__body o-url-checker__box__body--with-footer o-url-checker__kv">
 						<p class="u-p-t-0"><strong>Den testade länken innehåller:</strong> <code id="outTld"></code></p>
 					</div>
-					<p class="u-m-b-0 o-url-checker__box__footer">Läs mer om <a href="https://internetkunskap.se/artiklar/ordlista/doman/toppdoman/" target="_blank">toppdomäner</a> i vår ordlista</p>
+					<p class="u-m-b-1 o-url-checker__box__footer">Läs mer om <a href="https://internetkunskap.se/artiklar/ordlista/doman/toppdoman/" target="_blank">toppdomäner</a> i vår ordlista</p>
 				</div>
 
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="pathBox">
@@ -232,23 +240,27 @@
 						<p>Den som driver webbplatsen bestämmer hur sökvägen ska se ut. Den kan därför innehålla nästan vilka ord som helst.</p>
 					</div>
 					<div class="o-url-checker__box__body o-url-checker__kv">
-						<div><strong>Den testade länken innehåller:</strong> <code id="outPath"></code></div>
-						<div class="u-m-t-2"><strong>Sökväg:</strong> <code id="outFolders"></code></div>
+						<p class="u-p-t-0 u-m-b-1">
+							<span class="u-display-block"><strong>Den testade länken innehåller:</strong> <code id="outPath"></code></span>
+							<span class="u-display-block"><strong>Sökväg:</strong> <code id="outFolders"></code></span>
+						</p>
 					</div>
 				</div>
 
 				<div class="o-url-checker__box o-url-checker__box--lemon" id="queryBox">
 					<div class="o-url-checker__box__header">
 						<h3 class="u-m-b-0">Parametrar</h3>
-						<p class="u-m-b-0">
+						<p>
 							Parametrar är den del av länken som står efter <strong>?</strong>. Den  och skickar extra information till webbplatsen, till exempel en sökning, ett filter eller ett spårnings-ID. Flera parametrar skiljs ofta åt med <strong>&</strong>. De kallas även <strong>query-parametrar</strong>.
 						</p>
+						<p>Det är vanligt att använda parametrar för kunna spåra var besökare till en webbplats kommer ifrån, till exempel genom att skapa unika parametrar för annonser eller det man länkar i sociala medier.</p>
+						<p>Parametrar är vanliga och säger i sig inte om en länk är pålitlig eller inte. Många eller långa parametrar kan däremot göra länken svårare att överblicka.</p>
 					</div>
 					<div class="o-url-checker__box__body o-url-checker__kv">
-						<div><strong>Den testade länken innehåller:</strong> <code id="outQuery"></code></div>
-						<div id="outParamsWrap" class="u-m-t-2" hidden>
-							<strong>Nycklar och värden:</strong>
-							<ul id="outParams" clas s="u-m-b-0"></ul>
+						<p class="u-p-t-0 u-m-b-0"><strong>Den testade länken innehåller:</strong> <code id="outQuery"></code></p>
+						<div class="o-url-checker__kv" id="outParamsWrap" hidden>
+							<div><strong>Nycklar och värden:</strong></div>
+							<ul class="u-m-b-0" id="outParams"></ul>
 						</div>
 					</div>
 				</div>
@@ -261,7 +273,7 @@
 						</p>
 					</div>
 					<div class="o-url-checker__box__body o-url-checker__kv">
-						<div><strong>Den testade länken innehåller:</strong> <code id="outHash"></code></div>
+						<p class="u-p-t-0 u-m-b-1"><strong>Den testade länken innehåller:</strong> <code id="outHash"></code></p>
 					</div>
 				</div>
 			</div>
