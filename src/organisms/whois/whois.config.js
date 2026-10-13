@@ -550,6 +550,9 @@ module.exports = {
 		whois_i18n_json: JSON.stringify(whoisI18n),
 		whois_initial_placeholder: whoisI18n.selectSearchTypePlaceholder,
 		organisation_country_options: organisationCountryOptions,
+		registrant_country: 'SE',
+		registrar_name: 'CSC Corp Domains',
+		registrar_url: 'https://www.cscdbs.com/',
 		whois_info_boxes: whoisInfoBoxes,
 	},
 
