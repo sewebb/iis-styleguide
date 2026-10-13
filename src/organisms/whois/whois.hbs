@@ -390,17 +390,8 @@
 									<a href="#">[SE]556012-5790</a></p>
 							{{/unless}}
 								{{#if result_private_registrant}}
-								<p>
-									<span class="u-display-inline-flex align-items-center">
-										<strong class="u-m-r-05">Land</strong>
-										<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Land" data-tooltip-placement="top">
-											<span class="a-tooltip__text" hidden>Här visas innehavarens land</span>
-											<svg class="icon a-button__icon" aria-hidden="true">
-												<use xlink:href="#icon-info"></use>
-											</svg>
-										</button>
-									</span><br>
-									{{registrant_country}}</p>
+									<p><strong>Registrar</strong><br>
+									<a href="{{registrar_url}}" target="_blank" rel="noopener">{{registrar_name}} <svg class="icon o-mega-menu__link__icon"><use xlink:href="#icon-external-link"></use></svg></a></p>
 								{{/if}}
 						</div>
 					</div>
@@ -414,9 +405,6 @@
 							</div>
 								<div class="grid-auto u-align-right o-whois__contact-secondary">
 									{{#if result_private_registrant}}
-										<p><strong>Registrar</strong><br>
-										<a href="{{registrar_url}}" target="_blank" rel="noopener">{{registrar_name}} <svg class="icon o-mega-menu__link__icon"><use xlink:href="#icon-external-link"></use></svg></a></p>
-									{{else}}
 										<p>
 											<span class="u-display-inline-flex align-items-center">
 												<strong class="u-m-r-05">Land</strong>
@@ -428,6 +416,9 @@
 												</button>
 											</span><br>
 											{{registrant_country}}</p>
+									{{else}}
+										<p><strong>Registrar</strong><br>
+										<a href="{{registrar_url}}" target="_blank" rel="noopener">{{registrar_name}} <svg class="icon o-mega-menu__link__icon"><use xlink:href="#icon-external-link"></use></svg></a></p>
 									{{/if}}
 								</div>
 						</div>
@@ -448,8 +439,22 @@
 								</p>
 							</div>
 								<div class="grid-auto u-align-right o-whois__contact-secondary">
+										{{#if result_private_registrant}}
+											<p>
+												<span class="u-display-inline-flex align-items-center">
+													<strong class="u-m-r-05">Land</strong>
+													<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Land" data-tooltip-placement="top">
+														<span class="a-tooltip__text" hidden>Här visas innehavarens land</span>
+														<svg class="icon a-button__icon" aria-hidden="true">
+															<use xlink:href="#icon-info"></use>
+														</svg>
+													</button>
+												</span><br>
+												{{registrant_country}}</p>
+										{{else}}
 									<p><strong>Registrar</strong><br>
 									<a href="{{registrar_url}}" target="_blank" rel="noopener">{{registrar_name}} <svg class="icon o-mega-menu__link__icon"><use xlink:href="#icon-external-link"></use></svg></a></p>
+										{{/if}}
 								</div>
 						</div>
 						<div class="row o-whois__contact-row">
@@ -510,8 +515,17 @@
 										</span><br>
 										(not shown)</p>
 									{{else}}
-										<p><strong>Registrar</strong><br>
-										<a href="{{registrar_url}}" target="_blank" rel="noopener">{{registrar_name}} <svg class="icon o-mega-menu__link__icon"><use xlink:href="#icon-external-link"></use></svg></a></p>
+										<p>
+											<span class="u-display-inline-flex align-items-center">
+												<strong class="u-m-r-05">Land</strong>
+												<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon" aria-label="Visa mer information om Land" data-tooltip-placement="top">
+													<span class="a-tooltip__text" hidden>Här visas innehavarens land</span>
+													<svg class="icon a-button__icon" aria-hidden="true">
+														<use xlink:href="#icon-info"></use>
+													</svg>
+												</button>
+											</span><br>
+											{{registrant_country}}</p>
 								{{/if}}
 							</div>
 						</div>
