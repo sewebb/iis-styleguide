@@ -105,7 +105,7 @@ const BREAKDOWN_PARTS = [
     },
     {
         key: 'subdomain',
-        label: 'Underdomän'
+        label: 'Subdomän'
     },
     {
         key: 'ipAddress',
@@ -1945,7 +1945,7 @@ function render(rawInput) {
     if (u.username || u.password) addSignal('Inloggningsdel i URL (user:password@)', 'danger');
     if (parsed.raw.includes('@') && !u.username && !u.password) addSignal('Innehåller @ (kan vara vilseledande)', 'warn');
     if (u.hostname.startsWith('xn--') || u.hostname.includes('.xn--')) addSignal('IDN-domän', 'warn');
-    if (subdomain && subdomain.split('.').length >= 3) addSignal('Många underdomäner', 'warn');
+    if (subdomain && subdomain.split('.').length >= 3) addSignal('Många subdomäner', 'warn');
     renderScriptWarnings(boxWarnings);
     if (invisibleWarnings.length) addSignal('Osynliga tecken i länken', 'danger');
     if (bidiWarnings.length) addSignal('Bidi-styrtecken i länken', 'danger');
@@ -2026,7 +2026,7 @@ if (shouldInitUrlChecker) {
             });
         });
     };
-    els.analyzeBtn.addEventListener('click', ()=>{
+    const requestAnalysis = ()=>{
         if (analyzeButton.isLoading()) return;
         analyzeButton.start();
         analysisTimer = setTimeout(()=>{
@@ -2034,6 +2034,12 @@ if (shouldInitUrlChecker) {
             analyzeButton.stop();
             analyze(els.urlInput.value);
         }, ANALYSIS_DELAY_MS);
+    };
+    els.analyzeBtn.addEventListener('click', requestAnalysis);
+    els.urlInput.addEventListener('keydown', (event)=>{
+        if (event.key !== 'Enter' || event.shiftKey) return;
+        event.preventDefault();
+        requestAnalysis();
     });
     els.clearBtn.addEventListener('click', ()=>{
         clearTimeout(analysisTimer);

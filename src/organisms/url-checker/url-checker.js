@@ -1802,7 +1802,7 @@ if (shouldInitUrlChecker) {
 		});
 	};
 
-	els.analyzeBtn.addEventListener('click', () => {
+	const requestAnalysis = () => {
 		if (analyzeButton.isLoading()) return;
 
 		analyzeButton.start();
@@ -1811,6 +1811,15 @@ if (shouldInitUrlChecker) {
 			analyzeButton.stop();
 			analyze(els.urlInput.value);
 		}, ANALYSIS_DELAY_MS);
+	};
+
+	els.analyzeBtn.addEventListener('click', requestAnalysis);
+
+	els.urlInput.addEventListener('keydown', (event) => {
+		if (event.key !== 'Enter' || event.shiftKey) return;
+
+		event.preventDefault();
+		requestAnalysis();
 	});
 
 	els.clearBtn.addEventListener('click', () => {
