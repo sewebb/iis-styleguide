@@ -128,6 +128,167 @@ li ol li ol {
 	list-style-type: lower-roman;
 }
 
+ul.bullet-list--quote,
+ul.bullet-list--arrow-right-variant,
+ul.bullet-list--heart-variant,
+ul.bullet-list--check-variant,
+ul.bullet-list--close-variant {
+	@include colorFunc.color_classes(
+		$map: colorFunc.$colors,
+		$attribute: '--bullet-list-icon-color',
+		$prefix: '-'
+	);
+
+	padding-left: func.rhythm(4);
+	list-style: none;
+
+}
+
+ul[class*='bullet-list--'] > li,
+li.bullet-list--quote,
+li.bullet-list--arrow-right-variant,
+li.bullet-list--heart-variant,
+li.bullet-list--check-variant,
+li.bullet-list--close-variant {
+	position: relative;
+
+	&::before {
+		position: absolute;
+		top: func.rhythm(1);
+		right: 100%;
+		margin-right: func.rhythm(1);
+		background-color: var(--bullet-list-icon-color, #{colors.$color-black});
+		content: '';
+	}
+}
+
+ul[class*='bullet-list--'] > li {
+	@include colorFunc.color_classes(
+		$map: colorFunc.$colors,
+		$attribute: '--bullet-list-icon-color',
+		$prefix: '-'
+	);
+}
+
+li.bullet-list--quote,
+li.bullet-list--arrow-right-variant,
+li.bullet-list--heart-variant,
+li.bullet-list--check-variant,
+li.bullet-list--close-variant {
+	@include colorFunc.color_classes(
+		$map: colorFunc.$colors,
+		$attribute: '--bullet-list-icon-color',
+		$prefix: '-'
+	);
+}
+
+ul[class*='bullet-list--'] > li.bullet-list--quote,
+ul[class*='bullet-list--'] > li.bullet-list--arrow-right-variant,
+ul[class*='bullet-list--'] > li.bullet-list--heart-variant,
+ul[class*='bullet-list--'] > li.bullet-list--check-variant,
+ul[class*='bullet-list--'] > li.bullet-list--close-variant {
+	@include colorFunc.color_classes(
+		$map: colorFunc.$colors,
+		$attribute: '--bullet-list-icon-color',
+		$prefix: '-'
+	);
+}
+
+ul.bullet-list--quote > li::before,
+ul[class*='bullet-list--'] > li.bullet-list--quote::before,
+li.bullet-list--quote::before {
+	width: func.rhythm(1);
+	height: func.rhythm(2);
+	-webkit-mask: url('../../atoms/icon/quote.svg') no-repeat center / contain;
+	mask: url('../../atoms/icon/quote.svg') no-repeat center / contain;
+}
+
+ul.bullet-list--arrow-right-variant > li::before,
+ul[class*='bullet-list--'] > li.bullet-list--arrow-right-variant::before,
+li.bullet-list--arrow-right-variant::before {
+	width: func.rhythm(1.5);
+	height: func.rhythm(1.5);
+	-webkit-mask: url('../../atoms/icon/arrow-variant.svg') no-repeat center / contain;
+	mask: url('../../atoms/icon/arrow-variant.svg') no-repeat center / contain;
+}
+
+ul.bullet-list--heart-variant > li::before,
+ul[class*='bullet-list--'] > li.bullet-list--heart-variant::before,
+li.bullet-list--heart-variant::before {
+	width: func.rhythm(1.5);
+	height: func.rhythm(1.5);
+	-webkit-mask: url('../../atoms/icon/heart-variant.svg') no-repeat center / contain;
+	mask: url('../../atoms/icon/heart-variant.svg') no-repeat center / contain;
+}
+
+ul.bullet-list--heart-variant > li::after,
+ul[class*='bullet-list--'] > li.bullet-list--heart-variant::after,
+li.bullet-list--heart-variant::after {
+	position: absolute;
+	top: func.rhythm(1);
+	right: calc(100% + #{func.rhythm(1)});
+	width: func.rhythm(1.5);
+	height: func.rhythm(1.5);
+	background-color: colors.$color-snow;
+	-webkit-mask: url('../../atoms/icon/heart-variant-glare.svg') no-repeat center / contain;
+	mask: url('../../atoms/icon/heart-variant-glare.svg') no-repeat center / contain;
+	content: '';
+}
+
+ul.bullet-list--check-variant > li::before,
+ul[class*='bullet-list--'] > li.bullet-list--check-variant::before,
+li.bullet-list--check-variant::before,
+ul.bullet-list--close-variant > li::before,
+ul[class*='bullet-list--'] > li.bullet-list--close-variant::before,
+li.bullet-list--close-variant::before {
+	top: func.rhythm(1);
+	width: func.rhythm(1.5);
+	height: func.rhythm(1.5);
+}
+
+ul.bullet-list--check-variant > li::before,
+ul[class*='bullet-list--'] > li.bullet-list--check-variant::before,
+li.bullet-list--check-variant::before {
+	-webkit-mask: url('../../atoms/icon/check-variant.svg') no-repeat center / contain;
+	mask: url('../../atoms/icon/check-variant.svg') no-repeat center / contain;
+}
+
+ul.bullet-list--close-variant > li::before,
+ul[class*='bullet-list--'] > li.bullet-list--close-variant::before,
+li.bullet-list--close-variant::before {
+	-webkit-mask: url('../../atoms/icon/close-variant.svg') no-repeat center / contain;
+	mask: url('../../atoms/icon/close-variant.svg') no-repeat center / contain;
+}
+
+ul.bullet-list--check-variant > li::after,
+ul[class*='bullet-list--'] > li.bullet-list--check-variant::after,
+li.bullet-list--check-variant::after,
+ul.bullet-list--close-variant > li::after,
+ul[class*='bullet-list--'] > li.bullet-list--close-variant::after,
+li.bullet-list--close-variant::after {
+	position: absolute;
+	top: func.rhythm(1);
+	right: calc(100% + #{func.rhythm(1)});
+	width: func.rhythm(1.5);
+	height: func.rhythm(1.5);
+	background-color: colors.$color-snow;
+	content: '';
+}
+
+ul.bullet-list--check-variant > li::after,
+ul[class*='bullet-list--'] > li.bullet-list--check-variant::after,
+li.bullet-list--check-variant::after {
+	-webkit-mask: url('../../atoms/icon/check.svg') no-repeat center / contain;
+	mask: url('../../atoms/icon/check.svg') no-repeat center / contain;
+}
+
+ul.bullet-list--close-variant > li::after,
+ul[class*='bullet-list--'] > li.bullet-list--close-variant::after,
+li.bullet-list--close-variant::after {
+	-webkit-mask: url('../../atoms/icon/close.svg') no-repeat center / contain;
+	mask: url('../../atoms/icon/close.svg') no-repeat center / contain;
+}
+
 p,
 ul,
 ol,
