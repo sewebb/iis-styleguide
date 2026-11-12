@@ -278,15 +278,15 @@ li.bullet-list--close-variant::after {
 ul.bullet-list--check-variant > li::after,
 ul[class*='bullet-list--'] > li.bullet-list--check-variant::after,
 li.bullet-list--check-variant::after {
-	-webkit-mask: url('../../atoms/icon/check.svg') no-repeat center / contain;
-	mask: url('../../atoms/icon/check.svg') no-repeat center / contain;
+	-webkit-mask: url('../../atoms/icon/check-variant-inner.svg') no-repeat center / contain;
+	mask: url('../../atoms/icon/check-variant-inner.svg') no-repeat center / contain;
 }
 
 ul.bullet-list--close-variant > li::after,
 ul[class*='bullet-list--'] > li.bullet-list--close-variant::after,
 li.bullet-list--close-variant::after {
-	-webkit-mask: url('../../atoms/icon/close.svg') no-repeat center / contain;
-	mask: url('../../atoms/icon/close.svg') no-repeat center / contain;
+	-webkit-mask: url('../../atoms/icon/close-variant-inner.svg') no-repeat center / contain;
+	mask: url('../../atoms/icon/close-variant-inner.svg') no-repeat center / contain;
 }
 
 p,
