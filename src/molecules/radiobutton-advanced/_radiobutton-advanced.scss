@@ -37,6 +37,7 @@
 				border: 1px solid colors.$color-concrete;
 				border-radius: var.$border-radius;
 				background-color: colors.$color-snow;
+				@include mixin.card-shadow(colors.$color-cyberspace, 0.2);
 			}
 		}
 
