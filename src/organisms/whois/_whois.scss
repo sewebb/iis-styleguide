@@ -40,6 +40,51 @@
 		min-width: 0;
 	}
 
+	@include bem.e(copy-search-link) {
+		border-width: 2px;
+	}
+
+	@include bem.e(organisation-registrar-list) {
+		display: grid;
+		align-items: start;
+		gap: func.rhythm(2);
+
+		> [class*='js-whois-organisation-registrar'] {
+			min-width: 0;
+		}
+
+		&[data-has-multiple-registrars='true'] {
+			@include breakpoint.bp-up(md) {
+				grid-template-columns: repeat(2, minmax(0, 1fr));
+			}
+		}
+	}
+
+	@include bem.e(reverse-result) {
+		display: grid;
+		justify-items: end;
+
+		> [class*='organisation-registrar-list'] {
+			justify-self: stretch;
+		}
+
+		button[aria-expanded] {
+			flex-direction: row;
+			align-items: center;
+
+			&:hover,
+			&[aria-expanded='true'] {
+				background-color: colors.$color-ocean-light;
+			}
+		}
+	}
+
+	@include bem.e(table-field) {
+		display: inline-flex !important;
+		gap: func.rhythm(0.5);
+		align-items: center;
+	}
+
 	@include bem.e(retailers-status) {
 		width: 100%;
 		flex: 1 1 auto;
@@ -355,12 +400,6 @@
 	@include bem.e(contact-note) {
 		max-width: 60ch;
 		font-style: italic;
-	}
-
-	@include bem.e(contact-note-tooltip) {
-		margin-left: func.to_rem(2px);
-		margin-right: 0;
-		vertical-align: middle;
 	}
 
 	@include breakpoint.bp-down(sm) {

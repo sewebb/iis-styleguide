@@ -129,10 +129,10 @@
 			}
 
 			@include breakpoint.bp-up(md) {
-				padding-left: func.rhythm(1.5);
-				padding-right: func.rhythm(1.5);
-				padding-top: func.rhythm(1) !important;
-				padding-bottom: func.rhythm(1) !important;
+				padding-left: func.rhythm(2);
+				padding-right: func.rhythm(2);
+				padding-top: func.rhythm(2) !important;
+				padding-bottom: func.rhythm(2) !important;
 			}
 		}
 	}

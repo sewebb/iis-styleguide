@@ -235,6 +235,11 @@ li.bullet-list--heart-variant::after {
 	content: '';
 }
 
+ul.bullet-list--heart-variant > li.bullet-list--quote::after,
+ul.bullet-list--heart-variant > li.bullet-list--arrow-right-variant::after {
+	content: none;
+}
+
 ul.bullet-list--check-variant > li::before,
 ul[class*='bullet-list--'] > li.bullet-list--check-variant::before,
 li.bullet-list--check-variant::before,

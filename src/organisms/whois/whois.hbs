@@ -39,7 +39,7 @@
 							<div class="field-group o-whois__search-input-wrap js-whois-field-group">
 								<div class="m-input-group o-whois__search-input-group">
 									<input id="domainSearch" type="text" class="a-input js-whois-input" placeholder="{{#if search_value}}{{else}}{{whois_initial_placeholder}}{{/if}}"{{#if search_value}} value="{{search_value}}"{{else}} disabled{{/if}}>
-									<button type="submit" class="a-button a-button--ocean-light a-button--input-group js-whois-submit"{{#unless search_value}} disabled{{/unless}}>
+									<button type="submit" class="a-button a-button--ocean-light a-button--input-group js-whois-submit u-position-relative u-z-index-background"{{#unless search_value}} disabled{{/unless}}>
 										<span class="a-button__text">Sök</span>
 									</button>
 								</div>
@@ -54,6 +54,18 @@
 	{{#if result}}
 		<div data-whois-result aria-live="polite" class="u-p-b-2">
 			{{#if result_retailers}}
+			{{else if result_keyword}}
+				<h2 class="alpha u-m-t-2 u-m-b-1"><span class="u-weight-normal">Sökresultat för nyckelordet <strong>{{search_value}}</strong></span></h2>
+			{{else if result_organisation}}
+				<h2 class="alpha u-m-t-2 u-m-b-1"><span class="u-weight-normal">Sökresultat för <strong>{{organisation_number_display}}</strong></span></h2>
+			{{else}}
+				<h2 class="alpha u-m-t-2 u-m-b-1">{{search_value}} <span class="u-weight-normal">{{result_heading}}</span></h2>
+			{{/if}}
+			{{#unless result_retailers}}
+				<p>{{result_text}}</p>
+			{{/unless}}
+
+			{{#if show_retailer_list}}
 				<div class="o-whois__retailer-toolbar u-m-b-2">
 					<div class="o-whois__retailer-toolbar-header">
 						<div class="o-whois__retailers-status">
@@ -192,18 +204,9 @@
 						</form>
 					</div>
 				</div>
-			{{else if result_keyword}}
-				<h2 class="alpha u-m-t-2 u-m-b-1"><span class="u-weight-normal">Sökresultat för nyckelordet <strong>{{search_value}}</strong></span></h2>
-			{{else if result_organisation}}
-				<h2 class="alpha u-m-t-2 u-m-b-1"><span class="u-weight-normal">Sökresultat för organisationsnummer <strong>{{organisation_number_display}}</strong></span></h2>
-			{{else}}
-				<h2 class="alpha u-m-t-2 u-m-b-1">{{search_value}} <span class="u-weight-normal">{{result_heading}}</span></h2>
 			{{/if}}
-			{{#unless result_retailers}}
-				<p>{{result_text}}</p>
-			{{/unless}}
 
-			{{#if result_retailers}}
+			{{#if show_retailer_list}}
 				<div class="o-whois__retailer-directory">
 					{{#each retailer_items}}
 						<article class="o-whois__retailer-card" data-retailer="{{tag_string}}">
@@ -316,30 +319,31 @@
 					{{/each}}
 				</div>
 			{{else if result_available}}
-				<a href="{{register_url}}" class="a-button a-button--lemon-light">
-					<span class="a-button__text">Registrera domänen</span>
-				</a>
+				{{!-- The available-domain summary is rendered above this result branch. --}}
 			{{else if result_organisation}}
-				<h2>Företagsinformation</h2>
-				<div class="o-whois__contact u-p-2 u-m-b-4 u-b-t-2 u-b-b-0 u-b-x-0 u-b-solid u-b-granit">
-					<div class="row o-whois__contact-row">
-						<div class="grid o-whois__contact-primary">
-							<p class="u-m-b-1"><strong>Företag</strong></p>
-							<h2 class="u-m-b-0">{{organisation_company_name}}</h2>
-						</div>
-						<div class="grid-auto u-align-right o-whois__contact-secondary">
-							<p><strong>Organisationsnummer</strong><br>
-								{{organisation_number_display}}</p>
-						</div>
-					</div>
+				<div class="o-whois__reverse-result">
+					<button type="button" class="a-button a-button--transparent a-button--icon js-whois-toggle-all-accordions" aria-pressed="false" data-toggle-target="whoisToggleAllAccordionsText" data-toggle-text="Expandera alla|Minimera alla" data-toggle-icon-target="whoisToggleAllAccordionsIcon" data-toggle-icon="arrow-down|close">
+						<span id="whoisToggleAllAccordionsText" class="a-button__text js-whois-toggle-all-accordions-text">Expandera alla</span>
+						<svg id="whoisToggleAllAccordionsIcon" class="icon a-button__icon js-whois-toggle-all-accordions-icon" aria-hidden="true">
+							<use xlink:href="#icon-arrow-down"></use>
+						</svg>
+					</button>
+					<div class="o-whois__organisation-registrar-list"{{#if organisation_has_multiple_registrars}} data-has-multiple-registrars="true"{{/if}}>
+						{{#each organisation_registrar_columns}}
+							{{#if registrars}}
+								<div class="js-o-accordion o-accordion js-whois-organisation-registrar">
+									{{#each registrars}}
+										<h3 class="js-accordion__header">{{name}}&nbsp;<span class="u-weight-normal u-pointer-events-none u-font-size-medium-plus u-nowrap">({{domain_count}} st)</span></h3>
+										<div class="js-accordion__panel o-accordion__panel--transparent">
+											<div class="o-accordion__panel__content u-p-0 u-b-x-1 u-b-y-0 u-b-solid u-b-concrete">
+												{{render '@table' table_context merge=true}}
+											</div>
+										</div>
+									{{/each}}
+								</div>
+							{{/if}}
+						{{/each}}
 				</div>
-				<h2>Registrerade domäner per registrar</h2>
-				<div class="row justify-content-between">
-					{{#each organisation_registrar_tables}}
-						<div class="grid-18 grid-xl-5 u-m-b-4">
-							{{render '@table' table_context merge=true}}
-						</div>
-					{{/each}}
 				</div>
 			{{else}}
 				<h2>Domäninformation</h2>
@@ -426,17 +430,7 @@
 					{{#if result_hidden_contact}}
 						<div class="row o-whois__contact-row">
 							<div class="grid o-whois__contact-primary">
-								<p class="o-whois__contact-note">
-									<span>{{hidden_contact_note}}</span>
-									{{#if hidden_contact_note_tooltip}}
-										<button type="button" class="a-tooltip a-tooltip--small a-button a-button--standalone-icon a-button--icon o-whois__contact-note-tooltip" aria-label="{{hidden_contact_note_tooltip.label}}" data-tooltip-placement="{{#if hidden_contact_note_tooltip.placement}}{{hidden_contact_note_tooltip.placement}}{{else}}top{{/if}}">
-											<span class="a-tooltip__text u-style-no-italic" hidden>{{hidden_contact_note_tooltip.text}}</span>
-											<svg class="icon a-button__icon" aria-hidden="true">
-												<use xlink:href="#icon-info"></use>
-											</svg>
-										</button>
-									{{/if}}
-								</p>
+								<p class="o-whois__contact-note">{{hidden_contact_note}}</p>
 							</div>
 								<div class="grid-auto u-align-right o-whois__contact-secondary">
 										{{#if result_private_registrant}}

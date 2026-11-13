@@ -255,6 +255,10 @@
 		}
 	}
 
+	@include bem.m(fixed-layout) {
+		table-layout: fixed;
+	}
+
 	@include bem.m(stacked) {
 		@include breakpoint.bp-down(sm) {
 			thead,

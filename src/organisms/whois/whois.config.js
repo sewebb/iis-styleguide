@@ -115,11 +115,6 @@ const whoisI18n = {
 	organisationInternationalSearchError: 'Ange organisationsnummer med 2-30 tecken. Endast bokstäver, siffror, mellanslag, punkt, snedstreck och bindestreck är tillåtna.',
 };
 
-const hiddenContactNoteTooltip = {
-	label: 'Visa mer information om dolda kontaktuppgifter',
-	text: 'Kontaktuppgifter kan vara exempelvis namn, e-postadress, och telefonnummer',
-};
-
 const whoisInfoBoxes = [
 	{
 		title: 'Återförsäljare',
@@ -198,22 +193,6 @@ const cleanRetailerFeatureLabel = (label) => String(label || '')
 	.replace(/^Erbjuder\s+/i, '')
 	.replace(/\.$/, '');
 
-const registrarHeaderLinks = {
-	'CSC Corp Domains': 'https://www.cscdbs.com/',
-	'Loopia AB': 'http://www.loopia.se/',
-	'Ports Group AB': 'https://portsgroup.com/',
-};
-
-const renderRegistrarHeaderLink = (name) => {
-	const url = registrarHeaderLinks[name];
-
-	if (!url) {
-		return escapeHtml(name);
-	}
-
-	return `<a class="u-link-normal u-decoration-underline" href="${escapeHtml(url)}" target="_blank" rel="noopener">${escapeHtml(name)} <svg class="icon o-mega-menu__link__icon"><use xlink:href="#icon-external-link"></use></svg></a>`;
-};
-
 const mapRetailerItem = (retailer) => ({
 	...retailer,
 	tag_string: retailer.tags.join(' '),
@@ -279,9 +258,9 @@ const renderField = (field) => {
 		return '';
 	}
 
-	const tooltip = field.tooltip ? ` ${renderTooltip(field.tooltip)}` : '';
+	const tooltip = field.tooltip ? renderTooltip(field.tooltip) : '';
 
-	return `<div class="display-flex align-items-center justify-content-between"><span>${escapeHtml(field.label)}</span>${tooltip}</div>`;
+	return `<span class="o-whois__table-field"><strong class="u-weight-bold">${escapeHtml(field.label)}</strong>${tooltip}</span>`;
 };
 
 const renderLink = (link) => {
@@ -460,6 +439,7 @@ const mapKeywordDomainTableContext = (domains) => ({
 const organisationRegistrarGroups = [
 	{
 		name: 'CSC Corp Domains',
+		url: 'https://www.cscdbs.com/',
 		domains: [
 			{ domain: 'volvo.nu', registryLock: 'Ja', dnssec: 'Nej' },
 			{ domain: 'volvo.se', registryLock: 'Nej', dnssec: 'Ja' },
@@ -470,6 +450,7 @@ const organisationRegistrarGroups = [
 	},
 	{
 		name: 'Loopia AB',
+		url: 'https://www.loopia.se/',
 		domains: [
 			{ domain: 'volvobilar.nu', registryLock: 'Nej', dnssec: 'Nej' },
 			{ domain: 'volvobilar.se', registryLock: 'Ja', dnssec: 'Ja' },
@@ -480,6 +461,7 @@ const organisationRegistrarGroups = [
 	},
 	{
 		name: 'Ports Group AB',
+		url: 'https://portsgroup.com/',
 		domains: [
 			{ domain: 'volvobussar.se', registryLock: 'Ja', dnssec: 'Nej' },
 			{ domain: 'volvocarretail.se', registryLock: 'Nej', dnssec: 'Ja' },
@@ -493,15 +475,30 @@ const organisationRegistrarGroups = [
 	domains: [...group.domains].sort((a, b) => a.domain.localeCompare(b.domain, 'sv')),
 }));
 
-const mapOrganisationRegistrarTableContext = ({ name, domains }) => ({
-	modifier: 'm-table--lines',
+const organisationRegistrarColumns = [
+	organisationRegistrarGroups.slice(0, Math.ceil(organisationRegistrarGroups.length / 2)),
+	organisationRegistrarGroups.slice(Math.ceil(organisationRegistrarGroups.length / 2)),
+].filter((registrars) => registrars.length);
+
+const renderOrganisationRegistrarLink = ({ name, url }) => (
+	`<a class="u-link-normal u-decoration-underline" href="${escapeHtml(url)}" target="_blank" rel="noopener">Besök ${escapeHtml(name)} <svg class="icon o-mega-menu__link__icon" aria-hidden="true"><use xlink:href="#icon-external-link"></use></svg></a>`
+);
+
+const mapOrganisationRegistrarTableContext = ({ name, url, domains }) => ({
+	modifier: 'm-table--lines m-table--fixed-layout',
+	tableContainerClass: 'background-snow u-b-t-0 u-b-x-0 u-b-b-1 u-b-solid u-b-granit',
+	columnWidths: [
+		{ width: '50%' },
+		{ width: '25%' },
+		{ width: '25%' },
+	],
 	footer: false,
 	headerRows: [
 		{
 			cells: [
 				{
-					label: renderRegistrarHeaderLink(name),
-					className: 'u-font-size-base',
+					label: renderOrganisationRegistrarLink({ name, url }),
+					className: 'background-ash u-align-left u-p-y-2',
 					colspan: 3,
 				},
 			],
@@ -510,17 +507,16 @@ const mapOrganisationRegistrarTableContext = ({ name, domains }) => ({
 			cells: [
 				{
 					label: 'Domän',
-					className: 'u-font-size-medium',
 					scope: 'col',
 				},
 				{
-					label: 'Registry<br>lock',
-					className: 'u-align-center u-font-size-medium',
+					label: 'Registry lock',
+					className: 'u-align-center',
 					scope: 'col',
 				},
 				{
 					label: 'DNSSEC',
-					className: 'u-align-center u-nowrap u-font-size-medium',
+					className: 'u-align-center u-nowrap',
 					scope: 'col',
 				},
 			],
@@ -562,6 +558,7 @@ module.exports = {
 			context: {
 				result: true,
 				result_available: true,
+				show_retailer_list: true,
 				radio_context: {
 					selected_value: 'first',
 				},
@@ -569,27 +566,12 @@ module.exports = {
 				result_heading: 'är ledig',
 				result_text:
 					'Domänen är tillgänglig att registrera via en av våra återförsäljare.',
-				register_url: '#',
+				retailer_total_count: retailerDirectoryItems.length,
+				retailer_items: retailerDirectoryItems,
 			},
 		},
 		{
 			name: 'domain-taken',
-			context: {
-				result: true,
-				result_taken: true,
-				radio_context: {
-					selected_value: 'first',
-				},
-				search_value: 'volvo.se',
-				result_heading: 'är redan registrerad',
-				result_text:
-					'Information om domänens innehavare och registrering visas här.',
-				domain_dates_table_context: withSectionHeader('Datum', datesTableRows),
-				domain_other_table_context: withSectionHeader('Övrigt', otherTableRows),
-			},
-		},
-		{
-			name: 'domain-taken-hidden-contact',
 			context: {
 				result: true,
 				result_taken: true,
@@ -602,8 +584,7 @@ module.exports = {
 				result_text:
 					'Information om domänens innehavare och registrering visas här.',
 				hidden_contact_note:
-					'Kontaktuppgifter för juridiska personer visas inte då dessa uppgifter kan innehålla personuppgifter.',
-				hidden_contact_note_tooltip: hiddenContactNoteTooltip,
+					'Kontaktuppgifter för juridiska personer visas inte då dessa uppgifter kan innehålla personuppgifter. Kontaktuppgifter kan vara exempelvis namn, e-postadress, och telefonnummer',
 				domain_dates_table_context: withSectionHeader('Datum', datesTableRows),
 				domain_other_table_context: withSectionHeader('Övrigt', otherTableRows),
 			},
@@ -614,23 +595,6 @@ module.exports = {
 				result: true,
 				result_taken: true,
 				result_private_registrant: true,
-				radio_context: {
-					selected_value: 'first',
-				},
-				search_value: 'johndoe.se',
-				result_heading: 'är redan registrerad',
-				result_text:
-					'Information om domänens innehavare och registrering visas här.',
-				domain_dates_table_context: withSectionHeader('Datum', datesTableRows),
-				domain_other_table_context: withSectionHeader('Övrigt', otherTableRows),
-			},
-		},
-		{
-			name: 'domain-taken-person-hidden-contact',
-			context: {
-				result: true,
-				result_taken: true,
-				result_private_registrant: true,
 				result_hidden_contact: true,
 				radio_context: {
 					selected_value: 'first',
@@ -640,8 +604,7 @@ module.exports = {
 				result_text:
 					'Information om domänens innehavare och registrering visas här.',
 				hidden_contact_note:
-					'Kontaktuppgifter för privatpersoner/enskild firma visas inte då dessa uppgifter är personuppgifter.',
-				hidden_contact_note_tooltip: hiddenContactNoteTooltip,
+					'Kontaktuppgifter för privatpersoner/enskild firma visas inte då dessa uppgifter är personuppgifter. Kontaktuppgifter kan vara exempelvis namn, e-postadress, och telefonnummer',
 				domain_dates_table_context: withSectionHeader('Datum', datesTableRows),
 				domain_other_table_context: withSectionHeader('Övrigt', otherTableRows),
 			},
@@ -690,17 +653,17 @@ module.exports = {
 				},
 				search_value: '556810-8988',
 				organisation_number_display: '[SE]556810-8988',
-				result_heading:
-					'Sökresultat för organisationsnummer 556810-8988',
+				result_heading: 'Sökresultat för 556810-8988',
 				result_text:
 					'Här visas alla .se- och .nu-domäner registrerade med detta organisationsnummer grupperade per registrar.',
-				organisation_company_name: 'AB VOLVO',
-				organisation_registrar_tables: organisationRegistrarGroups.map(
-					(group) => ({
+				organisation_has_multiple_registrars: organisationRegistrarGroups.length > 1,
+				organisation_registrar_columns: organisationRegistrarColumns.map((registrars) => ({
+					registrars: registrars.map((group) => ({
 						name: group.name,
+						domain_count: group.domains.length,
 						table_context: mapOrganisationRegistrarTableContext(group),
-					}),
-				),
+					})),
+				})),
 			},
 		},
 		{
@@ -708,6 +671,7 @@ module.exports = {
 			context: {
 				result: true,
 				result_retailers: true,
+				show_retailer_list: true,
 				hide_search_form: true,
 				hide_info_boxes: true,
 				page_title: 'Återförsäljare',

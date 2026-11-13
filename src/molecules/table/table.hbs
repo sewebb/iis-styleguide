@@ -4,7 +4,7 @@
 		<div class="table-scroll-wrapper js-table-scroll-wrapper scroll-on-large u-m-b-double{{#if scrollWrapperClass}} {{scrollWrapperClass}}{{/if}}">
 			<div class="scroll-indicator"></div>
 		{{/if}}
-				<div class="table-container js-table-container">
+				<div class="table-container js-table-container{{#if tableContainerClass}} {{tableContainerClass}}{{/if}}">
 					<table class="m-table js-table{{#if modifier}} {{modifier}}{{/if}}" data-table-layout="scroll-target{{#if stickyFirst}} sticky-first{{/if}}">
 						{{#if columnWidths}}
 							<colgroup>
