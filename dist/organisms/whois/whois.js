@@ -404,6 +404,25 @@ function syncResponsiveSearchTypeSelection(component) {
     }));
     delete component.dataset.syncingResponsiveDefault;
 }
+function getOrganisationRegistrarAccordionButtons(component) {
+    return Array.from(component.querySelectorAll('.js-whois-organisation-registrar [role="tab"][aria-expanded]'));
+}
+function syncOrganisationRegistrarExpander(component) {
+    const expandAll = component.querySelector('.js-whois-toggle-all-accordions');
+    const accordionButtons = getOrganisationRegistrarAccordionButtons(component);
+    if (!expandAll || !accordionButtons.length) {
+        return;
+    }
+    const expandedCount = accordionButtons.filter((button)=>button.getAttribute('aria-expanded') === 'true').length;
+    const allExpanded = expandedCount === accordionButtons.length;
+    const label = expandAll.querySelector('.js-whois-toggle-all-accordions-text');
+    const icon = expandAll.querySelector('.js-whois-toggle-all-accordions-icon use');
+    expandAll.setAttribute('aria-pressed', allExpanded ? 'true' : 'false');
+    expandAll.dataset.iteration = allExpanded ? '1' : '0';
+    expandAll.dataset.iconIteration = allExpanded ? '1' : '0';
+    label.textContent = allExpanded ? 'Minimera alla' : 'Expandera alla';
+    icon.setAttribute('xlink:href', allExpanded ? '#icon-close' : '#icon-arrow-down');
+}
 ensureLordIconScript();
 whoisComponents.forEach((component)=>{
     component.addEventListener('change', (event)=>{
@@ -439,6 +458,20 @@ whoisComponents.forEach((component)=>{
         validateSearch(component);
         updateSubmitState(component);
     });
+    component.addEventListener('click', (event)=>{
+        const expandAll = event.target.closest('.js-whois-toggle-all-accordions');
+        if (!expandAll) {
+            return;
+        }
+        const shouldExpand = expandAll.getAttribute('aria-pressed') !== 'true';
+        getOrganisationRegistrarAccordionButtons(component).forEach((button)=>{
+            const isExpanded = button.getAttribute('aria-expanded') === 'true';
+            if (isExpanded !== shouldExpand) {
+                button.click();
+            }
+        });
+        window.requestAnimationFrame(()=>syncOrganisationRegistrarExpander(component));
+    });
     component.addEventListener('focusin', (event)=>{
         if (!event.target.matches('.js-whois-country')) {
             return;
@@ -465,9 +498,16 @@ whoisComponents.forEach((component)=>{
             (_component_querySelector = component.querySelector('.js-whois-input')) == null ? void 0 : _component_querySelector.focus();
         }
     });
+    component.addEventListener('click', (event)=>{
+        if (!event.target.closest('.js-whois-organisation-registrar [role="tab"]')) {
+            return;
+        }
+        window.requestAnimationFrame(()=>syncOrganisationRegistrarExpander(component));
+    });
     syncResponsiveSearchTypeSelection(component);
     updateSearchState(component);
     syncOrganisationCountrySelectLabels(component);
+    window.requestAnimationFrame(()=>syncOrganisationRegistrarExpander(component));
 });
 function syncResponsiveWhoisDefaults() {
     whoisComponents.forEach((component)=>{

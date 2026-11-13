@@ -204,6 +204,16 @@ radiobuttonAdvancedGroups.forEach((group)=>{
     });
     syncGroup(group);
 });
+document.addEventListener('click', (event)=>{
+    if (!collapsedLayout.matches) {
+        return;
+    }
+    radiobuttonAdvancedGroups.forEach((group)=>{
+        if (group.classList.contains('is-expanded') && !group.contains(event.target)) {
+            collapseGroup(group);
+        }
+    });
+});
 function syncResponsiveAccessibility() {
     radiobuttonAdvancedGroups.forEach((group)=>{
         setOptionAccessibility(group);
